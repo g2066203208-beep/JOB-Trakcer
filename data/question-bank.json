@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-23-v9",
+  "version": "2026-09-23-v10",
   "note": "所有题目统一显示“标准答案”，不再使用“答题要点”“示范答案”“标准解法”等标签。公开公司题基于可公开访问的面经/题库考察主题重新表述，并提供完整标准答案；不复制登录墙、付费或受限题库全文。",
   "companyKits": [
     {
@@ -5676,6 +5676,576 @@
           "question": "为什么选择物流科技？",
           "standardAnswer": "标准答案：物流有实时网络、路线、仓配、预测、供应链等复杂系统问题，说明自己的软件/算法/运营能力如何直接解决其中一个具体问题。",
           "answerPoints": "标准答案：物流有实时网络、路线、仓配、预测、供应链等复杂系统问题，说明自己的软件/算法/运营能力如何直接解决其中一个具体问题。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "科大讯飞",
+      "process": "公开企业页约1148篇面经、6项题库，岗位覆盖AI算法、软件、语音/NLP、产品等。题库按公开高频方向重写。",
+      "sourceStats": {
+        "publicInterviewCount": 1148,
+        "publicQuestionCount": 6,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客科大讯飞题库页",
+          "url": "https://www.nowcoder.com/enterprise/735/question/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c55-1",
+          "type": "AI",
+          "question": "Transformer中自注意力的计算过程是什么？",
+          "standardAnswer": "标准答案：先将输入投影为Q、K、V；计算Attention(Q,K,V)=softmax(QK^T/√d_k)V。多头注意力在不同子空间并行计算后拼接再线性映射。",
+          "answerPoints": "标准答案：先将输入投影为Q、K、V；计算Attention(Q,K,V)=softmax(QK^T/√d_k)V。多头注意力在不同子空间并行计算后拼接再线性映射。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-2",
+          "type": "AI",
+          "question": "为什么Attention要除以√d_k？",
+          "standardAnswer": "标准答案：维度增大时Q·K点积方差会增大，softmax容易进入饱和区导致梯度很小；除以√d_k把尺度稳定在更合理范围。",
+          "answerPoints": "标准答案：维度增大时Q·K点积方差会增大，softmax容易进入饱和区导致梯度很小；除以√d_k把尺度稳定在更合理范围。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-3",
+          "type": "NLP",
+          "question": "词向量和上下文向量区别？",
+          "standardAnswer": "标准答案：传统静态词向量同一个词通常只有一个向量；上下文模型根据句子语境为同一词生成不同表示，因此能处理一词多义。",
+          "answerPoints": "标准答案：传统静态词向量同一个词通常只有一个向量；上下文模型根据句子语境为同一词生成不同表示，因此能处理一词多义。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-4",
+          "type": "语音",
+          "question": "语音识别系统常见处理链路是什么？",
+          "standardAnswer": "标准答案：音频采集/预处理→特征或端到端编码→声学/序列模型→解码与语言建模→文本后处理。现代端到端ASR可把多个阶段联合训练。",
+          "answerPoints": "标准答案：音频采集/预处理→特征或端到端编码→声学/序列模型→解码与语言建模→文本后处理。现代端到端ASR可把多个阶段联合训练。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-5",
+          "type": "AI",
+          "question": "RAG系统如何评估召回？",
+          "standardAnswer": "标准答案：建立带相关证据标注的查询集，计算Recall@K、MRR/NDCG等；同时评估最终答案正确率和引用证据一致性，避免仅优化向量相似度。",
+          "answerPoints": "标准答案：建立带相关证据标注的查询集，计算Recall@K、MRR/NDCG等；同时评估最终答案正确率和引用证据一致性，避免仅优化向量相似度。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-6",
+          "type": "算法",
+          "question": "给定字符串，求最长无重复子串长度。",
+          "standardAnswer": "标准答案：滑动窗口+哈希记录字符最近位置。右指针推进，若字符重复则left=max(left,last[ch]+1)，不断更新最大窗口长度。时间O(n)。",
+          "answerPoints": "标准答案：滑动窗口+哈希记录字符最近位置。右指针推进，若字符重复则left=max(left,last[ch]+1)，不断更新最大窗口长度。时间O(n)。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-7",
+          "type": "算法",
+          "question": "Top-K问题常见解法？",
+          "standardAnswer": "标准答案：小规模可全排序O(nlogn)；大规模用大小K的小顶堆O(nlogK)；静态内存数组可Quickselect平均O(n)。",
+          "answerPoints": "标准答案：小规模可全排序O(nlogn)；大规模用大小K的小顶堆O(nlogK)；静态内存数组可Quickselect平均O(n)。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-8",
+          "type": "工程",
+          "question": "模型离线效果好但线上差，怎么排查？",
+          "standardAnswer": "标准答案：检查训练/线上特征口径、数据漂移、预处理、模型版本、服务延迟和阈值；按人群/场景分层对比；构造线上样本回放复现。",
+          "answerPoints": "标准答案：检查训练/线上特征口径、数据漂移、预处理、模型版本、服务延迟和阈值；按人群/场景分层对比；构造线上样本回放复现。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-9",
+          "type": "AI",
+          "question": "LoRA为什么能降低微调成本？",
+          "standardAnswer": "标准答案：冻结原模型权重，只学习低秩矩阵ΔW=BA，训练参数量显著下降，因此显存和优化器状态开销更低，同时可为不同任务保存小型适配器。",
+          "answerPoints": "标准答案：冻结原模型权重，只学习低秩矩阵ΔW=BA，训练参数量显著下降，因此显存和优化器状态开销更低，同时可为不同任务保存小型适配器。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-10",
+          "type": "项目面",
+          "question": "如何介绍一个算法项目？",
+          "standardAnswer": "标准答案：业务目标→数据规模与标注→基线→模型/特征→训练与评测→bad case→优化→线上/离线量化结果→你的具体贡献。",
+          "answerPoints": "标准答案：业务目标→数据规模与标注→基线→模型/特征→训练与评测→bad case→优化→线上/离线量化结果→你的具体贡献。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-11",
+          "type": "产品面",
+          "question": "AI产品准确率与用户体验冲突怎么办？",
+          "standardAnswer": "标准答案：先按任务风险分级；高风险场景提高置信门槛并允许拒答/人工兜底，低风险场景可更开放；同时监控完成率、错误率和用户反馈。",
+          "answerPoints": "标准答案：先按任务风险分级；高风险场景提高置信门槛并允许拒答/人工兜底，低风险场景可更开放；同时监控完成率、错误率和用户反馈。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c55-12",
+          "type": "HR面",
+          "question": "为什么选择科大讯飞？",
+          "standardAnswer": "标准答案：结合语音、NLP、大模型、教育/政企等具体业务和目标岗位说明匹配，再用算法、软件或产品项目证明。",
+          "answerPoints": "标准答案：结合语音、NLP、大模型、教育/政企等具体业务和目标岗位说明匹配，再用算法、软件或产品项目证明。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "商汤科技",
+      "process": "公开页面约169篇面经、21项题库。近期全栈/算法公开面经涉及Agent、LLM Harness、Docker/K8s、多模态、视频生成、Attention、RMSNorm、LoRA/QLoRA、GRPO等。",
+      "sourceStats": {
+        "publicInterviewCount": 169,
+        "publicQuestionCount": 21,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客商汤公开面经",
+          "url": "https://www.nowcoder.com/enterprise/802/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c56-1",
+          "type": "AI",
+          "question": "RMSNorm和LayerNorm区别？",
+          "standardAnswer": "标准答案：LayerNorm通常减均值再按方差归一化，并做缩放/平移；RMSNorm省略均值中心化，只按均方根缩放，计算更简单，现代大模型中常用。",
+          "answerPoints": "标准答案：LayerNorm通常减均值再按方差归一化，并做缩放/平移；RMSNorm省略均值中心化，只按均方根缩放，计算更简单，现代大模型中常用。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-2",
+          "type": "AI",
+          "question": "LoRA和QLoRA区别？",
+          "standardAnswer": "标准答案：LoRA冻结基础模型并训练低秩适配器；QLoRA进一步将基础模型量化（常见4bit）以降低显存，同时以较高精度训练LoRA参数。",
+          "answerPoints": "标准答案：LoRA冻结基础模型并训练低秩适配器；QLoRA进一步将基础模型量化（常见4bit）以降低显存，同时以较高精度训练LoRA参数。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-3",
+          "type": "AI",
+          "question": "GRPO大致解决什么问题？",
+          "standardAnswer": "标准答案：GRPO属于基于群组相对奖励的策略优化思路，通过同一输入采样多条输出并用组内相对优势估计进行更新，减少对单独价值模型的依赖。具体实现需结合算法版本。",
+          "answerPoints": "标准答案：GRPO属于基于群组相对奖励的策略优化思路，通过同一输入采样多条输出并用组内相对优势估计进行更新，减少对单独价值模型的依赖。具体实现需结合算法版本。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-4",
+          "type": "多模态",
+          "question": "图文多模态模型如何对齐不同模态？",
+          "standardAnswer": "标准答案：通常分别编码图像与文本，再通过投影层/跨模态注意力映射到共同表示空间；训练用对比学习、图文匹配或生成式目标建立语义对齐。",
+          "answerPoints": "标准答案：通常分别编码图像与文本，再通过投影层/跨模态注意力映射到共同表示空间；训练用对比学习、图文匹配或生成式目标建立语义对齐。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-5",
+          "type": "视频生成",
+          "question": "视频生成比图像生成多了什么难点？",
+          "standardAnswer": "标准答案：除单帧质量外，还要保证时间一致性、运动合理性、身份/背景稳定和长序列记忆，计算与显存也随时空维度显著增加。",
+          "answerPoints": "标准答案：除单帧质量外，还要保证时间一致性、运动合理性、身份/背景稳定和长序列记忆，计算与显存也随时空维度显著增加。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-6",
+          "type": "工程",
+          "question": "Docker与Kubernetes分别解决什么？",
+          "standardAnswer": "标准答案：Docker等容器技术负责应用及依赖的可移植运行环境；Kubernetes负责大规模容器编排，包括调度、服务发现、滚动更新、自愈和伸缩。",
+          "answerPoints": "标准答案：Docker等容器技术负责应用及依赖的可移植运行环境；Kubernetes负责大规模容器编排，包括调度、服务发现、滚动更新、自愈和伸缩。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-7",
+          "type": "工程",
+          "question": "Kubernetes核心组件有哪些？",
+          "standardAnswer": "标准答案：控制面常包括kube-apiserver、etcd、scheduler、controller-manager；节点侧主要有kubelet、kube-proxy和容器运行时。",
+          "answerPoints": "标准答案：控制面常包括kube-apiserver、etcd、scheduler、controller-manager；节点侧主要有kubelet、kube-proxy和容器运行时。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-8",
+          "type": "算法",
+          "question": "手写多头注意力时张量维度如何变化？",
+          "standardAnswer": "标准答案：输入[B,L,D]投影Q/K/V后reshape为[B,H,L,D/H]，计算注意力得到同形输出，再transpose/reshape回[B,L,D]并做输出投影。",
+          "answerPoints": "标准答案：输入[B,L,D]投影Q/K/V后reshape为[B,H,L,D/H]，计算注意力得到同形输出，再transpose/reshape回[B,L,D]并做输出投影。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-9",
+          "type": "AI",
+          "question": "模型幻觉严重如何定位？",
+          "standardAnswer": "标准答案：先分知识缺失、检索失败、指令冲突、上下文过长、工具错误和解码问题；建立bad-case集后逐层替换/消融，分别验证RAG、prompt、模型和工具。",
+          "answerPoints": "标准答案：先分知识缺失、检索失败、指令冲突、上下文过长、工具错误和解码问题；建立bad-case集后逐层替换/消融，分别验证RAG、prompt、模型和工具。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-10",
+          "type": "数据",
+          "question": "50万级视频数据如何做质量治理？",
+          "standardAnswer": "标准答案：去重、损坏检测、分辨率/时长过滤、NSFW/版权/隐私过滤、内容标签、运动/镜头质量评分、类别分布与长尾分析，并保留数据版本与来源可追溯。",
+          "answerPoints": "标准答案：去重、损坏检测、分辨率/时长过滤、NSFW/版权/隐私过滤、内容标签、运动/镜头质量评分、类别分布与长尾分析，并保留数据版本与来源可追溯。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-11",
+          "type": "项目面",
+          "question": "Agent在业务链路里怎么实现才可控？",
+          "standardAnswer": "标准答案：明确状态机和允许工具；每次调用结构化参数校验；读写权限分级；失败重试和超时；关键步骤验证；全链路Trace和可回滚。",
+          "answerPoints": "标准答案：明确状态机和允许工具；每次调用结构化参数校验；读写权限分级；失败重试和超时；关键步骤验证；全链路Trace和可回滚。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c56-12",
+          "type": "HR面",
+          "question": "为什么选择AI公司而不是传统软件公司？",
+          "standardAnswer": "标准答案：说明你愿意处理模型不确定性、数据与工程结合、快速迭代评测等问题，并用实际AI项目证明不是只追热点。",
+          "answerPoints": "标准答案：说明你愿意处理模型不确定性、数据与工程结合、快速迭代评测等问题，并用实际AI项目证明不是只追热点。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "360集团",
+      "process": "公开页面约359篇面经、42项题库。近期公开内容覆盖网络协议、HTTP/HTTPS、Android、AI/Agent、多模态和网络安全。",
+      "sourceStats": {
+        "publicInterviewCount": 359,
+        "publicQuestionCount": 42,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客360公开面经",
+          "url": "https://www.nowcoder.com/enterprise/157/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c57-1",
+          "type": "网络",
+          "question": "HTTP/1.1、HTTP/2、HTTP/3核心区别？",
+          "standardAnswer": "标准答案：HTTP/1.1支持持久连接但多请求仍受队头阻塞影响；HTTP/2在单TCP上多路复用、HPACK压缩；HTTP/3基于QUIC/UDP，在传输层实现独立流、TLS1.3集成并减少TCP层队头阻塞。",
+          "answerPoints": "标准答案：HTTP/1.1支持持久连接但多请求仍受队头阻塞影响；HTTP/2在单TCP上多路复用、HPACK压缩；HTTP/3基于QUIC/UDP，在传输层实现独立流、TLS1.3集成并减少TCP层队头阻塞。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-2",
+          "type": "安全",
+          "question": "HTTPS如何保证机密性和身份认证？",
+          "standardAnswer": "标准答案：TLS握手用证书链验证服务器身份，通过非对称/密钥交换协商会话密钥，后续用对称加密保护数据并用AEAD/消息认证保证完整性。",
+          "answerPoints": "标准答案：TLS握手用证书链验证服务器身份，通过非对称/密钥交换协商会话密钥，后续用对称加密保护数据并用AEAD/消息认证保证完整性。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-3",
+          "type": "网络",
+          "question": "TCP断线如何检测？",
+          "standardAnswer": "标准答案：应用层心跳/超时最可靠；TCP自身可通过重传超时、Keepalive检测长时间空闲连接。对实时业务应设计业务心跳和断线重连。",
+          "answerPoints": "标准答案：应用层心跳/超时最可靠；TCP自身可通过重传超时、Keepalive检测长时间空闲连接。对实时业务应设计业务心跳和断线重连。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-4",
+          "type": "安全",
+          "question": "XSS有哪几类，怎么防？",
+          "standardAnswer": "标准答案：存储型、反射型、DOM型。核心防御是按输出上下文转义、使用安全模板、避免innerHTML拼接、CSP、Cookie HttpOnly，并校验URL等危险输入。",
+          "answerPoints": "标准答案：存储型、反射型、DOM型。核心防御是按输出上下文转义、使用安全模板、避免innerHTML拼接、CSP、Cookie HttpOnly，并校验URL等危险输入。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-5",
+          "type": "安全",
+          "question": "CSRF怎么防？",
+          "standardAnswer": "标准答案：SameSite Cookie、CSRF Token、校验Origin/Referer、关键操作二次验证。只依赖Cookie登录态而无额外校验风险较高。",
+          "answerPoints": "标准答案：SameSite Cookie、CSRF Token、校验Origin/Referer、关键操作二次验证。只依赖Cookie登录态而无额外校验风险较高。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-6",
+          "type": "安全",
+          "question": "SQL注入怎么防？",
+          "standardAnswer": "标准答案：参数化/预编译查询是核心；最小权限；避免动态拼接；输入校验辅助；敏感接口可配WAF和审计。",
+          "answerPoints": "标准答案：参数化/预编译查询是核心；最小权限；避免动态拼接；输入校验辅助；敏感接口可配WAF和审计。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-7",
+          "type": "Android",
+          "question": "Handler、Looper、MessageQueue关系？",
+          "standardAnswer": "标准答案：线程通过Looper循环读取MessageQueue；Handler把消息放入队列并在对应Looper线程中分发执行。主线程借此串行处理UI事件。",
+          "answerPoints": "标准答案：线程通过Looper循环读取MessageQueue；Handler把消息放入队列并在对应Looper线程中分发执行。主线程借此串行处理UI事件。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-8",
+          "type": "AI",
+          "question": "多模态模型为什么需要不同编码器？",
+          "standardAnswer": "标准答案：图像、音频、文本统计结构不同，通常需专用前端编码后投影到统一表示空间，再由跨模态模块或LLM联合建模。",
+          "answerPoints": "标准答案：图像、音频、文本统计结构不同，通常需专用前端编码后投影到统一表示空间，再由跨模态模块或LLM联合建模。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-9",
+          "type": "AI",
+          "question": "Agent对企业提效怎么量化？",
+          "standardAnswer": "标准答案：任务完成率、人工处理时长、人工介入率、错误率、单任务成本、交付周期和业务结果；用对照组或前后同口径比较，而不是只看调用次数。",
+          "answerPoints": "标准答案：任务完成率、人工处理时长、人工介入率、错误率、单任务成本、交付周期和业务结果；用对照组或前后同口径比较，而不是只看调用次数。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-10",
+          "type": "算法",
+          "question": "实现MHA时为什么多头能表达不同关系？",
+          "standardAnswer": "标准答案：每个头使用不同的Q/K/V投影参数，在不同子空间学习注意模式，最终拼接后融合，因此可同时捕捉位置、语义或不同依赖。",
+          "answerPoints": "标准答案：每个头使用不同的Q/K/V投影参数，在不同子空间学习注意模式，最终拼接后融合，因此可同时捕捉位置、语义或不同依赖。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-11",
+          "type": "项目面",
+          "question": "安全产品误报率高怎么办？",
+          "standardAnswer": "标准答案：按规则/模型来源和业务场景分层统计误报；建立真实标注集；优化阈值和特征；高风险保持高召回并做二次验证；持续回流分析师反馈。",
+          "answerPoints": "标准答案：按规则/模型来源和业务场景分层统计误报；建立真实标注集；优化阈值和特征；高风险保持高召回并做二次验证；持续回流分析师反馈。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c57-12",
+          "type": "HR面",
+          "question": "为什么选择安全/AI方向？",
+          "standardAnswer": "标准答案：说明安全攻防、隐私或AI系统可靠性与你的项目技能连接，并体现长期兴趣，不要只因为行业热门。",
+          "answerPoints": "标准答案：说明安全攻防、隐私或AI系统可靠性与你的项目技能连接，并体现长期兴趣，不要只因为行业热门。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "小红书",
+      "process": "公开企业页约1508篇面经、65项题库，职位覆盖研发、算法、产品、运营等。公司题库规模较大，本站只提炼公开高频方向并重新表述。",
+      "sourceStats": {
+        "publicInterviewCount": 1508,
+        "publicQuestionCount": 65,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客小红书面试题库",
+          "url": "https://www.nowcoder.com/enterprise/715/question/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c58-1",
+          "type": "系统",
+          "question": "Feed流常见推拉模式区别？",
+          "standardAnswer": "标准答案：推模式在内容产生时写入粉丝收件箱，读快但大V写放大；拉模式读时聚合关注者内容，写轻但读成本高。工程上常按用户规模混合。",
+          "answerPoints": "标准答案：推模式在内容产生时写入粉丝收件箱，读快但大V写放大；拉模式读时聚合关注者内容，写轻但读成本高。工程上常按用户规模混合。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-2",
+          "type": "推荐",
+          "question": "推荐系统为什么要做召回和排序两阶段？",
+          "standardAnswer": "标准答案：候选库巨大，先用多路召回快速缩到几百/几千候选，再用更复杂排序模型精细打分，兼顾计算成本与效果。",
+          "answerPoints": "标准答案：候选库巨大，先用多路召回快速缩到几百/几千候选，再用更复杂排序模型精细打分，兼顾计算成本与效果。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-3",
+          "type": "推荐",
+          "question": "如何避免内容推荐越推越窄？",
+          "standardAnswer": "标准答案：加入探索与多样性约束、多路召回、新内容扶持、兴趣衰减与随机探索；指标除了CTR还看长期留存、内容多样性和负反馈。",
+          "answerPoints": "标准答案：加入探索与多样性约束、多路召回、新内容扶持、兴趣衰减与随机探索；指标除了CTR还看长期留存、内容多样性和负反馈。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-4",
+          "type": "数据",
+          "question": "社区内容CTR高但收藏/停留低说明什么？",
+          "standardAnswer": "标准答案：标题/封面可能吸引点击但内容价值不足。要分内容类型和用户群体，结合停留、收藏、评论、负反馈与后续留存判断，避免点击诱导。",
+          "answerPoints": "标准答案：标题/封面可能吸引点击但内容价值不足。要分内容类型和用户群体，结合停留、收藏、评论、负反馈与后续留存判断，避免点击诱导。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-5",
+          "type": "产品",
+          "question": "如何设计社区举报系统？",
+          "standardAnswer": "标准答案：举报入口→理由分类→证据/上下文→优先级与机器预审→人工复核→处罚与申诉→举报者反馈→模型/规则回流。高风险内容需快速通道。",
+          "answerPoints": "标准答案：举报入口→理由分类→证据/上下文→优先级与机器预审→人工复核→处罚与申诉→举报者反馈→模型/规则回流。高风险内容需快速通道。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-6",
+          "type": "算法",
+          "question": "给定海量内容ID，如何去重？",
+          "standardAnswer": "标准答案：内存足够用哈希Set；海量可分桶/外排，或Bloom Filter做近似预过滤再精确校验。需说明是否允许假阳性。",
+          "answerPoints": "标准答案：内存足够用哈希Set；海量可分桶/外排，或Bloom Filter做近似预过滤再精确校验。需说明是否允许假阳性。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-7",
+          "type": "后端",
+          "question": "Redis热点Key如何处理？",
+          "standardAnswer": "标准答案：本地缓存、热点多副本、请求合并、限流；写热点可做分片或重新建模。监控QPS和延迟，避免单节点被打满。",
+          "answerPoints": "标准答案：本地缓存、热点多副本、请求合并、限流；写热点可做分片或重新建模。监控QPS和延迟，避免单节点被打满。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-8",
+          "type": "后端",
+          "question": "缓存穿透怎么防？",
+          "standardAnswer": "标准答案：对不存在结果短TTL缓存、Bloom Filter、参数校验和限流。布隆过滤器有假阳性，因此最终仍以真实存储为准。",
+          "answerPoints": "标准答案：对不存在结果短TTL缓存、Bloom Filter、参数校验和限流。布隆过滤器有假阳性，因此最终仍以真实存储为准。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-9",
+          "type": "AI",
+          "question": "内容审核大模型怎样避免误杀？",
+          "standardAnswer": "标准答案：风险分级、多模型/规则融合、置信度阈值、上下文判断、人工复核高争议内容、申诉闭环，并按人群/类别持续评测偏差。",
+          "answerPoints": "标准答案：风险分级、多模型/规则融合、置信度阈值、上下文判断、人工复核高争议内容、申诉闭环，并按人群/类别持续评测偏差。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-10",
+          "type": "项目面",
+          "question": "产品实验如何做A/B测试？",
+          "standardAnswer": "标准答案：明确假设、主指标和护栏；随机稳定分桶；计算样本量；控制实验周期和污染；统计显著后还要判断业务意义和长期效应。",
+          "answerPoints": "标准答案：明确假设、主指标和护栏；随机稳定分桶；计算样本量；控制实验周期和污染；统计显著后还要判断业务意义和长期效应。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-11",
+          "type": "行为面",
+          "question": "用户需求和商业化目标冲突怎么办？",
+          "standardAnswer": "标准答案：明确长期用户价值底线，量化商业收益与体验损失，设计频控/人群分层/原生化等方案，通过实验找可接受平衡。",
+          "answerPoints": "标准答案：明确长期用户价值底线，量化商业收益与体验损失，设计频控/人群分层/原生化等方案，通过实验找可接受平衡。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c58-12",
+          "type": "HR面",
+          "question": "为什么选择内容社区？",
+          "standardAnswer": "标准答案：结合社区生态、内容分发、用户关系和目标岗位，说明你对内容/推荐/社区治理或产品增长的具体兴趣和能力。",
+          "answerPoints": "标准答案：结合社区生态、内容分发、用户关系和目标岗位，说明你对内容/推荐/社区治理或产品增长的具体兴趣和能力。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "大疆创新",
+      "process": "公开企业页约731篇面经。近期嵌入式/机械/算法岗位面试通常项目追问很深，覆盖MCU/RTOS/C/C++、控制、传感器、结构机械与工程可靠性。",
+      "sourceStats": {
+        "publicInterviewCount": 731,
+        "publicQuestionCount": 0,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客大疆公开面经",
+          "url": "https://www.nowcoder.com/enterprise/708/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c59-1",
+          "type": "嵌入式",
+          "question": "中断服务程序为什么要短？",
+          "standardAnswer": "标准答案：ISR执行时可能阻塞低优先级任务/中断并增加系统抖动；应只做必要读取/清标志，把耗时处理通过队列、事件或任务延后。",
+          "answerPoints": "标准答案：ISR执行时可能阻塞低优先级任务/中断并增加系统抖动；应只做必要读取/清标志，把耗时处理通过队列、事件或任务延后。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-2",
+          "type": "RTOS",
+          "question": "优先级反转怎么解决？",
+          "standardAnswer": "标准答案：互斥量优先级继承、优先级天花板、缩短低优先级任务持锁时间，并避免不必要共享资源。",
+          "answerPoints": "标准答案：互斥量优先级继承、优先级天花板、缩短低优先级任务持锁时间，并避免不必要共享资源。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-3",
+          "type": "C++",
+          "question": "RAII是什么？",
+          "standardAnswer": "标准答案：把资源生命周期绑定对象生命周期，构造获取资源、析构释放。锁、文件、内存等可用RAII避免异常/早返回导致泄漏。",
+          "answerPoints": "标准答案：把资源生命周期绑定对象生命周期，构造获取资源、析构释放。锁、文件、内存等可用RAII避免异常/早返回导致泄漏。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-4",
+          "type": "控制",
+          "question": "PID三项作用？",
+          "standardAnswer": "标准答案：P按当前误差快速响应；I累积误差消除稳态偏差但可能积分饱和；D根据误差变化趋势提供阻尼但对噪声敏感。",
+          "answerPoints": "标准答案：P按当前误差快速响应；I累积误差消除稳态偏差但可能积分饱和；D根据误差变化趋势提供阻尼但对噪声敏感。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-5",
+          "type": "控制",
+          "question": "采样频率太低会怎样？",
+          "standardAnswer": "标准答案：无法捕捉系统高频动态并可能混叠，带来相位滞后、控制性能下降甚至不稳定。采样频率应明显高于闭环带宽并配合抗混叠滤波。",
+          "answerPoints": "标准答案：无法捕捉系统高频动态并可能混叠，带来相位滞后、控制性能下降甚至不稳定。采样频率应明显高于闭环带宽并配合抗混叠滤波。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-6",
+          "type": "传感器",
+          "question": "IMU为什么需要标定？",
+          "standardAnswer": "标准答案：陀螺和加速度计存在零偏、比例因子、轴不正交和温漂。标定用于估计这些误差参数，融合算法再进行补偿。",
+          "answerPoints": "标准答案：陀螺和加速度计存在零偏、比例因子、轴不正交和温漂。标定用于估计这些误差参数，融合算法再进行补偿。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-7",
+          "type": "机械",
+          "question": "无人机结构轻量化要同时满足什么？",
+          "standardAnswer": "标准答案：静强度、刚度、模态/振动、疲劳、跌落/冲击、热、制造、成本和可靠性，不能只以减重为目标。",
+          "answerPoints": "标准答案：静强度、刚度、模态/振动、疲劳、跌落/冲击、热、制造、成本和可靠性，不能只以减重为目标。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-8",
+          "type": "CAE",
+          "question": "模态频率为什么要避开旋翼激励？",
+          "standardAnswer": "标准答案：旋翼转速及倍频会形成周期激励，结构固有频率靠近时可能发生共振放大，导致振动、噪声和疲劳问题。",
+          "answerPoints": "标准答案：旋翼转速及倍频会形成周期激励，结构固有频率靠近时可能发生共振放大，导致振动、噪声和疲劳问题。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-9",
+          "type": "笔试-计算题",
+          "question": "四旋翼总质量2 kg，悬停时四个电机平均推力各多少？取g=9.81 m/s²。",
+          "standardAnswer": "标准答案：总重力=2×9.81=19.62 N；平均每电机=19.62/4=4.905 N。",
+          "answerPoints": "标准答案：总重力=2×9.81=19.62 N；平均每电机=19.62/4=4.905 N。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-10",
+          "type": "项目面",
+          "question": "传感器偶发异常如何定位？",
+          "standardAnswer": "标准答案：记录原始数据与时间戳，区分硬件/总线/驱动/算法；查看电源、EMI、通信错误计数；构造压力环境复现；加CRC/序号和故障注入验证。",
+          "answerPoints": "标准答案：记录原始数据与时间戳，区分硬件/总线/驱动/算法；查看电源、EMI、通信错误计数；构造压力环境复现；加CRC/序号和故障注入验证。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-11",
+          "type": "项目面",
+          "question": "固件如何做安全升级？",
+          "standardAnswer": "标准答案：签名验证、版本/回滚保护、A/B分区、完整性校验、断电恢复、最小权限Bootloader，并对升级过程做日志和失败回滚。",
+          "answerPoints": "标准答案：签名验证、版本/回滚保护、A/B分区、完整性校验、断电恢复、最小权限Bootloader，并对升级过程做日志和失败回滚。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c59-12",
+          "type": "HR面",
+          "question": "为什么选择大疆？",
+          "standardAnswer": "标准答案：围绕软硬件高度耦合、机器人/无人机控制与量产工程说明动机，并把自己的嵌入式、控制、机械或算法项目对应到岗位。",
+          "answerPoints": "标准答案：围绕软硬件高度耦合、机器人/无人机控制与量产工程说明动机，并把自己的嵌入式、控制、机械或算法项目对应到岗位。",
           "difficulty": "中等"
         }
       ]
