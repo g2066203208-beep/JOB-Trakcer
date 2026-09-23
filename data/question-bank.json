@@ -1,0 +1,1681 @@
+{
+  "version": "2026-09-23",
+  "note": "公司题均根据公开招聘流程和公开面经的高频主题进行改写，用于练习，不声称为官方原题。中国银行等官方明确声明未出版或授权考试参考资料的企业，本站会特别标注。",
+  "companyKits": [
+    {
+      "company": "华为",
+      "process": "官方2027届招聘已启动；技术岗常见技术面/项目深挖/编程或专业能力考察，具体流程按岗位通知。",
+      "sources": [
+        {
+          "label": "华为官方2027校园招聘",
+          "url": "https://career.huawei.com/cn/campus-recruitment",
+          "type": "official"
+        },
+        {
+          "label": "牛客公开面经：测试开发",
+          "url": "https://api-cdn.nowcoder.com/discuss/927003798143266816?sourceSSR=post",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c1-1",
+          "type": "行为面",
+          "question": "请用2分钟介绍自己，并说明为什么这个岗位与你的经历最匹配。",
+          "answerPoints": "用“背景-能力-证据-岗位动机”结构，避免流水账。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c1-2",
+          "type": "项目面",
+          "question": "挑一个最复杂的项目，说明你负责的模块、关键难点和最终结果。",
+          "answerPoints": "明确个人贡献，给出数据或可验证结果。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c1-3",
+          "type": "项目面",
+          "question": "项目中出现过最难定位的问题是什么？你如何一步步缩小范围？",
+          "answerPoints": "强调假设、日志/实验、对照验证和复盘。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c1-4",
+          "type": "技术面",
+          "question": "如果系统出现性能下降，你会如何设计排查路径？",
+          "answerPoints": "从指标、资源、链路、依赖、数据、回归验证展开。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c1-5",
+          "type": "技术面",
+          "question": "如何设计一套测试用例，保证核心功能、异常场景和性能都被覆盖？",
+          "answerPoints": "等价类、边界值、异常流、兼容性、性能与自动化。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c1-6",
+          "type": "编程",
+          "question": "设计一个算法：给定大量记录，快速找出窗口内的最大值。",
+          "answerPoints": "可讨论单调队列与O(n)复杂度。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c1-7",
+          "type": "编程",
+          "question": "如何判断一个字符串中的IP地址是否合法，并区分IPv4/IPv6？",
+          "answerPoints": "拆分、范围校验、格式校验、前导零等边界。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c1-8",
+          "type": "HR面",
+          "question": "为什么选择华为？如果有其他大厂Offer你会怎么选？",
+          "answerPoints": "回答岗位、业务、成长和地点，不要只谈品牌。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "百度",
+      "process": "百度官方帮助页显示流程为注册应聘→简历筛选→笔试→面试→录用；2027校招覆盖技术、产品、政企、销售、综合岗位。",
+      "sources": [
+        {
+          "label": "百度官方校园招聘",
+          "url": "https://talent.baidu.com/jobs/",
+          "type": "official"
+        },
+        {
+          "label": "百度官方招聘帮助",
+          "url": "https://talent.baidu.com/mobile/recruit/help.html",
+          "type": "official"
+        },
+        {
+          "label": "牛客百度面经",
+          "url": "https://www.nowcoder.com/enterprise/139/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c2-1",
+          "type": "项目面",
+          "question": "介绍一个AI/软件项目，你如何定义成功指标并做迭代？",
+          "answerPoints": "目标、数据、评测、bad case、迭代闭环。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c2-2",
+          "type": "AI",
+          "question": "RAG系统如何提高召回率，同时控制错误召回？",
+          "answerPoints": "召回策略、混合检索、rerank、评测集。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c2-3",
+          "type": "AI",
+          "question": "大模型出现幻觉时，你会从数据、提示词、检索和模型侧分别怎么处理？",
+          "answerPoints": "分层排查并明确评测指标。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c2-4",
+          "type": "AI",
+          "question": "Agent系统为什么需要任务规划与工具调用边界？",
+          "answerPoints": "规划、状态、失败恢复、安全和可观测性。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c2-5",
+          "type": "算法",
+          "question": "请分析注意力机制的时间/空间复杂度，并说明长上下文优化方向。",
+          "answerPoints": "标准Attention O(n²)，可谈Flash/Sparse/KV Cache。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c2-6",
+          "type": "系统",
+          "question": "高并发服务中缓存穿透、击穿、雪崩分别是什么，怎么处理？",
+          "answerPoints": "布隆过滤器、互斥/单飞、过期抖动、多级缓存。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c2-7",
+          "type": "产品",
+          "question": "如果一个AI产品DAU下降，你如何定位原因？",
+          "answerPoints": "漏斗、用户分层、版本、渠道、留存、实验。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c2-8",
+          "type": "行为面",
+          "question": "讲一次你发现现有方案不够好并主动改进的经历。",
+          "answerPoints": "问题证据、方案、推动、结果、复盘。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "比亚迪",
+      "process": "公开企业页和面经显示比亚迪校招覆盖机械、汽车、电子、算法等；CAE相关面试常围绕简历项目、仿真软件和岗位匹配展开。",
+      "sources": [
+        {
+          "label": "牛客比亚迪企业页",
+          "url": "https://www.nowcoder.com/enterprise/157130",
+          "type": "community"
+        },
+        {
+          "label": "牛客公开面经：CAE结构仿真",
+          "url": "https://www.nowcoder.com/feed/main/detail/7dbb436ec5ee42af9620f69e49862b27",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c3-1",
+          "type": "项目面",
+          "question": "介绍你最能体现工程能力的项目，并说清楚你本人负责了什么。",
+          "answerPoints": "模型、输入、验证、结果和工程意义。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c3-2",
+          "type": "CAE",
+          "question": "有限元网格变粗或变细分别会怎样影响精度和计算成本？",
+          "answerPoints": "收敛性、局部细化、单元质量。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c3-3",
+          "type": "CAE",
+          "question": "结构强度、刚度、模态和疲劳分析分别解决什么问题？",
+          "answerPoints": "载荷-响应-失效模式要对应。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c3-4",
+          "type": "CAE",
+          "question": "Abaqus、ANSYS、LS-DYNA各自更适合哪些问题？",
+          "answerPoints": "隐式/显式、非线性、碰撞、多物理场。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c3-5",
+          "type": "CAE",
+          "question": "怎样证明你的仿真结果可信，而不是‘软件算出来的数字’？",
+          "answerPoints": "理论/试验/网格收敛/能量/平衡检查。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c3-6",
+          "type": "机械",
+          "question": "如果电池包壳体某处应力超标，你会从哪些方向优化？",
+          "answerPoints": "载荷路径、局部结构、材料、连接、重量权衡。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c3-7",
+          "type": "行为面",
+          "question": "为什么从当前专业/研究方向转向汽车或新能源？",
+          "answerPoints": "迁移能力和岗位需求连接。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c3-8",
+          "type": "HR面",
+          "question": "深圳或其他基地是否能接受？你更看重平台、岗位还是地点？",
+          "answerPoints": "给出真实优先级与理由。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "中国银行",
+      "process": "中国银行2027公告明确统一笔试预计在10月中下旬；官方同时声明从未出版或授权任何校招考试参考资料，因此本站题目仅作练习，不冒充官方真题。",
+      "sources": [
+        {
+          "label": "中国银行2027全球校园招聘公告",
+          "url": "https://www.boc.cn/aboutboc/bi4/202609/t20260903_25689311.html",
+          "type": "official"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c4-1",
+          "type": "行测",
+          "question": "某支行三类业务量占比为3:4:5，若总量增加20%且占比不变，最大类业务量增长多少？",
+          "answerPoints": "先求原最大类=5/12总量，再乘20%。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c4-2",
+          "type": "资料分析",
+          "question": "给定三年存贷款、手续费收入和成本数据，判断哪项指标改善最大。",
+          "answerPoints": "统一口径，比较增长率而非绝对差。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c4-3",
+          "type": "逻辑",
+          "question": "若A推出则B不推出，B推出则C推出，现C未推出，可推出哪些结论？",
+          "answerPoints": "先形式化命题，再使用逆否。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c4-4",
+          "type": "金融",
+          "question": "净息差是什么？哪些因素会使商业银行净息差收窄？",
+          "answerPoints": "资产收益率、负债成本、利率环境、竞争。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c4-5",
+          "type": "金融",
+          "question": "信用风险、市场风险、操作风险各举一个银行业务例子。",
+          "answerPoints": "要区分风险来源。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c4-6",
+          "type": "科技岗",
+          "question": "银行核心系统为什么特别重视高可用和数据一致性？",
+          "answerPoints": "资金安全、交易完整性、监管与灾备。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c4-7",
+          "type": "行为面",
+          "question": "为什么选择银行而不是互联网/证券/考公？",
+          "answerPoints": "结合岗位和职业路径，不要泛泛讲稳定。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c4-8",
+          "type": "面试",
+          "question": "如果客户投诉业务办理慢，你如何在合规前提下解决？",
+          "answerPoints": "先确认事实、解释、分流、改进流程。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "德勤",
+      "process": "德勤官方校招流程包括在线申请、在线测试、Deloitte Day和录用。在线测试含认知能力、职业性格、数智认知；面试日包含群面和单面。",
+      "sources": [
+        {
+          "label": "德勤中国官方招聘流程",
+          "url": "https://www.deloitte.com/cn/zh/careers/explore-your-fit/find-your-possible/our-recruitment-process.html",
+          "type": "official"
+        },
+        {
+          "label": "牛客公开面经：审计群面/单面",
+          "url": "https://www.nowcoder.com/discuss/353159287721631744",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c5-1",
+          "type": "在线测评",
+          "question": "图形序列中若形状每两步旋转90°且填充状态交替，下一图应满足什么规则？",
+          "answerPoints": "同时跟踪旋转和填充两个独立变量。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c5-2",
+          "type": "数智认知",
+          "question": "企业采用生成式AI时，最需要先建立哪些治理机制？",
+          "answerPoints": "数据权限、隐私、安全、质量、责任边界。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c5-3",
+          "type": "群面",
+          "question": "一家传统零售企业利润下降，你会如何组织小组建立分析框架？",
+          "answerPoints": "收入端、成本端、客户、渠道、竞争、执行优先级。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c5-4",
+          "type": "案例",
+          "question": "如果客户要在三项数字化项目中只投一个，你如何做优先级排序？",
+          "answerPoints": "战略价值、财务回报、风险、实施难度、时间。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c5-5",
+          "type": "审计",
+          "question": "为什么审计需要保持职业怀疑？",
+          "answerPoints": "证据质量、管理层偏差、舞弊风险。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c5-6",
+          "type": "行为面",
+          "question": "讲一次团队意见冲突，你如何让讨论回到事实和目标。",
+          "answerPoints": "STAR，突出协作而非压服。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c5-7",
+          "type": "单面",
+          "question": "为什么选择德勤和这个业务线？",
+          "answerPoints": "业务理解、个人经历、长期发展。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c5-8",
+          "type": "单面",
+          "question": "你如何看待AI对审计/咨询/税务的影响？",
+          "answerPoints": "自动化、分析能力、治理、人的判断。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "金风科技",
+      "process": "公开面经显示技术与HR常围绕项目、风电行业动机、工作地点、出差和职业规划进行追问。",
+      "sources": [
+        {
+          "label": "牛客公开面经：金风科技一二面",
+          "url": "https://www.nowcoder.com/feed/main/detail/c2c0633b089c46309bf29995f7eb3031",
+          "type": "community"
+        },
+        {
+          "label": "牛客公开面经：机械方向",
+          "url": "https://www.nowcoder.com/discuss/389809659400531968",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c6-1",
+          "type": "项目面",
+          "question": "请把研究课题用非本专业的人也能听懂的方式讲清楚。",
+          "answerPoints": "问题-方法-结果-价值四步。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c6-2",
+          "type": "风电",
+          "question": "风机载荷为什么具有明显随机性和周期性成分？",
+          "answerPoints": "湍流、风切变、旋转采样、控制、结构耦合。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c6-3",
+          "type": "结构",
+          "question": "塔架一阶频率为什么需要避开1P/3P等激励区间？",
+          "answerPoints": "避免共振与疲劳放大。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c6-4",
+          "type": "风电",
+          "question": "IEC NTM与ETM分别主要用来评估什么？",
+          "answerPoints": "正常湍流疲劳/统计响应与极端湍流极值。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c6-5",
+          "type": "控制",
+          "question": "变桨控制对载荷和功率分别有什么影响？",
+          "answerPoints": "额定以上控功率并削减载荷。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c6-6",
+          "type": "行为面",
+          "question": "汽车发展也很好，为什么选择风电？",
+          "answerPoints": "行业动机要与技术积累一致。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c6-7",
+          "type": "HR面",
+          "question": "能否接受现场、出差或基地轮岗？",
+          "answerPoints": "真实回答并说明边界。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c6-8",
+          "type": "项目面",
+          "question": "项目结果与理论或其他软件不一致时你怎么处理？",
+          "answerPoints": "接口一致性、单位、边界、验证顺序。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "上海电气",
+      "process": "公开机械/硬件面经显示常有HR面、项目深挖和专业面，专业问题会结合具体设备与仿真软件。",
+      "sources": [
+        {
+          "label": "牛客上海电气企业面经页",
+          "url": "https://www.nowcoder.com/enterprise/4804/interview",
+          "type": "community"
+        },
+        {
+          "label": "牛客公开面经：机械工程师",
+          "url": "https://www.nowcoder.com/discuss/488791210283302912",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c7-1",
+          "type": "行为面",
+          "question": "为什么希望留在上海？地点对你择业的重要性排第几？",
+          "answerPoints": "稳定表达真实偏好。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c7-2",
+          "type": "项目面",
+          "question": "用3分钟解释毕业论文的工程问题、方法和结果。",
+          "answerPoints": "强调工程意义与个人贡献。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c7-3",
+          "type": "机械",
+          "question": "汽轮机/风机等旋转机械的振动来源有哪些？",
+          "answerPoints": "不平衡、对中、轴承、流致、共振。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c7-4",
+          "type": "CAE",
+          "question": "Abaqus常见单位制为什么必须自洽？",
+          "answerPoints": "软件无内置单位，所有输入必须维度一致。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c7-5",
+          "type": "CAE",
+          "question": "Abaqus与ANSYS在建模流程和适用场景上有什么差异？",
+          "answerPoints": "避免绝对优劣，谈具体场景和工具链。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c7-6",
+          "type": "结构",
+          "question": "模态分析结果如何用于后续动态分析？",
+          "answerPoints": "频率、振型、有效质量、阻尼。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c7-7",
+          "type": "HR面",
+          "question": "如果岗位需要周期性出差，你能接受到什么程度？",
+          "answerPoints": "给出可执行边界。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c7-8",
+          "type": "公司认知",
+          "question": "你对上海电气的风电/能源装备业务了解多少？",
+          "answerPoints": "提前研究业务与岗位对应关系。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "吉利控股集团",
+      "process": "牛客企业页显示近年有测评、AI面试与多轮简历/业务面，汽车研发岗位会结合技术项目和行业认知。",
+      "sources": [
+        {
+          "label": "牛客吉利控股面经页",
+          "url": "https://www.nowcoder.com/enterprise/1164/interview",
+          "type": "community"
+        },
+        {
+          "label": "牛客吉利汽车面经页",
+          "url": "https://www.nowcoder.com/enterprise/21568/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c8-1",
+          "type": "AI面",
+          "question": "讲一次主动学习新知识并最终解决高难度问题的经历。",
+          "answerPoints": "突出学习路径和实际转化。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c8-2",
+          "type": "项目面",
+          "question": "你做过的项目上线或落地后解决了什么业务/工程问题？",
+          "answerPoints": "不要只讲技术过程。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c8-3",
+          "type": "汽车",
+          "question": "你怎么看新能源汽车平台化、智能化和轻量化之间的关系？",
+          "answerPoints": "成本、性能、开发效率、安全。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c8-4",
+          "type": "CAE",
+          "question": "如何评价车身刚度、碰撞安全和NVH之间的设计冲突？",
+          "answerPoints": "多目标权衡和联合优化。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c8-5",
+          "type": "结构",
+          "question": "车身或电池结构优化时，为什么不能只看最大应力？",
+          "answerPoints": "载荷工况、疲劳、稳定、连接、制造。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c8-6",
+          "type": "行为面",
+          "question": "面对高强度项目，你如何保证进度与质量？",
+          "answerPoints": "计划、风险、沟通、复盘。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c8-7",
+          "type": "行业",
+          "question": "你如何看未来三年智能汽车的竞争重点？",
+          "answerPoints": "技术+成本+供应链+用户体验。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c8-8",
+          "type": "HR面",
+          "question": "如果岗位方向与你原研究不完全一致，你如何快速上手？",
+          "answerPoints": "迁移能力、学习计划、已有基础。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "国家电网",
+      "process": "公开面经显示电网招聘常涉及统一考试/专业知识与结构化面试；不同省公司和岗位差异较大。",
+      "sources": [
+        {
+          "label": "牛客国家电网面经页",
+          "url": "https://api-cdn.nowcoder.com/enterprise/1000/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c9-1",
+          "type": "电气",
+          "question": "有功功率、无功功率和功率因数分别反映什么？",
+          "answerPoints": "电能做功、磁场交换、有效利用程度。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c9-2",
+          "type": "电气",
+          "question": "为什么高压输电可以降低线路损耗？",
+          "answerPoints": "同功率下提高电压降低电流，I²R损耗下降。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c9-3",
+          "type": "电气",
+          "question": "继电保护的基本要求有哪些？",
+          "answerPoints": "选择性、速动性、灵敏性、可靠性。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c9-4",
+          "type": "电气",
+          "question": "电力系统为什么要保持发电与负荷实时平衡？",
+          "answerPoints": "频率稳定与系统安全。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c9-5",
+          "type": "新能源",
+          "question": "大规模风光接入电网带来哪些挑战？",
+          "answerPoints": "波动性、惯量、调峰、消纳、稳定性。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c9-6",
+          "type": "行为面",
+          "question": "为什么选择国网以及你申请的省公司？",
+          "answerPoints": "业务、岗位、地区、职业路径。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c9-7",
+          "type": "面试",
+          "question": "如果被分配到基层岗位，你如何看待？",
+          "answerPoints": "成长路径、现场经验、长期规划。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c9-8",
+          "type": "项目面",
+          "question": "请从专业角度介绍一个你最熟悉的课程设计或科研项目。",
+          "answerPoints": "原理、实现、验证、结果。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "宁德时代",
+      "process": "2027招聘公开信息显示流程包含网申、AI面试、在线测评、专业面试和Offer；研发类适配化学、材料、机械、电气、计算机、AI、力学等。",
+      "sources": [
+        {
+          "label": "宁德时代2027招聘公开信息",
+          "url": "https://career.nankai.edu.cn/correcruit/content/id/116814.html",
+          "type": "public"
+        },
+        {
+          "label": "牛客宁德时代面经页",
+          "url": "https://www.nowcoder.com/enterprise/1258/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c10-1",
+          "type": "AI面",
+          "question": "为什么选择动力电池行业？你认为行业下一阶段的核心矛盾是什么？",
+          "answerPoints": "安全、成本、能量密度、快充、寿命、供应链。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c10-2",
+          "type": "材料",
+          "question": "提高电池能量密度通常会带来哪些安全或寿命挑战？",
+          "answerPoints": "热稳定、电化学副反应、结构与热管理。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c10-3",
+          "type": "机械",
+          "question": "电芯膨胀对模组和Pack结构设计有什么影响？",
+          "answerPoints": "约束、预紧、寿命、热管理。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c10-4",
+          "type": "CAE",
+          "question": "电池包碰撞与挤压仿真需要重点监控哪些指标？",
+          "answerPoints": "侵入量、结构应力、连接失效、电芯安全边界。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c10-5",
+          "type": "热",
+          "question": "电池热失控传播分析需要考虑哪些传热机制？",
+          "answerPoints": "导热、对流、辐射、热源与材料变化。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c10-6",
+          "type": "项目面",
+          "question": "科研项目中你如何把实验与仿真相互验证？",
+          "answerPoints": "统一边界、测点、误差指标、敏感因素。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c10-7",
+          "type": "行为面",
+          "question": "当结果与预期相反时，你如何判断是模型错还是假设错？",
+          "answerPoints": "验证链、对照实验、逐层排查。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c10-8",
+          "type": "HR面",
+          "question": "制造基地工作节奏和地点能否接受？",
+          "answerPoints": "真实回答可接受范围。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "宝洁",
+      "process": "公开面经长期显示宝洁非常重视结构化行为面试与情景题，常用高目标、领导力、冲突、创新、优先级等主题进行深挖。",
+      "sources": [
+        {
+          "label": "牛客公开面经：管培一二面",
+          "url": "https://www.nowcoder.com/discuss/353158030420287488",
+          "type": "community"
+        },
+        {
+          "label": "牛客公开经验：行为题准备",
+          "url": "https://www.nowcoder.com/discuss/481578401833172992?sourceSSR=dynamic",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c11-1",
+          "type": "行为面",
+          "question": "讲一次你给自己设定了明显高于常规要求的目标，并最终完成的经历。",
+          "answerPoints": "STAR+量化目标+关键动作。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c11-2",
+          "type": "行为面",
+          "question": "讲一次你主动承担领导责任并让团队达成结果的经历。",
+          "answerPoints": "领导力不是职位，而是影响和结果。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c11-3",
+          "type": "行为面",
+          "question": "讲一次你与团队成员意见冲突，最后如何处理。",
+          "answerPoints": "事实、倾听、共同目标、决策机制。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c11-4",
+          "type": "行为面",
+          "question": "讲一次你用新方法显著提高效率或效果。",
+          "answerPoints": "创新前后对比。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c11-5",
+          "type": "行为面",
+          "question": "时间很紧、信息不足时，你如何做决策？",
+          "answerPoints": "优先级、关键假设、风险。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c11-6",
+          "type": "情景题",
+          "question": "竞争对手突然降价，你负责的品牌是否应该跟随？",
+          "answerPoints": "消费者、利润、品牌、渠道、弹性、长期影响。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c11-7",
+          "type": "情景题",
+          "question": "新品发布前发现供应链延期，你会如何处理？",
+          "answerPoints": "影响评估、备选方案、跨部门沟通、客户预期。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c11-8",
+          "type": "英文面",
+          "question": "用英文概括一次最能体现你领导力的项目。",
+          "answerPoints": "控制2分钟，结构清晰，准备数字。",
+          "difficulty": "中等"
+        }
+      ]
+    }
+  ],
+  "generalBank": [
+    {
+      "id": "g-001",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "用90秒完成自我介绍，并突出三个与岗位相关的能力。",
+      "answerPoints": "学校/专业一句话；2-3个能力证据；岗位动机。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-002",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "讲一次你把模糊任务拆成可执行计划的经历。",
+      "answerPoints": "目标澄清、里程碑、风险、结果。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-003",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "讲一次失败经历，你之后改变了什么做法？",
+      "answerPoints": "不要甩锅；说明复盘和后续变化。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-004",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "讲一次你说服不同意见的人支持你的方案。",
+      "answerPoints": "利益相关方、证据、沟通、妥协边界。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-005",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "讲一次你在资源不足情况下完成目标。",
+      "answerPoints": "优先级、借力、替代方案。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-006",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "讲一次你承担超出职责范围工作的经历。",
+      "answerPoints": "主动性与边界管理。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-007",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "讲一次你发现数据或流程有问题并推动修正。",
+      "answerPoints": "证据、影响、方案、推动。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-008",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "如果同时拿到三个Offer，你会怎样做选择？",
+      "answerPoints": "岗位内容、成长、团队、地点、薪酬排序。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-009",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "为什么选择这个行业？",
+      "answerPoints": "趋势不是核心，重点是个人积累与行业需求契合。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-010",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "未来三年的职业规划是什么？",
+      "answerPoints": "能力目标和岗位路径，避免空泛职位头衔。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-011",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "你最大的缺点是什么？",
+      "answerPoints": "真实但可改进，说明具体改进措施。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-012",
+      "category": "通用行为面试",
+      "type": "面试",
+      "question": "你能接受加班/出差/轮岗吗？",
+      "answerPoints": "给真实边界和可持续条件。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-013",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "某项目计划10人12天完成，效率不变时8人需要多少天？",
+      "answerPoints": "工作量=人数×天数，答案15天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-014",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "A比B高20%，B比C低10%，A与C的比例是多少？",
+      "answerPoints": "1.2×0.9=1.08，A比C高8%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-015",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "一组数据均值为80，加入一个100后均值变为82，原来有多少个数据？",
+      "answerPoints": "80n+100=82(n+1)，n=9。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-016",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "若所有A都是B，部分B是C，能否推出部分A是C？",
+      "answerPoints": "不能。部分B与A集合可能无交集。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-017",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "若P→Q且Q→R，已知非R，可推出什么？",
+      "answerPoints": "逆否：非R→非Q→非P。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-018",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "三部门人数比2:3:5，总人数200，第二部门多少人？",
+      "answerPoints": "200×3/10=60。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-019",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "某指标从120升至150，增长率是多少？",
+      "answerPoints": "(150-120)/120=25%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-020",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "抽两张牌至少一张为红牌，适合用什么思路计算？",
+      "answerPoints": "通常用补集：1-两张都不是红牌的概率。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-021",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "资料分析中‘增长贡献率’与‘增长率’有什么区别？",
+      "answerPoints": "贡献率看对总体增量的贡献，增长率看自身相对变化。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-022",
+      "category": "行测 / 逻辑",
+      "type": "笔试",
+      "question": "图形推理中遇到多元素变化，如何避免凭感觉？",
+      "answerPoints": "拆分元素数、位置、方向、颜色、对称、叠加规则。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-023",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "进程和线程的核心区别是什么？",
+      "answerPoints": "资源隔离、调度单位、切换成本、共享空间。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-024",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "TCP三次握手为什么不是两次？",
+      "answerPoints": "确认双方收发能力并同步序列号。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-025",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "数据库索引为什么通常使用B+树？",
+      "answerPoints": "高扇出、较低树高、顺序范围查询友好。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-026",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "什么是事务的ACID？",
+      "answerPoints": "原子性、一致性、隔离性、持久性。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-027",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "缓存穿透与缓存击穿有什么区别？",
+      "answerPoints": "不存在数据反复查库 vs 热点Key瞬时失效。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-028",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "HashMap高并发下为什么要谨慎使用？",
+      "answerPoints": "竞态、扩容、可见性；并发场景用线程安全结构。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-029",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "二叉搜索树退化的条件是什么？",
+      "answerPoints": "输入近似有序且无平衡机制时可退化为链表。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-030",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "Transformer中Self-Attention解决了什么问题？",
+      "answerPoints": "全局依赖建模与并行计算。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-031",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "为什么需要位置编码？",
+      "answerPoints": "注意力本身不包含序列位置信息。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-032",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "RAG与微调各适合解决什么问题？",
+      "answerPoints": "RAG补外部/动态知识；微调改变行为和任务分布。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-033",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "如何评估一个分类模型？",
+      "answerPoints": "准确率、精确率、召回率、F1、AUC及业务成本。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-034",
+      "category": "计算机 / AI",
+      "type": "笔面试",
+      "question": "模型线上效果下降如何排查？",
+      "answerPoints": "数据漂移、特征、服务、版本、分布、评测链。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-035",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "线弹性有限元的基本假设有哪些？",
+      "answerPoints": "小变形、材料线弹性、边界与载荷明确。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-036",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "von Mises应力适合评价什么？",
+      "answerPoints": "延性金属多轴屈服。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-037",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "为什么做网格无关性分析？",
+      "answerPoints": "确认结果不再显著依赖离散尺度。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-038",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "一阶实体单元与二阶实体单元的主要差异？",
+      "answerPoints": "插值阶次、曲面/弯曲精度、计算成本。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-039",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "显式动力学为什么通常需要很小时间步？",
+      "answerPoints": "条件稳定，受最小单元特征长度与波速控制。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-040",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "模态有效质量有什么意义？",
+      "answerPoints": "衡量某模态对给定方向动力响应贡献。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-041",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "Rayleigh阻尼参数如何确定？",
+      "answerPoints": "通常用两个目标频率和阻尼比求解α、β。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-042",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "疲劳S-N曲线描述什么？",
+      "answerPoints": "应力幅与循环寿命关系。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-043",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "刚度提高一定能降低疲劳损伤吗？",
+      "answerPoints": "不一定；可能改变载荷路径、应力集中与频率。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-044",
+      "category": "机械 / CAE",
+      "type": "笔面试",
+      "question": "仿真结果出现非物理高应力尖峰怎么办？",
+      "answerPoints": "检查奇异点、接触、网格、载荷施加与评价位置。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-045",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "钢筋混凝土受弯构件为什么需要受拉钢筋？",
+      "answerPoints": "混凝土抗拉弱，钢筋承担主要拉力并控制裂缝。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-046",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "长细比对压杆稳定性有什么影响？",
+      "answerPoints": "长细比越大，整体失稳风险越高。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-047",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "结构自振频率受哪些因素控制？",
+      "answerPoints": "质量、刚度、边界条件与耦合。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-048",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "地震反应谱法的基本思路是什么？",
+      "answerPoints": "用各模态响应谱结果组合估计结构峰值响应。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-049",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "什么是P-Δ效应？",
+      "answerPoints": "轴力与侧移耦合导致附加弯矩。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-050",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "桩基承载力主要来自哪些部分？",
+      "answerPoints": "桩端阻力和桩侧摩阻。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-051",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "基坑支护设计需要关注哪些破坏模式？",
+      "answerPoints": "整体稳定、隆起、管涌、支护强度、变形。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-052",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "BIM的价值不只是三维模型，还包括什么？",
+      "answerPoints": "信息集成、碰撞检查、进度、算量、运维。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-053",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "施工组织设计的核心目标是什么？",
+      "answerPoints": "安全、质量、工期、成本和资源协调。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-054",
+      "category": "土木 / 结构",
+      "type": "笔面试",
+      "question": "设计结果与现场情况不一致怎么办？",
+      "answerPoints": "核实资料、变更流程、技术复核、责任边界。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-055",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "三相交流为什么广泛用于电力系统？",
+      "answerPoints": "功率平稳、传输与电机效率高。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-056",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "变压器为什么不能直接工作在直流下？",
+      "answerPoints": "直流无交变磁通，易导致磁饱和和大电流。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-057",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "同步发电机频率由什么决定？",
+      "answerPoints": "转速与极对数。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-058",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "电网电压稳定与哪些因素相关？",
+      "answerPoints": "无功平衡、网络强度、负荷特性、控制。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-059",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "短路计算的目的是什么？",
+      "answerPoints": "设备选型、保护整定、热稳定与动稳定。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-060",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "光伏逆变器主要完成什么？",
+      "answerPoints": "DC-AC变换、MPPT、并网控制与保护。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-061",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "风电机组额定风速以上为什么要变桨？",
+      "answerPoints": "限制气动功率和结构载荷。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-062",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "储能参与电网调频的优势是什么？",
+      "answerPoints": "响应快、双向调节、控制灵活。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-063",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "新能源并网为什么需要考虑低电压穿越？",
+      "answerPoints": "故障时维持并网支撑，避免大规模脱网。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-064",
+      "category": "电气 / 能源",
+      "type": "笔面试",
+      "question": "电机FOC控制的基本目标是什么？",
+      "answerPoints": "把磁链和转矩分量解耦控制。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-065",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "什么是收益率曲线？",
+      "answerPoints": "不同期限同类债券收益率的期限结构。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-066",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "利率上升通常如何影响债券价格？",
+      "answerPoints": "反向变化，久期越高越敏感。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-067",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "银行为什么关注资本充足率？",
+      "answerPoints": "吸收损失能力与监管要求。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-068",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "不良贷款率上升意味着什么？",
+      "answerPoints": "资产质量恶化，拨备与资本压力增加。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-069",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "什么是流动性风险？",
+      "answerPoints": "无法以合理成本及时履行支付义务的风险。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-070",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "ROE与ROA分别反映什么？",
+      "answerPoints": "股东资本回报与总资产盈利能力。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-071",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "汇率升值对出口企业可能有什么影响？",
+      "answerPoints": "本币收入折算、价格竞争力和成本结构变化。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-072",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "NPV为正通常意味着什么？",
+      "answerPoints": "按给定贴现率项目创造正的净现值。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-073",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "为什么金融机构强调合规与反洗钱？",
+      "answerPoints": "法律监管、声誉、金融安全。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-074",
+      "category": "金融 / 银行",
+      "type": "笔面试",
+      "question": "如果客户风险偏好很低，你会如何配置产品？",
+      "answerPoints": "先适当性评估，再做低波动与流动性安排。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-075",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "资产负债表、利润表、现金流量表如何勾稽？",
+      "answerPoints": "净利润影响权益并经现金流调整；现金期末与资产负债表一致。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-076",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "收入增长但经营现金流下降可能说明什么？",
+      "answerPoints": "应收、存货、回款周期或收入质量变化。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-077",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "审计中的重要性水平是什么？",
+      "answerPoints": "可能影响报表使用者决策的错报阈值。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-078",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "控制测试和实质性程序有什么区别？",
+      "answerPoints": "前者看内控有效性，后者直接获取余额/交易证据。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-079",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "市场规模估算题怎么开始？",
+      "answerPoints": "定义口径→拆驱动因素→假设→交叉验证。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-080",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "利润下降案例常见分析框架？",
+      "answerPoints": "收入=量×价；成本=固定+变动，再看结构与竞争。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-081",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "进入新市场前需要看哪些因素？",
+      "answerPoints": "市场规模、增长、竞争、客户、能力、法规、财务。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-082",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "咨询案例中为什么要先明确问题定义？",
+      "answerPoints": "避免分析正确但问题错误。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-083",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "EBITDA与净利润的区别？",
+      "answerPoints": "未扣利息税项折旧摊销 vs 最终净收益。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-084",
+      "category": "财会 / 咨询",
+      "type": "笔面试",
+      "question": "AI工具如何改变审计或咨询工作？",
+      "answerPoints": "自动化、数据分析、文档生成，同时增加治理与验证要求。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-085",
+      "category": "医药 / 化工",
+      "type": "笔面试",
+      "question": "随机对照试验为什么强调随机化？",
+      "answerPoints": "降低选择偏倚和混杂。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-086",
+      "category": "医药 / 化工",
+      "type": "笔面试",
+      "question": "临床试验中的主要终点是什么？",
+      "answerPoints": "预先定义的核心疗效/安全评价指标。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-087",
+      "category": "医药 / 化工",
+      "type": "笔面试",
+      "question": "p值小于0.05能否等价于‘临床上重要’？",
+      "answerPoints": "不能；统计显著不等于临床意义。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-088",
+      "category": "医药 / 化工",
+      "type": "笔面试",
+      "question": "药物半衰期影响什么？",
+      "answerPoints": "给药间隔、稳态时间和体内暴露。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-089",
+      "category": "医药 / 化工",
+      "type": "笔面试",
+      "question": "化工过程中的物料衡算核心是什么？",
+      "answerPoints": "输入-输出+生成-消耗=积累。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-090",
+      "category": "医药 / 化工",
+      "type": "笔面试",
+      "question": "反应器放大为什么不能只按几何比例？",
+      "answerPoints": "传热、传质、混合和停留时间会改变。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-091",
+      "category": "医药 / 化工",
+      "type": "笔面试",
+      "question": "危险化学品工艺为什么要做HAZOP？",
+      "answerPoints": "系统识别偏差、原因、后果和保护措施。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-092",
+      "category": "医药 / 化工",
+      "type": "笔面试",
+      "question": "质量体系中的CAPA指什么？",
+      "answerPoints": "纠正措施与预防措施。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-093",
+      "category": "产品 / 运营 / 市场",
+      "type": "笔面试",
+      "question": "DAU上涨但留存下降，你首先看什么？",
+      "answerPoints": "新增来源、用户分层、功能路径、版本变化。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-094",
+      "category": "产品 / 运营 / 市场",
+      "type": "笔面试",
+      "question": "一个新功能上线前如何定义成功？",
+      "answerPoints": "北极星指标、护栏指标、目标人群和时间窗口。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-095",
+      "category": "产品 / 运营 / 市场",
+      "type": "笔面试",
+      "question": "A/B测试的基本前提是什么？",
+      "answerPoints": "随机分流、样本量、单一变量、统计显著。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-096",
+      "category": "产品 / 运营 / 市场",
+      "type": "笔面试",
+      "question": "如何做竞品分析避免变成功能罗列？",
+      "answerPoints": "用户、场景、价值、商业模式、体验和数据。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-097",
+      "category": "产品 / 运营 / 市场",
+      "type": "笔面试",
+      "question": "市场活动ROI如何计算和解释？",
+      "answerPoints": "增量收益/投入，并考虑归因和长期价值。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-098",
+      "category": "产品 / 运营 / 市场",
+      "type": "笔面试",
+      "question": "销售额下降时如何拆解？",
+      "answerPoints": "流量×转化×客单价，叠加品类/渠道/区域。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-099",
+      "category": "产品 / 运营 / 市场",
+      "type": "笔面试",
+      "question": "如何给一个校园App做冷启动？",
+      "answerPoints": "种子用户、核心场景、供需两端、激励和反馈。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-100",
+      "category": "产品 / 运营 / 市场",
+      "type": "笔面试",
+      "question": "用户说‘不好用’，产品经理怎么继续追问？",
+      "answerPoints": "还原任务、场景、频次、阻碍、替代方案。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-101",
+      "category": "半导体 / 电子",
+      "type": "笔面试",
+      "question": "CMOS反相器的静态功耗为什么通常较低？",
+      "answerPoints": "稳态时理想情况下NMOS/PMOS不会同时导通。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-102",
+      "category": "半导体 / 电子",
+      "type": "笔面试",
+      "question": "建立时间和保持时间是什么？",
+      "answerPoints": "触发器采样边沿前后数据需稳定的时间窗口。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-103",
+      "category": "半导体 / 电子",
+      "type": "笔面试",
+      "question": "什么是亚稳态？",
+      "answerPoints": "时序违反导致触发器输出暂时无法快速稳定。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-104",
+      "category": "半导体 / 电子",
+      "type": "笔面试",
+      "question": "PCB高速信号为什么要控制阻抗？",
+      "answerPoints": "减少反射、过冲和信号完整性问题。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-105",
+      "category": "半导体 / 电子",
+      "type": "笔面试",
+      "question": "ADC分辨率与量化误差有什么关系？",
+      "answerPoints": "位数越高，LSB越小，理想量化误差降低。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-106",
+      "category": "半导体 / 电子",
+      "type": "笔面试",
+      "question": "芯片封装热设计为什么重要？",
+      "answerPoints": "结温影响性能、可靠性与寿命。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-107",
+      "category": "半导体 / 电子",
+      "type": "笔面试",
+      "question": "EMI和EMC有什么区别？",
+      "answerPoints": "EMI是干扰本身，EMC是设备在电磁环境中的兼容能力。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-108",
+      "category": "半导体 / 电子",
+      "type": "笔面试",
+      "question": "数字电路中的竞争冒险是什么？",
+      "answerPoints": "不同路径延迟导致短暂错误逻辑。",
+      "difficulty": "中等"
+    }
+  ]
+}
