@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-09-23T14:52:24+08:00",
+  "updated_at": "2026-09-23T15:22:39+08:00",
   "meta": {
-    "updated_at": "2026-09-23T14:52:24+08:00",
+    "updated_at": "2026-09-23T15:22:39+08:00",
     "mode": "recent",
     "company": null,
     "company_targets": 304,
     "queries": 53,
-    "raw_results": 2,
-    "new_candidates": 2,
-    "added": 2,
-    "total": 2,
+    "raw_results": 3,
+    "new_candidates": 3,
+    "added": 3,
+    "total": 5,
     "providers": {
       "brave": 0,
-      "bing-rss": 2,
+      "bing-rss": 3,
       "duckduckgo": 0,
-      "errors": 1
+      "errors": 30
     }
   },
   "seen": {
@@ -27,6 +27,21 @@
       "url": "https://www.boe.com/about/BOEGlobal",
       "title": "京东方全球-京东方官网 - BOE",
       "lastSeen": "2026-09-23T14:52:24+08:00"
+    },
+    "auto-67c4bd1460f0e5": {
+      "url": "https://career.huawei.com/cn/campus-recruitment",
+      "title": "校园招聘 - 华为",
+      "lastSeen": "2026-09-23T15:22:39+08:00"
+    },
+    "auto-e356cba6b5b0e1": {
+      "url": "https://maker.haier.net/",
+      "title": "Haier - 海尔招聘-海尔官方招聘网站",
+      "lastSeen": "2026-09-23T15:22:39+08:00"
+    },
+    "auto-62fa9b36dee99d": {
+      "url": "https://maker.haier.net/client/campus/index",
+      "title": "海尔校园官网--海尔招聘-海尔官方招聘网站 - Haier",
+      "lastSeen": "2026-09-23T15:22:39+08:00"
     }
   }
 }
