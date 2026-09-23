@@ -389,7 +389,7 @@ function renderSelectedCompanyQuestions(){
 
   if(kit){
     const links=(kit.sources||[]).map(s=>'<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.label)+' ↗</a>').join("");
-    $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">PUBLIC SOURCES FOUND</span><h3>已找到公开流程 / 面经来源</h3><p>'+esc(kit.process||"")+" 题目基于公开来源中的考察主题重新编写，并补充该行业的笔试、计算与专业练习题。</p></div><div class="source-links">'+links+'</div></div>';
+    $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">PUBLIC SOURCES FOUND</span><h3>已找到公开流程 / 面经来源</h3><p>'+esc(kit.process||"")+' 题目基于公开来源中的考察主题重新编写，并补充该行业的笔试、计算与专业练习题。</p></div><div class="source-links">'+links+'</div></div>';
   }else{
     $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">SIMULATED COMPANY BANK</span><h3>暂无足够公开历史面经</h3><p>以下题目依据 '+esc(co?.industry||"该行业")+'、该企业当前岗位和专业要求组卷。它们是针对性练习题，不冒充该企业历史真题。</p></div><div class="source-links"><span>后续扫描到可靠公开面经后自动升级</span></div></div>';
   }
