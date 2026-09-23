@@ -36,14 +36,10 @@ function fmtDate(s){
 }
 function deadlineMeta(job){
   const d=daysLeft(job.deadline);
-  if(d===null) return {cls:"rolling",label:"滚动 / 待定",days:null};
-  if(d<0) return {cls:"rolling",label:"已截止",days:d};
-  if(d===0) return {cls:"urgent",label:"今天截止",days:d};
-  if(d<=3) return {cls:"urgent",label:`仅剩 ${d} 天`,days:d};
-  if(d<=7) return {cls:"soon",label:`${d} 天后截止`,days:d};
-  if(d<=14) return {cls:"soon",label:"14天内",days:d};
-  if(d<=30) return {cls:"normal",label:"30天内",days:d};
-  return {cls:"normal",label:`${d} 天后`,days:d};
+  if(d===null) return {cls:"rolling",label:"",days:null};
+  if(d<0) return {cls:"rolling",label:"",days:d};
+  if(d<=7) return {cls:d<=3?"urgent":"soon",label:"即将截止",days:d};
+  return {cls:"normal",label:"",days:d};
 }
 function myState(id){
   const raw=mine[id] || {stage:"未申请",note:""};
@@ -166,9 +162,7 @@ function fillTrackFilter(){
 function deadlinePass(job){
   if(!deadlineFilter) return true;
   const d=daysLeft(job.deadline);
-  if(deadlineFilter==="rolling") return d===null;
-  if(d===null || d<0) return false;
-  return d<=Number(deadlineFilter);
+  return d!==null && d>=0 && d<=7;
 }
 function filteredJobs(){
   const q=$("#searchInput").value.trim().toLowerCase();
@@ -189,7 +183,7 @@ function render(){
   $("#jobRows").innerHTML=list.map(j=>{
     const m=deadlineMeta(j), st=myState(j.id), disabled=session?"":"disabled";
     return `<tr>
-      <td><div class="deadline-box"><b>${esc(fmtDate(j.deadline))}</b><span class="${m.cls}">${esc(m.label)}</span><div class="sub">${esc(j.type)}</div></div></td>
+      <td><div class="deadline-box"><b>${esc(fmtDate(j.deadline))}</b>${m.label?`<span class="${m.cls}">${esc(m.label)}</span>`:""}<div class="sub">${esc(j.type)}</div></div></td>
       <td><div class="company-cell"><div class="logo">${esc(initials(j.company))}</div><div><div class="company-name">${esc(j.company)}</div><div class="job-title">${esc(j.title)}</div><div class="sub">${esc(j.unit||"")}</div></div></div></td>
       <td><div class="track-list">${(j.tracks||[]).map(t=>`<span class="track">${esc(t)}</span>`).join("")}</div></td>
       <td><b>${esc(j.location)}</b><div class="sub">更新 ${esc(j.updated||"—")}</div></td>
@@ -223,11 +217,7 @@ function render(){
 }
 function updateDeadlineStats(){
   const future=JOBS.map(j=>daysLeft(j.deadline));
-  $("#d3").textContent=future.filter(x=>x!==null&&x>=0&&x<=3).length;
   $("#d7").textContent=future.filter(x=>x!==null&&x>=0&&x<=7).length;
-  $("#d14").textContent=future.filter(x=>x!==null&&x>=0&&x<=14).length;
-  $("#d30").textContent=future.filter(x=>x!==null&&x>=0&&x<=30).length;
-  $("#dRolling").textContent=future.filter(x=>x===null).length;
 }
 function bindRows(){
   $("[data-status]").forEach(el=>el.onclick=async e=>{
