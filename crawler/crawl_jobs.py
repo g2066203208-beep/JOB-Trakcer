@@ -79,6 +79,14 @@ BROAD_QUERIES = [
     "2027 校园招聘 航空 航天 船舶 海洋",
     "2027 秋招 央企 国企 应届生",
     "2027 秋招 外企 管培生 graduate program",
+    "site:zhiye.com 2027 校园招聘 应届生",
+    "site:hotjob.cn 2027 校园招聘 应届生",
+    "site:mokahr.com 2027 校园招聘 应届生",
+    "site:iguopin.com 2027 校园招聘 应届生",
+    "site:career.nankai.edu.cn 2027 校园招聘",
+    "site:job.hust.edu.cn 2027 校园招聘",
+    "site:nowcoder.com/enterprise 2027 校招 职位",
+    "site:mianlingai.com/jobs 2027 校招"
 ]
 
 def norm_space(s: str) -> str:
