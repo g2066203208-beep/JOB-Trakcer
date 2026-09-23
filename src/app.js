@@ -334,10 +334,7 @@ function questionModePass(q){
   return true;
 }
 function answerLabel(q){
-  const s=q.category+" "+q.type;
-  if(/行为|HR|项目面|主管面|群面|英文面/.test(s))return"标准示范答案";
-  if(/编程/.test(s))return"标准解法";
-  return"标准答案";
+  return "标准答案";
 }
 function questionCardHTML(q,i){
   const source=q.simulated?"岗位/行业模拟题":"公开流程/面经主题改写";
