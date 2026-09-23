@@ -1,5 +1,10 @@
 const JOBS = window.JOB_DATA || [];
-const STAGES = ["未申请","已收藏","已投递","笔试","一面","二面/终面","Offer","已拒绝","已放弃"];
+const STAGES = ["未申请","已申请","被拒"];
+function normalizeStage(stage){
+  if(!stage || stage==="未申请") return "未申请";
+  if(stage==="已拒绝" || stage==="已放弃" || stage==="被拒") return "被拒";
+  return "已申请";
+}
 const CFG = window.SUPABASE_CONFIG || {};
 const cloudConfigured = !!(CFG.url && CFG.anonKey && !CFG.url.startsWith("YOUR_") && !CFG.anonKey.startsWith("YOUR_"));
 const sb = cloudConfigured ? window.supabase.createClient(CFG.url, CFG.anonKey) : null;
@@ -40,8 +45,11 @@ function deadlineMeta(job){
   if(d<=30) return {cls:"normal",label:"30天内",days:d};
   return {cls:"normal",label:`${d} 天后`,days:d};
 }
-function myState(id){ return mine[id] || {stage:"未申请",note:""}; }
-function tracked(id){ const x=myState(id); return (x.stage && x.stage!=="未申请") || !!x.note; }
+function myState(id){
+  const raw=mine[id] || {stage:"未申请",note:""};
+  return {...raw,stage:normalizeStage(raw.stage)};
+}
+function tracked(id){ const x=myState(id); return x.stage!=="未申请" || !!x.note; }
 function initials(name){ return String(name).replace(/中国|集团|股份有限公司|有限公司|科技|能源/g,"").slice(0,2) || "企"; }
 
 function localUsers(){ return JSON.parse(localStorage.getItem("jt_local_users_v1") || "{}"); }
@@ -167,7 +175,7 @@ function filteredJobs(){
   const track=$("#trackFilter").value, type=$("#typeFilter").value, stage=$("#stageFilter").value;
   return JOBS.filter(j=>{
     const hay=[j.company,j.unit,j.title,j.location,j.degree,j.majors,j.requirements,j.process,j.note,j.source,...(j.tracks||[])].join(" ").toLowerCase();
-    const st=myState(j.id).stage||"未申请";
+    const st=normalizeStage(myState(j.id).stage);
     return (!q||hay.includes(q)) && (!track||(j.tracks||[]).includes(track)) && (!type||j.type===type) && (!stage||st===stage) && (!onlyMine||tracked(j.id)) && deadlinePass(j);
   }).sort((a,b)=>{
     const ad=daysLeft(a.deadline), bd=daysLeft(b.deadline);
@@ -188,7 +196,14 @@ function render(){
       <td class="edu"><b>${esc(j.degree)}</b><div class="sub">${esc(j.majors)}</div></td>
       <td class="req">${esc(j.requirements)}<div class="sub" style="margin-top:6px">${esc(j.note||"")}</div></td>
       <td class="official"><a class="btn primary" target="_blank" rel="noopener" href="${esc(j.applyUrl)}">官方投递 ↗</a><div class="sub">${esc(j.source)}</div></td>
-      <td><select class="stage-select" data-stage="${j.id}" ${disabled}>${STAGES.map(x=>`<option ${x===st.stage?"selected":""}>${x}</option>`).join("")}</select><button class="note-btn" data-note="${j.id}" ${disabled}>${st.note?"查看/改备注":"添加备注"}</button>${!session?'<div class="sub">登录后记录</div>':""}</td>
+      <td>
+        <div class="status-actions">
+          <button class="status-btn apply-btn ${st.stage==="已申请"?"active":""}" data-status="已申请" data-job="${j.id}" ${disabled} title="已申请">✓ <span>申请</span></button>
+          <button class="status-btn reject-btn ${st.stage==="被拒"?"active":""}" data-status="被拒" data-job="${j.id}" ${disabled} title="被拒">✕ <span>被拒</span></button>
+        </div>
+        <button class="note-btn" data-note="${j.id}" ${disabled}>${st.note?"备注 ✓":"备注"}</button>
+        ${!session?'<div class="sub">登录后标记</div>':""}
+      </td>
       <td><button class="detail-btn" data-detail="${j.id}">查看详情</button></td>
     </tr>`;
   }).join("");
@@ -197,10 +212,11 @@ function render(){
   $("#totalCount").textContent=JOBS.length;
   $("#companyCount").textContent=new Set(JOBS.map(x=>x.company)).size;
   if(session){
-    $("#trackedCount").textContent=Object.values(mine).filter(x=>x.stage!=="未申请"||x.note).length;
-    $("#offerCount").textContent=Object.values(mine).filter(x=>x.stage==="Offer").length;
+    const vals=Object.values(mine).map(x=>normalizeStage(x.stage));
+    $("#appliedCount").textContent=vals.filter(x=>x==="已申请").length;
+    $("#rejectedCount").textContent=vals.filter(x=>x==="被拒").length;
   }else{
-    $("#trackedCount").textContent="—"; $("#offerCount").textContent="—";
+    $("#appliedCount").textContent="—"; $("#rejectedCount").textContent="—";
   }
   updateDeadlineStats();
   bindRows();
@@ -214,9 +230,13 @@ function updateDeadlineStats(){
   $("#dRolling").textContent=future.filter(x=>x===null).length;
 }
 function bindRows(){
-  $$("[data-stage]").forEach(el=>el.onchange=async e=>{
+  $("[data-status]").forEach(el=>el.onclick=async e=>{
     if(!session){ openAuth(); render(); return; }
-    await saveState(e.target.dataset.stage,{stage:e.target.value});
+    const btn=e.currentTarget;
+    const id=btn.dataset.job;
+    const wanted=btn.dataset.status;
+    const current=myState(id).stage;
+    await saveState(id,{stage:current===wanted?"未申请":wanted});
   });
   $$("[data-note]").forEach(el=>el.onclick=e=>{
     if(!session){ openAuth(); return; }
@@ -286,8 +306,8 @@ function bindStatic(){
   $("#tabLogin").onclick=()=>setAuthMode("login"); $("#tabSignup").onclick=()=>setAuthMode("signup"); $("#authSubmit").onclick=submitAuth;
   $("#authPassword").addEventListener("keydown",e=>{if(e.key==="Enter")submitAuth();});
   $("#searchInput").oninput=render; $("#trackFilter").onchange=render; $("#typeFilter").onchange=render; $("#stageFilter").onchange=render;
-  $("#onlyMineBtn").onclick=()=>{onlyMine=!onlyMine;$("#onlyMineBtn").textContent=onlyMine?"✓ 只看我跟进":"只看我跟进";render();};
-  $("#resetBtn").onclick=()=>{$("#searchInput").value="";$("#trackFilter").value="";$("#typeFilter").value="";$("#stageFilter").value="";onlyMine=false;deadlineFilter="";$("#onlyMineBtn").textContent="只看我跟进";render();};
+  $("#onlyMineBtn").onclick=()=>{onlyMine=!onlyMine;$("#onlyMineBtn").textContent=onlyMine?"✓ 只看已标记":"只看已标记";render();};
+  $("#resetBtn").onclick=()=>{$("#searchInput").value="";$("#trackFilter").value="";$("#typeFilter").value="";$("#stageFilter").value="";onlyMine=false;deadlineFilter="";$("#onlyMineBtn").textContent="只看已标记";render();};
   $$(".deadline-card").forEach(btn=>btn.onclick=()=>{deadlineFilter=deadlineFilter===btn.dataset.deadline?"":btn.dataset.deadline;render();});
   $$("[data-close]").forEach(btn=>btn.onclick=()=>document.getElementById(btn.dataset.close).close());
   $("#saveNoteBtn").onclick=async()=>{ if(noteJobId){const ok=await saveState(noteJobId,{note:$("#noteText").value.trim()});if(ok)$("#noteDialog").close();} };
