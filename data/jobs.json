@@ -1839,5 +1839,513 @@
     "note": "",
     "verified": true,
     "auto": false
+  },
+  {
+    "id": "baidu-2027-network-rd",
+    "company": "百度",
+    "companyId": "c0305",
+    "title": "网络研发工程师(J100700)",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "北京",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "计算机、网络、通信等相关专业",
+    "majorTags": [
+      "计算机科学与技术",
+      "网络工程",
+      "通信工程"
+    ],
+    "skills": [
+      "C++",
+      "Python"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "负责超大规模云基础设施网络平台研发，涉及CDN、边缘计算、流量调度、负载均衡、网络协议栈、RDMA、智能网卡及交换机等。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://talent.baidu.com/jobs/list?recommendCode=IVVPGG",
+    "sourceUrl": "https://talent.baidu.com/jobs/list?recommendCode=IVVPGG",
+    "source": "百度官方校园招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "baidu-2027-backend",
+    "company": "百度",
+    "companyId": "c0305",
+    "title": "后端开发工程师(J100737)",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "北京",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "计算机、软件等相关专业",
+    "majorTags": [
+      "计算机科学与技术",
+      "软件工程"
+    ],
+    "skills": [
+      "C++",
+      "Java",
+      "Python"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "负责百度核心产品功能和架构开发、核心技术算法实现与优化、AI大模型能力集成、系统稳定性和性能优化。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://talent.baidu.com/jobs/list?recommendCode=IVVPGG",
+    "sourceUrl": "https://talent.baidu.com/jobs/list?recommendCode=IVVPGG",
+    "source": "百度官方校园招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "baidu-2027-ai-pm",
+    "company": "百度",
+    "companyId": "c0305",
+    "title": "AI产品经理(J100665)",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "北京",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "专业按岗位，重视AI产品思维与数据分析能力",
+    "majorTags": [
+      "计算机科学与技术",
+      "人工智能",
+      "工商管理"
+    ],
+    "skills": [
+      "数据分析"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "负责AI/大模型产品规划、设计与迭代，推动算法、研发、设计协作及产品从0到1落地。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://talent.baidu.com/jobs/list?recommendCode=IVVPGG",
+    "sourceUrl": "https://talent.baidu.com/jobs/list?recommendCode=IVVPGG",
+    "source": "百度官方校园招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "baidu-2027-aidu-agent",
+    "company": "百度",
+    "companyId": "c0305",
+    "title": "2027 AIDU智能体算法工程师",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "北京",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "计算机、人工智能、机器学习等相关专业",
+    "majorTags": [
+      "计算机科学与技术",
+      "人工智能"
+    ],
+    "skills": [
+      "Python",
+      "PyTorch",
+      "大模型"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "负责AI Agent设计研发，包括感知—决策—执行闭环、多智能体协作、长期记忆与推理机制等。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://talent.baidu.com/jobs/list?projectType=3&recruitType=GRADUATE",
+    "sourceUrl": "https://talent.baidu.com/jobs/list?projectType=3&recruitType=GRADUATE",
+    "source": "百度官方AIDU项目",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "zte-2027-ai",
+    "company": "中兴通讯",
+    "companyId": "c142",
+    "title": "AI算法工程师",
+    "unit": "2027校园招聘",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "按岗位",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "计算机、人工智能、数学、通信等相关专业",
+    "majorTags": [
+      "计算机科学与技术",
+      "人工智能",
+      "数学与应用数学",
+      "通信工程"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "PyTorch"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "中兴通讯2027届研发类校园招聘岗位之一，具体职责与专业要求以官方职位详情为准。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "sourceUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "source": "中兴通讯官方2027应届生招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "zte-2027-software",
+    "company": "中兴通讯",
+    "companyId": "c142",
+    "title": "软件开发工程师",
+    "unit": "2027校园招聘",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "按岗位",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "计算机、软件、通信等相关专业",
+    "majorTags": [
+      "计算机科学与技术",
+      "软件工程",
+      "通信工程"
+    ],
+    "skills": [
+      "C++",
+      "Java",
+      "Python"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "中兴通讯2027届研发类校园招聘岗位之一。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "sourceUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "source": "中兴通讯官方2027应届生招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "zte-2027-rf",
+    "company": "中兴通讯",
+    "companyId": "c142",
+    "title": "射频开发工程师",
+    "unit": "2027校园招聘",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "按岗位",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "电子、通信、电磁场等相关专业",
+    "majorTags": [
+      "电子信息工程",
+      "通信工程"
+    ],
+    "skills": [],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "中兴通讯2027届研发类校园招聘岗位之一。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "sourceUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "source": "中兴通讯官方2027应届生招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "zte-2027-ic",
+    "company": "中兴通讯",
+    "companyId": "c142",
+    "title": "IC开发工程师",
+    "unit": "2027校园招聘",
+    "industry": "芯片 / 半导体",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "按岗位",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "微电子、集成电路、电子等相关专业",
+    "majorTags": [
+      "微电子科学与工程",
+      "集成电路设计与集成系统",
+      "电子信息工程"
+    ],
+    "skills": [
+      "Verilog",
+      "FPGA"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "中兴通讯2027届研发类校园招聘岗位之一。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "sourceUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "source": "中兴通讯官方2027应届生招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "zte-2027-scm",
+    "company": "中兴通讯",
+    "companyId": "c142",
+    "title": "供应链管理工程师",
+    "unit": "2027校园招聘",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "按岗位",
+    "degree": "本科 / 硕士",
+    "majorsText": "供应链、物流、工业工程及相关专业",
+    "majorTags": [
+      "供应链管理",
+      "物流管理",
+      "工业工程"
+    ],
+    "skills": [
+      "Excel"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "中兴通讯2027届供应链类校园招聘岗位之一。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "sourceUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "source": "中兴通讯官方2027应届生招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "zte-2027-law",
+    "company": "中兴通讯",
+    "companyId": "c142",
+    "title": "涉外律师",
+    "unit": "2027校园招聘",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "按岗位",
+    "degree": "本科 / 硕士",
+    "majorsText": "法学、国际法等相关专业",
+    "majorTags": [
+      "法学"
+    ],
+    "skills": [
+      "CET-6"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "中兴通讯2027届运营支撑类校园招聘岗位之一。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "sourceUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "source": "中兴通讯官方2027应届生招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "zte-2027-finance",
+    "company": "中兴通讯",
+    "companyId": "c142",
+    "title": "财务经理 / 财务数字化经理",
+    "unit": "2027校园招聘",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "具体岗位",
+    "location": "按岗位",
+    "degree": "本科 / 硕士",
+    "majorsText": "财务、会计、信息管理等相关专业",
+    "majorTags": [
+      "会计学",
+      "财务管理",
+      "信息管理与信息系统"
+    ],
+    "skills": [
+      "Excel",
+      "Power BI"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "中兴通讯2027届运营支撑类校园招聘岗位。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "sourceUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+    "source": "中兴通讯官方2027应届生招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "alibaba-2027-campus",
+    "company": "阿里巴巴",
+    "companyId": "c0315",
+    "title": "2027届应届生招聘",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京、上海、杭州等",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "不限专业；算法、研发、芯片、产品、游戏、运营、商务等按岗位",
+    "majorTags": [
+      "不限专业",
+      "计算机科学与技术",
+      "人工智能",
+      "市场营销"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "Java"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "2027校招面向2026年11月至2027年10月毕业学生，开放算法、研发、芯片、产品、游戏、运营、商务拓展等岗位；集中笔试新增AI Coding题型。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://campus-talent.alibaba.com/?lang=zh",
+    "sourceUrl": "https://career.nankai.edu.cn/correcruit/content/id/116569.html",
+    "source": "阿里巴巴官方投递 / 高校就业网公开简章",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "catl-2027-global",
+    "company": "宁德时代",
+    "companyId": "c132",
+    "title": "2027届全球校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "新能源",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京、上海、浙江、福建、湖北等",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "化学、材料、机械、电气、计算机、AI、数据科学、力学、能源动力、可靠性等",
+    "majorTags": [
+      "化学",
+      "材料科学与工程",
+      "机械设计制造及其自动化",
+      "电气工程及其自动化",
+      "计算机科学与技术",
+      "人工智能",
+      "工程力学",
+      "能源与动力工程"
+    ],
+    "skills": [
+      "Python",
+      "MATLAB",
+      "Abaqus",
+      "ANSYS"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "2027届全球校园招聘开放6大职类、50+业务部门；公开简章称6000+校招Offer，流程为网申、AI面试、在线测评、专业面试、Offer。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://talent.catl.com/",
+    "sourceUrl": "https://career.nankai.edu.cn/correcruit/content/id/116814.html",
+    "source": "宁德时代招聘官网 / 高校就业网公开简章",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "nestle-2027-campus",
+    "company": "雀巢中国",
+    "companyId": "c0395",
+    "title": "2027校园招聘｜多方向管培生",
+    "unit": "2027校园招聘",
+    "industry": "消费 / 零售",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "全国多地，按岗位",
+    "degree": "本科及以上",
+    "majorsText": "多元专业；市场、销售、研发、供应链、财务、人力、跨境电商、技术、医学事务等",
+    "majorTags": [
+      "不限专业",
+      "市场营销",
+      "食品科学与工程",
+      "会计学",
+      "人力资源管理"
+    ],
+    "skills": [
+      "Excel"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-08-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "2027校园招聘面向2026届和2027届本科及以上毕业生，开放市场营销、销售、研发、供应链、财务、人力、集团事务、跨境电商、技术、医学事务等方向。",
+    "process": "网申/投递 → 筛选/测评/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://www.nestle.com.cn/jobs",
+    "sourceUrl": "https://job.hust.edu.cn/zpinfo1/2412001.htm",
+    "source": "雀巢公开招聘 / 华中科技大学就业信息网",
+    "note": "",
+    "verified": true,
+    "auto": false
   }
 ]
