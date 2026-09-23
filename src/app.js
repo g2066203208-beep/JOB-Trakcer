@@ -198,7 +198,7 @@ function renderCompanies(){
   $("#companyResultCount").textContent=rows.length;
   $("#companyGrid").innerHTML=rows.length?rows.map(c=>{
     const n=counts.get(c.name)||0;
-    return '<button class="company-card" data-action="company" data-company="'+esc(c.name)+'"><div class="company-card-head"><span class="company-type">'+esc(c.nature||"待核验")+'</span><span class="company-jobs">'+(n?n+" 条岗位":"待发现")+'</span></div><h3>'+esc(c.name)+'</h3><p>'+esc(c.industry||c.sector||"行业待核验")+'</p><div class="company-tags">'+(c.tags||[]).slice(0,4).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div><div class="company-footer"><span>'+esc(c.sector||"")+'</span><b>查看 →</b></div></button>';
+    return '<article class="company-card"><div class="company-card-head"><span class="company-type">'+esc(c.nature||"待核验")+'</span><span class="company-jobs">'+(n?n+" 条岗位":"待发现")+'</span></div><h3>'+esc(c.name)+'</h3><p>'+esc(c.industry||c.sector||"行业待核验")+'</p><div class="company-tags">'+(c.tags||[]).slice(0,4).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div><div class="company-footer"><span>'+esc(c.sector||"")+'</span><div class="company-actions"><button data-action="company" data-company="'+esc(c.name)+'">岗位</button><button data-action="company-questions" data-company="'+esc(c.name)+'">题库</button></div></div></article>';
   }).join(""):'<div class="empty-state"><b>没有符合条件的企业</b></div>';
 }
 
@@ -435,6 +435,12 @@ function handleClick(e){
   if(a==="scan"){scanNow();return}
   if(a==="industry"){$("#jobIndustry").value=el.dataset.industry;switchView("jobs");return}
   if(a==="company"){$("#jobKeyword").value=el.dataset.company;switchView("jobs");return}
+  if(a==="company-questions"){
+    $("#questionKeyword").value="";
+    $("#questionCompany").value=el.dataset.company;
+    $("#questionCategory").value="公司专项";
+    switchView("questions");return;
+  }
   if(a==="major"){$("#jobMajor").value=el.dataset.major;switchView("jobs");return}
   if(a==="discipline"){selectedDiscipline=el.dataset.discipline;renderMajors();return}
   if(a==="question-company"){
