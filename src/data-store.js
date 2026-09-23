@@ -4,7 +4,8 @@ const DATA_FILES = {
   companies: "./data/companies.json",
   majors: "./data/majors.json",
   industries: "./data/industries.json",
-  skills: "./data/skills.json"
+  skills: "./data/skills.json",
+  questions: "./data/question-bank.json"
 };
 
 async function getJSON(url){
@@ -14,12 +15,13 @@ async function getJSON(url){
 }
 
 export async function loadPlatformData(){
-  const [jobs, companies, majors, industries, skills] = await Promise.all([
+  const [jobs, companies, majors, industries, skills, questionBank] = await Promise.all([
     getJSON(DATA_FILES.jobs),
     getJSON(DATA_FILES.companies),
     getJSON(DATA_FILES.majors),
     getJSON(DATA_FILES.industries),
-    getJSON(DATA_FILES.skills)
+    getJSON(DATA_FILES.skills),
+    getJSON(DATA_FILES.questions)
   ]);
   const scanned = loadScannedJobs();
   const mergedJobs = dedupeJobs([...jobs, ...scanned]);
@@ -41,7 +43,7 @@ export async function loadPlatformData(){
       companyMap.set(c.name,c);
     }
   }
-  return {jobs:mergedJobs, companies:[...companyMap.values()], majors, industries, skills};
+  return {jobs:mergedJobs, companies:[...companyMap.values()], majors, industries, skills, questionBank};
 }
 
 function dedupeJobs(rows){
