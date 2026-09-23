@@ -3,49 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#3157d5">
-<meta name="description" content="2027届土木、能源、风电、CAE、汽车转行校园招聘信息与个人投递管理">
-<title>JobTracker CN · 2027秋招投递地图</title>
+<meta name="theme-color" content="#5b5bd6">
+<meta name="description" content="2027届土木、能源、CAE、汽车转行校园招聘追踪">
+<title>JobTracker · 2027秋招</title>
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 <header class="topbar">
   <div class="brand">
-    <div class="brand-mark">J</div>
-    <div><b>JobTracker CN</b><small>2027 秋招 · 土木 / 能源 / CAE / 转行</small></div>
+    <div class="brand-logo">J</div>
+    <div><b>JobTracker</b><small>2027 秋招信息库</small></div>
   </div>
-  <div class="header-actions">
-    <span id="syncStatus" class="sync-pill">未登录 · 仅浏览</span>
+
+  <nav class="view-tabs">
+    <button id="jobsTab" class="view-tab active">岗位 <span id="jobsTabCount">0</span></button>
+    <button id="companiesTab" class="view-tab">企业库 <span id="companiesTabCount">0</span></button>
+  </nav>
+
+  <div class="top-actions">
+    <a id="scanBtn" class="scan-btn" href="https://github.com/g2066203208-beep/JOB-Trakcer/actions/workflows/auto-discover.yml" target="_blank" rel="noopener" title="打开手动全网扫描控制台">↻ 手动全网扫描</a>
     <button id="themeBtn" class="icon-btn" title="切换主题">◐</button>
-    <button id="loginBtn" class="btn secondary">登录 / 注册</button>
+    <button id="loginBtn" class="btn light">登录</button>
     <div id="userBox" class="user-box hidden">
-      <div><b id="userName"></b><small id="accountMode"></small></div>
-      <button id="logoutBtn" class="btn secondary">退出</button>
+      <span id="userName"></span>
+      <button id="logoutBtn" class="btn light">退出</button>
     </div>
   </div>
 </header>
 
-<main class="page">
-  <section class="hero compact-hero">
-    <div class="hero-copy">
-      <span class="eyebrow">2027 CAMPUS RECRUITMENT</span>
-      <h1>把能投的岗位放在一张表里。</h1>
-      <p>土木本专业、设计院、能源央企、风电新能源、CAE/仿真、汽车机械转行、工程管理、智能建造统一检索。截止日期直接在左侧查看，7天内只做“即将截止”提醒。</p>
+<main class="shell">
+  <section class="intro">
+    <div>
+      <h1 id="viewTitle">岗位库</h1>
+      <p id="viewSubtitle">土木本专业、能源、新能源、CAE、汽车机械转行都放进来。默认隐藏已截止岗位。</p>
     </div>
-    <div class="hero-summary">
-      <span><b id="totalCount">0</b> 岗位</span>
-      <span><b id="companyCount">0</b> 企业</span>
-      <span><b id="appliedCount">—</b> 已申请</span>
-      <span><b id="rejectedCount">—</b> 被拒</span>
+    <div class="quick-stats">
+      <span><b id="totalCount">0</b>岗位</span>
+      <span><b id="companyCount">0</b>企业</span>
+      <span><b id="appliedCount">—</b>已申请</span>
+      <span><b id="rejectedCount">—</b>被拒</span>
     </div>
   </section>
 
-  <section class="panel filter-panel">
-    <div class="filters-main">
-      <label class="search">
-        <span>⌕</span>
-        <input id="searchInput" placeholder="搜索岗位、企业、地区、专业、技能、任职要求……">
-      </label>
+  <section class="toolbar">
+    <label class="search-box">
+      <span>⌕</span>
+      <input id="searchInput" placeholder="搜索企业、岗位、地区、专业、技能、要求……">
+    </label>
+
+    <div id="jobFilters" class="filter-row">
       <select id="trackFilter"><option value="">全部方向</option></select>
       <select id="regionFilter"><option value="">全部地区</option></select>
       <select id="degreeFilter">
@@ -53,77 +59,91 @@
         <option value="本科">本科可投</option>
         <option value="硕士">硕士 / 研究生</option>
         <option value="博士">博士</option>
-        <option value="待核验">学历待核验</option>
       </select>
       <select id="stageFilter">
         <option value="">全部状态</option>
         <option>未申请</option><option>已申请</option><option>被拒</option>
       </select>
-      <select id="sortFilter" title="排序">
+      <select id="sortFilter">
         <option value="deadline-asc">截止最近</option>
         <option value="updated-desc">最新更新</option>
         <option value="company-asc">企业名称</option>
       </select>
-      <button id="moreFiltersBtn" class="btn secondary">更多筛选</button>
-      <button id="resetBtn" class="btn ghost">清空</button>
+      <button id="moreFiltersBtn" class="btn light">筛选</button>
     </div>
 
-    <div id="advancedFilters" class="filters-advanced hidden">
-      <select id="typeFilter">
-        <option value="">全部信息类型</option>
-        <option>具体岗位</option><option>具体方向</option><option>招聘批次</option><option>招聘入口</option><option>方向入口</option><option>转行入口</option><option>转行观察</option><option>自动发现</option>
+    <div id="companyFilters" class="filter-row hidden">
+      <select id="sectorFilter"><option value="">全部行业</option></select>
+      <select id="companyStatusFilter">
+        <option value="">全部企业</option>
+        <option value="hasJobs">已有岗位</option>
+        <option value="pending">待扫描</option>
       </select>
-      <select id="sourceFilter">
-        <option value="">全部来源</option>
-        <option value="verified">官方 / 已核验</option>
-        <option value="unverified">全网发现待核验</option>
+      <select id="companySortFilter">
+        <option value="jobs-desc">岗位多 → 少</option>
+        <option value="name-asc">企业名称</option>
       </select>
-      <label class="check-row"><input id="showExpired" type="checkbox"> 显示已截止</label>
-      <button id="onlyMineBtn" class="btn secondary">只看已标记</button>
     </div>
   </section>
 
-  <section class="panel table-panel">
-    <div class="table-head">
+  <section id="advancedFilters" class="advanced hidden">
+    <label><input id="showExpired" type="checkbox"> 显示已截止</label>
+    <select id="sourceFilter"><option value="">全部来源</option><option value="verified">官方 / 已核验</option><option value="unverified">全网发现待核验</option></select>
+    <select id="typeFilter"><option value="">全部类型</option><option>具体岗位</option><option>具体方向</option><option>招聘批次</option><option>招聘入口</option><option>方向入口</option><option>转行入口</option><option>转行观察</option><option>自动发现</option></select>
+    <button id="onlyMineBtn" class="btn light">只看已标记</button>
+    <button id="resetBtn" class="btn ghost">清空全部</button>
+  </section>
+
+  <section id="jobsView" class="content-card">
+    <div class="content-head">
       <div><b id="resultCount">0</b> 条结果 <span id="filterHint"></span></div>
-      <div class="legend"><span class="legend-dot urgent-dot"></span>7天内即将截止　<span class="legend-dot auto-dot"></span>全网发现待核验</div>
+      <div class="head-note">7天内显示“即将截止” · 点击“截止”排序</div>
     </div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th class="deadline-th"><button id="deadlineSortBtn" class="th-sort">截止 <span id="deadlineArrow">↑</span></button></th>
+            <th><button id="deadlineSortBtn" class="th-btn">截止 <span id="deadlineArrow">↑</span></button></th>
             <th>企业 / 岗位</th>
             <th>地点</th>
             <th>学历 / 专业</th>
-            <th>要求摘要</th>
-            <th>来源 / 投递</th>
+            <th>要求</th>
+            <th>来源</th>
             <th>申请</th>
-            <th>详情</th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="jobRows"></tbody>
       </table>
     </div>
-    <div id="emptyState" class="empty hidden">没有符合当前筛选条件的岗位。</div>
+    <div id="emptyState" class="empty hidden">没有符合条件的岗位。</div>
+  </section>
+
+  <section id="companiesView" class="hidden">
+    <div class="company-overview">
+      <div><b id="companyResultCount">0</b> 家企业</div>
+      <div>企业库会持续扫描；有岗位的直接进入岗位列表，没有的保留为“待扫描”。</div>
+    </div>
+    <div id="companyGrid" class="company-grid"></div>
+    <div id="companyEmpty" class="empty hidden">没有符合条件的企业。</div>
   </section>
 
   <footer>
-    <span>岗位、专业限制、截止时间以企业官方招聘页面最新公告为准；“全网发现”条目投递前请核验原始来源。</span>
-    <span>自动抓取 + 人工精选 · 更新 2026-09-23</span>
+    <span>招聘信息以官方页面最终公告为准；全网发现条目投递前请核验原始来源。</span>
+    <span id="syncStatus">未登录 · 浏览模式</span>
   </footer>
 </main>
 
 <dialog id="detailDialog">
-  <div class="modal detail-modal">
+  <div class="modal">
     <div class="modal-head">
-      <div><span class="eyebrow">JOB DETAIL</span><h2 id="detailTitle"></h2><p id="detailCompany"></p></div>
+      <div><small>岗位详情</small><h2 id="detailTitle"></h2><p id="detailCompany"></p></div>
       <button class="x-btn" data-close="detailDialog">×</button>
     </div>
-    <div id="detailContent" class="detail-content"></div>
+    <div id="detailContent" class="detail-grid"></div>
     <div class="modal-actions">
-      <button id="detailNoteBtn" class="btn secondary">私人备注</button>
-      <a id="detailSource" class="btn secondary" target="_blank" rel="noopener">查看来源</a>
+      <button id="detailNoteBtn" class="btn light">备注</button>
+      <a id="detailSource" class="btn light" target="_blank" rel="noopener">查看来源</a>
       <a id="detailApply" class="btn primary" target="_blank" rel="noopener">去投递 ↗</a>
     </div>
   </div>
@@ -131,30 +151,21 @@
 
 <dialog id="authDialog">
   <form class="modal auth-modal" onsubmit="return false">
-    <div class="modal-head">
-      <div><span class="eyebrow">MY ACCOUNT</span><h2>登录 / 注册</h2><p id="authModeHint"></p></div>
-      <button class="x-btn" data-close="authDialog">×</button>
-    </div>
+    <div class="modal-head"><div><small>账户</small><h2>登录 / 注册</h2><p id="authModeHint"></p></div><button class="x-btn" data-close="authDialog">×</button></div>
     <div class="tabs"><button id="tabLogin" class="tab active">登录</button><button id="tabSignup" class="tab">注册</button></div>
-    <label>邮箱<input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>
+    <label>邮箱<input id="authEmail" type="email" placeholder="you@example.com"></label>
     <label>密码<input id="authPassword" type="password" placeholder="至少 6 位"></label>
     <div id="authMessage" class="form-message"></div>
     <button id="authSubmit" class="btn primary wide">登录</button>
-    <p class="fine" id="authFine"></p>
+    <p id="authFine" class="fine"></p>
   </form>
 </dialog>
 
 <dialog id="noteDialog">
   <form class="modal" onsubmit="return false">
-    <div class="modal-head">
-      <div><span class="eyebrow">PRIVATE NOTE</span><h2 id="noteTitle">私人备注</h2></div>
-      <button class="x-btn" data-close="noteDialog">×</button>
-    </div>
-    <textarea id="noteText" rows="7" placeholder="例如：已投递岗位、联系人、后续事项……"></textarea>
-    <div class="modal-actions">
-      <button id="deleteStateBtn" class="btn danger">删除我的记录</button>
-      <button id="saveNoteBtn" class="btn primary">保存备注</button>
-    </div>
+    <div class="modal-head"><div><small>私人备注</small><h2 id="noteTitle"></h2></div><button class="x-btn" data-close="noteDialog">×</button></div>
+    <textarea id="noteText" rows="7" placeholder="例如：已投哪一岗位、联系人、后续事项……"></textarea>
+    <div class="modal-actions"><button id="deleteStateBtn" class="btn danger">删除记录</button><button id="saveNoteBtn" class="btn primary">保存</button></div>
   </form>
 </dialog>
 
@@ -162,6 +173,7 @@
 <script src="./supabase-config.js"></script>
 <script src="./jobs-data.js"></script>
 <script src="./auto-jobs-data.js"></script>
+<script src="./companies-data.js"></script>
 <script src="./app.js"></script>
 </body>
 </html>
