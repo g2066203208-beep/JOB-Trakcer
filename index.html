@@ -4,181 +4,227 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#5b5bd6">
-<meta name="description" content="2027届土木、能源、CAE、汽车转行校园招聘追踪">
-<title>JobTracker · 2027秋招</title>
-<link rel="stylesheet" href="./styles.css?v=202609231525">
+<meta name="description" content="UniJob AI - 面向所有专业大学生的就业岗位发现、匹配和投递管理平台">
+<title>UniJob AI · 大学生就业平台</title>
+<link rel="stylesheet" href="./styles.css?v=unijob-20260923-v1">
 </head>
 <body>
-<header class="topbar">
-  <div class="brand">
-    <div class="brand-logo">J</div>
-    <div><b>JobTracker</b><small>2027 秋招信息库</small></div>
-  </div>
-
-  <nav class="view-tabs">
-    <button id="jobsTab" class="view-tab active">岗位 <span id="jobsTabCount">0</span></button>
-    <button id="companiesTab" class="view-tab">企业库 <span id="companiesTabCount">0</span></button>
+<header class="site-header">
+  <a class="brand" href="#" data-view-link="home">
+    <span class="brand-mark">U</span>
+    <span><b>UniJob AI</b><small>大学生就业智能平台</small></span>
+  </a>
+  <nav class="main-nav" aria-label="主导航">
+    <button class="nav-item active" data-view-link="home">首页</button>
+    <button class="nav-item" data-view-link="jobs">岗位大厅</button>
+    <button class="nav-item" data-view-link="companies">企业库</button>
+    <button class="nav-item" data-view-link="majors">专业导航</button>
+    <button class="nav-item" data-view-link="my">我的求职</button>
   </nav>
-
-  <div class="top-actions">
-    <button id="scanBtn" class="scan-btn" title="手动启动全网招聘扫描">↻ 手动全网扫描</button>
-    <button id="themeBtn" class="icon-btn" title="切换主题">◐</button>
-    <button id="loginBtn" class="btn light">登录</button>
-    <div id="userBox" class="user-box hidden">
-      <span id="userName"></span>
-      <button id="logoutBtn" class="btn light">退出</button>
-    </div>
+  <div class="header-actions">
+    <button id="scanButton" class="scan-button"><span class="scan-icon">↻</span><span>全网扫描</span></button>
+    <button class="icon-button" id="themeButton" title="切换主题">◐</button>
+    <button class="profile-button" data-action="edit-profile"><span id="profileInitial">我</span><span class="profile-button-text"><b id="profileLabel">设置求职画像</b><small id="profileSub">获得个性化推荐</small></span></button>
   </div>
 </header>
 
-<main class="shell">
-  <section class="intro">
-    <div>
-      <h1 id="viewTitle">岗位库</h1>
-      <p id="viewSubtitle">土木本专业、能源、新能源、CAE、汽车机械转行都放进来。默认隐藏已截止岗位。</p>
+<main class="app-shell">
+  <section id="view-home" class="view active-view">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="hero-kicker">2027 CAMPUS RECRUITMENT</span>
+        <h1>一个网站，找遍大学生能投的工作。</h1>
+        <p>覆盖工学、理学、经管、文法、医学、农学、艺术等专业；聚合企业、岗位、专业要求、地点、截止日期与投递入口。</p>
+        <div class="hero-search">
+          <span>⌕</span>
+          <input id="heroSearch" placeholder="搜企业 / 岗位 / 专业 / 城市 / 技能，例如：上海 Python 管培生">
+          <button data-action="hero-search">找岗位</button>
+        </div>
+        <div class="hero-hints">
+          <button data-quick-search="央企">央企</button>
+          <button data-quick-search="人工智能">人工智能</button>
+          <button data-quick-search="新能源">新能源</button>
+          <button data-quick-search="CAE">CAE仿真</button>
+          <button data-quick-search="管培生">管培生</button>
+          <button data-quick-search="设计院">设计院</button>
+        </div>
+      </div>
+      <aside class="profile-summary">
+        <div class="summary-head"><span>你的求职画像</span><button data-action="edit-profile">编辑</button></div>
+        <div id="profileSummaryContent" class="profile-empty">
+          <b>还没有设置专业</b>
+          <p>填写专业、学历、目标城市和技能后，系统会自动计算岗位匹配度。</p>
+          <button class="secondary-button" data-action="edit-profile">现在设置</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="metrics" aria-label="平台数据">
+      <article><span class="metric-icon">◎</span><div><strong id="metricJobs">0</strong><small>岗位信息</small></div></article>
+      <article><span class="metric-icon">▦</span><div><strong id="metricCompanies">0</strong><small>企业库</small></div></article>
+      <article><span class="metric-icon">⌘</span><div><strong id="metricMajors">0</strong><small>专业覆盖</small></div></article>
+      <article><span class="metric-icon hot">!</span><div><strong id="metricUrgent">0</strong><small>7天内截止</small></div></article>
+    </section>
+
+    <div class="home-grid">
+      <section class="section-card recommendations-card">
+        <div class="section-heading">
+          <div><span class="eyebrow">FOR YOU</span><h2>推荐岗位</h2></div>
+          <button class="text-button" data-view-link="jobs">查看全部 →</button>
+        </div>
+        <div id="recommendationList" class="recommendation-list"></div>
+      </section>
+
+      <section class="section-card scan-card">
+        <div class="section-heading">
+          <div><span class="eyebrow">LIVE DISCOVERY</span><h2>全网岗位发现</h2></div>
+        </div>
+        <div class="scan-illustration">↻</div>
+        <h3>不等岗位自己出现</h3>
+        <p>一键扫描多专业招聘关键词和重点企业，发现新的校招页面后立即加入你的岗位库。</p>
+        <button class="primary-button wide" data-action="scan">立即全网扫描</button>
+        <small id="lastScanText">尚未手动扫描</small>
+      </section>
     </div>
-    <div class="quick-stats">
-      <span><b id="totalCount">0</b>岗位</span>
-      <span><b id="companyCount">0</b>企业</span>
-      <span><b id="appliedCount">—</b>已申请</span>
-      <span><b id="rejectedCount">—</b>被拒</span>
+
+    <section class="section-card">
+      <div class="section-heading">
+        <div><span class="eyebrow">INDUSTRIES</span><h2>按行业找工作</h2></div>
+        <span class="section-note">20 个就业行业</span>
+      </div>
+      <div id="industryGrid" class="industry-grid"></div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-heading">
+        <div><span class="eyebrow">LATEST</span><h2>最新岗位</h2></div>
+        <button class="text-button" data-view-link="jobs">进入岗位大厅 →</button>
+      </div>
+      <div id="latestJobs" class="compact-job-list"></div>
+    </section>
+  </section>
+
+  <section id="view-jobs" class="view">
+    <div class="page-title-row">
+      <div><span class="eyebrow">JOB MARKET</span><h1>岗位大厅</h1><p>从专业、行业、地区和学历出发，找到真正能投的岗位。</p></div>
+      <div class="page-count"><strong id="jobResultCount">0</strong><span>条结果</span></div>
+    </div>
+    <section class="filter-panel">
+      <label class="filter-search"><span>⌕</span><input id="jobKeyword" placeholder="搜索岗位、企业、专业、技能、任职要求"></label>
+      <select id="jobIndustry"><option value="">全部行业</option></select>
+      <select id="jobMajor"><option value="">全部专业</option></select>
+      <select id="jobCity"><option value="">全部地区</option></select>
+      <select id="jobDegree"><option value="">全部学历</option><option>本科</option><option>硕士</option><option>博士</option></select>
+      <select id="jobSort"><option value="match">匹配度优先</option><option value="deadline">截止最近</option><option value="updated">最新更新</option></select>
+      <label class="check-filter"><input id="urgentOnly" type="checkbox"> 7天内截止</label>
+      <button class="ghost-button" data-action="reset-jobs">清空</button>
+    </section>
+    <div class="jobs-layout">
+      <section id="jobList" class="job-list"></section>
+      <aside class="jobs-side">
+        <div class="side-card">
+          <span class="eyebrow">FILTER TIP</span><h3>先选专业，再看行业</h3>
+          <p>“能投”不等于“最匹配”。专业只是第一层，技能和项目经历会进一步影响匹配度。</p>
+          <button class="secondary-button wide" data-action="edit-profile">完善求职画像</button>
+        </div>
+        <div class="side-card">
+          <span class="eyebrow">SCAN</span><h3>没找到想要的？</h3>
+          <p>直接扫描全网招聘页面，把新发现的岗位补进列表。</p>
+          <button class="primary-button wide" data-action="scan">扫描新岗位</button>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section class="toolbar">
-    <label class="search-box">
-      <span>⌕</span>
-      <input id="searchInput" placeholder="搜索企业、岗位、地区、专业、技能、要求……">
-    </label>
-
-    <div id="jobFilters" class="filter-row">
-      <select id="trackFilter"><option value="">全部方向</option></select>
-      <select id="regionFilter"><option value="">全部地区</option></select>
-      <select id="degreeFilter">
-        <option value="">全部学历</option>
-        <option value="本科">本科可投</option>
-        <option value="硕士">硕士 / 研究生</option>
-        <option value="博士">博士</option>
-      </select>
-      <select id="stageFilter">
-        <option value="">全部状态</option>
-        <option>未申请</option><option>已申请</option><option>被拒</option>
-      </select>
-      <select id="sortFilter">
-        <option value="deadline-asc">截止最近</option>
-        <option value="updated-desc">最新更新</option>
-        <option value="company-asc">企业名称</option>
-      </select>
-      <button id="moreFiltersBtn" class="btn light">筛选</button>
+  <section id="view-companies" class="view">
+    <div class="page-title-row">
+      <div><span class="eyebrow">COMPANIES</span><h1>企业库</h1><p>按行业和企业性质浏览目标公司，点击企业直接查看现有岗位。</p></div>
+      <div class="page-count"><strong id="companyResultCount">0</strong><span>家企业</span></div>
     </div>
-
-    <div id="companyFilters" class="filter-row hidden">
-      <select id="sectorFilter"><option value="">全部行业</option></select>
-      <select id="companyStatusFilter">
-        <option value="">全部企业</option>
-        <option value="hasJobs">已有岗位</option>
-        <option value="pending">待扫描</option>
-      </select>
-      <select id="companySortFilter">
-        <option value="jobs-desc">岗位多 → 少</option>
-        <option value="name-asc">企业名称</option>
-      </select>
-    </div>
-  </section>
-
-  <section id="advancedFilters" class="advanced hidden">
-    <label><input id="showExpired" type="checkbox"> 显示已截止</label>
-    <select id="sourceFilter"><option value="">全部来源</option><option value="verified">官方 / 已核验</option><option value="unverified">全网发现待核验</option></select>
-    <select id="typeFilter"><option value="">全部类型</option><option>具体岗位</option><option>具体方向</option><option>招聘批次</option><option>招聘入口</option><option>方向入口</option><option>转行入口</option><option>转行观察</option><option>自动发现</option></select>
-    <button id="onlyMineBtn" class="btn light">只看已标记</button>
-    <button id="resetBtn" class="btn ghost">清空全部</button>
-  </section>
-
-  <section id="jobsView" class="content-card">
-    <div class="content-head">
-      <div><b id="resultCount">0</b> 条结果 <span id="filterHint"></span></div>
-      <div class="head-note">7天内显示“即将截止” · 点击“截止”排序</div>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th><button id="deadlineSortBtn" class="th-btn">截止 <span id="deadlineArrow">↑</span></button></th>
-            <th>企业 / 岗位</th>
-            <th>地点</th>
-            <th>学历 / 专业</th>
-            <th>要求</th>
-            <th>来源</th>
-            <th>申请</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="jobRows"></tbody>
-      </table>
-    </div>
-    <div id="emptyState" class="empty hidden">没有符合条件的岗位。</div>
-  </section>
-
-  <section id="companiesView" class="hidden">
-    <div class="company-overview">
-      <div><b id="companyResultCount">0</b> 家企业</div>
-      <div><span id="scanMeta">尚未完成自动扫描</span> · 企业库会持续补岗位</div>
-    </div>
+    <section class="filter-panel company-filters">
+      <label class="filter-search"><span>⌕</span><input id="companyKeyword" placeholder="搜索企业、行业、标签"></label>
+      <select id="companyIndustry"><option value="">全部行业</option></select>
+      <select id="companyNature"><option value="">全部性质</option><option>央国企</option><option>待核验</option></select>
+      <select id="companyJobState"><option value="">全部企业</option><option value="has">已有岗位</option><option value="none">待发现岗位</option></select>
+    </section>
     <div id="companyGrid" class="company-grid"></div>
-    <div id="companyEmpty" class="empty hidden">没有符合条件的企业。</div>
   </section>
 
-  <footer>
-    <span>招聘信息以官方页面最终公告为准；全网发现条目投递前请核验原始来源。</span>
-    <span id="syncStatus">未登录 · 浏览模式</span>
-  </footer>
+  <section id="view-majors" class="view">
+    <div class="page-title-row">
+      <div><span class="eyebrow">MAJOR MAP</span><h1>专业就业导航</h1><p>覆盖 12 个学科门类、150+ 常见本科专业，快速进入对应岗位。</p></div>
+      <div class="page-count"><strong id="majorCount">0</strong><span>个专业</span></div>
+    </div>
+    <div id="disciplineTabs" class="discipline-tabs"></div>
+    <div id="majorGrid" class="major-grid"></div>
+  </section>
+
+  <section id="view-my" class="view">
+    <div class="page-title-row">
+      <div><span class="eyebrow">MY CAREER</span><h1>我的求职</h1><p>管理求职画像、收藏和投递记录。</p></div>
+      <button class="primary-button" data-action="edit-profile">编辑求职画像</button>
+    </div>
+    <div class="my-grid">
+      <section class="section-card" id="myProfileCard"></section>
+      <section class="section-card">
+        <div class="section-heading"><div><h2>我的数据</h2></div></div>
+        <div class="my-stats">
+          <article><strong id="myFavCount">0</strong><span>收藏</span></article>
+          <article><strong id="myAppliedCount">0</strong><span>已申请</span></article>
+          <article><strong id="myRejectedCount">0</strong><span>被拒</span></article>
+        </div>
+      </section>
+    </div>
+    <section class="section-card">
+      <div class="section-heading">
+        <div><h2>我的岗位</h2></div>
+        <div class="segmented"><button class="active" data-my-filter="all">全部</button><button data-my-filter="favorite">收藏</button><button data-my-filter="applied">已申请</button><button data-my-filter="rejected">被拒</button></div>
+      </div>
+      <div id="myJobList" class="compact-job-list"></div>
+    </section>
+  </section>
 </main>
 
-<div id="scanToast" class="scan-toast hidden">
-  <div class="scan-spinner"></div>
-  <div><b id="scanToastTitle">正在全网扫描</b><span id="scanToastText">准备中…</span></div>
+<div id="scanToast" class="toast hidden">
+  <span class="toast-spinner"></span>
+  <div><b id="scanToastTitle">正在扫描</b><small id="scanToastText">准备中…</small></div>
 </div>
 
-<dialog id="detailDialog">
-  <div class="modal">
+<dialog id="profileDialog">
+  <form class="modal" id="profileForm">
     <div class="modal-head">
-      <div><small>岗位详情</small><h2 id="detailTitle"></h2><p id="detailCompany"></p></div>
-      <button class="x-btn" data-close="detailDialog">×</button>
+      <div><span class="eyebrow">CAREER PROFILE</span><h2>设置求职画像</h2><p>信息只保存在当前浏览器；后续接入云账号后可跨设备同步。</p></div>
+      <button type="button" class="close-button" data-close-dialog="profileDialog">×</button>
     </div>
-    <div id="detailContent" class="detail-grid"></div>
+    <div class="form-grid">
+      <label>学校<input id="profileSchool" placeholder="例如：武汉理工大学"></label>
+      <label>学历<select id="profileDegree"><option value="">请选择</option><option>本科</option><option>硕士</option><option>博士</option></select></label>
+      <label class="full">专业<input id="profileMajor" list="majorDatalist" placeholder="输入或选择专业"><datalist id="majorDatalist"></datalist></label>
+      <label>毕业年份<input id="profileYear" inputmode="numeric" placeholder="2027"></label>
+      <label>目标城市<input id="profileCities" placeholder="上海, 深圳, 武汉"></label>
+      <label class="full">目标行业<input id="profileIndustries" placeholder="新能源, 汽车 / 智能驾驶, 互联网 / AI"></label>
+      <label class="full">技能<input id="profileSkills" placeholder="Python, C++, Abaqus, Excel"></label>
+    </div>
+    <div class="modal-actions"><button type="button" class="ghost-button" data-close-dialog="profileDialog">取消</button><button type="submit" class="primary-button">保存画像</button></div>
+  </form>
+</dialog>
+
+<dialog id="jobDialog">
+  <div class="modal job-modal">
+    <div class="modal-head">
+      <div><span class="eyebrow">JOB DETAIL</span><h2 id="jobDialogTitle"></h2><p id="jobDialogCompany"></p></div>
+      <button type="button" class="close-button" data-close-dialog="jobDialog">×</button>
+    </div>
+    <div id="jobDialogBody"></div>
     <div class="modal-actions">
-      <button id="detailNoteBtn" class="btn light">备注</button>
-      <a id="detailSource" class="btn light" target="_blank" rel="noopener">查看来源</a>
-      <a id="detailApply" class="btn primary" target="_blank" rel="noopener">去投递 ↗</a>
+      <button id="jobDialogFavorite" class="secondary-button" data-action="favorite-detail">☆ 收藏</button>
+      <button id="jobDialogApplied" class="secondary-button" data-action="status-detail" data-status="已申请">✓ 已申请</button>
+      <button id="jobDialogRejected" class="secondary-button" data-action="status-detail" data-status="被拒">✕ 被拒</button>
+      <a id="jobDialogApplyLink" class="primary-button" target="_blank" rel="noopener">去投递 ↗</a>
     </div>
   </div>
 </dialog>
 
-<dialog id="authDialog">
-  <form class="modal auth-modal" onsubmit="return false">
-    <div class="modal-head"><div><small>账户</small><h2>登录 / 注册</h2><p id="authModeHint"></p></div><button class="x-btn" data-close="authDialog">×</button></div>
-    <div class="tabs"><button id="tabLogin" class="tab active">登录</button><button id="tabSignup" class="tab">注册</button></div>
-    <label>邮箱<input id="authEmail" type="email" placeholder="you@example.com"></label>
-    <label>密码<input id="authPassword" type="password" placeholder="至少 6 位"></label>
-    <div id="authMessage" class="form-message"></div>
-    <button id="authSubmit" class="btn primary wide">登录</button>
-    <p id="authFine" class="fine"></p>
-  </form>
-</dialog>
-
-<dialog id="noteDialog">
-  <form class="modal" onsubmit="return false">
-    <div class="modal-head"><div><small>私人备注</small><h2 id="noteTitle"></h2></div><button class="x-btn" data-close="noteDialog">×</button></div>
-    <textarea id="noteText" rows="7" placeholder="例如：已投哪一岗位、联系人、后续事项……"></textarea>
-    <div class="modal-actions"><button id="deleteStateBtn" class="btn danger">删除记录</button><button id="saveNoteBtn" class="btn primary">保存</button></div>
-  </form>
-</dialog>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="./supabase-config.js"></script>
-<script src="./jobs-data.js?v=202609231525"></script>
-<script src="./auto-jobs-data.js?v=202609231525"></script>
-<script src="./companies-data.js?v=202609231525"></script>
-<script src="./app.js?v=202609231525"></script>
+<script type="module" src="./src/app.js?v=unijob-20260923-v1"></script>
 </body>
 </html>
