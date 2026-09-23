@@ -162,45 +162,61 @@
 
   <section id="view-questions" class="view">
     <div class="page-title-row">
-      <div><span class="eyebrow">INTERVIEW & TEST BANK</span><h1>笔面试题库</h1><p>公司专项 + 通用大题库。公开面经题会做主题改写，不冒充官方真题。</p></div>
-      <div class="page-count"><strong id="questionCount">0</strong><span>道练习题</span></div>
-    </div>
-
-    <section class="question-hero">
-      <div>
-        <span class="eyebrow">COMPANY PREP</span>
-        <h2>先选公司，再刷高频题型</h2>
-        <p>每家公司展示招聘流程、公开来源、常见考察主题和练习题。银行等官方明确没有授权题库的企业会标注“练习题非官方真题”。</p>
+      <div><span class="eyebrow">COMPANY EXAM BANK</span><h1>企业笔试面试题库</h1><p>按企业准备，不再随机刷题。每家公司汇总笔试、计算题、编程题、专业题、技术面、项目面、HR/行为面与公开流程来源。</p></div>
+      <div class="question-stats">
+        <div class="page-count"><strong id="questionCompanyCount">0</strong><span>家企业</span></div>
+        <div class="page-count"><strong id="questionCount">0</strong><span>基础题</span></div>
       </div>
-      <button id="randomPracticeBtn" class="primary-button">随机刷 20 题</button>
-    </section>
-
-    <section class="filter-panel question-filters">
-      <label class="filter-search"><span>⌕</span><input id="questionKeyword" placeholder="搜索公司、题目、知识点，例如：华为 TCP / 德勤 群面"></label>
-      <select id="questionCompany"><option value="">全部公司</option></select>
-      <select id="questionCategory"><option value="">全部题类</option></select>
-      <select id="questionType"><option value="">全部形式</option><option>笔试</option><option>面试</option><option>项目面</option><option>技术面</option><option>行为面</option><option>HR面</option><option>AI面</option><option>群面</option><option>案例</option><option>在线测评</option></select>
-      <select id="questionSort"><option value="company">公司专项优先</option><option value="category">题类排序</option><option value="random">随机</option></select>
-    </section>
-
-    <div class="question-layout">
-      <aside class="question-sidebar">
-        <div class="side-card">
-          <span class="eyebrow">COMPANY KITS</span>
-          <h3>企业专项准备包</h3>
-          <div id="companyKitList" class="company-kit-list"></div>
-        </div>
-        <div class="side-card">
-          <span class="eyebrow">SOURCE RULE</span>
-          <h3>题库来源规则</h3>
-          <p>官方页面用于确认招聘流程；公开面经用于提炼高频考察主题。题目会重新表述，不复制付费题库或冒充“内部真题”。</p>
-        </div>
-      </aside>
-      <section>
-        <div id="questionBankMeta" class="question-bank-meta"></div>
-        <div id="questionList" class="question-list"></div>
-      </section>
     </div>
+
+    <section id="questionCompanyBrowser">
+      <section class="question-company-toolbar">
+        <label class="filter-search"><span>⌕</span><input id="questionCompanySearch" placeholder="搜索企业，例如：华为 / 比亚迪 / 国家电网 / 德勤"></label>
+        <select id="questionIndustry"><option value="">全部行业</option></select>
+        <select id="questionCoverage"><option value="">全部企业</option><option value="sourced">有公开面经/流程来源</option><option value="simulated">行业岗位模拟题库</option></select>
+      </section>
+      <div class="question-browser-note">
+        <b>先选企业</b>
+        <span>有公开可核验面经的企业显示“公开来源”；其余企业会按行业、岗位和专业生成对应练习题，并明确标注“模拟题”，不会冒充历史真题。</span>
+      </div>
+      <div id="questionCompanyGrid" class="question-company-grid"></div>
+    </section>
+
+    <section id="questionCompanyDetail" class="hidden">
+      <div class="question-detail-head">
+        <button class="ghost-button" data-action="back-question-companies">← 返回企业列表</button>
+        <div class="question-detail-title">
+          <span class="eyebrow">COMPANY PREP</span>
+          <h2 id="selectedQuestionCompany">企业题库</h2>
+          <p id="selectedQuestionCompanyMeta"></p>
+        </div>
+        <div class="question-detail-count"><strong id="selectedQuestionCount">0</strong><span>道本企业练习题</span></div>
+      </div>
+
+      <div id="questionBankMeta" class="question-bank-meta"></div>
+
+      <section class="question-detail-toolbar">
+        <label class="filter-search"><span>⌕</span><input id="questionKeyword" placeholder="在该企业题库中搜索：计算 / 算法 / CAE / 财务 / 项目 / HR"></label>
+        <div id="questionModeTabs" class="question-mode-tabs">
+          <button class="active" data-question-mode="all">全部</button>
+          <button data-question-mode="written">笔试</button>
+          <button data-question-mode="calculation">计算题</button>
+          <button data-question-mode="coding">编程题</button>
+          <button data-question-mode="technical">技术/专业面</button>
+          <button data-question-mode="behavior">项目/行为/HR</button>
+        </div>
+      </section>
+
+      <section class="question-section-block">
+        <div class="question-section-title"><div><span class="eyebrow">WRITTEN TEST</span><h2>笔试题</h2></div><span id="writtenQuestionCount">0</span></div>
+        <div id="writtenQuestionList" class="question-list"></div>
+      </section>
+
+      <section class="question-section-block">
+        <div class="question-section-title"><div><span class="eyebrow">INTERVIEW</span><h2>面试题</h2></div><span id="interviewQuestionCount">0</span></div>
+        <div id="interviewQuestionList" class="question-list"></div>
+      </section>
+    </section>
   </section>
 
   <section id="view-my" class="view">
