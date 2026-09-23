@@ -4599,5 +4599,149 @@
     "careerUrl": "",
     "website": "",
     "description": ""
+  },
+  {
+    "id": "c0305",
+    "name": "百度",
+    "industry": "互联网 / AI",
+    "sector": "互联网/AI",
+    "tags": [
+      "AI",
+      "搜索",
+      "云"
+    ],
+    "nature": "民企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0306",
+    "name": "字节跳动",
+    "industry": "互联网 / AI",
+    "sector": "互联网/AI",
+    "tags": [
+      "AI",
+      "产品",
+      "内容"
+    ],
+    "nature": "民企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0307",
+    "name": "中国银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "tags": [
+      "银行",
+      "金融",
+      "科技"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0308",
+    "name": "中国工商银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "tags": [
+      "银行",
+      "金融",
+      "科技"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0309",
+    "name": "德勤中国",
+    "industry": "金融 / 保险",
+    "sector": "专业服务",
+    "tags": [
+      "审计",
+      "税务",
+      "咨询"
+    ],
+    "nature": "外企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0310",
+    "name": "普华永道中国",
+    "industry": "金融 / 保险",
+    "sector": "专业服务",
+    "tags": [
+      "审计",
+      "咨询",
+      "税务"
+    ],
+    "nature": "外企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0311",
+    "name": "万华化学",
+    "industry": "化工 / 材料",
+    "sector": "化工新材料",
+    "tags": [
+      "化工",
+      "材料",
+      "制造"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0312",
+    "name": "恒瑞医药",
+    "industry": "医药 / 医疗",
+    "sector": "生物医药",
+    "tags": [
+      "医药",
+      "研发",
+      "临床"
+    ],
+    "nature": "民企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0313",
+    "name": "腾讯音乐娱乐集团",
+    "industry": "互联网 / AI",
+    "sector": "互联网娱乐",
+    "tags": [
+      "技术",
+      "产品",
+      "设计"
+    ],
+    "nature": "民企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
   }
 ]
