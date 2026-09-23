@@ -810,6 +810,302 @@
           "difficulty": "中等"
         }
       ]
+    },
+    {
+      "company": "阿里巴巴",
+      "process": "2027校招覆盖算法、研发、芯片、产品、游戏、运营、商务等岗位；公开校招信息显示集中笔试新增AI Coding题型。技术面通常会围绕项目、基础知识、算法与AI实践深挖。",
+      "sources": [
+        {
+          "label": "阿里巴巴2027校园招聘公开简章",
+          "url": "https://career.nankai.edu.cn/correcruit/content/id/116569.html",
+          "type": "public"
+        },
+        {
+          "label": "牛客阿里巴巴集团面经",
+          "url": "https://www.nowcoder.com/enterprise/134/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c12-1",
+          "type": "项目面",
+          "question": "挑一个最复杂的项目，说明你的架构选择、关键权衡和最终效果。",
+          "answerPoints": "不要只说做了什么，要解释为什么这样设计、如何验证。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c12-2",
+          "type": "AI",
+          "question": "Agent执行线上写操作时，如何控制权限、回滚和误操作风险？",
+          "answerPoints": "最小权限、审批/确认、幂等、审计日志、回滚。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c12-3",
+          "type": "AI",
+          "question": "大模型评测无法完全用确定性指标衡量时，你会如何建立评测体系？",
+          "answerPoints": "自动指标+人工评审+任务集+线上反馈，多层评测。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c12-4",
+          "type": "算法",
+          "question": "设计一个高效方案，在海量日志中找出Top-K高频元素。",
+          "answerPoints": "哈希计数+堆，讨论流式/分布式场景。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c12-5",
+          "type": "系统",
+          "question": "缓存、消息队列和数据库在高并发系统中分别解决什么问题？",
+          "answerPoints": "读性能、异步解耦/削峰、持久一致性。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c12-6",
+          "type": "编程",
+          "question": "AI Coding题中如何证明自己的代码不仅能跑，还足够可靠？",
+          "answerPoints": "边界用例、复杂度、异常处理、测试。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c12-7",
+          "type": "行为面",
+          "question": "讲一次你推翻原方案重新设计的经历。",
+          "answerPoints": "证据、决策、沟通、结果。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c12-8",
+          "type": "HR面",
+          "question": "为什么选择阿里及当前业务，而不是只因为平台大？",
+          "answerPoints": "业务理解、岗位匹配、成长方向。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "腾讯",
+      "process": "公开2027校招信息显示流程大致为网申→在线测评→面试→Offer，岗位覆盖技术、产品、设计、市场、职能，AI相关岗位明显增加。",
+      "sources": [
+        {
+          "label": "腾讯2027校招公开信息",
+          "url": "https://www.nowcoder.com/feed/main/detail/579a203490e447309abd659eeac5f9a9?sourceSSR=subject",
+          "type": "community"
+        },
+        {
+          "label": "腾讯校园招聘官网",
+          "url": "https://join.qq.com/",
+          "type": "official"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c13-1",
+          "type": "项目面",
+          "question": "介绍一个你真正负责核心部分的项目，最难的问题是什么？",
+          "answerPoints": "个人贡献、关键技术、结果与复盘。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c13-2",
+          "type": "AI",
+          "question": "如果用大模型做一个真实业务功能，你怎样防止错误答案直接影响用户？",
+          "answerPoints": "检索/规则、置信度、审核、兜底、监控。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c13-3",
+          "type": "算法",
+          "question": "给定一个超大数组，如何寻找第K大元素？",
+          "answerPoints": "快速选择平均O(n)，或堆；讨论数据规模。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c13-4",
+          "type": "计算机",
+          "question": "TCP拥塞控制和流量控制分别解决什么问题？",
+          "answerPoints": "网络拥塞 vs 接收端处理能力。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c13-5",
+          "type": "系统",
+          "question": "高并发服务如何处理热点Key？",
+          "answerPoints": "分片、多级缓存、单飞、限流与降级。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c13-6",
+          "type": "产品",
+          "question": "AI功能上线后使用率高但次日留存低，你会怎么查？",
+          "answerPoints": "人群、场景、价值、质量、漏斗、回访。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c13-7",
+          "type": "行为面",
+          "question": "讲一次你快速学习陌生工具并形成真实产出的经历。",
+          "answerPoints": "学习路径、应用、验证和成果。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c13-8",
+          "type": "HR面",
+          "question": "你如何理解‘会用AI’和‘能对AI输出负责’的区别？",
+          "answerPoints": "验证、判断、责任边界。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "普华永道中国",
+      "process": "官方学生招聘页面提供2027年秋季入职校园招聘；公开流程通常包含在线测评、视频面试及部分业务线Superday/终面。",
+      "sources": [
+        {
+          "label": "普华永道中国官方学生招聘",
+          "url": "https://www.pwccn.com/zh/careers/students.html",
+          "type": "official"
+        },
+        {
+          "label": "牛客普华永道面试题库",
+          "url": "https://www.nowcoder.com/enterprise/1786/question/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c14-1",
+          "type": "在线测评",
+          "question": "资料分析题中营业收入上涨但利润率下降，可能有哪些原因？",
+          "answerPoints": "价格、产品结构、成本、费用、一次性因素。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c14-2",
+          "type": "群面",
+          "question": "团队拿到一个企业数字化转型案例，你会怎样快速建立分析框架？",
+          "answerPoints": "目标、客户、流程、数据、技术、财务、实施。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c14-3",
+          "type": "审计",
+          "question": "为什么应收账款函证能提供重要审计证据？",
+          "answerPoints": "外部独立证据、存在性/权利义务等。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c14-4",
+          "type": "审计",
+          "question": "收入确认为什么常被视为高风险领域？",
+          "answerPoints": "管理层动机、截止性、履约义务、估计。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c14-5",
+          "type": "咨询",
+          "question": "客户利润下降但收入增长，你首先拆哪些变量？",
+          "answerPoints": "毛利、费用、渠道、客户、产品、区域。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c14-6",
+          "type": "行为面",
+          "question": "讲一次你处理大量数据并发现异常的经历。",
+          "answerPoints": "数据口径、核验、异常定位、结论。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c14-7",
+          "type": "英文面",
+          "question": "Please explain why you want to join this service line.",
+          "answerPoints": "业务理解+个人经历+职业目标，控制在1-2分钟。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c14-8",
+          "type": "合伙人面",
+          "question": "如果高强度项目与个人计划冲突，你会如何管理？",
+          "answerPoints": "优先级、沟通、交付承诺和可持续边界。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "毕马威中国",
+      "process": "公开面经常见群面/案例讨论与经理或合伙人单面，审计岗位会深挖审计理解、实习经历、Why KPMG及工作强度接受度；具体批次流程以官方通知为准。",
+      "sources": [
+        {
+          "label": "毕马威中国校园招聘",
+          "url": "https://kpmg.com/cn/zh/careers/campus.html",
+          "type": "official"
+        },
+        {
+          "label": "牛客毕马威面经",
+          "url": "https://www.nowcoder.com/enterprise/2070/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c15-1",
+          "type": "群面",
+          "question": "8人小组面对商业案例时，你如何既贡献观点又不抢话？",
+          "answerPoints": "先框架、倾听、补充证据、推进共识和时间管理。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c15-2",
+          "type": "审计",
+          "question": "审计和企业内部财务工作的核心区别是什么？",
+          "answerPoints": "独立鉴证、证据、职业判断 vs 企业内部经营核算。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c15-3",
+          "type": "审计",
+          "question": "如果发现客户提供的资料前后矛盾，你怎么处理？",
+          "answerPoints": "保留证据、扩大程序、沟通、升级汇报。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c15-4",
+          "type": "审计",
+          "question": "什么情况下需要保持更高程度的职业怀疑？",
+          "answerPoints": "重大估计、舞弊风险、异常交易、管理层偏差。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c15-5",
+          "type": "行为面",
+          "question": "评价一次你在群面或团队协作中的表现。",
+          "answerPoints": "既说贡献，也承认可以改进处。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c15-6",
+          "type": "英文面",
+          "question": "Please introduce an internship challenge and how you solved it.",
+          "answerPoints": "STAR，突出行动与结果。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c15-7",
+          "type": "经理面",
+          "question": "为什么选择审计而不是企业财务或金融岗位？",
+          "answerPoints": "工作内容、学习曲线、行业理解和长期目标。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c15-8",
+          "type": "合伙人面",
+          "question": "为什么是KPMG？如果没有拿到Offer你会怎么办？",
+          "answerPoints": "公司理解+真实求职逻辑+成熟心态。",
+          "difficulty": "中等"
+        }
+      ]
     }
   ],
   "generalBank": [
