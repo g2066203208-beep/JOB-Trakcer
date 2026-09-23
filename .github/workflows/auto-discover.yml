@@ -2,6 +2,10 @@ name: Auto discover recruitment jobs
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "crawler/**"
+      - ".github/workflows/auto-discover.yml"
   schedule:
     - cron: "15 8 * * *"
       timezone: "Asia/Shanghai"
