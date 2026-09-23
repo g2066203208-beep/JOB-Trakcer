@@ -100,7 +100,7 @@ function populateControls(){
   $("#majorCount").textContent=data.majors.filter(m=>m.name!=="不限专业").length;
 
   const qb=data.questionBank||{companyKits:[],generalBank:[]};
-  $("#questionCompany").innerHTML='<option value="">全部公司</option>'+(qb.companyKits||[]).map(k=>'<option>'+esc(k.company)+'</option>').join("");
+  $("#questionCompany").innerHTML='<option value="">全部公司</option>'+data.companies.slice().sort((a,b)=>a.name.localeCompare(b.name,"zh")).map(k=>'<option>'+esc(k.name)+'</option>').join("");
   const cats=Array.from(new Set((qb.generalBank||[]).map(q=>q.category))).sort((a,b)=>a.localeCompare(b,"zh"));
   $("#questionCategory").innerHTML='<option value="">全部题类</option><option value="公司专项">公司专项</option>'+cats.map(x=>'<option>'+esc(x)+'</option>').join("");
   $("#questionCount").textContent=(qb.generalBank||[]).length+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0);
@@ -212,6 +212,48 @@ function renderMajors(){
 }
 
 
+
+function companyPracticeCategories(company){
+  const co=data.companies.find(x=>x.name===company);
+  const industry=(co&&co.industry)||"";
+  const map=[
+    [/互联网|软件|AI/ ,["计算机 / AI","产品 / 运营 / 市场","通用行为面试"]],
+    [/芯片|半导体|电子/ ,["半导体 / 电子","计算机 / AI","通用行为面试"]],
+    [/汽车|机械|装备|轨道|航空|船舶/ ,["机械 / CAE","通用行为面试"]],
+    [/新能源|能源|电力/ ,["电气 / 能源","机械 / CAE","通用行为面试"]],
+    [/建筑|基建|设计|工程咨询/ ,["土木 / 结构","机械 / CAE","通用行为面试"]],
+    [/金融|保险/ ,["金融 / 银行","财会 / 咨询","通用行为面试"]],
+    [/医药|医疗|化工|材料/ ,["医药 / 化工","通用行为面试"]],
+    [/消费|零售|教育|文化|农林|食品/ ,["产品 / 运营 / 市场","通用行为面试"]]
+  ];
+  const hit=map.find(x=>x[0].test(industry));
+  return hit?hit[1]:["通用行为面试","行测 / 逻辑"];
+}
+function generateCompanyPractice(company){
+  if(!company)return[];
+  const qb=data.questionBank||{generalBank:[]};
+  const cats=companyPracticeCategories(company);
+  const jobsFor=data.jobs.filter(j=>j.company===company);
+  const selected=(qb.generalBank||[]).filter(q=>cats.includes(q.category)).slice(0,22).map(q=>Object.assign({},q,{
+    id:"sim-"+company+"-"+q.id,
+    company,
+    category:"公司模拟",
+    companyQuestion:true,
+    simulated:true,
+    sourceLabel:"按行业/岗位生成"
+  }));
+  // If this company has jobs, prefer questions whose terms overlap with job requirements.
+  if(jobsFor.length){
+    const text=jobsFor.map(jobText).join(" ");
+    selected.sort((a,b)=>{
+      const aw=(a.question+" "+a.answerPoints).toLowerCase().split(/\s+/).filter(x=>x.length>2).filter(x=>text.includes(x)).length;
+      const bw=(b.question+" "+b.answerPoints).toLowerCase().split(/\s+/).filter(x=>x.length>2).filter(x=>text.includes(x)).length;
+      return bw-aw;
+    });
+  }
+  return selected.slice(0,18);
+}
+
 function allQuestions(){
   const qb=data.questionBank||{companyKits:[],generalBank:[]};
   const company=(qb.companyKits||[]).flatMap(k=>(k.questions||[]).map(q=>Object.assign({},q,{
@@ -225,14 +267,20 @@ function allQuestions(){
 function filteredQuestions(){
   const q=$("#questionKeyword").value.trim().toLowerCase();
   const company=$("#questionCompany").value,category=$("#questionCategory").value,type=$("#questionType").value,sort=$("#questionSort").value;
-  let rows=allQuestions().filter(x=>{
+  let pool=allQuestions();
+  const hasExact=(data.questionBank?.companyKits||[]).some(k=>k.company===company);
+  if(company){
+    if(hasExact) pool=pool.concat(generateCompanyPractice(company));
+    else pool=generateCompanyPractice(company);
+  }
+  let rows=pool.filter(x=>{
     const text=[x.company,x.category,x.type,x.question,x.answerPoints].join(" ").toLowerCase();
     return (!q||q.split(/\s+/).every(k=>text.includes(k)))
       &&(!company||x.company===company)
-      &&(!category||x.category===category)
+      &&(!category||x.category===category||(category==="公司专项"&&x.category==="公司模拟"))
       &&(!type||x.type===type);
   });
-  if(sort==="company")rows.sort((a,b)=>(b.companyQuestion-a.companyQuestion)||String(a.company||a.category).localeCompare(String(b.company||b.category),"zh"));
+  if(sort==="company")rows.sort((a,b)=>(Number(b.companyQuestion)-Number(a.companyQuestion))||String(a.company||a.category).localeCompare(String(b.company||b.category),"zh"));
   if(sort==="category")rows.sort((a,b)=>String(a.category).localeCompare(String(b.category),"zh")||String(a.type).localeCompare(String(b.type),"zh"));
   if(sort==="random")rows=rows.slice().sort(()=>Math.random()-.5);
   return rows;
@@ -253,6 +301,9 @@ function renderQuestions(){
     if(kit){
       const links=(kit.sources||[]).map(s=>'<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.label)+' ↗</a>').join("");
       $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">COMPANY GUIDE</span><h3>'+esc(kit.company)+'</h3><p>'+esc(kit.process||"")+'</p></div><div class="source-links">'+links+'</div></div>';
+    }else{
+      const co=data.companies.find(x=>x.name===selectedCompany);
+      $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">COMPANY PRACTICE</span><h3>'+esc(selectedCompany)+'</h3><p>暂未收录可核验的该公司历史笔面经，先根据 '+esc((co&&co.industry)||"岗位方向")+' 和现有岗位要求生成练习题。以下题目是模拟准备题，不冒充该公司历史原题。</p></div><div class="source-links"><span>后续扫描到公开面经后会自动升级为公司专项包</span></div></div>';
     }
   }else{
     $("#questionBankMeta").innerHTML='<div class="question-bank-summary"><b>题库共 '+total+' 道</b><span>公司专项 '+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0)+' 道 · 通用分类 '+(qb.generalBank||[]).length+' 道</span></div>';
@@ -261,7 +312,7 @@ function renderQuestions(){
   const rows=filteredQuestions();
   $("#questionList").innerHTML=rows.length?rows.slice(0,300).map((x,i)=>{
     const badge=x.company?x.company:x.category;
-    const src=x.companyQuestion?'<span class="question-source">公开流程/面经改写</span>':'<span class="question-source">通用练习</span>';
+    const src=x.simulated?'<span class="question-source">岗位模拟题</span>':(x.companyQuestion?'<span class="question-source">公开流程/面经改写</span>':'<span class="question-source">通用练习</span>');
     return '<article class="question-card"><div class="question-num">'+String(i+1).padStart(2,"0")+'</div><div class="question-main"><div class="question-labels"><span>'+esc(badge)+'</span><span>'+esc(x.type||"练习")+'</span>'+src+'</div><h3>'+esc(x.question)+'</h3><div class="answer-panel hidden" id="answer-'+esc(x.id)+'"><b>答题要点</b><p>'+esc(x.answerPoints||"结合岗位和个人经历作答。")+'</p></div></div><button class="answer-toggle" data-action="toggle-answer" data-answer-id="'+esc(x.id)+'">看要点</button></article>';
   }).join(""):'<div class="empty-state"><b>没有符合筛选条件的题目</b><p>清空公司或题类筛选后再试。</p></div>';
 }
@@ -404,11 +455,9 @@ function handleClick(e){
   }
   if(a==="favorite-detail"&&currentJob){favorites=toggleFavorite(currentJob.id);renderAll();refreshDetailButtons();return}
   if(a==="company-questions-detail"&&currentJob){
-    const qb=data.questionBank||{companyKits:[]};
-    const exact=(qb.companyKits||[]).find(k=>k.company===currentJob.company);
-    $("#questionKeyword").value=exact?"":currentJob.company;
-    $("#questionCompany").value=exact?currentJob.company:"";
-    $("#questionCategory").value=exact?"公司专项":"";
+    $("#questionKeyword").value="";
+    $("#questionCompany").value=currentJob.company;
+    $("#questionCategory").value="公司专项";
     $("#jobDialog").close();
     switchView("questions");
     return;
