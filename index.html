@@ -15,7 +15,8 @@
     <div><b>JobTracker CN</b><small>2027 秋招 · 土木 / 能源 / CAE / 转行</small></div>
   </div>
   <div class="header-actions">
-    <button id="themeBtn" class="icon-btn">◐</button>
+    <span id="syncStatus" class="sync-pill">未登录 · 仅浏览</span>
+    <button id="themeBtn" class="icon-btn" title="切换主题">◐</button>
     <button id="loginBtn" class="btn secondary">登录 / 注册</button>
     <div id="userBox" class="user-box hidden">
       <div><b id="userName"></b><small id="accountMode"></small></div>
@@ -25,65 +26,80 @@
 </header>
 
 <main class="page">
-  <section class="hero">
+  <section class="hero compact-hero">
     <div class="hero-copy">
       <span class="eyebrow">2027 CAMPUS RECRUITMENT</span>
-      <h1>不只看 CAE。<br>把你能投的路全部摊开。</h1>
-      <p>土木本专业、设计院、能源央企、风电新能源、CAE/仿真、汽车机械转行、工程管理、智能建造，都放进同一个投递地图；按截止日期自动排序。</p>
-      <div class="hero-tags">
-        <span>土木直投</span><span>设计院</span><span>能源央企</span><span>风电/新能源</span><span>CAE/仿真</span><span>汽车/机械转行</span><span>工程管理</span>
-      </div>
+      <h1>把能投的岗位放在一张表里。</h1>
+      <p>土木本专业、设计院、能源央企、风电新能源、CAE/仿真、汽车机械转行、工程管理、智能建造统一检索。截止日期直接在左侧查看，7天内只做“即将截止”提醒。</p>
     </div>
-    <div class="hero-side">
-      <div class="hero-card"><b>⏳ 即将截止提醒</b><span>仅提醒 7 天内截止岗位</span></div>
-      <div class="hero-card"><b>📋 岗位详情</b><span>专业、学历、地点、时间、流程、官方来源</span></div>
-      <div class="hero-card"><b>✓ 简单投递标记</b><span>只保留：✓ 已申请 / ✕ 被拒</span></div>
+    <div class="hero-summary">
+      <span><b id="totalCount">0</b> 岗位</span>
+      <span><b id="companyCount">0</b> 企业</span>
+      <span><b id="appliedCount">—</b> 已申请</span>
+      <span><b id="rejectedCount">—</b> 被拒</span>
     </div>
   </section>
 
-  <section id="localModeNotice" class="notice hidden">
-    <b>当前账号系统运行在“本机账户模式”。</b>
-    注册、登录和每个账号的投递记录已经可用，但只保存在当前浏览器。接入 Supabase 后即可实现跨设备云同步。
-  </section>
+  <section class="panel filter-panel">
+    <div class="filters-main">
+      <label class="search">
+        <span>⌕</span>
+        <input id="searchInput" placeholder="搜索岗位、企业、地区、专业、技能、任职要求……">
+      </label>
+      <select id="trackFilter"><option value="">全部方向</option></select>
+      <select id="regionFilter"><option value="">全部地区</option></select>
+      <select id="degreeFilter">
+        <option value="">全部学历</option>
+        <option value="本科">本科可投</option>
+        <option value="硕士">硕士 / 研究生</option>
+        <option value="博士">博士</option>
+        <option value="待核验">学历待核验</option>
+      </select>
+      <select id="stageFilter">
+        <option value="">全部状态</option>
+        <option>未申请</option><option>已申请</option><option>被拒</option>
+      </select>
+      <select id="sortFilter" title="排序">
+        <option value="deadline-asc">截止最近</option>
+        <option value="updated-desc">最新更新</option>
+        <option value="company-asc">企业名称</option>
+      </select>
+      <button id="moreFiltersBtn" class="btn secondary">更多筛选</button>
+      <button id="resetBtn" class="btn ghost">清空</button>
+    </div>
 
-  <section class="deadline-strip">
-    <button class="deadline-card soon" data-deadline="7">
-      <strong id="d7">0</strong><span>即将截止 · 7天内</span>
-    </button>
-  </section>
-
-  <section class="stats">
-    <article><strong id="totalCount">0</strong><span>岗位 / 招聘入口</span></article>
-    <article><strong id="companyCount">0</strong><span>企业</span></article>
-    <article><strong id="appliedCount">—</strong><span>已申请</span></article>
-    <article><strong id="rejectedCount">—</strong><span>被拒</span></article>
-  </section>
-
-  <section class="panel controls">
-    <label class="search"><span>⌕</span><input id="searchInput" placeholder="搜索：土木、结构、Abaqus、上海、央企、风电……"></label>
-    <select id="trackFilter"><option value="">全部方向</option></select>
-    <select id="typeFilter">
-      <option value="">全部信息类型</option>
-      <option>具体岗位</option><option>具体方向</option><option>招聘批次</option><option>招聘入口</option><option>方向入口</option><option>转行入口</option><option>转行观察</option><option>自动发现</option>
-    </select>
-    <select id="stageFilter">
-      <option value="">全部状态</option>
-      <option>未申请</option><option>已申请</option><option>被拒</option>
-    </select>
-    <button id="onlyMineBtn" class="btn secondary">只看已标记</button>
-    <button id="resetBtn" class="btn ghost">清空筛选</button>
+    <div id="advancedFilters" class="filters-advanced hidden">
+      <select id="typeFilter">
+        <option value="">全部信息类型</option>
+        <option>具体岗位</option><option>具体方向</option><option>招聘批次</option><option>招聘入口</option><option>方向入口</option><option>转行入口</option><option>转行观察</option><option>自动发现</option>
+      </select>
+      <select id="sourceFilter">
+        <option value="">全部来源</option>
+        <option value="verified">官方 / 已核验</option>
+        <option value="unverified">全网发现待核验</option>
+      </select>
+      <label class="check-row"><input id="showExpired" type="checkbox"> 显示已截止</label>
+      <button id="onlyMineBtn" class="btn secondary">只看已标记</button>
+    </div>
   </section>
 
   <section class="panel table-panel">
     <div class="table-head">
-      <div><b id="resultCount">0</b> 条结果 · 默认按截止日期优先</div>
-      <div id="syncStatus">未登录 · 仅浏览</div>
+      <div><b id="resultCount">0</b> 条结果 <span id="filterHint"></span></div>
+      <div class="legend"><span class="legend-dot urgent-dot"></span>7天内即将截止　<span class="legend-dot auto-dot"></span>全网发现待核验</div>
     </div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>截止</th><th>企业 / 岗位</th><th>方向</th><th>地点</th><th>学历 / 专业</th><th>要求摘要</th><th>官方入口</th><th>申请状态</th><th>详情</th>
+            <th class="deadline-th"><button id="deadlineSortBtn" class="th-sort">截止 <span id="deadlineArrow">↑</span></button></th>
+            <th>企业 / 岗位</th>
+            <th>地点</th>
+            <th>学历 / 专业</th>
+            <th>要求摘要</th>
+            <th>来源 / 投递</th>
+            <th>申请</th>
+            <th>详情</th>
           </tr>
         </thead>
         <tbody id="jobRows"></tbody>
@@ -93,8 +109,8 @@
   </section>
 
   <footer>
-    <span>数据更新：2026-09-23。岗位、资格和截止时间以企业官方招聘页面最新公告为准。</span>
-    <span>公共职位导航 + 私人投递记录</span>
+    <span>岗位、专业限制、截止时间以企业官方招聘页面最新公告为准；“全网发现”条目投递前请核验原始来源。</span>
+    <span>自动抓取 + 人工精选 · 更新 2026-09-23</span>
   </footer>
 </main>
 
@@ -106,8 +122,9 @@
     </div>
     <div id="detailContent" class="detail-content"></div>
     <div class="modal-actions">
-      <a id="detailSource" class="btn secondary" target="_blank" rel="noopener">查看官方来源</a>
-      <a id="detailApply" class="btn primary" target="_blank" rel="noopener">去官方投递 ↗</a>
+      <button id="detailNoteBtn" class="btn secondary">私人备注</button>
+      <a id="detailSource" class="btn secondary" target="_blank" rel="noopener">查看来源</a>
+      <a id="detailApply" class="btn primary" target="_blank" rel="noopener">去投递 ↗</a>
     </div>
   </div>
 </dialog>
@@ -133,7 +150,7 @@
       <div><span class="eyebrow">PRIVATE NOTE</span><h2 id="noteTitle">私人备注</h2></div>
       <button class="x-btn" data-close="noteDialog">×</button>
     </div>
-    <textarea id="noteText" rows="7" placeholder="例如：9/23 已投；待补成绩单；约一面；HR电话……"></textarea>
+    <textarea id="noteText" rows="7" placeholder="例如：已投递岗位、联系人、后续事项……"></textarea>
     <div class="modal-actions">
       <button id="deleteStateBtn" class="btn danger">删除我的记录</button>
       <button id="saveNoteBtn" class="btn primary">保存备注</button>
