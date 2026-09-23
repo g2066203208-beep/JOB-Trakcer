@@ -5,7 +5,8 @@ const DATA_FILES = {
   majors: "./data/majors.json",
   industries: "./data/industries.json",
   skills: "./data/skills.json",
-  questions: "./data/question-bank.json"
+  questions: "./data/question-bank.json",
+  autoJobs: "./data/auto-jobs.json"
 };
 
 async function getJSON(url){
@@ -15,16 +16,17 @@ async function getJSON(url){
 }
 
 export async function loadPlatformData(){
-  const [jobs, companies, majors, industries, skills, questionBank] = await Promise.all([
+  const [jobs, companies, majors, industries, skills, questionBank, autoJobs] = await Promise.all([
     getJSON(DATA_FILES.jobs),
     getJSON(DATA_FILES.companies),
     getJSON(DATA_FILES.majors),
     getJSON(DATA_FILES.industries),
     getJSON(DATA_FILES.skills),
-    getJSON(DATA_FILES.questions)
+    getJSON(DATA_FILES.questions),
+    getJSON(DATA_FILES.autoJobs)
   ]);
   const scanned = loadScannedJobs();
-  const mergedJobs = dedupeJobs([...jobs, ...scanned]);
+  const mergedJobs = dedupeJobs([...jobs, ...(autoJobs||[]), ...scanned]);
   const companyMap = new Map(companies.map(c=>[c.name,c]));
   for(const j of mergedJobs){
     if(!companyMap.has(j.company)){
