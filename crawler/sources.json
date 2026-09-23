@@ -94,6 +94,66 @@
       "company": "小米",
       "url": "https://hr.xiaomi.com/website/opportunities.html",
       "domain": "hr.xiaomi.com"
+    },
+    {
+      "company": "华为",
+      "url": "https://career.huawei.com/cn/campus-recruitment",
+      "domain": "career.huawei.com"
+    },
+    {
+      "company": "百度",
+      "url": "https://talent.baidu.com/jobs/",
+      "domain": "talent.baidu.com"
+    },
+    {
+      "company": "腾讯",
+      "url": "https://careers.tencent.com/",
+      "domain": "careers.tencent.com"
+    },
+    {
+      "company": "阿里巴巴",
+      "url": "https://campus-talent.alibaba.com/?lang=zh",
+      "domain": "campus-talent.alibaba.com"
+    },
+    {
+      "company": "字节跳动",
+      "url": "https://jobs.bytedance.com/campus/",
+      "domain": "jobs.bytedance.com"
+    },
+    {
+      "company": "宁德时代",
+      "url": "https://talent.catl.com/",
+      "domain": "talent.catl.com"
+    },
+    {
+      "company": "德勤中国",
+      "url": "https://www.deloitte.com/cn/zh/careers/explore-your-fit/students/graduate-program.html",
+      "domain": "www.deloitte.com"
+    },
+    {
+      "company": "普华永道中国",
+      "url": "https://www.pwccn.com/zh/careers/students.html",
+      "domain": "www.pwccn.com"
+    },
+    {
+      "company": "毕马威中国",
+      "url": "https://kpmg.com/cn/zh/careers/campus.html",
+      "domain": "kpmg.com"
+    },
+    {
+      "company": "宝洁中国",
+      "url": "https://careers.pg.com.cn/cn/zh/home",
+      "domain": "careers.pg.com.cn"
+    },
+    {
+      "company": "中国银行",
+      "url": "https://www.boc.cn/aboutboc/bi4/202609/t20260903_25689311.html",
+      "domain": "www.boc.cn"
+    },
+    {
+      "company": "中兴通讯",
+      "url": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html",
+      "domain": "job.zte.com.cn"
     }
   ],
   "search_queries": [
