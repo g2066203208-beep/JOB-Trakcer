@@ -17,6 +17,8 @@ let currentView="home";
 let currentJob=null;
 let selectedDiscipline="全部";
 let myFilter="all";
+let selectedQuestionCompany="";
+let questionMode="all";
 let scanning=false;
 
 const cityOrder=["北京","上海","深圳","广州","武汉","杭州","南京","苏州","成都","西安","长沙","天津","重庆","合肥","青岛","宁波","厦门","济南","无锡","东莞"];
@@ -100,10 +102,9 @@ function populateControls(){
   $("#majorCount").textContent=data.majors.filter(m=>m.name!=="不限专业").length;
 
   const qb=data.questionBank||{companyKits:[],generalBank:[]};
-  $("#questionCompany").innerHTML='<option value="">全部公司</option>'+data.companies.slice().sort((a,b)=>a.name.localeCompare(b.name,"zh")).map(k=>'<option>'+esc(k.name)+'</option>').join("");
-  const cats=Array.from(new Set((qb.generalBank||[]).map(q=>q.category))).sort((a,b)=>a.localeCompare(b,"zh"));
-  $("#questionCategory").innerHTML='<option value="">全部题类</option><option value="公司专项">公司专项</option>'+cats.map(x=>'<option>'+esc(x)+'</option>').join("");
+  $("#questionIndustry").innerHTML='<option value="">全部行业</option>'+data.industries.map(i=>'<option>'+esc(i.name)+'</option>').join("");
   $("#questionCount").textContent=(qb.generalBank||[]).length+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0);
+  $("#questionCompanyCount").textContent=data.companies.length;
 }
 
 function renderHome(){
@@ -213,108 +214,218 @@ function renderMajors(){
 
 
 
+
+function qCoreName(name){
+  return String(name||"").replace(/中国|国家|股份有限公司|集团有限公司|有限责任公司|有限公司|集团|股份|科技|智能|控股|中国区/g,"").trim();
+}
+function findCompanyKit(company){
+  const kits=(data.questionBank?.companyKits)||[];
+  const exact=kits.find(k=>k.company===company);
+  if(exact)return exact;
+  const core=qCoreName(company);
+  return kits.find(k=>{
+    const kc=qCoreName(k.company);
+    return core&&kc&&(core.includes(kc)||kc.includes(core));
+  })||null;
+}
 function companyPracticeCategories(company){
   const co=data.companies.find(x=>x.name===company);
   const industry=(co&&co.industry)||"";
   const map=[
-    [/互联网|软件|AI/ ,["计算机 / AI","产品 / 运营 / 市场","通用行为面试"]],
-    [/芯片|半导体|电子/ ,["半导体 / 电子","计算机 / AI","通用行为面试"]],
-    [/汽车|机械|装备|轨道|航空|船舶/ ,["机械 / CAE","通用行为面试"]],
-    [/新能源|能源|电力/ ,["电气 / 能源","机械 / CAE","通用行为面试"]],
-    [/建筑|基建|设计|工程咨询/ ,["土木 / 结构","机械 / CAE","通用行为面试"]],
-    [/金融|保险/ ,["金融 / 银行","财会 / 咨询","通用行为面试"]],
-    [/医药|医疗|化工|材料/ ,["医药 / 化工","通用行为面试"]],
-    [/消费|零售|教育|文化|农林|食品/ ,["产品 / 运营 / 市场","通用行为面试"]]
+    [/互联网|软件|AI/,["计算机 / AI","算法与数据结构","操作系统与网络","AI与大模型","算法编程题","统计 / 数据计算","行测计算","通用行为面试","英语与职场表达"]],
+    [/芯片|半导体|电子|智能硬件/,["半导体 / 电子","自动化与控制","电气 / 能源","算法与数据结构","算法编程题","统计 / 数据计算","行测计算","通用行为面试"]],
+    [/汽车|机械|装备|轨道|航空|船舶/,["机械 / CAE","机械 / CAE计算","机械设计与制造","自动化与控制","材料科学","算法编程题","行测计算","通用行为面试","工程项目管理"]],
+    [/新能源|能源|电力/,["电气 / 能源","电气 / 能源计算","机械 / CAE","机械 / CAE计算","自动化与控制","材料科学","行测计算","通用行为面试","工程项目管理"]],
+    [/建筑|基建|设计|工程咨询/,["土木 / 结构","土木 / 结构计算","工程项目管理","机械 / CAE","机械 / CAE计算","行测 / 逻辑","行测计算","通用行为面试"]],
+    [/金融|保险/,["金融 / 银行","金融 / 财会计算","证券与投资","财会 / 咨询","统计 / 数据计算","行测 / 逻辑","行测计算","通用行为面试","英语与职场表达"]],
+    [/医药|医疗/,["医药 / 化工","医学与生命科学","统计与数据分析","统计 / 数据计算","行测计算","通用行为面试","英语与职场表达"]],
+    [/化工|材料/,["医药 / 化工","材料科学","机械 / CAE","机械 / CAE计算","统计 / 数据计算","行测计算","通用行为面试"]],
+    [/消费|零售|农林|食品/,["产品 / 运营 / 市场","市场销售与商业分析","供应链与物流","金融 / 财会计算","统计 / 数据计算","行测计算","通用行为面试","英语与职场表达"]],
+    [/教育|文化/,["产品 / 运营 / 市场","市场销售与商业分析","英语与职场表达","行测 / 逻辑","行测计算","通用行为面试"]],
+    [/政府|公共服务/,["行测 / 逻辑","行测计算","工程项目管理","法务与合规","通用行为面试"]]
   ];
   const hit=map.find(x=>x[0].test(industry));
-  return hit?hit[1]:["通用行为面试","行测 / 逻辑"];
+  return hit?hit[1]:["行测 / 逻辑","行测计算","通用行为面试","英语与职场表达"];
 }
-function generateCompanyPractice(company){
+function questionTextScore(q,text){
+  const words=(String(q.question)+" "+String(q.standardAnswer||q.answerPoints||"")).toLowerCase().match(/[a-zA-Z0-9+#.-]{2,}|[\u4e00-\u9fa5]{2,6}/g)||[];
+  let score=0;
+  for(const w of words.slice(0,30))if(text.includes(w.toLowerCase()))score++;
+  return score;
+}
+function buildCompanyQuestions(company){
   if(!company)return[];
-  const qb=data.questionBank||{generalBank:[]};
-  const cats=companyPracticeCategories(company);
+  const qb=data.questionBank||{companyKits:[],generalBank:[]};
+  const kit=findCompanyKit(company);
+  const categories=companyPracticeCategories(company);
   const jobsFor=data.jobs.filter(j=>j.company===company);
-  const selected=(qb.generalBank||[]).filter(q=>cats.includes(q.category)).slice(0,22).map(q=>Object.assign({},q,{
+  const jobBlob=jobsFor.map(jobText).join(" ").toLowerCase();
+
+  const sourced=(kit?.questions||[]).map(q=>Object.assign({},q,{
+    id:"src-"+company+"-"+q.id,
+    company,
+    originalCategory:"公司专项",
+    category:"公司专项",
+    companyQuestion:true,
+    simulated:false,
+    sourceKind:"公开流程/面经主题改写",
+    standardAnswer:q.standardAnswer||q.answerPoints||""
+  }));
+
+  let practice=(qb.generalBank||[]).filter(q=>categories.includes(q.category)).map(q=>Object.assign({},q,{
     id:"sim-"+company+"-"+q.id,
     company,
-    category:"公司模拟",
     companyQuestion:true,
     simulated:true,
-    sourceLabel:"按行业/岗位生成"
+    sourceKind:"按行业/岗位生成练习",
+    standardAnswer:q.standardAnswer||q.answerPoints||""
   }));
-  // If this company has jobs, prefer questions whose terms overlap with job requirements.
-  if(jobsFor.length){
-    const text=jobsFor.map(jobText).join(" ");
-    selected.sort((a,b)=>{
-      const aw=(a.question+" "+a.answerPoints).toLowerCase().split(/\s+/).filter(x=>x.length>2).filter(x=>text.includes(x)).length;
-      const bw=(b.question+" "+b.answerPoints).toLowerCase().split(/\s+/).filter(x=>x.length>2).filter(x=>text.includes(x)).length;
-      return bw-aw;
-    });
-  }
-  return selected.slice(0,18);
-}
 
-function allQuestions(){
-  const qb=data.questionBank||{companyKits:[],generalBank:[]};
-  const company=(qb.companyKits||[]).flatMap(k=>(k.questions||[]).map(q=>Object.assign({},q,{
-    company:k.company,category:"公司专项",process:k.process,sources:k.sources||[],companyQuestion:true
-  })));
-  const general=(qb.generalBank||[]).map(q=>Object.assign({},q,{
-    company:"",sources:[],companyQuestion:false
-  }));
-  return company.concat(general);
-}
-function filteredQuestions(){
-  const q=$("#questionKeyword").value.trim().toLowerCase();
-  const company=$("#questionCompany").value,category=$("#questionCategory").value,type=$("#questionType").value,sort=$("#questionSort").value;
-  let pool=allQuestions();
-  const hasExact=(data.questionBank?.companyKits||[]).some(k=>k.company===company);
-  if(company){
-    if(hasExact) pool=pool.concat(generateCompanyPractice(company));
-    else pool=generateCompanyPractice(company);
+  if(jobBlob){
+    practice.sort((a,b)=>questionTextScore(b,jobBlob)-questionTextScore(a,jobBlob));
   }
-  let rows=pool.filter(x=>{
-    const text=[x.company,x.category,x.type,x.question,x.answerPoints].join(" ").toLowerCase();
-    return (!q||q.split(/\s+/).every(k=>text.includes(k)))
-      &&(!company||x.company===company)
-      &&(!category||x.category===category||(category==="公司专项"&&x.category==="公司模拟"))
-      &&(!type||x.type===type);
+
+  // Keep a large company-specific bank, but avoid showing hundreds of irrelevant questions.
+  // Calculation/coding sections are intentionally preserved rather than truncated away.
+  const mustKeep=practice.filter(q=>/计算|编程/.test(q.category+" "+q.type));
+  const other=practice.filter(q=>!/计算|编程/.test(q.category+" "+q.type)).slice(0,55);
+  const merged=[...sourced,...mustKeep,...other];
+
+  const seen=new Set();
+  return merged.filter(q=>{
+    const key=q.question;
+    if(seen.has(key))return false;
+    seen.add(key);return true;
   });
-  if(sort==="company")rows.sort((a,b)=>(Number(b.companyQuestion)-Number(a.companyQuestion))||String(a.company||a.category).localeCompare(String(b.company||b.category),"zh"));
-  if(sort==="category")rows.sort((a,b)=>String(a.category).localeCompare(String(b.category),"zh")||String(a.type).localeCompare(String(b.type),"zh"));
-  if(sort==="random")rows=rows.slice().sort(()=>Math.random()-.5);
-  return rows;
+}
+function qKind(q){
+  const s=(q.category+" "+q.type).toLowerCase();
+  if(/计算/.test(s))return"calculation";
+  if(/编程|算法题/.test(s))return"coding";
+  if(/行为|hr|项目面|主管面|群面|案例|英文面|面试/.test(s)&&!/技术|专业/.test(s))return"behavior";
+  if(/笔试|行测|逻辑|在线测评/.test(s))return"written";
+  return"technical";
+}
+function isWrittenQuestion(q){
+  const k=qKind(q);
+  return k==="written"||k==="calculation"||k==="coding";
+}
+function questionModePass(q){
+  if(questionMode==="all")return true;
+  const k=qKind(q);
+  if(questionMode==="written")return isWrittenQuestion(q);
+  if(questionMode==="calculation")return k==="calculation";
+  if(questionMode==="coding")return k==="coding";
+  if(questionMode==="technical")return !isWrittenQuestion(q)&&k==="technical";
+  if(questionMode==="behavior")return k==="behavior";
+  return true;
+}
+function answerLabel(q){
+  const s=q.category+" "+q.type;
+  if(/行为|HR|项目面|主管面|群面|英文面/.test(s))return"标准示范答案";
+  if(/编程/.test(s))return"标准解法";
+  return"标准答案";
+}
+function questionCardHTML(q,i){
+  const source=q.simulated?"岗位/行业模拟题":"公开流程/面经主题改写";
+  const answer=q.standardAnswer||q.answerPoints||"暂无答案";
+  return '<article class="question-card">'+
+    '<div class="question-num">'+String(i+1).padStart(2,"0")+'</div>'+
+    '<div class="question-main">'+
+      '<div class="question-labels"><span>'+esc(q.category||"公司专项")+'</span><span>'+esc(q.type||"练习")+'</span><span class="question-source">'+esc(source)+'</span></div>'+
+      '<h3>'+esc(q.question)+'</h3>'+
+      '<div class="answer-panel hidden" id="answer-'+esc(q.id)+'"><b>'+esc(answerLabel(q))+'</b><p>'+esc(answer)+'</p></div>'+
+    '</div>'+
+    '<button class="answer-toggle" data-action="toggle-answer" data-answer-id="'+esc(q.id)+'">'+esc(answerLabel(q))+'</button>'+
+  '</article>';
+}
+function renderQuestionCompanyBrowser(){
+  const q=$("#questionCompanySearch").value.trim().toLowerCase();
+  const industry=$("#questionIndustry").value;
+  const coverage=$("#questionCoverage").value;
+  const rows=data.companies.filter(co=>{
+    const kit=findCompanyKit(co.name);
+    const hay=[co.name,co.industry,co.sector].concat(co.tags||[]).join(" ").toLowerCase();
+    return (!q||hay.includes(q))&&(!industry||co.industry===industry)
+      &&(!coverage||(coverage==="sourced"?!!kit:!kit));
+  }).sort((a,b)=>{
+    const ak=!!findCompanyKit(a.name),bk=!!findCompanyKit(b.name);
+    return Number(bk)-Number(ak)||a.name.localeCompare(b.name,"zh");
+  });
+  $("#questionCompanyCount").textContent=data.companies.length;
+  $("#questionCompanyGrid").innerHTML=rows.map(co=>{
+    const kit=findCompanyKit(co.name);
+    const total=buildCompanyQuestions(co.name).length;
+    const jobs=data.jobs.filter(j=>j.company===co.name).length;
+    return '<button class="question-company-card" data-action="open-question-company" data-company="'+esc(co.name)+'">'+
+      '<div class="question-company-card-top"><span class="company-type">'+esc(co.industry||"其他")+'</span><span class="'+(kit?"sourced-badge":"sim-badge")+'">'+(kit?"公开来源":"模拟题库")+'</span></div>'+
+      '<h3>'+esc(co.name)+'</h3>'+
+      '<p>'+esc(co.sector||"")+'</p>'+
+      '<div class="question-company-numbers"><span><b>'+total+'</b>题</span><span><b>'+jobs+'</b>岗位</span></div>'+
+      '<div class="question-company-open">进入该企业题库 →</div>'+
+    '</button>';
+  }).join("")||'<div class="empty-state"><b>没有匹配企业</b><p>调整企业名或行业筛选。</p></div>';
+}
+function renderSelectedCompanyQuestions(){
+  if(!selectedQuestionCompany)return;
+  const company=selectedQuestionCompany;
+  const co=data.companies.find(x=>x.name===company);
+  const kit=findCompanyKit(company);
+  const keyword=$("#questionKeyword").value.trim().toLowerCase();
+
+  let rows=buildCompanyQuestions(company).filter(q=>{
+    const text=[q.category,q.type,q.question,q.standardAnswer].join(" ").toLowerCase();
+    return (!keyword||keyword.split(/\s+/).every(k=>text.includes(k)))&&questionModePass(q);
+  });
+  const written=rows.filter(isWrittenQuestion);
+  const interview=rows.filter(q=>!isWrittenQuestion(q));
+
+  $("#selectedQuestionCompany").textContent=company;
+  $("#selectedQuestionCompanyMeta").textContent=[co?.industry,co?.sector,data.jobs.filter(j=>j.company===company).length+" 条现有岗位"].filter(Boolean).join(" · ");
+  $("#selectedQuestionCount").textContent=rows.length;
+  $("#writtenQuestionCount").textContent=written.length+" 题";
+  $("#interviewQuestionCount").textContent=interview.length+" 题";
+  $$("[data-question-mode]").forEach(b=>b.classList.toggle("active",b.dataset.questionMode===questionMode));
+
+  if(kit){
+    const links=(kit.sources||[]).map(s=>'<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.label)+' ↗</a>').join("");
+    $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">PUBLIC SOURCES FOUND</span><h3>已找到公开流程 / 面经来源</h3><p>'+esc(kit.process||"")+" 题目基于公开来源中的考察主题重新编写，并补充该行业的笔试、计算与专业练习题。</p></div><div class="source-links">'+links+'</div></div>';
+  }else{
+    $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">SIMULATED COMPANY BANK</span><h3>暂无足够公开历史面经</h3><p>以下题目依据 '+esc(co?.industry||"该行业")+'、该企业当前岗位和专业要求组卷。它们是针对性练习题，不冒充该企业历史真题。</p></div><div class="source-links"><span>后续扫描到可靠公开面经后自动升级</span></div></div>';
+  }
+
+  $("#writtenQuestionList").innerHTML=written.length?written.map(questionCardHTML).join(""):'<div class="empty-state"><b>当前筛选下没有笔试题</b></div>';
+  $("#interviewQuestionList").innerHTML=interview.length?interview.map(questionCardHTML).join(""):'<div class="empty-state"><b>当前筛选下没有面试题</b></div>';
+}
+function openQuestionCompany(company){
+  selectedQuestionCompany=company;
+  questionMode="all";
+  $("#questionKeyword").value="";
+  $("#questionCompanyBrowser").classList.add("hidden");
+  $("#questionCompanyDetail").classList.remove("hidden");
+  renderSelectedCompanyQuestions();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function closeQuestionCompany(){
+  selectedQuestionCompany="";
+  questionMode="all";
+  $("#questionCompanyDetail").classList.add("hidden");
+  $("#questionCompanyBrowser").classList.remove("hidden");
+  renderQuestionCompanyBrowser();
 }
 function renderQuestions(){
   const qb=data.questionBank||{companyKits:[],generalBank:[]};
-  const total=(qb.generalBank||[]).length+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0);
-  $("#questionCount").textContent=total;
-
-  $("#companyKitList").innerHTML=(qb.companyKits||[]).map(k=>{
-    const n=(k.questions||[]).length;
-    return '<button class="company-kit '+($("#questionCompany").value===k.company?'active':'')+'" data-action="question-company" data-company="'+esc(k.company)+'"><b>'+esc(k.company)+'</b><small>'+n+' 道专项题 · '+esc((k.sources||[]).some(s=>s.type==="official")?"含官方流程":"公开面经整理")+'</small></button>';
-  }).join("");
-
-  const selectedCompany=$("#questionCompany").value;
-  if(selectedCompany){
-    const kit=(qb.companyKits||[]).find(k=>k.company===selectedCompany);
-    if(kit){
-      const links=(kit.sources||[]).map(s=>'<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.label)+' ↗</a>').join("");
-      $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">COMPANY GUIDE</span><h3>'+esc(kit.company)+'</h3><p>'+esc(kit.process||"")+'</p></div><div class="source-links">'+links+'</div></div>';
-    }else{
-      const co=data.companies.find(x=>x.name===selectedCompany);
-      $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">COMPANY PRACTICE</span><h3>'+esc(selectedCompany)+'</h3><p>暂未收录可核验的该公司历史笔面经，先根据 '+esc((co&&co.industry)||"岗位方向")+' 和现有岗位要求生成练习题。以下题目是模拟准备题，不冒充该公司历史原题。</p></div><div class="source-links"><span>后续扫描到公开面经后会自动升级为公司专项包</span></div></div>';
-    }
+  $("#questionCount").textContent=(qb.generalBank||[]).length+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0);
+  $("#questionCompanyCount").textContent=data.companies.length;
+  if(selectedQuestionCompany){
+    $("#questionCompanyBrowser").classList.add("hidden");
+    $("#questionCompanyDetail").classList.remove("hidden");
+    renderSelectedCompanyQuestions();
   }else{
-    $("#questionBankMeta").innerHTML='<div class="question-bank-summary"><b>题库共 '+total+' 道</b><span>公司专项 '+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0)+' 道 · 通用分类 '+(qb.generalBank||[]).length+' 道</span></div>';
+    $("#questionCompanyDetail").classList.add("hidden");
+    $("#questionCompanyBrowser").classList.remove("hidden");
+    renderQuestionCompanyBrowser();
   }
-
-  const rows=filteredQuestions();
-  $("#questionList").innerHTML=rows.length?rows.slice(0,300).map((x,i)=>{
-    const badge=x.company?x.company:x.category;
-    const src=x.simulated?'<span class="question-source">岗位模拟题</span>':(x.companyQuestion?'<span class="question-source">公开流程/面经改写</span>':'<span class="question-source">通用练习</span>');
-    return '<article class="question-card"><div class="question-num">'+String(i+1).padStart(2,"0")+'</div><div class="question-main"><div class="question-labels"><span>'+esc(badge)+'</span><span>'+esc(x.type||"练习")+'</span>'+src+'</div><h3>'+esc(x.question)+'</h3><div class="answer-panel hidden" id="answer-'+esc(x.id)+'"><b>答题要点</b><p>'+esc(x.answerPoints||"结合岗位和个人经历作答。")+'</p></div></div><button class="answer-toggle" data-action="toggle-answer" data-answer-id="'+esc(x.id)+'">看要点</button></article>';
-  }).join(""):'<div class="empty-state"><b>没有符合筛选条件的题目</b><p>清空公司或题类筛选后再试。</p></div>';
 }
 
 function renderMy(){
@@ -436,17 +547,17 @@ function handleClick(e){
   if(a==="industry"){$("#jobIndustry").value=el.dataset.industry;switchView("jobs");return}
   if(a==="company"){$("#jobKeyword").value=el.dataset.company;switchView("jobs");return}
   if(a==="company-questions"){
-    $("#questionKeyword").value="";
-    $("#questionCompany").value=el.dataset.company;
-    $("#questionCategory").value="公司专项";
+    selectedQuestionCompany=el.dataset.company;
+    questionMode="all";
     switchView("questions");return;
   }
   if(a==="major"){$("#jobMajor").value=el.dataset.major;switchView("jobs");return}
   if(a==="discipline"){selectedDiscipline=el.dataset.discipline;renderMajors();return}
-  if(a==="question-company"){
-    $("#questionCompany").value=el.dataset.company||"";
-    $("#questionCategory").value="公司专项";
-    renderQuestions();return;
+  if(a==="open-question-company"){openQuestionCompany(el.dataset.company);return}
+  if(a==="back-question-companies"){closeQuestionCompany();return}
+  if(el.dataset.questionMode){
+    questionMode=el.dataset.questionMode;
+    renderSelectedCompanyQuestions();return;
   }
   if(a==="toggle-answer"){
     const box=document.getElementById("answer-"+el.dataset.answerId);
@@ -461,9 +572,8 @@ function handleClick(e){
   }
   if(a==="favorite-detail"&&currentJob){favorites=toggleFavorite(currentJob.id);renderAll();refreshDetailButtons();return}
   if(a==="company-questions-detail"&&currentJob){
-    $("#questionKeyword").value="";
-    $("#questionCompany").value=currentJob.company;
-    $("#questionCategory").value="公司专项";
+    selectedQuestionCompany=currentJob.company;
+    questionMode="all";
     $("#jobDialog").close();
     switchView("questions");
     return;
@@ -488,17 +598,10 @@ function bind(){
   ["companyKeyword","companyIndustry","companyNature","companyJobState"].forEach(id=>{
     const el=$("#"+id);el.addEventListener(el.tagName==="INPUT"?"input":"change",renderCompanies);
   });
-  ["questionKeyword","questionCompany","questionCategory","questionType","questionSort"].forEach(id=>{
-    const el=$("#"+id);el.addEventListener(el.tagName==="INPUT"?"input":"change",renderQuestions);
+  ["questionCompanySearch","questionIndustry","questionCoverage"].forEach(id=>{
+    const el=$("#"+id);el.addEventListener(el.tagName==="INPUT"?"input":"change",renderQuestionCompanyBrowser);
   });
-  $("#randomPracticeBtn").addEventListener("click",()=>{
-    $("#questionCompany").value="";
-    $("#questionCategory").value="";
-    $("#questionType").value="";
-    $("#questionSort").value="random";
-    renderQuestions();
-    $("#questionList").scrollIntoView({behavior:"smooth",block:"start"});
-  });
+  $("#questionKeyword").addEventListener("input",renderSelectedCompanyQuestions);
   $("#scanButton").addEventListener("click",scanNow);
   $("#themeButton").addEventListener("click",()=>{
     const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
