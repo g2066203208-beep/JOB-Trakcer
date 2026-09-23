@@ -1,0 +1,51 @@
+name: Discover public interview sources
+
+on:
+  workflow_dispatch:
+    inputs:
+      company:
+        description: "Optional company name"
+        required: false
+        type: string
+  schedule:
+    - cron: "35 */4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: question-source-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+      - name: Scan public interview sources
+        env:
+          MANUAL_COMPANY: ${{ github.event.inputs.company || '' }}
+        run: python crawler/crawl_question_sources.py
+      - name: Publish source backlog safely
+        run: |
+          if [ -z "$(git status --porcelain -- data/question-source-backlog.json)" ]; then
+            echo "No source changes."
+            exit 0
+          fi
+          cp data/question-source-backlog.json /tmp/question-source-backlog.json
+          git config user.name "job-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/question-source-backlog.json data/question-source-backlog.json
+          git add data/question-source-backlog.json
+          git commit -m "data: discover public interview and written-test sources"
+          git push origin HEAD:main
