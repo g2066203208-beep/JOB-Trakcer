@@ -5,7 +5,7 @@
     "companyId": "c085",
     "title": "技术员",
     "unit": "国能（西藏）仲达发电有限公司",
-    "industry": "新能源",
+    "industry": "能源 / 电力",
     "tracks": [
       "土木直投",
       "能源央企"
@@ -40,7 +40,7 @@
     "companyId": "c085",
     "title": "2027年度高校毕业生统招（岗位库）",
     "unit": "集团各单位",
-    "industry": "新能源",
+    "industry": "能源 / 电力",
     "tracks": [
       "土木直投",
       "能源央企",
@@ -78,7 +78,7 @@
     "companyId": "c087",
     "title": "2027年度校园招聘（第一批）",
     "unit": "集团各二级单位",
-    "industry": "新能源",
+    "industry": "能源 / 电力",
     "tracks": [
       "土木直投",
       "能源央企",
@@ -112,7 +112,7 @@
     "companyId": "c088",
     "title": "2027年校园招聘（第一批）",
     "unit": "集团所属企业",
-    "industry": "新能源",
+    "industry": "能源 / 电力",
     "tracks": [
       "能源央企",
       "新能源",
@@ -148,7 +148,7 @@
     "companyId": "c031",
     "title": "2027届高校毕业生招聘｜桥梁/结构方向",
     "unit": "桥梁院",
-    "industry": "新能源",
+    "industry": "设计 / 工程咨询",
     "tracks": [
       "土木直投",
       "设计院"
@@ -180,7 +180,7 @@
     "companyId": "c031",
     "title": "2027届高校毕业生招聘｜城轨/地下/结构",
     "unit": "城交院",
-    "industry": "新能源",
+    "industry": "设计 / 工程咨询",
     "tracks": [
       "土木直投",
       "设计院"
@@ -213,7 +213,7 @@
     "companyId": "c031",
     "title": "2027届高校毕业生招聘｜地质/路基/结构材料",
     "unit": "地路院",
-    "industry": "新能源",
+    "industry": "设计 / 工程咨询",
     "tracks": [
       "土木直投",
       "设计院"
@@ -247,7 +247,7 @@
     "companyId": "c031",
     "title": "2027届高校毕业生招聘｜工程经济/工程管理",
     "unit": "工经院",
-    "industry": "新能源",
+    "industry": "设计 / 工程咨询",
     "tracks": [
       "土木直投",
       "工程管理",
@@ -281,7 +281,7 @@
     "companyId": "c009",
     "title": "2027届校园招聘",
     "unit": "中国建筑土木建设有限公司",
-    "industry": "新能源",
+    "industry": "建筑 / 基建",
     "tracks": [
       "土木直投",
       "施工/项目",
@@ -314,7 +314,7 @@
     "companyId": "c009",
     "title": "2027届校园招聘",
     "unit": "上海分公司",
-    "industry": "新能源",
+    "industry": "建筑 / 基建",
     "tracks": [
       "土木直投",
       "施工/项目",
@@ -348,7 +348,7 @@
     "companyId": "c009",
     "title": "2027届校园招聘",
     "unit": "华中建设有限公司",
-    "industry": "新能源",
+    "industry": "建筑 / 基建",
     "tracks": [
       "土木直投",
       "施工/项目",
@@ -382,7 +382,7 @@
     "companyId": null,
     "title": "2027届校园招聘",
     "unit": "中建科技集团有限公司",
-    "industry": "其他",
+    "industry": "建筑 / 基建",
     "tracks": [
       "土木直投",
       "智能建造",
@@ -416,7 +416,7 @@
     "companyId": "c292",
     "title": "技术培训生（27届校招）",
     "unit": "集团总部/下属培养单位",
-    "industry": "新能源",
+    "industry": "机械 / 高端装备",
     "tracks": [
       "CAE/仿真",
       "新能源",
@@ -525,7 +525,7 @@
     "companyId": null,
     "title": "2027届校园招聘入口",
     "unit": "中广核新能源/工程公司等",
-    "industry": "其他",
+    "industry": "建筑 / 基建",
     "tracks": [
       "能源央企",
       "新能源",
@@ -563,7 +563,7 @@
     "companyId": "c089",
     "title": "2027届校园招聘专区",
     "unit": "集团各单位",
-    "industry": "新能源",
+    "industry": "能源 / 电力",
     "tracks": [
       "能源央企",
       "新能源",
@@ -633,7 +633,7 @@
     "companyId": "c071",
     "title": "2027全球校园招聘",
     "unit": "各设计院/工程公司",
-    "industry": "新能源",
+    "industry": "能源 / 电力",
     "tracks": [
       "土木直投",
       "设计院",
@@ -782,7 +782,7 @@
     "companyId": "c104",
     "title": "校园招聘入口｜结构 / 仿真 / NVH / 项目 / 制造",
     "unit": "汽车/电子/新能源业务",
-    "industry": "新能源",
+    "industry": "汽车 / 智能驾驶",
     "tracks": [
       "转汽车/机械",
       "CAE/仿真",
@@ -820,7 +820,7 @@
     "companyId": null,
     "title": "校园招聘 / 当前机会｜结构 / 电池结构 / 项目 / 热流仿真",
     "unit": "小米汽车/硬件等",
-    "industry": "其他",
+    "industry": "机械 / 高端装备",
     "tracks": [
       "转汽车/机械",
       "CAE/仿真",
@@ -859,7 +859,7 @@
     "companyId": "c110",
     "title": "校园招聘入口｜研发 / 结构 / 仿真 / 试验",
     "unit": "汽车业务",
-    "industry": "新能源",
+    "industry": "汽车 / 智能驾驶",
     "tracks": [
       "转汽车/机械",
       "CAE/仿真"
@@ -899,7 +899,7 @@
     "companyId": "c001",
     "title": "校园招聘总入口",
     "unit": "集团及各工程局",
-    "industry": "新能源",
+    "industry": "建筑 / 基建",
     "tracks": [
       "土木直投",
       "施工/项目",
@@ -937,7 +937,7 @@
     "companyId": "c104",
     "title": "2027届秋招｜CAE&NVH / 结构仿真 / 多体动力学",
     "unit": "汽车工程/汽车新技术等",
-    "industry": "新能源",
+    "industry": "汽车 / 智能驾驶",
     "tracks": [
       "转汽车/机械",
       "CAE/仿真",
@@ -976,7 +976,7 @@
     "companyId": "c105",
     "title": "2027全球校招｜仿真（CAE、NVH）",
     "unit": "整车研发类",
-    "industry": "新能源",
+    "industry": "汽车 / 智能驾驶",
     "tracks": [
       "转汽车/机械",
       "CAE/仿真"
@@ -1014,7 +1014,7 @@
     "companyId": "c127",
     "title": "2027校招｜制造工程师（机械/自动化/智能化/仿真）",
     "unit": "Manufacturing",
-    "industry": "新能源",
+    "industry": "机械 / 高端装备",
     "tracks": [
       "转汽车/机械",
       "CAE/仿真",
@@ -1050,7 +1050,7 @@
     "companyId": "c127",
     "title": "2027校招｜流体仿真工程师（热管理）",
     "unit": "Engineering",
-    "industry": "新能源",
+    "industry": "机械 / 高端装备",
     "tracks": [
       "CAE/仿真",
       "转汽车/机械",
@@ -1086,7 +1086,7 @@
     "companyId": "c138",
     "title": "2027校招｜仿真设计岗",
     "unit": "研发技术类",
-    "industry": "新能源",
+    "industry": "电子 / 智能硬件",
     "tracks": [
       "CAE/仿真",
       "转汽车/机械",
@@ -1122,7 +1122,7 @@
     "companyId": "c121",
     "title": "2027届秋季校园招聘",
     "unit": "三一重工/三一重能等",
-    "industry": "新能源",
+    "industry": "机械 / 高端装备",
     "tracks": [
       "工程机械",
       "风电/新能源",
@@ -1161,7 +1161,7 @@
     "companyId": "c150",
     "title": "2027届校园招聘｜高性能CAE工程应用",
     "unit": "中物院软件中心/中国久远CAE软件事业部协作",
-    "industry": "新能源",
+    "industry": "软件 / 工业软件",
     "tracks": [
       "CAE/仿真",
       "工业软件"
@@ -1197,7 +1197,7 @@
     "companyId": null,
     "title": "结构CAE（2027届校招）",
     "unit": "汽车研发",
-    "industry": "其他",
+    "industry": "机械 / 高端装备",
     "tracks": [
       "CAE/仿真",
       "转汽车/机械"
@@ -1235,7 +1235,7 @@
     "companyId": null,
     "title": "CAE仿真分析岗",
     "unit": "整车研发",
-    "industry": "其他",
+    "industry": "机械 / 高端装备",
     "tracks": [
       "CAE/仿真",
       "转汽车/机械"
@@ -1275,7 +1275,7 @@
     "companyId": "c109",
     "title": "27届NVH岗",
     "unit": "大研发体系",
-    "industry": "新能源",
+    "industry": "汽车 / 智能驾驶",
     "tracks": [
       "CAE/仿真",
       "转汽车/机械"
@@ -1313,7 +1313,7 @@
     "companyId": null,
     "title": "CAE仿真工程师",
     "unit": "研发",
-    "industry": "其他",
+    "industry": "机械 / 高端装备",
     "tracks": [
       "CAE/仿真",
       "转汽车/机械",
@@ -1351,7 +1351,7 @@
     "companyId": null,
     "title": "追锋计划—2027届校园招聘",
     "unit": "华南建设有限公司",
-    "industry": "其他",
+    "industry": "建筑 / 基建",
     "tracks": [
       "土木直投",
       "施工/项目",
@@ -1389,7 +1389,7 @@
     "companyId": null,
     "title": "2027届校园招聘",
     "unit": "中国建筑第八工程局有限公司华北分公司",
-    "industry": "其他",
+    "industry": "建筑 / 基建",
     "tracks": [
       "土木直投",
       "施工/项目",
@@ -1428,7 +1428,7 @@
     "companyId": "c157",
     "title": "2027届校园招聘",
     "unit": "工程技术服务/工程总承包",
-    "industry": "新能源",
+    "industry": "汽车 / 智能驾驶",
     "tracks": [
       "设计院",
       "工程管理",
