@@ -403,6 +403,16 @@ function handleClick(e){
     applications=setApplication(id,next);renderAll();return;
   }
   if(a==="favorite-detail"&&currentJob){favorites=toggleFavorite(currentJob.id);renderAll();refreshDetailButtons();return}
+  if(a==="company-questions-detail"&&currentJob){
+    const qb=data.questionBank||{companyKits:[]};
+    const exact=(qb.companyKits||[]).find(k=>k.company===currentJob.company);
+    $("#questionKeyword").value=exact?"":currentJob.company;
+    $("#questionCompany").value=exact?currentJob.company:"";
+    $("#questionCategory").value=exact?"公司专项":"";
+    $("#jobDialog").close();
+    switchView("questions");
+    return;
+  }
   if(a==="status-detail"&&currentJob){
     const w=el.dataset.status,next=jobState(currentJob.id)===w?"未申请":w;
     applications=setApplication(currentJob.id,next);renderAll();refreshDetailButtons();return;
