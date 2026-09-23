@@ -21,7 +21,6 @@ on:
       - ".github/workflows/auto-discover.yml"
   schedule:
     - cron: "15 8 * * *"
-      timezone: "Asia/Shanghai"
 
 permissions:
   contents: write
@@ -51,7 +50,7 @@ jobs:
 
       - name: Commit discovered jobs
         run: |
-          if git diff --quiet -- auto-jobs-data.js crawler/state.json; then
+          if [ -z "$(git status --porcelain -- auto-jobs-data.js crawler/state.json)" ]; then
             echo "No changes."
             exit 0
           fi
