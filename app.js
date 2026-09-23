@@ -85,13 +85,13 @@ function renderCompanies(){
    if(e.target.closest("[data-scan-company]"))return;
    const name=x.dataset.company;setView("jobs");$("#searchInput").value=name;renderAll();window.scrollTo({top:0,behavior:"smooth"});
  });
- $$("[data-scan-company]").forEach(x=>x.onclick=e=>{e.stopPropagation();openScan(x.dataset.scanCompany)});
+ $$("[data-scan-company]").forEach(x=>x.onclick=e=>{e.stopPropagation();runDirectScan(x.dataset.scanCompany)});
 }
 function renderStats(){const names=new Set([...TARGETS.map(x=>x.name),...JOBS.map(x=>x.company)]);$("#totalCount").textContent=JOBS.length;$("#companyCount").textContent=names.size;$("#jobsTabCount").textContent=JOBS.length;$("#companiesTabCount").textContent=names.size;if(session){const vals=Object.values(mine).map(x=>normalizeStage(x.stage));$("#appliedCount").textContent=vals.filter(x=>x==="已申请").length;$("#rejectedCount").textContent=vals.filter(x=>x==="被拒").length}else{$("#appliedCount").textContent="—";$("#rejectedCount").textContent="—"}}
 function renderAll(){renderStats();if(currentView==="jobs")renderJobs();else renderCompanies()}
 
 function setView(v){currentView=v;const jobs=v==="jobs";$("#jobsView").classList.toggle("hidden",!jobs);$("#companiesView").classList.toggle("hidden",jobs);$("#jobFilters").classList.toggle("hidden",!jobs);$("#companyFilters").classList.toggle("hidden",jobs);$("#advancedFilters").classList.add("hidden");$("#moreFiltersBtn").textContent="筛选";$("#jobsTab").classList.toggle("active",jobs);$("#companiesTab").classList.toggle("active",!jobs);$("#viewTitle").textContent=jobs?"岗位库":"企业库";$("#viewSubtitle").textContent=jobs?"土木本专业、能源、新能源、CAE、汽车机械转行都放进来。默认隐藏已截止岗位。":"先把值得关注的企业全部放进池子，再由自动扫描持续补岗位。";$("#searchInput").placeholder=jobs?"搜索企业、岗位、地区、专业、技能、要求……":"搜索企业、行业、方向……";renderAll()}
-function bindRowActions(){$$$("[data-status]").forEach(x=>x.onclick=async()=>{if(!session){openAuth();return}const id=x.dataset.job,w=x.dataset.status;await saveState(id,{stage:myState(id).stage===w?"未申请":w})});$$$("[data-note]").forEach(x=>x.onclick=()=>{if(!session){openAuth();return}openNote(x.dataset.note)});$$$("[data-detail]").forEach(x=>x.onclick=()=>openDetail(x.dataset.detail))}
+function bindRowActions(){$("[data-status]").forEach(x=>x.onclick=async()=>{if(!session){openAuth();return}const id=x.dataset.job,w=x.dataset.status;await saveState(id,{stage:myState(id).stage===w?"未申请":w})});$("[data-note]").forEach(x=>x.onclick=()=>{if(!session){openAuth();return}openNote(x.dataset.note)});$("[data-detail]").forEach(x=>x.onclick=()=>openDetail(x.dataset.detail))}
 function openNote(id){noteJobId=id;const j=JOBS.find(x=>x.id===id);$("#noteTitle").textContent=(j?.company||"岗位")+" · 备注";$("#noteText").value=myState(id).note||"";$("#noteDialog").showModal()}
 function openDetail(id){currentDetailId=id;const j=JOBS.find(x=>x.id===id);if(!j)return;const d=daysLeft(j.deadline);$("#detailTitle").textContent=j.title;$("#detailCompany").textContent=(j.company||"")+" · "+(j.unit||"");$("#detailContent").innerHTML=[["地点",j.location||"待核验"],["学历",j.degree||"待核验"],["专业",j.majors||"待核验"],["人数",j.headcount||"未公开"],["开始",j.openDate||"未公开"],["截止",j.deadline?(j.deadline+(d!==null&&d>=0&&d<=7?" · 即将截止":"")):"未公布"],["方向",(j.tracks||[]).join(" / ")],["来源",j.source||""],["要求",j.requirements||""],["流程",j.process||""],["备注",j.note||"—"]].map((x,i)=>`<div class="detail-item ${i>=8?"full":""}"><label>${esc(x[0])}</label><div>${esc(x[1])}</div></div>`).join("");$("#detailApply").href=j.applyUrl;$("#detailSource").href=j.sourceUrl||j.applyUrl;$("#detailNoteBtn").classList.toggle("hidden",!session);$("#detailDialog").showModal()}
 
@@ -175,11 +175,192 @@ async function pollScan(token,started){
   },5000);
 }
 
+/* ---------- one-click direct browser scan ---------- */
+let scanRunning=false;
+let DIRECT_JOBS=[];
+try{DIRECT_JOBS=JSON.parse(localStorage.getItem("jt_direct_scan_jobs_v1")||"[]")}catch(e){DIRECT_JOBS=[]}
+for(const j of DIRECT_JOBS){
+  const k=((j.applyUrl||"")+"|"+(j.title||"")+"|"+(j.company||"")).toLowerCase();
+  if(!JOBS.some(x=>((x.applyUrl||"")+"|"+(x.title||"")+"|"+(x.company||"")).toLowerCase()===k))JOBS.push(j);
+}
+
+function scanToast(title,text,done,error){
+  const box=$("#scanToast");
+  if(!box)return;
+  $("#scanToastTitle").textContent=title;
+  $("#scanToastText").textContent=text;
+  box.classList.remove("hidden","done","error");
+  if(done)box.classList.add("done");
+  if(error)box.classList.add("error");
+  if(done||error)setTimeout(()=>box.classList.add("hidden"),5000);
+}
+function mwmblText(v){
+  if(Array.isArray(v))return v.map(x=>typeof x==="string"?x:(x&&x.value)||"").join("");
+  if(v&&typeof v==="object")return v.value||"";
+  return String(v||"");
+}
+async function mwmblSearch(q){
+  const r=await fetch("https://api.mwmbl.org/api/v1/search/?s="+encodeURIComponent(q),{cache:"no-store"});
+  if(!r.ok)throw new Error("search "+r.status);
+  const data=await r.json();
+  const rows=Array.isArray(data)?data:(data.results||[]);
+  return rows.map(x=>({title:mwmblText(x.title),url:x.url||"",snippet:mwmblText(x.extract)})).filter(x=>x.title&&x.url);
+}
+async function jinaSearch(q){
+  const target="https://www.bing.com/search?q="+encodeURIComponent(q);
+  const r=await fetch("https://r.jina.ai/"+target,{headers:{"Accept":"text/plain"},cache:"no-store"});
+  if(!r.ok)throw new Error("reader "+r.status);
+  const text=await r.text(), out=[], seen=new Set();
+  const re=/\[([^\]\n]{3,180})\]\((https?:\/\/[^)\s]+)\)/g;
+  let m;
+  while((m=re.exec(text))&&out.length<12){
+    let u=m[2];
+    try{u=decodeURIComponent(u)}catch(e){}
+    let host="";
+    try{host=new URL(u).hostname}catch(e){continue}
+    if(/bing\.com|microsoft\.com|jina\.ai/.test(host)||seen.has(u))continue;
+    seen.add(u);
+    out.push({title:m[1].replace(/\s+/g," ").trim(),url:u,snippet:""});
+  }
+  return out;
+}
+function companyCore(n){
+  return String(n||"").replace(/中国|国家|股份有限公司|集团有限公司|有限责任公司|有限公司|集团|股份|研究总院|设计研究总院|设计研究院|勘察设计院|建筑设计院|设计院|研究所|研究院|科技|智能|控股/g,"").trim();
+}
+function companyMatches(n,text){
+  const a=String(n||"").replace(/\s/g,"").toLowerCase();
+  const b=String(text||"").replace(/\s/g,"").toLowerCase();
+  if(a&&b.includes(a))return true;
+  const c=companyCore(n).replace(/\s/g,"").toLowerCase();
+  return c.length>=3&&b.includes(c);
+}
+function recruitingText(t){return /2027|校招|校园招聘|秋招|应届|毕业生|招聘|career|campus/i.test(t||"")}
+function scanTracks(t){
+  const out=[];
+  if(/土木|结构|岩土|桥梁|隧道|市政|水利/.test(t))out.push("土木直投");
+  if(/设计院|勘察设计|规划设计/.test(t))out.push("设计院");
+  if(/工程管理|项目管理|造价/.test(t))out.push("工程管理");
+  if(/CAE|仿真|有限元|Abaqus|ANSYS|LS-DYNA|NVH|CFD|疲劳/i.test(t))out.push("CAE/仿真");
+  if(/风电|风机|新能源|储能|光伏|氢能/.test(t))out.push("风电/新能源");
+  if(/汽车|车辆|机械|底盘|制造/.test(t))out.push("转汽车/机械");
+  out.push("即时扫描");
+  return [...new Set(out)].slice(0,4);
+}
+function scanDeadline(t){
+  let m=String(t||"").match(/截止(?:至|到|时间[:：]?)?\s*(20\d{2})[年\/.-](\d{1,2})[月\/.-](\d{1,2})日?/);
+  if(!m)m=String(t||"").match(/(20\d{2})[年\/.-](\d{1,2})[月\/.-](\d{1,2})日?\s*(?:截止|前)/);
+  if(!m)return null;
+  return m[1]+"-"+String(+m[2]).padStart(2,"0")+"-"+String(+m[3]).padStart(2,"0");
+}
+function directId(u,t){
+  let h=2166136261,s=u+"|"+t;
+  for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}
+  return "direct-"+(h>>>0).toString(16);
+}
+function toDirectJob(company,r){
+  const blob=(r.title||"")+" "+(r.snippet||"");
+  return {
+    id:directId(r.url,r.title),company,unit:"即时全网扫描",title:r.title,
+    tracks:scanTracks(blob),type:"自动发现",location:"待核验",
+    degree:/硕士|研究生/.test(blob)?"硕士 / 研究生":(/本科/.test(blob)?"本科":"待核验"),
+    majors:"待核验",headcount:"待核验",openDate:new Date().toISOString().slice(0,10),
+    deadline:scanDeadline(blob),updated:new Date().toISOString().slice(0,10),
+    requirements:r.snippet||"即时扫描发现招聘相关页面，请打开来源核验岗位详情。",
+    process:"以原始招聘页面为准",applyUrl:r.url,sourceUrl:r.url,
+    source:"即时全网扫描",note:"浏览器即时搜索结果；投递前请核验专业、学历、地点和截止时间。",
+    direct:true,verified:false
+  };
+}
+function mergeDirect(rows){
+  const by=new Map(DIRECT_JOBS.map(j=>[j.id,j]));
+  for(const j of rows)by.set(j.id,j);
+  DIRECT_JOBS=[...by.values()].slice(-800);
+  localStorage.setItem("jt_direct_scan_jobs_v1",JSON.stringify(DIRECT_JOBS));
+  localStorage.setItem("jt_direct_scan_at_v1",new Date().toISOString());
+  for(const j of rows){
+    const k=((j.applyUrl||"")+"|"+(j.title||"")+"|"+(j.company||"")).toLowerCase();
+    if(!JOBS.some(x=>((x.applyUrl||"")+"|"+(x.title||"")+"|"+(x.company||"")).toLowerCase()===k))JOBS.push(j);
+  }
+  fillFilters();
+  renderAll();
+}
+async function scanOneCompany(company,useFallback){
+  const q='"'+company+'" 2027 校园招聘 秋招';
+  let rows=[];
+  try{rows=await mwmblSearch(q)}catch(e){}
+  rows=rows.filter(r=>companyMatches(company,(r.title||"")+" "+(r.snippet||"")+" "+(r.url||""))&&recruitingText((r.title||"")+" "+(r.snippet||"")));
+  if(!rows.length&&useFallback){
+    try{rows=(await jinaSearch(q)).filter(r=>companyMatches(company,(r.title||"")+" "+(r.url||""))&&recruitingText(r.title||""))}catch(e){}
+  }
+  return rows.slice(0,6).map(r=>toDirectJob(company,r));
+}
+async function scanPool(items,limit,onProgress){
+  let next=0,done=0;
+  const out=[];
+  async function worker(){
+    while(true){
+      const i=next++;
+      if(i>=items.length)return;
+      try{out.push(...await scanOneCompany(items[i],false))}catch(e){}
+      done++;
+      if(onProgress)onProgress(done,items.length,out.length);
+    }
+  }
+  await Promise.all(Array.from({length:Math.min(limit,items.length)},worker));
+  return out;
+}
+async function runDirectScan(company){
+  if(scanRunning)return;
+  scanRunning=true;
+  const btn=$("#scanBtn"),old=btn.textContent;
+  btn.disabled=true;
+  btn.textContent=company?"↻ 扫描 "+company:"↻ 扫描中 0%";
+  scanToast("正在全网扫描",company?"正在搜索 "+company+"…":"正在扫描 "+TARGETS.length+" 家企业…",false,false);
+  try{
+    let found=[];
+    if(company){
+      found=await scanOneCompany(company,true);
+      mergeDirect(found);
+    }else{
+      const names=TARGETS.map(x=>x.name);
+      found=await scanPool(names,10,(done,total,count)=>{
+        const pct=Math.round(done/total*100);
+        btn.textContent="↻ 扫描中 "+pct+"%";
+        scanToast("正在全网扫描",done+"/"+total+" 家企业 · 已发现 "+count+" 条候选",false,false);
+      });
+      mergeDirect(found);
+      const broad=["2027 校园招聘 土木 结构 设计院","2027 校招 CAE 仿真 NVH 有限元","2027 校招 风电 新能源 结构","2027 校招 汽车 结构 仿真","2027 校招 工程管理 智能建造"];
+      const extra=[];
+      for(let i=0;i<broad.length;i++){
+        try{
+          const rr=await jinaSearch(broad[i]);
+          for(const r of rr){
+            const blob=(r.title||"")+" "+(r.url||"");
+            const hit=TARGETS.find(t=>companyMatches(t.name,blob));
+            if(hit&&recruitingText(r.title||""))extra.push(toDirectJob(hit.name,r));
+          }
+        }catch(e){}
+        scanToast("正在补充扫描","全网补充 "+(i+1)+"/"+broad.length,false,false);
+      }
+      if(extra.length){mergeDirect(extra);found.push(...extra)}
+    }
+    const unique=new Set(found.map(x=>x.id)).size;
+    scanToast("扫描完成",company?company+"：发现 "+unique+" 条招聘相关结果":"已扫描 "+TARGETS.length+" 家企业，发现 "+unique+" 条招聘相关结果",true,false);
+    if(currentView==="companies")renderCompanies();
+  }catch(e){
+    scanToast("扫描失败",(e&&e.message)||"网络搜索暂时不可用，请稍后再点一次。",false,true);
+  }finally{
+    scanRunning=false;
+    btn.disabled=false;
+    btn.textContent=old;
+  }
+}
+
 function updateUserUI(){const on=!!session;$("#loginBtn").classList.toggle("hidden",on);$("#userBox").classList.toggle("hidden",!on);if(on){$("#userName").textContent=session.user.email;$("#syncStatus").textContent=cloudConfigured?"云端账户":"本机账户"}else $("#syncStatus").textContent="未登录 · 浏览模式"}
 function setAuthMode(m){authMode=m;$("#tabLogin").classList.toggle("active",m==="login");$("#tabSignup").classList.toggle("active",m==="signup");$("#authSubmit").textContent=m==="login"?"登录":"注册";$("#authMessage").textContent=""}
 function openAuth(){setAuthMode("login");$("#authModeHint").textContent=cloudConfigured?"云端账号，可跨设备同步":"当前为本机账户，仅当前浏览器保存";$("#authFine").textContent=cloudConfigured?"每个用户只能读取自己的记录。":"请不要使用其他重要网站的相同密码。";$("#authDialog").showModal()}
 async function submitAuth(){const email=$("#authEmail").value.trim(),pw=$("#authPassword").value,msg=$("#authMessage");if(!email.includes("@")||pw.length<6){msg.textContent="请输入有效邮箱，密码至少6位。";return}try{if(cloudConfigured){const r=authMode==="signup"?await sb.auth.signUp({email,password:pw,options:{emailRedirectTo:location.origin+location.pathname}}):await sb.auth.signInWithPassword({email,password:pw});if(r.error)throw r.error;if(authMode==="signup"&&!r.data.session){msg.textContent="注册成功，请检查邮箱完成验证。";return}session=r.data.session;await loadMine()}else{if(authMode==="signup")await localSignup(email,pw);else await localLogin(email,pw);loadLocalMine()}$("#authDialog").close();updateUserUI();renderAll()}catch(e){msg.textContent=e.message||String(e)}}
 function resetFilters(){["searchInput","trackFilter","regionFilter","degreeFilter","stageFilter","sourceFilter","typeFilter","sectorFilter","companyStatusFilter"].forEach(id=>{const e=$("#"+id);if(e)e.value=""});$("#sortFilter").value="deadline-asc";$("#companySortFilter").value="jobs-desc";$("#showExpired").checked=false;onlyMine=false;deadlineDirection="asc";renderAll()}
-function bindStatic(){$("#scanBtn").onclick=()=>openScan();$("#startScanBtn").onclick=startScan;$("#jobsTab").onclick=()=>setView("jobs");$("#companiesTab").onclick=()=>setView("companies");$("#themeBtn").onclick=()=>{const n=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=n;localStorage.setItem("jt-theme",n)};$("#loginBtn").onclick=openAuth;$("#logoutBtn").onclick=async()=>{if(cloudConfigured)await sb.auth.signOut();else{localLogout();updateUserUI();renderAll()}};$("#tabLogin").onclick=()=>setAuthMode("login");$("#tabSignup").onclick=()=>setAuthMode("signup");$("#authSubmit").onclick=submitAuth;$("#authPassword").addEventListener("keydown",e=>{if(e.key==="Enter")submitAuth()});["searchInput","trackFilter","regionFilter","degreeFilter","stageFilter","sortFilter","sourceFilter","typeFilter","showExpired","sectorFilter","companyStatusFilter","companySortFilter"].forEach(id=>{const e=$("#"+id);e.addEventListener(e.tagName==="INPUT"&&e.type==="text"?"input":"change",renderAll)});$("#moreFiltersBtn").onclick=()=>{$("#advancedFilters").classList.toggle("hidden");$("#moreFiltersBtn").textContent=$("#advancedFilters").classList.contains("hidden")?"筛选":"收起"};$("#onlyMineBtn").onclick=()=>{onlyMine=!onlyMine;$("#onlyMineBtn").textContent=onlyMine?"✓ 只看已标记":"只看已标记";renderAll()};$("#resetBtn").onclick=resetFilters;$("#deadlineSortBtn").onclick=()=>{deadlineDirection=deadlineDirection==="asc"?"desc":"asc";$("#sortFilter").value="deadline-asc";renderJobs()};$$$("[data-close]").forEach(b=>b.onclick=()=>document.getElementById(b.dataset.close).close());$("#saveNoteBtn").onclick=async()=>{if(noteJobId){const ok=await saveState(noteJobId,{note:$("#noteText").value.trim()});if(ok)$("#noteDialog").close()}};$("#deleteStateBtn").onclick=async()=>{if(noteJobId&&confirm("确定删除这个岗位的个人记录吗？"))await deleteState(noteJobId)};$("#detailNoteBtn").onclick=()=>{if(currentDetailId){$("#detailDialog").close();openNote(currentDetailId)}}}
+function bindStatic(){$("#scanBtn").onclick=()=>runDirectScan();$("#jobsTab").onclick=()=>setView("jobs");$("#companiesTab").onclick=()=>setView("companies");$("#themeBtn").onclick=()=>{const n=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=n;localStorage.setItem("jt-theme",n)};$("#loginBtn").onclick=openAuth;$("#logoutBtn").onclick=async()=>{if(cloudConfigured)await sb.auth.signOut();else{localLogout();updateUserUI();renderAll()}};$("#tabLogin").onclick=()=>setAuthMode("login");$("#tabSignup").onclick=()=>setAuthMode("signup");$("#authSubmit").onclick=submitAuth;$("#authPassword").addEventListener("keydown",e=>{if(e.key==="Enter")submitAuth()});["searchInput","trackFilter","regionFilter","degreeFilter","stageFilter","sortFilter","sourceFilter","typeFilter","showExpired","sectorFilter","companyStatusFilter","companySortFilter"].forEach(id=>{const e=$("#"+id);e.addEventListener(e.tagName==="INPUT"&&e.type==="text"?"input":"change",renderAll)});$("#moreFiltersBtn").onclick=()=>{$("#advancedFilters").classList.toggle("hidden");$("#moreFiltersBtn").textContent=$("#advancedFilters").classList.contains("hidden")?"筛选":"收起"};$("#onlyMineBtn").onclick=()=>{onlyMine=!onlyMine;$("#onlyMineBtn").textContent=onlyMine?"✓ 只看已标记":"只看已标记";renderAll()};$("#resetBtn").onclick=resetFilters;$("#deadlineSortBtn").onclick=()=>{deadlineDirection=deadlineDirection==="asc"?"desc":"asc";$("#sortFilter").value="deadline-asc";renderJobs()};$("[data-close]").forEach(b=>b.onclick=()=>document.getElementById(b.dataset.close).close());$("#saveNoteBtn").onclick=async()=>{if(noteJobId){const ok=await saveState(noteJobId,{note:$("#noteText").value.trim()});if(ok)$("#noteDialog").close()}};$("#deleteStateBtn").onclick=async()=>{if(noteJobId&&confirm("确定删除这个岗位的个人记录吗？"))await deleteState(noteJobId)};$("#detailNoteBtn").onclick=()=>{if(currentDetailId){$("#detailDialog").close();openNote(currentDetailId)}}}
 async function init(){document.documentElement.dataset.theme=localStorage.getItem("jt-theme")||"light";fillFilters();bindStatic();await initSession();setView("jobs")}
 init();
