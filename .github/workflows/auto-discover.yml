@@ -2,6 +2,19 @@ name: Auto discover recruitment jobs
 
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "扫描模式"
+        required: true
+        default: "full"
+        type: choice
+        options:
+          - full
+          - recent
+      company:
+        description: "只扫描某一家企业（可留空）"
+        required: false
+        type: string
   push:
     paths:
       - "crawler/**"
@@ -32,6 +45,8 @@ jobs:
       - name: Discover jobs
         env:
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          MANUAL_SCAN_MODE: ${{ github.event.inputs.mode }}
+          MANUAL_COMPANY: ${{ github.event.inputs.company }}
         run: python crawler/crawl_jobs.py
 
       - name: Commit discovered jobs
