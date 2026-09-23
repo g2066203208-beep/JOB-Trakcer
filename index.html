@@ -21,7 +21,7 @@
   </nav>
 
   <div class="top-actions">
-    <a id="scanBtn" class="scan-btn" href="https://github.com/g2066203208-beep/JOB-Trakcer/actions/workflows/auto-discover.yml" target="_blank" rel="noopener" title="打开手动全网扫描控制台">↻ 手动全网扫描</a>
+    <button id="scanBtn" class="scan-btn" title="手动启动全网招聘扫描">↻ 手动全网扫描</button>
     <button id="themeBtn" class="icon-btn" title="切换主题">◐</button>
     <button id="loginBtn" class="btn light">登录</button>
     <div id="userBox" class="user-box hidden">
@@ -122,7 +122,7 @@
   <section id="companiesView" class="hidden">
     <div class="company-overview">
       <div><b id="companyResultCount">0</b> 家企业</div>
-      <div>企业库会持续扫描；有岗位的直接进入岗位列表，没有的保留为“待扫描”。</div>
+      <div><span id="scanMeta">尚未完成自动扫描</span> · 企业库会持续补岗位</div>
     </div>
     <div id="companyGrid" class="company-grid"></div>
     <div id="companyEmpty" class="empty hidden">没有符合条件的企业。</div>
@@ -133,6 +133,43 @@
     <span id="syncStatus">未登录 · 浏览模式</span>
   </footer>
 </main>
+
+<dialog id="scanDialog">
+  <form class="modal scan-modal" onsubmit="return false">
+    <div class="modal-head">
+      <div><small>SCAN CONTROL</small><h2>手动全网扫描</h2><p>扫描招聘网页并自动写回岗位库。管理员令牌只保存在当前浏览器，不会写入 GitHub 仓库。</p></div>
+      <button class="x-btn" data-close="scanDialog">×</button>
+    </div>
+
+    <div class="scan-options">
+      <label>扫描模式
+        <select id="scanMode">
+          <option value="full">全量扫描全部企业</option>
+          <option value="recent">快速扫描今日批次</option>
+        </select>
+      </label>
+      <label>指定企业（可留空）
+        <input id="scanCompany" placeholder="例如：比亚迪；留空则按上面的模式扫描">
+      </label>
+      <label>GitHub Fine-grained Token
+        <input id="scanToken" type="password" autocomplete="off" placeholder="仅需对 JOB-Trakcer 仓库授予 Actions 读写">
+      </label>
+      <label class="remember-row"><input id="rememberScanToken" type="checkbox"> 记住在这台电脑上</label>
+    </div>
+
+    <div id="scanMessage" class="scan-message">第一次需要填一次管理员令牌；之后即可在网站里直接点扫描。</div>
+
+    <div class="scan-help">
+      <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">创建 Fine-grained Token ↗</a>
+      <span>Repository access 只选 JOB-Trakcer；Permissions → Actions：Read and write。</span>
+    </div>
+
+    <div class="modal-actions scan-actions">
+      <a class="btn light" href="https://github.com/g2066203208-beep/JOB-Trakcer/actions/workflows/auto-discover.yml" target="_blank" rel="noopener">GitHub 控制台</a>
+      <button id="startScanBtn" class="btn primary">启动扫描</button>
+    </div>
+  </form>
+</dialog>
 
 <dialog id="detailDialog">
   <div class="modal">
