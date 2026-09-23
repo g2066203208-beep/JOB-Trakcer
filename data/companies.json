@@ -1,0 +1,4603 @@
+[
+  {
+    "id": "c001",
+    "name": "中国建筑",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "央企",
+      "施工",
+      "工程管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c002",
+    "name": "中建一局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "项目管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c003",
+    "name": "中建二局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "项目管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c004",
+    "name": "中建三局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "项目管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c005",
+    "name": "中建四局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "项目管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c006",
+    "name": "中建五局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "项目管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c007",
+    "name": "中建六局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "项目管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c008",
+    "name": "中建七局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "项目管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c009",
+    "name": "中建八局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "项目管理"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c010",
+    "name": "中建安装",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "机电",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c011",
+    "name": "中建科技",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "智能建造",
+      "数字化"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c012",
+    "name": "中建交通",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "基础设施"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c013",
+    "name": "中建西南院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c014",
+    "name": "中建西北院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c015",
+    "name": "中国中铁",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "央企",
+      "铁路",
+      "基建"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c016",
+    "name": "中铁一局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c017",
+    "name": "中铁二局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c018",
+    "name": "中铁三局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c019",
+    "name": "中铁四局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c020",
+    "name": "中铁五局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c021",
+    "name": "中铁六局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c022",
+    "name": "中铁七局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c023",
+    "name": "中铁八局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c024",
+    "name": "中铁九局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c025",
+    "name": "中铁十局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c026",
+    "name": "中铁大桥局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "桥梁",
+      "结构"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c027",
+    "name": "中铁隧道局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "隧道",
+      "岩土"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c028",
+    "name": "中铁上海工程局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c029",
+    "name": "中铁北京工程局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c030",
+    "name": "中铁广州工程局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c031",
+    "name": "中铁工程设计咨询集团",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "结构",
+      "桥梁",
+      "轨道"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c032",
+    "name": "中国铁建",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "央企",
+      "铁路",
+      "基建"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c033",
+    "name": "中铁十一局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c034",
+    "name": "中铁十二局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c035",
+    "name": "中铁十三局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c036",
+    "name": "中铁十四局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c037",
+    "name": "中铁十五局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c038",
+    "name": "中铁十六局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c039",
+    "name": "中铁十七局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c040",
+    "name": "中铁十八局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c041",
+    "name": "中铁十九局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c042",
+    "name": "中铁二十局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c043",
+    "name": "中铁二十一局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c044",
+    "name": "中铁二十二局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c045",
+    "name": "中铁二十三局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c046",
+    "name": "中铁二十四局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c047",
+    "name": "中铁二十五局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "铁路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c048",
+    "name": "铁一院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "铁路",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c049",
+    "name": "铁四院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "铁路",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c050",
+    "name": "铁五院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "铁路",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c051",
+    "name": "中铁城建",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "房建",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c052",
+    "name": "中国交建",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "央企",
+      "港航",
+      "公路"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c053",
+    "name": "中交一公局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "公路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c054",
+    "name": "中交二公局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "公路",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c055",
+    "name": "中交一航局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "港航",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c056",
+    "name": "中交二航局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "港航",
+      "桥梁"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c057",
+    "name": "中交三航局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "港航",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c058",
+    "name": "中交四航局",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "港航",
+      "施工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c059",
+    "name": "中交公路规划设计院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "桥梁",
+      "公路"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c060",
+    "name": "中交第一公路勘察设计院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "公路",
+      "桥梁"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c061",
+    "name": "中交第二公路勘察设计院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "公路",
+      "桥梁"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c062",
+    "name": "中交第四航务工程勘察设计院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "港航",
+      "海工"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c063",
+    "name": "中国电建",
+    "industry": "新能源",
+    "sector": "能源工程",
+    "tags": [
+      "央企",
+      "新能源",
+      "设计"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c064",
+    "name": "中国电建华东院",
+    "industry": "新能源",
+    "sector": "设计院",
+    "tags": [
+      "新能源",
+      "结构"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c065",
+    "name": "中国电建中南院",
+    "industry": "新能源",
+    "sector": "设计院",
+    "tags": [
+      "新能源",
+      "水利"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c066",
+    "name": "中国电建西北院",
+    "industry": "新能源",
+    "sector": "设计院",
+    "tags": [
+      "新能源",
+      "水利"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c067",
+    "name": "中国电建成都院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "水电",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c068",
+    "name": "中国电建北京院",
+    "industry": "新能源",
+    "sector": "设计院",
+    "tags": [
+      "新能源",
+      "水利"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c069",
+    "name": "中国电建昆明院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "水电",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c070",
+    "name": "中国电建贵阳院",
+    "industry": "新能源",
+    "sector": "设计院",
+    "tags": [
+      "新能源",
+      "水利"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c071",
+    "name": "中国能建",
+    "industry": "能源 / 电力",
+    "sector": "能源工程",
+    "tags": [
+      "央企",
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c072",
+    "name": "中国能建广东院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c073",
+    "name": "中国能建江苏院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c074",
+    "name": "中国能建浙江院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c075",
+    "name": "中国能建安徽院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c076",
+    "name": "中国能建东北院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c077",
+    "name": "中国能建西北院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c078",
+    "name": "中国能建中南院",
+    "industry": "能源 / 电力",
+    "sector": "设计院",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c079",
+    "name": "中国中冶",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "央企",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c080",
+    "name": "中冶京诚",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "工程",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c081",
+    "name": "中冶赛迪",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "工程",
+      "数字化"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c082",
+    "name": "中冶南方",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "工程",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c083",
+    "name": "上海宝冶",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c084",
+    "name": "中国五冶",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c085",
+    "name": "国家能源集团",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c086",
+    "name": "中国华能",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c087",
+    "name": "中国华电",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c088",
+    "name": "中国大唐",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c089",
+    "name": "国家电投",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "电力",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c090",
+    "name": "三峡集团",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "水电",
+      "新能源"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c091",
+    "name": "中广核",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "核电",
+      "新能源"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c092",
+    "name": "中核集团",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "核电",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c093",
+    "name": "国家电网",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "电网",
+      "工程"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c094",
+    "name": "南方电网",
+    "industry": "能源 / 电力",
+    "sector": "能源央企",
+    "tags": [
+      "电网",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c095",
+    "name": "金风科技",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "风机",
+      "载荷",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c096",
+    "name": "远景能源",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "风机",
+      "结构",
+      "载荷"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c097",
+    "name": "明阳智能",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "海上风电",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c098",
+    "name": "上海电气风电",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "塔架",
+      "CAE",
+      "载荷"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c099",
+    "name": "东方风电",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "整机",
+      "载荷",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c100",
+    "name": "三一重能",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "风机",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c101",
+    "name": "运达股份",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "风机",
+      "载荷"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c102",
+    "name": "中船海装",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "风机",
+      "海工"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c103",
+    "name": "中车株洲所",
+    "industry": "新能源",
+    "sector": "风电新能源",
+    "tags": [
+      "风电",
+      "电驱"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c104",
+    "name": "比亚迪",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "NVH",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c105",
+    "name": "中国一汽",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "NVH",
+      "整车"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c106",
+    "name": "上汽集团",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "整车"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c107",
+    "name": "东风汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "整车"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c108",
+    "name": "长安汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "整车"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c109",
+    "name": "广汽集团",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "整车"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c110",
+    "name": "吉利控股集团",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c111",
+    "name": "长城汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c112",
+    "name": "奇瑞汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c113",
+    "name": "蔚来",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c114",
+    "name": "小鹏汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c115",
+    "name": "理想汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "CAE",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c116",
+    "name": "小米汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c117",
+    "name": "零跑汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c118",
+    "name": "赛力斯",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c119",
+    "name": "极氪",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c120",
+    "name": "江淮汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车新能源",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c121",
+    "name": "三一集团",
+    "industry": "机械 / 高端装备",
+    "sector": "工程机械",
+    "tags": [
+      "CAE",
+      "结构",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c122",
+    "name": "徐工集团",
+    "industry": "机械 / 高端装备",
+    "sector": "工程机械",
+    "tags": [
+      "CAE",
+      "结构",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c123",
+    "name": "中联重科",
+    "industry": "机械 / 高端装备",
+    "sector": "工程机械",
+    "tags": [
+      "CAE",
+      "结构",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c124",
+    "name": "柳工",
+    "industry": "机械 / 高端装备",
+    "sector": "工程机械",
+    "tags": [
+      "CAE",
+      "结构",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c125",
+    "name": "潍柴动力",
+    "industry": "机械 / 高端装备",
+    "sector": "工程机械",
+    "tags": [
+      "CAE",
+      "动力"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c126",
+    "name": "玉柴集团",
+    "industry": "机械 / 高端装备",
+    "sector": "工程机械",
+    "tags": [
+      "CAE",
+      "动力"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c127",
+    "name": "卡特彼勒",
+    "industry": "机械 / 高端装备",
+    "sector": "工程机械",
+    "tags": [
+      "仿真",
+      "制造"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c128",
+    "name": "舍弗勒",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "CAE",
+      "NVH"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c129",
+    "name": "采埃孚",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "工业制造",
+    "tags": [
+      "CAE",
+      "底盘"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c130",
+    "name": "博世",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "机械",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c131",
+    "name": "康明斯",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "动力",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c132",
+    "name": "宁德时代",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "电池",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c133",
+    "name": "国轩高科",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "电池",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c134",
+    "name": "亿纬锂能",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "电池",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c135",
+    "name": "欣旺达",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "电池",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c136",
+    "name": "中创新航",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "电池",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c137",
+    "name": "比亚迪电子",
+    "industry": "电子 / 智能硬件",
+    "sector": "电子制造",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c138",
+    "name": "歌尔股份",
+    "industry": "电子 / 智能硬件",
+    "sector": "电子制造",
+    "tags": [
+      "CAE",
+      "振动",
+      "热"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c139",
+    "name": "立讯精密",
+    "industry": "电子 / 智能硬件",
+    "sector": "电子制造",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c140",
+    "name": "京东方",
+    "industry": "电子 / 智能硬件",
+    "sector": "电子制造",
+    "tags": [
+      "结构",
+      "热"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c141",
+    "name": "华为",
+    "industry": "机械 / 高端装备",
+    "sector": "科技",
+    "tags": [
+      "结构",
+      "热",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c142",
+    "name": "中兴通讯",
+    "industry": "其他",
+    "sector": "科技",
+    "tags": [
+      "结构",
+      "热"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c143",
+    "name": "大疆创新",
+    "industry": "机械 / 高端装备",
+    "sector": "科技",
+    "tags": [
+      "结构",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c144",
+    "name": "美的集团",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c145",
+    "name": "海尔集团",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c146",
+    "name": "格力电器",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c147",
+    "name": "索辰科技",
+    "industry": "软件 / 工业软件",
+    "sector": "CAE软件",
+    "tags": [
+      "CAE",
+      "求解器"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c148",
+    "name": "中望软件",
+    "industry": "软件 / 工业软件",
+    "sector": "工业软件",
+    "tags": [
+      "CAE",
+      "CAD"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c149",
+    "name": "安世亚太",
+    "industry": "软件 / 工业软件",
+    "sector": "CAE软件",
+    "tags": [
+      "CAE",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c150",
+    "name": "中久数创",
+    "industry": "软件 / 工业软件",
+    "sector": "CAE软件",
+    "tags": [
+      "CAE",
+      "求解器"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c151",
+    "name": "中物院软件中心",
+    "industry": "软件 / 工业软件",
+    "sector": "CAE软件",
+    "tags": [
+      "CAE",
+      "高性能计算"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c152",
+    "name": "西门子工业软件",
+    "industry": "软件 / 工业软件",
+    "sector": "工业软件",
+    "tags": [
+      "CAE",
+      "数字孪生"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c153",
+    "name": "达索系统",
+    "industry": "软件 / 工业软件",
+    "sector": "工业软件",
+    "tags": [
+      "CAE",
+      "CAD"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c154",
+    "name": "Altair",
+    "industry": "软件 / 工业软件",
+    "sector": "CAE软件",
+    "tags": [
+      "CAE",
+      "优化"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c155",
+    "name": "Ansys",
+    "industry": "软件 / 工业软件",
+    "sector": "CAE软件",
+    "tags": [
+      "CAE",
+      "多物理场"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c156",
+    "name": "海克斯康",
+    "industry": "软件 / 工业软件",
+    "sector": "工业软件",
+    "tags": [
+      "CAE",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c157",
+    "name": "中国汽车工业工程有限公司",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "设计院",
+    "tags": [
+      "汽车工程",
+      "总包"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c158",
+    "name": "昂瑞微",
+    "industry": "芯片 / 半导体",
+    "sector": "半导体",
+    "tags": [
+      "芯片",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c159",
+    "name": "中国建筑设计研究院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构",
+      "城市设计"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c160",
+    "name": "北京市建筑设计研究院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c161",
+    "name": "华东建筑设计研究院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c162",
+    "name": "同济大学建筑设计研究院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c163",
+    "name": "中南建筑设计院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c164",
+    "name": "中信建筑设计研究总院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c165",
+    "name": "深圳市建筑设计研究总院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c166",
+    "name": "广东省建筑设计研究院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c167",
+    "name": "浙江省建筑设计研究院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c168",
+    "name": "江苏省建筑设计研究院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "建筑",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c169",
+    "name": "上海市政工程设计研究总院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "市政",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c170",
+    "name": "北京市政工程设计研究总院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "市政",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c171",
+    "name": "天津市政工程设计研究总院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "市政",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c172",
+    "name": "广州市市政工程设计研究总院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "市政",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c173",
+    "name": "武汉市政工程设计研究院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "市政",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c174",
+    "name": "苏交科集团",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "公路",
+      "桥梁",
+      "岩土"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c175",
+    "name": "华设设计集团",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁",
+      "市政"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c176",
+    "name": "安徽省交通规划设计研究总院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c177",
+    "name": "河南省交通规划设计研究院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c178",
+    "name": "湖北省交通规划设计院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c179",
+    "name": "湖南省交通规划勘察设计院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c180",
+    "name": "四川省公路规划勘察设计研究院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c181",
+    "name": "福建省交通规划设计院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c182",
+    "name": "贵州省交通规划勘察设计研究院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c183",
+    "name": "云南省交通规划设计研究院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c184",
+    "name": "山东省交通规划设计院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c185",
+    "name": "浙江数智交院科技",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "数字化"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c186",
+    "name": "招商局重庆交通科研设计院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "桥梁",
+      "隧道",
+      "检测"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c187",
+    "name": "中国铁路设计集团",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "铁路",
+      "桥梁",
+      "结构"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c188",
+    "name": "中铁二院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "铁路",
+      "结构"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c189",
+    "name": "中铁六院",
+    "industry": "建筑 / 基建",
+    "sector": "设计院",
+    "tags": [
+      "轨道",
+      "市政"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c190",
+    "name": "北京城建设计发展集团",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "轨道交通",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c191",
+    "name": "上海市隧道工程轨道交通设计研究院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "隧道",
+      "轨道"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c192",
+    "name": "广州地铁设计研究院",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "轨道",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c193",
+    "name": "深圳市城市交通规划设计研究中心",
+    "industry": "设计 / 工程咨询",
+    "sector": "设计院",
+    "tags": [
+      "交通",
+      "规划"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c194",
+    "name": "北京城建集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "市政"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c195",
+    "name": "上海建工集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c196",
+    "name": "陕西建工集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c197",
+    "name": "湖南建投集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c198",
+    "name": "安徽建工集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c199",
+    "name": "广西建工集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c200",
+    "name": "山西建投集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c201",
+    "name": "河北建工集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c202",
+    "name": "浙江省建工集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "施工",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c203",
+    "name": "四川路桥",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "公路",
+      "桥梁"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c204",
+    "name": "山东高速集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c205",
+    "name": "浙江交工集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c206",
+    "name": "湖北交投集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c207",
+    "name": "河南交通投资集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c208",
+    "name": "江苏交通控股",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c209",
+    "name": "广东交通集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c210",
+    "name": "招商公路",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "运营"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c211",
+    "name": "蜀道集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c212",
+    "name": "贵州交通建设集团",
+    "industry": "建筑 / 基建",
+    "sector": "土木基建",
+    "tags": [
+      "交通",
+      "工程"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c213",
+    "name": "中国中车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "轨道交通",
+    "tags": [
+      "车辆",
+      "结构",
+      "仿真"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c214",
+    "name": "中车长春轨道客车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "轨道交通",
+    "tags": [
+      "车辆",
+      "结构",
+      "仿真"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c215",
+    "name": "中车青岛四方",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "轨道交通",
+    "tags": [
+      "车辆",
+      "结构",
+      "仿真"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c216",
+    "name": "中车唐山机车车辆",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "轨道交通",
+    "tags": [
+      "车辆",
+      "结构",
+      "仿真"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c217",
+    "name": "中车株洲电力机车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "轨道交通",
+    "tags": [
+      "车辆",
+      "结构",
+      "仿真"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c218",
+    "name": "中车戚墅堰机车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "轨道交通",
+    "tags": [
+      "车辆",
+      "动力"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c219",
+    "name": "中车大连机车车辆",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "轨道交通",
+    "tags": [
+      "车辆",
+      "动力"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c220",
+    "name": "中车时代电气",
+    "industry": "轨道交通",
+    "sector": "轨道交通",
+    "tags": [
+      "电驱",
+      "仿真"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c221",
+    "name": "中车时代新材",
+    "industry": "新能源",
+    "sector": "轨道交通",
+    "tags": [
+      "材料",
+      "结构",
+      "风电"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c222",
+    "name": "阳光电源",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "储能",
+      "逆变器",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c223",
+    "name": "隆基绿能",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "光伏",
+      "设备"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c224",
+    "name": "晶科能源",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "光伏",
+      "设备"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c225",
+    "name": "天合光能",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "光伏",
+      "储能"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c226",
+    "name": "阿特斯阳光电力",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "光伏",
+      "储能"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c227",
+    "name": "固德威",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "储能",
+      "逆变器"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c228",
+    "name": "禾望电气",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "风电",
+      "电驱"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c229",
+    "name": "特变电工",
+    "industry": "新能源",
+    "sector": "能源工程",
+    "tags": [
+      "输变电",
+      "新能源"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c230",
+    "name": "正泰集团",
+    "industry": "新能源",
+    "sector": "能源工程",
+    "tags": [
+      "电气",
+      "新能源"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c231",
+    "name": "南瑞集团",
+    "industry": "软件 / 工业软件",
+    "sector": "能源央企",
+    "tags": [
+      "电网",
+      "软件",
+      "装备"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c232",
+    "name": "许继集团",
+    "industry": "机械 / 高端装备",
+    "sector": "能源央企",
+    "tags": [
+      "电网",
+      "装备"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c233",
+    "name": "平高集团",
+    "industry": "机械 / 高端装备",
+    "sector": "能源央企",
+    "tags": [
+      "电网",
+      "装备"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c234",
+    "name": "思源电气",
+    "industry": "机械 / 高端装备",
+    "sector": "能源工程",
+    "tags": [
+      "电气",
+      "装备"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c235",
+    "name": "东方日升",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "光伏",
+      "储能"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c236",
+    "name": "晶澳科技",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "光伏",
+      "设备"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c237",
+    "name": "协鑫集团",
+    "industry": "新能源",
+    "sector": "新能源科技",
+    "tags": [
+      "光伏",
+      "储能"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c238",
+    "name": "远东股份",
+    "industry": "新能源",
+    "sector": "能源工程",
+    "tags": [
+      "电缆",
+      "新能源"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c239",
+    "name": "华域汽车",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "结构",
+      "CAE"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c240",
+    "name": "延锋国际",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "内饰",
+      "结构",
+      "CAE"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c241",
+    "name": "拓普集团",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "底盘",
+      "NVH",
+      "CAE"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c242",
+    "name": "均胜电子",
+    "industry": "电子 / 智能硬件",
+    "sector": "汽车供应链",
+    "tags": [
+      "汽车电子",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c243",
+    "name": "德赛西威",
+    "industry": "电子 / 智能硬件",
+    "sector": "汽车供应链",
+    "tags": [
+      "汽车电子",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c244",
+    "name": "伯特利",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "底盘",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c245",
+    "name": "福耀玻璃",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "材料",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c246",
+    "name": "宁波华翔",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "内外饰",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c247",
+    "name": "敏实集团",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "车身",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c248",
+    "name": "爱柯迪",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "压铸",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c249",
+    "name": "华勤技术",
+    "industry": "电子 / 智能硬件",
+    "sector": "电子制造",
+    "tags": [
+      "结构",
+      "热"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c250",
+    "name": "闻泰科技",
+    "industry": "电子 / 智能硬件",
+    "sector": "电子制造",
+    "tags": [
+      "结构",
+      "热"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c251",
+    "name": "长电科技",
+    "industry": "芯片 / 半导体",
+    "sector": "半导体",
+    "tags": [
+      "封装",
+      "热仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c252",
+    "name": "通富微电",
+    "industry": "芯片 / 半导体",
+    "sector": "半导体",
+    "tags": [
+      "封装",
+      "热仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c253",
+    "name": "华天科技",
+    "industry": "芯片 / 半导体",
+    "sector": "半导体",
+    "tags": [
+      "封装",
+      "热仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c254",
+    "name": "韦尔股份",
+    "industry": "芯片 / 半导体",
+    "sector": "半导体",
+    "tags": [
+      "芯片",
+      "研发"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c255",
+    "name": "兆易创新",
+    "industry": "芯片 / 半导体",
+    "sector": "半导体",
+    "tags": [
+      "芯片",
+      "研发"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c256",
+    "name": "寒武纪",
+    "industry": "芯片 / 半导体",
+    "sector": "半导体",
+    "tags": [
+      "芯片",
+      "研发"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c257",
+    "name": "OPPO",
+    "industry": "电子 / 智能硬件",
+    "sector": "科技硬件",
+    "tags": [
+      "结构",
+      "热",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c258",
+    "name": "vivo",
+    "industry": "电子 / 智能硬件",
+    "sector": "科技硬件",
+    "tags": [
+      "结构",
+      "热",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c259",
+    "name": "荣耀",
+    "industry": "电子 / 智能硬件",
+    "sector": "科技硬件",
+    "tags": [
+      "结构",
+      "热",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c260",
+    "name": "联想集团",
+    "industry": "电子 / 智能硬件",
+    "sector": "科技硬件",
+    "tags": [
+      "结构",
+      "热",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c261",
+    "name": "TCL科技",
+    "industry": "电子 / 智能硬件",
+    "sector": "电子制造",
+    "tags": [
+      "结构",
+      "热"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c262",
+    "name": "海信集团",
+    "industry": "电子 / 智能硬件",
+    "sector": "电子制造",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c263",
+    "name": "小米集团",
+    "industry": "电子 / 智能硬件",
+    "sector": "科技硬件",
+    "tags": [
+      "结构",
+      "热",
+      "汽车"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c264",
+    "name": "科沃斯",
+    "industry": "电子 / 智能硬件",
+    "sector": "智能硬件",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c265",
+    "name": "石头科技",
+    "industry": "电子 / 智能硬件",
+    "sector": "智能硬件",
+    "tags": [
+      "结构",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c266",
+    "name": "追觅科技",
+    "industry": "电子 / 智能硬件",
+    "sector": "智能硬件",
+    "tags": [
+      "结构",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c267",
+    "name": "九号公司",
+    "industry": "电子 / 智能硬件",
+    "sector": "智能硬件",
+    "tags": [
+      "结构",
+      "车辆"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c268",
+    "name": "影石创新",
+    "industry": "电子 / 智能硬件",
+    "sector": "智能硬件",
+    "tags": [
+      "结构",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c269",
+    "name": "中国商飞",
+    "industry": "航空航天",
+    "sector": "航空航天",
+    "tags": [
+      "结构",
+      "仿真",
+      "气动"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c270",
+    "name": "航空工业集团",
+    "industry": "航空航天",
+    "sector": "航空航天",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c271",
+    "name": "航天科技集团",
+    "industry": "航空航天",
+    "sector": "航空航天",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c272",
+    "name": "航天科工集团",
+    "industry": "航空航天",
+    "sector": "航空航天",
+    "tags": [
+      "结构",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c273",
+    "name": "中国船舶集团",
+    "industry": "船舶 / 海工",
+    "sector": "船舶海工",
+    "tags": [
+      "结构",
+      "流体",
+      "仿真"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c274",
+    "name": "中船第七〇一研究所",
+    "industry": "船舶 / 海工",
+    "sector": "船舶海工",
+    "tags": [
+      "总体",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c275",
+    "name": "中船第七〇二研究所",
+    "industry": "船舶 / 海工",
+    "sector": "船舶海工",
+    "tags": [
+      "水动力",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c276",
+    "name": "中船第七〇八研究所",
+    "industry": "船舶 / 海工",
+    "sector": "船舶海工",
+    "tags": [
+      "船舶设计",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c277",
+    "name": "沪东中华造船",
+    "industry": "船舶 / 海工",
+    "sector": "船舶海工",
+    "tags": [
+      "船舶",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c278",
+    "name": "江南造船",
+    "industry": "船舶 / 海工",
+    "sector": "船舶海工",
+    "tags": [
+      "船舶",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c279",
+    "name": "大连船舶重工",
+    "industry": "船舶 / 海工",
+    "sector": "船舶海工",
+    "tags": [
+      "船舶",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c280",
+    "name": "汇川技术",
+    "industry": "机械 / 高端装备",
+    "sector": "工业自动化",
+    "tags": [
+      "电驱",
+      "机械",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c281",
+    "name": "埃斯顿自动化",
+    "industry": "机械 / 高端装备",
+    "sector": "工业自动化",
+    "tags": [
+      "机器人",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c282",
+    "name": "新松机器人",
+    "industry": "机械 / 高端装备",
+    "sector": "工业自动化",
+    "tags": [
+      "机器人",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c283",
+    "name": "埃夫特智能装备",
+    "industry": "机械 / 高端装备",
+    "sector": "工业自动化",
+    "tags": [
+      "机器人",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c284",
+    "name": "海天塑机",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "机械",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c285",
+    "name": "伊之密",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "机械",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c286",
+    "name": "豪迈科技",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "机械",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c287",
+    "name": "杰瑞股份",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "能源装备",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c288",
+    "name": "冰轮环境",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "热流体",
+      "机械"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c289",
+    "name": "陕鼓动力",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "流体机械",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c290",
+    "name": "东方电气",
+    "industry": "机械 / 高端装备",
+    "sector": "能源装备",
+    "tags": [
+      "电力装备",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c291",
+    "name": "哈尔滨电气",
+    "industry": "机械 / 高端装备",
+    "sector": "能源装备",
+    "tags": [
+      "电力装备",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c292",
+    "name": "上海电气",
+    "industry": "机械 / 高端装备",
+    "sector": "能源装备",
+    "tags": [
+      "电力装备",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c293",
+    "name": "中国一重",
+    "industry": "机械 / 高端装备",
+    "sector": "重型装备",
+    "tags": [
+      "机械",
+      "结构"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c294",
+    "name": "中国二重",
+    "industry": "机械 / 高端装备",
+    "sector": "重型装备",
+    "tags": [
+      "机械",
+      "结构"
+    ],
+    "nature": "央国企",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c295",
+    "name": "法雷奥",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "热管理",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c296",
+    "name": "博格华纳",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "动力",
+      "热管理"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c297",
+    "name": "麦格纳",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "车身",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c298",
+    "name": "大陆集团",
+    "industry": "电子 / 智能硬件",
+    "sector": "汽车供应链",
+    "tags": [
+      "底盘",
+      "电子"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c299",
+    "name": "马勒",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "热管理",
+      "动力"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c300",
+    "name": "佛瑞亚",
+    "industry": "汽车 / 智能驾驶",
+    "sector": "汽车供应链",
+    "tags": [
+      "结构",
+      "内饰"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c301",
+    "name": "蒂森克虏伯",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "机械",
+      "结构"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c302",
+    "name": "SKF",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "轴承",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c303",
+    "name": "Timken",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "轴承",
+      "仿真"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c304",
+    "name": "丹佛斯",
+    "industry": "机械 / 高端装备",
+    "sector": "工业制造",
+    "tags": [
+      "热流体",
+      "液压"
+    ],
+    "nature": "待核验",
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  }
+]
