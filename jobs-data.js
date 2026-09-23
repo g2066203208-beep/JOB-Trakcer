@@ -284,5 +284,82 @@ window.JOB_DATA = [
  applyUrl:"https://recruit.cscec.com/",
  sourceUrl:"https://recruit.cscec.com/",
  source:"中国建筑官方校园招聘", note:"这是土木本专业大池，不能因为你想做CAE就漏掉。"
+},
+{
+ id:"byd-2027-cae", company:"比亚迪", unit:"汽车工程/汽车新技术等", title:"2027届秋招｜CAE&NVH / 结构仿真 / 多体动力学",
+ tracks:["转汽车/机械","CAE/仿真","新能源"], type:"具体方向", location:"深圳、西安、长沙等，按岗位", degree:"本科 / 硕士 / 博士",
+ majors:"机械类、力学类、车辆、能源动力等，按岗位", headcount:"集团2027秋招约700人（校招简章口径）",
+ openDate:"2026-08-26", deadline:null, updated:"2026-09-23",
+ requirements:"2027届秋招已启动，简章明确包含CAE&NVH性能、结构仿真、结构力学及多体动力学、力热仿真等方向。土木背景需依靠有限元、动力学和结构项目经历逐岗位核对专业限制。",
+ process:"网申 → 测评/面试 → Offer",
+ applyUrl:"https://job.byd.com/",
+ sourceUrl:"https://career.nankai.edu.cn/correcruit/content/id/117011.html",
+ source:"高校就业网转载｜官方投递 job.byd.com", note:"转行重点岗位池。"
+},
+{
+ id:"faw-2027-cae", company:"中国一汽", unit:"整车研发类", title:"2027全球校招｜仿真（CAE、NVH）",
+ tracks:["转汽车/机械","CAE/仿真"], type:"具体方向", location:"长春等，按岗位", degree:"按岗位",
+ majors:"车辆、机械、力学等相关专业为主，逐岗核对", headcount:"未公开",
+ openDate:"2026-09", deadline:null, updated:"2026-09-23",
+ requirements:"2027全球校园招聘的整车研发类明确包含整车、车身、仿真（CAE、NVH）、试验、项目管理和研发质量等方向。",
+ process:"网申 → 测评/面试 → 录用",
+ applyUrl:"https://zhaopin.faw.com.cn/",
+ sourceUrl:"https://career.hebut.edu.cn/home/correcruit/content/id/79846.html",
+ source:"高校就业网招聘简章｜中国一汽校招", note:"适合CAE/NVH转行方向。"
+},
+{
+ id:"cat-2027-manufacturing-sim", company:"卡特彼勒", unit:"Manufacturing", title:"2027校招｜制造工程师（机械/自动化/智能化/仿真）",
+ tracks:["转汽车/机械","CAE/仿真","智能制造"], type:"具体岗位", location:"苏州、无锡、徐州、天津", degree:"按岗位",
+ majors:"机械、自动化、智能化、仿真相关", headcount:"未公开",
+ openDate:"2026-08-09", deadline:"2026-10-30", updated:"2026-09-23",
+ requirements:"卡特彼勒官方2027校园招聘岗位，方向包含制造工程、机械、自动化、智能化和仿真。",
+ process:"官方职位页申请",
+ applyUrl:"https://careers.caterpillar.com/zh/%E8%81%8C%E4%BD%8D/r0000387385/2027%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98-%E5%88%B6%E9%80%A0%E8%BF%90%E8%90%A5%E7%B1%BB-%E5%88%B6%E9%80%A0%E5%B7%A5%E7%A8%8B%E5%B8%88-%E6%9C%BA%E6%A2%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E6%99%BA%E8%83%BD%E5%8C%96%E4%BB%BF%E7%9C%9F/",
+ sourceUrl:"https://careers.caterpillar.com/zh/%E8%81%8C%E4%BD%8D/r0000387385/2027%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98-%E5%88%B6%E9%80%A0%E8%BF%90%E8%90%A5%E7%B1%BB-%E5%88%B6%E9%80%A0%E5%B7%A5%E7%A8%8B%E5%B8%88-%E6%9C%BA%E6%A2%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E6%99%BA%E8%83%BD%E5%8C%96%E4%BB%BF%E7%9C%9F/",
+ source:"卡特彼勒官方 Careers", note:"工程机械转行池。"
+},
+{
+ id:"cat-2027-cfd", company:"卡特彼勒", unit:"Engineering", title:"2027校招｜流体仿真工程师（热管理）",
+ tracks:["CAE/仿真","转汽车/机械","热流体"], type:"具体岗位", location:"江苏无锡", degree:"按岗位",
+ majors:"机械、热流体、能源动力等相关", headcount:"未公开",
+ openDate:"2026-08-09", deadline:"2026-10-30", updated:"2026-09-23",
+ requirements:"负责利用CFD与热管理分析技术支持工程机械及新能源产品研发。",
+ process:"官方职位页申请",
+ applyUrl:"https://careers.caterpillar.com/pt/empregos/r0000387382/2027%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98-%E7%A0%94%E5%8F%91%E7%B1%BB-%E6%B5%81%E4%BD%93%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%83%AD%E7%AE%A1%E7%90%86/",
+ sourceUrl:"https://careers.caterpillar.com/pt/empregos/r0000387382/2027%E6%A0%A1%E5%9B%AD%E6%8B%9B%E8%81%98-%E7%A0%94%E5%8F%91%E7%B1%BB-%E6%B5%81%E4%BD%93%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B%E5%B8%88-%E7%83%AD%E7%AE%A1%E7%90%86/",
+ source:"卡特彼勒官方 Careers", note:"热流体方向扩展岗位。"
+},
+{
+ id:"goertek-2027-sim", company:"歌尔股份", unit:"研发技术类", title:"2027校招｜仿真设计岗",
+ tracks:["CAE/仿真","转汽车/机械","电子制造"], type:"具体岗位", location:"潍坊、青岛、济南、上海", degree:"本科 / 硕士 / 博士",
+ majors:"机械、微电子、力学、声学、热学等", headcount:"集团2027校招约1600人（简章口径）",
+ openDate:"2026-09", deadline:"2027-07-02", updated:"2026-09-23",
+ requirements:"仿真设计岗覆盖CAE仿真分析、人机仿真、封装仿真等方向；官方招聘页显示研发技术类招聘持续至2027年7月2日。",
+ process:"网申 → 测评 → HR面试 → 专业技术面试 → Offer",
+ applyUrl:"https://www.goertek.com/join/recruitcategory144.html",
+ sourceUrl:"https://www.goertek.com/join/recruitcategory144.html",
+ source:"歌尔股份官方招聘", note:"结构/振动/热仿真转行池。"
+},
+{
+ id:"sany-2027", company:"三一集团", unit:"三一重工/三一重能等", title:"2027届秋季校园招聘",
+ tracks:["工程机械","风电/新能源","CAE/仿真","转汽车/机械"], type:"招聘批次", location:"北京、长沙、昆山、上海、成都、西安等", degree:"本科 / 硕士 / 博士",
+ majors:"机械、力学、能源、电气、自动化及相关专业按岗", headcount:"约970人（简章口径）",
+ openDate:"2026-08-26", deadline:null, updated:"2026-09-23",
+ requirements:"三一集团2027届秋招覆盖工程机械、风电设备、新能源储能等业务；具体研发、仿真和结构岗位以官网职位库为准。",
+ process:"网申 → 测评 → HR面试 → 专面/终面 → Offer",
+ applyUrl:"https://sany.zhiye.com/campus/jobs",
+ sourceUrl:"https://career.nankai.edu.cn/correcruit/content/id/117034.html",
+ source:"高校就业网转载｜官方投递 sany.zhiye.com", note:"工程机械+风电双方向。"
+},
+{
+ id:"zjsc-2027-cae", company:"中久数创", unit:"中物院软件中心/中国久远CAE软件事业部协作", title:"2027届校园招聘｜高性能CAE工程应用",
+ tracks:["CAE/仿真","工业软件"], type:"招聘批次", location:"成都、北京、绵阳", degree:"硕士 / 博士",
+ majors:"固体力学、流体力学、多物理耦合、声学、机械、船海、传热等", headcount:"40+岗位 / 300+ Offer（简章口径）",
+ openDate:"2026-08", deadline:"2026-11-30", updated:"2026-09-23",
+ requirements:"聚焦高性能通用CAE软件“茉莉平台”；工程应用方向覆盖固体、流体、多物理、声学、机械、船海与传热等。",
+ process:"网申 → 初试（研发岗含机考）→ 复试 → 面谈 → Offer",
+ applyUrl:"https://zp.zjdit.com",
+ sourceUrl:"https://www.caep-scns.ac.cn/career",
+ source:"中物院高性能数值模拟软件中心招聘官网", note:"CAE软件/工程应用高相关。"
 }
 ];
