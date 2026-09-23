@@ -1,19 +1,19 @@
 window.AUTO_SCAN_META = {
-  "updated_at": "2026-09-23T17:23:51+08:00",
+  "updated_at": "2026-09-23T18:00:55+08:00",
   "mode": "recent",
   "company": null,
-  "company_targets": 445,
+  "company_targets": 449,
   "queries": 210,
-  "raw_results": 410,
-  "expanded_links": 187,
-  "qualified_jobs": 64,
-  "added": 9,
-  "total": 152,
+  "raw_results": 693,
+  "expanded_links": 224,
+  "qualified_jobs": 74,
+  "added": 2,
+  "total": 154,
   "providers": {
     "brave": 0,
-    "bing-rss": 42,
+    "bing-rss": 288,
     "duckduckgo": 0,
-    "errors": 159
+    "errors": 123
   }
 };
 window.AUTO_JOB_DATA = [
@@ -47,7 +47,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-5fdf4443938f2b",
@@ -79,7 +79,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-70e13afc34d40e",
@@ -111,7 +111,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-d799fdf4209604",
@@ -150,7 +150,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-71b7206c693133",
@@ -220,7 +220,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-ca34fe0799c669",
@@ -256,15 +256,15 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-5e4af7d7bb1539",
     "company": "中兴通讯",
-    "companyId": "c142",
+    "companyId": null,
     "title": "全球采购经理",
     "unit": "自动发现",
-    "industry": "其他",
+    "industry": "电子 / 智能硬件",
     "tracks": [
       "全网发现"
     ],
@@ -288,15 +288,15 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-7ec26cd0ea7b14",
     "company": "中兴通讯",
-    "companyId": "c142",
+    "companyId": null,
     "title": "工程项目总监",
     "unit": "自动发现",
-    "industry": "其他",
+    "industry": "电子 / 智能硬件",
     "tracks": [
       "全网发现"
     ],
@@ -320,15 +320,15 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-8e06044144c3fe",
     "company": "中兴通讯",
-    "companyId": "c142",
+    "companyId": null,
     "title": "应届生招聘 - ZTE",
     "unit": "自动发现",
-    "industry": "其他",
+    "industry": "电子 / 智能硬件",
     "tracks": [
       "全网发现"
     ],
@@ -359,15 +359,15 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-9f0489da21761b",
     "company": "中兴通讯",
-    "companyId": "c142",
+    "companyId": null,
     "title": "软件开发工程师",
     "unit": "自动发现",
-    "industry": "其他",
+    "industry": "电子 / 智能硬件",
     "tracks": [
       "全网发现"
     ],
@@ -391,7 +391,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-d49b8e64b4674d",
@@ -423,7 +423,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-d703414cc3e568",
@@ -455,7 +455,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-cfba4156221169",
@@ -489,7 +489,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-eb7eef5f52ef38",
@@ -636,7 +636,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-5cef1873a46466",
@@ -956,7 +956,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-c11d8a271bf067",
@@ -1354,7 +1354,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-ea843779396351",
@@ -1499,7 +1499,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-e95192a04f4ab8",
@@ -1531,7 +1531,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-f6cc7c88ab65c2",
@@ -1563,7 +1563,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-894d3866b8b017",
@@ -1595,7 +1595,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-4241c31872b756",
@@ -1627,7 +1627,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-3e50174daa25b4",
@@ -1663,7 +1663,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-6bb484d779e095",
@@ -1763,7 +1763,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-1f8edc820db952",
@@ -1789,7 +1789,7 @@ window.AUTO_JOB_DATA = [
     "openDate": "2026-09-23",
     "deadline": null,
     "updated": "2026-09-23",
-    "requirements": "发现宝洁中国的职位 搜索结果 没有结果 \"${pageStateData.searchKeyword}\" 没有结果 \"${pageStateData.placeVal}\" 您想考虑以下工作类别吗？ 了解我们的文化 我们每个人都带来了来自数十种文化背景的独特体验。我们共同的价值观每天都在统一我们的方向和决定。 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 ca298c7eb3ae40d69090ef51aca882e1",
+    "requirements": "发现宝洁中国的职位 搜索结果 没有结果 \"${pageStateData.searchKeyword}\" 没有结果 \"${pageStateData.placeVal}\" 您想考虑以下工作类别吗？ 了解我们的文化 我们每个人都带来了来自数十种文化背景的独特体验。我们共同的价值观每天都在统一我们的方向和决定。 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 ed4728273fec498292092e2ff37ad694",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://careers.pg.com.cn/cn/zh/search-results",
     "sourceUrl": "https://careers.pg.com.cn/cn/zh/search-results",
@@ -1799,7 +1799,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-963004d4556433",
@@ -1824,7 +1824,7 @@ window.AUTO_JOB_DATA = [
     "openDate": "2026-09-23",
     "deadline": null,
     "updated": "2026-09-23",
-    "requirements": "影响您不仅在宝洁的职业生涯 - 中国 Search results 从宝洁起飞，开启你的职场第一天 #PGDAY1 实习/实践项目 查看全部 > 了解更多 > 校园招聘及初级社招岗位 查看全部 > 了解更多 > 资深社招岗位 查看全部 > 了解更多 > 无论您是 在读学生 、高校 毕业生 还是 资深的专业人士，您 在宝洁的第一天， 是从对世界、品牌和您的职业生涯产生影响的开始。 我们的选人标准是根据在人才身上的潜力来决定的。在宝洁，您从第一天起便获得公司和团队的信任，相信您可以快速投入工作，去发挥主观能动性，去打造价值数十亿美元的品牌，去提升消费者的生活体验，从而让世界和生活变得更美好。 加入宝洁，您将承担早期责任，接受有意义的任务，领导各项计划，并发挥主人翁精神，在充满创新的工作环境中，激发层出不穷的新想法。同时，您还将接受世界一流的培训，助力您成为所在领域的领军人物。加入我们，从第一天起，您将通过在宝洁从事有意义的工作，让您的职业生涯迈向新的高度。 成长与发展： 成为领导型人才 与致力于打造的世界级领先品牌一样，我们致力于寻找和培养世界级的未来人才。 领导力是我们的核心价值观之一，也是我们在内外部取得成功不可或缺的因素。 查看成长与发展 探秘宝洁 点击了解宝洁：宝洁的文化、品牌、创新及有意义的工作内容 校园招聘及初级社招岗位 点击了解校园招聘项目及初级社招岗位机会 宝洁大中华区 点击了解宝洁是如何为超过十亿中国消费者提供服务的 资深社招岗位 点击了解资深社招岗位机会 Join us and help make life better through meaningful work that makes an impact from Day 1. 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 76347c7f529244d6a15c4e8968b20652",
+    "requirements": "影响您不仅在宝洁的职业生涯 - 中国 Search results 从宝洁起飞，开启你的职场第一天 #PGDAY1 实习/实践项目 查看全部 > 了解更多 > 校园招聘及初级社招岗位 查看全部 > 了解更多 > 资深社招岗位 查看全部 > 了解更多 > 无论您是 在读学生 、高校 毕业生 还是 资深的专业人士，您 在宝洁的第一天， 是从对世界、品牌和您的职业生涯产生影响的开始。 我们的选人标准是根据在人才身上的潜力来决定的。在宝洁，您从第一天起便获得公司和团队的信任，相信您可以快速投入工作，去发挥主观能动性，去打造价值数十亿美元的品牌，去提升消费者的生活体验，从而让世界和生活变得更美好。 加入宝洁，您将承担早期责任，接受有意义的任务，领导各项计划，并发挥主人翁精神，在充满创新的工作环境中，激发层出不穷的新想法。同时，您还将接受世界一流的培训，助力您成为所在领域的领军人物。加入我们，从第一天起，您将通过在宝洁从事有意义的工作，让您的职业生涯迈向新的高度。 成长与发展： 成为领导型人才 与致力于打造的世界级领先品牌一样，我们致力于寻找和培养世界级的未来人才。 领导力是我们的核心价值观之一，也是我们在内外部取得成功不可或缺的因素。 查看成长与发展 探秘宝洁 点击了解宝洁：宝洁的文化、品牌、创新及有意义的工作内容 校园招聘及初级社招岗位 点击了解校园招聘项目及初级社招岗位机会 宝洁大中华区 点击了解宝洁是如何为超过十亿中国消费者提供服务的 资深社招岗位 点击了解资深社招岗位机会 Join us and help make life better through meaningful work that makes an impact from Day 1. 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 4bdb686d56d74bde9ed75cd668456f38",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://careers.pg.com.cn/cn/zh/home",
     "sourceUrl": "https://careers.pg.com.cn/cn/zh/home",
@@ -1834,7 +1834,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-d8b143983cc3a5",
@@ -1868,7 +1868,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-e819cf7afc3ea1",
@@ -2890,8 +2890,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "项目管理",
       "供应链",
-      "审计",
       "运营",
+      "审计",
       "C",
       "R"
     ],
@@ -2909,7 +2909,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-38aac88051b349",
@@ -2950,7 +2950,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-3e30979ff981c9",
@@ -2989,7 +2989,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-ef412e18b34199",
@@ -3027,7 +3027,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-e676e85a3e5d7b",
@@ -3068,7 +3068,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-0a6d76d4c41ec5",
@@ -3106,7 +3106,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-e9abf0a7fe965b",
@@ -3147,7 +3147,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-a52382e64b3fae",
@@ -3189,7 +3189,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-4684a193b23b3d",
@@ -3221,7 +3221,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-bc0c0aef204913",
@@ -3260,7 +3260,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-e5d421eb60e2ac",
@@ -3281,8 +3281,8 @@ window.AUTO_JOB_DATA = [
       "财务管理"
     ],
     "skills": [
-      "审计",
       "运营",
+      "审计",
       "C",
       "R"
     ],
@@ -3300,7 +3300,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-c37ca927580038",
@@ -3321,8 +3321,8 @@ window.AUTO_JOB_DATA = [
       "信息安全"
     ],
     "skills": [
-      "审计",
       "运营",
+      "审计",
       "C",
       "R"
     ],
@@ -3340,7 +3340,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-812a48a835dfeb",
@@ -3381,7 +3381,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-eebcc9f8f61f0c",
@@ -3402,8 +3402,8 @@ window.AUTO_JOB_DATA = [
     ],
     "skills": [
       "市场分析",
-      "审计",
       "运营",
+      "审计",
       "C",
       "R"
     ],
@@ -3421,7 +3421,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-8df08fcde42a77",
@@ -3443,8 +3443,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "机器学习",
       "嵌入式",
-      "审计",
       "运营",
+      "审计",
       "C",
       "R"
     ],
@@ -3462,7 +3462,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-e2864122f9d790",
@@ -3920,7 +3920,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-6b934c5dffeab0",
@@ -4073,7 +4073,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-2ef86b4316f295",
@@ -4105,7 +4105,41 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
+  },
+  {
+    "id": "auto-273ec2eaa70e22",
+    "company": "腾讯",
+    "companyId": null,
+    "title": "首页 | 腾讯招聘 - Tencent",
+    "unit": "自动发现",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "全网发现"
+    ],
+    "type": "自动发现",
+    "location": "待核验",
+    "degree": "待核验",
+    "majorsText": "待核验",
+    "majorTags": [],
+    "skills": [
+      "C"
+    ],
+    "headcount": "待核验",
+    "openDate": "2026-09-23",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "腾讯招聘官网，提供最新职位信息和申请入口，帮助求职者了解不同城市的职业机会。",
+    "process": "以原始招聘页面为准",
+    "applyUrl": "https://careers.tencent.com/home.html",
+    "sourceUrl": "https://careers.tencent.com/home.html",
+    "source": "官方源自动发现 · careers.tencent.com",
+    "note": "自动发现条目；投递前请核验专业、学历、地点和截止时间。",
+    "verified": true,
+    "auto": true,
+    "provider": "bing-rss",
+    "firstSeen": "2026-09-23T18:00:55+08:00",
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-8168a74fef43cd",
@@ -4137,7 +4171,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-d6f2bbe018124a",
@@ -4223,7 +4257,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-69dbe6f9e8be60",
@@ -4266,7 +4300,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-01e872bbcd2604",
@@ -4310,7 +4344,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-710390117d41c2",
@@ -4344,7 +4378,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-5efcbdc4df84b3",
@@ -4420,7 +4454,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-02133dad6f48ca",
@@ -4506,7 +4540,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-988e04cafe9b29",
@@ -4549,7 +4583,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-e47750b84b7717",
@@ -4636,7 +4670,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-ce59dccea15989",
@@ -4679,7 +4713,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-ba822f798d9c0b",
@@ -4767,7 +4801,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-73a396b0e1d456",
@@ -4941,7 +4975,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-860420eb120f83",
@@ -4973,7 +5007,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-6ff8c27f17b8ed",
@@ -5016,7 +5050,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-98f5492d60e60e",
@@ -5051,7 +5085,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-75026859dcb434",
@@ -5083,7 +5117,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-18fec23437b1a3",
@@ -5118,7 +5152,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-a4a3c67162b853",
@@ -5224,7 +5258,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-6d68af322bfc08",
@@ -5259,7 +5293,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-107dd3218e3389",
@@ -5328,12 +5362,12 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-93a5a711f77b59",
     "company": "国药集团",
-    "companyId": "c0380",
+    "companyId": null,
     "title": "中国医药集团有限公司校园招聘平台",
     "unit": "自动发现",
     "industry": "医药 / 医疗",
@@ -5360,7 +5394,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-34a3d1b6d65b98",
@@ -5394,7 +5428,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-288a4b53ec23f5",
@@ -5432,7 +5466,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-55ea3aa1934311",
@@ -5467,7 +5501,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-c49e1fd13239f7",
@@ -5507,7 +5541,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-fa138bea914b65",
@@ -5539,7 +5573,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-43281267a61e99",
@@ -5577,12 +5611,12 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-ad990e0b8395ad",
     "company": "远景能源",
-    "companyId": "c096",
+    "companyId": null,
     "title": "为什么远景能源的口碑在应届毕业生里待遇很高，但是负面评价却特别多？",
     "unit": "自动发现",
     "industry": "新能源",
@@ -5609,7 +5643,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   },
   {
     "id": "auto-446841f5af101f",
@@ -5811,5 +5845,39 @@ window.AUTO_JOB_DATA = [
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
     "lastSeen": "2026-09-23T16:36:46+08:00"
+  },
+  {
+    "id": "auto-aa2713d8b7ceb1",
+    "company": "阿里巴巴",
+    "companyId": null,
+    "title": "阿里巴巴集团招聘官网",
+    "unit": "自动发现",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "全网发现"
+    ],
+    "type": "自动发现",
+    "location": "待核验",
+    "degree": "待核验",
+    "majorsText": "待核验",
+    "majorTags": [],
+    "skills": [
+      "数据分析"
+    ],
+    "headcount": "待核验",
+    "openDate": "2026-09-23",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "千问办公是阿里巴巴旗下以自然语言驱动的AI Agent办公产品，不止于对话，更注重交付——用户仅需一句话，即可完成数据分析、PPT生成、视频剪辑、网页搭建等复杂任务，直接获得可用成果。",
+    "process": "以原始招聘页面为准",
+    "applyUrl": "https://job.alibaba.com/",
+    "sourceUrl": "https://job.alibaba.com/",
+    "source": "全网自动发现 · job.alibaba.com",
+    "note": "自动发现条目；投递前请核验专业、学历、地点和截止时间。",
+    "verified": false,
+    "auto": true,
+    "provider": "bing-rss",
+    "firstSeen": "2026-09-23T18:00:55+08:00",
+    "lastSeen": "2026-09-23T18:00:55+08:00"
   }
 ];
