@@ -2347,5 +2347,363 @@
     "note": "",
     "verified": true,
     "auto": false
+  },
+  {
+    "id": "boe-2027",
+    "company": "京东方",
+    "companyId": "c140",
+    "title": "2027全球校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京、成都、合肥、苏州、深圳、重庆、武汉等",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "研发、工程、IT、市场、职能等多方向",
+    "majorTags": [
+      "电子信息工程",
+      "机械设计制造及其自动化",
+      "计算机科学与技术",
+      "材料科学与工程",
+      "自动化"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "CAE"
+    ],
+    "headcount": "2000+岗位需求",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "官方公开招聘信息显示10大岗位类别、2000+岗位需求，包含结构设计、仿真、算法、嵌入式、电气、芯片验证、大数据等方向。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://campus.boe.com/",
+    "sourceUrl": "https://job.hust.edu.cn/zpinfo1/2410487.htm",
+    "source": "京东方校招官网 / 华中科技大学就业信息网",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "jcet-2027",
+    "company": "长电科技",
+    "companyId": "c251",
+    "title": "2027届秋季校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "芯片 / 半导体",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "中国、韩国、新加坡相关基地及岗位地点",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "微电子、集成电路、材料、机械、电子、市场等按岗位",
+    "majorTags": [
+      "微电子科学与工程",
+      "集成电路设计与集成系统",
+      "材料科学与工程",
+      "机械设计制造及其自动化"
+    ],
+    "skills": [
+      "CAE",
+      "数据分析"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "长电科技2027秋招包含技术与市场培养项目，业务覆盖芯片设计仿真、封装、测试及制造服务。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://www.jcetglobal.com/",
+    "sourceUrl": "https://job.hust.edu.cn/zpinfo1/2413646.htm",
+    "source": "长电科技公开招聘 / 华中科技大学就业信息网",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "gigadevice-2027",
+    "company": "兆易创新",
+    "companyId": "c255",
+    "title": "2027校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "芯片 / 半导体",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京、上海、深圳、合肥、西安、成都、苏州等",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "微电子、集成电路、电子、计算机、自动化及相关专业",
+    "majorTags": [
+      "微电子科学与工程",
+      "集成电路设计与集成系统",
+      "电子信息工程",
+      "计算机科学与技术",
+      "自动化"
+    ],
+    "skills": [
+      "Verilog",
+      "FPGA",
+      "C++"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "兆易创新2027校园招聘面向存储器、MCU、传感器与模拟产品相关研发及支持岗位。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://career.gigadevice.com/",
+    "sourceUrl": "https://job.hust.edu.cn/zpinfo1/2433071.htm",
+    "source": "兆易创新公开招聘 / 华中科技大学就业信息网",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "cmb-2027",
+    "company": "招商银行",
+    "companyId": "c0337",
+    "title": "2027校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "金融 / 保险",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "全国130余城市及总行/子公司",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "专业按岗；金融、计算机、AI、数据、市场、运营、合规等",
+    "majorTags": [
+      "金融学",
+      "计算机科学与技术",
+      "人工智能",
+      "数据科学与大数据技术",
+      "法学",
+      "市场营销"
+    ],
+    "skills": [
+      "Python",
+      "Java",
+      "SQL",
+      "数据分析"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "总行、分行、信用卡中心和子公司同步招聘，涵盖管培、AI研发、系统研发、信息技术、产品、数据、市场、运营等。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://career.cmbchina.com/",
+    "sourceUrl": "https://career.nankai.edu.cn/correcruit/content/id/117199.html",
+    "source": "招商银行官方招聘 / 高校就业网公告",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "cms-2027",
+    "company": "招商证券",
+    "companyId": "c0360",
+    "title": "2027校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "金融 / 保险",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "深圳、北京、上海、广州及全国多地",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "专业不限，理工科复合背景优先；投行、研究、投资、IT等",
+    "majorTags": [
+      "金融学",
+      "经济学",
+      "计算机科学与技术",
+      "数学与应用数学",
+      "统计学"
+    ],
+    "skills": [
+      "Python",
+      "SQL",
+      "数据分析"
+    ],
+    "headcount": "300+",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "2027校园招聘开放投行、研究、投资、营销、IT、博士后等25个岗位，公开信息称计划招录应届生逾300人。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://cms.hotjob.cn",
+    "sourceUrl": "https://career.nankai.edu.cn/correcruit/content/id/118113.html",
+    "source": "招商证券官方招聘 / 高校就业网公告",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "cbit-2027",
+    "company": "中国银行保险信息技术管理有限公司",
+    "companyId": null,
+    "title": "2027年度校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "金融 / 保险",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京、上海",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "经济、金融、统计、精算、数学、计算机、软件、网安、AI、信息管理、法学、人力等",
+    "majorTags": [
+      "金融学",
+      "统计学",
+      "数学与应用数学",
+      "计算机科学与技术",
+      "软件工程",
+      "人工智能",
+      "法学",
+      "人力资源管理"
+    ],
+    "skills": [
+      "Python",
+      "Java",
+      "SQL"
+    ],
+    "headcount": "16",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "岗位包括创新业务、业务分析、软件研发、网络安全、运行维护、法务、人力资源等。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://campus.51job.com/cbit2026",
+    "sourceUrl": "https://career.nankai.edu.cn/correcruit/content/id/119119.html",
+    "source": "中国银保信公开招聘公告",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "oppo-2027",
+    "company": "OPPO",
+    "companyId": "c257",
+    "title": "2027届全球校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京、上海、深圳、东莞、成都、南京、西安、武汉等",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "AI算法、硬件、软件、材料、CAE、通信、生物医学等",
+    "majorTags": [
+      "人工智能",
+      "电子信息工程",
+      "通信工程",
+      "材料科学与工程",
+      "机械设计制造及其自动化",
+      "计算机科学与技术"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "CAE"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "公开简章列出高级CAE工程师、视觉/多模态/大模型算法、影像硬件、材料、通信标准等多类岗位。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://careers.oppo.com/university/oppo/campus/",
+    "sourceUrl": "https://career.nankai.edu.cn/correcruit/content/id/113075.html",
+    "source": "OPPO官方校招 / 高校就业网简章",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "xpeng-2027",
+    "company": "小鹏汽车",
+    "companyId": "c114",
+    "title": "2027届探索者计划全球校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "汽车 / 智能驾驶",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京、上海、武汉、广东等",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "计算机、软件、AI、车辆、机械、自动化、电子电力、控制等",
+    "majorTags": [
+      "计算机科学与技术",
+      "软件工程",
+      "人工智能",
+      "车辆工程",
+      "机械设计制造及其自动化",
+      "自动化",
+      "电子信息工程"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "CAE"
+    ],
+    "headcount": "1000",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "小鹏集团2027全球校园招聘面向智能汽车与物理AI方向，专业覆盖计算机、软件、AI、车辆、机械、自动化、电子电力和控制等。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://xiaopeng.jobs.feishu.cn/campus",
+    "sourceUrl": "https://career.nankai.edu.cn/correcruit/content/id/116251.html",
+    "source": "小鹏官方投递 / 高校就业网简章",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "dec-2027-campus",
+    "company": "东方电气",
+    "companyId": "c290",
+    "title": "2027届校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "能源 / 电力",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "全国多单位，按岗位",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "能源动力、机械、电气、材料、控制、计算机、土木等按岗位",
+    "majorTags": [
+      "能源与动力工程",
+      "机械设计制造及其自动化",
+      "电气工程及其自动化",
+      "材料科学与工程",
+      "自动化",
+      "计算机科学与技术",
+      "土木工程"
+    ],
+    "skills": [
+      "CAE",
+      "MATLAB"
+    ],
+    "headcount": "900+Offer",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "公开简章显示20+需求单位、400+岗位、900+Offer名额，业务涵盖水电、风电、燃机、核电及工程总包。",
+    "process": "网申/投递 → 测评/笔试/面试 → Offer（以官方通知为准）",
+    "applyUrl": "https://dec2026.iguopin.com/",
+    "sourceUrl": "https://job.hust.edu.cn/zpinfo1/2433070.htm",
+    "source": "东方电气校招 / 华中科技大学就业信息网",
+    "note": "",
+    "verified": true,
+    "auto": false
   }
 ]
