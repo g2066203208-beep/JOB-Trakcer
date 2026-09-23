@@ -37,7 +37,7 @@
     <div class="hero-side">
       <div class="hero-card"><b>⏳ 截止日自动分类</b><span>3天 / 7天 / 14天 / 30天 / 滚动招聘</span></div>
       <div class="hero-card"><b>📋 岗位详情</b><span>专业、学历、地点、时间、流程、官方来源</span></div>
-      <div class="hero-card"><b>✓ 个人投递进度</b><span>未申请 → 笔试 → 面试 → Offer</span></div>
+      <div class="hero-card"><b>✓ 简单投递标记</b><span>只保留：✓ 已申请 / ✕ 被拒</span></div>
     </div>
   </section>
 
@@ -57,8 +57,8 @@
   <section class="stats">
     <article><strong id="totalCount">0</strong><span>岗位 / 招聘入口</span></article>
     <article><strong id="companyCount">0</strong><span>企业</span></article>
-    <article><strong id="trackedCount">—</strong><span>我已跟进</span></article>
-    <article><strong id="offerCount">—</strong><span>Offer</span></article>
+    <article><strong id="appliedCount">—</strong><span>已申请</span></article>
+    <article><strong id="rejectedCount">—</strong><span>被拒</span></article>
   </section>
 
   <section class="panel controls">
@@ -69,10 +69,10 @@
       <option>具体岗位</option><option>具体方向</option><option>招聘批次</option><option>招聘入口</option><option>方向入口</option><option>转行入口</option><option>转行观察</option>
     </select>
     <select id="stageFilter">
-      <option value="">全部投递状态</option>
-      <option>未申请</option><option>已收藏</option><option>已投递</option><option>笔试</option><option>一面</option><option>二面/终面</option><option>Offer</option><option>已拒绝</option><option>已放弃</option>
+      <option value="">全部状态</option>
+      <option>未申请</option><option>已申请</option><option>被拒</option>
     </select>
-    <button id="onlyMineBtn" class="btn secondary">只看我跟进</button>
+    <button id="onlyMineBtn" class="btn secondary">只看已标记</button>
     <button id="resetBtn" class="btn ghost">清空筛选</button>
   </section>
 
@@ -85,7 +85,7 @@
       <table>
         <thead>
           <tr>
-            <th>截止</th><th>企业 / 岗位</th><th>方向</th><th>地点</th><th>学历 / 专业</th><th>要求摘要</th><th>官方入口</th><th>我的进度</th><th>详情</th>
+            <th>截止</th><th>企业 / 岗位</th><th>方向</th><th>地点</th><th>学历 / 专业</th><th>要求摘要</th><th>官方入口</th><th>申请状态</th><th>详情</th>
           </tr>
         </thead>
         <tbody id="jobRows"></tbody>
