@@ -1455,5 +1455,389 @@
     "note": "适合土木/工程管理背景向汽车工业工程、EPC和工厂工程转向。",
     "verified": false,
     "auto": false
+  },
+  {
+    "id": "huawei-2027-campus",
+    "company": "华为",
+    "companyId": "c141",
+    "title": "2027届应届生招聘",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "全国及海外，按岗位",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "技术研发、市场、财经、法律等多方向",
+    "majorTags": [
+      "计算机科学与技术",
+      "电子信息工程",
+      "通信工程",
+      "金融学",
+      "法学"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "Java"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "官方2027届应届生招聘已启动；国内高校本科生与硕士研究生主要面向2027年毕业，博士及海外学生范围更宽。岗位覆盖研发、营销、财经、法律等。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://career.huawei.com/cn/campus-recruitment",
+    "sourceUrl": "https://career.huawei.com/cn/campus-recruitment",
+    "source": "华为官方校园招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "baidu-2027-campus",
+    "company": "百度",
+    "companyId": "c0305",
+    "title": "2027校园招聘｜技术/产品/政企/销售/综合",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京、上海、深圳、广州、杭州、成都等",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "计算机、人工智能、软件、产品、市场、运营及相关专业按岗",
+    "majorTags": [
+      "计算机科学与技术",
+      "软件工程",
+      "人工智能",
+      "市场营销"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "Java",
+      "PyTorch"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "面向2026年9月至2027年8月毕业学生，官方开放技术、产品、政企、销售、综合五大类岗位。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://talent.baidu.com/jobs/",
+    "sourceUrl": "https://talent.baidu.com/jobs/",
+    "source": "百度官方校园招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "bytedance-seed-2027",
+    "company": "字节跳动",
+    "companyId": "c0306",
+    "title": "Seed大模型人才2027校招",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "按岗位",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "计算机、人工智能、数学、统计等相关专业优先",
+    "majorTags": [
+      "计算机科学与技术",
+      "人工智能",
+      "数学与应用数学",
+      "统计学"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "PyTorch",
+      "深度学习",
+      "大模型"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "Seed大模型人才校招面向2026年9月至2027年8月毕业的本科、硕士及博士同学，聚焦前沿大模型与AI研发。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://seed.bytedance.com/zh/seedearlycareer",
+    "sourceUrl": "https://seed.bytedance.com/zh/seedearlycareer",
+    "source": "字节跳动Seed官方",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "boc-2027-global",
+    "company": "中国银行",
+    "companyId": "c0307",
+    "title": "2027年全球校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "金融 / 保险",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "全国及海外",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "专业按岗位；总行管培含信息科技、业务发展、金融市场、风险合规、综合管理、全球化等",
+    "majorTags": [
+      "金融学",
+      "经济学",
+      "计算机科学与技术",
+      "法学",
+      "会计学"
+    ],
+    "skills": [
+      "Excel",
+      "SQL",
+      "Python"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": "2026-10-09",
+    "updated": "2026-09-23",
+    "requirements": "统一招聘覆盖总行、直属机构、审计分部、境内分行、港澳台及海外机构、综合经营公司。每人最多可申请5个岗位。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://campus.chinahr.com/pages/2027-boc",
+    "sourceUrl": "https://www.boc.cn/aboutboc/bi4/202609/t20260903_25689311.html",
+    "source": "中国银行官方公告",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "icbc-hq-2027",
+    "company": "中国工商银行",
+    "companyId": "c0308",
+    "title": "总行本部2027年度校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "金融 / 保险",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "北京",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "专业不限；金融业务、法律、科技等方向按岗位",
+    "majorTags": [
+      "不限专业",
+      "金融学",
+      "法学",
+      "计算机科学与技术"
+    ],
+    "skills": [
+      "Excel",
+      "SQL"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "总行本部2027校园招聘，公开信息显示专业不限，岗位类别包括金融业务、法律等，具体以工商银行招聘官网为准。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://job.icbc.com.cn",
+    "sourceUrl": "https://career.nankai.edu.cn/correcruit/content/id/118013.html",
+    "source": "工商银行官方投递 / 高校就业网公告",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "deloitte-2027-grad",
+    "company": "德勤中国",
+    "companyId": "c0309",
+    "title": "2027德勤校招项目",
+    "unit": "2027校园招聘",
+    "industry": "金融 / 保险",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "中国内地及港澳地区，按岗位",
+    "degree": "本科 / 硕士",
+    "majorsText": "不限专业；审计、税务、咨询、全球交付等方向",
+    "majorTags": [
+      "不限专业",
+      "会计学",
+      "金融学",
+      "法学",
+      "计算机科学与技术"
+    ],
+    "skills": [
+      "Excel",
+      "数据分析"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "德勤官方说明2027校招面向2026或2027毕业生，鼓励根据个人倾向和专业能力选择审计、税务、咨询或全球交付等业务。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://www.deloitte.com/cn/zh/careers/explore-your-fit/students/graduate-program.html",
+    "sourceUrl": "https://www.deloitte.com/cn/zh/careers/explore-your-fit/students/graduate-program.html",
+    "source": "德勤中国官方校园招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "pwc-2027-grad",
+    "company": "普华永道中国",
+    "companyId": "c0310",
+    "title": "2027年秋季入职校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "金融 / 保险",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "中国内地、香港、澳门，按岗位",
+    "degree": "本科 / 硕士及以上",
+    "majorsText": "审计、税务、咨询及相关业务，按职位要求",
+    "majorTags": [
+      "不限专业"
+    ],
+    "skills": [
+      "Excel",
+      "数据分析"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "普华永道官方校园招聘页面显示正在招聘2027年秋季入职新员工，预计2027年8月至10月入职。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://www.pwccn.com/zh/careers/students.html",
+    "sourceUrl": "https://www.pwccn.com/zh/careers/students.html",
+    "source": "普华永道中国官方校园招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "wanhua-2027",
+    "company": "万华化学",
+    "companyId": "c0311",
+    "title": "2027校园招聘｜研发/IT/工程/财经/供应链",
+    "unit": "2027校园招聘",
+    "industry": "化工 / 材料",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "山东、湖北、四川、福建、贵州、浙江、广东等",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "化工、化学、材料、环境、生物、机械、电气、管理、财务、计算机、物流、外语等",
+    "majorTags": [
+      "化学工程与工艺",
+      "材料科学与工程",
+      "机械设计制造及其自动化",
+      "电气工程及其自动化",
+      "计算机科学与技术",
+      "会计学",
+      "土木工程"
+    ],
+    "skills": [
+      "Python",
+      "Excel",
+      "AutoCAD"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "2027校招覆盖研发、IT、运行、设备、技术服务、市场、商务、采购、财务、审计、化工设计、人力资源、物流、供应链等大量方向。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://whchem.hotjob.cn/",
+    "sourceUrl": "https://career.nankai.edu.cn/recruitment/content/type/2/id/6046.html",
+    "source": "万华化学校招投递 / 高校就业网简章",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "hengrui-2027",
+    "company": "恒瑞医药",
+    "companyId": "c0312",
+    "title": "2027全球校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "医药 / 医疗",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "全国，按岗位",
+    "degree": "本科 / 硕士 / 博士",
+    "majorsText": "医药、生物、化学、药学、临床、统计、市场及职能相关专业按岗",
+    "majorTags": [
+      "临床医学",
+      "药学",
+      "生物科学",
+      "化学",
+      "统计学",
+      "市场营销"
+    ],
+    "skills": [
+      "数据分析",
+      "Excel"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "恒瑞医药官网于2026年9月18日发布2027全球校园招聘正式启动信息，岗位详情以企业招聘渠道为准。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://www.hengrui.com/",
+    "sourceUrl": "https://www.hengrui.com/media/",
+    "source": "恒瑞医药官网",
+    "note": "",
+    "verified": true,
+    "auto": false
+  },
+  {
+    "id": "tme-2027",
+    "company": "腾讯音乐娱乐集团",
+    "companyId": "c0313",
+    "title": "2027校园招聘",
+    "unit": "2027校园招聘",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "2027校招"
+    ],
+    "type": "招聘批次",
+    "location": "深圳、北京等，按岗位",
+    "degree": "本科 / 硕士 / 博士按岗",
+    "majorsText": "技术、产品、设计、运营等方向",
+    "majorTags": [
+      "计算机科学与技术",
+      "软件工程",
+      "产品设计",
+      "市场营销"
+    ],
+    "skills": [
+      "Python",
+      "C++",
+      "Java"
+    ],
+    "headcount": "未公开",
+    "openDate": "2026-09-01",
+    "deadline": null,
+    "updated": "2026-09-23",
+    "requirements": "腾讯音乐娱乐官方2027校园招聘不设置网申截止时间，招满即止，建议尽早投递。",
+    "process": "在线申请 → 筛选/测评 → 面试 → Offer（以企业官方通知为准）",
+    "applyUrl": "https://join.tencentmusic.com/campus/post",
+    "sourceUrl": "https://join.tencentmusic.com/campus/faq/",
+    "source": "腾讯音乐娱乐官方校园招聘",
+    "note": "",
+    "verified": true,
+    "auto": false
   }
 ]
