@@ -1,0 +1,115 @@
+[
+  {
+    "group": "编程 / 数据",
+    "items": [
+      "Python",
+      "C",
+      "C++",
+      "Java",
+      "JavaScript",
+      "SQL",
+      "MATLAB",
+      "R",
+      "Excel",
+      "Power BI",
+      "Tableau"
+    ]
+  },
+  {
+    "group": "AI / 算法",
+    "items": [
+      "PyTorch",
+      "TensorFlow",
+      "机器学习",
+      "深度学习",
+      "大模型",
+      "计算机视觉",
+      "NLP",
+      "数据分析",
+      "统计建模"
+    ]
+  },
+  {
+    "group": "CAE / 工程仿真",
+    "items": [
+      "Abaqus",
+      "ANSYS",
+      "LS-DYNA",
+      "HyperMesh",
+      "Nastran",
+      "OptiStruct",
+      "Fluent",
+      "STAR-CCM+",
+      "OpenFAST",
+      "Simpack",
+      "Adams",
+      "fe-safe",
+      "nCode",
+      "COMSOL"
+    ]
+  },
+  {
+    "group": "设计 / 建模",
+    "items": [
+      "AutoCAD",
+      "SolidWorks",
+      "CATIA",
+      "Creo",
+      "NX",
+      "Revit",
+      "BIM",
+      "Rhino",
+      "SketchUp"
+    ]
+  },
+  {
+    "group": "电子 / 芯片",
+    "items": [
+      "Altium Designer",
+      "Cadence",
+      "Verilog",
+      "FPGA",
+      "嵌入式",
+      "STM32",
+      "PCB",
+      "EDA"
+    ]
+  },
+  {
+    "group": "产品 / 运营",
+    "items": [
+      "产品设计",
+      "用户研究",
+      "项目管理",
+      "供应链",
+      "市场分析",
+      "运营",
+      "商务拓展"
+    ]
+  },
+  {
+    "group": "财会 / 金融",
+    "items": [
+      "CPA",
+      "CFA",
+      "FRM",
+      "财务分析",
+      "审计",
+      "估值建模",
+      "量化分析"
+    ]
+  },
+  {
+    "group": "语言 / 证书",
+    "items": [
+      "CET-4",
+      "CET-6",
+      "雅思",
+      "托福",
+      "日语N1",
+      "日语N2",
+      "教师资格证",
+      "法律职业资格"
+    ]
+  }
+]
