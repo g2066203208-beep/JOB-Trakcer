@@ -349,7 +349,7 @@ async function scanNow(){
   const beforeJobs=data.jobs.length,beforeCompanies=data.companies.length;
   try{
     const found=await runWebScan({
-      profile,companies:data.companies,
+      profile,companies:data.companies,jobs:data.jobs,
       onProgress:p=>showToast("正在全网扫描",p.completed+"/"+p.total+" 个搜索任务 · 已发现 "+p.found+" 条候选")
     });
     saveScannedJobs(found);
