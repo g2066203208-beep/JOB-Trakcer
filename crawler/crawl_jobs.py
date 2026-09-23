@@ -277,15 +277,17 @@ def accept_results(results: list[dict], hint: str|None) -> list[dict]:
 def discover_web() -> tuple[list[dict],dict]:
     key=os.getenv("BRAVE_SEARCH_API_KEY","").strip()
     queries=build_queries()
-    found=[]
     stats={"queries":len(queries),"brave":0,"bing-rss":0,"duckduckgo":0,"errors":0}
-    for i,(q,hint) in enumerate(queries,1):
+
+    def search_one(task):
+        q,hint=task
         accepted=[]
+        errors=0
         try:
             primary=search_brave(q,key) if key else search_bing_rss(q)
             accepted=accept_results(primary,hint)
         except Exception as e:
-            stats["errors"]+=1
+            errors+=1
             print(f"[primary] {q!r}: {e}")
         if len(accepted)<2:
             try:
@@ -293,14 +295,21 @@ def discover_web() -> tuple[list[dict],dict]:
                 known={x["url"] for x in accepted}
                 accepted.extend(x for x in fallback if x["url"] not in known)
             except Exception as e:
-                stats["errors"]+=1
+                errors+=1
                 print(f"[ddg] {q!r}: {e}")
-        for x in accepted:
-            stats[x["provider"]]=stats.get(x["provider"],0)+1
-        found.extend(accepted)
-        if i%40==0:
-            print(f"[search] {i}/{len(queries)} accepted={len(found)}")
-        time.sleep(0.08 if key else 0.14)
+        return accepted,errors
+
+    found=[]
+    # Search requests are I/O-bound. Parallelising them keeps a full 90-company
+    # rotation practical while remaining conservative enough for public engines.
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
+        for i,(accepted,errors) in enumerate(ex.map(search_one,queries),1):
+            stats["errors"]+=errors
+            for x in accepted:
+                stats[x["provider"]]=stats.get(x["provider"],0)+1
+            found.extend(accepted)
+            if i%40==0:
+                print(f"[search] {i}/{len(queries)} accepted={len(found)}")
     return found,stats
 
 def discover_official() -> list[dict]:
