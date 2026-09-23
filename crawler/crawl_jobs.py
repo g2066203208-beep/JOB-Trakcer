@@ -282,25 +282,15 @@ def build_queries() -> list[tuple[str,str|None]]:
 def discover_web() -> tuple[list[dict],dict]:
     key=os.getenv("BRAVE_SEARCH_API_KEY","").strip()
     queries=build_queries()
-    found=[]; stats={"queries":len(queries),"brave":0,"bing-rss":0,"duckduckgo":0,"errors":0}
-    for i,(q,hint) in enumerate(queries,1):
-        results=[]
-        try:
-            if key:
-                results=search_brave(q,key)
-            else:
-                results=search_bing_rss(q)
-                if len(results)<2:
-                    results=search_ddg(q)
-        except Exception as e:
-            stats["errors"]+=1
-            try:
-                results=search_ddg(q)
-            except Exception as e2:
-                print(f"[search] failed {q!r}: {e}; fallback: {e2}")
-                results=[]
+    found=[]
+    stats={"queries":len(queries),"brave":0,"bing-rss":0,"duckduckgo":0,"errors":0}
+
+    def accept(results, hint):
+        accepted=[]
         for it in results:
-            title=it.get("title","");url=it.get("url","");sn=it.get("snippet","")
+            title=it.get("title","")
+            url=it.get("url","")
+            sn=it.get("snippet","")
             if not title or not url:
                 continue
             blob=f"{title} {sn}"
@@ -314,7 +304,7 @@ def discover_web() -> tuple[list[dict],dict]:
             verified=any(d==od or d.endswith("."+od) for od in OFFICIAL_DOMAINS)
             provider=it.get("provider","web")
             stats[provider]=stats.get(provider,0)+1
-            found.append({
+            accepted.append({
                 "title":title[:150],"url":url,"snippet":sn[:650],
                 "company":hint or company_from(title,url),
                 "companyHinted":bool(hint),
@@ -322,9 +312,30 @@ def discover_web() -> tuple[list[dict],dict]:
                 "discovery":"全网自动扫描",
                 "provider":provider,
             })
+        return accepted
+
+    for i,(q,hint) in enumerate(queries,1):
+        accepted=[]
+        try:
+            primary=search_brave(q,key) if key else search_bing_rss(q)
+            accepted=accept(primary,hint)
+        except Exception as e:
+            stats["errors"]+=1
+            print(f"[search-primary] {q!r}: {e}")
+
+        # If the primary engine returned nothing useful, try DuckDuckGo HTML.
+        if not accepted:
+            try:
+                accepted=accept(search_ddg(q),hint)
+            except Exception as e:
+                stats["errors"]+=1
+                print(f"[search-ddg] {q!r}: {e}")
+
+        found.extend(accepted)
         if i%25==0:
-            print(f"[search] {i}/{len(queries)} queries")
+            print(f"[search] {i}/{len(queries)} queries; accepted={len(found)}")
         time.sleep(0.12 if key else 0.18)
+
     return found,stats
 
 def enrich(item: dict) -> dict:
