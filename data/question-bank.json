@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-23-v8",
+  "version": "2026-09-23-v9",
   "note": "所有题目统一显示“标准答案”，不再使用“答题要点”“示范答案”“标准解法”等标签。公开公司题基于可公开访问的面经/题库考察主题重新表述，并提供完整标准答案；不复制登录墙、付费或受限题库全文。",
   "companyKits": [
     {
@@ -9173,6 +9173,2166 @@
       "answerPoints": "若长度不同直接false；统计字符频次并相减，最终全0则为异位词。固定字符集可用数组，时间O(n)。",
       "difficulty": "中等",
       "id": "g-0388"
+    },
+    {
+      "id": "g-0389",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由100增长到110，增长率是多少？",
+      "standardAnswer": "标准答案：(110-100)/100×100%=10%。",
+      "answerPoints": "标准答案：(110-100)/100×100%=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0390",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由120增长到134.4，增长率是多少？",
+      "standardAnswer": "标准答案：(134.4-120)/120×100%=12%。",
+      "answerPoints": "标准答案：(134.4-120)/120×100%=12%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0391",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由140增长到159.6，增长率是多少？",
+      "standardAnswer": "标准答案：(159.6-140)/140×100%=14%。",
+      "answerPoints": "标准答案：(159.6-140)/140×100%=14%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0392",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由160增长到185.6，增长率是多少？",
+      "standardAnswer": "标准答案：(185.6-160)/160×100%=16%。",
+      "answerPoints": "标准答案：(185.6-160)/160×100%=16%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0393",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由180增长到212.4，增长率是多少？",
+      "standardAnswer": "标准答案：(212.4-180)/180×100%=18%。",
+      "answerPoints": "标准答案：(212.4-180)/180×100%=18%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0394",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由200增长到240，增长率是多少？",
+      "standardAnswer": "标准答案：(240-200)/200×100%=20%。",
+      "answerPoints": "标准答案：(240-200)/200×100%=20%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0395",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由220增长到268.4，增长率是多少？",
+      "standardAnswer": "标准答案：(268.4-220)/220×100%=22%。",
+      "answerPoints": "标准答案：(268.4-220)/220×100%=22%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0396",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由240增长到297.6，增长率是多少？",
+      "standardAnswer": "标准答案：(297.6-240)/240×100%=24%。",
+      "answerPoints": "标准答案：(297.6-240)/240×100%=24%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0397",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由260增长到327.6，增长率是多少？",
+      "standardAnswer": "标准答案：(327.6-260)/260×100%=26%。",
+      "answerPoints": "标准答案：(327.6-260)/260×100%=26%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0398",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标由280增长到358.4，增长率是多少？",
+      "standardAnswer": "标准答案：(358.4-280)/280×100%=28%。",
+      "answerPoints": "标准答案：(358.4-280)/280×100%=28%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0399",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务6人需要12天完成，效率不变，若改为10人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=6×12=72人·天；时间=72/10=7.2天。",
+      "answerPoints": "标准答案：总工作量=6×12=72人·天；时间=72/10=7.2天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0400",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务7人需要13天完成，效率不变，若改为11人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=7×13=91人·天；时间=91/11=8.27天。",
+      "answerPoints": "标准答案：总工作量=7×13=91人·天；时间=91/11=8.27天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0401",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务8人需要14天完成，效率不变，若改为12人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=8×14=112人·天；时间=112/12=9.33天。",
+      "answerPoints": "标准答案：总工作量=8×14=112人·天；时间=112/12=9.33天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0402",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务9人需要15天完成，效率不变，若改为13人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=9×15=135人·天；时间=135/13=10.38天。",
+      "answerPoints": "标准答案：总工作量=9×15=135人·天；时间=135/13=10.38天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0403",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务10人需要16天完成，效率不变，若改为14人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=10×16=160人·天；时间=160/14=11.43天。",
+      "answerPoints": "标准答案：总工作量=10×16=160人·天；时间=160/14=11.43天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0404",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务11人需要17天完成，效率不变，若改为15人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=11×17=187人·天；时间=187/15=12.47天。",
+      "answerPoints": "标准答案：总工作量=11×17=187人·天；时间=187/15=12.47天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0405",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务12人需要18天完成，效率不变，若改为16人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=12×18=216人·天；时间=216/16=13.5天。",
+      "answerPoints": "标准答案：总工作量=12×18=216人·天；时间=216/16=13.5天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0406",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务13人需要19天完成，效率不变，若改为17人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=13×19=247人·天；时间=247/17=14.53天。",
+      "answerPoints": "标准答案：总工作量=13×19=247人·天；时间=247/17=14.53天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0407",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务14人需要20天完成，效率不变，若改为18人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=14×20=280人·天；时间=280/18=15.56天。",
+      "answerPoints": "标准答案：总工作量=14×20=280人·天；时间=280/18=15.56天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0408",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某任务15人需要21天完成，效率不变，若改为19人，需要多少天？",
+      "standardAnswer": "标准答案：总工作量=15×21=315人·天；时间=315/19=16.58天。",
+      "answerPoints": "标准答案：总工作量=15×21=315人·天；时间=315/19=16.58天。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0409",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共240个，其中A类占20%，A类有多少个？",
+      "standardAnswer": "标准答案：240×20%=48个。",
+      "answerPoints": "标准答案：240×20%=48个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0410",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共300个，其中A类占25%，A类有多少个？",
+      "standardAnswer": "标准答案：300×25%=75个。",
+      "answerPoints": "标准答案：300×25%=75个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0411",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共360个，其中A类占30%，A类有多少个？",
+      "standardAnswer": "标准答案：360×30%=108个。",
+      "answerPoints": "标准答案：360×30%=108个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0412",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共420个，其中A类占35%，A类有多少个？",
+      "standardAnswer": "标准答案：420×35%=147个。",
+      "answerPoints": "标准答案：420×35%=147个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0413",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共480个，其中A类占40%，A类有多少个？",
+      "standardAnswer": "标准答案：480×40%=192个。",
+      "answerPoints": "标准答案：480×40%=192个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0414",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共540个，其中A类占45%，A类有多少个？",
+      "standardAnswer": "标准答案：540×45%=243个。",
+      "answerPoints": "标准答案：540×45%=243个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0415",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共600个，其中A类占20%，A类有多少个？",
+      "standardAnswer": "标准答案：600×20%=120个。",
+      "answerPoints": "标准答案：600×20%=120个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0416",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共660个，其中A类占25%，A类有多少个？",
+      "standardAnswer": "标准答案：660×25%=165个。",
+      "answerPoints": "标准答案：660×25%=165个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0417",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共720个，其中A类占30%，A类有多少个？",
+      "standardAnswer": "标准答案：720×30%=216个。",
+      "answerPoints": "标准答案：720×30%=216个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0418",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某样本共780个，其中A类占35%，A类有多少个？",
+      "standardAnswer": "标准答案：780×35%=273个。",
+      "answerPoints": "标准答案：780×35%=273个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0419",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价200元，先降价10%，再在降价后上涨5%，最终价格是多少？",
+      "standardAnswer": "标准答案：200×(1-10%)×(1+5%)=189元。",
+      "answerPoints": "标准答案：200×(1-10%)×(1+5%)=189元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0420",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价250元，先降价12%，再在降价后上涨6%，最终价格是多少？",
+      "standardAnswer": "标准答案：250×(1-12%)×(1+6%)=233.2元。",
+      "answerPoints": "标准答案：250×(1-12%)×(1+6%)=233.2元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0421",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价300元，先降价14%，再在降价后上涨7%，最终价格是多少？",
+      "standardAnswer": "标准答案：300×(1-14%)×(1+7%)=276.06元。",
+      "answerPoints": "标准答案：300×(1-14%)×(1+7%)=276.06元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0422",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价350元，先降价16%，再在降价后上涨8%，最终价格是多少？",
+      "standardAnswer": "标准答案：350×(1-16%)×(1+8%)=317.52元。",
+      "answerPoints": "标准答案：350×(1-16%)×(1+8%)=317.52元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0423",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价400元，先降价18%，再在降价后上涨9%，最终价格是多少？",
+      "standardAnswer": "标准答案：400×(1-18%)×(1+9%)=357.52元。",
+      "answerPoints": "标准答案：400×(1-18%)×(1+9%)=357.52元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0424",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价450元，先降价10%，再在降价后上涨5%，最终价格是多少？",
+      "standardAnswer": "标准答案：450×(1-10%)×(1+5%)=425.25元。",
+      "answerPoints": "标准答案：450×(1-10%)×(1+5%)=425.25元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0425",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价500元，先降价12%，再在降价后上涨6%，最终价格是多少？",
+      "standardAnswer": "标准答案：500×(1-12%)×(1+6%)=466.4元。",
+      "answerPoints": "标准答案：500×(1-12%)×(1+6%)=466.4元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0426",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价550元，先降价14%，再在降价后上涨7%，最终价格是多少？",
+      "standardAnswer": "标准答案：550×(1-14%)×(1+7%)=506.11元。",
+      "answerPoints": "标准答案：550×(1-14%)×(1+7%)=506.11元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0427",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价600元，先降价16%，再在降价后上涨8%，最终价格是多少？",
+      "standardAnswer": "标准答案：600×(1-16%)×(1+8%)=544.32元。",
+      "answerPoints": "标准答案：600×(1-16%)×(1+8%)=544.32元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0428",
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "商品原价650元，先降价18%，再在降价后上涨9%，最终价格是多少？",
+      "standardAnswer": "标准答案：650×(1-18%)×(1+9%)=580.97元。",
+      "answerPoints": "标准答案：650×(1-18%)×(1+9%)=580.97元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0429",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径10 mm圆杆承受5 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×10²/4=78.54 mm²；σ=F/A=5000/78.54=63.66 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×10²/4=78.54 mm²；σ=F/A=5000/78.54=63.66 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0430",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径12 mm圆杆承受7 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×12²/4=113.1 mm²；σ=F/A=7000/113.1=61.89 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×12²/4=113.1 mm²；σ=F/A=7000/113.1=61.89 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0431",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径14 mm圆杆承受9 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×14²/4=153.94 mm²；σ=F/A=9000/153.94=58.47 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×14²/4=153.94 mm²；σ=F/A=9000/153.94=58.47 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0432",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径16 mm圆杆承受11 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×16²/4=201.06 mm²；σ=F/A=11000/201.06=54.71 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×16²/4=201.06 mm²；σ=F/A=11000/201.06=54.71 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0433",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径18 mm圆杆承受13 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×18²/4=254.47 mm²；σ=F/A=13000/254.47=51.09 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×18²/4=254.47 mm²；σ=F/A=13000/254.47=51.09 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0434",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径20 mm圆杆承受15 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×20²/4=314.16 mm²；σ=F/A=15000/314.16=47.75 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×20²/4=314.16 mm²；σ=F/A=15000/314.16=47.75 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0435",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径22 mm圆杆承受17 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×22²/4=380.13 mm²；σ=F/A=17000/380.13=44.72 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×22²/4=380.13 mm²；σ=F/A=17000/380.13=44.72 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0436",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径24 mm圆杆承受19 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×24²/4=452.39 mm²；σ=F/A=19000/452.39=42 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×24²/4=452.39 mm²；σ=F/A=19000/452.39=42 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0437",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径26 mm圆杆承受21 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×26²/4=530.93 mm²；σ=F/A=21000/530.93=39.55 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×26²/4=530.93 mm²；σ=F/A=21000/530.93=39.55 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0438",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "直径28 mm圆杆承受23 kN轴向拉力，平均正应力是多少？",
+      "standardAnswer": "标准答案：A=πd²/4=π×28²/4=615.75 mm²；σ=F/A=23000/615.75=37.35 MPa。",
+      "answerPoints": "标准答案：A=πd²/4=π×28²/4=615.75 mm²；σ=F/A=23000/615.75=37.35 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0439",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量500 kg、刚度0.5×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(500000/500)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(500000/500)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0440",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量600 kg、刚度0.6×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(600000/600)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(600000/600)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0441",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量700 kg、刚度0.7×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(700000/700)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(700000/700)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0442",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量800 kg、刚度0.8×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(800000/800)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(800000/800)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0443",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量900 kg、刚度0.9×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(900000/900)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(900000/900)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0444",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量1000 kg、刚度1.0×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(1000000/1000)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(1000000/1000)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0445",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量1100 kg、刚度1.1×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(1100000/1100)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(1100000/1100)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0446",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量1200 kg、刚度1.2×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(1200000/1200)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(1200000/1200)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0447",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量1300 kg、刚度1.3×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(1300000/1300)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(1300000/1300)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0448",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统质量1400 kg、刚度1.4×10^6 N/m，固有频率约多少Hz？",
+      "standardAnswer": "标准答案：ω=√(k/m)=√(1400000/1400)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "answerPoints": "标准答案：ω=√(k/m)=√(1400000/1400)=31.623 rad/s；f=ω/(2π)=5.033 Hz。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0449",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径25 mm，承受扭矩200 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×200000/(π×25³)=65.19 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×200000/(π×25³)=65.19 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0450",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径27 mm，承受扭矩250 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×250000/(π×27³)=64.69 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×250000/(π×27³)=64.69 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0451",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径29 mm，承受扭矩300 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×300000/(π×29³)=62.65 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×300000/(π×29³)=62.65 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0452",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径31 mm，承受扭矩350 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×350000/(π×31³)=59.83 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×350000/(π×31³)=59.83 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0453",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径33 mm，承受扭矩400 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×400000/(π×33³)=56.69 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×400000/(π×33³)=56.69 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0454",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径35 mm，承受扭矩450 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×450000/(π×35³)=53.45 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×450000/(π×35³)=53.45 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0455",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径37 mm，承受扭矩500 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×500000/(π×37³)=50.27 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×500000/(π×37³)=50.27 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0456",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径39 mm，承受扭矩550 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×550000/(π×39³)=47.22 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×550000/(π×39³)=47.22 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0457",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径41 mm，承受扭矩600 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×600000/(π×41³)=44.34 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×600000/(π×41³)=44.34 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0458",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "实心圆轴直径43 mm，承受扭矩650 N·m，最大剪应力约多少？",
+      "standardAnswer": "标准答案：τmax=16T/(πd³)=16×650000/(π×43³)=41.64 MPa。",
+      "answerPoints": "标准答案：τmax=16T/(πd³)=16×650000/(π×43³)=41.64 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0459",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度500 mm，线膨胀系数10×10^-6/℃，温升20℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=10×10^-6×500×20=0.1 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=10×10^-6×500×20=0.1 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0460",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度550 mm，线膨胀系数11×10^-6/℃，温升25℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=11×10^-6×550×25=0.151 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=11×10^-6×550×25=0.151 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0461",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度600 mm，线膨胀系数12×10^-6/℃，温升30℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=12×10^-6×600×30=0.216 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=12×10^-6×600×30=0.216 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0462",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度650 mm，线膨胀系数13×10^-6/℃，温升35℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=13×10^-6×650×35=0.296 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=13×10^-6×650×35=0.296 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0463",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度700 mm，线膨胀系数14×10^-6/℃，温升40℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=14×10^-6×700×40=0.392 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=14×10^-6×700×40=0.392 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0464",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度750 mm，线膨胀系数10×10^-6/℃，温升45℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=10×10^-6×750×45=0.337 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=10×10^-6×750×45=0.337 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0465",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度800 mm，线膨胀系数11×10^-6/℃，温升50℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=11×10^-6×800×50=0.44 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=11×10^-6×800×50=0.44 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0466",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度850 mm，线膨胀系数12×10^-6/℃，温升55℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=12×10^-6×850×55=0.561 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=12×10^-6×850×55=0.561 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0467",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度900 mm，线膨胀系数13×10^-6/℃，温升60℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=13×10^-6×900×60=0.702 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=13×10^-6×900×60=0.702 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0468",
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "构件长度950 mm，线膨胀系数14×10^-6/℃，温升65℃，自由伸长多少？",
+      "standardAnswer": "标准答案：ΔL=αLΔT=14×10^-6×950×65=0.864 mm。",
+      "answerPoints": "标准答案：ΔL=αLΔT=14×10^-6×950×65=0.864 mm。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0469",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度4 m简支梁承受均布荷载5 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=5×4²/8=10 kN·m；两端反力各10 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=5×4²/8=10 kN·m；两端反力各10 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0470",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度4.5 m简支梁承受均布荷载6 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=6×4.5²/8=15.19 kN·m；两端反力各13.5 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=6×4.5²/8=15.19 kN·m；两端反力各13.5 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0471",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度5 m简支梁承受均布荷载7 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=7×5²/8=21.88 kN·m；两端反力各17.5 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=7×5²/8=21.88 kN·m；两端反力各17.5 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0472",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度5.5 m简支梁承受均布荷载8 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=8×5.5²/8=30.25 kN·m；两端反力各22 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=8×5.5²/8=30.25 kN·m；两端反力各22 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0473",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度6 m简支梁承受均布荷载9 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=9×6²/8=40.5 kN·m；两端反力各27 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=9×6²/8=40.5 kN·m；两端反力各27 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0474",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度6.5 m简支梁承受均布荷载10 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=10×6.5²/8=52.81 kN·m；两端反力各32.5 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=10×6.5²/8=52.81 kN·m；两端反力各32.5 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0475",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度7 m简支梁承受均布荷载11 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=11×7²/8=67.38 kN·m；两端反力各38.5 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=11×7²/8=67.38 kN·m；两端反力各38.5 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0476",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度7.5 m简支梁承受均布荷载12 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=12×7.5²/8=84.38 kN·m；两端反力各45 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=12×7.5²/8=84.38 kN·m；两端反力各45 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0477",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度8 m简支梁承受均布荷载13 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=13×8²/8=104 kN·m；两端反力各52 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=13×8²/8=104 kN·m；两端反力各52 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0478",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "跨度8.5 m简支梁承受均布荷载14 kN/m，最大弯矩是多少？",
+      "standardAnswer": "标准答案：Mmax=qL²/8=14×8.5²/8=126.44 kN·m；两端反力各59.5 kN。",
+      "answerPoints": "标准答案：Mmax=qL²/8=14×8.5²/8=126.44 kN·m；两端反力各59.5 kN。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0479",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力500 kN，截面面积0.1 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=500/0.1=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=500/0.1=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0480",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力600 kN，截面面积0.12 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=600/0.12=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=600/0.12=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0481",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力700 kN，截面面积0.14 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=700/0.14=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=700/0.14=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0482",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力800 kN，截面面积0.16 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=800/0.16=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=800/0.16=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0483",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力900 kN，截面面积0.18 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=900/0.18=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=900/0.18=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0484",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力1000 kN，截面面积0.2 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=1000/0.2=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=1000/0.2=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0485",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力1100 kN，截面面积0.22 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=1100/0.22=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=1100/0.22=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0486",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力1200 kN，截面面积0.24 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=1200/0.24=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=1200/0.24=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0487",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力1300 kN，截面面积0.26 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=1300/0.26=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=1300/0.26=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0488",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力1400 kN，截面面积0.28 m²，平均压应力是多少？",
+      "standardAnswer": "标准答案：σ=N/A=1400/0.28=5000 kPa=5 MPa。",
+      "answerPoints": "标准答案：σ=N/A=1400/0.28=5000 kPa=5 MPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0489",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重17 kN/m³，计算深度3 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=17×3=51 kPa。",
+      "answerPoints": "标准答案：σ=γh=17×3=51 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0490",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重18 kN/m³，计算深度3.5 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=18×3.5=63 kPa。",
+      "answerPoints": "标准答案：σ=γh=18×3.5=63 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0491",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重19 kN/m³，计算深度4 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=19×4=76 kPa。",
+      "answerPoints": "标准答案：σ=γh=19×4=76 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0492",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重20 kN/m³，计算深度4.5 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=20×4.5=90 kPa。",
+      "answerPoints": "标准答案：σ=γh=20×4.5=90 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0493",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重17 kN/m³，计算深度5 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=17×5=85 kPa。",
+      "answerPoints": "标准答案：σ=γh=17×5=85 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0494",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重18 kN/m³，计算深度5.5 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=18×5.5=99 kPa。",
+      "answerPoints": "标准答案：σ=γh=18×5.5=99 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0495",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重19 kN/m³，计算深度6 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=19×6=114 kPa。",
+      "answerPoints": "标准答案：σ=γh=19×6=114 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0496",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重20 kN/m³，计算深度6.5 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=20×6.5=130 kPa。",
+      "answerPoints": "标准答案：σ=γh=20×6.5=130 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0497",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重17 kN/m³，计算深度7 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=17×7=119 kPa。",
+      "answerPoints": "标准答案：σ=γh=17×7=119 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0498",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重18 kN/m³，计算深度7.5 m，竖向自重应力是多少？",
+      "standardAnswer": "标准答案：σ=γh=18×7.5=135 kPa。",
+      "answerPoints": "标准答案：σ=γh=18×7.5=135 kPa。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0499",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移6 mm，层高3000 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=6/3000=1/500≈0.002。",
+      "answerPoints": "标准答案：θ=6/3000=1/500≈0.002。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0500",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移8 mm，层高3100 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=8/3100=1/387.5≈0.00258。",
+      "answerPoints": "标准答案：θ=8/3100=1/387.5≈0.00258。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0501",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移10 mm，层高3200 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=10/3200=1/320≈0.00313。",
+      "answerPoints": "标准答案：θ=10/3200=1/320≈0.00313。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0502",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移12 mm，层高3300 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=12/3300=1/275≈0.00364。",
+      "answerPoints": "标准答案：θ=12/3300=1/275≈0.00364。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0503",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移14 mm，层高3400 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=14/3400=1/242.9≈0.00412。",
+      "answerPoints": "标准答案：θ=14/3400=1/242.9≈0.00412。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0504",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移16 mm，层高3500 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=16/3500=1/218.8≈0.00457。",
+      "answerPoints": "标准答案：θ=16/3500=1/218.8≈0.00457。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0505",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移18 mm，层高3600 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=18/3600=1/200≈0.005。",
+      "answerPoints": "标准答案：θ=18/3600=1/200≈0.005。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0506",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移20 mm，层高3700 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=20/3700=1/185≈0.00541。",
+      "answerPoints": "标准答案：θ=20/3700=1/185≈0.00541。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0507",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移22 mm，层高3800 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=22/3800=1/172.7≈0.00579。",
+      "answerPoints": "标准答案：θ=22/3800=1/172.7≈0.00579。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0508",
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某层层间位移24 mm，层高3900 mm，层间位移角是多少？",
+      "standardAnswer": "标准答案：θ=24/3900=1/162.5≈0.00615。",
+      "answerPoints": "标准答案：θ=24/3900=1/162.5≈0.00615。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0509",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流5 A、功率因数0.7，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×5×0.7=0.77 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×5×0.7=0.77 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0510",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流7 A、功率因数0.72，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×7×0.72=1.109 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×7×0.72=1.109 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0511",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流9 A、功率因数0.74，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×9×0.74=1.465 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×9×0.74=1.465 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0512",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流11 A、功率因数0.76，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×11×0.76=1.839 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×11×0.76=1.839 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0513",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流13 A、功率因数0.78，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×13×0.78=2.231 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×13×0.78=2.231 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0514",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流15 A、功率因数0.8，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×15×0.8=2.64 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×15×0.8=2.64 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0515",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流17 A、功率因数0.82，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×17×0.82=3.067 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×17×0.82=3.067 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0516",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流19 A、功率因数0.84，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×19×0.84=3.511 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×19×0.84=3.511 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0517",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流21 A、功率因数0.86，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×21×0.86=3.973 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×21×0.86=3.973 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0518",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流23 A、功率因数0.88，有功功率是多少？",
+      "standardAnswer": "标准答案：P=UIcosφ=220×23×0.88=4.453 kW。",
+      "answerPoints": "标准答案：P=UIcosφ=220×23×0.88=4.453 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0519",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流20 A、功率因数0.8，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×20×0.8≈10.53 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×20×0.8≈10.53 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0520",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流30 A、功率因数0.81，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×30×0.81≈15.99 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×30×0.81≈15.99 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0521",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流40 A、功率因数0.82，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×40×0.82≈21.59 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×40×0.82≈21.59 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0522",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流50 A、功率因数0.83，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×50×0.83≈27.31 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×50×0.83≈27.31 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0523",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流60 A、功率因数0.84，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×60×0.84≈33.17 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×60×0.84≈33.17 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0524",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流70 A、功率因数0.85，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×70×0.85≈39.16 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×70×0.85≈39.16 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0525",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流80 A、功率因数0.86，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×80×0.86≈45.28 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×80×0.86≈45.28 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0526",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流90 A、功率因数0.87，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×90×0.87≈51.54 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×90×0.87≈51.54 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0527",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流100 A、功率因数0.88，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×100×0.88≈57.92 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×100×0.88≈57.92 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0528",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相负载线电压380 V、线电流110 A、功率因数0.89，有功功率约多少？",
+      "standardAnswer": "标准答案：P=√3UIcosφ=1.732×380×110×0.89≈64.44 kW。",
+      "answerPoints": "标准答案：P=√3UIcosφ=1.732×380×110×0.89≈64.44 kW。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0529",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "50 kWh储能系统以20 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=50/20=2.5 h。",
+      "answerPoints": "标准答案：t=E/P=50/20=2.5 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0530",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "60 kWh储能系统以25 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=60/25=2.4 h。",
+      "answerPoints": "标准答案：t=E/P=60/25=2.4 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0531",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "70 kWh储能系统以30 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=70/30=2.333 h。",
+      "answerPoints": "标准答案：t=E/P=70/30=2.333 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0532",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "80 kWh储能系统以35 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=80/35=2.286 h。",
+      "answerPoints": "标准答案：t=E/P=80/35=2.286 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0533",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "90 kWh储能系统以40 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=90/40=2.25 h。",
+      "answerPoints": "标准答案：t=E/P=90/40=2.25 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0534",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "100 kWh储能系统以45 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=100/45=2.222 h。",
+      "answerPoints": "标准答案：t=E/P=100/45=2.222 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0535",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "110 kWh储能系统以50 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=110/50=2.2 h。",
+      "answerPoints": "标准答案：t=E/P=110/50=2.2 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0536",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "120 kWh储能系统以55 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=120/55=2.182 h。",
+      "answerPoints": "标准答案：t=E/P=120/55=2.182 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0537",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "130 kWh储能系统以60 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=130/60=2.167 h。",
+      "answerPoints": "标准答案：t=E/P=130/60=2.167 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0538",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "140 kWh储能系统以65 kW恒功率放电，忽略损耗，可持续多久？",
+      "standardAnswer": "标准答案：t=E/P=140/65=2.154 h。",
+      "answerPoints": "标准答案：t=E/P=140/65=2.154 h。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0539",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机20 MW，年等效利用小时1800 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=20×1800=36000 MWh=3.6亿kWh。",
+      "answerPoints": "标准答案：E=20×1800=36000 MWh=3.6亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0540",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机25 MW，年等效利用小时1900 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=25×1900=47500 MWh=4.75亿kWh。",
+      "answerPoints": "标准答案：E=25×1900=47500 MWh=4.75亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0541",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机30 MW，年等效利用小时2000 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=30×2000=60000 MWh=6亿kWh。",
+      "answerPoints": "标准答案：E=30×2000=60000 MWh=6亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0542",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机35 MW，年等效利用小时2100 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=35×2100=73500 MWh=7.35亿kWh。",
+      "answerPoints": "标准答案：E=35×2100=73500 MWh=7.35亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0543",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机40 MW，年等效利用小时2200 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=40×2200=88000 MWh=8.8亿kWh。",
+      "answerPoints": "标准答案：E=40×2200=88000 MWh=8.8亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0544",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机45 MW，年等效利用小时2300 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=45×2300=103500 MWh=10.35亿kWh。",
+      "answerPoints": "标准答案：E=45×2300=103500 MWh=10.35亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0545",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机50 MW，年等效利用小时2400 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=50×2400=120000 MWh=12亿kWh。",
+      "answerPoints": "标准答案：E=50×2400=120000 MWh=12亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0546",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机55 MW，年等效利用小时2500 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=55×2500=137500 MWh=13.75亿kWh。",
+      "answerPoints": "标准答案：E=55×2500=137500 MWh=13.75亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0547",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机60 MW，年等效利用小时2600 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=60×2600=156000 MWh=15.6亿kWh。",
+      "answerPoints": "标准答案：E=60×2600=156000 MWh=15.6亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0548",
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风场装机65 MW，年等效利用小时2700 h，年发电量是多少？",
+      "standardAnswer": "标准答案：E=65×2700=175500 MWh=17.55亿kWh。",
+      "answerPoints": "标准答案：E=65×2700=175500 MWh=17.55亿kWh。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0549",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金50万元，年利率2%，按单利计算2年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=50×2%×2=2万元。",
+      "answerPoints": "标准答案：I=P×r×t=50×2%×2=2万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0550",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金60万元，年利率2.3%，按单利计算3年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=60×2.3%×3=4.14万元。",
+      "answerPoints": "标准答案：I=P×r×t=60×2.3%×3=4.14万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0551",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金70万元，年利率2.6%，按单利计算4年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=70×2.6%×4=7.28万元。",
+      "answerPoints": "标准答案：I=P×r×t=70×2.6%×4=7.28万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0552",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金80万元，年利率2.9%，按单利计算5年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=80×2.9%×5=11.6万元。",
+      "answerPoints": "标准答案：I=P×r×t=80×2.9%×5=11.6万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0553",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金90万元，年利率3.2%，按单利计算2年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=90×3.2%×2=5.76万元。",
+      "answerPoints": "标准答案：I=P×r×t=90×3.2%×2=5.76万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0554",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金100万元，年利率3.5%，按单利计算3年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=100×3.5%×3=10.5万元。",
+      "answerPoints": "标准答案：I=P×r×t=100×3.5%×3=10.5万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0555",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金110万元，年利率3.8%，按单利计算4年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=110×3.8%×4=16.72万元。",
+      "answerPoints": "标准答案：I=P×r×t=110×3.8%×4=16.72万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0556",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金120万元，年利率4.1%，按单利计算5年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=120×4.1%×5=24.6万元。",
+      "answerPoints": "标准答案：I=P×r×t=120×4.1%×5=24.6万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0557",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金130万元，年利率4.4%，按单利计算2年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=130×4.4%×2=11.44万元。",
+      "answerPoints": "标准答案：I=P×r×t=130×4.4%×2=11.44万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0558",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "本金140万元，年利率4.7%，按单利计算3年，利息是多少？",
+      "standardAnswer": "标准答案：I=P×r×t=140×4.7%×3=19.74万元。",
+      "answerPoints": "标准答案：I=P×r×t=140×4.7%×3=19.74万元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0559",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入500万元、销售成本300万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(500-300)/500×100%=40%。",
+      "answerPoints": "标准答案：毛利率=(500-300)/500×100%=40%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0560",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入600万元、销售成本370万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(600-370)/600×100%=38.33%。",
+      "answerPoints": "标准答案：毛利率=(600-370)/600×100%=38.33%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0561",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入700万元、销售成本440万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(700-440)/700×100%=37.14%。",
+      "answerPoints": "标准答案：毛利率=(700-440)/700×100%=37.14%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0562",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入800万元、销售成本510万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(800-510)/800×100%=36.25%。",
+      "answerPoints": "标准答案：毛利率=(800-510)/800×100%=36.25%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0563",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入900万元、销售成本580万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(900-580)/900×100%=35.56%。",
+      "answerPoints": "标准答案：毛利率=(900-580)/900×100%=35.56%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0564",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入1000万元、销售成本650万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(1000-650)/1000×100%=35%。",
+      "answerPoints": "标准答案：毛利率=(1000-650)/1000×100%=35%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0565",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入1100万元、销售成本720万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(1100-720)/1100×100%=34.55%。",
+      "answerPoints": "标准答案：毛利率=(1100-720)/1100×100%=34.55%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0566",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入1200万元、销售成本790万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(1200-790)/1200×100%=34.17%。",
+      "answerPoints": "标准答案：毛利率=(1200-790)/1200×100%=34.17%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0567",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入1300万元、销售成本860万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(1300-860)/1300×100%=33.85%。",
+      "answerPoints": "标准答案：毛利率=(1300-860)/1300×100%=33.85%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0568",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入1400万元、销售成本930万元，毛利率是多少？",
+      "standardAnswer": "标准答案：毛利率=(1400-930)/1400×100%=33.57%。",
+      "answerPoints": "标准答案：毛利率=(1400-930)/1400×100%=33.57%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0569",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润5亿元、市值100亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=100/5=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=100/5=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0570",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润6亿元、市值120亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=120/6=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=120/6=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0571",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润7亿元、市值140亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=140/7=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=140/7=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0572",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润8亿元、市值160亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=160/8=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=160/8=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0573",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润9亿元、市值180亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=180/9=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=180/9=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0574",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润10亿元、市值200亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=200/10=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=200/10=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0575",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润11亿元、市值220亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=220/11=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=220/11=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0576",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润12亿元、市值240亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=240/12=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=240/12=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0577",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润13亿元、市值260亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=260/13=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=260/13=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0578",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "公司净利润14亿元、市值280亿元，市盈率PE是多少？",
+      "standardAnswer": "标准答案：PE=市值/净利润=280/14=20倍。",
+      "answerPoints": "标准答案：PE=市值/净利润=280/14=20倍。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0579",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=80亿元，有息债务10亿元，现金5亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=80-10+5=75亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=80-10+5=75亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0580",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=100亿元，有息债务12亿元，现金6亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=100-12+6=94亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=100-12+6=94亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0581",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=120亿元，有息债务14亿元，现金7亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=120-14+7=113亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=120-14+7=113亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0582",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=140亿元，有息债务16亿元，现金8亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=140-16+8=132亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=140-16+8=132亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0583",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=160亿元，有息债务18亿元，现金9亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=160-18+9=151亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=160-18+9=151亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0584",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=180亿元，有息债务20亿元，现金10亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=180-20+10=170亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=180-20+10=170亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0585",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=200亿元，有息债务22亿元，现金11亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=200-22+11=189亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=200-22+11=189亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0586",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=220亿元，有息债务24亿元，现金12亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=220-24+12=208亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=220-24+12=208亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0587",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=240亿元，有息债务26亿元，现金13亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=240-26+13=227亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=240-26+13=227亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0588",
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业价值EV=260亿元，有息债务28亿元，现金14亿元，简化股权价值是多少？",
+      "standardAnswer": "标准答案：股权价值=EV-债务+现金=260-28+14=246亿元。",
+      "answerPoints": "标准答案：股权价值=EV-债务+现金=260-28+14=246亿元。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0589",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=50、FP=10、FN=5，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=50/(50+10)=0.8333；Recall=50/(50+5)=0.9091；F1=2PR/(P+R)=0.8696。",
+      "answerPoints": "标准答案：Precision=50/(50+10)=0.8333；Recall=50/(50+5)=0.9091；F1=2PR/(P+R)=0.8696。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0590",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=55、FP=11、FN=7，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=55/(55+11)=0.8333；Recall=55/(55+7)=0.8871；F1=2PR/(P+R)=0.8594。",
+      "answerPoints": "标准答案：Precision=55/(55+11)=0.8333；Recall=55/(55+7)=0.8871；F1=2PR/(P+R)=0.8594。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0591",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=60、FP=12、FN=9，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=60/(60+12)=0.8333；Recall=60/(60+9)=0.8696；F1=2PR/(P+R)=0.8511。",
+      "answerPoints": "标准答案：Precision=60/(60+12)=0.8333；Recall=60/(60+9)=0.8696；F1=2PR/(P+R)=0.8511。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0592",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=65、FP=13、FN=11，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=65/(65+13)=0.8333；Recall=65/(65+11)=0.8553；F1=2PR/(P+R)=0.8442。",
+      "answerPoints": "标准答案：Precision=65/(65+13)=0.8333；Recall=65/(65+11)=0.8553；F1=2PR/(P+R)=0.8442。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0593",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=70、FP=14、FN=13，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=70/(70+14)=0.8333；Recall=70/(70+13)=0.8434；F1=2PR/(P+R)=0.8383。",
+      "answerPoints": "标准答案：Precision=70/(70+14)=0.8333；Recall=70/(70+13)=0.8434；F1=2PR/(P+R)=0.8383。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0594",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=75、FP=15、FN=15，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=75/(75+15)=0.8333；Recall=75/(75+15)=0.8333；F1=2PR/(P+R)=0.8333。",
+      "answerPoints": "标准答案：Precision=75/(75+15)=0.8333；Recall=75/(75+15)=0.8333；F1=2PR/(P+R)=0.8333。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0595",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=80、FP=16、FN=17，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=80/(80+16)=0.8333；Recall=80/(80+17)=0.8247；F1=2PR/(P+R)=0.829。",
+      "answerPoints": "标准答案：Precision=80/(80+16)=0.8333；Recall=80/(80+17)=0.8247；F1=2PR/(P+R)=0.829。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0596",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=85、FP=17、FN=19，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=85/(85+17)=0.8333；Recall=85/(85+19)=0.8173；F1=2PR/(P+R)=0.8252。",
+      "answerPoints": "标准答案：Precision=85/(85+17)=0.8333；Recall=85/(85+19)=0.8173；F1=2PR/(P+R)=0.8252。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0597",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=90、FP=18、FN=21，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=90/(90+18)=0.8333；Recall=90/(90+21)=0.8108；F1=2PR/(P+R)=0.8219。",
+      "answerPoints": "标准答案：Precision=90/(90+18)=0.8333；Recall=90/(90+21)=0.8108；F1=2PR/(P+R)=0.8219。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0598",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "分类模型TP=95、FP=19、FN=23，F1约是多少？",
+      "standardAnswer": "标准答案：Precision=95/(95+19)=0.8333；Recall=95/(95+23)=0.8051；F1=2PR/(P+R)=0.819。",
+      "answerPoints": "标准答案：Precision=95/(95+19)=0.8333；Recall=95/(95+23)=0.8051；F1=2PR/(P+R)=0.819。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0599",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率5%，B组6%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(6%−5%)/5%×100%=20%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(6%−5%)/5%×100%=20%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0600",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率6%，B组7%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(7%−6%)/6%×100%=16.67%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(7%−6%)/6%×100%=16.67%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0601",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率7%，B组8%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(8%−7%)/7%×100%=14.29%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(8%−7%)/7%×100%=14.29%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0602",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率8%，B组9%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(9%−8%)/8%×100%=12.5%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(9%−8%)/8%×100%=12.5%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0603",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率9%，B组10%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(10%−9%)/9%×100%=11.11%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(10%−9%)/9%×100%=11.11%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0604",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率10%，B组11%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(11%−10%)/10%×100%=10%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(11%−10%)/10%×100%=10%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0605",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率11%，B组12%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(12%−11%)/11%×100%=9.09%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(12%−11%)/11%×100%=9.09%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0606",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率12%，B组13%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(13%−12%)/12%×100%=8.33%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(13%−12%)/12%×100%=8.33%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0607",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率13%，B组14%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(14%−13%)/13%×100%=7.69%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(14%−13%)/13%×100%=7.69%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0608",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率14%，B组15%，B组相对提升率是多少？",
+      "standardAnswer": "标准答案：相对提升=(15%−14%)/14%×100%=7.14%。绝对提升为1个百分点。",
+      "answerPoints": "标准答案：相对提升=(15%−14%)/14%×100%=7.14%。绝对提升为1个百分点。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0609",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集100个样本，准确率85%，预测正确多少个？",
+      "standardAnswer": "标准答案：100×85%=85个。",
+      "answerPoints": "标准答案：100×85%=85个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0610",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集200个样本，准确率86%，预测正确多少个？",
+      "standardAnswer": "标准答案：200×86%=172个。",
+      "answerPoints": "标准答案：200×86%=172个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0611",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集300个样本，准确率87%，预测正确多少个？",
+      "standardAnswer": "标准答案：300×87%=261个。",
+      "answerPoints": "标准答案：300×87%=261个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0612",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集400个样本，准确率88%，预测正确多少个？",
+      "standardAnswer": "标准答案：400×88%=352个。",
+      "answerPoints": "标准答案：400×88%=352个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0613",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集500个样本，准确率89%，预测正确多少个？",
+      "standardAnswer": "标准答案：500×89%=445个。",
+      "answerPoints": "标准答案：500×89%=445个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0614",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集600个样本，准确率90%，预测正确多少个？",
+      "standardAnswer": "标准答案：600×90%=540个。",
+      "answerPoints": "标准答案：600×90%=540个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0615",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集700个样本，准确率91%，预测正确多少个？",
+      "standardAnswer": "标准答案：700×91%=637个。",
+      "answerPoints": "标准答案：700×91%=637个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0616",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集800个样本，准确率92%，预测正确多少个？",
+      "standardAnswer": "标准答案：800×92%=736个。",
+      "answerPoints": "标准答案：800×92%=736个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0617",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集900个样本，准确率93%，预测正确多少个？",
+      "standardAnswer": "标准答案：900×93%=837个。",
+      "answerPoints": "标准答案：900×93%=837个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0618",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "测试集1000个样本，准确率94%，预测正确多少个？",
+      "standardAnswer": "标准答案：1000×94%=940个。",
+      "answerPoints": "标准答案：1000×94%=940个。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0619",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光5000次、点击200次、成交20次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=200/5000=4%；点击后成交率=20/200=10%。",
+      "answerPoints": "标准答案：CTR=200/5000=4%；点击后成交率=20/200=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0620",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光6000次、点击250次、成交25次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=250/6000=4.17%；点击后成交率=25/250=10%。",
+      "answerPoints": "标准答案：CTR=250/6000=4.17%；点击后成交率=25/250=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0621",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光7000次、点击300次、成交30次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=300/7000=4.29%；点击后成交率=30/300=10%。",
+      "answerPoints": "标准答案：CTR=300/7000=4.29%；点击后成交率=30/300=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0622",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光8000次、点击350次、成交35次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=350/8000=4.38%；点击后成交率=35/350=10%。",
+      "answerPoints": "标准答案：CTR=350/8000=4.38%；点击后成交率=35/350=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0623",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光9000次、点击400次、成交40次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=400/9000=4.44%；点击后成交率=40/400=10%。",
+      "answerPoints": "标准答案：CTR=400/9000=4.44%；点击后成交率=40/400=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0624",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光10000次、点击450次、成交45次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=450/10000=4.5%；点击后成交率=45/450=10%。",
+      "answerPoints": "标准答案：CTR=450/10000=4.5%；点击后成交率=45/450=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0625",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光11000次、点击500次、成交50次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=500/11000=4.55%；点击后成交率=50/500=10%。",
+      "answerPoints": "标准答案：CTR=500/11000=4.55%；点击后成交率=50/500=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0626",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光12000次、点击550次、成交55次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=550/12000=4.58%；点击后成交率=55/550=10%。",
+      "answerPoints": "标准答案：CTR=550/12000=4.58%；点击后成交率=55/550=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0627",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光13000次、点击600次、成交60次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=600/13000=4.62%；点击后成交率=60/600=10%。",
+      "answerPoints": "标准答案：CTR=600/13000=4.62%；点击后成交率=60/600=10%。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-0628",
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某页面曝光14000次、点击650次、成交65次，CTR和点击后成交率分别是多少？",
+      "standardAnswer": "标准答案：CTR=650/14000=4.64%；点击后成交率=65/650=10%。",
+      "answerPoints": "标准答案：CTR=650/14000=4.64%；点击后成交率=65/650=10%。",
+      "difficulty": "中等"
     }
   ]
 }
