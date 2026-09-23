@@ -95,6 +95,23 @@ def load_existing_jobs() -> list[dict]:
     except Exception:
         return []
 
+def company_match(hint: str, text: str) -> bool:
+    if not hint:
+        return True
+    h=hint.lower().replace(" ","")
+    t=(text or "").lower().replace(" ","")
+    if h in t:
+        return True
+    core=hint
+    for x in ["股份有限公司","集团有限公司","有限责任公司","有限公司","集团","股份","研究总院","设计研究总院","设计研究院","勘察设计院","建筑设计院","设计院","研究所","研究院","科技","智能","控股"]:
+        core=core.replace(x,"")
+    core=core.strip()
+    if len(core)>=4 and core.lower().replace(" ","") in t:
+        return True
+    # For long SOE names, retain a meaningful 4+ char prefix after common country prefix.
+    alt=re.sub(r"^(中国|国家)","",core)
+    return len(alt)>=4 and alt.lower().replace(" ","") in t
+
 def company_from(title: str, url: str) -> str:
     d = domain(url)
     for od, company in OFFICIAL_DOMAINS.items():
@@ -291,6 +308,8 @@ def discover_web() -> tuple[list[dict],dict]:
                 continue
             if hint is None and not looks_relevant(blob):
                 continue
+            if hint is not None and not company_match(hint, blob+" "+url):
+                continue
             d=domain(url)
             verified=any(d==od or d.endswith("."+od) for od in OFFICIAL_DOMAINS)
             provider=it.get("provider","web")
@@ -298,6 +317,7 @@ def discover_web() -> tuple[list[dict],dict]:
             found.append({
                 "title":title[:150],"url":url,"snippet":sn[:650],
                 "company":hint or company_from(title,url),
+                "companyHinted":bool(hint),
                 "verified":verified,
                 "discovery":"全网自动扫描",
                 "provider":provider,
@@ -336,13 +356,18 @@ def enrich(item: dict) -> dict:
         "verified":verified,
         "discovery":item.get("discovery","自动发现"),
         "provider":item.get("provider","web"),
+        "companyHinted":bool(item.get("companyHinted")),
         "lastSeen":NOW.isoformat(timespec="seconds"),
     }
 
 def reasonable(job: dict) -> bool:
-    text=f"{job.get('title','')} {job.get('requirements','')}"
+    text=f"{job.get('title','')} {job.get('requirements','')} {job.get('applyUrl','')}"
     bad=["培训班","课程","考研","公务员考试题","辅导班","简历模板","论文代写","加盟","高考志愿"]
-    return not any(x in text for x in bad)
+    if any(x in text for x in bad):
+        return False
+    if job.get("companyHinted") and not company_match(job.get("company",""), text):
+        return False
+    return True
 
 def dedupe_new(items: list[dict]) -> list[dict]:
     by={}
