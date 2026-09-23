@@ -4,147 +4,148 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#3157d5">
-<title>JobTracker CN · 2027秋招投递追踪</title>
-<style>
-:root{--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#6b7488;--line:#e5e9f2;--brand:#3157d5;--brand2:#7357ea;--green:#158a62;--orange:#cb7808;--red:#c9404b;--shadow:0 14px 42px rgba(20,33,61,.08)}
-[data-theme=dark]{--bg:#0d1320;--panel:#171e2c;--text:#f1f4fc;--muted:#9aa6ba;--line:#29344a;--brand:#8299ff;--brand2:#a58dff;--green:#55d6a4;--orange:#f5b04f;--red:#ff7f88;--shadow:0 18px 46px rgba(0,0,0,.24)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif}.hidden{display:none!important}button,input,select,textarea{font:inherit}.top{height:70px;background:color-mix(in srgb,var(--panel) 94%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100vw - 1480px)/2));position:sticky;top:0;z-index:30}.brand{display:flex;gap:10px;align-items:center}.mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:900;font-size:20px}.brand b{display:block}.brand small{display:block;color:var(--muted);font-size:10px}.actions,.userbox{display:flex;gap:8px;align-items:center}.page{max-width:1480px;margin:auto;padding:25px 22px 40px}.hero{background:radial-gradient(circle at 83% 15%,rgba(255,255,255,.22),transparent 22%),linear-gradient(135deg,#1939a8,#4c67dd 50%,#7654e8);color:#fff;border-radius:26px;padding:38px 40px;display:flex;justify-content:space-between;gap:28px;box-shadow:var(--shadow);overflow:hidden}.eyebrow{font-size:10px;font-weight:900;letter-spacing:2px;opacity:.75}.hero h1{font-size:38px;line-height:1.2;margin:10px 0 12px}.hero p{margin:0;max-width:780px;opacity:.88;line-height:1.8;font-size:14px}.hero-side{display:grid;gap:10px;width:300px}.info{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);border-radius:14px;padding:15px}.info b,.info span{display:block}.info span{font-size:11px;opacity:.78;margin-top:3px}.notice{margin-top:14px;border:1px solid rgba(203,120,8,.25);background:rgba(203,120,8,.08);color:var(--orange);padding:13px 15px;border-radius:12px;font-size:12px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:15px 0}.stat{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px 19px}.stat strong{display:block;font-size:27px}.stat span{font-size:11px;color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.controls{padding:12px;display:flex;gap:8px;align-items:center;margin-bottom:12px}.search{flex:1;min-width:260px;position:relative}.search span{position:absolute;left:13px;top:8px;color:var(--muted);font-size:20px}.search input{width:100%;padding:10px 12px 10px 39px}.controls input,.controls select{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;outline:none}.controls select{padding:9px 10px;min-width:140px}.btn{border:0;border-radius:10px;padding:9px 12px;font-weight:800;font-size:12px;cursor:pointer}.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff}.secondary{background:var(--panel);color:var(--text);border:1px solid var(--line)}.ghost{background:var(--bg);color:var(--muted);border:1px solid var(--line)}.danger{background:rgba(201,64,75,.1);color:var(--red);border:1px solid rgba(201,64,75,.2)}.meta{display:flex;justify-content:space-between;padding:11px 14px;color:var(--muted);font-size:11px;border-bottom:1px solid var(--line)}.wrap{overflow:auto;max-height:calc(100vh - 230px)}table{border-collapse:collapse;width:100%;min-width:1380px}th{position:sticky;top:0;background:var(--panel);z-index:3;text-align:left;color:var(--muted);font-size:10px;padding:11px 12px;border-bottom:1px solid var(--line)}td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:12px;line-height:1.55}tr:hover td{background:color-mix(in srgb,var(--brand) 3%,var(--panel))}.company{display:flex;gap:9px;min-width:190px}.logo{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 14%,transparent),color-mix(in srgb,var(--brand2) 14%,transparent));color:var(--brand);font-weight:900;flex:none}.name{font-weight:900;font-size:13px}.sub{color:var(--muted);font-size:10px;margin-top:2px}.role{display:inline-block;margin:0 4px 4px 0;padding:3px 7px;border-radius:7px;background:color-mix(in srgb,var(--brand) 9%,transparent);color:var(--brand);font-size:10px;font-weight:800}.req{min-width:290px;max-width:350px}.pill{display:inline-flex;padding:4px 7px;border-radius:999px;font-size:9px;font-weight:900}.open{background:rgba(21,138,98,.1);color:var(--green)}.watch{background:rgba(203,120,8,.1);color:var(--orange)}.official{display:inline-block;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:9px;padding:7px 9px;font-size:10px;font-weight:900;white-space:nowrap}.stage{min-width:108px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:9px;padding:7px}.noteBtn{border:0;background:none;color:var(--brand);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:10px;padding:0}.stage:disabled,.noteBtn:disabled{opacity:.5;cursor:not-allowed}.empty{text-align:center;color:var(--muted);padding:48px}footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:10px;padding:14px 3px}dialog{border:0;border-radius:19px;background:var(--panel);color:var(--text);padding:0;width:min(460px,calc(100% - 26px));box-shadow:0 25px 90px rgba(0,0,0,.35)}dialog::backdrop{background:rgba(8,13,28,.6);backdrop-filter:blur(4px)}.modal{padding:22px}.modalhead{display:flex;justify-content:space-between;align-items:flex-start}.modal h2{margin:5px 0 0}.x{border:0;background:var(--bg);color:var(--text);border-radius:9px;width:34px;height:34px;font-size:20px;cursor:pointer}.tabs{display:flex;gap:5px;padding:4px;background:var(--bg);border-radius:10px;margin:18px 0 12px}.tab{flex:1;border:0;background:transparent;color:var(--muted);border-radius:8px;padding:8px;cursor:pointer;font-weight:800}.tab.active{background:var(--panel);color:var(--brand)}.modal label{display:block;font-size:11px;color:var(--muted);margin-top:10px}.modal input,.modal textarea{width:100%;margin-top:5px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;padding:10px;outline:none}.modal textarea{resize:vertical}.msg{min-height:20px;margin:9px 0;font-size:11px;color:var(--red)}.wide{width:100%;padding:11px}.modalactions{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
-@media(max-width:800px){.top{padding:0 13px}.page{padding:13px}.hero{display:block;padding:27px 21px}.hero h1{font-size:29px}.hero-side{width:100%;grid-template-columns:1fr 1fr;margin-top:20px}.stats{grid-template-columns:1fr 1fr}.controls{flex-wrap:wrap}.search{min-width:100%}.controls select{flex:1}.wrap{max-height:none}}
-</style>
+<meta name="description" content="2027届土木、能源、风电、CAE、汽车转行校园招聘信息与个人投递管理">
+<title>JobTracker CN · 2027秋招投递地图</title>
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<header class="top">
-  <div class="brand"><span class="mark">J</span><span><b>JobTracker CN</b><small>2027 秋招投递追踪</small></span></div>
-  <div class="actions">
-    <button id="themeBtn" class="btn ghost">◐</button>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">J</div>
+    <div><b>JobTracker CN</b><small>2027 秋招 · 土木 / 能源 / CAE / 转行</small></div>
+  </div>
+  <div class="header-actions">
+    <button id="themeBtn" class="icon-btn">◐</button>
     <button id="loginBtn" class="btn secondary">登录 / 注册</button>
-    <div id="userBox" class="userbox hidden"><span id="userEmail" class="sub"></span><button id="logoutBtn" class="btn secondary">退出</button></div>
+    <div id="userBox" class="user-box hidden">
+      <div><b id="userName"></b><small id="accountMode"></small></div>
+      <button id="logoutBtn" class="btn secondary">退出</button>
+    </div>
   </div>
 </header>
 
 <main class="page">
   <section class="hero">
-    <div><span class="eyebrow">ENERGY · WIND · CAE · STRUCTURE</span><h1>把秋招从“到处找链接”<br>变成一张自己的投递地图。</h1><p>所有人都可以直接浏览企业与官方招聘入口；注册登录后，每个人拥有彼此独立的投递进度和私人备注。</p></div>
-    <div class="hero-side"><div class="info"><b>🔒 每人独立数据</b><span>账号之间互相看不到投递记录</span></div><div class="info"><b>↗ 官方招聘入口</b><span>尽量只收录企业官方招聘网站</span></div></div>
+    <div class="hero-copy">
+      <span class="eyebrow">2027 CAMPUS RECRUITMENT</span>
+      <h1>不只看 CAE。<br>把你能投的路全部摊开。</h1>
+      <p>土木本专业、设计院、能源央企、风电新能源、CAE/仿真、汽车机械转行、工程管理、智能建造，都放进同一个投递地图；按截止日期自动排序。</p>
+      <div class="hero-tags">
+        <span>土木直投</span><span>设计院</span><span>能源央企</span><span>风电/新能源</span><span>CAE/仿真</span><span>汽车/机械转行</span><span>工程管理</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-card"><b>⏳ 截止日自动分类</b><span>3天 / 7天 / 14天 / 30天 / 滚动招聘</span></div>
+      <div class="hero-card"><b>📋 岗位详情</b><span>专业、学历、地点、时间、流程、官方来源</span></div>
+      <div class="hero-card"><b>✓ 个人投递进度</b><span>未申请 → 笔试 → 面试 → Offer</span></div>
+    </div>
   </section>
 
-  <section id="backendNotice" class="notice hidden"><b>账号系统还差最后一次后端配置：</b> 公共岗位可以正常浏览；管理员接入 Supabase 后即可开放注册、登录与云端保存。</section>
+  <section id="localModeNotice" class="notice hidden">
+    <b>当前账号系统运行在“本机账户模式”。</b>
+    注册、登录和每个账号的投递记录已经可用，但只保存在当前浏览器。接入 Supabase 后即可实现跨设备云同步。
+  </section>
+
+  <section class="deadline-strip">
+    <button class="deadline-card urgent" data-deadline="3"><strong id="d3">0</strong><span>3天内截止</span></button>
+    <button class="deadline-card soon" data-deadline="7"><strong id="d7">0</strong><span>7天内截止</span></button>
+    <button class="deadline-card" data-deadline="14"><strong id="d14">0</strong><span>14天内截止</span></button>
+    <button class="deadline-card" data-deadline="30"><strong id="d30">0</strong><span>30天内截止</span></button>
+    <button class="deadline-card" data-deadline="rolling"><strong id="dRolling">0</strong><span>滚动 / 待定</span></button>
+  </section>
 
   <section class="stats">
-    <div class="stat"><strong id="totalCount">0</strong><span>企业入口</span></div>
-    <div class="stat"><strong id="openCount">0</strong><span>可投 / 可查询</span></div>
-    <div class="stat"><strong id="appliedCount">—</strong><span>我已跟进</span></div>
-    <div class="stat"><strong id="offerCount">—</strong><span>Offer</span></div>
+    <article><strong id="totalCount">0</strong><span>岗位 / 招聘入口</span></article>
+    <article><strong id="companyCount">0</strong><span>企业</span></article>
+    <article><strong id="trackedCount">—</strong><span>我已跟进</span></article>
+    <article><strong id="offerCount">—</strong><span>Offer</span></article>
   </section>
 
   <section class="panel controls">
-    <label class="search"><span>⌕</span><input id="q" placeholder="搜索企业、岗位、地点、技能……"></label>
-    <select id="cat"><option value="">全部类型</option><option>风电整机</option><option>风电产业链</option><option>能源央企</option><option>设计院/EPC</option></select>
-    <select id="stageFilter"><option value="">全部进度</option><option>未申请</option><option>已投递</option><option>笔试</option><option>一面</option><option>二面/终面</option><option>Offer</option><option>已拒绝</option><option>已放弃</option></select>
-    <button id="mineBtn" class="btn secondary">只看我已跟进</button>
-    <button id="resetBtn" class="btn ghost">清空</button>
+    <label class="search"><span>⌕</span><input id="searchInput" placeholder="搜索：土木、结构、Abaqus、上海、央企、风电……"></label>
+    <select id="trackFilter"><option value="">全部方向</option></select>
+    <select id="typeFilter">
+      <option value="">全部信息类型</option>
+      <option>具体岗位</option><option>具体方向</option><option>招聘批次</option><option>招聘入口</option><option>方向入口</option><option>转行入口</option><option>转行观察</option>
+    </select>
+    <select id="stageFilter">
+      <option value="">全部投递状态</option>
+      <option>未申请</option><option>已收藏</option><option>已投递</option><option>笔试</option><option>一面</option><option>二面/终面</option><option>Offer</option><option>已拒绝</option><option>已放弃</option>
+    </select>
+    <button id="onlyMineBtn" class="btn secondary">只看我跟进</button>
+    <button id="resetBtn" class="btn ghost">清空筛选</button>
   </section>
 
-  <section class="panel">
-    <div class="meta"><span><b id="count">0</b> 个结果</span><span id="sync">未登录 · 公共浏览模式</span></div>
-    <div class="wrap"><table><thead><tr><th>企业</th><th>地点 / 类型</th><th>适合岗位</th><th>岗位要求</th><th>招聘状态</th><th>官方招聘</th><th>我的进度</th><th>私人备注</th></tr></thead><tbody id="rows"></tbody></table></div>
-    <div id="empty" class="empty hidden">没有符合当前筛选条件的结果。</div>
+  <section class="panel table-panel">
+    <div class="table-head">
+      <div><b id="resultCount">0</b> 条结果 · 默认按截止日期优先</div>
+      <div id="syncStatus">未登录 · 仅浏览</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>截止</th><th>企业 / 岗位</th><th>方向</th><th>地点</th><th>学历 / 专业</th><th>要求摘要</th><th>官方入口</th><th>我的进度</th><th>详情</th>
+          </tr>
+        </thead>
+        <tbody id="jobRows"></tbody>
+      </table>
+    </div>
+    <div id="emptyState" class="empty hidden">没有符合当前筛选条件的岗位。</div>
   </section>
-  <footer><span>岗位、专业限制、截止时间以企业官方招聘页面最新公告为准。</span><span>GitHub Pages + Supabase Auth / RLS</span></footer>
+
+  <footer>
+    <span>数据更新：2026-09-23。岗位、资格和截止时间以企业官方招聘页面最新公告为准。</span>
+    <span>公共职位导航 + 私人投递记录</span>
+  </footer>
 </main>
 
-<dialog id="authDialog"><form class="modal" onsubmit="return false">
-  <div class="modalhead"><div><span class="eyebrow">MY ACCOUNT</span><h2>登录 / 注册</h2></div><button class="x" data-close="authDialog">×</button></div>
-  <div class="tabs"><button id="loginTab" class="tab active">登录</button><button id="signupTab" class="tab">注册</button></div>
-  <label>邮箱<input id="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
-  <label>密码<input id="password" type="password" placeholder="至少 6 位"></label>
-  <div id="authMsg" class="msg"></div><button id="authSubmit" class="btn primary wide">登录</button>
-  <p class="sub">登录后只会读取当前账号自己的投递状态与备注。</p>
-</form></dialog>
+<dialog id="detailDialog">
+  <div class="modal detail-modal">
+    <div class="modal-head">
+      <div><span class="eyebrow">JOB DETAIL</span><h2 id="detailTitle"></h2><p id="detailCompany"></p></div>
+      <button class="x-btn" data-close="detailDialog">×</button>
+    </div>
+    <div id="detailContent" class="detail-content"></div>
+    <div class="modal-actions">
+      <a id="detailSource" class="btn secondary" target="_blank" rel="noopener">查看官方来源</a>
+      <a id="detailApply" class="btn primary" target="_blank" rel="noopener">去官方投递 ↗</a>
+    </div>
+  </div>
+</dialog>
 
-<dialog id="noteDialog"><form class="modal" onsubmit="return false">
-  <div class="modalhead"><div><span class="eyebrow">PRIVATE NOTE</span><h2 id="noteTitle">私人备注</h2></div><button class="x" data-close="noteDialog">×</button></div>
-  <textarea id="noteText" rows="8" placeholder="例如：已投塔架主体工程师；待补成绩单；HR电话……"></textarea>
-  <div class="modalactions"><button id="deleteBtn" class="btn danger">删除记录</button><button id="saveBtn" class="btn primary">保存备注</button></div>
-</form></dialog>
+<dialog id="authDialog">
+  <form class="modal auth-modal" onsubmit="return false">
+    <div class="modal-head">
+      <div><span class="eyebrow">MY ACCOUNT</span><h2>登录 / 注册</h2><p id="authModeHint"></p></div>
+      <button class="x-btn" data-close="authDialog">×</button>
+    </div>
+    <div class="tabs"><button id="tabLogin" class="tab active">登录</button><button id="tabSignup" class="tab">注册</button></div>
+    <label>邮箱<input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>
+    <label>密码<input id="authPassword" type="password" placeholder="至少 6 位"></label>
+    <div id="authMessage" class="form-message"></div>
+    <button id="authSubmit" class="btn primary wide">登录</button>
+    <p class="fine" id="authFine"></p>
+  </form>
+</dialog>
+
+<dialog id="noteDialog">
+  <form class="modal" onsubmit="return false">
+    <div class="modal-head">
+      <div><span class="eyebrow">PRIVATE NOTE</span><h2 id="noteTitle">私人备注</h2></div>
+      <button class="x-btn" data-close="noteDialog">×</button>
+    </div>
+    <textarea id="noteText" rows="7" placeholder="例如：9/23 已投；待补成绩单；约一面；HR电话……"></textarea>
+    <div class="modal-actions">
+      <button id="deleteStateBtn" class="btn danger">删除我的记录</button>
+      <button id="saveNoteBtn" class="btn primary">保存备注</button>
+    </div>
+  </form>
+</dialog>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="./supabase-config.js"></script>
-<script>
-var JOBS=[
-["sec","上海电气风电集团","风电整机","上海为主；部分岗位北京/西安",["塔架/结构设计","CAE仿真","载荷控制","叶片结构"],"重点关注硕士研发岗；土木、Abaqus、OpenFAST、结构动力学、疲劳经历与部分岗位直接相关。","2027校招进行中","open","https://www.hotjob.cn/wt/SEC/mobweb/v8/index"],
-["dec","中国东方电气集团 / 东方风电","风电整机","成都等",["整机动力学","载荷响应","结构仿真","风电研发"],"重点看整机动力学、载荷响应和结构仿真硕士研发岗；逐条核对专业限制。","2027校招进行中","open","https://dec2026.iguopin.com/introduce2"],
-["goldwind","金风科技","风电整机","北京等",["载荷与强度","塔架与基础","结构研发"],"重点关注载荷与强度、塔架/基础、结构研发方向。","官网滚动更新","open","https://careers.goldwind.com/"],
-["envision","远景能源","风电整机","上海、江阴等",["风机研发","结构仿真","载荷/控制"],"搜索结构、载荷、仿真、风机研发、塔架等关键词；具体要求以岗位为准。","官网滚动更新","open","https://envision-career.com/"],
-["sinoma","中材科技风电叶片","风电产业链","北京及各基地",["结构工程师","结构分析","叶片研发"],"有限元、疲劳、动力学经验可迁移至叶片结构研发。","2027校招进行中","open","https://yp.sinomatech.com/campus/index.html"],
-["sany","三一集团 / 三一重能","风电整机","北京、长沙、上海等",["仿真","结构","风电研发"],"重点看研发技术类中的仿真、结构和风电岗位。","2027秋招进行中","open","https://sany.zhiye.com/campus/jobs"],
-["mingyang","明阳智慧能源集团","风电整机","中山、北京等",["结构/塔架","载荷/仿真","海上风电"],"土木/结构背景可重点查看塔架、基础、结构与海上风电研发岗位。","官网滚动更新","open","https://mywind.zhiye.com/campus"],
-["chnenergy","国家能源投资集团","能源央企","全国",["新能源/风电","工程技术","科研","基建/结构"],"集团岗位很多，先筛专业、学历和单位，再根据当期公告确认志愿数量限制。","以官网当前公告为准","open","https://zhaopin.chnenergy.com.cn/"],
-["cgn","中国广核集团","能源央企","全国",["中广核新能源","工程技术","土建/结构"],"优先新能源、工程公司、土建结构和工程技术类岗位。","2027秋招进行中","open","https://cgn.hotjob.cn/wt/CGN/web/index/CompCGNPageindex"],
-["spic","国家电力投资集团","能源央企","全国；上海等",["结构/土木","研发/设计","新能源工程"],"重点看设计研发单位、结构土木和新能源工程岗位。","2027校招进行中","open","https://spic2027.iguopin.com/"],
-["chng","中国华能集团","能源央企","全国",["新能源项目建设","工程技术","风电","土建/结构"],"按二级单位筛工程建设、新能源和技术岗位。","按二级单位公告","open","https://zhaopin.chng.com.cn/"],
-["chd","中国华电集团","能源央企","全国",["新能源工程","工程技术","土木类"],"不同招聘专项门槛不同，重点看普通校招中的专业对口岗位。","以官网当前公告为准","open","https://rencaishichang.chd.com.cn/"],
-["cdt","中国大唐集团","能源央企","全国",["新能源","工程技术","科技创新"],"优先技术、新能源和项目建设方向。","以官网当前公告为准","open","https://zhaopin.china-cdt.com/"],
-["powerchina","中国电力建设集团","设计院/EPC","全国；多地设计院",["结构工程师","施工仿真","新能源工程","土木工程"],"重点投各勘测设计院；不同院所的专业、英语和学历门槛不同。","各单位不同","open","https://zhaopin.powerchina.cn/index"],
-["ceec","中国能源建设集团","设计院/EPC","全国",["结构工程师","新能源设计","土木工程"],"优先筛所属设计院结构、新能源和土木岗位；注意部分院所CET要求。","2027全球校招进行中","open","https://ceec.iguopin.com/"],
-["cnnc","中国核工业集团","能源央企","全国",["工程设计","土建/结构","工程建设"],"不同研究院和工程公司差异大，优先结构、土建、设计、工程技术岗位。","各单位不同","open","https://cnnc.zhiye.com/"],
-["ctg","中国长江三峡集团","能源央企","全国",["三峡能源","新能源工程","海上风电"],"先在官方人力资源动态页确认2027届统一校招公告，再拆具体岗位。","关注官方新公告","watch","https://www.ctg.com.cn/sxjt/rlzy71/rlzydt/index.html"]
-];
-
-var STAGES=["未申请","已投递","笔试","一面","二面/终面","Offer","已拒绝","已放弃"];
-var cfg=window.SUPABASE_CONFIG||{};
-var configured=!!(cfg.url&&cfg.anonKey&&cfg.url.indexOf("YOUR_")!==0&&cfg.anonKey.indexOf("YOUR_")!==0);
-var sb=configured?window.supabase.createClient(cfg.url,cfg.anonKey):null;
-var session=null,mine={},authMode="login",onlyMine=false,noteId=null;
-function el(id){return document.getElementById(id)}
-function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]})}
-function state(id){return mine[id]||{stage:"未申请",note:""}}
-function tracked(id){var s=state(id);return s.stage!=="未申请"||!!s.note}
-function initials(s){return s.replace(/中国|集团|科技|能源/g,"").slice(0,2)||"企"}
-function sync(t,bad){el("sync").textContent=t;el("sync").style.color=bad?"var(--red)":""}
-function userUI(){var on=!!session;el("loginBtn").classList.toggle("hidden",on);el("userBox").classList.toggle("hidden",!on);if(on)el("userEmail").textContent=session.user.email||"已登录";else sync(configured?"未登录 · 公共浏览模式":"账号后端未配置 · 公共浏览模式")}
-async function loadMine(){mine={};if(!session)return;sync("正在同步我的投递数据…");var r=await sb.from("user_applications").select("job_id,stage,note,updated_at");if(r.error){sync("同步失败："+r.error.message,true);return}(r.data||[]).forEach(function(x){mine[x.job_id]=x});sync("已同步")}
-function render(){
- var q=el("q").value.trim().toLowerCase(),cat=el("cat").value,stf=el("stageFilter").value;
- var list=JOBS.filter(function(j){var h=j.join(" ").toLowerCase(),st=state(j[0]).stage||"未申请";return(!q||h.indexOf(q)>=0)&&(!cat||j[2]===cat)&&(!stf||st===stf)&&(!onlyMine||tracked(j[0]))});
- var html="";
- list.forEach(function(j){
-   var s=state(j[0]),disabled=session?"":" disabled";
-   var opts=STAGES.map(function(x){return '<option'+(x===s.stage?' selected':'')+'>'+x+'</option>'}).join("");
-   html+='<tr><td><div class="company"><div class="logo">'+esc(initials(j[1]))+'</div><div><div class="name">'+esc(j[1])+'</div><div class="sub">官方招聘导航</div></div></div></td>';
-   html+='<td><b>'+esc(j[2])+'</b><div class="sub">'+esc(j[3])+'</div></td>';
-   html+='<td>'+j[4].map(function(r){return '<span class="role">'+esc(r)+'</span>'}).join("")+'</td>';
-   html+='<td class="req">'+esc(j[5])+'</td>';
-   html+='<td><b>'+esc(j[6])+'</b><div><span class="pill '+j[7]+'">'+(j[7]==="open"?"● 可投 / 可查":"● 监控中")+'</span></div></td>';
-   html+='<td><a class="official" target="_blank" rel="noopener noreferrer" href="'+esc(j[8])+'">打开官网 ↗</a></td>';
-   html+='<td><select class="stage" data-stage="'+j[0]+'"'+disabled+'>'+opts+'</select>'+(session?"":'<div class="sub">登录后可记录</div>')+'</td>';
-   html+='<td><button class="noteBtn" data-note="'+j[0]+'"'+disabled+'>'+(s.note?"查看 / 修改":"添加备注")+'</button>'+(s.note?'<div class="sub" style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(s.note)+'</div>':"")+'</td></tr>';
- });
- el("rows").innerHTML=html;el("count").textContent=list.length;el("empty").classList.toggle("hidden",list.length>0);
- el("totalCount").textContent=JOBS.length;el("openCount").textContent=JOBS.filter(function(j){return j[7]==="open"}).length;
- if(session){var vals=Object.values(mine);el("appliedCount").textContent=vals.filter(function(x){return x.stage&&x.stage!=="未申请"&&x.stage!=="已拒绝"&&x.stage!=="已放弃"}).length;el("offerCount").textContent=vals.filter(function(x){return x.stage==="Offer"}).length}else{el("appliedCount").textContent="—";el("offerCount").textContent="—"}
- document.querySelectorAll("[data-stage]").forEach(function(x){x.onchange=function(){save(x.dataset.stage,{stage:x.value})}});
- document.querySelectorAll("[data-note]").forEach(function(x){x.onclick=function(){if(!session)return openAuth();noteId=x.dataset.note;var j=JOBS.find(function(a){return a[0]===noteId});el("noteTitle").textContent=(j?j[1]:"企业")+" · 私人备注";el("noteText").value=state(noteId).note||"";el("noteDialog").showModal()}});
-}
-async function save(id,patch){if(!session)return openAuth();var cur=state(id),row={user_id:session.user.id,job_id:id,stage:patch.stage||cur.stage||"未申请",note:patch.note!=null?patch.note:(cur.note||"")};sync("正在保存…");var r=await sb.from("user_applications").upsert(row,{onConflict:"user_id,job_id"}).select().single();if(r.error){sync("保存失败："+r.error.message,true);return}mine[id]=r.data;sync("已保存");render()}
-function setAuth(m){authMode=m;el("loginTab").classList.toggle("active",m==="login");el("signupTab").classList.toggle("active",m==="signup");el("authSubmit").textContent=m==="login"?"登录":"注册";el("authMsg").textContent=""}
-function openAuth(){if(!configured){el("backendNotice").classList.remove("hidden");return}setAuth("login");el("authDialog").showModal()}
-async function submitAuth(){var email=el("email").value.trim(),pass=el("password").value,msg=el("authMsg");if(!email||pass.length<6){msg.textContent="请输入有效邮箱，密码至少6位。";return}msg.textContent="处理中…";var r=authMode==="signup"?await sb.auth.signUp({email:email,password:pass,options:{emailRedirectTo:location.origin+location.pathname}}):await sb.auth.signInWithPassword({email:email,password:pass});if(r.error){msg.textContent=r.error.message;return}if(authMode==="signup"&&!r.data.session){msg.style.color="var(--green)";msg.textContent="注册成功，请检查邮箱完成验证。"}else{el("authDialog").close()}}
-async function init(){
- document.documentElement.dataset.theme=localStorage.getItem("jt-theme")||"light";el("backendNotice").classList.toggle("hidden",configured);
- el("themeBtn").onclick=function(){var n=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=n;localStorage.setItem("jt-theme",n)};
- el("loginBtn").onclick=openAuth;el("logoutBtn").onclick=async function(){if(sb)await sb.auth.signOut()};
- el("loginTab").onclick=function(){setAuth("login")};el("signupTab").onclick=function(){setAuth("signup")};el("authSubmit").onclick=submitAuth;
- el("q").oninput=render;el("cat").onchange=render;el("stageFilter").onchange=render;
- el("mineBtn").onclick=function(){onlyMine=!onlyMine;el("mineBtn").textContent=onlyMine?"✓ 只看我已跟进":"只看我已跟进";render()};
- el("resetBtn").onclick=function(){el("q").value="";el("cat").value="";el("stageFilter").value="";onlyMine=false;el("mineBtn").textContent="只看我已跟进";render()};
- document.querySelectorAll("[data-close]").forEach(function(b){b.onclick=function(){el(b.dataset.close).close()}});
- el("saveBtn").onclick=async function(){if(noteId){await save(noteId,{note:el("noteText").value.trim()});el("noteDialog").close()}};
- el("deleteBtn").onclick=async function(){if(!noteId||!session)return;if(confirm("确定删除这条个人投递记录和备注吗？")){var r=await sb.from("user_applications").delete().eq("user_id",session.user.id).eq("job_id",noteId);if(!r.error){delete mine[noteId];el("noteDialog").close();render()}}};
- if(configured){var gs=await sb.auth.getSession();session=gs.data.session;sb.auth.onAuthStateChange(async function(_e,s){session=s;await loadMine();userUI();render()});await loadMine()}userUI();render();
-}
-init();
-</script>
+<script src="./jobs-data.js"></script>
+<script src="./app.js"></script>
 </body>
 </html>
-<!-- pages redeploy after repository rename/settings update -->
