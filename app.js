@@ -205,7 +205,7 @@ function compactReq(text,max=150){
 function render(){
   const list=currentJobs();
   $("#jobRows").innerHTML=list.map(j=>{
-    const m=deadlineMeta(j),st=myState(j.id),disabled=session?"":"disabled",verified=isVerified(j);
+    const m=deadlineMeta(j),st=myState(j.id),verified=isVerified(j);
     return `<tr class="${m.expired?"expired-row":""}">
       <td class="deadline-cell">
         <div class="deadline-box"><b>${esc(fmtDate(j.deadline))}</b>${m.label?`<span class="${m.cls}">${esc(m.label)}</span>`:""}<small>${esc(j.type||"")}</small></div>
@@ -230,9 +230,9 @@ function render(){
       </td>
       <td>
         <div class="status-actions">
-          <button class="status-btn apply-btn ${st.stage==="已申请"?"active":""}" data-status="已申请" data-job="${j.id}" ${disabled} title="已申请">✓</button>
-          <button class="status-btn reject-btn ${st.stage==="被拒"?"active":""}" data-status="被拒" data-job="${j.id}" ${disabled} title="被拒">✕</button>
-          <button class="status-btn note-icon ${st.note?"active":""}" data-note="${j.id}" ${disabled} title="私人备注">✎</button>
+          <button class="status-btn apply-btn ${st.stage==="已申请"?"active":""}" data-status="已申请" data-job="${j.id}" title="已申请">✓</button>
+          <button class="status-btn reject-btn ${st.stage==="被拒"?"active":""}" data-status="被拒" data-job="${j.id}" title="被拒">✕</button>
+          <button class="status-btn note-icon ${st.note?"active":""}" data-note="${j.id}" title="私人备注">✎</button>
         </div>
       </td>
       <td><button class="detail-btn" data-detail="${j.id}">详情</button></td>
