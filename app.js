@@ -98,21 +98,19 @@ function openDetail(id){currentDetailId=id;const j=JOBS.find(x=>x.id===id);if(!j
 /* ---------- one-click direct browser scan ---------- */
 let scanRunning=false;
 let DIRECT_JOBS=[];
-try{DIRECT_JOBS=JSON.parse(localStorage.getItem("jt_direct_scan_jobs_v1")||"[]")}catch(e){DIRECT_JOBS=[]}
+try{DIRECT_JOBS=JSON.parse(localStorage.getItem("jt_direct_scan_jobs_v2")||"[]")}catch(e){DIRECT_JOBS=[]}
 for(const j of DIRECT_JOBS){
   const k=((j.applyUrl||"")+"|"+(j.title||"")+"|"+(j.company||"")).toLowerCase();
   if(!JOBS.some(x=>((x.applyUrl||"")+"|"+(x.title||"")+"|"+(x.company||"")).toLowerCase()===k))JOBS.push(j);
 }
 
 function scanToast(title,text,done,error){
-  const box=$("#scanToast");
-  if(!box)return;
-  $("#scanToastTitle").textContent=title;
-  $("#scanToastText").textContent=text;
+  const box=$("#scanToast"); if(!box)return;
+  $("#scanToastTitle").textContent=title; $("#scanToastText").textContent=text;
   box.classList.remove("hidden","done","error");
   if(done)box.classList.add("done");
   if(error)box.classList.add("error");
-  if(done||error)setTimeout(()=>box.classList.add("hidden"),5000);
+  if(done||error)setTimeout(()=>box.classList.add("hidden"),6500);
 }
 function mwmblText(v){
   if(Array.isArray(v))return v.map(x=>typeof x==="string"?x:(x&&x.value)||"").join("");
@@ -121,29 +119,32 @@ function mwmblText(v){
 }
 async function mwmblSearch(q){
   const r=await fetch("https://api.mwmbl.org/api/v1/search/?s="+encodeURIComponent(q),{cache:"no-store"});
-  if(!r.ok)throw new Error("search "+r.status);
+  if(!r.ok)throw new Error("Mwmbl "+r.status);
   const data=await r.json();
   const rows=Array.isArray(data)?data:(data.results||[]);
-  return rows.map(x=>({title:mwmblText(x.title),url:x.url||"",snippet:mwmblText(x.extract)})).filter(x=>x.title&&x.url);
+  return rows.map(x=>({
+    title:mwmblText(x.title),
+    url:x.url||"",
+    snippet:mwmblText(x.extract)
+  })).filter(x=>x.title&&x.url);
 }
 async function jinaSearch(q){
   const target="https://www.bing.com/search?q="+encodeURIComponent(q);
   const r=await fetch("https://r.jina.ai/"+target,{headers:{"Accept":"text/plain"},cache:"no-store"});
-  if(!r.ok)throw new Error("reader "+r.status);
+  if(!r.ok)throw new Error("Jina "+r.status);
   const text=await r.text(), out=[], seen=new Set();
   const re=/\[([^\]\n]{3,180})\]\((https?:\/\/[^)\s]+)\)/g;
   let m;
-  while((m=re.exec(text))&&out.length<12){
-    let u=m[2];
-    try{u=decodeURIComponent(u)}catch(e){}
-    let host="";
-    try{host=new URL(u).hostname}catch(e){continue}
+  while((m=re.exec(text))&&out.length<16){
+    let u=m[2]; try{u=decodeURIComponent(u)}catch(e){}
+    let host=""; try{host=new URL(u).hostname}catch(e){continue}
     if(/bing\.com|microsoft\.com|jina\.ai/.test(host)||seen.has(u))continue;
     seen.add(u);
     out.push({title:m[1].replace(/\s+/g," ").trim(),url:u,snippet:""});
   }
   return out;
 }
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
 function companyCore(n){
   return String(n||"").replace(/中国|国家|股份有限公司|集团有限公司|有限责任公司|有限公司|集团|股份|研究总院|设计研究总院|设计研究院|勘察设计院|建筑设计院|设计院|研究所|研究院|科技|智能|控股/g,"").trim();
 }
@@ -154,7 +155,23 @@ function companyMatches(n,text){
   const c=companyCore(n).replace(/\s/g,"").toLowerCase();
   return c.length>=3&&b.includes(c);
 }
-function recruitingText(t){return /2027|校招|校园招聘|秋招|应届|毕业生|招聘|career|campus/i.test(t||"")}
+function recruitingText(t){
+  return /2027|校招|校园招聘|秋招|应届|毕业生|招聘|career|campus/i.test(t||"");
+}
+function knownCompanyFromText(text){
+  return TARGETS.find(t=>companyMatches(t.name,text))?.name || null;
+}
+function inferCompany(title,url){
+  const known=knownCompanyFromText((title||"")+" "+(url||""));
+  if(known)return known;
+  let t=String(title||"").replace(/[【】\[\]]/g," ").replace(/\s+/g," ").trim();
+  t=t.replace(/^2027(?:届|年)?\s*/,"");
+  let m=t.match(/^(.{2,32}?)(?:2027(?:届|年)?|校园招聘|秋季校园招聘|秋招|招聘|校招)/);
+  let name=m?m[1].trim():"";
+  name=name.replace(/[|｜\-—_:：]+$/,"").trim();
+  if(!name || name.length<2 || name.length>32 || /校园|招聘|应届|岗位|职位|求职|就业|公告|信息|简章/.test(name))return null;
+  return name;
+}
 function scanTracks(t){
   const out=[];
   if(/土木|结构|岩土|桥梁|隧道|市政|水利/.test(t))out.push("土木直投");
@@ -192,38 +209,60 @@ function toDirectJob(company,r){
   };
 }
 function mergeDirect(rows){
+  const beforeJobs=JOBS.length, beforeCompanies=new Set(JOBS.map(j=>j.company)).size;
   const by=new Map(DIRECT_JOBS.map(j=>[j.id,j]));
   for(const j of rows)by.set(j.id,j);
-  DIRECT_JOBS=[...by.values()].slice(-800);
-  localStorage.setItem("jt_direct_scan_jobs_v1",JSON.stringify(DIRECT_JOBS));
+  DIRECT_JOBS=[...by.values()].slice(-1200);
+  localStorage.setItem("jt_direct_scan_jobs_v2",JSON.stringify(DIRECT_JOBS));
   localStorage.setItem("jt_direct_scan_at_v1",new Date().toISOString());
   for(const j of rows){
     const k=((j.applyUrl||"")+"|"+(j.title||"")+"|"+(j.company||"")).toLowerCase();
     if(!JOBS.some(x=>((x.applyUrl||"")+"|"+(x.title||"")+"|"+(x.company||"")).toLowerCase()===k))JOBS.push(j);
   }
-  fillFilters();
-  renderAll();
+  fillFilters(); renderAll();
+  return {
+    jobsAdded:Math.max(0,JOBS.length-beforeJobs),
+    companiesAdded:Math.max(0,new Set(JOBS.map(j=>j.company)).size-beforeCompanies)
+  };
 }
-async function scanOneCompany(company,useFallback){
-  const q='"'+company+'" 2027 校园招聘 秋招';
+async function searchKnownCompanyFast(company){
+  const q=company+" 2027 校园招聘 秋招";
   let rows=[];
   try{rows=await mwmblSearch(q)}catch(e){}
-  rows=rows.filter(r=>companyMatches(company,(r.title||"")+" "+(r.snippet||"")+" "+(r.url||""))&&recruitingText((r.title||"")+" "+(r.snippet||"")));
-  if(!rows.length&&useFallback){
-    try{rows=(await jinaSearch(q)).filter(r=>companyMatches(company,(r.title||"")+" "+(r.url||""))&&recruitingText(r.title||""))}catch(e){}
-  }
-  return rows.slice(0,6).map(r=>toDirectJob(company,r));
+  return rows
+    .filter(r=>companyMatches(company,(r.title||"")+" "+(r.snippet||"")+" "+(r.url||""))&&recruitingText((r.title||"")+" "+(r.snippet||"")))
+    .slice(0,5)
+    .map(r=>toDirectJob(company,r));
 }
-async function scanPool(items,limit,onProgress){
-  let next=0,done=0;
+async function searchKnownCompanyDeep(company){
+  let rows=await searchKnownCompanyFast(company);
+  if(rows.length)return rows;
+  try{
+    rows=(await jinaSearch('"'+company+'" 2027 校园招聘 秋招'))
+      .filter(r=>companyMatches(company,(r.title||"")+" "+(r.url||""))&&recruitingText(r.title||""));
+  }catch(e){rows=[]}
+  return rows.slice(0,8).map(r=>toDirectJob(company,r));
+}
+async function scanBroadQuery(q){
+  let rows=[];
+  try{rows=await jinaSearch(q)}catch(e){}
   const out=[];
+  for(const r of rows){
+    const text=(r.title||"")+" "+(r.snippet||"")+" "+(r.url||"");
+    if(!recruitingText(text))continue;
+    const company=inferCompany(r.title,r.url);
+    if(!company)continue;
+    out.push(toDirectJob(company,r));
+  }
+  return out;
+}
+async function scanPool(items,limit,fn,onProgress){
+  let next=0,done=0; const out=[];
   async function worker(){
     while(true){
-      const i=next++;
-      if(i>=items.length)return;
-      try{out.push(...await scanOneCompany(items[i],false))}catch(e){}
-      done++;
-      if(onProgress)onProgress(done,items.length,out.length);
+      const i=next++; if(i>=items.length)return;
+      try{out.push(...await fn(items[i]))}catch(e){}
+      done++; onProgress?.(done,items.length,out.length);
     }
   }
   await Promise.all(Array.from({length:Math.min(limit,items.length)},worker));
@@ -233,49 +272,65 @@ async function runDirectScan(company){
   if(scanRunning)return;
   scanRunning=true;
   const btn=$("#scanBtn"),old=btn.textContent;
+  const beforeJobs=JOBS.length, beforeCompanies=new Set(JOBS.map(j=>j.company)).size;
   btn.disabled=true;
   btn.textContent=company?"↻ 扫描 "+company:"↻ 扫描中 0%";
-  scanToast("正在全网扫描",company?"正在搜索 "+company+"…":"正在扫描 "+TARGETS.length+" 家企业…",false,false);
+  scanToast("正在全网扫描",company?"正在深搜 "+company+"…":"正在扫描企业库 + 全网发现新企业…",false,false);
   try{
-    let found=[];
     if(company){
-      found=await scanOneCompany(company,true);
+      const found=await searchKnownCompanyDeep(company);
       mergeDirect(found);
+      scanToast("扫描完成",company+"：新增 "+found.length+" 条候选；岗位库已更新",true,false);
     }else{
-      const names=TARGETS.map(x=>x.name);
-      found=await scanPool(names,10,(done,total,count)=>{
+      const broad=[
+        "2027届 校园招聘 土木工程 结构工程 设计院",
+        "2027届 校园招聘 中建 中铁 中交 土木",
+        "2027届 校园招聘 中国电建 中国能建 新能源",
+        "2027届 校园招聘 CAE 仿真 NVH 有限元",
+        "2027届 校园招聘 风电 风机 新能源 结构",
+        "2027届 校园招聘 汽车 CAE 结构仿真",
+        "2027届 校园招聘 工程机械 仿真 结构",
+        "2027届 校园招聘 工程管理 智能建造",
+        "2027届 校园招聘 轨道交通 中车 结构仿真",
+        "2027届 校园招聘 半导体 热仿真 结构"
+      ];
+      let broadFound=[];
+      for(let i=0;i<broad.length;i++){
+        const rows=await scanBroadQuery(broad[i]);
+        broadFound.push(...rows);
+        if(rows.length)mergeDirect(rows);
+        scanToast("正在发现新企业","全网主题 "+(i+1)+"/"+broad.length+" · 已发现 "+broadFound.length+" 条",false,false);
+        await sleep(3200);
+      }
+
+      const fast=await scanPool(TARGETS.map(x=>x.name),12,searchKnownCompanyFast,(done,total,count)=>{
         const pct=Math.round(done/total*100);
         btn.textContent="↻ 扫描中 "+pct+"%";
-        scanToast("正在全网扫描",done+"/"+total+" 家企业 · 已发现 "+count+" 条候选",false,false);
+        if(done%12===0)scanToast("正在扫描企业库",done+"/"+total+" 家 · 当前候选 "+count+" 条",false,false);
       });
-      mergeDirect(found);
-      const broad=["2027 校园招聘 土木 结构 设计院","2027 校招 CAE 仿真 NVH 有限元","2027 校招 风电 新能源 结构","2027 校招 汽车 结构 仿真","2027 校招 工程管理 智能建造"];
-      const extra=[];
-      for(let i=0;i<broad.length;i++){
-        try{
-          const rr=await jinaSearch(broad[i]);
-          for(const r of rr){
-            const blob=(r.title||"")+" "+(r.url||"");
-            const hit=TARGETS.find(t=>companyMatches(t.name,blob));
-            if(hit&&recruitingText(r.title||""))extra.push(toDirectJob(hit.name,r));
-          }
-        }catch(e){}
-        scanToast("正在补充扫描","全网补充 "+(i+1)+"/"+broad.length,false,false);
+      if(fast.length)mergeDirect(fast);
+
+      const zeroTargets=TARGETS.map(x=>x.name).filter(name=>!JOBS.some(j=>j.company===name)).slice(0,18);
+      let deepFound=[];
+      for(let i=0;i<zeroTargets.length;i++){
+        const rows=await searchKnownCompanyDeep(zeroTargets[i]);
+        deepFound.push(...rows);
+        if(rows.length)mergeDirect(rows);
+        scanToast("正在补扫待扫描企业",(i+1)+"/"+zeroTargets.length+" · "+zeroTargets[i],false,false);
+        await sleep(3200);
       }
-      if(extra.length){mergeDirect(extra);found.push(...extra)}
+
+      const jobsAdded=Math.max(0,JOBS.length-beforeJobs);
+      const companiesAdded=Math.max(0,new Set(JOBS.map(j=>j.company)).size-beforeCompanies);
+      scanToast("扫描完成","新增 "+jobsAdded+" 条岗位 · 新发现 "+companiesAdded+" 家企业 · 企业库和岗位库已刷新",true,false);
     }
-    const unique=new Set(found.map(x=>x.id)).size;
-    scanToast("扫描完成",company?company+"：发现 "+unique+" 条招聘相关结果":"已扫描 "+TARGETS.length+" 家企业，发现 "+unique+" 条招聘相关结果",true,false);
     if(currentView==="companies")renderCompanies();
   }catch(e){
-    scanToast("扫描失败",(e&&e.message)||"网络搜索暂时不可用，请稍后再点一次。",false,true);
+    scanToast("扫描失败",(e&&e.message)||"搜索源暂时不可用，请稍后再点一次。",false,true);
   }finally{
-    scanRunning=false;
-    btn.disabled=false;
-    btn.textContent=old;
+    scanRunning=false; btn.disabled=false; btn.textContent=old;
   }
 }
-
 function updateUserUI(){const on=!!session;$("#loginBtn").classList.toggle("hidden",on);$("#userBox").classList.toggle("hidden",!on);if(on){$("#userName").textContent=session.user.email;$("#syncStatus").textContent=cloudConfigured?"云端账户":"本机账户"}else $("#syncStatus").textContent="未登录 · 浏览模式"}
 function setAuthMode(m){authMode=m;$("#tabLogin").classList.toggle("active",m==="login");$("#tabSignup").classList.toggle("active",m==="signup");$("#authSubmit").textContent=m==="login"?"登录":"注册";$("#authMessage").textContent=""}
 function openAuth(){setAuthMode("login");$("#authModeHint").textContent=cloudConfigured?"云端账号，可跨设备同步":"当前为本机账户，仅当前浏览器保存";$("#authFine").textContent=cloudConfigured?"每个用户只能读取自己的记录。":"请不要使用其他重要网站的相同密码。";$("#authDialog").showModal()}
