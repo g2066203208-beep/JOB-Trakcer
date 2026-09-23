@@ -535,7 +535,7 @@ function renderAll(){
   if(currentView==="my")renderMy();
 }
 function handleClick(e){
-  const el=e.target.closest("[data-action],[data-view-link],[data-quick-search],[data-my-filter]");
+  const el=e.target.closest("[data-action],[data-view-link],[data-quick-search],[data-my-filter],[data-question-mode]");
   if(!el)return;
   if(el.dataset.viewLink){e.preventDefault();switchView(el.dataset.viewLink);return}
   if(el.dataset.quickSearch){$("#jobKeyword").value=el.dataset.quickSearch;switchView("jobs");return}
