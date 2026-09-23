@@ -58,10 +58,25 @@ jobs:
             echo "No changes."
             exit 0
           fi
+
+          mkdir -p /tmp/unijob-scan/crawler /tmp/unijob-scan/data
+          cp data/auto-jobs.json /tmp/unijob-scan/data/auto-jobs.json
+          cp auto-jobs-data.js /tmp/unijob-scan/auto-jobs-data.js
+          cp crawler/state.json /tmp/unijob-scan/crawler/state.json
+
           git config user.name "job-tracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/auto-jobs.json auto-jobs-data.js crawler/state.json
-          git commit -m "data: auto-discover recruitment updates"
           git fetch origin main
-          git rebase origin/main
+          git reset --hard origin/main
+
+          cp /tmp/unijob-scan/data/auto-jobs.json data/auto-jobs.json
+          cp /tmp/unijob-scan/auto-jobs-data.js auto-jobs-data.js
+          cp /tmp/unijob-scan/crawler/state.json crawler/state.json
+
+          git add data/auto-jobs.json auto-jobs-data.js crawler/state.json
+          if git diff --cached --quiet; then
+            echo "Latest main already contains the same scan result."
+            exit 0
+          fi
+          git commit -m "data: auto-discover recruitment updates"
           git push origin HEAD:main
