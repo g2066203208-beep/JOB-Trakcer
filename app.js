@@ -1,4 +1,14 @@
-const JOBS = window.JOB_DATA || [];
+const MANUAL_JOBS = window.JOB_DATA || [];
+const AUTO_JOBS = window.AUTO_JOB_DATA || [];
+const JOBS = (() => {
+  const out=[], seen=new Set();
+  for(const j of [...MANUAL_JOBS,...AUTO_JOBS]){
+    const key=(j.applyUrl||"")+"|"+(j.title||"")+"|"+(j.company||"");
+    if(seen.has(key)) continue;
+    seen.add(key); out.push(j);
+  }
+  return out;
+})();
 const STAGES = ["未申请","已申请","被拒"];
 function normalizeStage(stage){
   if(!stage || stage==="未申请") return "未申请";
