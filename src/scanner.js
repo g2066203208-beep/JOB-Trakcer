@@ -15,10 +15,10 @@ const BROAD_QUERIES = [
 
 export async function runWebScan({profile,companies,onProgress}={}){
   const queries=[...BROAD_QUERIES];
-  if(profile?.major) queries.unshift(\`2027届 校园招聘 "\${profile.major}"\`);
-  if(profile?.industries?.length) queries.unshift(...profile.industries.slice(0,3).map(x=>\`2027届 校园招聘 "\${x}"\`));
+  if(profile?.major) queries.unshift(`2027届 校园招聘 "${profile.major}"`);
+  if(profile?.industries?.length) queries.unshift(...profile.industries.slice(0,3).map(x=>`2027届 校园招聘 "${x}"`));
   const companyNames=(companies||[]).slice().sort(()=>Math.random()-.5).slice(0,24).map(c=>c.name);
-  queries.push(...companyNames.map(n=>\`"\${n}" 2027 校园招聘\`));
+  queries.push(...companyNames.map(n=>`"${n}" 2027 校园招聘`));
 
   const all=[];
   let completed=0, failures=0;
@@ -73,7 +73,7 @@ async function jinaBing(q){
 }
 
 function toJob(r,companies){
-  const blob=\`\${r.title} \${r.snippet||""}\`;
+  const blob=`${r.title} ${r.snippet||""}`;
   if(!/2027|校招|校园招聘|秋招|应届|毕业生|招聘|career|campus/i.test(blob)) return null;
   const company=inferCompany(blob,r.url,companies);
   if(!company) return null;
@@ -129,7 +129,7 @@ function inferSkills(t){
 function inferDeadline(t){
   let m=t.match(/截止(?:至|到|时间[:：]?)?\s*(20\d{2})[年\/.-](\d{1,2})[月\/.-](\d{1,2})日?/);
   if(!m)m=t.match(/(20\d{2})[年\/.-](\d{1,2})[月\/.-](\d{1,2})日?\s*(?:截止|前)/);
-  return m?\`\${m[1]}-\${String(+m[2]).padStart(2,"0")}-\${String(+m[3]).padStart(2,"0")}\`:null;
+  return m?`${m[1]}-${String(+m[2]).padStart(2,"0")}-${String(+m[3]).padStart(2,"0")}`:null;
 }
 function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return(h>>>0).toString(16)}
 function dedupe(rows){const m=new Map();for(const r of rows){const k=(r.applyUrl+"|"+r.title).toLowerCase();if(!m.has(k))m.set(k,r)}return[...m.values()]}
