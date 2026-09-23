@@ -9,7 +9,7 @@ const $ = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 
-let data={jobs:[],companies:[],majors:[],industries:[],skills:[]};
+let data={jobs:[],companies:[],majors:[],industries:[],skills:[],questionBank:{companyKits:[],generalBank:[]}};
 let profile=loadProfile();
 let applications=loadApplications();
 let favorites=loadFavorites();
@@ -74,6 +74,7 @@ function switchView(v){
   if(v==="jobs")renderJobs();
   if(v==="companies")renderCompanies();
   if(v==="majors")renderMajors();
+  if(v==="questions")renderQuestions();
   if(v==="my")renderMy();
   window.scrollTo({top:0,behavior:"smooth"});
 }
@@ -97,6 +98,12 @@ function populateControls(){
   $("#majorDatalist").innerHTML=data.majors.filter(m=>m.name!=="不限专业").map(m=>'<option value="'+esc(m.name)+'"></option>').join("");
   $("#jobCity").innerHTML='<option value="">全部地区</option>'+uniqueLocations().map(c=>'<option>'+esc(c)+'</option>').join("");
   $("#majorCount").textContent=data.majors.filter(m=>m.name!=="不限专业").length;
+
+  const qb=data.questionBank||{companyKits:[],generalBank:[]};
+  $("#questionCompany").innerHTML='<option value="">全部公司</option>'+(qb.companyKits||[]).map(k=>'<option>'+esc(k.company)+'</option>').join("");
+  const cats=Array.from(new Set((qb.generalBank||[]).map(q=>q.category))).sort((a,b)=>a.localeCompare(b,"zh"));
+  $("#questionCategory").innerHTML='<option value="">全部题类</option><option value="公司专项">公司专项</option>'+cats.map(x=>'<option>'+esc(x)+'</option>').join("");
+  $("#questionCount").textContent=(qb.generalBank||[]).length+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0);
 }
 
 function renderHome(){
@@ -204,6 +211,61 @@ function renderMajors(){
   $("#majorGrid").innerHTML=majors.map(m=>'<button class="major-card" data-action="major" data-major="'+esc(m.name)+'"><b>'+esc(m.name)+'</b><small>'+esc(m.group)+' · '+(counts.get(m.name)||0)+' 条现有岗位</small></button>').join("");
 }
 
+
+function allQuestions(){
+  const qb=data.questionBank||{companyKits:[],generalBank:[]};
+  const company=(qb.companyKits||[]).flatMap(k=>(k.questions||[]).map(q=>Object.assign({},q,{
+    company:k.company,category:"公司专项",process:k.process,sources:k.sources||[],companyQuestion:true
+  })));
+  const general=(qb.generalBank||[]).map(q=>Object.assign({},q,{
+    company:"",sources:[],companyQuestion:false
+  }));
+  return company.concat(general);
+}
+function filteredQuestions(){
+  const q=$("#questionKeyword").value.trim().toLowerCase();
+  const company=$("#questionCompany").value,category=$("#questionCategory").value,type=$("#questionType").value,sort=$("#questionSort").value;
+  let rows=allQuestions().filter(x=>{
+    const text=[x.company,x.category,x.type,x.question,x.answerPoints].join(" ").toLowerCase();
+    return (!q||q.split(/\s+/).every(k=>text.includes(k)))
+      &&(!company||x.company===company)
+      &&(!category||x.category===category)
+      &&(!type||x.type===type);
+  });
+  if(sort==="company")rows.sort((a,b)=>(b.companyQuestion-a.companyQuestion)||String(a.company||a.category).localeCompare(String(b.company||b.category),"zh"));
+  if(sort==="category")rows.sort((a,b)=>String(a.category).localeCompare(String(b.category),"zh")||String(a.type).localeCompare(String(b.type),"zh"));
+  if(sort==="random")rows=rows.slice().sort(()=>Math.random()-.5);
+  return rows;
+}
+function renderQuestions(){
+  const qb=data.questionBank||{companyKits:[],generalBank:[]};
+  const total=(qb.generalBank||[]).length+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0);
+  $("#questionCount").textContent=total;
+
+  $("#companyKitList").innerHTML=(qb.companyKits||[]).map(k=>{
+    const n=(k.questions||[]).length;
+    return '<button class="company-kit '+($("#questionCompany").value===k.company?'active':'')+'" data-action="question-company" data-company="'+esc(k.company)+'"><b>'+esc(k.company)+'</b><small>'+n+' 道专项题 · '+esc((k.sources||[]).some(s=>s.type==="official")?"含官方流程":"公开面经整理")+'</small></button>';
+  }).join("");
+
+  const selectedCompany=$("#questionCompany").value;
+  if(selectedCompany){
+    const kit=(qb.companyKits||[]).find(k=>k.company===selectedCompany);
+    if(kit){
+      const links=(kit.sources||[]).map(s=>'<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.label)+' ↗</a>').join("");
+      $("#questionBankMeta").innerHTML='<div class="question-company-meta"><div><span class="eyebrow">COMPANY GUIDE</span><h3>'+esc(kit.company)+'</h3><p>'+esc(kit.process||"")+'</p></div><div class="source-links">'+links+'</div></div>';
+    }
+  }else{
+    $("#questionBankMeta").innerHTML='<div class="question-bank-summary"><b>题库共 '+total+' 道</b><span>公司专项 '+(qb.companyKits||[]).reduce((n,k)=>n+(k.questions||[]).length,0)+' 道 · 通用分类 '+(qb.generalBank||[]).length+' 道</span></div>';
+  }
+
+  const rows=filteredQuestions();
+  $("#questionList").innerHTML=rows.length?rows.slice(0,300).map((x,i)=>{
+    const badge=x.company?x.company:x.category;
+    const src=x.companyQuestion?'<span class="question-source">公开流程/面经改写</span>':'<span class="question-source">通用练习</span>';
+    return '<article class="question-card"><div class="question-num">'+String(i+1).padStart(2,"0")+'</div><div class="question-main"><div class="question-labels"><span>'+esc(badge)+'</span><span>'+esc(x.type||"练习")+'</span>'+src+'</div><h3>'+esc(x.question)+'</h3><div class="answer-panel hidden" id="answer-'+esc(x.id)+'"><b>答题要点</b><p>'+esc(x.answerPoints||"结合岗位和个人经历作答。")+'</p></div></div><button class="answer-toggle" data-action="toggle-answer" data-answer-id="'+esc(x.id)+'">看要点</button></article>';
+  }).join(""):'<div class="empty-state"><b>没有符合筛选条件的题目</b><p>清空公司或题类筛选后再试。</p></div>';
+}
+
 function renderMy(){
   if(hasProfile()){
     $("#myProfileCard").innerHTML='<div class="profile-card-content"><span class="eyebrow">PROFILE</span><h2>'+esc(profile.major||"未设置专业")+'</h2><p>'+esc([profile.school,profile.degree,profile.graduationYear?profile.graduationYear+"届":""].filter(Boolean).join(" · "))+'</p><div class="profile-lines"><div class="profile-line"><span>目标城市</span><b>'+esc((profile.cities||[]).join(" / ")||"未设置")+'</b></div><div class="profile-line"><span>目标行业</span><b>'+esc((profile.industries||[]).join(" / ")||"未设置")+'</b></div><div class="profile-line"><span>技能</span><b>'+esc((profile.skills||[]).slice(0,6).join(" / ")||"未设置")+'</b></div><div class="profile-line"><span>毕业年份</span><b>'+esc(profile.graduationYear||"未设置")+'</b></div></div></div>';
@@ -307,6 +369,7 @@ function renderAll(){
   if(currentView==="jobs")renderJobs();
   if(currentView==="companies")renderCompanies();
   if(currentView==="majors")renderMajors();
+  if(currentView==="questions")renderQuestions();
   if(currentView==="my")renderMy();
 }
 function handleClick(e){
@@ -323,6 +386,16 @@ function handleClick(e){
   if(a==="company"){$("#jobKeyword").value=el.dataset.company;switchView("jobs");return}
   if(a==="major"){$("#jobMajor").value=el.dataset.major;switchView("jobs");return}
   if(a==="discipline"){selectedDiscipline=el.dataset.discipline;renderMajors();return}
+  if(a==="question-company"){
+    $("#questionCompany").value=el.dataset.company||"";
+    $("#questionCategory").value="公司专项";
+    renderQuestions();return;
+  }
+  if(a==="toggle-answer"){
+    const box=document.getElementById("answer-"+el.dataset.answerId);
+    if(box){box.classList.toggle("hidden");el.textContent=box.classList.contains("hidden")?"看要点":"收起";}
+    return;
+  }
   if(a==="job-detail"){openJob(el.dataset.jobId);return}
   if(a==="favorite"){favorites=toggleFavorite(el.dataset.jobId);renderAll();return}
   if(a==="status"){
@@ -349,6 +422,17 @@ function bind(){
   });
   ["companyKeyword","companyIndustry","companyNature","companyJobState"].forEach(id=>{
     const el=$("#"+id);el.addEventListener(el.tagName==="INPUT"?"input":"change",renderCompanies);
+  });
+  ["questionKeyword","questionCompany","questionCategory","questionType","questionSort"].forEach(id=>{
+    const el=$("#"+id);el.addEventListener(el.tagName==="INPUT"?"input":"change",renderQuestions);
+  });
+  $("#randomPracticeBtn").addEventListener("click",()=>{
+    $("#questionCompany").value="";
+    $("#questionCategory").value="";
+    $("#questionType").value="";
+    $("#questionSort").value="random";
+    renderQuestions();
+    $("#questionList").scrollIntoView({behavior:"smooth",block:"start"});
   });
   $("#scanButton").addEventListener("click",scanNow);
   $("#themeButton").addEventListener("click",()=>{
