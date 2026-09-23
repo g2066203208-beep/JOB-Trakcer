@@ -216,16 +216,29 @@ function renderMajors(){
 
 
 function qCoreName(name){
-  return String(name||"").replace(/中国|国家|股份有限公司|集团有限公司|有限责任公司|有限公司|集团|股份|科技|智能|控股|中国区/g,"").trim();
+  return String(name||"")
+    .replace(/股份有限公司|集团有限公司|有限责任公司|有限公司|股份|集团|控股/g,"")
+    .replace(/\s+/g,"").trim();
 }
 function findCompanyKit(company){
   const kits=(data.questionBank?.companyKits)||[];
   const exact=kits.find(k=>k.company===company);
   if(exact)return exact;
-  const core=qCoreName(company);
+  const aliases={
+    "德勤中国":"德勤",
+    "宝洁中国":"宝洁",
+    "吉利控股":"吉利控股集团",
+    "吉利汽车":"吉利控股集团",
+    "小米":"小米集团"
+  };
+  const target=aliases[company]||company;
+  const byAlias=kits.find(k=>k.company===target);
+  if(byAlias)return byAlias;
+  const core=qCoreName(target);
+  if(core.length<3)return null;
   return kits.find(k=>{
     const kc=qCoreName(k.company);
-    return core&&kc&&(core.includes(kc)||kc.includes(core));
+    return kc.length>=3 && core===kc;
   })||null;
 }
 function companyPracticeCategories(company){
