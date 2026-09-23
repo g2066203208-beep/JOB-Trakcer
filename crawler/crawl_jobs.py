@@ -51,7 +51,8 @@ JOB_TITLE_WORDS = (
 )
 BAD_WORDS = (
     "培训班","课程","考研","公务员考试题","辅导班","简历模板","论文代写","加盟","高考志愿",
-    "实习经验分享","求职攻略","薪资揭秘","面经汇总","题库出售","内推码"
+    "实习经验分享","求职攻略","薪资揭秘","面经汇总","题库出售","内推码",
+    "白皮书","调查报告","行业报告","荣誉","论坛","峰会","活动","对话季","新闻稿","媒体中心","财务报告","投资者关系"
 )
 ALL_SKILLS = sorted({x for g in SKILL_GROUPS for x in g.get("items", [])}, key=len, reverse=True)
 ALL_MAJOR_NAMES = [m["name"] for m in MAJORS if m["name"] != "不限专业"]
@@ -150,8 +151,7 @@ def company_from_title(title: str, url: str) -> str:
         name=re.sub(r"[|｜—\-_:：].*$","",m.group(1)).strip()
         if 2<=len(name)<=30 and not any(x in name for x in ("岗位","职位","招聘信息","公告","简章","就业")):
             return name
-    d=domain(url)
-    return d or "自动发现"
+    return ""
 
 def looks_recruiting(text: str) -> bool:
     low=(text or "").lower()
@@ -443,7 +443,7 @@ def infer_skills(text: str) -> list[str]:
     return [s for s in ALL_SKILLS if s.lower() in low][:12]
 
 def infer_industry(text: str, company: str) -> str:
-    c=next((x for x in COMPANIES if x["name"]==company),None)
+    c=next((x for x in COMPANIES if x["name"]==company or company_match(x["name"],company)),None)
     if c and c.get("industry"): return c["industry"]
     for ind in INDUSTRIES:
         if any(k.lower() in text.lower() for k in ind.get("keywords",[])):
@@ -490,10 +490,15 @@ def enrich_item(item: dict, page_text: str="") -> dict:
     }
 
 def reasonable(j: dict) -> bool:
-    blob=f'{j.get("title","")} {j.get("requirements","")} {j.get("applyUrl","")}'
+    title=j.get("title","")
+    blob=f'{title} {j.get("requirements","")} {j.get("applyUrl","")}'
+    company=j.get("company","")
     if bad_candidate(blob): return False
-    if len(j.get("title",""))<4: return False
-    return looks_recruiting(blob) or looks_job_title(j.get("title",""))
+    if len(title)<4 or len(title)>140: return False
+    if not company or "." in company or "/" in company: return False
+    campaign=looks_recruiting(title) and any(x in title for x in ("招聘","校招","校园招聘","2027","应届"))
+    concrete=looks_job_title(title)
+    return campaign or concrete
 
 def enrich_candidates(items: list[dict]) -> list[dict]:
     # Fetch page text for the most promising unique URLs; search snippets handle the rest.
@@ -511,9 +516,9 @@ def enrich_candidates(items: list[dict]) -> list[dict]:
     for x in unique:
         j=enrich_item(x,pages.get(x["url"],""))
         if not reasonable(j): continue
-        key=(j["applyUrl"].lower(),re.sub(r"\s+","",j["title"]).lower())
+        key=(re.sub(r"[\W_]+","",j["company"]).lower(),re.sub(r"[\W_]+","",j["title"]).lower())
         old=by.get(key)
-        if old is None or (j["verified"] and not old["verified"]):
+        if old is None or (j["verified"] and not old.get("verified")) or len(j.get("requirements",""))>len(old.get("requirements","")):
             by[key]=j
     return list(by.values())
 
