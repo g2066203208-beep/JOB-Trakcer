@@ -1,4 +1,4 @@
-const VERSION = "20260923-unijob-v3";
+const VERSION = "20260923-unijob-v4";
 const DATA_FILES = {
   jobs: "./data/jobs.json",
   companies: "./data/companies.json",
