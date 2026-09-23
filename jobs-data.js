@@ -361,5 +361,82 @@ window.JOB_DATA = [
  applyUrl:"https://zp.zjdit.com",
  sourceUrl:"https://www.caep-scns.ac.cn/career",
  source:"中物院高性能数值模拟软件中心招聘官网", note:"CAE软件/工程应用高相关。"
+},
+{
+ id:"shanghai-huizhong-2027-struct-cae", company:"上海汇众汽车制造有限公司", unit:"汽车研发", title:"结构CAE（2027届校招）",
+ tracks:["CAE/仿真","转汽车/机械"], type:"具体岗位", location:"上海浦东新区", degree:"本科",
+ majors:"工程力学、车辆工程、机械工程及自动化等", headcount:"未公开",
+ openDate:"2026-09", deadline:null, updated:"2026-09-23",
+ requirements:"使用CAE软件开展刚度、强度、模态、动刚度、屈曲、疲劳、碰撞等结构分析，参与仿真与物理试验对标，并协助CAE软件二次开发。",
+ process:"在线投递 → 招聘流程以企业通知为准",
+ applyUrl:"https://www.zhaopin.com/jobdetail/CC000503910J40878515307.htm",
+ sourceUrl:"https://www.zhaopin.com/jobdetail/CC000503910J40878515307.htm",
+ source:"全网发现｜智联招聘职位页", note:"第三方职位页，投递前核验企业官方招聘信息。"
+},
+{
+ id:"geely-2027-cae-analysis", company:"浙江吉利控股集团有限公司", unit:"整车研发", title:"CAE仿真分析岗",
+ tracks:["CAE/仿真","转汽车/机械"], type:"具体岗位", location:"杭州", degree:"硕士及以上",
+ majors:"车辆工程、机械、力学等相关专业优先", headcount:"未公开",
+ openDate:"2026-08-13", deadline:null, updated:"2026-09-23",
+ requirements:"涉及整车结构耐久、NVH、碰撞安全、CFD、多体动力学、强度疲劳及电池/电机结构强度和热仿真；具备HyperWorks、ANSA、ABAQUS、Ncode、LS-DYNA等经验者优先。",
+ process:"网申 → 招聘流程以企业通知为准",
+ applyUrl:"https://www.shushuqiuzhi.com/position/430780",
+ sourceUrl:"https://www.shushuqiuzhi.com/position/430780",
+ source:"全网发现｜第三方职位库", note:"第三方岗位页显示为2027届校招；需在吉利官方校招系统复核。"
+},
+{
+ id:"gac-2027-nvh", company:"广汽集团", unit:"大研发体系", title:"27届NVH岗",
+ tracks:["CAE/仿真","转汽车/机械"], type:"具体岗位", location:"按岗位", degree:"本科及以上",
+ majors:"车辆工程、机械工程、工程力学、动力工程、声学等", headcount:"未公开",
+ openDate:"2026-09", deadline:null, updated:"2026-09-23",
+ requirements:"负责整车振动噪声性能开发，通过仿真分析与实车测试优化声源与传递路径；招聘页列出英语六级及成绩条件。",
+ process:"在线投递 → 招聘流程以企业通知为准",
+ applyUrl:"https://xyzp.51job.com/gacgroup2027/jobs.html",
+ sourceUrl:"https://xyzp.51job.com/gacgroup2027/jobs.html",
+ source:"广汽集团2027校园招聘专题页", note:"专题招聘页，具体岗位要求以页面实时信息为准。"
+},
+{
+ id:"newland-2027-cae", company:"山东新北洋信息技术股份有限公司", unit:"研发", title:"CAE仿真工程师",
+ tracks:["CAE/仿真","转汽车/机械","热流体"], type:"具体岗位", location:"威海", degree:"硕士及以上",
+ majors:"机械工程、力学（固体力学、流体力学）等", headcount:"未公开",
+ openDate:"2026-08-28", deadline:null, updated:"2026-09-23",
+ requirements:"负责结构刚度/强度、跌落/碰撞、NVH、流体、热力学、疲劳等多物理场仿真，解读应力、变形、流场、温度场和模态结果；要求具备ANSYS等仿真软件基础。",
+ process:"网申 → 招聘流程以企业通知为准",
+ applyUrl:"https://www.shushuqiuzhi.com/position/515588",
+ sourceUrl:"https://www.shushuqiuzhi.com/position/515588",
+ source:"全网发现｜第三方职位库", note:"第三方岗位页显示2027届校招；需在企业官方渠道复核。"
+},
+{
+ id:"cscec5-south-2027", company:"中建五局华南公司", unit:"华南建设有限公司", title:"追锋计划—2027届校园招聘",
+ tracks:["土木直投","施工/项目","工程管理","智能建造"], type:"招聘批次", location:"广东、广西、海南、福建、贵州、四川、重庆及海外", degree:"本科 / 硕士 / 博士",
+ majors:"土木工程、智能建造、工程管理、工程造价、水利水电、结构力学、城市地下空间等", headcount:"公开信息显示工程技术类有招聘需求",
+ openDate:"2026-09-01", deadline:null, updated:"2026-09-23",
+ requirements:"招聘岗位包括工程管理、科研技术、机电管理、商务管理、安全设备、工程物资、工程测量、工程试验等，要求专业对口。",
+ process:"简历投递 → 中建统一测评 → 初试 → 复试 → Offer → 签约",
+ applyUrl:"https://recruit.cscec.com/recruit#/index?contract_unit=32042805&company_id=1873",
+ sourceUrl:"https://career.nankai.edu.cn/correcruit/content/id/117444.html",
+ source:"高校就业网转载｜官方中建招聘平台投递", note:"土木本专业核心岗位池。"
+},
+{
+ id:"cscec8-north-2027", company:"中建八局华北公司", unit:"中国建筑第八工程局有限公司华北分公司", title:"2027届校园招聘",
+ tracks:["土木直投","施工/项目","工程管理","智能建造"], type:"招聘批次", location:"按项目/单位", degree:"本科 / 硕士 / 博士按岗",
+ majors:"土木工程、智能建造、水利水电、道路桥梁、工程管理、工程造价等", headcount:"未公开",
+ openDate:"2026-09-09", deadline:null, updated:"2026-09-23",
+ requirements:"项目管理岗面向土木工程、智能建造等；合约商务岗面向工程管理/工程造价；另有数字建造、机电、安全、科研等岗位。",
+ process:"中建招聘平台注册 → 测评 → 面试 → 签约",
+ applyUrl:"https://recruit.cscec.com/",
+ sourceUrl:"https://career.nankai.edu.cn/recruitment/content/type/2/id/6052.html",
+ source:"高校就业网转载｜中国建筑官方平台投递", note:"土木、项目管理和数字建造均可筛。"
+},
+{
+ id:"auto-engineering-2027", company:"中国汽车工业工程有限公司", unit:"工程技术服务/工程总承包", title:"2027届校园招聘",
+ tracks:["设计院","工程管理","转汽车/机械"], type:"招聘批次", location:"天津及海内外分支机构", degree:"按岗位",
+ majors:"汽车工程、机械、工程技术及相关专业按岗位", headcount:"未公开",
+ openDate:"2026-09-11", deadline:null, updated:"2026-09-23",
+ requirements:"原机械工业第四、第五设计研究院合并重组，业务覆盖汽车工厂规划、工程技术服务、工程总承包和装备产线系统解决方案。",
+ process:"校园招聘流程以企业通知为准",
+ applyUrl:"https://job.hust.edu.cn/zpinfo1/2433654.htm",
+ sourceUrl:"https://job.hust.edu.cn/zpinfo1/2433654.htm",
+ source:"华中科技大学就业信息网招聘信息", note:"适合土木/工程管理背景向汽车工业工程、EPC和工厂工程转向。"
 }
 ];
