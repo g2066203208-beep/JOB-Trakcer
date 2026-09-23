@@ -1,34 +1,54 @@
 const BROAD_QUERIES = [
-  "2027届 校园招聘 计算机 软件 算法 人工智能",
-  "2027届 校园招聘 电子 电气 自动化 通信",
-  "2027届 校园招聘 机械 车辆 CAE 仿真",
-  "2027届 校园招聘 土木 结构 工程管理 设计院",
-  "2027届 校园招聘 新能源 风电 光伏 储能",
-  "2027届 校园招聘 半导体 芯片 集成电路",
-  "2027届 校园招聘 金融 银行 证券 会计",
-  "2027届 校园招聘 医药 生物 医疗",
-  "2027届 校园招聘 材料 化工 环境",
-  "2027届 校园招聘 法学 法务 合规",
-  "2027届 校园招聘 市场 运营 产品 管培生",
-  "2027届 校园招聘 教育 教师 传媒 新闻"
+  "2027 校园招聘 计算机 软件 算法 人工智能 大模型",
+  "2027 校园招聘 电子 信息 通信 硬件 嵌入式",
+  "2027 校园招聘 电气 自动化 电力 能源",
+  "2027 校园招聘 机械 车辆 CAE 仿真 NVH",
+  "2027 校园招聘 土木 结构 岩土 工程管理 设计院",
+  "2027 校园招聘 新能源 风电 光伏 储能 电池",
+  "2027 校园招聘 半导体 芯片 集成电路 封装",
+  "2027 校园招聘 金融 银行 证券 保险 投资",
+  "2027 校园招聘 会计 财务 审计 税务 咨询",
+  "2027 校园招聘 医药 生物 临床 药学 医疗器械",
+  "2027 校园招聘 化学 化工 材料 环境",
+  "2027 校园招聘 法学 法务 合规 知识产权",
+  "2027 校园招聘 市场 营销 销售 商务 管培生",
+  "2027 校园招聘 产品 运营 用户研究 设计",
+  "2027 校园招聘 供应链 采购 物流 工业工程",
+  "2027 校园招聘 教育 教师 教研",
+  "2027 校园招聘 新闻 传媒 广告 内容 编辑",
+  "2027 校园招聘 农业 食品 动物医学",
+  "2027 校园招聘 建筑 城乡规划 景观 设计",
+  "2027 校园招聘 航空 航天 船舶 海洋",
+  "2027 秋招 央企 国企 应届生",
+  "2027 秋招 外企 管培生 graduate program"
 ];
 
-export async function runWebScan({profile,companies,onProgress}={}){
+export async function runWebScan({profile,companies,jobs,onProgress}={}){
   const queries=[...BROAD_QUERIES];
   if(profile?.major) queries.unshift(`2027届 校园招聘 "${profile.major}"`);
   if(profile?.industries?.length) queries.unshift(...profile.industries.slice(0,3).map(x=>`2027届 校园招聘 "${x}"`));
-  const companyNames=(companies||[]).slice().sort(()=>Math.random()-.5).slice(0,24).map(c=>c.name);
-  queries.push(...companyNames.map(n=>`"${n}" 2027 校园招聘`));
+  const counts=new Map();
+  for(const j of jobs||[])counts.set(j.company,(counts.get(j.company)||0)+1);
+  const companyNames=(companies||[]).slice().sort((a,b)=>{
+    const ap=(profile?.industries||[]).includes(a.industry)?0:1;
+    const bp=(profile?.industries||[]).includes(b.industry)?0:1;
+    return ap-bp || (counts.get(a.name)||0)-(counts.get(b.name)||0) || a.name.localeCompare(b.name,"zh");
+  }).slice(0,72).map(c=>c.name);
+  queries.push(...companyNames.map(n=>`"${n}" 2027 校园招聘 岗位`));
 
   const all=[];
   let completed=0, failures=0;
   await pool(queries,6,async(q)=>{
-    let rows=[];
-    try{ rows=await mwmbl(q); }catch{}
-    if(!rows.length){
-      try{ rows=await jinaBing(q); }catch{ failures++; }
+    const rows=[];
+    const settled=await Promise.allSettled([mwmbl(q),jinaBing(q)]);
+    for(const result of settled){
+      if(result.status==="fulfilled")rows.push(...result.value);
+      else failures++;
     }
+    const seenUrls=new Set();
     for(const r of rows){
+      if(seenUrls.has(r.url))continue;
+      seenUrls.add(r.url);
       const job=toJob(r,companies||[]);
       if(job) all.push(job);
     }
