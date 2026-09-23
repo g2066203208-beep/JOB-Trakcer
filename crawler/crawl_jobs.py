@@ -17,6 +17,19 @@ HEADERS = {"User-Agent": UA, "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.4"}
 CN_TZ = timezone(timedelta(hours=8))
 TODAY = datetime.now(CN_TZ).date()
 
+def load_company_targets():
+    p = ROOT / "companies-data.js"
+    if not p.exists():
+        return []
+    raw = p.read_text(encoding="utf-8").strip()
+    m = re.search(r"window\.COMPANY_TARGETS\s*=\s*(\[.*\])\s*;?\s*$", raw, re.S)
+    if not m:
+        return []
+    try:
+        return json.loads(m.group(1))
+    except Exception:
+        return []
+
 def norm_space(s: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(s or "")).strip()
 
@@ -148,12 +161,28 @@ def discover_official() -> list[dict]:
 
 def discover_brave() -> list[dict]:
     key=os.getenv("BRAVE_SEARCH_API_KEY","").strip()
+    manual_company=os.getenv("MANUAL_COMPANY","").strip()
+    mode=(os.getenv("MANUAL_SCAN_MODE","") or "recent").strip().lower()
     if not key:
         print("[search] BRAVE_SEARCH_API_KEY not set; skipping full-web discovery.")
         return []
     endpoint="https://api.search.brave.com/res/v1/web/search"
     out=[]
-    for q in CFG["search_queries"]:
+    queries=list(CFG["search_queries"])
+    targets=load_company_targets()
+    if manual_company:
+        queries=[f"{manual_company} 2027 校园招聘", f"{manual_company} 2027 秋招", f"{manual_company} 招聘 应届 仿真 土木 结构"]
+    elif mode=="full":
+        queries += [f"{x.get('name','')} 2027 校园招聘" for x in targets if x.get('name')]
+    else:
+        # Daily scan rotates through a manageable batch of companies.
+        if targets:
+            start=(TODAY.toordinal()*23) % len(targets)
+            batch=(targets[start:]+targets[:start])[:32]
+            queries += [f"{x.get('name','')} 2027 校园招聘" for x in batch if x.get('name')]
+    # Deduplicate while preserving order.
+    queries=list(dict.fromkeys(queries))
+    for q in queries:
         try:
             r=requests.get(endpoint,headers={
                 "Accept":"application/json",
