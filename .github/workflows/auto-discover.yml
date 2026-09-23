@@ -20,10 +20,14 @@ on:
       - "crawler/**"
       - ".github/workflows/auto-discover.yml"
   schedule:
-    - cron: "15 8 * * *"
+    - cron: "15 0 * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: auto-discover-recruitment
+  cancel-in-progress: true
 
 jobs:
   discover:
@@ -58,4 +62,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add auto-jobs-data.js crawler/state.json
           git commit -m "data: auto-discover recruitment updates"
-          git push
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
