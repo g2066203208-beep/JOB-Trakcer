@@ -1,0 +1,43 @@
+name: Auto discover recruitment jobs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 8 * * *"
+      timezone: "Asia/Shanghai"
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install crawler dependencies
+        run: pip install -r crawler/requirements.txt
+
+      - name: Discover jobs
+        env:
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+        run: python crawler/crawl_jobs.py
+
+      - name: Commit discovered jobs
+        run: |
+          if git diff --quiet -- auto-jobs-data.js crawler/state.json; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "job-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add auto-jobs-data.js crawler/state.json
+          git commit -m "data: auto-discover recruitment updates"
+          git push
