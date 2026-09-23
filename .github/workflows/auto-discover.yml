@@ -54,13 +54,13 @@ jobs:
 
       - name: Commit discovered jobs
         run: |
-          if [ -z "$(git status --porcelain -- auto-jobs-data.js crawler/state.json)" ]; then
+          if [ -z "$(git status --porcelain -- data/auto-jobs.json auto-jobs-data.js crawler/state.json)" ]; then
             echo "No changes."
             exit 0
           fi
           git config user.name "job-tracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add auto-jobs-data.js crawler/state.json
+          git add data/auto-jobs.json auto-jobs-data.js crawler/state.json
           git commit -m "data: auto-discover recruitment updates"
           git fetch origin main
           git rebase origin/main
