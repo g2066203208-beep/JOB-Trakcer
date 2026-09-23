@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-23-v6",
+  "version": "2026-09-23-v7",
   "note": "全部题目统一展示“标准答案”。公开面经/公开题库内容只提炼考察主题并重新表述，不复制登录墙、付费或受限内容；每个公司题库保留来源链接。",
   "companyKits": [
     {
@@ -4162,6 +4162,939 @@
           "question": "为什么选择中金？",
           "standardAnswer": "标准答案：应结合目标业务线（投行/研究/FICC/财富/科技）、所需技能和自己的实习/项目说明匹配，不能只回答平台、薪资或名气。",
           "answerPoints": "标准答案：应结合目标业务线（投行/研究/FICC/财富/科技）、所需技能和自己的实习/项目说明匹配，不能只回答平台、薪资或名气。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "中国移动",
+      "process": "公开页面约109篇面经、25项题库。近期统一笔试公开复盘以行测、综合知识/企业文化和性格测评为主；不同技术单位还会有Java、网络、云和项目面试。",
+      "sourceStats": {
+        "publicInterviewCount": 109,
+        "publicQuestionCount": 25,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客中国移动公开面经",
+          "url": "https://www.nowcoder.com/enterprise/924/interview",
+          "type": "community"
+        },
+        {
+          "label": "牛客中国移动题库",
+          "url": "https://www.nowcoder.com/enterprise/924/question/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c42-1",
+          "type": "笔试-计算题",
+          "question": "某5G基站日均处理流量从8 TB增至10 TB，增幅是多少？",
+          "standardAnswer": "标准答案：(10-8)/8=25%。",
+          "answerPoints": "标准答案：(10-8)/8=25%。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-2",
+          "type": "笔试-逻辑",
+          "question": "若所有核心网工程师都掌握网络协议，部分网络协议专家掌握Python，能否推出部分核心网工程师掌握Python？",
+          "standardAnswer": "标准答案：不能。两个“掌握网络协议”的集合可能不相交，题干没有给出核心网工程师与Python专家的交集。",
+          "answerPoints": "标准答案：不能。两个“掌握网络协议”的集合可能不相交，题干没有给出核心网工程师与Python专家的交集。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-3",
+          "type": "通信",
+          "question": "5G相对4G核心能力提升主要体现在哪？",
+          "standardAnswer": "标准答案：更高峰值/用户速率、更低时延、更大连接密度和更灵活网络切片/边缘能力。典型场景常概括为eMBB、URLLC和mMTC。",
+          "answerPoints": "标准答案：更高峰值/用户速率、更低时延、更大连接密度和更灵活网络切片/边缘能力。典型场景常概括为eMBB、URLLC和mMTC。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-4",
+          "type": "通信",
+          "question": "什么是网络切片？",
+          "standardAnswer": "标准答案：在共享物理基础设施上按业务需求构建逻辑隔离的端到端网络能力，不同切片可配置不同带宽、时延、可靠性和安全策略。",
+          "answerPoints": "标准答案：在共享物理基础设施上按业务需求构建逻辑隔离的端到端网络能力，不同切片可配置不同带宽、时延、可靠性和安全策略。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-5",
+          "type": "网络",
+          "question": "TCP三次握手为什么需要三次？",
+          "standardAnswer": "标准答案：第一次客户端表明发送能力；第二次服务端确认客户端请求并表明自己收发能力；第三次客户端确认服务端响应，使双方确认彼此发送与接收能力并同步初始序列号。",
+          "answerPoints": "标准答案：第一次客户端表明发送能力；第二次服务端确认客户端请求并表明自己收发能力；第三次客户端确认服务端响应，使双方确认彼此发送与接收能力并同步初始序列号。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-6",
+          "type": "云计算",
+          "question": "容器和虚拟机的主要区别？",
+          "standardAnswer": "标准答案：虚拟机虚拟硬件并运行完整Guest OS，隔离强但开销较大；容器共享宿主内核，通过namespace/cgroup隔离，启动快、资源开销低。",
+          "answerPoints": "标准答案：虚拟机虚拟硬件并运行完整Guest OS，隔离强但开销较大；容器共享宿主内核，通过namespace/cgroup隔离，启动快、资源开销低。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-7",
+          "type": "数据",
+          "question": "运营商客户流失模型应如何评估？",
+          "standardAnswer": "标准答案：不只看Accuracy。重点看Recall、Precision、AUC以及挽留成本/收益；对不同客户价值分层，并通过真实挽留实验验证模型带来的增量价值。",
+          "answerPoints": "标准答案：不只看Accuracy。重点看Recall、Precision、AUC以及挽留成本/收益；对不同客户价值分层，并通过真实挽留实验验证模型带来的增量价值。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-8",
+          "type": "安全",
+          "question": "短信验证码系统如何防刷？",
+          "standardAnswer": "标准答案：按手机号、IP、设备和账号多维限频；图形/行为验证码；风险评分；单码有效期和错误次数限制；服务端保存校验状态；监控异常号段和攻击峰值。",
+          "answerPoints": "标准答案：按手机号、IP、设备和账号多维限频；图形/行为验证码；风险评分；单码有效期和错误次数限制；服务端保存校验状态；监控异常号段和攻击峰值。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-9",
+          "type": "项目面",
+          "question": "网络故障如何快速定位？",
+          "standardAnswer": "标准答案：从物理链路/接口状态→IP与路由→DNS→端口与防火墙→应用服务逐层排查；结合ping、traceroute、ss/netstat、tcpdump和监控确认故障层级。",
+          "answerPoints": "标准答案：从物理链路/接口状态→IP与路由→DNS→端口与防火墙→应用服务逐层排查；结合ping、traceroute、ss/netstat、tcpdump和监控确认故障层级。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-10",
+          "type": "行为面",
+          "question": "运营商安全生产场景中，产出效率与安全冲突怎么办？",
+          "standardAnswer": "标准答案：安全红线优先。先停止可能造成事故的高风险操作，评估影响并上报；优化流程、资源和排期来恢复效率，而不是通过绕过安全规范追赶产出。",
+          "answerPoints": "标准答案：安全红线优先。先停止可能造成事故的高风险操作，评估影响并上报；优化流程、资源和排期来恢复效率，而不是通过绕过安全规范追赶产出。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-11",
+          "type": "HR面",
+          "question": "为什么选择中国移动？",
+          "standardAnswer": "标准答案：结合运营商网络基础设施、云/算力、政企业务、AI和5G应用中的具体岗位说明匹配，再用自己的通信/软件/数据经历证明。",
+          "answerPoints": "标准答案：结合运营商网络基础设施、云/算力、政企业务、AI和5G应用中的具体岗位说明匹配，再用自己的通信/软件/数据经历证明。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c42-12",
+          "type": "HR面",
+          "question": "是否接受省内或跨区域调剂？",
+          "standardAnswer": "标准答案：给真实范围，例如首选城市和可接受城市列表；若有限制明确说明。不要为了过面试给出长期无法履行的无限制调剂承诺。",
+          "answerPoints": "标准答案：给真实范围，例如首选城市和可接受城市列表；若有限制明确说明。不要为了过面试给出长期无法履行的无限制调剂承诺。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "中国联通",
+      "process": "公开页面约231篇面经、22项题库。近期公开流程包含笔试/AI面、视频面和线下面；问题覆盖通信/网络安全专业题、情景题、英文、自我介绍和调剂意愿。",
+      "sourceStats": {
+        "publicInterviewCount": 231,
+        "publicQuestionCount": 22,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客中国联通公开面经",
+          "url": "https://www.nowcoder.com/enterprise/998/interview",
+          "type": "community"
+        },
+        {
+          "label": "牛客中国联通公司真题页",
+          "url": "https://www.nowcoder.com/enterprise/998/question/company",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c43-1",
+          "type": "笔试-计算题",
+          "question": "某套餐用户从40万增长到46万，增长率是多少？",
+          "standardAnswer": "标准答案：(46-40)/40=15%。",
+          "answerPoints": "标准答案：(46-40)/40=15%。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-2",
+          "type": "网络",
+          "question": "OSI七层从上到下是什么？",
+          "standardAnswer": "标准答案：应用、表示、会话、传输、网络、数据链路、物理层。工程中更常使用TCP/IP四层或五层模型。",
+          "answerPoints": "标准答案：应用、表示、会话、传输、网络、数据链路、物理层。工程中更常使用TCP/IP四层或五层模型。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-3",
+          "type": "通信",
+          "question": "5G SA与NSA的区别？",
+          "standardAnswer": "标准答案：NSA依赖现有4G核心网/锚点与5G无线协同；SA使用独立5G核心网和5G NR，可更完整支持切片、低时延等5G能力。",
+          "answerPoints": "标准答案：NSA依赖现有4G核心网/锚点与5G无线协同；SA使用独立5G核心网和5G NR，可更完整支持切片、低时延等5G能力。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-4",
+          "type": "网络安全",
+          "question": "DDoS基本防护思路是什么？",
+          "standardAnswer": "标准答案：源头/边界限流与清洗、Anycast/CDN分散流量、ACL/WAF、防火墙、黑洞/牵引、自动扩容与异常流量检测；应用层还需验证码和行为风控。",
+          "answerPoints": "标准答案：源头/边界限流与清洗、Anycast/CDN分散流量、ACL/WAF、防火墙、黑洞/牵引、自动扩容与异常流量检测；应用层还需验证码和行为风控。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-5",
+          "type": "网络安全",
+          "question": "SQL注入怎么防？",
+          "standardAnswer": "标准答案：核心是参数化查询/预编译；数据库账号最小权限；避免动态字符串拼接；输入校验作为辅助；敏感操作加审计和WAF。",
+          "answerPoints": "标准答案：核心是参数化查询/预编译；数据库账号最小权限；避免动态字符串拼接；输入校验作为辅助；敏感操作加审计和WAF。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-6",
+          "type": "数据",
+          "question": "运营商网络告警很多，怎样减少重复告警？",
+          "standardAnswer": "标准答案：按拓扑与时间窗口做告警聚合；利用根因/依赖关系抑制下游派生告警；同类告警去重；建立告警优先级与关联规则，最终用故障事件而非单点告警驱动处理。",
+          "answerPoints": "标准答案：按拓扑与时间窗口做告警聚合；利用根因/依赖关系抑制下游派生告警；同类告警去重；建立告警优先级与关联规则，最终用故障事件而非单点告警驱动处理。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-7",
+          "type": "AI",
+          "question": "AI客服如何评价效果？",
+          "standardAnswer": "标准答案：任务完成率、首次解决率、人工转接率、错误/幻觉率、平均处理时长、客户满意度和单次成本；高风险业务还需合规命中率和证据可追溯。",
+          "answerPoints": "标准答案：任务完成率、首次解决率、人工转接率、错误/幻觉率、平均处理时长、客户满意度和单次成本；高风险业务还需合规命中率和证据可追溯。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-8",
+          "type": "项目面",
+          "question": "通信系统项目里如何做容量估算？",
+          "standardAnswer": "标准答案：基于峰值用户数、并发率、单用户吞吐/请求、冗余系数和增长预测计算；压测验证；按N+1或更高冗余设计并设置容量告警阈值。",
+          "answerPoints": "标准答案：基于峰值用户数、并发率、单用户吞吐/请求、冗余系数和增长预测计算；压测验证；按N+1或更高冗余设计并设置容量告警阈值。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-9",
+          "type": "情景面",
+          "question": "团队只追求产出效率而忽视安全生产怎么办？",
+          "standardAnswer": "标准答案：立即指出风险和制度红线，暂停高风险步骤；基于事实评估影响；与负责人确定合规替代流程并记录；必要时按安全管理制度升级。",
+          "answerPoints": "标准答案：立即指出风险和制度红线，暂停高风险步骤；基于事实评估影响；与负责人确定合规替代流程并记录；必要时按安全管理制度升级。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-10",
+          "type": "英文面",
+          "question": "Please briefly introduce your major and why it fits telecom work.",
+          "standardAnswer": "标准答案：Use three parts: your major's core knowledge, one project/skill relevant to networks/software/data, and how that capability maps to the target role. Keep it within about one minute.",
+          "answerPoints": "标准答案：Use three parts: your major's core knowledge, one project/skill relevant to networks/software/data, and how that capability maps to the target role. Keep it within about one minute.",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-11",
+          "type": "HR面",
+          "question": "为什么选择联通？",
+          "standardAnswer": "标准答案：结合联通通信网络、政企、云、大数据、AI等业务与具体岗位回答，说明个人能力如何迁移，不只回答国企稳定。",
+          "answerPoints": "标准答案：结合联通通信网络、政企、云、大数据、AI等业务与具体岗位回答，说明个人能力如何迁移，不只回答国企稳定。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c43-12",
+          "type": "HR面",
+          "question": "如果岗位下沉到地市分公司是否接受？",
+          "standardAnswer": "标准答案：明确职业与地点边界。可接受就说明理由和期限；不能接受则直接说首选范围并表达对岗位本身的兴趣。",
+          "answerPoints": "标准答案：明确职业与地点边界。可接受就说明理由和期限；不能接受则直接说首选范围并表达对岗位本身的兴趣。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "中国电信",
+      "process": "公开面经可见通信协议、营销策划和技术岗问题，常围绕专业基础、5G/通信业务、项目职责、公司业务理解、职业规划与出差/地点等。",
+      "sourceStats": {
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客中国电信通信协议公开面经",
+          "url": "https://www.nowcoder.com/discuss/353159185070235648",
+          "type": "community"
+        },
+        {
+          "label": "牛客中国电信营销策划公开面经",
+          "url": "https://www.nowcoder.com/discuss/353156452296630272",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c44-1",
+          "type": "通信",
+          "question": "TCP与UDP区别？",
+          "standardAnswer": "标准答案：TCP面向连接、可靠、有序、有流量/拥塞控制；UDP无连接、尽力而为、报文边界明确、开销低。实时音视频可在UDP上自行实现可靠/拥塞机制。",
+          "answerPoints": "标准答案：TCP面向连接、可靠、有序、有流量/拥塞控制；UDP无连接、尽力而为、报文边界明确、开销低。实时音视频可在UDP上自行实现可靠/拥塞机制。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-2",
+          "type": "通信",
+          "question": "什么是5G核心网的服务化架构？",
+          "standardAnswer": "标准答案：5GC把核心网功能拆分为网络功能，通过标准化服务接口交互，便于模块化、弹性扩缩、云原生部署和新业务快速编排。",
+          "answerPoints": "标准答案：5GC把核心网功能拆分为网络功能，通过标准化服务接口交互，便于模块化、弹性扩缩、云原生部署和新业务快速编排。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-3",
+          "type": "通信",
+          "question": "IPv4与IPv6最核心区别有哪些？",
+          "standardAnswer": "标准答案：IPv6地址128位，地址空间远大于IPv4；头部更简化；支持无状态地址配置；不依赖NAT作为地址节省手段，并改进组播、扩展头等机制。",
+          "answerPoints": "标准答案：IPv6地址128位，地址空间远大于IPv4；头部更简化；支持无状态地址配置；不依赖NAT作为地址节省手段，并改进组播、扩展头等机制。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-4",
+          "type": "网络",
+          "question": "DNS解析失败怎么排查？",
+          "standardAnswer": "标准答案：确认本机网络与目标DNS可达；检查本地缓存/hosts；用nslookup/dig查询递归DNS；检查域名权威记录、TTL、DNSSEC等；若只部分地区失败需看运营商缓存和线路。",
+          "answerPoints": "标准答案：确认本机网络与目标DNS可达；检查本地缓存/hosts；用nslookup/dig查询递归DNS；检查域名权威记录、TTL、DNSSEC等；若只部分地区失败需看运营商缓存和线路。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-5",
+          "type": "云",
+          "question": "什么是边缘计算？",
+          "standardAnswer": "标准答案：把计算、存储和网络能力下沉到靠近用户/设备的位置，减少回传带宽和时延，适合工业控制、视频分析、车联网等实时场景。",
+          "answerPoints": "标准答案：把计算、存储和网络能力下沉到靠近用户/设备的位置，减少回传带宽和时延，适合工业控制、视频分析、车联网等实时场景。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-6",
+          "type": "笔试-计算题",
+          "question": "一条1 Gbps链路传输10 GB数据，忽略协议开销，理论最少多久？",
+          "standardAnswer": "标准答案：10 GB=80 Gb；80/1=80秒。若按GiB严格换算会略有不同，题目若未说明通常按十进制。",
+          "answerPoints": "标准答案：10 GB=80 Gb；80/1=80秒。若按GiB严格换算会略有不同，题目若未说明通常按十进制。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-7",
+          "type": "市场",
+          "question": "5G政企业务方案如何分析客户需求？",
+          "standardAnswer": "标准答案：先识别客户业务流程、痛点、时延/带宽/安全/可靠性要求，再选择专网、云、边缘、物联网等能力，明确ROI、实施路径、SLA和运维责任。",
+          "answerPoints": "标准答案：先识别客户业务流程、痛点、时延/带宽/安全/可靠性要求，再选择专网、云、边缘、物联网等能力，明确ROI、实施路径、SLA和运维责任。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-8",
+          "type": "项目面",
+          "question": "介绍大型项目时至少讲哪些内容？",
+          "standardAnswer": "标准答案：项目目标、规模与约束、你的职责、关键技术/业务难点、方案选择、跨部门协作、验证指标、最终结果和复盘。",
+          "answerPoints": "标准答案：项目目标、规模与约束、你的职责、关键技术/业务难点、方案选择、跨部门协作、验证指标、最终结果和复盘。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-9",
+          "type": "项目面",
+          "question": "如何定位跨网络调用时延突然升高？",
+          "standardAnswer": "标准答案：拆DNS、建连、TLS、服务端处理、下游依赖和网络传输时延；用链路追踪/日志/抓包对比正常请求，确认丢包、重传、拥塞还是服务慢。",
+          "answerPoints": "标准答案：拆DNS、建连、TLS、服务端处理、下游依赖和网络传输时延；用链路追踪/日志/抓包对比正常请求，确认丢包、重传、拥塞还是服务慢。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-10",
+          "type": "行为面",
+          "question": "你如何学习一个新的通信技术？",
+          "standardAnswer": "标准答案：先读标准/官方资料建立协议框架，再抓包或搭实验验证关键流程，最后用小项目实现并记录常见故障，形成“理论—实验—故障”闭环。",
+          "answerPoints": "标准答案：先读标准/官方资料建立协议框架，再抓包或搭实验验证关键流程，最后用小项目实现并记录常见故障，形成“理论—实验—故障”闭环。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-11",
+          "type": "HR面",
+          "question": "为什么选择中国电信？",
+          "standardAnswer": "标准答案：把运营商云网融合、5G、政企、算力网络等业务与目标岗位连接，再说明你的专业项目能直接贡献什么。",
+          "answerPoints": "标准答案：把运营商云网融合、5G、政企、算力网络等业务与目标岗位连接，再说明你的专业项目能直接贡献什么。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c44-12",
+          "type": "HR面",
+          "question": "能否接受出差？",
+          "standardAnswer": "标准答案：给出真实可接受频率和周期，如可接受阶段性项目出差但希望长期base明确；不要模糊承诺。",
+          "answerPoints": "标准答案：给出真实可接受频率和周期，如可接受阶段性项目出差但希望长期base明确；不要模糊承诺。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "兆易创新",
+      "process": "公开页面约77篇面经、1项题库。近期嵌入式面经集中在Linux驱动/用户态交互、MCU选型、CAN仲裁、ADC/SPI/I2C/TIMER、BMS/无线充电等工程追问。",
+      "sourceStats": {
+        "publicInterviewCount": 77,
+        "publicQuestionCount": 1,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客兆易创新公开面经",
+          "url": "https://www.nowcoder.com/enterprise/2802/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c45-1",
+          "type": "嵌入式",
+          "question": "Linux应用如何与字符设备驱动交互？",
+          "standardAnswer": "标准答案：驱动注册字符设备并实现file_operations；应用通过/dev设备节点使用open/read/write/ioctl/mmap等系统调用进入内核，再由驱动访问硬件。",
+          "answerPoints": "标准答案：驱动注册字符设备并实现file_operations；应用通过/dev设备节点使用open/read/write/ioctl/mmap等系统调用进入内核，再由驱动访问硬件。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-2",
+          "type": "嵌入式",
+          "question": "MCU选型看哪些指标？",
+          "standardAnswer": "标准答案：CPU架构/频率、Flash/RAM、GPIO与定时器、ADC/DAC、通信外设、功耗、封装、温度等级、安全特性、开发生态、供货周期与成本。",
+          "answerPoints": "标准答案：CPU架构/频率、Flash/RAM、GPIO与定时器、ADC/DAC、通信外设、功耗、封装、温度等级、安全特性、开发生态、供货周期与成本。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-3",
+          "type": "通信",
+          "question": "CAN总线如何仲裁？",
+          "standardAnswer": "标准答案：CAN使用显性0覆盖隐性1的逐位非破坏仲裁。多个节点同时发报文时，从标识符高位开始比较；发送隐性1却读到显性0的节点退出，数值更小的ID优先。",
+          "answerPoints": "标准答案：CAN使用显性0覆盖隐性1的逐位非破坏仲裁。多个节点同时发报文时，从标识符高位开始比较；发送隐性1却读到显性0的节点退出，数值更小的ID优先。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-4",
+          "type": "嵌入式",
+          "question": "SPI和I2C如何选择？",
+          "standardAnswer": "标准答案：SPI全双工、吞吐高、时序简单但占更多引脚且通常每个从设备需要CS；I2C两线共享总线、支持寻址，适合低中速多设备但协议和总线电容约束更多。",
+          "answerPoints": "标准答案：SPI全双工、吞吐高、时序简单但占更多引脚且通常每个从设备需要CS；I2C两线共享总线、支持寻址，适合低中速多设备但协议和总线电容约束更多。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-5",
+          "type": "嵌入式",
+          "question": "ADC分辨率12位、参考电压3.3 V，1 LSB约多少mV？",
+          "standardAnswer": "标准答案：3.3/4096 V≈0.0008057 V=0.806 mV。",
+          "answerPoints": "标准答案：3.3/4096 V≈0.0008057 V=0.806 mV。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-6",
+          "type": "嵌入式",
+          "question": "DMA解决什么问题？",
+          "standardAnswer": "标准答案：DMA让外设与内存之间的数据搬运由DMA控制器完成，减少CPU逐字节拷贝和中断开销，适合ADC、UART、SPI等连续数据流。",
+          "answerPoints": "标准答案：DMA让外设与内存之间的数据搬运由DMA控制器完成，减少CPU逐字节拷贝和中断开销，适合ADC、UART、SPI等连续数据流。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-7",
+          "type": "RTOS",
+          "question": "优先级反转是什么？",
+          "standardAnswer": "标准答案：高优先级任务等待低优先级任务持有的资源，而中优先级任务持续抢占低优先级任务，导致高优先级间接被中优先级阻塞。常用优先级继承/天花板协议缓解。",
+          "answerPoints": "标准答案：高优先级任务等待低优先级任务持有的资源，而中优先级任务持续抢占低优先级任务，导致高优先级间接被中优先级阻塞。常用优先级继承/天花板协议缓解。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-8",
+          "type": "C语言",
+          "question": "volatile能保证线程安全吗？",
+          "standardAnswer": "标准答案：不能。volatile主要阻止编译器对相关访问做某些优化，并不保证原子性、互斥或多核内存顺序。线程同步仍需原子操作、锁或内存屏障。",
+          "answerPoints": "标准答案：不能。volatile主要阻止编译器对相关访问做某些优化，并不保证原子性、互斥或多核内存顺序。线程同步仍需原子操作、锁或内存屏障。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-9",
+          "type": "笔试-计算题",
+          "question": "16 MHz定时器、预分频16，要产生1 ms周期，计数多少次？",
+          "standardAnswer": "标准答案：预分频后频率=1 MHz，每计数1 μs；1 ms需要1000次计数。若计数器从0开始，比较值常设999，具体看硬件模式。",
+          "answerPoints": "标准答案：预分频后频率=1 MHz，每计数1 μs；1 ms需要1000次计数。若计数器从0开始，比较值常设999，具体看硬件模式。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-10",
+          "type": "项目面",
+          "question": "UART丢包怎么排查？",
+          "standardAnswer": "标准答案：检查波特率/时钟误差、电平和线路；看接收FIFO/中断是否溢出；高负载下用DMA和环形缓冲；检查协议帧、校验、流控和任务优先级。",
+          "answerPoints": "标准答案：检查波特率/时钟误差、电平和线路；看接收FIFO/中断是否溢出；高负载下用DMA和环形缓冲；检查协议帧、校验、流控和任务优先级。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-11",
+          "type": "项目面",
+          "question": "固件升级掉电如何避免变砖？",
+          "standardAnswer": "标准答案：采用A/B镜像或Bootloader+双分区；新固件先下载到备用区并校验签名/CRC；写入完成后原子切换启动标志；启动失败可回滚旧版本。",
+          "answerPoints": "标准答案：采用A/B镜像或Bootloader+双分区；新固件先下载到备用区并校验签名/CRC；写入完成后原子切换启动标志；启动失败可回滚旧版本。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c45-12",
+          "type": "HR面",
+          "question": "为什么选择存储/MCU芯片公司？",
+          "standardAnswer": "标准答案：结合嵌入式软硬件协同、芯片底层开发和量产可靠性说明兴趣，并用MCU/驱动/C/C++项目证明匹配。",
+          "answerPoints": "标准答案：结合嵌入式软硬件协同、芯片底层开发和量产可靠性说明兴趣，并用MCU/驱动/C/C++项目证明匹配。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "海康威视",
+      "process": "公开企业页约1053篇面经。嵌入式岗位公开内容非常集中：C/C++内存与对齐、Linux中断/进程通信、SPI/DMA、FreeRTOS、MMU、调度、固件升级、UART丢包和项目调试。",
+      "sourceStats": {
+        "publicInterviewCount": 1053,
+        "publicQuestionCount": 0,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客海康威视企业真题页",
+          "url": "https://www.nowcoder.com/enterprise/795/question/company",
+          "type": "community"
+        },
+        {
+          "label": "牛客海康嵌入式公开面经",
+          "url": "https://www.nowcoder.com/discuss/752798629701619712",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c46-1",
+          "type": "C/C++",
+          "question": "为什么需要内存对齐？",
+          "standardAnswer": "标准答案：CPU通常按字长/总线宽度高效访问对齐地址；未对齐可能需要多次总线访问，部分架构甚至触发异常。编译器会按成员对齐要求插入padding，因此结构体大小可能大于成员之和。",
+          "answerPoints": "标准答案：CPU通常按字长/总线宽度高效访问对齐地址；未对齐可能需要多次总线访问，部分架构甚至触发异常。编译器会按成员对齐要求插入padding，因此结构体大小可能大于成员之和。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-2",
+          "type": "C/C++",
+          "question": "malloc和new区别？",
+          "standardAnswer": "标准答案：malloc是C库函数，仅分配原始字节并返回void*，失败返回NULL；new是C++运算符，会调用构造函数并返回类型指针，失败通常抛bad_alloc。释放分别对应free和delete。",
+          "answerPoints": "标准答案：malloc是C库函数，仅分配原始字节并返回void*，失败返回NULL；new是C++运算符，会调用构造函数并返回类型指针，失败通常抛bad_alloc。释放分别对应free和delete。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-3",
+          "type": "C/C++",
+          "question": "delete和delete[]为什么不能混用？",
+          "standardAnswer": "标准答案：数组new[]可能需要记录元素个数并逐个调用析构；delete只按单对象语义释放。混用属于未定义行为。",
+          "answerPoints": "标准答案：数组new[]可能需要记录元素个数并逐个调用析构；delete只按单对象语义释放。混用属于未定义行为。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-4",
+          "type": "Linux",
+          "question": "中断上下文为什么不能做耗时操作？",
+          "standardAnswer": "标准答案：中断处理需要尽快返回，长时间占用会增加系统中断延迟并阻塞其他工作；不能做可能睡眠的操作。耗时部分通常放到底半部、工作队列或线程化中断处理。",
+          "answerPoints": "标准答案：中断处理需要尽快返回，长时间占用会增加系统中断延迟并阻塞其他工作；不能做可能睡眠的操作。耗时部分通常放到底半部、工作队列或线程化中断处理。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-5",
+          "type": "Linux",
+          "question": "共享内存为什么快？",
+          "standardAnswer": "标准答案：进程把同一物理内存映射到各自虚拟地址空间，数据交换不需要在用户态与内核态之间反复复制；但同步仍需信号量、互斥等机制。",
+          "answerPoints": "标准答案：进程把同一物理内存映射到各自虚拟地址空间，数据交换不需要在用户态与内核态之间反复复制；但同步仍需信号量、互斥等机制。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-6",
+          "type": "嵌入式",
+          "question": "SPI典型四根线是什么？",
+          "standardAnswer": "标准答案：SCLK时钟、MOSI主发从收、MISO主收从发、CS/SS片选。多从设备常各自使用CS。",
+          "answerPoints": "标准答案：SCLK时钟、MOSI主发从收、MISO主收从发、CS/SS片选。多从设备常各自使用CS。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-7",
+          "type": "嵌入式",
+          "question": "DMA是什么？",
+          "standardAnswer": "标准答案：Direct Memory Access让DMA控制器在外设与内存或内存之间搬运数据，CPU只负责配置和处理完成事件，可显著降低高频数据传输的CPU开销。",
+          "answerPoints": "标准答案：Direct Memory Access让DMA控制器在外设与内存或内存之间搬运数据，CPU只负责配置和处理完成事件，可显著降低高频数据传输的CPU开销。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-8",
+          "type": "RTOS",
+          "question": "互斥量和二值信号量区别？",
+          "standardAnswer": "标准答案：都可实现0/1同步，但互斥量用于资源互斥，通常有所有权与优先级继承；二值信号量更适合事件通知，可由ISR给出，通常不强调所有权。",
+          "answerPoints": "标准答案：都可实现0/1同步，但互斥量用于资源互斥，通常有所有权与优先级继承；二值信号量更适合事件通知，可由ISR给出，通常不强调所有权。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-9",
+          "type": "RTOS",
+          "question": "如何评估实时系统中断响应时间？",
+          "standardAnswer": "标准答案：从中断信号发生到ISR首条有效处理之间计时，可用GPIO翻转+示波器/逻辑分析仪或硬件时间戳测量；在不同负载、临界区和中断优先级下统计最大值而不只看平均值。",
+          "answerPoints": "标准答案：从中断信号发生到ISR首条有效处理之间计时，可用GPIO翻转+示波器/逻辑分析仪或硬件时间戳测量；在不同负载、临界区和中断优先级下统计最大值而不只看平均值。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-10",
+          "type": "项目面",
+          "question": "段错误怎么定位？",
+          "standardAnswer": "标准答案：先保留core dump；用gdb bt查看调用栈；检查崩溃地址和变量；配合ASan/Valgrind找越界、UAF；若嵌入式无core则用异常寄存器、map文件和日志定位PC/LR。",
+          "answerPoints": "标准答案：先保留core dump；用gdb bt查看调用栈；检查崩溃地址和变量；配合ASan/Valgrind找越界、UAF；若嵌入式无core则用异常寄存器、map文件和日志定位PC/LR。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-11",
+          "type": "项目面",
+          "question": "UART丢包怎么排查？",
+          "standardAnswer": "标准答案：核对波特率与时钟、电平、线缆；检查FIFO溢出和ISR延迟；使用环形缓冲/DMA；验证流控、协议帧和校验；在压力场景测丢包率。",
+          "answerPoints": "标准答案：核对波特率与时钟、电平、线缆；检查FIFO溢出和ISR延迟；使用环形缓冲/DMA；验证流控、协议帧和校验；在压力场景测丢包率。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c46-12",
+          "type": "项目面",
+          "question": "固件升级掉电怎么保证设备可恢复？",
+          "standardAnswer": "标准答案：双镜像/A-B分区；新镜像完整写入并校验签名/CRC后才切换启动标志；Bootloader能检测启动失败并回滚；关键元数据要原子更新。",
+          "answerPoints": "标准答案：双镜像/A-B分区；新镜像完整写入并校验签名/CRC后才切换启动标志；Bootloader能检测启动失败并回滚；关键元数据要原子更新。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "欧莱雅中国",
+      "process": "公开页面约56篇面经、1项题库。市场/零售/电商管培生常有英文自我介绍、Why L'Oréal、品牌/产品、campaign、新零售、消费者洞察、群面Case、创新与经历深挖。",
+      "sourceStats": {
+        "publicInterviewCount": 56,
+        "publicQuestionCount": 1,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客欧莱雅企业题库",
+          "url": "https://api-cdn.nowcoder.com/enterprise/2426/question/company",
+          "type": "community"
+        },
+        {
+          "label": "牛客欧莱雅管培生公开面经",
+          "url": "https://www.nowcoder.com/discuss/353158587285446656",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c47-1",
+          "type": "市场面",
+          "question": "为什么选择欧莱雅？",
+          "standardAnswer": "标准答案：标准答案应包含三层：对美妆/消费行业的长期兴趣；对欧莱雅多品牌矩阵、创新和数字化/新零售的具体理解；自己的消费者洞察、市场、数据或电商经历如何匹配目标岗位。",
+          "answerPoints": "标准答案：标准答案应包含三层：对美妆/消费行业的长期兴趣；对欧莱雅多品牌矩阵、创新和数字化/新零售的具体理解；自己的消费者洞察、市场、数据或电商经历如何匹配目标岗位。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-2",
+          "type": "市场面",
+          "question": "如何分析一个美妆campaign？",
+          "standardAnswer": "标准答案：目标人群与洞察→品牌目标→核心信息/创意→渠道与KOL→内容和转化路径→执行节奏→曝光/互动/搜索/转化/复购等KPI→品牌一致性与风险。",
+          "answerPoints": "标准答案：目标人群与洞察→品牌目标→核心信息/创意→渠道与KOL→内容和转化路径→执行节奏→曝光/互动/搜索/转化/复购等KPI→品牌一致性与风险。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-3",
+          "type": "市场面",
+          "question": "新品上市方案如何做？",
+          "standardAnswer": "标准答案：市场与竞品→目标消费者→定位和卖点→价格→渠道→内容/KOL/试用→电商与门店联动→上市节奏→预算→KPI→复盘。",
+          "answerPoints": "标准答案：市场与竞品→目标消费者→定位和卖点→价格→渠道→内容/KOL/试用→电商与门店联动→上市节奏→预算→KPI→复盘。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-4",
+          "type": "市场面",
+          "question": "如何选择KOL？",
+          "standardAnswer": "标准答案：先看目标消费者匹配度，再看内容调性、真实互动率、历史转化、品牌安全、平台结构和成本；不能只看粉丝量。",
+          "answerPoints": "标准答案：先看目标消费者匹配度，再看内容调性、真实互动率、历史转化、品牌安全、平台结构和成本；不能只看粉丝量。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-5",
+          "type": "零售",
+          "question": "新零售的核心是什么？",
+          "standardAnswer": "标准答案：线上线下数据、库存、会员和体验协同，让消费者能跨渠道完成发现、试用、购买和服务，同时提升运营效率，而不是简单“开网店+门店”。",
+          "answerPoints": "标准答案：线上线下数据、库存、会员和体验协同，让消费者能跨渠道完成发现、试用、购买和服务，同时提升运营效率，而不是简单“开网店+门店”。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-6",
+          "type": "电商",
+          "question": "详情页转化率下降怎么排查？",
+          "standardAnswer": "标准答案：按流量来源、设备、新老客、SKU分层；拆曝光→详情→加购→下单；检查价格、库存、评价、页面速度、素材、促销和竞品变化；用A/B测试验证。",
+          "answerPoints": "标准答案：按流量来源、设备、新老客、SKU分层；拆曝光→详情→加购→下单；检查价格、库存、评价、页面速度、素材、促销和竞品变化；用A/B测试验证。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-7",
+          "type": "笔试-计算题",
+          "question": "某campaign投入100万元，带来可归因增量毛利150万元，简单净收益和ROI分别是多少？",
+          "standardAnswer": "标准答案：净收益=150-100=50万元；若ROI按净收益/投入定义，则ROI=50/100=50%。",
+          "answerPoints": "标准答案：净收益=150-100=50万元；若ROI按净收益/投入定义，则ROI=50/100=50%。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-8",
+          "type": "案例",
+          "question": "品牌年轻用户下降，如何分析？",
+          "standardAnswer": "标准答案：先确认市场与品牌份额变化；按年龄/渠道/品类看漏斗；做社媒舆情和消费者研究；比较竞品的产品、价格和内容；提出产品、传播或渠道实验并量化验证。",
+          "answerPoints": "标准答案：先确认市场与品牌份额变化；按年龄/渠道/品类看漏斗；做社媒舆情和消费者研究；比较竞品的产品、价格和内容；提出产品、传播或渠道实验并量化验证。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-9",
+          "type": "英文面",
+          "question": "Why marketing?",
+          "standardAnswer": "标准答案：A strong answer connects consumer insight, creativity and measurable business impact with one concrete experience in which you understood users, designed an action and measured the result.",
+          "answerPoints": "标准答案：A strong answer connects consumer insight, creativity and measurable business impact with one concrete experience in which you understood users, designed an action and measured the result.",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-10",
+          "type": "行为面",
+          "question": "最创新的一次经历怎么答？",
+          "standardAnswer": "标准答案：描述原有做法的限制、你提出的不同假设、如何说服团队、执行实验、最终量化结果和失败/迭代点。创新必须体现“新方法+结果”，而不是只说想法新。",
+          "answerPoints": "标准答案：描述原有做法的限制、你提出的不同假设、如何说服团队、执行实验、最终量化结果和失败/迭代点。创新必须体现“新方法+结果”，而不是只说想法新。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-11",
+          "type": "群面",
+          "question": "如何评价自己在群面中的表现？",
+          "standardAnswer": "标准答案：指出一个可观察贡献，如搭框架/计算/总结，再承认一个具体改进点，如前期倾听不足；最后说明若重来会如何做。避免只给自己打高分。",
+          "answerPoints": "标准答案：指出一个可观察贡献，如搭框架/计算/总结，再承认一个具体改进点，如前期倾听不足；最后说明若重来会如何做。避免只给自己打高分。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c47-12",
+          "type": "HR面",
+          "question": "为什么美妆行业？",
+          "standardAnswer": "标准答案：把消费趋势、品牌、产品创新和数字化渠道与自己的兴趣/经验连接，并证明你对行业工作内容有真实理解，不只是“喜欢买美妆”。",
+          "answerPoints": "标准答案：把消费趋势、品牌、产品创新和数字化渠道与自己的兴趣/经验连接，并证明你对行业工作内容有真实理解，不只是“喜欢买美妆”。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "招商证券",
+      "process": "公开页面约24篇面经。财富顾问、研究、投行和IT岗位差异较大；可见笔试含行测/金融/IT，面试覆盖财富管理、投资经历、行业研究、MySQL/Java基础、客户情景与职业匹配。",
+      "sourceStats": {
+        "publicInterviewCount": 24,
+        "publicQuestionCount": 0,
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客招商证券公开面经",
+          "url": "https://www.nowcoder.com/enterprise/2452/interview",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c48-1",
+          "type": "金融",
+          "question": "财富管理与单纯销售产品有什么区别？",
+          "standardAnswer": "标准答案：财富管理从客户目标、期限、风险承受能力和资产负债出发做组合配置与持续服务，而不是以单一产品销量为目标；还要做适当性、再平衡和风险沟通。",
+          "answerPoints": "标准答案：财富管理从客户目标、期限、风险承受能力和资产负债出发做组合配置与持续服务，而不是以单一产品销量为目标；还要做适当性、再平衡和风险沟通。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-2",
+          "type": "金融",
+          "question": "久期是什么？",
+          "standardAnswer": "标准答案：Macaulay久期是现金流现值加权平均期限；修正久期可近似衡量债券价格对收益率变化的敏感度，收益率小幅上升Δy时，价格变化比例约为-D_mod×Δy。",
+          "answerPoints": "标准答案：Macaulay久期是现金流现值加权平均期限；修正久期可近似衡量债券价格对收益率变化的敏感度，收益率小幅上升Δy时，价格变化比例约为-D_mod×Δy。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-3",
+          "type": "笔试-计算题",
+          "question": "债券修正久期5，收益率上升0.2个百分点，价格近似变化多少？",
+          "standardAnswer": "标准答案：ΔP/P≈-D×Δy=-5×0.002=-0.01，即价格约下降1%。",
+          "answerPoints": "标准答案：ΔP/P≈-D×Δy=-5×0.002=-0.01，即价格约下降1%。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-4",
+          "type": "金融",
+          "question": "一级市场和二级市场区别？",
+          "standardAnswer": "标准答案：一级市场是证券发行融资，资金从投资者进入发行人；二级市场是已发行证券在投资者之间交易，提供流动性和价格发现。",
+          "answerPoints": "标准答案：一级市场是证券发行融资，资金从投资者进入发行人；二级市场是已发行证券在投资者之间交易，提供流动性和价格发现。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-5",
+          "type": "研究",
+          "question": "卖方研究和买方研究的差异？",
+          "standardAnswer": "标准答案：卖方研究服务外部机构客户，强调覆盖、观点和服务；买方研究直接服务自有投资决策，更强调组合收益、仓位和风险。两者都要求基本面研究。",
+          "answerPoints": "标准答案：卖方研究服务外部机构客户，强调覆盖、观点和服务；买方研究直接服务自有投资决策，更强调组合收益、仓位和风险。两者都要求基本面研究。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-6",
+          "type": "研究",
+          "question": "如何判断一个行业是成长还是周期驱动？",
+          "standardAnswer": "标准答案：看需求与渗透率长期趋势、供给扩张、价格/库存周期、资本开支、政策、竞争结构和盈利波动；很多行业同时有成长与周期属性。",
+          "answerPoints": "标准答案：看需求与渗透率长期趋势、供给扩张、价格/库存周期、资本开支、政策、竞争结构和盈利波动；很多行业同时有成长与周期属性。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-7",
+          "type": "IT",
+          "question": "MySQL索引的核心数据结构是什么？",
+          "standardAnswer": "标准答案：InnoDB普通与主键索引主要是B+树；聚簇索引叶子存完整行，二级索引叶子通常存索引键和主键值。",
+          "answerPoints": "标准答案：InnoDB普通与主键索引主要是B+树；聚簇索引叶子存完整行，二级索引叶子通常存索引键和主键值。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-8",
+          "type": "IT",
+          "question": "Java中重载和重写区别？",
+          "standardAnswer": "标准答案：重载发生在同一类/继承体系中同名方法参数列表不同，编译期决定；重写是子类对父类可继承实例方法提供相同签名实现，运行期动态分派。",
+          "answerPoints": "标准答案：重载发生在同一类/继承体系中同名方法参数列表不同，编译期决定；重写是子类对父类可继承实例方法提供相同签名实现，运行期动态分派。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-9",
+          "type": "客户情景",
+          "question": "客户持有基金大幅亏损要求马上换产品怎么办？",
+          "standardAnswer": "标准答案：先核实风险承受能力、持有目标和产品风险；解释市场与产品原因，不承诺回本；给出继续持有、调整组合或止损的风险收益比较，最终由客户在适当性框架下决策。",
+          "answerPoints": "标准答案：先核实风险承受能力、持有目标和产品风险；解释市场与产品原因，不承诺回本；给出继续持有、调整组合或止损的风险收益比较，最终由客户在适当性框架下决策。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-10",
+          "type": "投行",
+          "question": "为什么企业要做IPO？",
+          "standardAnswer": "标准答案：可能为融资、品牌/治理、股东流动性和并购货币等目的；同时承担信息披露、合规成本、业绩压力和控制权稀释。",
+          "answerPoints": "标准答案：可能为融资、品牌/治理、股东流动性和并购货币等目的；同时承担信息披露、合规成本、业绩压力和控制权稀释。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-11",
+          "type": "行为面",
+          "question": "为什么选择证券行业？",
+          "standardAnswer": "标准答案：结合资本市场、研究/交易/财富/科技等具体方向和自己的分析、客户、软件或财务经验回答，不能只说“金融赚钱多”。",
+          "answerPoints": "标准答案：结合资本市场、研究/交易/财富/科技等具体方向和自己的分析、客户、软件或财务经验回答，不能只说“金融赚钱多”。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c48-12",
+          "type": "HR面",
+          "question": "能否承受较重工作任务？",
+          "standardAnswer": "标准答案：说明可以接受岗位正常高峰，并用过去高压项目说明你如何优先级管理、保证质量和主动沟通风险；避免空泛说“能吃苦”。",
+          "answerPoints": "标准答案：说明可以接受岗位正常高峰，并用过去高压项目说明你如何优先级管理、保证质量和主动沟通风险；避免空泛说“能吃苦”。",
+          "difficulty": "中等"
+        }
+      ]
+    },
+    {
+      "company": "京东方",
+      "process": "公开机械/结构设计面经可见HR+技术联合面，技术侧会问结构设计、仿真分析、专利/论文创新与课题贡献；公司岗位还覆盖显示器件、半导体、软件、算法、工艺等。",
+      "sourceStats": {
+        "asOf": "2026-09-23"
+      },
+      "sources": [
+        {
+          "label": "牛客京东方BOE结构设计公开面经",
+          "url": "https://www.nowcoder.com/feed/main/detail/81f53b898a064653824698f98028d4fc",
+          "type": "community"
+        }
+      ],
+      "questions": [
+        {
+          "id": "c49-1",
+          "type": "结构面",
+          "question": "如何说明课题里结构设计和仿真分析各占多少？",
+          "standardAnswer": "标准答案：不要只给比例。应列出自己完成的CAD/结构方案、载荷与边界定义、有限元建模、网格与接触、验证、优化及最终设计输出，再说明哪个环节是核心贡献。",
+          "answerPoints": "标准答案：不要只给比例。应列出自己完成的CAD/结构方案、载荷与边界定义、有限元建模、网格与接触、验证、优化及最终设计输出，再说明哪个环节是核心贡献。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-2",
+          "type": "CAE",
+          "question": "有限元结果如何验证可信？",
+          "standardAnswer": "标准答案：单位和边界检查→反力/能量平衡→理论或手算对照→网格收敛→必要时实验或其他软件对照→关注奇异点与结果评价位置。",
+          "answerPoints": "标准答案：单位和边界检查→反力/能量平衡→理论或手算对照→网格收敛→必要时实验或其他软件对照→关注奇异点与结果评价位置。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-3",
+          "type": "CAE",
+          "question": "结构应力超过材料屈服强度怎么办？",
+          "standardAnswer": "标准答案：先判断是否是几何/接触奇异点及工况合理性；若为真实高应力，考虑优化载荷路径、增加截面/圆角/加强筋、材料或连接，并重新校核强度、刚度、疲劳、重量和制造。",
+          "answerPoints": "标准答案：先判断是否是几何/接触奇异点及工况合理性；若为真实高应力，考虑优化载荷路径、增加截面/圆角/加强筋、材料或连接，并重新校核强度、刚度、疲劳、重量和制造。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-4",
+          "type": "CAE",
+          "question": "为什么薄板结构常用壳单元？",
+          "standardAnswer": "标准答案：厚度远小于面内尺寸时壳单元可用中面+厚度描述弯曲和膜行为，单元数远少于实体厚度多层网格，计算效率高。局部三维应力再用实体子模型。",
+          "answerPoints": "标准答案：厚度远小于面内尺寸时壳单元可用中面+厚度描述弯曲和膜行为，单元数远少于实体厚度多层网格，计算效率高。局部三维应力再用实体子模型。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-5",
+          "type": "机械",
+          "question": "公差为什么不能一味设得越小越好？",
+          "standardAnswer": "标准答案：更小公差会显著增加加工、检测和装配成本。应从功能和装配链确定必要精度，把关键尺寸收紧，非关键尺寸放宽。",
+          "answerPoints": "标准答案：更小公差会显著增加加工、检测和装配成本。应从功能和装配链确定必要精度，把关键尺寸收紧，非关键尺寸放宽。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-6",
+          "type": "材料",
+          "question": "OLED/显示器件结构为什么关注热变形？",
+          "standardAnswer": "标准答案：材料热膨胀系数不同会造成翘曲、应力和界面失效；温度还影响光学、电学和寿命，因此要结合热源、散热路径和材料匹配分析。",
+          "answerPoints": "标准答案：材料热膨胀系数不同会造成翘曲、应力和界面失效；温度还影响光学、电学和寿命，因此要结合热源、散热路径和材料匹配分析。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-7",
+          "type": "笔试-计算题",
+          "question": "铝件长度500 mm，线膨胀系数23×10^-6/℃，温升40℃，自由伸长多少？",
+          "standardAnswer": "标准答案：ΔL=αLΔT=23×10^-6×500×40 mm=0.46 mm。",
+          "answerPoints": "标准答案：ΔL=αLΔT=23×10^-6×500×40 mm=0.46 mm。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-8",
+          "type": "项目面",
+          "question": "论文创新点怎么说才有说服力？",
+          "standardAnswer": "标准答案：先说现有方法的明确缺口，再说你的方法/模型/试验做了什么不同，最后给出定量结果和适用边界。不能把“用了某软件”当创新。",
+          "answerPoints": "标准答案：先说现有方法的明确缺口，再说你的方法/模型/试验做了什么不同，最后给出定量结果和适用边界。不能把“用了某软件”当创新。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-9",
+          "type": "项目面",
+          "question": "专利如何用1分钟介绍？",
+          "standardAnswer": "标准答案：问题场景→现有方案痛点→核心技术结构/方法→关键效果→你负责的发明点。避免念权利要求。",
+          "answerPoints": "标准答案：问题场景→现有方案痛点→核心技术结构/方法→关键效果→你负责的发明点。避免念权利要求。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-10",
+          "type": "质量",
+          "question": "量产结构件出现尺寸漂移怎么办？",
+          "standardAnswer": "标准答案：先做测量系统确认；按设备、模具、批次、温湿度、班次分层；用SPC看趋势；检查工艺参数、模具磨损和材料；通过DOE/验证锁定根因。",
+          "answerPoints": "标准答案：先做测量系统确认；按设备、模具、批次、温湿度、班次分层；用SPC看趋势；检查工艺参数、模具磨损和材料；通过DOE/验证锁定根因。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-11",
+          "type": "HR面",
+          "question": "如何看待加班？",
+          "standardAnswer": "标准答案：可以接受项目关键节点的阶段性高强度，但会通过计划、工具和沟通提高效率；同时关注长期可持续。回答保持真实。",
+          "answerPoints": "标准答案：可以接受项目关键节点的阶段性高强度，但会通过计划、工具和沟通提高效率；同时关注长期可持续。回答保持真实。",
+          "difficulty": "中等"
+        },
+        {
+          "id": "c49-12",
+          "type": "HR面",
+          "question": "目标base变化是否接受？",
+          "standardAnswer": "标准答案：明确首选地点和可接受范围；若岗位内容优先于地点可说明权重；不要给无法履行的承诺。",
+          "answerPoints": "标准答案：明确首选地点和可接受范围；若岗位内容优先于地点可说明权重；不要给无法履行的承诺。",
           "difficulty": "中等"
         }
       ]
