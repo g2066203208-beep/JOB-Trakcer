@@ -1972,6 +1972,1126 @@
       "question": "数字电路中的竞争冒险是什么？",
       "answerPoints": "不同路径延迟导致短暂错误逻辑。",
       "difficulty": "中等"
+    },
+    {
+      "id": "g-109",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "数组中找两数之和有哪些做法？",
+      "answerPoints": "暴力O(n²)；哈希表O(n)时间、O(n)空间。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-110",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "链表如何判断是否有环？",
+      "answerPoints": "快慢指针；相遇说明有环。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-111",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "如何在O(log n)时间查找有序数组中的目标值？",
+      "answerPoints": "二分查找并注意左右边界。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-112",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "堆适合解决哪些Top-K问题？",
+      "answerPoints": "维护大小为K的堆，适合流式或大规模数据。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-113",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "BFS和DFS分别更适合哪些场景？",
+      "answerPoints": "BFS常用于无权最短路；DFS适合遍历、回溯、连通性。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-114",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "动态规划题如何判断状态定义是否合理？",
+      "answerPoints": "状态应能表达子问题并可由更小状态转移。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-115",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "LRU缓存怎样做到O(1)查询和淘汰？",
+      "answerPoints": "哈希表+双向链表。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-116",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "字符串最长无重复子串如何做？",
+      "answerPoints": "滑动窗口+哈希记录最近位置。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-117",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "合并K个有序链表怎样降低复杂度？",
+      "answerPoints": "最小堆或分治合并。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-118",
+      "category": "算法与数据结构",
+      "type": "笔面试",
+      "question": "并查集适合解决什么问题？",
+      "answerPoints": "动态连通性、集合合并与查询。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-119",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "用户态和内核态为什么要区分？",
+      "answerPoints": "隔离权限，保护系统资源和硬件访问。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-120",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "死锁产生的四个必要条件是什么？",
+      "answerPoints": "互斥、请求保持、不可剥夺、循环等待。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-121",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "虚拟内存解决了什么问题？",
+      "answerPoints": "地址隔离、按需加载、扩展可用地址空间。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-122",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "线程上下文切换为什么有成本？",
+      "answerPoints": "保存恢复状态、缓存/TLB影响、调度开销。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-123",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "HTTP和HTTPS的核心区别是什么？",
+      "answerPoints": "HTTPS在HTTP上增加TLS加密、认证和完整性。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-124",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "DNS解析大致经过哪些层级？",
+      "answerPoints": "本地缓存、递归解析器、根、TLD、权威服务器。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-125",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "TCP TIME_WAIT为什么存在？",
+      "answerPoints": "确保迟到报文失效并可靠处理最后ACK。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-126",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "负载均衡有哪些常见策略？",
+      "answerPoints": "轮询、加权、最少连接、一致性哈希等。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-127",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "限流、熔断、降级分别解决什么？",
+      "answerPoints": "控制流量、隔离故障、牺牲次要能力保核心。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-128",
+      "category": "操作系统与网络",
+      "type": "笔面试",
+      "question": "WebSocket适合什么场景？",
+      "answerPoints": "需要长连接和双向实时通信的场景。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-129",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "预训练、指令微调和偏好对齐分别解决什么？",
+      "answerPoints": "知识/表示学习、任务遵循、行为偏好与安全。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-130",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "Embedding为什么可以用于语义检索？",
+      "answerPoints": "把语义相似内容映射到近邻向量空间。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-131",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "Reranker在RAG中有什么作用？",
+      "answerPoints": "对初步召回结果二次排序，提高相关性。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-132",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "Chunk切太大或太小会怎样？",
+      "answerPoints": "太大稀释相关信息且耗上下文；太小丢失完整语义。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-133",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "Prompt Injection是什么风险？",
+      "answerPoints": "外部内容诱导模型绕过指令或泄露/误用工具。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-134",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "Agent为什么需要工具权限边界？",
+      "answerPoints": "防止越权、误操作和不可控外部副作用。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-135",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "模型量化主要权衡什么？",
+      "answerPoints": "显存/速度与精度之间的权衡。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-136",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "KV Cache为什么能加速自回归推理？",
+      "answerPoints": "复用历史token的K/V，避免重复计算。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-137",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "什么是数据漂移？",
+      "answerPoints": "线上输入分布相对训练/基准数据发生变化。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-138",
+      "category": "AI与大模型",
+      "type": "笔面试",
+      "question": "AI产品评测为什么不能只看一个准确率？",
+      "answerPoints": "需覆盖质量、安全、延迟、成本、用户价值等。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-139",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "PID三项分别起什么作用？",
+      "answerPoints": "P响应当前误差，I消除稳态误差，D抑制变化趋势。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-140",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "闭环控制相比开环控制的优势是什么？",
+      "answerPoints": "利用反馈抑制扰动和模型误差。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-141",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "系统稳定和性能快是否天然一致？",
+      "answerPoints": "不一致，响应速度、超调、鲁棒性常需权衡。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-142",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "什么是可控性？",
+      "answerPoints": "能否通过输入把系统状态驱动到目标状态。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-143",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "PLC适合哪些工业场景？",
+      "answerPoints": "可靠、实时、逻辑与顺序控制的工业自动化。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-144",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "传感器噪声为什么需要滤波？",
+      "answerPoints": "避免噪声放大或影响控制决策。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-145",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "采样频率过低会导致什么？",
+      "answerPoints": "混叠，无法正确还原高频信号。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-146",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "卡尔曼滤波核心思想是什么？",
+      "answerPoints": "融合模型预测与测量，按不确定性加权估计。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-147",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "伺服系统和普通电机控制有什么区别？",
+      "answerPoints": "更强调位置/速度/转矩的高精度闭环控制。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-148",
+      "category": "自动化与控制",
+      "type": "笔面试",
+      "question": "工业现场总线的价值是什么？",
+      "answerPoints": "实时、可靠地连接控制器、传感器和执行器。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-149",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "轴为什么常同时校核强度和刚度？",
+      "answerPoints": "既防止破坏，也要限制变形以保证传动和配合。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-150",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "齿轮失效常见形式有哪些？",
+      "answerPoints": "齿根弯曲、齿面点蚀、胶合、磨损。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-151",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "过盈配合适合什么场景？",
+      "answerPoints": "需要可靠传递载荷且不希望相对运动。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-152",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "公差与配合为什么影响装配成本？",
+      "answerPoints": "精度越高制造检测成本越高。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-153",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "疲劳裂纹通常从哪里萌生？",
+      "answerPoints": "应力集中、表面缺陷、材料缺陷处。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-154",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "为什么圆角能降低应力集中？",
+      "answerPoints": "使几何变化更平滑，降低局部应力梯度。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-155",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "轻量化为什么不能只减薄材料？",
+      "answerPoints": "还需满足强度、刚度、疲劳、碰撞、制造。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-156",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "焊接结构设计要关注哪些问题？",
+      "answerPoints": "焊缝强度、残余应力、疲劳、变形、可制造性。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-157",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "铸造件为什么要考虑拔模斜度和圆角？",
+      "answerPoints": "便于脱模、充型并降低缺陷和应力集中。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-158",
+      "category": "机械设计与制造",
+      "type": "笔面试",
+      "question": "DFM是什么意思？",
+      "answerPoints": "面向制造设计，在设计阶段考虑工艺和成本。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-159",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "屈服强度和抗拉强度有什么区别？",
+      "answerPoints": "开始明显塑性变形 vs 拉伸最大承载应力。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-160",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "韧性与强度有什么区别？",
+      "answerPoints": "韧性反映破坏前吸收能量能力，强度反映承载能力。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-161",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "热处理为什么能改变钢的性能？",
+      "answerPoints": "通过组织相变和晶粒/析出状态改变性能。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-162",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "复合材料为什么具有各向异性？",
+      "answerPoints": "性能与纤维方向、铺层结构强相关。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-163",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "高分子材料温度升高后性能为什么变化明显？",
+      "answerPoints": "分子链运动和玻璃化转变等影响。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-164",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "腐蚀疲劳为什么比单纯疲劳更危险？",
+      "answerPoints": "环境腐蚀与循环载荷耦合促进裂纹。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-165",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "晶粒细化通常如何影响强度？",
+      "answerPoints": "Hall-Petch关系下通常提高屈服强度。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-166",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "材料选型为什么需要同时考虑制造工艺？",
+      "answerPoints": "性能、成形、焊接、加工和成本相互制约。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-167",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "脆性断裂有哪些典型特征？",
+      "answerPoints": "塑性变形小、裂纹扩展快、对缺口敏感。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-168",
+      "category": "材料科学",
+      "type": "笔面试",
+      "question": "材料测试为什么要规定标准试样？",
+      "answerPoints": "保证边界、尺寸和结果可比性。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-169",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "关键路径上的任务延期意味着什么？",
+      "answerPoints": "若无总时差会直接推迟项目完工。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-170",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "挣值管理中的CPI小于1说明什么？",
+      "answerPoints": "成本效率差，实际花费高于完成工作的预算。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-171",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "风险登记册应包含哪些核心字段？",
+      "answerPoints": "风险、概率、影响、责任人、应对和触发条件。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-172",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "变更管理为什么不能只靠口头确认？",
+      "answerPoints": "需控制范围、成本、工期和责任证据链。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-173",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "项目复盘为什么不能只总结结果？",
+      "answerPoints": "要追溯决策、假设、流程和可复用经验。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-174",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "供应商延期时项目经理先做什么？",
+      "answerPoints": "评估关键路径影响、备选方案和沟通升级。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-175",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "RACI矩阵解决什么问题？",
+      "answerPoints": "明确负责、批准、咨询和知会角色。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-176",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "工程索赔的基础是什么？",
+      "answerPoints": "合同依据、事件事实、因果关系、损失与及时记录。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-177",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "质量问题整改如何形成闭环？",
+      "answerPoints": "发现、原因、措施、验证、预防复发。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-178",
+      "category": "工程项目管理",
+      "type": "笔面试",
+      "question": "项目预算超支如何分析？",
+      "answerPoints": "范围、单价、数量、效率、变更和不可预见因素。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-179",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "市盈率高一定意味着股票贵吗？",
+      "answerPoints": "不一定，需要结合增长、风险、行业和盈利质量。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-180",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "DCF估值最敏感的参数通常有哪些？",
+      "answerPoints": "现金流预测、折现率、永续增长率。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-181",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "久期有什么用途？",
+      "answerPoints": "衡量债券价格对利率变动的敏感度。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-182",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "分散投资为什么不能消除系统性风险？",
+      "answerPoints": "市场整体因素无法通过单纯分散个股去除。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-183",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "Beta衡量什么？",
+      "answerPoints": "资产相对市场的系统性风险敏感度。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-184",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "一级市场与二级市场区别？",
+      "answerPoints": "证券发行融资 vs 已发行证券交易。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-185",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "做行业研究通常从哪些维度入手？",
+      "answerPoints": "市场空间、竞争格局、产业链、政策、公司盈利。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-186",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "自由现金流为什么是估值的重要基础？",
+      "answerPoints": "反映企业可供资本提供者支配的真实现金创造。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-187",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "并购产生商誉的基本原因是什么？",
+      "answerPoints": "收购价高于可辨认净资产公允价值。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-188",
+      "category": "证券与投资",
+      "type": "笔面试",
+      "question": "量化策略为什么要防过拟合？",
+      "answerPoints": "历史回测表现可能无法泛化到未来。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-189",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "合同审查首先看哪些核心要素？",
+      "answerPoints": "主体、标的、价款、履行、违约、争议解决。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-190",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "违约责任和侵权责任有什么典型区别？",
+      "answerPoints": "前者基于合同义务，后者基于法定权益侵害。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-191",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "什么是商业秘密保护的基本要件？",
+      "answerPoints": "非公知、商业价值、采取合理保密措施。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-192",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "企业为什么需要数据合规评估？",
+      "answerPoints": "处理个人/重要数据涉及授权、安全和跨境等义务。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-193",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "利益冲突为什么是合规重点？",
+      "answerPoints": "可能损害独立判断并引发舞弊或不公平交易。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-194",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "反商业贿赂制度通常关注哪些行为？",
+      "answerPoints": "不当利益、第三方中介、礼品招待、回扣等。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-195",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "合同中不可抗力条款为什么重要？",
+      "answerPoints": "明确无法预见/避免事件下的责任和通知机制。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-196",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "知识产权尽调要看哪些内容？",
+      "answerPoints": "权属、有效性、许可、侵权风险和核心技术依赖。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-197",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "如果业务要求‘先做后补合同’，法务如何应对？",
+      "answerPoints": "说明风险，推动最小必要书面确认和授权。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-198",
+      "category": "法务与合规",
+      "type": "笔面试",
+      "question": "合规岗位为什么不能只回答‘不可以’？",
+      "answerPoints": "需要在法律边界内提供可执行替代方案。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-199",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "安全库存主要解决什么风险？",
+      "answerPoints": "需求和补货周期不确定性。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-200",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "牛鞭效应是什么？",
+      "answerPoints": "需求波动沿供应链向上游被放大。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-201",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "供应商评价应看哪些维度？",
+      "answerPoints": "质量、成本、交付、技术、服务、风险与ESG。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-202",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "库存周转率提高一定好吗？",
+      "answerPoints": "不一定，过高可能导致缺货和服务水平下降。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-203",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "采购总成本为什么不等于采购单价？",
+      "answerPoints": "还包括物流、质量、库存、维护、切换等成本。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-204",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "S&OP的作用是什么？",
+      "answerPoints": "协调销售、运营、供应、财务形成统一计划。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-205",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "仓库ABC分类管理依据是什么？",
+      "answerPoints": "通常按价值/重要性区分管理强度。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-206",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "国际物流中Incoterms解决什么？",
+      "answerPoints": "明确买卖双方费用、风险和责任边界。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-207",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "供应中断时如何排优先级？",
+      "answerPoints": "关键物料、客户影响、库存、替代源、恢复时间。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-208",
+      "category": "供应链与物流",
+      "type": "笔面试",
+      "question": "预测误差怎么衡量？",
+      "answerPoints": "MAE、MAPE、RMSE等，并结合业务成本。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-209",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "敏感度和特异度分别表示什么？",
+      "answerPoints": "识别真阳性能力 vs 识别真阴性能力。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-210",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "队列研究和病例对照研究区别？",
+      "answerPoints": "按暴露前瞻/回顾结局 vs 从结局回看暴露。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-211",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "双盲设计为什么重要？",
+      "answerPoints": "降低受试者和研究者预期造成的偏倚。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-212",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "生物标志物进入临床应用前要验证什么？",
+      "answerPoints": "分析性能、临床有效性、临床效用。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-213",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "药代动力学中的AUC代表什么？",
+      "answerPoints": "一定时间内药物暴露量。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-214",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "无菌生产为什么重视环境监测？",
+      "answerPoints": "控制微生物和颗粒污染风险。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-215",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "医疗器械风险管理常见思路是什么？",
+      "answerPoints": "识别危害、估计风险、控制、验证剩余风险。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-216",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "临床数据缺失值能随意删除吗？",
+      "answerPoints": "不能；需分析缺失机制并采用合适方法。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-217",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "PCR基本原理是什么？",
+      "answerPoints": "变性、退火、延伸循环扩增目标DNA。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-218",
+      "category": "医学与生命科学",
+      "type": "笔面试",
+      "question": "伦理审查为什么是临床研究前提？",
+      "answerPoints": "保护受试者权益、安全和知情同意。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-219",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "市场份额下降但销量上升意味着什么？",
+      "answerPoints": "市场增长更快，公司相对竞争力可能下降。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-220",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "客户分层常用哪些维度？",
+      "answerPoints": "价值、需求、行为、生命周期、行业/规模等。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-221",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "B2B销售周期为什么通常比B2C长？",
+      "answerPoints": "决策链多、金额高、验证与采购流程复杂。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-222",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "NPS反映什么？",
+      "answerPoints": "客户推荐意愿，是体验/忠诚度的简化指标。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-223",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "价格弹性大意味着什么？",
+      "answerPoints": "需求对价格变化敏感。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-224",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "品牌投放如何与销售效果建立联系？",
+      "answerPoints": "增量实验、区域/人群对照、归因和长期指标。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-225",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "销售漏斗中线索多但成交少怎么排查？",
+      "answerPoints": "线索质量、资格筛选、方案、价格、跟进和竞争。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-226",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "客户要求大幅降价时怎样谈判？",
+      "answerPoints": "先识别真实诉求，用价值、范围、期限和交换条件谈。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-227",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "新产品上市前为什么要做用户测试？",
+      "answerPoints": "验证需求、定位、体验和购买意愿。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-228",
+      "category": "市场销售与商业分析",
+      "type": "笔面试",
+      "question": "商业分析如何避免相关性误判因果？",
+      "answerPoints": "实验、准实验、控制混杂与业务机制验证。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-229",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "均值和中位数在什么情况下差异很大？",
+      "answerPoints": "分布偏斜或存在极端值时。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-230",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "相关系数为0是否表示两个变量独立？",
+      "answerPoints": "不一定，只说明无线性相关。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-231",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "置信区间如何解释？",
+      "answerPoints": "重复抽样下按该方法构造的区间有相应覆盖率。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-232",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "第一类错误和第二类错误是什么？",
+      "answerPoints": "误拒真原假设 vs 未拒假原假设。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-233",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "样本量增大通常会怎样影响标准误？",
+      "answerPoints": "标准误通常按1/√n下降。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-234",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "回归中的多重共线性有什么影响？",
+      "answerPoints": "系数估计不稳定、标准误增大。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-235",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "缺失数据MCAR/MAR/MNAR区别？",
+      "answerPoints": "完全随机、条件随机、非随机缺失。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-236",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "为什么要划分训练集、验证集、测试集？",
+      "answerPoints": "训练参数、选模型/调参、最终无偏评估。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-237",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "AUC适合解决什么评价问题？",
+      "answerPoints": "二分类模型跨阈值的排序/区分能力。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-238",
+      "category": "统计与数据分析",
+      "type": "笔面试",
+      "question": "时间序列为什么不能随意随机打乱再划分？",
+      "answerPoints": "会造成未来信息泄漏。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-239",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "英文自我介绍如何控制在90秒？",
+      "answerPoints": "教育背景一句、两段核心经历、岗位动机收尾。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-240",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "How do you explain a failure professionally?",
+      "answerPoints": "Own the issue, explain action, learning and changed behavior.",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-241",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "Why this company? 应包含哪些信息？",
+      "answerPoints": "公司/业务理解、岗位匹配、个人动机，避免空泛赞美。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-242",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "英文面试没听清问题怎么办？",
+      "answerPoints": "礼貌请求重复或确认理解，不要猜题。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-243",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "如何用英文描述项目数据结果？",
+      "answerPoints": "先结论，再指标、基线和提升幅度。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-244",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "如何回答What is your weakness?",
+      "answerPoints": "真实可控的弱点+已经采取的改进。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-245",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "如何在群面中礼貌打断？",
+      "answerPoints": "先认可对方，再说明时间/议题并提出具体补充。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-246",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "向非技术面试官解释复杂技术的原则是什么？",
+      "answerPoints": "少术语，用类比、问题和价值表达。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-247",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "如何回答Tell me about a conflict?",
+      "answerPoints": "Situation-Task-Action-Result，重点是解决机制。",
+      "difficulty": "中等"
+    },
+    {
+      "id": "g-248",
+      "category": "英语与职场表达",
+      "type": "笔面试",
+      "question": "反问面试官什么问题更有价值？",
+      "answerPoints": "团队目标、岗位成功标准、前三个月挑战、成长路径。",
+      "difficulty": "中等"
     }
   ]
 }
