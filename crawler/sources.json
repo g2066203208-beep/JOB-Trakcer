@@ -1,0 +1,145 @@
+{
+  "official_sources": [
+    {
+      "company": "国家能源集团",
+      "url": "https://zhaopin.chnenergy.com.cn/",
+      "domain": "zhaopin.chnenergy.com.cn"
+    },
+    {
+      "company": "中国华能",
+      "url": "https://zhaopin.chng.com.cn/",
+      "domain": "zhaopin.chng.com.cn"
+    },
+    {
+      "company": "中国华电",
+      "url": "https://rencaishichang.chd.com.cn/",
+      "domain": "rencaishichang.chd.com.cn"
+    },
+    {
+      "company": "中国大唐",
+      "url": "https://zhaopin.china-cdt.com/",
+      "domain": "zhaopin.china-cdt.com"
+    },
+    {
+      "company": "中广核",
+      "url": "https://cgn.hotjob.cn/",
+      "domain": "cgn.hotjob.cn"
+    },
+    {
+      "company": "国家电投",
+      "url": "https://spic2027.iguopin.com/",
+      "domain": "spic2027.iguopin.com"
+    },
+    {
+      "company": "中国电建",
+      "url": "https://zhaopin.powerchina.cn/",
+      "domain": "zhaopin.powerchina.cn"
+    },
+    {
+      "company": "中国能建",
+      "url": "https://ceec.iguopin.com/",
+      "domain": "ceec.iguopin.com"
+    },
+    {
+      "company": "中核集团",
+      "url": "https://cnnc.zhiye.com/",
+      "domain": "cnnc.zhiye.com"
+    },
+    {
+      "company": "中国建筑",
+      "url": "https://recruit.cscec.com/",
+      "domain": "recruit.cscec.com"
+    },
+    {
+      "company": "中建八局",
+      "url": "https://job.cscec8b.com.cn/",
+      "domain": "job.cscec8b.com.cn"
+    },
+    {
+      "company": "上海电气",
+      "url": "https://www.hotjob.cn/wt/SEC/",
+      "domain": "www.hotjob.cn"
+    },
+    {
+      "company": "东方电气",
+      "url": "https://dec2026.iguopin.com/",
+      "domain": "dec2026.iguopin.com"
+    },
+    {
+      "company": "金风科技",
+      "url": "https://careers.goldwind.com/",
+      "domain": "careers.goldwind.com"
+    },
+    {
+      "company": "远景能源",
+      "url": "https://envision-career.com/",
+      "domain": "envision-career.com"
+    },
+    {
+      "company": "明阳智能",
+      "url": "https://mywind.zhiye.com/",
+      "domain": "mywind.zhiye.com"
+    },
+    {
+      "company": "比亚迪",
+      "url": "https://job.byd.com/",
+      "domain": "job.byd.com"
+    },
+    {
+      "company": "吉利控股",
+      "url": "https://campus.geely.com/",
+      "domain": "campus.geely.com"
+    },
+    {
+      "company": "小米",
+      "url": "https://hr.xiaomi.com/website/opportunities.html",
+      "domain": "hr.xiaomi.com"
+    }
+  ],
+  "search_queries": [
+    "2027 校园招聘 土木工程",
+    "2027 校招 结构工程",
+    "2027 校招 工程管理",
+    "2027 校招 设计院 土木",
+    "2027 校招 央企 土木",
+    "2027 校招 新能源 风电",
+    "2027 校招 CAE 仿真",
+    "2027 校招 结构仿真 有限元",
+    "2027 校招 汽车 CAE",
+    "2027 校招 机械 仿真",
+    "2027 校招 智能建造",
+    "2027 秋招 土木 国企",
+    "2027 秋招 工程技术 新能源"
+  ],
+  "include_keywords": [
+    "2027",
+    "校招",
+    "校园招聘",
+    "秋招",
+    "招聘",
+    "应届",
+    "毕业生"
+  ],
+  "role_keywords": [
+    "土木",
+    "结构",
+    "岩土",
+    "桥梁",
+    "隧道",
+    "工程管理",
+    "项目管理",
+    "施工",
+    "设计",
+    "CAE",
+    "仿真",
+    "有限元",
+    "NVH",
+    "疲劳",
+    "风电",
+    "新能源",
+    "机械",
+    "汽车",
+    "智能建造",
+    "工程技术"
+  ]
+}
