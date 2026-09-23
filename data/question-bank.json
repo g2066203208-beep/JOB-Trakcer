@@ -1,6 +1,6 @@
 {
-  "version": "2026-09-23",
-  "note": "公司题均根据公开招聘流程和公开面经的高频主题进行改写，用于练习，不声称为官方原题。中国银行等官方明确声明未出版或授权考试参考资料的企业，本站会特别标注。",
+  "version": "2026-09-23-v4",
+  "note": "公司专项内容依据公开招聘流程与公开面经的考察主题重新编写；非公开/付费/泄露题目不收录。所有练习题均提供标准答案或标准解法；计算题给出公式与数值结果。",
   "companyKits": [
     {
       "company": "华为",
@@ -23,56 +23,64 @@
           "type": "行为面",
           "question": "请用2分钟介绍自己，并说明为什么这个岗位与你的经历最匹配。",
           "answerPoints": "用“背景-能力-证据-岗位动机”结构，避免流水账。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "用“背景-能力-证据-岗位动机”结构，避免流水账。"
         },
         {
           "id": "c1-2",
           "type": "项目面",
           "question": "挑一个最复杂的项目，说明你负责的模块、关键难点和最终结果。",
           "answerPoints": "明确个人贡献，给出数据或可验证结果。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "明确个人贡献，给出数据或可验证结果。"
         },
         {
           "id": "c1-3",
           "type": "项目面",
           "question": "项目中出现过最难定位的问题是什么？你如何一步步缩小范围？",
           "answerPoints": "强调假设、日志/实验、对照验证和复盘。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "强调假设、日志/实验、对照验证和复盘。"
         },
         {
           "id": "c1-4",
           "type": "技术面",
           "question": "如果系统出现性能下降，你会如何设计排查路径？",
           "answerPoints": "从指标、资源、链路、依赖、数据、回归验证展开。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "从指标、资源、链路、依赖、数据、回归验证展开。"
         },
         {
           "id": "c1-5",
           "type": "技术面",
           "question": "如何设计一套测试用例，保证核心功能、异常场景和性能都被覆盖？",
           "answerPoints": "等价类、边界值、异常流、兼容性、性能与自动化。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "等价类、边界值、异常流、兼容性、性能与自动化。"
         },
         {
           "id": "c1-6",
           "type": "编程",
           "question": "设计一个算法：给定大量记录，快速找出窗口内的最大值。",
           "answerPoints": "可讨论单调队列与O(n)复杂度。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "可讨论单调队列与O(n)复杂度。"
         },
         {
           "id": "c1-7",
           "type": "编程",
           "question": "如何判断一个字符串中的IP地址是否合法，并区分IPv4/IPv6？",
           "answerPoints": "拆分、范围校验、格式校验、前导零等边界。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "拆分、范围校验、格式校验、前导零等边界。"
         },
         {
           "id": "c1-8",
           "type": "HR面",
           "question": "为什么选择华为？如果有其他大厂Offer你会怎么选？",
           "answerPoints": "回答岗位、业务、成长和地点，不要只谈品牌。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "回答岗位、业务、成长和地点，不要只谈品牌。"
         }
       ]
     },
@@ -102,56 +110,64 @@
           "type": "项目面",
           "question": "介绍一个AI/软件项目，你如何定义成功指标并做迭代？",
           "answerPoints": "目标、数据、评测、bad case、迭代闭环。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "目标、数据、评测、bad case、迭代闭环。"
         },
         {
           "id": "c2-2",
           "type": "AI",
           "question": "RAG系统如何提高召回率，同时控制错误召回？",
           "answerPoints": "召回策略、混合检索、rerank、评测集。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "召回策略、混合检索、rerank、评测集。"
         },
         {
           "id": "c2-3",
           "type": "AI",
           "question": "大模型出现幻觉时，你会从数据、提示词、检索和模型侧分别怎么处理？",
           "answerPoints": "分层排查并明确评测指标。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "分层排查并明确评测指标。"
         },
         {
           "id": "c2-4",
           "type": "AI",
           "question": "Agent系统为什么需要任务规划与工具调用边界？",
           "answerPoints": "规划、状态、失败恢复、安全和可观测性。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "规划、状态、失败恢复、安全和可观测性。"
         },
         {
           "id": "c2-5",
           "type": "算法",
           "question": "请分析注意力机制的时间/空间复杂度，并说明长上下文优化方向。",
           "answerPoints": "标准Attention O(n²)，可谈Flash/Sparse/KV Cache。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "标准Attention O(n²)，可谈Flash/Sparse/KV Cache。"
         },
         {
           "id": "c2-6",
           "type": "系统",
           "question": "高并发服务中缓存穿透、击穿、雪崩分别是什么，怎么处理？",
           "answerPoints": "布隆过滤器、互斥/单飞、过期抖动、多级缓存。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "布隆过滤器、互斥/单飞、过期抖动、多级缓存。"
         },
         {
           "id": "c2-7",
           "type": "产品",
           "question": "如果一个AI产品DAU下降，你如何定位原因？",
           "answerPoints": "漏斗、用户分层、版本、渠道、留存、实验。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "漏斗、用户分层、版本、渠道、留存、实验。"
         },
         {
           "id": "c2-8",
           "type": "行为面",
           "question": "讲一次你发现现有方案不够好并主动改进的经历。",
           "answerPoints": "问题证据、方案、推动、结果、复盘。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "问题证据、方案、推动、结果、复盘。"
         }
       ]
     },
@@ -176,56 +192,64 @@
           "type": "项目面",
           "question": "介绍你最能体现工程能力的项目，并说清楚你本人负责了什么。",
           "answerPoints": "模型、输入、验证、结果和工程意义。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "模型、输入、验证、结果和工程意义。"
         },
         {
           "id": "c3-2",
           "type": "CAE",
           "question": "有限元网格变粗或变细分别会怎样影响精度和计算成本？",
           "answerPoints": "收敛性、局部细化、单元质量。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "收敛性、局部细化、单元质量。"
         },
         {
           "id": "c3-3",
           "type": "CAE",
           "question": "结构强度、刚度、模态和疲劳分析分别解决什么问题？",
           "answerPoints": "载荷-响应-失效模式要对应。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "载荷-响应-失效模式要对应。"
         },
         {
           "id": "c3-4",
           "type": "CAE",
           "question": "Abaqus、ANSYS、LS-DYNA各自更适合哪些问题？",
           "answerPoints": "隐式/显式、非线性、碰撞、多物理场。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "隐式/显式、非线性、碰撞、多物理场。"
         },
         {
           "id": "c3-5",
           "type": "CAE",
           "question": "怎样证明你的仿真结果可信，而不是‘软件算出来的数字’？",
           "answerPoints": "理论/试验/网格收敛/能量/平衡检查。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "理论/试验/网格收敛/能量/平衡检查。"
         },
         {
           "id": "c3-6",
           "type": "机械",
           "question": "如果电池包壳体某处应力超标，你会从哪些方向优化？",
           "answerPoints": "载荷路径、局部结构、材料、连接、重量权衡。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "载荷路径、局部结构、材料、连接、重量权衡。"
         },
         {
           "id": "c3-7",
           "type": "行为面",
           "question": "为什么从当前专业/研究方向转向汽车或新能源？",
           "answerPoints": "迁移能力和岗位需求连接。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "迁移能力和岗位需求连接。"
         },
         {
           "id": "c3-8",
           "type": "HR面",
           "question": "深圳或其他基地是否能接受？你更看重平台、岗位还是地点？",
           "answerPoints": "给出真实优先级与理由。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "给出真实优先级与理由。"
         }
       ]
     },
@@ -245,56 +269,64 @@
           "type": "行测",
           "question": "某支行三类业务量占比为3:4:5，若总量增加20%且占比不变，最大类业务量增长多少？",
           "answerPoints": "先求原最大类=5/12总量，再乘20%。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "先求原最大类=5/12总量，再乘20%。"
         },
         {
           "id": "c4-2",
           "type": "资料分析",
           "question": "给定三年存贷款、手续费收入和成本数据，判断哪项指标改善最大。",
           "answerPoints": "统一口径，比较增长率而非绝对差。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "统一口径，比较增长率而非绝对差。"
         },
         {
           "id": "c4-3",
           "type": "逻辑",
           "question": "若A推出则B不推出，B推出则C推出，现C未推出，可推出哪些结论？",
           "answerPoints": "先形式化命题，再使用逆否。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "先形式化命题，再使用逆否。"
         },
         {
           "id": "c4-4",
           "type": "金融",
           "question": "净息差是什么？哪些因素会使商业银行净息差收窄？",
           "answerPoints": "资产收益率、负债成本、利率环境、竞争。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "资产收益率、负债成本、利率环境、竞争。"
         },
         {
           "id": "c4-5",
           "type": "金融",
           "question": "信用风险、市场风险、操作风险各举一个银行业务例子。",
           "answerPoints": "要区分风险来源。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "要区分风险来源。"
         },
         {
           "id": "c4-6",
           "type": "科技岗",
           "question": "银行核心系统为什么特别重视高可用和数据一致性？",
           "answerPoints": "资金安全、交易完整性、监管与灾备。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "资金安全、交易完整性、监管与灾备。"
         },
         {
           "id": "c4-7",
           "type": "行为面",
           "question": "为什么选择银行而不是互联网/证券/考公？",
           "answerPoints": "结合岗位和职业路径，不要泛泛讲稳定。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "结合岗位和职业路径，不要泛泛讲稳定。"
         },
         {
           "id": "c4-8",
           "type": "面试",
           "question": "如果客户投诉业务办理慢，你如何在合规前提下解决？",
           "answerPoints": "先确认事实、解释、分流、改进流程。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "先确认事实、解释、分流、改进流程。"
         }
       ]
     },
@@ -319,56 +351,64 @@
           "type": "在线测评",
           "question": "图形序列中若形状每两步旋转90°且填充状态交替，下一图应满足什么规则？",
           "answerPoints": "同时跟踪旋转和填充两个独立变量。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "同时跟踪旋转和填充两个独立变量。"
         },
         {
           "id": "c5-2",
           "type": "数智认知",
           "question": "企业采用生成式AI时，最需要先建立哪些治理机制？",
           "answerPoints": "数据权限、隐私、安全、质量、责任边界。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "数据权限、隐私、安全、质量、责任边界。"
         },
         {
           "id": "c5-3",
           "type": "群面",
           "question": "一家传统零售企业利润下降，你会如何组织小组建立分析框架？",
           "answerPoints": "收入端、成本端、客户、渠道、竞争、执行优先级。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "收入端、成本端、客户、渠道、竞争、执行优先级。"
         },
         {
           "id": "c5-4",
           "type": "案例",
           "question": "如果客户要在三项数字化项目中只投一个，你如何做优先级排序？",
           "answerPoints": "战略价值、财务回报、风险、实施难度、时间。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "战略价值、财务回报、风险、实施难度、时间。"
         },
         {
           "id": "c5-5",
           "type": "审计",
           "question": "为什么审计需要保持职业怀疑？",
           "answerPoints": "证据质量、管理层偏差、舞弊风险。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "证据质量、管理层偏差、舞弊风险。"
         },
         {
           "id": "c5-6",
           "type": "行为面",
           "question": "讲一次团队意见冲突，你如何让讨论回到事实和目标。",
           "answerPoints": "STAR，突出协作而非压服。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "STAR，突出协作而非压服。"
         },
         {
           "id": "c5-7",
           "type": "单面",
           "question": "为什么选择德勤和这个业务线？",
           "answerPoints": "业务理解、个人经历、长期发展。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "业务理解、个人经历、长期发展。"
         },
         {
           "id": "c5-8",
           "type": "单面",
           "question": "你如何看待AI对审计/咨询/税务的影响？",
           "answerPoints": "自动化、分析能力、治理、人的判断。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "自动化、分析能力、治理、人的判断。"
         }
       ]
     },
@@ -393,56 +433,64 @@
           "type": "项目面",
           "question": "请把研究课题用非本专业的人也能听懂的方式讲清楚。",
           "answerPoints": "问题-方法-结果-价值四步。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "问题-方法-结果-价值四步。"
         },
         {
           "id": "c6-2",
           "type": "风电",
           "question": "风机载荷为什么具有明显随机性和周期性成分？",
           "answerPoints": "湍流、风切变、旋转采样、控制、结构耦合。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "湍流、风切变、旋转采样、控制、结构耦合。"
         },
         {
           "id": "c6-3",
           "type": "结构",
           "question": "塔架一阶频率为什么需要避开1P/3P等激励区间？",
           "answerPoints": "避免共振与疲劳放大。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "避免共振与疲劳放大。"
         },
         {
           "id": "c6-4",
           "type": "风电",
           "question": "IEC NTM与ETM分别主要用来评估什么？",
           "answerPoints": "正常湍流疲劳/统计响应与极端湍流极值。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "正常湍流疲劳/统计响应与极端湍流极值。"
         },
         {
           "id": "c6-5",
           "type": "控制",
           "question": "变桨控制对载荷和功率分别有什么影响？",
           "answerPoints": "额定以上控功率并削减载荷。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "额定以上控功率并削减载荷。"
         },
         {
           "id": "c6-6",
           "type": "行为面",
           "question": "汽车发展也很好，为什么选择风电？",
           "answerPoints": "行业动机要与技术积累一致。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "行业动机要与技术积累一致。"
         },
         {
           "id": "c6-7",
           "type": "HR面",
           "question": "能否接受现场、出差或基地轮岗？",
           "answerPoints": "真实回答并说明边界。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "真实回答并说明边界。"
         },
         {
           "id": "c6-8",
           "type": "项目面",
           "question": "项目结果与理论或其他软件不一致时你怎么处理？",
           "answerPoints": "接口一致性、单位、边界、验证顺序。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "接口一致性、单位、边界、验证顺序。"
         }
       ]
     },
@@ -467,56 +515,64 @@
           "type": "行为面",
           "question": "为什么希望留在上海？地点对你择业的重要性排第几？",
           "answerPoints": "稳定表达真实偏好。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "稳定表达真实偏好。"
         },
         {
           "id": "c7-2",
           "type": "项目面",
           "question": "用3分钟解释毕业论文的工程问题、方法和结果。",
           "answerPoints": "强调工程意义与个人贡献。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "强调工程意义与个人贡献。"
         },
         {
           "id": "c7-3",
           "type": "机械",
           "question": "汽轮机/风机等旋转机械的振动来源有哪些？",
           "answerPoints": "不平衡、对中、轴承、流致、共振。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "不平衡、对中、轴承、流致、共振。"
         },
         {
           "id": "c7-4",
           "type": "CAE",
           "question": "Abaqus常见单位制为什么必须自洽？",
           "answerPoints": "软件无内置单位，所有输入必须维度一致。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "软件无内置单位，所有输入必须维度一致。"
         },
         {
           "id": "c7-5",
           "type": "CAE",
           "question": "Abaqus与ANSYS在建模流程和适用场景上有什么差异？",
           "answerPoints": "避免绝对优劣，谈具体场景和工具链。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "避免绝对优劣，谈具体场景和工具链。"
         },
         {
           "id": "c7-6",
           "type": "结构",
           "question": "模态分析结果如何用于后续动态分析？",
           "answerPoints": "频率、振型、有效质量、阻尼。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "频率、振型、有效质量、阻尼。"
         },
         {
           "id": "c7-7",
           "type": "HR面",
           "question": "如果岗位需要周期性出差，你能接受到什么程度？",
           "answerPoints": "给出可执行边界。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "给出可执行边界。"
         },
         {
           "id": "c7-8",
           "type": "公司认知",
           "question": "你对上海电气的风电/能源装备业务了解多少？",
           "answerPoints": "提前研究业务与岗位对应关系。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "提前研究业务与岗位对应关系。"
         }
       ]
     },
@@ -541,56 +597,64 @@
           "type": "AI面",
           "question": "讲一次主动学习新知识并最终解决高难度问题的经历。",
           "answerPoints": "突出学习路径和实际转化。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "突出学习路径和实际转化。"
         },
         {
           "id": "c8-2",
           "type": "项目面",
           "question": "你做过的项目上线或落地后解决了什么业务/工程问题？",
           "answerPoints": "不要只讲技术过程。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "不要只讲技术过程。"
         },
         {
           "id": "c8-3",
           "type": "汽车",
           "question": "你怎么看新能源汽车平台化、智能化和轻量化之间的关系？",
           "answerPoints": "成本、性能、开发效率、安全。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "成本、性能、开发效率、安全。"
         },
         {
           "id": "c8-4",
           "type": "CAE",
           "question": "如何评价车身刚度、碰撞安全和NVH之间的设计冲突？",
           "answerPoints": "多目标权衡和联合优化。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "多目标权衡和联合优化。"
         },
         {
           "id": "c8-5",
           "type": "结构",
           "question": "车身或电池结构优化时，为什么不能只看最大应力？",
           "answerPoints": "载荷工况、疲劳、稳定、连接、制造。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "载荷工况、疲劳、稳定、连接、制造。"
         },
         {
           "id": "c8-6",
           "type": "行为面",
           "question": "面对高强度项目，你如何保证进度与质量？",
           "answerPoints": "计划、风险、沟通、复盘。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "计划、风险、沟通、复盘。"
         },
         {
           "id": "c8-7",
           "type": "行业",
           "question": "你如何看未来三年智能汽车的竞争重点？",
           "answerPoints": "技术+成本+供应链+用户体验。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "技术+成本+供应链+用户体验。"
         },
         {
           "id": "c8-8",
           "type": "HR面",
           "question": "如果岗位方向与你原研究不完全一致，你如何快速上手？",
           "answerPoints": "迁移能力、学习计划、已有基础。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "迁移能力、学习计划、已有基础。"
         }
       ]
     },
@@ -610,56 +674,64 @@
           "type": "电气",
           "question": "有功功率、无功功率和功率因数分别反映什么？",
           "answerPoints": "电能做功、磁场交换、有效利用程度。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "电能做功、磁场交换、有效利用程度。"
         },
         {
           "id": "c9-2",
           "type": "电气",
           "question": "为什么高压输电可以降低线路损耗？",
           "answerPoints": "同功率下提高电压降低电流，I²R损耗下降。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "同功率下提高电压降低电流，I²R损耗下降。"
         },
         {
           "id": "c9-3",
           "type": "电气",
           "question": "继电保护的基本要求有哪些？",
           "answerPoints": "选择性、速动性、灵敏性、可靠性。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "选择性、速动性、灵敏性、可靠性。"
         },
         {
           "id": "c9-4",
           "type": "电气",
           "question": "电力系统为什么要保持发电与负荷实时平衡？",
           "answerPoints": "频率稳定与系统安全。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "频率稳定与系统安全。"
         },
         {
           "id": "c9-5",
           "type": "新能源",
           "question": "大规模风光接入电网带来哪些挑战？",
           "answerPoints": "波动性、惯量、调峰、消纳、稳定性。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "波动性、惯量、调峰、消纳、稳定性。"
         },
         {
           "id": "c9-6",
           "type": "行为面",
           "question": "为什么选择国网以及你申请的省公司？",
           "answerPoints": "业务、岗位、地区、职业路径。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "业务、岗位、地区、职业路径。"
         },
         {
           "id": "c9-7",
           "type": "面试",
           "question": "如果被分配到基层岗位，你如何看待？",
           "answerPoints": "成长路径、现场经验、长期规划。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "成长路径、现场经验、长期规划。"
         },
         {
           "id": "c9-8",
           "type": "项目面",
           "question": "请从专业角度介绍一个你最熟悉的课程设计或科研项目。",
           "answerPoints": "原理、实现、验证、结果。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "原理、实现、验证、结果。"
         }
       ]
     },
@@ -684,56 +756,64 @@
           "type": "AI面",
           "question": "为什么选择动力电池行业？你认为行业下一阶段的核心矛盾是什么？",
           "answerPoints": "安全、成本、能量密度、快充、寿命、供应链。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "安全、成本、能量密度、快充、寿命、供应链。"
         },
         {
           "id": "c10-2",
           "type": "材料",
           "question": "提高电池能量密度通常会带来哪些安全或寿命挑战？",
           "answerPoints": "热稳定、电化学副反应、结构与热管理。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "热稳定、电化学副反应、结构与热管理。"
         },
         {
           "id": "c10-3",
           "type": "机械",
           "question": "电芯膨胀对模组和Pack结构设计有什么影响？",
           "answerPoints": "约束、预紧、寿命、热管理。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "约束、预紧、寿命、热管理。"
         },
         {
           "id": "c10-4",
           "type": "CAE",
           "question": "电池包碰撞与挤压仿真需要重点监控哪些指标？",
           "answerPoints": "侵入量、结构应力、连接失效、电芯安全边界。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "侵入量、结构应力、连接失效、电芯安全边界。"
         },
         {
           "id": "c10-5",
           "type": "热",
           "question": "电池热失控传播分析需要考虑哪些传热机制？",
           "answerPoints": "导热、对流、辐射、热源与材料变化。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "导热、对流、辐射、热源与材料变化。"
         },
         {
           "id": "c10-6",
           "type": "项目面",
           "question": "科研项目中你如何把实验与仿真相互验证？",
           "answerPoints": "统一边界、测点、误差指标、敏感因素。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "统一边界、测点、误差指标、敏感因素。"
         },
         {
           "id": "c10-7",
           "type": "行为面",
           "question": "当结果与预期相反时，你如何判断是模型错还是假设错？",
           "answerPoints": "验证链、对照实验、逐层排查。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "验证链、对照实验、逐层排查。"
         },
         {
           "id": "c10-8",
           "type": "HR面",
           "question": "制造基地工作节奏和地点能否接受？",
           "answerPoints": "真实回答可接受范围。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "真实回答可接受范围。"
         }
       ]
     },
@@ -758,56 +838,64 @@
           "type": "行为面",
           "question": "讲一次你给自己设定了明显高于常规要求的目标，并最终完成的经历。",
           "answerPoints": "STAR+量化目标+关键动作。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "STAR+量化目标+关键动作。"
         },
         {
           "id": "c11-2",
           "type": "行为面",
           "question": "讲一次你主动承担领导责任并让团队达成结果的经历。",
           "answerPoints": "领导力不是职位，而是影响和结果。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "领导力不是职位，而是影响和结果。"
         },
         {
           "id": "c11-3",
           "type": "行为面",
           "question": "讲一次你与团队成员意见冲突，最后如何处理。",
           "answerPoints": "事实、倾听、共同目标、决策机制。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "事实、倾听、共同目标、决策机制。"
         },
         {
           "id": "c11-4",
           "type": "行为面",
           "question": "讲一次你用新方法显著提高效率或效果。",
           "answerPoints": "创新前后对比。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "创新前后对比。"
         },
         {
           "id": "c11-5",
           "type": "行为面",
           "question": "时间很紧、信息不足时，你如何做决策？",
           "answerPoints": "优先级、关键假设、风险。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "优先级、关键假设、风险。"
         },
         {
           "id": "c11-6",
           "type": "情景题",
           "question": "竞争对手突然降价，你负责的品牌是否应该跟随？",
           "answerPoints": "消费者、利润、品牌、渠道、弹性、长期影响。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "消费者、利润、品牌、渠道、弹性、长期影响。"
         },
         {
           "id": "c11-7",
           "type": "情景题",
           "question": "新品发布前发现供应链延期，你会如何处理？",
           "answerPoints": "影响评估、备选方案、跨部门沟通、客户预期。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "影响评估、备选方案、跨部门沟通、客户预期。"
         },
         {
           "id": "c11-8",
           "type": "英文面",
           "question": "用英文概括一次最能体现你领导力的项目。",
           "answerPoints": "控制2分钟，结构清晰，准备数字。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "控制2分钟，结构清晰，准备数字。"
         }
       ]
     },
@@ -832,56 +920,64 @@
           "type": "项目面",
           "question": "挑一个最复杂的项目，说明你的架构选择、关键权衡和最终效果。",
           "answerPoints": "不要只说做了什么，要解释为什么这样设计、如何验证。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "不要只说做了什么，要解释为什么这样设计、如何验证。"
         },
         {
           "id": "c12-2",
           "type": "AI",
           "question": "Agent执行线上写操作时，如何控制权限、回滚和误操作风险？",
           "answerPoints": "最小权限、审批/确认、幂等、审计日志、回滚。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "最小权限、审批/确认、幂等、审计日志、回滚。"
         },
         {
           "id": "c12-3",
           "type": "AI",
           "question": "大模型评测无法完全用确定性指标衡量时，你会如何建立评测体系？",
           "answerPoints": "自动指标+人工评审+任务集+线上反馈，多层评测。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "自动指标+人工评审+任务集+线上反馈，多层评测。"
         },
         {
           "id": "c12-4",
           "type": "算法",
           "question": "设计一个高效方案，在海量日志中找出Top-K高频元素。",
           "answerPoints": "哈希计数+堆，讨论流式/分布式场景。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "哈希计数+堆，讨论流式/分布式场景。"
         },
         {
           "id": "c12-5",
           "type": "系统",
           "question": "缓存、消息队列和数据库在高并发系统中分别解决什么问题？",
           "answerPoints": "读性能、异步解耦/削峰、持久一致性。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "读性能、异步解耦/削峰、持久一致性。"
         },
         {
           "id": "c12-6",
           "type": "编程",
           "question": "AI Coding题中如何证明自己的代码不仅能跑，还足够可靠？",
           "answerPoints": "边界用例、复杂度、异常处理、测试。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "边界用例、复杂度、异常处理、测试。"
         },
         {
           "id": "c12-7",
           "type": "行为面",
           "question": "讲一次你推翻原方案重新设计的经历。",
           "answerPoints": "证据、决策、沟通、结果。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "证据、决策、沟通、结果。"
         },
         {
           "id": "c12-8",
           "type": "HR面",
           "question": "为什么选择阿里及当前业务，而不是只因为平台大？",
           "answerPoints": "业务理解、岗位匹配、成长方向。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "业务理解、岗位匹配、成长方向。"
         }
       ]
     },
@@ -906,56 +1002,64 @@
           "type": "项目面",
           "question": "介绍一个你真正负责核心部分的项目，最难的问题是什么？",
           "answerPoints": "个人贡献、关键技术、结果与复盘。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "个人贡献、关键技术、结果与复盘。"
         },
         {
           "id": "c13-2",
           "type": "AI",
           "question": "如果用大模型做一个真实业务功能，你怎样防止错误答案直接影响用户？",
           "answerPoints": "检索/规则、置信度、审核、兜底、监控。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "检索/规则、置信度、审核、兜底、监控。"
         },
         {
           "id": "c13-3",
           "type": "算法",
           "question": "给定一个超大数组，如何寻找第K大元素？",
           "answerPoints": "快速选择平均O(n)，或堆；讨论数据规模。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "快速选择平均O(n)，或堆；讨论数据规模。"
         },
         {
           "id": "c13-4",
           "type": "计算机",
           "question": "TCP拥塞控制和流量控制分别解决什么问题？",
           "answerPoints": "网络拥塞 vs 接收端处理能力。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "网络拥塞 vs 接收端处理能力。"
         },
         {
           "id": "c13-5",
           "type": "系统",
           "question": "高并发服务如何处理热点Key？",
           "answerPoints": "分片、多级缓存、单飞、限流与降级。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "分片、多级缓存、单飞、限流与降级。"
         },
         {
           "id": "c13-6",
           "type": "产品",
           "question": "AI功能上线后使用率高但次日留存低，你会怎么查？",
           "answerPoints": "人群、场景、价值、质量、漏斗、回访。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "人群、场景、价值、质量、漏斗、回访。"
         },
         {
           "id": "c13-7",
           "type": "行为面",
           "question": "讲一次你快速学习陌生工具并形成真实产出的经历。",
           "answerPoints": "学习路径、应用、验证和成果。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "学习路径、应用、验证和成果。"
         },
         {
           "id": "c13-8",
           "type": "HR面",
           "question": "你如何理解‘会用AI’和‘能对AI输出负责’的区别？",
           "answerPoints": "验证、判断、责任边界。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "验证、判断、责任边界。"
         }
       ]
     },
@@ -980,56 +1084,64 @@
           "type": "在线测评",
           "question": "资料分析题中营业收入上涨但利润率下降，可能有哪些原因？",
           "answerPoints": "价格、产品结构、成本、费用、一次性因素。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "价格、产品结构、成本、费用、一次性因素。"
         },
         {
           "id": "c14-2",
           "type": "群面",
           "question": "团队拿到一个企业数字化转型案例，你会怎样快速建立分析框架？",
           "answerPoints": "目标、客户、流程、数据、技术、财务、实施。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "目标、客户、流程、数据、技术、财务、实施。"
         },
         {
           "id": "c14-3",
           "type": "审计",
           "question": "为什么应收账款函证能提供重要审计证据？",
           "answerPoints": "外部独立证据、存在性/权利义务等。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "外部独立证据、存在性/权利义务等。"
         },
         {
           "id": "c14-4",
           "type": "审计",
           "question": "收入确认为什么常被视为高风险领域？",
           "answerPoints": "管理层动机、截止性、履约义务、估计。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "管理层动机、截止性、履约义务、估计。"
         },
         {
           "id": "c14-5",
           "type": "咨询",
           "question": "客户利润下降但收入增长，你首先拆哪些变量？",
           "answerPoints": "毛利、费用、渠道、客户、产品、区域。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "毛利、费用、渠道、客户、产品、区域。"
         },
         {
           "id": "c14-6",
           "type": "行为面",
           "question": "讲一次你处理大量数据并发现异常的经历。",
           "answerPoints": "数据口径、核验、异常定位、结论。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "数据口径、核验、异常定位、结论。"
         },
         {
           "id": "c14-7",
           "type": "英文面",
           "question": "Please explain why you want to join this service line.",
           "answerPoints": "业务理解+个人经历+职业目标，控制在1-2分钟。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "业务理解+个人经历+职业目标，控制在1-2分钟。"
         },
         {
           "id": "c14-8",
           "type": "合伙人面",
           "question": "如果高强度项目与个人计划冲突，你会如何管理？",
           "answerPoints": "优先级、沟通、交付承诺和可持续边界。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "优先级、沟通、交付承诺和可持续边界。"
         }
       ]
     },
@@ -1054,56 +1166,64 @@
           "type": "群面",
           "question": "8人小组面对商业案例时，你如何既贡献观点又不抢话？",
           "answerPoints": "先框架、倾听、补充证据、推进共识和时间管理。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "先框架、倾听、补充证据、推进共识和时间管理。"
         },
         {
           "id": "c15-2",
           "type": "审计",
           "question": "审计和企业内部财务工作的核心区别是什么？",
           "answerPoints": "独立鉴证、证据、职业判断 vs 企业内部经营核算。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "独立鉴证、证据、职业判断 vs 企业内部经营核算。"
         },
         {
           "id": "c15-3",
           "type": "审计",
           "question": "如果发现客户提供的资料前后矛盾，你怎么处理？",
           "answerPoints": "保留证据、扩大程序、沟通、升级汇报。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "保留证据、扩大程序、沟通、升级汇报。"
         },
         {
           "id": "c15-4",
           "type": "审计",
           "question": "什么情况下需要保持更高程度的职业怀疑？",
           "answerPoints": "重大估计、舞弊风险、异常交易、管理层偏差。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "重大估计、舞弊风险、异常交易、管理层偏差。"
         },
         {
           "id": "c15-5",
           "type": "行为面",
           "question": "评价一次你在群面或团队协作中的表现。",
           "answerPoints": "既说贡献，也承认可以改进处。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "既说贡献，也承认可以改进处。"
         },
         {
           "id": "c15-6",
           "type": "英文面",
           "question": "Please introduce an internship challenge and how you solved it.",
           "answerPoints": "STAR，突出行动与结果。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "STAR，突出行动与结果。"
         },
         {
           "id": "c15-7",
           "type": "经理面",
           "question": "为什么选择审计而不是企业财务或金融岗位？",
           "answerPoints": "工作内容、学习曲线、行业理解和长期目标。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "工作内容、学习曲线、行业理解和长期目标。"
         },
         {
           "id": "c15-8",
           "type": "合伙人面",
           "question": "为什么是KPMG？如果没有拿到Offer你会怎么办？",
           "answerPoints": "公司理解+真实求职逻辑+成熟心态。",
-          "difficulty": "中等"
+          "difficulty": "中等",
+          "standardAnswer": "公司理解+真实求职逻辑+成熟心态。"
         }
       ]
     }
@@ -1115,7 +1235,8 @@
       "type": "面试",
       "question": "用90秒完成自我介绍，并突出三个与岗位相关的能力。",
       "answerPoints": "学校/专业一句话；2-3个能力证据；岗位动机。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "学校/专业一句话；2-3个能力证据；岗位动机。"
     },
     {
       "id": "g-002",
@@ -1123,7 +1244,8 @@
       "type": "面试",
       "question": "讲一次你把模糊任务拆成可执行计划的经历。",
       "answerPoints": "目标澄清、里程碑、风险、结果。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "目标澄清、里程碑、风险、结果。"
     },
     {
       "id": "g-003",
@@ -1131,7 +1253,8 @@
       "type": "面试",
       "question": "讲一次失败经历，你之后改变了什么做法？",
       "answerPoints": "不要甩锅；说明复盘和后续变化。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不要甩锅；说明复盘和后续变化。"
     },
     {
       "id": "g-004",
@@ -1139,7 +1262,8 @@
       "type": "面试",
       "question": "讲一次你说服不同意见的人支持你的方案。",
       "answerPoints": "利益相关方、证据、沟通、妥协边界。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "利益相关方、证据、沟通、妥协边界。"
     },
     {
       "id": "g-005",
@@ -1147,7 +1271,8 @@
       "type": "面试",
       "question": "讲一次你在资源不足情况下完成目标。",
       "answerPoints": "优先级、借力、替代方案。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "优先级、借力、替代方案。"
     },
     {
       "id": "g-006",
@@ -1155,7 +1280,8 @@
       "type": "面试",
       "question": "讲一次你承担超出职责范围工作的经历。",
       "answerPoints": "主动性与边界管理。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "主动性与边界管理。"
     },
     {
       "id": "g-007",
@@ -1163,7 +1289,8 @@
       "type": "面试",
       "question": "讲一次你发现数据或流程有问题并推动修正。",
       "answerPoints": "证据、影响、方案、推动。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "证据、影响、方案、推动。"
     },
     {
       "id": "g-008",
@@ -1171,7 +1298,8 @@
       "type": "面试",
       "question": "如果同时拿到三个Offer，你会怎样做选择？",
       "answerPoints": "岗位内容、成长、团队、地点、薪酬排序。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "岗位内容、成长、团队、地点、薪酬排序。"
     },
     {
       "id": "g-009",
@@ -1179,7 +1307,8 @@
       "type": "面试",
       "question": "为什么选择这个行业？",
       "answerPoints": "趋势不是核心，重点是个人积累与行业需求契合。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "趋势不是核心，重点是个人积累与行业需求契合。"
     },
     {
       "id": "g-010",
@@ -1187,7 +1316,8 @@
       "type": "面试",
       "question": "未来三年的职业规划是什么？",
       "answerPoints": "能力目标和岗位路径，避免空泛职位头衔。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "能力目标和岗位路径，避免空泛职位头衔。"
     },
     {
       "id": "g-011",
@@ -1195,7 +1325,8 @@
       "type": "面试",
       "question": "你最大的缺点是什么？",
       "answerPoints": "真实但可改进，说明具体改进措施。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "真实但可改进，说明具体改进措施。"
     },
     {
       "id": "g-012",
@@ -1203,7 +1334,8 @@
       "type": "面试",
       "question": "你能接受加班/出差/轮岗吗？",
       "answerPoints": "给真实边界和可持续条件。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "给真实边界和可持续条件。"
     },
     {
       "id": "g-013",
@@ -1211,7 +1343,8 @@
       "type": "笔试",
       "question": "某项目计划10人12天完成，效率不变时8人需要多少天？",
       "answerPoints": "工作量=人数×天数，答案15天。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "工作量=人数×天数，答案15天。"
     },
     {
       "id": "g-014",
@@ -1219,7 +1352,8 @@
       "type": "笔试",
       "question": "A比B高20%，B比C低10%，A与C的比例是多少？",
       "answerPoints": "1.2×0.9=1.08，A比C高8%。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "1.2×0.9=1.08，A比C高8%。"
     },
     {
       "id": "g-015",
@@ -1227,7 +1361,8 @@
       "type": "笔试",
       "question": "一组数据均值为80，加入一个100后均值变为82，原来有多少个数据？",
       "answerPoints": "80n+100=82(n+1)，n=9。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "80n+100=82(n+1)，n=9。"
     },
     {
       "id": "g-016",
@@ -1235,7 +1370,8 @@
       "type": "笔试",
       "question": "若所有A都是B，部分B是C，能否推出部分A是C？",
       "answerPoints": "不能。部分B与A集合可能无交集。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不能。部分B与A集合可能无交集。"
     },
     {
       "id": "g-017",
@@ -1243,7 +1379,8 @@
       "type": "笔试",
       "question": "若P→Q且Q→R，已知非R，可推出什么？",
       "answerPoints": "逆否：非R→非Q→非P。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "逆否：非R→非Q→非P。"
     },
     {
       "id": "g-018",
@@ -1251,7 +1388,8 @@
       "type": "笔试",
       "question": "三部门人数比2:3:5，总人数200，第二部门多少人？",
       "answerPoints": "200×3/10=60。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "200×3/10=60。"
     },
     {
       "id": "g-019",
@@ -1259,7 +1397,8 @@
       "type": "笔试",
       "question": "某指标从120升至150，增长率是多少？",
       "answerPoints": "(150-120)/120=25%。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "(150-120)/120=25%。"
     },
     {
       "id": "g-020",
@@ -1267,7 +1406,8 @@
       "type": "笔试",
       "question": "抽两张牌至少一张为红牌，适合用什么思路计算？",
       "answerPoints": "通常用补集：1-两张都不是红牌的概率。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "通常用补集：1-两张都不是红牌的概率。"
     },
     {
       "id": "g-021",
@@ -1275,7 +1415,8 @@
       "type": "笔试",
       "question": "资料分析中‘增长贡献率’与‘增长率’有什么区别？",
       "answerPoints": "贡献率看对总体增量的贡献，增长率看自身相对变化。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "贡献率看对总体增量的贡献，增长率看自身相对变化。"
     },
     {
       "id": "g-022",
@@ -1283,7 +1424,8 @@
       "type": "笔试",
       "question": "图形推理中遇到多元素变化，如何避免凭感觉？",
       "answerPoints": "拆分元素数、位置、方向、颜色、对称、叠加规则。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "拆分元素数、位置、方向、颜色、对称、叠加规则。"
     },
     {
       "id": "g-023",
@@ -1291,7 +1433,8 @@
       "type": "笔面试",
       "question": "进程和线程的核心区别是什么？",
       "answerPoints": "资源隔离、调度单位、切换成本、共享空间。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "资源隔离、调度单位、切换成本、共享空间。"
     },
     {
       "id": "g-024",
@@ -1299,7 +1442,8 @@
       "type": "笔面试",
       "question": "TCP三次握手为什么不是两次？",
       "answerPoints": "确认双方收发能力并同步序列号。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "确认双方收发能力并同步序列号。"
     },
     {
       "id": "g-025",
@@ -1307,7 +1451,8 @@
       "type": "笔面试",
       "question": "数据库索引为什么通常使用B+树？",
       "answerPoints": "高扇出、较低树高、顺序范围查询友好。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "高扇出、较低树高、顺序范围查询友好。"
     },
     {
       "id": "g-026",
@@ -1315,7 +1460,8 @@
       "type": "笔面试",
       "question": "什么是事务的ACID？",
       "answerPoints": "原子性、一致性、隔离性、持久性。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "原子性、一致性、隔离性、持久性。"
     },
     {
       "id": "g-027",
@@ -1323,7 +1469,8 @@
       "type": "笔面试",
       "question": "缓存穿透与缓存击穿有什么区别？",
       "answerPoints": "不存在数据反复查库 vs 热点Key瞬时失效。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不存在数据反复查库 vs 热点Key瞬时失效。"
     },
     {
       "id": "g-028",
@@ -1331,7 +1478,8 @@
       "type": "笔面试",
       "question": "HashMap高并发下为什么要谨慎使用？",
       "answerPoints": "竞态、扩容、可见性；并发场景用线程安全结构。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "竞态、扩容、可见性；并发场景用线程安全结构。"
     },
     {
       "id": "g-029",
@@ -1339,7 +1487,8 @@
       "type": "笔面试",
       "question": "二叉搜索树退化的条件是什么？",
       "answerPoints": "输入近似有序且无平衡机制时可退化为链表。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "输入近似有序且无平衡机制时可退化为链表。"
     },
     {
       "id": "g-030",
@@ -1347,7 +1496,8 @@
       "type": "笔面试",
       "question": "Transformer中Self-Attention解决了什么问题？",
       "answerPoints": "全局依赖建模与并行计算。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "全局依赖建模与并行计算。"
     },
     {
       "id": "g-031",
@@ -1355,7 +1505,8 @@
       "type": "笔面试",
       "question": "为什么需要位置编码？",
       "answerPoints": "注意力本身不包含序列位置信息。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "注意力本身不包含序列位置信息。"
     },
     {
       "id": "g-032",
@@ -1363,7 +1514,8 @@
       "type": "笔面试",
       "question": "RAG与微调各适合解决什么问题？",
       "answerPoints": "RAG补外部/动态知识；微调改变行为和任务分布。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "RAG补外部/动态知识；微调改变行为和任务分布。"
     },
     {
       "id": "g-033",
@@ -1371,7 +1523,8 @@
       "type": "笔面试",
       "question": "如何评估一个分类模型？",
       "answerPoints": "准确率、精确率、召回率、F1、AUC及业务成本。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "准确率、精确率、召回率、F1、AUC及业务成本。"
     },
     {
       "id": "g-034",
@@ -1379,7 +1532,8 @@
       "type": "笔面试",
       "question": "模型线上效果下降如何排查？",
       "answerPoints": "数据漂移、特征、服务、版本、分布、评测链。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "数据漂移、特征、服务、版本、分布、评测链。"
     },
     {
       "id": "g-035",
@@ -1387,7 +1541,8 @@
       "type": "笔面试",
       "question": "线弹性有限元的基本假设有哪些？",
       "answerPoints": "小变形、材料线弹性、边界与载荷明确。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "小变形、材料线弹性、边界与载荷明确。"
     },
     {
       "id": "g-036",
@@ -1395,7 +1550,8 @@
       "type": "笔面试",
       "question": "von Mises应力适合评价什么？",
       "answerPoints": "延性金属多轴屈服。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "延性金属多轴屈服。"
     },
     {
       "id": "g-037",
@@ -1403,7 +1559,8 @@
       "type": "笔面试",
       "question": "为什么做网格无关性分析？",
       "answerPoints": "确认结果不再显著依赖离散尺度。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "确认结果不再显著依赖离散尺度。"
     },
     {
       "id": "g-038",
@@ -1411,7 +1568,8 @@
       "type": "笔面试",
       "question": "一阶实体单元与二阶实体单元的主要差异？",
       "answerPoints": "插值阶次、曲面/弯曲精度、计算成本。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "插值阶次、曲面/弯曲精度、计算成本。"
     },
     {
       "id": "g-039",
@@ -1419,7 +1577,8 @@
       "type": "笔面试",
       "question": "显式动力学为什么通常需要很小时间步？",
       "answerPoints": "条件稳定，受最小单元特征长度与波速控制。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "条件稳定，受最小单元特征长度与波速控制。"
     },
     {
       "id": "g-040",
@@ -1427,7 +1586,8 @@
       "type": "笔面试",
       "question": "模态有效质量有什么意义？",
       "answerPoints": "衡量某模态对给定方向动力响应贡献。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "衡量某模态对给定方向动力响应贡献。"
     },
     {
       "id": "g-041",
@@ -1435,7 +1595,8 @@
       "type": "笔面试",
       "question": "Rayleigh阻尼参数如何确定？",
       "answerPoints": "通常用两个目标频率和阻尼比求解α、β。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "通常用两个目标频率和阻尼比求解α、β。"
     },
     {
       "id": "g-042",
@@ -1443,7 +1604,8 @@
       "type": "笔面试",
       "question": "疲劳S-N曲线描述什么？",
       "answerPoints": "应力幅与循环寿命关系。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "应力幅与循环寿命关系。"
     },
     {
       "id": "g-043",
@@ -1451,7 +1613,8 @@
       "type": "笔面试",
       "question": "刚度提高一定能降低疲劳损伤吗？",
       "answerPoints": "不一定；可能改变载荷路径、应力集中与频率。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不一定；可能改变载荷路径、应力集中与频率。"
     },
     {
       "id": "g-044",
@@ -1459,7 +1622,8 @@
       "type": "笔面试",
       "question": "仿真结果出现非物理高应力尖峰怎么办？",
       "answerPoints": "检查奇异点、接触、网格、载荷施加与评价位置。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "检查奇异点、接触、网格、载荷施加与评价位置。"
     },
     {
       "id": "g-045",
@@ -1467,7 +1631,8 @@
       "type": "笔面试",
       "question": "钢筋混凝土受弯构件为什么需要受拉钢筋？",
       "answerPoints": "混凝土抗拉弱，钢筋承担主要拉力并控制裂缝。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "混凝土抗拉弱，钢筋承担主要拉力并控制裂缝。"
     },
     {
       "id": "g-046",
@@ -1475,7 +1640,8 @@
       "type": "笔面试",
       "question": "长细比对压杆稳定性有什么影响？",
       "answerPoints": "长细比越大，整体失稳风险越高。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "长细比越大，整体失稳风险越高。"
     },
     {
       "id": "g-047",
@@ -1483,7 +1649,8 @@
       "type": "笔面试",
       "question": "结构自振频率受哪些因素控制？",
       "answerPoints": "质量、刚度、边界条件与耦合。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "质量、刚度、边界条件与耦合。"
     },
     {
       "id": "g-048",
@@ -1491,7 +1658,8 @@
       "type": "笔面试",
       "question": "地震反应谱法的基本思路是什么？",
       "answerPoints": "用各模态响应谱结果组合估计结构峰值响应。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "用各模态响应谱结果组合估计结构峰值响应。"
     },
     {
       "id": "g-049",
@@ -1499,7 +1667,8 @@
       "type": "笔面试",
       "question": "什么是P-Δ效应？",
       "answerPoints": "轴力与侧移耦合导致附加弯矩。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "轴力与侧移耦合导致附加弯矩。"
     },
     {
       "id": "g-050",
@@ -1507,7 +1676,8 @@
       "type": "笔面试",
       "question": "桩基承载力主要来自哪些部分？",
       "answerPoints": "桩端阻力和桩侧摩阻。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "桩端阻力和桩侧摩阻。"
     },
     {
       "id": "g-051",
@@ -1515,7 +1685,8 @@
       "type": "笔面试",
       "question": "基坑支护设计需要关注哪些破坏模式？",
       "answerPoints": "整体稳定、隆起、管涌、支护强度、变形。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "整体稳定、隆起、管涌、支护强度、变形。"
     },
     {
       "id": "g-052",
@@ -1523,7 +1694,8 @@
       "type": "笔面试",
       "question": "BIM的价值不只是三维模型，还包括什么？",
       "answerPoints": "信息集成、碰撞检查、进度、算量、运维。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "信息集成、碰撞检查、进度、算量、运维。"
     },
     {
       "id": "g-053",
@@ -1531,7 +1703,8 @@
       "type": "笔面试",
       "question": "施工组织设计的核心目标是什么？",
       "answerPoints": "安全、质量、工期、成本和资源协调。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "安全、质量、工期、成本和资源协调。"
     },
     {
       "id": "g-054",
@@ -1539,7 +1712,8 @@
       "type": "笔面试",
       "question": "设计结果与现场情况不一致怎么办？",
       "answerPoints": "核实资料、变更流程、技术复核、责任边界。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "核实资料、变更流程、技术复核、责任边界。"
     },
     {
       "id": "g-055",
@@ -1547,7 +1721,8 @@
       "type": "笔面试",
       "question": "三相交流为什么广泛用于电力系统？",
       "answerPoints": "功率平稳、传输与电机效率高。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "功率平稳、传输与电机效率高。"
     },
     {
       "id": "g-056",
@@ -1555,7 +1730,8 @@
       "type": "笔面试",
       "question": "变压器为什么不能直接工作在直流下？",
       "answerPoints": "直流无交变磁通，易导致磁饱和和大电流。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "直流无交变磁通，易导致磁饱和和大电流。"
     },
     {
       "id": "g-057",
@@ -1563,7 +1739,8 @@
       "type": "笔面试",
       "question": "同步发电机频率由什么决定？",
       "answerPoints": "转速与极对数。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "转速与极对数。"
     },
     {
       "id": "g-058",
@@ -1571,7 +1748,8 @@
       "type": "笔面试",
       "question": "电网电压稳定与哪些因素相关？",
       "answerPoints": "无功平衡、网络强度、负荷特性、控制。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "无功平衡、网络强度、负荷特性、控制。"
     },
     {
       "id": "g-059",
@@ -1579,7 +1757,8 @@
       "type": "笔面试",
       "question": "短路计算的目的是什么？",
       "answerPoints": "设备选型、保护整定、热稳定与动稳定。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "设备选型、保护整定、热稳定与动稳定。"
     },
     {
       "id": "g-060",
@@ -1587,7 +1766,8 @@
       "type": "笔面试",
       "question": "光伏逆变器主要完成什么？",
       "answerPoints": "DC-AC变换、MPPT、并网控制与保护。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "DC-AC变换、MPPT、并网控制与保护。"
     },
     {
       "id": "g-061",
@@ -1595,7 +1775,8 @@
       "type": "笔面试",
       "question": "风电机组额定风速以上为什么要变桨？",
       "answerPoints": "限制气动功率和结构载荷。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "限制气动功率和结构载荷。"
     },
     {
       "id": "g-062",
@@ -1603,7 +1784,8 @@
       "type": "笔面试",
       "question": "储能参与电网调频的优势是什么？",
       "answerPoints": "响应快、双向调节、控制灵活。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "响应快、双向调节、控制灵活。"
     },
     {
       "id": "g-063",
@@ -1611,7 +1793,8 @@
       "type": "笔面试",
       "question": "新能源并网为什么需要考虑低电压穿越？",
       "answerPoints": "故障时维持并网支撑，避免大规模脱网。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "故障时维持并网支撑，避免大规模脱网。"
     },
     {
       "id": "g-064",
@@ -1619,7 +1802,8 @@
       "type": "笔面试",
       "question": "电机FOC控制的基本目标是什么？",
       "answerPoints": "把磁链和转矩分量解耦控制。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "把磁链和转矩分量解耦控制。"
     },
     {
       "id": "g-065",
@@ -1627,7 +1811,8 @@
       "type": "笔面试",
       "question": "什么是收益率曲线？",
       "answerPoints": "不同期限同类债券收益率的期限结构。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不同期限同类债券收益率的期限结构。"
     },
     {
       "id": "g-066",
@@ -1635,7 +1820,8 @@
       "type": "笔面试",
       "question": "利率上升通常如何影响债券价格？",
       "answerPoints": "反向变化，久期越高越敏感。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "反向变化，久期越高越敏感。"
     },
     {
       "id": "g-067",
@@ -1643,7 +1829,8 @@
       "type": "笔面试",
       "question": "银行为什么关注资本充足率？",
       "answerPoints": "吸收损失能力与监管要求。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "吸收损失能力与监管要求。"
     },
     {
       "id": "g-068",
@@ -1651,7 +1838,8 @@
       "type": "笔面试",
       "question": "不良贷款率上升意味着什么？",
       "answerPoints": "资产质量恶化，拨备与资本压力增加。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "资产质量恶化，拨备与资本压力增加。"
     },
     {
       "id": "g-069",
@@ -1659,7 +1847,8 @@
       "type": "笔面试",
       "question": "什么是流动性风险？",
       "answerPoints": "无法以合理成本及时履行支付义务的风险。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "无法以合理成本及时履行支付义务的风险。"
     },
     {
       "id": "g-070",
@@ -1667,7 +1856,8 @@
       "type": "笔面试",
       "question": "ROE与ROA分别反映什么？",
       "answerPoints": "股东资本回报与总资产盈利能力。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "股东资本回报与总资产盈利能力。"
     },
     {
       "id": "g-071",
@@ -1675,7 +1865,8 @@
       "type": "笔面试",
       "question": "汇率升值对出口企业可能有什么影响？",
       "answerPoints": "本币收入折算、价格竞争力和成本结构变化。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "本币收入折算、价格竞争力和成本结构变化。"
     },
     {
       "id": "g-072",
@@ -1683,7 +1874,8 @@
       "type": "笔面试",
       "question": "NPV为正通常意味着什么？",
       "answerPoints": "按给定贴现率项目创造正的净现值。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "按给定贴现率项目创造正的净现值。"
     },
     {
       "id": "g-073",
@@ -1691,7 +1883,8 @@
       "type": "笔面试",
       "question": "为什么金融机构强调合规与反洗钱？",
       "answerPoints": "法律监管、声誉、金融安全。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "法律监管、声誉、金融安全。"
     },
     {
       "id": "g-074",
@@ -1699,7 +1892,8 @@
       "type": "笔面试",
       "question": "如果客户风险偏好很低，你会如何配置产品？",
       "answerPoints": "先适当性评估，再做低波动与流动性安排。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "先适当性评估，再做低波动与流动性安排。"
     },
     {
       "id": "g-075",
@@ -1707,7 +1901,8 @@
       "type": "笔面试",
       "question": "资产负债表、利润表、现金流量表如何勾稽？",
       "answerPoints": "净利润影响权益并经现金流调整；现金期末与资产负债表一致。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "净利润影响权益并经现金流调整；现金期末与资产负债表一致。"
     },
     {
       "id": "g-076",
@@ -1715,7 +1910,8 @@
       "type": "笔面试",
       "question": "收入增长但经营现金流下降可能说明什么？",
       "answerPoints": "应收、存货、回款周期或收入质量变化。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "应收、存货、回款周期或收入质量变化。"
     },
     {
       "id": "g-077",
@@ -1723,7 +1919,8 @@
       "type": "笔面试",
       "question": "审计中的重要性水平是什么？",
       "answerPoints": "可能影响报表使用者决策的错报阈值。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "可能影响报表使用者决策的错报阈值。"
     },
     {
       "id": "g-078",
@@ -1731,7 +1928,8 @@
       "type": "笔面试",
       "question": "控制测试和实质性程序有什么区别？",
       "answerPoints": "前者看内控有效性，后者直接获取余额/交易证据。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "前者看内控有效性，后者直接获取余额/交易证据。"
     },
     {
       "id": "g-079",
@@ -1739,7 +1937,8 @@
       "type": "笔面试",
       "question": "市场规模估算题怎么开始？",
       "answerPoints": "定义口径→拆驱动因素→假设→交叉验证。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "定义口径→拆驱动因素→假设→交叉验证。"
     },
     {
       "id": "g-080",
@@ -1747,7 +1946,8 @@
       "type": "笔面试",
       "question": "利润下降案例常见分析框架？",
       "answerPoints": "收入=量×价；成本=固定+变动，再看结构与竞争。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "收入=量×价；成本=固定+变动，再看结构与竞争。"
     },
     {
       "id": "g-081",
@@ -1755,7 +1955,8 @@
       "type": "笔面试",
       "question": "进入新市场前需要看哪些因素？",
       "answerPoints": "市场规模、增长、竞争、客户、能力、法规、财务。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "市场规模、增长、竞争、客户、能力、法规、财务。"
     },
     {
       "id": "g-082",
@@ -1763,7 +1964,8 @@
       "type": "笔面试",
       "question": "咨询案例中为什么要先明确问题定义？",
       "answerPoints": "避免分析正确但问题错误。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "避免分析正确但问题错误。"
     },
     {
       "id": "g-083",
@@ -1771,7 +1973,8 @@
       "type": "笔面试",
       "question": "EBITDA与净利润的区别？",
       "answerPoints": "未扣利息税项折旧摊销 vs 最终净收益。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "未扣利息税项折旧摊销 vs 最终净收益。"
     },
     {
       "id": "g-084",
@@ -1779,7 +1982,8 @@
       "type": "笔面试",
       "question": "AI工具如何改变审计或咨询工作？",
       "answerPoints": "自动化、数据分析、文档生成，同时增加治理与验证要求。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "自动化、数据分析、文档生成，同时增加治理与验证要求。"
     },
     {
       "id": "g-085",
@@ -1787,7 +1991,8 @@
       "type": "笔面试",
       "question": "随机对照试验为什么强调随机化？",
       "answerPoints": "降低选择偏倚和混杂。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "降低选择偏倚和混杂。"
     },
     {
       "id": "g-086",
@@ -1795,7 +2000,8 @@
       "type": "笔面试",
       "question": "临床试验中的主要终点是什么？",
       "answerPoints": "预先定义的核心疗效/安全评价指标。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "预先定义的核心疗效/安全评价指标。"
     },
     {
       "id": "g-087",
@@ -1803,7 +2009,8 @@
       "type": "笔面试",
       "question": "p值小于0.05能否等价于‘临床上重要’？",
       "answerPoints": "不能；统计显著不等于临床意义。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不能；统计显著不等于临床意义。"
     },
     {
       "id": "g-088",
@@ -1811,7 +2018,8 @@
       "type": "笔面试",
       "question": "药物半衰期影响什么？",
       "answerPoints": "给药间隔、稳态时间和体内暴露。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "给药间隔、稳态时间和体内暴露。"
     },
     {
       "id": "g-089",
@@ -1819,7 +2027,8 @@
       "type": "笔面试",
       "question": "化工过程中的物料衡算核心是什么？",
       "answerPoints": "输入-输出+生成-消耗=积累。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "输入-输出+生成-消耗=积累。"
     },
     {
       "id": "g-090",
@@ -1827,7 +2036,8 @@
       "type": "笔面试",
       "question": "反应器放大为什么不能只按几何比例？",
       "answerPoints": "传热、传质、混合和停留时间会改变。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "传热、传质、混合和停留时间会改变。"
     },
     {
       "id": "g-091",
@@ -1835,7 +2045,8 @@
       "type": "笔面试",
       "question": "危险化学品工艺为什么要做HAZOP？",
       "answerPoints": "系统识别偏差、原因、后果和保护措施。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "系统识别偏差、原因、后果和保护措施。"
     },
     {
       "id": "g-092",
@@ -1843,7 +2054,8 @@
       "type": "笔面试",
       "question": "质量体系中的CAPA指什么？",
       "answerPoints": "纠正措施与预防措施。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "纠正措施与预防措施。"
     },
     {
       "id": "g-093",
@@ -1851,7 +2063,8 @@
       "type": "笔面试",
       "question": "DAU上涨但留存下降，你首先看什么？",
       "answerPoints": "新增来源、用户分层、功能路径、版本变化。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "新增来源、用户分层、功能路径、版本变化。"
     },
     {
       "id": "g-094",
@@ -1859,7 +2072,8 @@
       "type": "笔面试",
       "question": "一个新功能上线前如何定义成功？",
       "answerPoints": "北极星指标、护栏指标、目标人群和时间窗口。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "北极星指标、护栏指标、目标人群和时间窗口。"
     },
     {
       "id": "g-095",
@@ -1867,7 +2081,8 @@
       "type": "笔面试",
       "question": "A/B测试的基本前提是什么？",
       "answerPoints": "随机分流、样本量、单一变量、统计显著。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "随机分流、样本量、单一变量、统计显著。"
     },
     {
       "id": "g-096",
@@ -1875,7 +2090,8 @@
       "type": "笔面试",
       "question": "如何做竞品分析避免变成功能罗列？",
       "answerPoints": "用户、场景、价值、商业模式、体验和数据。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "用户、场景、价值、商业模式、体验和数据。"
     },
     {
       "id": "g-097",
@@ -1883,7 +2099,8 @@
       "type": "笔面试",
       "question": "市场活动ROI如何计算和解释？",
       "answerPoints": "增量收益/投入，并考虑归因和长期价值。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "增量收益/投入，并考虑归因和长期价值。"
     },
     {
       "id": "g-098",
@@ -1891,7 +2108,8 @@
       "type": "笔面试",
       "question": "销售额下降时如何拆解？",
       "answerPoints": "流量×转化×客单价，叠加品类/渠道/区域。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "流量×转化×客单价，叠加品类/渠道/区域。"
     },
     {
       "id": "g-099",
@@ -1899,7 +2117,8 @@
       "type": "笔面试",
       "question": "如何给一个校园App做冷启动？",
       "answerPoints": "种子用户、核心场景、供需两端、激励和反馈。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "种子用户、核心场景、供需两端、激励和反馈。"
     },
     {
       "id": "g-100",
@@ -1907,7 +2126,8 @@
       "type": "笔面试",
       "question": "用户说‘不好用’，产品经理怎么继续追问？",
       "answerPoints": "还原任务、场景、频次、阻碍、替代方案。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "还原任务、场景、频次、阻碍、替代方案。"
     },
     {
       "id": "g-101",
@@ -1915,7 +2135,8 @@
       "type": "笔面试",
       "question": "CMOS反相器的静态功耗为什么通常较低？",
       "answerPoints": "稳态时理想情况下NMOS/PMOS不会同时导通。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "稳态时理想情况下NMOS/PMOS不会同时导通。"
     },
     {
       "id": "g-102",
@@ -1923,7 +2144,8 @@
       "type": "笔面试",
       "question": "建立时间和保持时间是什么？",
       "answerPoints": "触发器采样边沿前后数据需稳定的时间窗口。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "触发器采样边沿前后数据需稳定的时间窗口。"
     },
     {
       "id": "g-103",
@@ -1931,7 +2153,8 @@
       "type": "笔面试",
       "question": "什么是亚稳态？",
       "answerPoints": "时序违反导致触发器输出暂时无法快速稳定。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "时序违反导致触发器输出暂时无法快速稳定。"
     },
     {
       "id": "g-104",
@@ -1939,7 +2162,8 @@
       "type": "笔面试",
       "question": "PCB高速信号为什么要控制阻抗？",
       "answerPoints": "减少反射、过冲和信号完整性问题。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "减少反射、过冲和信号完整性问题。"
     },
     {
       "id": "g-105",
@@ -1947,7 +2171,8 @@
       "type": "笔面试",
       "question": "ADC分辨率与量化误差有什么关系？",
       "answerPoints": "位数越高，LSB越小，理想量化误差降低。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "位数越高，LSB越小，理想量化误差降低。"
     },
     {
       "id": "g-106",
@@ -1955,7 +2180,8 @@
       "type": "笔面试",
       "question": "芯片封装热设计为什么重要？",
       "answerPoints": "结温影响性能、可靠性与寿命。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "结温影响性能、可靠性与寿命。"
     },
     {
       "id": "g-107",
@@ -1963,7 +2189,8 @@
       "type": "笔面试",
       "question": "EMI和EMC有什么区别？",
       "answerPoints": "EMI是干扰本身，EMC是设备在电磁环境中的兼容能力。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "EMI是干扰本身，EMC是设备在电磁环境中的兼容能力。"
     },
     {
       "id": "g-108",
@@ -1971,7 +2198,8 @@
       "type": "笔面试",
       "question": "数字电路中的竞争冒险是什么？",
       "answerPoints": "不同路径延迟导致短暂错误逻辑。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不同路径延迟导致短暂错误逻辑。"
     },
     {
       "id": "g-109",
@@ -1979,7 +2207,8 @@
       "type": "笔面试",
       "question": "数组中找两数之和有哪些做法？",
       "answerPoints": "暴力O(n²)；哈希表O(n)时间、O(n)空间。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "暴力O(n²)；哈希表O(n)时间、O(n)空间。"
     },
     {
       "id": "g-110",
@@ -1987,7 +2216,8 @@
       "type": "笔面试",
       "question": "链表如何判断是否有环？",
       "answerPoints": "快慢指针；相遇说明有环。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "快慢指针；相遇说明有环。"
     },
     {
       "id": "g-111",
@@ -1995,7 +2225,8 @@
       "type": "笔面试",
       "question": "如何在O(log n)时间查找有序数组中的目标值？",
       "answerPoints": "二分查找并注意左右边界。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "二分查找并注意左右边界。"
     },
     {
       "id": "g-112",
@@ -2003,7 +2234,8 @@
       "type": "笔面试",
       "question": "堆适合解决哪些Top-K问题？",
       "answerPoints": "维护大小为K的堆，适合流式或大规模数据。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "维护大小为K的堆，适合流式或大规模数据。"
     },
     {
       "id": "g-113",
@@ -2011,7 +2243,8 @@
       "type": "笔面试",
       "question": "BFS和DFS分别更适合哪些场景？",
       "answerPoints": "BFS常用于无权最短路；DFS适合遍历、回溯、连通性。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "BFS常用于无权最短路；DFS适合遍历、回溯、连通性。"
     },
     {
       "id": "g-114",
@@ -2019,7 +2252,8 @@
       "type": "笔面试",
       "question": "动态规划题如何判断状态定义是否合理？",
       "answerPoints": "状态应能表达子问题并可由更小状态转移。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "状态应能表达子问题并可由更小状态转移。"
     },
     {
       "id": "g-115",
@@ -2027,7 +2261,8 @@
       "type": "笔面试",
       "question": "LRU缓存怎样做到O(1)查询和淘汰？",
       "answerPoints": "哈希表+双向链表。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "哈希表+双向链表。"
     },
     {
       "id": "g-116",
@@ -2035,7 +2270,8 @@
       "type": "笔面试",
       "question": "字符串最长无重复子串如何做？",
       "answerPoints": "滑动窗口+哈希记录最近位置。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "滑动窗口+哈希记录最近位置。"
     },
     {
       "id": "g-117",
@@ -2043,7 +2279,8 @@
       "type": "笔面试",
       "question": "合并K个有序链表怎样降低复杂度？",
       "answerPoints": "最小堆或分治合并。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "最小堆或分治合并。"
     },
     {
       "id": "g-118",
@@ -2051,7 +2288,8 @@
       "type": "笔面试",
       "question": "并查集适合解决什么问题？",
       "answerPoints": "动态连通性、集合合并与查询。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "动态连通性、集合合并与查询。"
     },
     {
       "id": "g-119",
@@ -2059,7 +2297,8 @@
       "type": "笔面试",
       "question": "用户态和内核态为什么要区分？",
       "answerPoints": "隔离权限，保护系统资源和硬件访问。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "隔离权限，保护系统资源和硬件访问。"
     },
     {
       "id": "g-120",
@@ -2067,7 +2306,8 @@
       "type": "笔面试",
       "question": "死锁产生的四个必要条件是什么？",
       "answerPoints": "互斥、请求保持、不可剥夺、循环等待。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "互斥、请求保持、不可剥夺、循环等待。"
     },
     {
       "id": "g-121",
@@ -2075,7 +2315,8 @@
       "type": "笔面试",
       "question": "虚拟内存解决了什么问题？",
       "answerPoints": "地址隔离、按需加载、扩展可用地址空间。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "地址隔离、按需加载、扩展可用地址空间。"
     },
     {
       "id": "g-122",
@@ -2083,7 +2324,8 @@
       "type": "笔面试",
       "question": "线程上下文切换为什么有成本？",
       "answerPoints": "保存恢复状态、缓存/TLB影响、调度开销。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "保存恢复状态、缓存/TLB影响、调度开销。"
     },
     {
       "id": "g-123",
@@ -2091,7 +2333,8 @@
       "type": "笔面试",
       "question": "HTTP和HTTPS的核心区别是什么？",
       "answerPoints": "HTTPS在HTTP上增加TLS加密、认证和完整性。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "HTTPS在HTTP上增加TLS加密、认证和完整性。"
     },
     {
       "id": "g-124",
@@ -2099,7 +2342,8 @@
       "type": "笔面试",
       "question": "DNS解析大致经过哪些层级？",
       "answerPoints": "本地缓存、递归解析器、根、TLD、权威服务器。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "本地缓存、递归解析器、根、TLD、权威服务器。"
     },
     {
       "id": "g-125",
@@ -2107,7 +2351,8 @@
       "type": "笔面试",
       "question": "TCP TIME_WAIT为什么存在？",
       "answerPoints": "确保迟到报文失效并可靠处理最后ACK。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "确保迟到报文失效并可靠处理最后ACK。"
     },
     {
       "id": "g-126",
@@ -2115,7 +2360,8 @@
       "type": "笔面试",
       "question": "负载均衡有哪些常见策略？",
       "answerPoints": "轮询、加权、最少连接、一致性哈希等。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "轮询、加权、最少连接、一致性哈希等。"
     },
     {
       "id": "g-127",
@@ -2123,7 +2369,8 @@
       "type": "笔面试",
       "question": "限流、熔断、降级分别解决什么？",
       "answerPoints": "控制流量、隔离故障、牺牲次要能力保核心。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "控制流量、隔离故障、牺牲次要能力保核心。"
     },
     {
       "id": "g-128",
@@ -2131,7 +2378,8 @@
       "type": "笔面试",
       "question": "WebSocket适合什么场景？",
       "answerPoints": "需要长连接和双向实时通信的场景。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "需要长连接和双向实时通信的场景。"
     },
     {
       "id": "g-129",
@@ -2139,7 +2387,8 @@
       "type": "笔面试",
       "question": "预训练、指令微调和偏好对齐分别解决什么？",
       "answerPoints": "知识/表示学习、任务遵循、行为偏好与安全。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "知识/表示学习、任务遵循、行为偏好与安全。"
     },
     {
       "id": "g-130",
@@ -2147,7 +2396,8 @@
       "type": "笔面试",
       "question": "Embedding为什么可以用于语义检索？",
       "answerPoints": "把语义相似内容映射到近邻向量空间。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "把语义相似内容映射到近邻向量空间。"
     },
     {
       "id": "g-131",
@@ -2155,7 +2405,8 @@
       "type": "笔面试",
       "question": "Reranker在RAG中有什么作用？",
       "answerPoints": "对初步召回结果二次排序，提高相关性。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "对初步召回结果二次排序，提高相关性。"
     },
     {
       "id": "g-132",
@@ -2163,7 +2414,8 @@
       "type": "笔面试",
       "question": "Chunk切太大或太小会怎样？",
       "answerPoints": "太大稀释相关信息且耗上下文；太小丢失完整语义。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "太大稀释相关信息且耗上下文；太小丢失完整语义。"
     },
     {
       "id": "g-133",
@@ -2171,7 +2423,8 @@
       "type": "笔面试",
       "question": "Prompt Injection是什么风险？",
       "answerPoints": "外部内容诱导模型绕过指令或泄露/误用工具。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "外部内容诱导模型绕过指令或泄露/误用工具。"
     },
     {
       "id": "g-134",
@@ -2179,7 +2432,8 @@
       "type": "笔面试",
       "question": "Agent为什么需要工具权限边界？",
       "answerPoints": "防止越权、误操作和不可控外部副作用。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "防止越权、误操作和不可控外部副作用。"
     },
     {
       "id": "g-135",
@@ -2187,7 +2441,8 @@
       "type": "笔面试",
       "question": "模型量化主要权衡什么？",
       "answerPoints": "显存/速度与精度之间的权衡。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "显存/速度与精度之间的权衡。"
     },
     {
       "id": "g-136",
@@ -2195,7 +2450,8 @@
       "type": "笔面试",
       "question": "KV Cache为什么能加速自回归推理？",
       "answerPoints": "复用历史token的K/V，避免重复计算。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "复用历史token的K/V，避免重复计算。"
     },
     {
       "id": "g-137",
@@ -2203,7 +2459,8 @@
       "type": "笔面试",
       "question": "什么是数据漂移？",
       "answerPoints": "线上输入分布相对训练/基准数据发生变化。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "线上输入分布相对训练/基准数据发生变化。"
     },
     {
       "id": "g-138",
@@ -2211,7 +2468,8 @@
       "type": "笔面试",
       "question": "AI产品评测为什么不能只看一个准确率？",
       "answerPoints": "需覆盖质量、安全、延迟、成本、用户价值等。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "需覆盖质量、安全、延迟、成本、用户价值等。"
     },
     {
       "id": "g-139",
@@ -2219,7 +2477,8 @@
       "type": "笔面试",
       "question": "PID三项分别起什么作用？",
       "answerPoints": "P响应当前误差，I消除稳态误差，D抑制变化趋势。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "P响应当前误差，I消除稳态误差，D抑制变化趋势。"
     },
     {
       "id": "g-140",
@@ -2227,7 +2486,8 @@
       "type": "笔面试",
       "question": "闭环控制相比开环控制的优势是什么？",
       "answerPoints": "利用反馈抑制扰动和模型误差。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "利用反馈抑制扰动和模型误差。"
     },
     {
       "id": "g-141",
@@ -2235,7 +2495,8 @@
       "type": "笔面试",
       "question": "系统稳定和性能快是否天然一致？",
       "answerPoints": "不一致，响应速度、超调、鲁棒性常需权衡。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不一致，响应速度、超调、鲁棒性常需权衡。"
     },
     {
       "id": "g-142",
@@ -2243,7 +2504,8 @@
       "type": "笔面试",
       "question": "什么是可控性？",
       "answerPoints": "能否通过输入把系统状态驱动到目标状态。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "能否通过输入把系统状态驱动到目标状态。"
     },
     {
       "id": "g-143",
@@ -2251,7 +2513,8 @@
       "type": "笔面试",
       "question": "PLC适合哪些工业场景？",
       "answerPoints": "可靠、实时、逻辑与顺序控制的工业自动化。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "可靠、实时、逻辑与顺序控制的工业自动化。"
     },
     {
       "id": "g-144",
@@ -2259,7 +2522,8 @@
       "type": "笔面试",
       "question": "传感器噪声为什么需要滤波？",
       "answerPoints": "避免噪声放大或影响控制决策。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "避免噪声放大或影响控制决策。"
     },
     {
       "id": "g-145",
@@ -2267,7 +2531,8 @@
       "type": "笔面试",
       "question": "采样频率过低会导致什么？",
       "answerPoints": "混叠，无法正确还原高频信号。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "混叠，无法正确还原高频信号。"
     },
     {
       "id": "g-146",
@@ -2275,7 +2540,8 @@
       "type": "笔面试",
       "question": "卡尔曼滤波核心思想是什么？",
       "answerPoints": "融合模型预测与测量，按不确定性加权估计。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "融合模型预测与测量，按不确定性加权估计。"
     },
     {
       "id": "g-147",
@@ -2283,7 +2549,8 @@
       "type": "笔面试",
       "question": "伺服系统和普通电机控制有什么区别？",
       "answerPoints": "更强调位置/速度/转矩的高精度闭环控制。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "更强调位置/速度/转矩的高精度闭环控制。"
     },
     {
       "id": "g-148",
@@ -2291,7 +2558,8 @@
       "type": "笔面试",
       "question": "工业现场总线的价值是什么？",
       "answerPoints": "实时、可靠地连接控制器、传感器和执行器。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "实时、可靠地连接控制器、传感器和执行器。"
     },
     {
       "id": "g-149",
@@ -2299,7 +2567,8 @@
       "type": "笔面试",
       "question": "轴为什么常同时校核强度和刚度？",
       "answerPoints": "既防止破坏，也要限制变形以保证传动和配合。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "既防止破坏，也要限制变形以保证传动和配合。"
     },
     {
       "id": "g-150",
@@ -2307,7 +2576,8 @@
       "type": "笔面试",
       "question": "齿轮失效常见形式有哪些？",
       "answerPoints": "齿根弯曲、齿面点蚀、胶合、磨损。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "齿根弯曲、齿面点蚀、胶合、磨损。"
     },
     {
       "id": "g-151",
@@ -2315,7 +2585,8 @@
       "type": "笔面试",
       "question": "过盈配合适合什么场景？",
       "answerPoints": "需要可靠传递载荷且不希望相对运动。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "需要可靠传递载荷且不希望相对运动。"
     },
     {
       "id": "g-152",
@@ -2323,7 +2594,8 @@
       "type": "笔面试",
       "question": "公差与配合为什么影响装配成本？",
       "answerPoints": "精度越高制造检测成本越高。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "精度越高制造检测成本越高。"
     },
     {
       "id": "g-153",
@@ -2331,7 +2603,8 @@
       "type": "笔面试",
       "question": "疲劳裂纹通常从哪里萌生？",
       "answerPoints": "应力集中、表面缺陷、材料缺陷处。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "应力集中、表面缺陷、材料缺陷处。"
     },
     {
       "id": "g-154",
@@ -2339,7 +2612,8 @@
       "type": "笔面试",
       "question": "为什么圆角能降低应力集中？",
       "answerPoints": "使几何变化更平滑，降低局部应力梯度。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "使几何变化更平滑，降低局部应力梯度。"
     },
     {
       "id": "g-155",
@@ -2347,7 +2621,8 @@
       "type": "笔面试",
       "question": "轻量化为什么不能只减薄材料？",
       "answerPoints": "还需满足强度、刚度、疲劳、碰撞、制造。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "还需满足强度、刚度、疲劳、碰撞、制造。"
     },
     {
       "id": "g-156",
@@ -2355,7 +2630,8 @@
       "type": "笔面试",
       "question": "焊接结构设计要关注哪些问题？",
       "answerPoints": "焊缝强度、残余应力、疲劳、变形、可制造性。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "焊缝强度、残余应力、疲劳、变形、可制造性。"
     },
     {
       "id": "g-157",
@@ -2363,7 +2639,8 @@
       "type": "笔面试",
       "question": "铸造件为什么要考虑拔模斜度和圆角？",
       "answerPoints": "便于脱模、充型并降低缺陷和应力集中。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "便于脱模、充型并降低缺陷和应力集中。"
     },
     {
       "id": "g-158",
@@ -2371,7 +2648,8 @@
       "type": "笔面试",
       "question": "DFM是什么意思？",
       "answerPoints": "面向制造设计，在设计阶段考虑工艺和成本。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "面向制造设计，在设计阶段考虑工艺和成本。"
     },
     {
       "id": "g-159",
@@ -2379,7 +2657,8 @@
       "type": "笔面试",
       "question": "屈服强度和抗拉强度有什么区别？",
       "answerPoints": "开始明显塑性变形 vs 拉伸最大承载应力。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "开始明显塑性变形 vs 拉伸最大承载应力。"
     },
     {
       "id": "g-160",
@@ -2387,7 +2666,8 @@
       "type": "笔面试",
       "question": "韧性与强度有什么区别？",
       "answerPoints": "韧性反映破坏前吸收能量能力，强度反映承载能力。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "韧性反映破坏前吸收能量能力，强度反映承载能力。"
     },
     {
       "id": "g-161",
@@ -2395,7 +2675,8 @@
       "type": "笔面试",
       "question": "热处理为什么能改变钢的性能？",
       "answerPoints": "通过组织相变和晶粒/析出状态改变性能。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "通过组织相变和晶粒/析出状态改变性能。"
     },
     {
       "id": "g-162",
@@ -2403,7 +2684,8 @@
       "type": "笔面试",
       "question": "复合材料为什么具有各向异性？",
       "answerPoints": "性能与纤维方向、铺层结构强相关。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "性能与纤维方向、铺层结构强相关。"
     },
     {
       "id": "g-163",
@@ -2411,7 +2693,8 @@
       "type": "笔面试",
       "question": "高分子材料温度升高后性能为什么变化明显？",
       "answerPoints": "分子链运动和玻璃化转变等影响。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "分子链运动和玻璃化转变等影响。"
     },
     {
       "id": "g-164",
@@ -2419,7 +2702,8 @@
       "type": "笔面试",
       "question": "腐蚀疲劳为什么比单纯疲劳更危险？",
       "answerPoints": "环境腐蚀与循环载荷耦合促进裂纹。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "环境腐蚀与循环载荷耦合促进裂纹。"
     },
     {
       "id": "g-165",
@@ -2427,7 +2711,8 @@
       "type": "笔面试",
       "question": "晶粒细化通常如何影响强度？",
       "answerPoints": "Hall-Petch关系下通常提高屈服强度。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "Hall-Petch关系下通常提高屈服强度。"
     },
     {
       "id": "g-166",
@@ -2435,7 +2720,8 @@
       "type": "笔面试",
       "question": "材料选型为什么需要同时考虑制造工艺？",
       "answerPoints": "性能、成形、焊接、加工和成本相互制约。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "性能、成形、焊接、加工和成本相互制约。"
     },
     {
       "id": "g-167",
@@ -2443,7 +2729,8 @@
       "type": "笔面试",
       "question": "脆性断裂有哪些典型特征？",
       "answerPoints": "塑性变形小、裂纹扩展快、对缺口敏感。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "塑性变形小、裂纹扩展快、对缺口敏感。"
     },
     {
       "id": "g-168",
@@ -2451,7 +2738,8 @@
       "type": "笔面试",
       "question": "材料测试为什么要规定标准试样？",
       "answerPoints": "保证边界、尺寸和结果可比性。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "保证边界、尺寸和结果可比性。"
     },
     {
       "id": "g-169",
@@ -2459,7 +2747,8 @@
       "type": "笔面试",
       "question": "关键路径上的任务延期意味着什么？",
       "answerPoints": "若无总时差会直接推迟项目完工。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "若无总时差会直接推迟项目完工。"
     },
     {
       "id": "g-170",
@@ -2467,7 +2756,8 @@
       "type": "笔面试",
       "question": "挣值管理中的CPI小于1说明什么？",
       "answerPoints": "成本效率差，实际花费高于完成工作的预算。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "成本效率差，实际花费高于完成工作的预算。"
     },
     {
       "id": "g-171",
@@ -2475,7 +2765,8 @@
       "type": "笔面试",
       "question": "风险登记册应包含哪些核心字段？",
       "answerPoints": "风险、概率、影响、责任人、应对和触发条件。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "风险、概率、影响、责任人、应对和触发条件。"
     },
     {
       "id": "g-172",
@@ -2483,7 +2774,8 @@
       "type": "笔面试",
       "question": "变更管理为什么不能只靠口头确认？",
       "answerPoints": "需控制范围、成本、工期和责任证据链。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "需控制范围、成本、工期和责任证据链。"
     },
     {
       "id": "g-173",
@@ -2491,7 +2783,8 @@
       "type": "笔面试",
       "question": "项目复盘为什么不能只总结结果？",
       "answerPoints": "要追溯决策、假设、流程和可复用经验。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "要追溯决策、假设、流程和可复用经验。"
     },
     {
       "id": "g-174",
@@ -2499,7 +2792,8 @@
       "type": "笔面试",
       "question": "供应商延期时项目经理先做什么？",
       "answerPoints": "评估关键路径影响、备选方案和沟通升级。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "评估关键路径影响、备选方案和沟通升级。"
     },
     {
       "id": "g-175",
@@ -2507,7 +2801,8 @@
       "type": "笔面试",
       "question": "RACI矩阵解决什么问题？",
       "answerPoints": "明确负责、批准、咨询和知会角色。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "明确负责、批准、咨询和知会角色。"
     },
     {
       "id": "g-176",
@@ -2515,7 +2810,8 @@
       "type": "笔面试",
       "question": "工程索赔的基础是什么？",
       "answerPoints": "合同依据、事件事实、因果关系、损失与及时记录。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "合同依据、事件事实、因果关系、损失与及时记录。"
     },
     {
       "id": "g-177",
@@ -2523,7 +2819,8 @@
       "type": "笔面试",
       "question": "质量问题整改如何形成闭环？",
       "answerPoints": "发现、原因、措施、验证、预防复发。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "发现、原因、措施、验证、预防复发。"
     },
     {
       "id": "g-178",
@@ -2531,7 +2828,8 @@
       "type": "笔面试",
       "question": "项目预算超支如何分析？",
       "answerPoints": "范围、单价、数量、效率、变更和不可预见因素。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "范围、单价、数量、效率、变更和不可预见因素。"
     },
     {
       "id": "g-179",
@@ -2539,7 +2837,8 @@
       "type": "笔面试",
       "question": "市盈率高一定意味着股票贵吗？",
       "answerPoints": "不一定，需要结合增长、风险、行业和盈利质量。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不一定，需要结合增长、风险、行业和盈利质量。"
     },
     {
       "id": "g-180",
@@ -2547,7 +2846,8 @@
       "type": "笔面试",
       "question": "DCF估值最敏感的参数通常有哪些？",
       "answerPoints": "现金流预测、折现率、永续增长率。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "现金流预测、折现率、永续增长率。"
     },
     {
       "id": "g-181",
@@ -2555,7 +2855,8 @@
       "type": "笔面试",
       "question": "久期有什么用途？",
       "answerPoints": "衡量债券价格对利率变动的敏感度。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "衡量债券价格对利率变动的敏感度。"
     },
     {
       "id": "g-182",
@@ -2563,7 +2864,8 @@
       "type": "笔面试",
       "question": "分散投资为什么不能消除系统性风险？",
       "answerPoints": "市场整体因素无法通过单纯分散个股去除。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "市场整体因素无法通过单纯分散个股去除。"
     },
     {
       "id": "g-183",
@@ -2571,7 +2873,8 @@
       "type": "笔面试",
       "question": "Beta衡量什么？",
       "answerPoints": "资产相对市场的系统性风险敏感度。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "资产相对市场的系统性风险敏感度。"
     },
     {
       "id": "g-184",
@@ -2579,7 +2882,8 @@
       "type": "笔面试",
       "question": "一级市场与二级市场区别？",
       "answerPoints": "证券发行融资 vs 已发行证券交易。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "证券发行融资 vs 已发行证券交易。"
     },
     {
       "id": "g-185",
@@ -2587,7 +2891,8 @@
       "type": "笔面试",
       "question": "做行业研究通常从哪些维度入手？",
       "answerPoints": "市场空间、竞争格局、产业链、政策、公司盈利。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "市场空间、竞争格局、产业链、政策、公司盈利。"
     },
     {
       "id": "g-186",
@@ -2595,7 +2900,8 @@
       "type": "笔面试",
       "question": "自由现金流为什么是估值的重要基础？",
       "answerPoints": "反映企业可供资本提供者支配的真实现金创造。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "反映企业可供资本提供者支配的真实现金创造。"
     },
     {
       "id": "g-187",
@@ -2603,7 +2909,8 @@
       "type": "笔面试",
       "question": "并购产生商誉的基本原因是什么？",
       "answerPoints": "收购价高于可辨认净资产公允价值。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "收购价高于可辨认净资产公允价值。"
     },
     {
       "id": "g-188",
@@ -2611,7 +2918,8 @@
       "type": "笔面试",
       "question": "量化策略为什么要防过拟合？",
       "answerPoints": "历史回测表现可能无法泛化到未来。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "历史回测表现可能无法泛化到未来。"
     },
     {
       "id": "g-189",
@@ -2619,7 +2927,8 @@
       "type": "笔面试",
       "question": "合同审查首先看哪些核心要素？",
       "answerPoints": "主体、标的、价款、履行、违约、争议解决。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "主体、标的、价款、履行、违约、争议解决。"
     },
     {
       "id": "g-190",
@@ -2627,7 +2936,8 @@
       "type": "笔面试",
       "question": "违约责任和侵权责任有什么典型区别？",
       "answerPoints": "前者基于合同义务，后者基于法定权益侵害。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "前者基于合同义务，后者基于法定权益侵害。"
     },
     {
       "id": "g-191",
@@ -2635,7 +2945,8 @@
       "type": "笔面试",
       "question": "什么是商业秘密保护的基本要件？",
       "answerPoints": "非公知、商业价值、采取合理保密措施。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "非公知、商业价值、采取合理保密措施。"
     },
     {
       "id": "g-192",
@@ -2643,7 +2954,8 @@
       "type": "笔面试",
       "question": "企业为什么需要数据合规评估？",
       "answerPoints": "处理个人/重要数据涉及授权、安全和跨境等义务。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "处理个人/重要数据涉及授权、安全和跨境等义务。"
     },
     {
       "id": "g-193",
@@ -2651,7 +2963,8 @@
       "type": "笔面试",
       "question": "利益冲突为什么是合规重点？",
       "answerPoints": "可能损害独立判断并引发舞弊或不公平交易。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "可能损害独立判断并引发舞弊或不公平交易。"
     },
     {
       "id": "g-194",
@@ -2659,7 +2972,8 @@
       "type": "笔面试",
       "question": "反商业贿赂制度通常关注哪些行为？",
       "answerPoints": "不当利益、第三方中介、礼品招待、回扣等。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不当利益、第三方中介、礼品招待、回扣等。"
     },
     {
       "id": "g-195",
@@ -2667,7 +2981,8 @@
       "type": "笔面试",
       "question": "合同中不可抗力条款为什么重要？",
       "answerPoints": "明确无法预见/避免事件下的责任和通知机制。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "明确无法预见/避免事件下的责任和通知机制。"
     },
     {
       "id": "g-196",
@@ -2675,7 +2990,8 @@
       "type": "笔面试",
       "question": "知识产权尽调要看哪些内容？",
       "answerPoints": "权属、有效性、许可、侵权风险和核心技术依赖。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "权属、有效性、许可、侵权风险和核心技术依赖。"
     },
     {
       "id": "g-197",
@@ -2683,7 +2999,8 @@
       "type": "笔面试",
       "question": "如果业务要求‘先做后补合同’，法务如何应对？",
       "answerPoints": "说明风险，推动最小必要书面确认和授权。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "说明风险，推动最小必要书面确认和授权。"
     },
     {
       "id": "g-198",
@@ -2691,7 +3008,8 @@
       "type": "笔面试",
       "question": "合规岗位为什么不能只回答‘不可以’？",
       "answerPoints": "需要在法律边界内提供可执行替代方案。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "需要在法律边界内提供可执行替代方案。"
     },
     {
       "id": "g-199",
@@ -2699,7 +3017,8 @@
       "type": "笔面试",
       "question": "安全库存主要解决什么风险？",
       "answerPoints": "需求和补货周期不确定性。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "需求和补货周期不确定性。"
     },
     {
       "id": "g-200",
@@ -2707,7 +3026,8 @@
       "type": "笔面试",
       "question": "牛鞭效应是什么？",
       "answerPoints": "需求波动沿供应链向上游被放大。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "需求波动沿供应链向上游被放大。"
     },
     {
       "id": "g-201",
@@ -2715,7 +3035,8 @@
       "type": "笔面试",
       "question": "供应商评价应看哪些维度？",
       "answerPoints": "质量、成本、交付、技术、服务、风险与ESG。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "质量、成本、交付、技术、服务、风险与ESG。"
     },
     {
       "id": "g-202",
@@ -2723,7 +3044,8 @@
       "type": "笔面试",
       "question": "库存周转率提高一定好吗？",
       "answerPoints": "不一定，过高可能导致缺货和服务水平下降。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不一定，过高可能导致缺货和服务水平下降。"
     },
     {
       "id": "g-203",
@@ -2731,7 +3053,8 @@
       "type": "笔面试",
       "question": "采购总成本为什么不等于采购单价？",
       "answerPoints": "还包括物流、质量、库存、维护、切换等成本。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "还包括物流、质量、库存、维护、切换等成本。"
     },
     {
       "id": "g-204",
@@ -2739,7 +3062,8 @@
       "type": "笔面试",
       "question": "S&OP的作用是什么？",
       "answerPoints": "协调销售、运营、供应、财务形成统一计划。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "协调销售、运营、供应、财务形成统一计划。"
     },
     {
       "id": "g-205",
@@ -2747,7 +3071,8 @@
       "type": "笔面试",
       "question": "仓库ABC分类管理依据是什么？",
       "answerPoints": "通常按价值/重要性区分管理强度。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "通常按价值/重要性区分管理强度。"
     },
     {
       "id": "g-206",
@@ -2755,7 +3080,8 @@
       "type": "笔面试",
       "question": "国际物流中Incoterms解决什么？",
       "answerPoints": "明确买卖双方费用、风险和责任边界。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "明确买卖双方费用、风险和责任边界。"
     },
     {
       "id": "g-207",
@@ -2763,7 +3089,8 @@
       "type": "笔面试",
       "question": "供应中断时如何排优先级？",
       "answerPoints": "关键物料、客户影响、库存、替代源、恢复时间。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "关键物料、客户影响、库存、替代源、恢复时间。"
     },
     {
       "id": "g-208",
@@ -2771,7 +3098,8 @@
       "type": "笔面试",
       "question": "预测误差怎么衡量？",
       "answerPoints": "MAE、MAPE、RMSE等，并结合业务成本。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "MAE、MAPE、RMSE等，并结合业务成本。"
     },
     {
       "id": "g-209",
@@ -2779,7 +3107,8 @@
       "type": "笔面试",
       "question": "敏感度和特异度分别表示什么？",
       "answerPoints": "识别真阳性能力 vs 识别真阴性能力。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "识别真阳性能力 vs 识别真阴性能力。"
     },
     {
       "id": "g-210",
@@ -2787,7 +3116,8 @@
       "type": "笔面试",
       "question": "队列研究和病例对照研究区别？",
       "answerPoints": "按暴露前瞻/回顾结局 vs 从结局回看暴露。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "按暴露前瞻/回顾结局 vs 从结局回看暴露。"
     },
     {
       "id": "g-211",
@@ -2795,7 +3125,8 @@
       "type": "笔面试",
       "question": "双盲设计为什么重要？",
       "answerPoints": "降低受试者和研究者预期造成的偏倚。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "降低受试者和研究者预期造成的偏倚。"
     },
     {
       "id": "g-212",
@@ -2803,7 +3134,8 @@
       "type": "笔面试",
       "question": "生物标志物进入临床应用前要验证什么？",
       "answerPoints": "分析性能、临床有效性、临床效用。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "分析性能、临床有效性、临床效用。"
     },
     {
       "id": "g-213",
@@ -2811,7 +3143,8 @@
       "type": "笔面试",
       "question": "药代动力学中的AUC代表什么？",
       "answerPoints": "一定时间内药物暴露量。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "一定时间内药物暴露量。"
     },
     {
       "id": "g-214",
@@ -2819,7 +3152,8 @@
       "type": "笔面试",
       "question": "无菌生产为什么重视环境监测？",
       "answerPoints": "控制微生物和颗粒污染风险。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "控制微生物和颗粒污染风险。"
     },
     {
       "id": "g-215",
@@ -2827,7 +3161,8 @@
       "type": "笔面试",
       "question": "医疗器械风险管理常见思路是什么？",
       "answerPoints": "识别危害、估计风险、控制、验证剩余风险。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "识别危害、估计风险、控制、验证剩余风险。"
     },
     {
       "id": "g-216",
@@ -2835,7 +3170,8 @@
       "type": "笔面试",
       "question": "临床数据缺失值能随意删除吗？",
       "answerPoints": "不能；需分析缺失机制并采用合适方法。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不能；需分析缺失机制并采用合适方法。"
     },
     {
       "id": "g-217",
@@ -2843,7 +3179,8 @@
       "type": "笔面试",
       "question": "PCR基本原理是什么？",
       "answerPoints": "变性、退火、延伸循环扩增目标DNA。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "变性、退火、延伸循环扩增目标DNA。"
     },
     {
       "id": "g-218",
@@ -2851,7 +3188,8 @@
       "type": "笔面试",
       "question": "伦理审查为什么是临床研究前提？",
       "answerPoints": "保护受试者权益、安全和知情同意。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "保护受试者权益、安全和知情同意。"
     },
     {
       "id": "g-219",
@@ -2859,7 +3197,8 @@
       "type": "笔面试",
       "question": "市场份额下降但销量上升意味着什么？",
       "answerPoints": "市场增长更快，公司相对竞争力可能下降。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "市场增长更快，公司相对竞争力可能下降。"
     },
     {
       "id": "g-220",
@@ -2867,7 +3206,8 @@
       "type": "笔面试",
       "question": "客户分层常用哪些维度？",
       "answerPoints": "价值、需求、行为、生命周期、行业/规模等。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "价值、需求、行为、生命周期、行业/规模等。"
     },
     {
       "id": "g-221",
@@ -2875,7 +3215,8 @@
       "type": "笔面试",
       "question": "B2B销售周期为什么通常比B2C长？",
       "answerPoints": "决策链多、金额高、验证与采购流程复杂。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "决策链多、金额高、验证与采购流程复杂。"
     },
     {
       "id": "g-222",
@@ -2883,7 +3224,8 @@
       "type": "笔面试",
       "question": "NPS反映什么？",
       "answerPoints": "客户推荐意愿，是体验/忠诚度的简化指标。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "客户推荐意愿，是体验/忠诚度的简化指标。"
     },
     {
       "id": "g-223",
@@ -2891,7 +3233,8 @@
       "type": "笔面试",
       "question": "价格弹性大意味着什么？",
       "answerPoints": "需求对价格变化敏感。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "需求对价格变化敏感。"
     },
     {
       "id": "g-224",
@@ -2899,7 +3242,8 @@
       "type": "笔面试",
       "question": "品牌投放如何与销售效果建立联系？",
       "answerPoints": "增量实验、区域/人群对照、归因和长期指标。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "增量实验、区域/人群对照、归因和长期指标。"
     },
     {
       "id": "g-225",
@@ -2907,7 +3251,8 @@
       "type": "笔面试",
       "question": "销售漏斗中线索多但成交少怎么排查？",
       "answerPoints": "线索质量、资格筛选、方案、价格、跟进和竞争。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "线索质量、资格筛选、方案、价格、跟进和竞争。"
     },
     {
       "id": "g-226",
@@ -2915,7 +3260,8 @@
       "type": "笔面试",
       "question": "客户要求大幅降价时怎样谈判？",
       "answerPoints": "先识别真实诉求，用价值、范围、期限和交换条件谈。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "先识别真实诉求，用价值、范围、期限和交换条件谈。"
     },
     {
       "id": "g-227",
@@ -2923,7 +3269,8 @@
       "type": "笔面试",
       "question": "新产品上市前为什么要做用户测试？",
       "answerPoints": "验证需求、定位、体验和购买意愿。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "验证需求、定位、体验和购买意愿。"
     },
     {
       "id": "g-228",
@@ -2931,7 +3278,8 @@
       "type": "笔面试",
       "question": "商业分析如何避免相关性误判因果？",
       "answerPoints": "实验、准实验、控制混杂与业务机制验证。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "实验、准实验、控制混杂与业务机制验证。"
     },
     {
       "id": "g-229",
@@ -2939,7 +3287,8 @@
       "type": "笔面试",
       "question": "均值和中位数在什么情况下差异很大？",
       "answerPoints": "分布偏斜或存在极端值时。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "分布偏斜或存在极端值时。"
     },
     {
       "id": "g-230",
@@ -2947,7 +3296,8 @@
       "type": "笔面试",
       "question": "相关系数为0是否表示两个变量独立？",
       "answerPoints": "不一定，只说明无线性相关。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "不一定，只说明无线性相关。"
     },
     {
       "id": "g-231",
@@ -2955,7 +3305,8 @@
       "type": "笔面试",
       "question": "置信区间如何解释？",
       "answerPoints": "重复抽样下按该方法构造的区间有相应覆盖率。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "重复抽样下按该方法构造的区间有相应覆盖率。"
     },
     {
       "id": "g-232",
@@ -2963,7 +3314,8 @@
       "type": "笔面试",
       "question": "第一类错误和第二类错误是什么？",
       "answerPoints": "误拒真原假设 vs 未拒假原假设。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "误拒真原假设 vs 未拒假原假设。"
     },
     {
       "id": "g-233",
@@ -2971,7 +3323,8 @@
       "type": "笔面试",
       "question": "样本量增大通常会怎样影响标准误？",
       "answerPoints": "标准误通常按1/√n下降。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "标准误通常按1/√n下降。"
     },
     {
       "id": "g-234",
@@ -2979,7 +3332,8 @@
       "type": "笔面试",
       "question": "回归中的多重共线性有什么影响？",
       "answerPoints": "系数估计不稳定、标准误增大。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "系数估计不稳定、标准误增大。"
     },
     {
       "id": "g-235",
@@ -2987,7 +3341,8 @@
       "type": "笔面试",
       "question": "缺失数据MCAR/MAR/MNAR区别？",
       "answerPoints": "完全随机、条件随机、非随机缺失。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "完全随机、条件随机、非随机缺失。"
     },
     {
       "id": "g-236",
@@ -2995,7 +3350,8 @@
       "type": "笔面试",
       "question": "为什么要划分训练集、验证集、测试集？",
       "answerPoints": "训练参数、选模型/调参、最终无偏评估。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "训练参数、选模型/调参、最终无偏评估。"
     },
     {
       "id": "g-237",
@@ -3003,7 +3359,8 @@
       "type": "笔面试",
       "question": "AUC适合解决什么评价问题？",
       "answerPoints": "二分类模型跨阈值的排序/区分能力。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "二分类模型跨阈值的排序/区分能力。"
     },
     {
       "id": "g-238",
@@ -3011,7 +3368,8 @@
       "type": "笔面试",
       "question": "时间序列为什么不能随意随机打乱再划分？",
       "answerPoints": "会造成未来信息泄漏。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "会造成未来信息泄漏。"
     },
     {
       "id": "g-239",
@@ -3019,7 +3377,8 @@
       "type": "笔面试",
       "question": "英文自我介绍如何控制在90秒？",
       "answerPoints": "教育背景一句、两段核心经历、岗位动机收尾。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "教育背景一句、两段核心经历、岗位动机收尾。"
     },
     {
       "id": "g-240",
@@ -3027,7 +3386,8 @@
       "type": "笔面试",
       "question": "How do you explain a failure professionally?",
       "answerPoints": "Own the issue, explain action, learning and changed behavior.",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "Own the issue, explain action, learning and changed behavior."
     },
     {
       "id": "g-241",
@@ -3035,7 +3395,8 @@
       "type": "笔面试",
       "question": "Why this company? 应包含哪些信息？",
       "answerPoints": "公司/业务理解、岗位匹配、个人动机，避免空泛赞美。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "公司/业务理解、岗位匹配、个人动机，避免空泛赞美。"
     },
     {
       "id": "g-242",
@@ -3043,7 +3404,8 @@
       "type": "笔面试",
       "question": "英文面试没听清问题怎么办？",
       "answerPoints": "礼貌请求重复或确认理解，不要猜题。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "礼貌请求重复或确认理解，不要猜题。"
     },
     {
       "id": "g-243",
@@ -3051,7 +3413,8 @@
       "type": "笔面试",
       "question": "如何用英文描述项目数据结果？",
       "answerPoints": "先结论，再指标、基线和提升幅度。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "先结论，再指标、基线和提升幅度。"
     },
     {
       "id": "g-244",
@@ -3059,7 +3422,8 @@
       "type": "笔面试",
       "question": "如何回答What is your weakness?",
       "answerPoints": "真实可控的弱点+已经采取的改进。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "真实可控的弱点+已经采取的改进。"
     },
     {
       "id": "g-245",
@@ -3067,7 +3431,8 @@
       "type": "笔面试",
       "question": "如何在群面中礼貌打断？",
       "answerPoints": "先认可对方，再说明时间/议题并提出具体补充。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "先认可对方，再说明时间/议题并提出具体补充。"
     },
     {
       "id": "g-246",
@@ -3075,7 +3440,8 @@
       "type": "笔面试",
       "question": "向非技术面试官解释复杂技术的原则是什么？",
       "answerPoints": "少术语，用类比、问题和价值表达。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "少术语，用类比、问题和价值表达。"
     },
     {
       "id": "g-247",
@@ -3083,7 +3449,8 @@
       "type": "笔面试",
       "question": "如何回答Tell me about a conflict?",
       "answerPoints": "Situation-Task-Action-Result，重点是解决机制。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "Situation-Task-Action-Result，重点是解决机制。"
     },
     {
       "id": "g-248",
@@ -3091,7 +3458,1268 @@
       "type": "笔面试",
       "question": "反问面试官什么问题更有价值？",
       "answerPoints": "团队目标、岗位成功标准、前三个月挑战、成长路径。",
-      "difficulty": "中等"
+      "difficulty": "中等",
+      "standardAnswer": "团队目标、岗位成功标准、前三个月挑战、成长路径。"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某部门原有40人，其中25%为研发人员。现新增8名研发人员，研发人员占比是多少？",
+      "standardAnswer": "原研发人数=40×25%=10人；新增后研发=18人，总人数=48人；占比=18/48=37.5%。标准答案：37.5%。",
+      "answerPoints": "原研发人数=40×25%=10人；新增后研发=18人，总人数=48人；占比=18/48=37.5%。标准答案：37.5%。",
+      "difficulty": "中等",
+      "id": "g-0249"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "甲单独完成任务需要12天，乙单独需要18天。两人合作需要多少天？",
+      "standardAnswer": "甲效率=1/12，乙效率=1/18；合计=5/36；时间=1÷(5/36)=36/5=7.2天。标准答案：7.2天。",
+      "answerPoints": "甲效率=1/12，乙效率=1/18；合计=5/36；时间=1÷(5/36)=36/5=7.2天。标准答案：7.2天。",
+      "difficulty": "中等",
+      "id": "g-0250"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某产品原价500元，先降价20%，再在降价后价格基础上涨10%。最终价格是多少？",
+      "standardAnswer": "500×(1-20%)×(1+10%)=500×0.8×1.1=440元。标准答案：440元。",
+      "answerPoints": "500×(1-20%)×(1+10%)=500×0.8×1.1=440元。标准答案：440元。",
+      "difficulty": "中等",
+      "id": "g-0251"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "A项目利润率为15%，利润为30万元，求销售收入。",
+      "standardAnswer": "利润率=利润/销售收入，因此销售收入=30/0.15=200万元。标准答案：200万元。",
+      "answerPoints": "利润率=利润/销售收入，因此销售收入=30/0.15=200万元。标准答案：200万元。",
+      "difficulty": "中等",
+      "id": "g-0252"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某数据由80增长到104，增长率是多少？",
+      "standardAnswer": "增长率=(104-80)/80=24/80=30%。标准答案：30%。",
+      "answerPoints": "增长率=(104-80)/80=24/80=30%。标准答案：30%。",
+      "difficulty": "中等",
+      "id": "g-0253"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某公司一季度、二季度收入分别为1200万和1500万，二季度环比增长多少？",
+      "standardAnswer": "(1500-1200)/1200=300/1200=25%。标准答案：25%。",
+      "answerPoints": "(1500-1200)/1200=300/1200=25%。标准答案：25%。",
+      "difficulty": "中等",
+      "id": "g-0254"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "甲乙两类岗位人数比为3:5，总人数96人，甲类有多少人？",
+      "standardAnswer": "总份数8；每份=96/8=12；甲=3×12=36人。标准答案：36人。",
+      "answerPoints": "总份数8；每份=96/8=12；甲=3×12=36人。标准答案：36人。",
+      "difficulty": "中等",
+      "id": "g-0255"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某岗位投递1200人，简历通过率30%，一面通过率40%，二面通过率50%。预计最终通过多少人？",
+      "standardAnswer": "1200×0.30×0.40×0.50=72。标准答案：72人。",
+      "answerPoints": "1200×0.30×0.40×0.50=72。标准答案：72人。",
+      "difficulty": "中等",
+      "id": "g-0256"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "一批零件合格率为98%，抽取500件，按期望值估计不合格件数是多少？",
+      "standardAnswer": "不合格率=2%；500×2%=10件。标准答案：10件。",
+      "answerPoints": "不合格率=2%；500×2%=10件。标准答案：10件。",
+      "difficulty": "中等",
+      "id": "g-0257"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某班平均分78分，40人中加入1名新同学后平均分变为78.5分，新同学分数是多少？",
+      "standardAnswer": "原总分=78×40=3120；新总分=78.5×41=3218.5；新同学=98.5分。标准答案：98.5分。",
+      "answerPoints": "原总分=78×40=3120；新总分=78.5×41=3218.5；新同学=98.5分。标准答案：98.5分。",
+      "difficulty": "中等",
+      "id": "g-0258"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某项目固定成本20万元，单位变动成本40元，单价100元。盈亏平衡销量是多少？",
+      "standardAnswer": "单位贡献=100-40=60元；盈亏平衡销量=200000/60≈3333.33，因此至少销售3334件。标准答案：3334件。",
+      "answerPoints": "单位贡献=100-40=60元；盈亏平衡销量=200000/60≈3333.33，因此至少销售3334件。标准答案：3334件。",
+      "difficulty": "中等",
+      "id": "g-0259"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某指标连续两年分别增长20%和10%，两年累计增长率是多少？",
+      "standardAnswer": "累计系数=1.2×1.1=1.32，因此累计增长32%。标准答案：32%。",
+      "answerPoints": "累计系数=1.2×1.1=1.32，因此累计增长32%。标准答案：32%。",
+      "difficulty": "中等",
+      "id": "g-0260"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "5个人排队，A和B必须相邻，共有多少种排法？",
+      "standardAnswer": "把AB视为一个整体，有4个对象，4!种；AB内部2种顺序；总数=4!×2=48。标准答案：48种。",
+      "answerPoints": "把AB视为一个整体，有4个对象，4!种；AB内部2种顺序；总数=4!×2=48。标准答案：48种。",
+      "difficulty": "中等",
+      "id": "g-0261"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "从10人中选3人组成小组，共有多少种选法？",
+      "standardAnswer": "组合数C(10,3)=10×9×8/(3×2×1)=120。标准答案：120种。",
+      "answerPoints": "组合数C(10,3)=10×9×8/(3×2×1)=120。标准答案：120种。",
+      "difficulty": "中等",
+      "id": "g-0262"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "袋中有3个红球、2个蓝球，不放回连续取2球，均为红球的概率是多少？",
+      "standardAnswer": "第一球红=3/5，第二球红=2/4；概率=3/5×2/4=3/10=30%。标准答案：30%。",
+      "answerPoints": "第一球红=3/5，第二球红=2/4；概率=3/5×2/4=3/10=30%。标准答案：30%。",
+      "difficulty": "中等",
+      "id": "g-0263"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "一辆车前半程60 km/h，后半程40 km/h，两段路程相等，平均速度是多少？",
+      "standardAnswer": "等路程平均速度=2v1v2/(v1+v2)=2×60×40/100=48 km/h。标准答案：48 km/h。",
+      "answerPoints": "等路程平均速度=2v1v2/(v1+v2)=2×60×40/100=48 km/h。标准答案：48 km/h。",
+      "difficulty": "中等",
+      "id": "g-0264"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "本金10万元，年利率4%，按单利计算3年利息是多少？",
+      "standardAnswer": "利息=100000×4%×3=12000元。标准答案：1.2万元。",
+      "answerPoints": "利息=100000×4%×3=12000元。标准答案：1.2万元。",
+      "difficulty": "中等",
+      "id": "g-0265"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某岗位候选人男女人数比7:3，女性增加20人后比变为7:5，原总人数是多少？",
+      "standardAnswer": "设原男女=7x、3x；7x:(3x+20)=7:5，35x=21x+140，x=10；原总人数=100。标准答案：100人。",
+      "answerPoints": "设原男女=7x、3x；7x:(3x+20)=7:5，35x=21x+140，x=10；原总人数=100。标准答案：100人。",
+      "difficulty": "中等",
+      "id": "g-0266"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "甲公司市场份额由20%升至25%，市场总量同时增长10%。甲公司销量相对原来增长多少？",
+      "standardAnswer": "原销量=0.20M；新销量=0.25×1.10M=0.275M；增长=(0.275-0.20)/0.20=37.5%。标准答案：37.5%。",
+      "answerPoints": "原销量=0.20M；新销量=0.25×1.10M=0.275M；增长=(0.275-0.20)/0.20=37.5%。标准答案：37.5%。",
+      "difficulty": "中等",
+      "id": "g-0267"
+    },
+    {
+      "category": "行测计算",
+      "type": "笔试-计算题",
+      "question": "某项目计划成本100万元，实际成本110万元，完成工作对应预算价值为105万元。CPI是多少？",
+      "standardAnswer": "CPI=挣值EV/实际成本AC=105/110≈0.955。标准答案：约0.955，小于1表示成本效率低于计划。",
+      "answerPoints": "CPI=挣值EV/实际成本AC=105/110≈0.955。标准答案：约0.955，小于1表示成本效率低于计划。",
+      "difficulty": "中等",
+      "id": "g-0268"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "一根圆杆直径20 mm，承受轴向拉力31.4 kN，平均正应力是多少？",
+      "standardAnswer": "截面积A=πd²/4=π×20²/4≈314.16 mm²；σ=F/A=31400/314.16≈99.95 MPa。标准答案：约100 MPa。",
+      "answerPoints": "截面积A=πd²/4=π×20²/4≈314.16 mm²；σ=F/A=31400/314.16≈99.95 MPa。标准答案：约100 MPa。",
+      "difficulty": "中等",
+      "id": "g-0269"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "材料E=200 GPa，单轴应力100 MPa，在线弹性范围内应变是多少？",
+      "standardAnswer": "ε=σ/E=100 MPa/200000 MPa=0.0005=500 με。标准答案：5×10^-4。",
+      "answerPoints": "ε=σ/E=100 MPa/200000 MPa=0.0005=500 με。标准答案：5×10^-4。",
+      "difficulty": "中等",
+      "id": "g-0270"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "长度2 m的杆件轴向应变500 με，伸长量是多少？",
+      "standardAnswer": "ΔL=εL=500×10^-6×2 m=0.001 m=1 mm。标准答案：1 mm。",
+      "answerPoints": "ΔL=εL=500×10^-6×2 m=0.001 m=1 mm。标准答案：1 mm。",
+      "difficulty": "中等",
+      "id": "g-0271"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "简支梁跨长4 m，中点集中力20 kN，两端支反力各是多少？",
+      "standardAnswer": "对称受力，两端反力各为P/2=10 kN。标准答案：10 kN、10 kN。",
+      "answerPoints": "对称受力，两端反力各为P/2=10 kN。标准答案：10 kN、10 kN。",
+      "difficulty": "中等",
+      "id": "g-0272"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "简支梁跨长4 m，中点集中力20 kN，最大弯矩是多少？",
+      "standardAnswer": "最大弯矩位于跨中，Mmax=PL/4=20×4/4=20 kN·m。标准答案：20 kN·m。",
+      "answerPoints": "最大弯矩位于跨中，Mmax=PL/4=20×4/4=20 kN·m。标准答案：20 kN·m。",
+      "difficulty": "中等",
+      "id": "g-0273"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "某结构质量m=1000 kg，等效刚度k=1.0×10^6 N/m，单自由度固有频率是多少？",
+      "standardAnswer": "ωn=√(k/m)=√1000≈31.62 rad/s；f=ω/(2π)≈5.03 Hz。标准答案：约5.03 Hz。",
+      "answerPoints": "ωn=√(k/m)=√1000≈31.62 rad/s；f=ω/(2π)≈5.03 Hz。标准答案：约5.03 Hz。",
+      "difficulty": "中等",
+      "id": "g-0274"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "单自由度系统固有频率10 Hz，阻尼比2%，临界阻尼系数对应质量m=100 kg时，实际阻尼c是多少？",
+      "standardAnswer": "ωn=2πf=62.832 rad/s；cc=2mωn=12566.4 N·s/m；c=ζcc=0.02×12566.4≈251.3 N·s/m。标准答案：约251 N·s/m。",
+      "answerPoints": "ωn=2πf=62.832 rad/s；cc=2mωn=12566.4 N·s/m；c=ζcc=0.02×12566.4≈251.3 N·s/m。标准答案：约251 N·s/m。",
+      "difficulty": "中等",
+      "id": "g-0275"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "一根轴扭矩500 N·m，实心圆轴直径40 mm，最大剪应力是多少？",
+      "standardAnswer": "τmax=16T/(πd³)=16×500000/(π×40³) N/mm²≈39.79 MPa。标准答案：约39.8 MPa。",
+      "answerPoints": "τmax=16T/(πd³)=16×500000/(π×40³) N/mm²≈39.79 MPa。标准答案：约39.8 MPa。",
+      "difficulty": "中等",
+      "id": "g-0276"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "钢材屈服强度355 MPa，计算应力177.5 MPa，按屈服计算安全系数是多少？",
+      "standardAnswer": "n=fy/σ=355/177.5=2.0。标准答案：2.0。",
+      "answerPoints": "n=fy/σ=355/177.5=2.0。标准答案：2.0。",
+      "difficulty": "中等",
+      "id": "g-0277"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "某构件应力幅从120 MPa降至100 MPa，按S-N关系N∝σ^-4，寿命约提高多少倍？",
+      "standardAnswer": "N2/N1=(120/100)^4=1.2^4=2.0736。标准答案：约2.07倍。",
+      "answerPoints": "N2/N1=(120/100)^4=1.2^4=2.0736。标准答案：约2.07倍。",
+      "difficulty": "中等",
+      "id": "g-0278"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "材料密度7800 kg/m³，实体体积0.012 m³，质量是多少？",
+      "standardAnswer": "m=ρV=7800×0.012=93.6 kg。标准答案：93.6 kg。",
+      "answerPoints": "m=ρV=7800×0.012=93.6 kg。标准答案：93.6 kg。",
+      "difficulty": "中等",
+      "id": "g-0279"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "网格尺寸从10 mm减小到5 mm，若三维均匀网格近似，单元数量约增加多少倍？",
+      "standardAnswer": "三维每个方向数量约翻倍，总单元数约2³=8倍。标准答案：约8倍。",
+      "answerPoints": "三维每个方向数量约翻倍，总单元数约2³=8倍。标准答案：约8倍。",
+      "difficulty": "中等",
+      "id": "g-0280"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "某零件温升50℃，线膨胀系数12×10^-6/℃，长度1 m，自由热膨胀量是多少？",
+      "standardAnswer": "ΔL=αΔTL=12×10^-6×50×1=600×10^-6 m=0.6 mm。标准答案：0.6 mm。",
+      "answerPoints": "ΔL=αΔTL=12×10^-6×50×1=600×10^-6 m=0.6 mm。标准答案：0.6 mm。",
+      "difficulty": "中等",
+      "id": "g-0281"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "完全约束的钢杆E=200 GPa，α=12×10^-6/℃，温升50℃，忽略屈曲，热应力是多少？",
+      "standardAnswer": "σ=EαΔT=200000 MPa×12×10^-6×50=120 MPa，受压。标准答案：120 MPa压应力。",
+      "answerPoints": "σ=EαΔT=200000 MPa×12×10^-6×50=120 MPa，受压。标准答案：120 MPa压应力。",
+      "difficulty": "中等",
+      "id": "g-0282"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "一阶频率从10 Hz降到9 Hz，质量不变，等效刚度约变化为原来的多少？",
+      "standardAnswer": "f∝√k，因此k2/k1=(9/10)^2=0.81。标准答案：约81%，即刚度下降19%。",
+      "answerPoints": "f∝√k，因此k2/k1=(9/10)^2=0.81。标准答案：约81%，即刚度下降19%。",
+      "difficulty": "中等",
+      "id": "g-0283"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "质量不变，若等效刚度提高21%，固有频率提高多少？",
+      "standardAnswer": "f2/f1=√1.21=1.10，因此频率提高10%。标准答案：10%。",
+      "answerPoints": "f2/f1=√1.21=1.10，因此频率提高10%。标准答案：10%。",
+      "difficulty": "中等",
+      "id": "g-0284"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "某旋转部件转速1800 rpm，其1P频率是多少？",
+      "standardAnswer": "1800 rpm÷60=30 r/s，因此1P=30 Hz。标准答案：30 Hz。",
+      "answerPoints": "1800 rpm÷60=30 r/s，因此1P=30 Hz。标准答案：30 Hz。",
+      "difficulty": "中等",
+      "id": "g-0285"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "三叶片风机转速12 rpm，其3P频率是多少？",
+      "standardAnswer": "1P=12/60=0.2 Hz；3P=3×0.2=0.6 Hz。标准答案：0.6 Hz。",
+      "answerPoints": "1P=12/60=0.2 Hz；3P=3×0.2=0.6 Hz。标准答案：0.6 Hz。",
+      "difficulty": "中等",
+      "id": "g-0286"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "一个模态在X方向有效质量占比40%，另一个占35%，前两阶累计占比是多少？",
+      "standardAnswer": "40%+35%=75%。标准答案：75%。",
+      "answerPoints": "40%+35%=75%。标准答案：75%。",
+      "difficulty": "中等",
+      "id": "g-0287"
+    },
+    {
+      "category": "机械 / CAE计算",
+      "type": "笔试-计算题",
+      "question": "某应力时间历程的最大值180 MPa、最小值20 MPa，应力幅和平均应力分别是多少？",
+      "standardAnswer": "应力幅=(180-20)/2=80 MPa；平均应力=(180+20)/2=100 MPa。标准答案：80 MPa、100 MPa。",
+      "answerPoints": "应力幅=(180-20)/2=80 MPa；平均应力=(180+20)/2=100 MPa。标准答案：80 MPa、100 MPa。",
+      "difficulty": "中等",
+      "id": "g-0288"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "简支梁跨度6 m，均布荷载10 kN/m，两端支座反力各是多少？",
+      "standardAnswer": "总荷载=10×6=60 kN；对称，两端各30 kN。标准答案：30 kN。",
+      "answerPoints": "总荷载=10×6=60 kN；对称，两端各30 kN。标准答案：30 kN。",
+      "difficulty": "中等",
+      "id": "g-0289"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "简支梁跨度6 m，均布荷载10 kN/m，最大弯矩是多少？",
+      "standardAnswer": "Mmax=qL²/8=10×36/8=45 kN·m。标准答案：45 kN·m。",
+      "answerPoints": "Mmax=qL²/8=10×36/8=45 kN·m。标准答案：45 kN·m。",
+      "difficulty": "中等",
+      "id": "g-0290"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "悬臂梁长2 m，端部集中力5 kN，固定端弯矩是多少？",
+      "standardAnswer": "M=PL=5×2=10 kN·m。标准答案：10 kN·m。",
+      "answerPoints": "M=PL=5×2=10 kN·m。标准答案：10 kN·m。",
+      "difficulty": "中等",
+      "id": "g-0291"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "柱轴力1000 kN，截面面积0.20 m²，平均压应力是多少？",
+      "standardAnswer": "σ=N/A=1000 kN/0.20 m²=5000 kPa=5 MPa。标准答案：5 MPa。",
+      "answerPoints": "σ=N/A=1000 kN/0.20 m²=5000 kPa=5 MPa。标准答案：5 MPa。",
+      "difficulty": "中等",
+      "id": "g-0292"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "钢筋直径20 mm，单根面积是多少？",
+      "standardAnswer": "A=πd²/4=π×400/4≈314.16 mm²。标准答案：约314 mm²。",
+      "answerPoints": "A=πd²/4=π×400/4≈314.16 mm²。标准答案：约314 mm²。",
+      "difficulty": "中等",
+      "id": "g-0293"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "4根直径20 mm钢筋总面积是多少？",
+      "standardAnswer": "4×314.16≈1256.6 mm²。标准答案：约1257 mm²。",
+      "answerPoints": "4×314.16≈1256.6 mm²。标准答案：约1257 mm²。",
+      "difficulty": "中等",
+      "id": "g-0294"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "混凝土立方体试件边长150 mm，破坏荷载1800 kN，抗压强度是多少？",
+      "standardAnswer": "受压面积=150×150=22500 mm²；f=1800000/22500=80 N/mm²。标准答案：80 MPa。",
+      "answerPoints": "受压面积=150×150=22500 mm²；f=1800000/22500=80 N/mm²。标准答案：80 MPa。",
+      "difficulty": "中等",
+      "id": "g-0295"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某楼层层间位移12 mm，层高3.6 m，层间位移角是多少？",
+      "standardAnswer": "θ=12/3600=1/300≈0.00333。标准答案：1/300。",
+      "answerPoints": "θ=12/3600=1/300≈0.00333。标准答案：1/300。",
+      "difficulty": "中等",
+      "id": "g-0296"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某构件自重25 kN/m，长度8 m，总自重是多少？",
+      "standardAnswer": "25×8=200 kN。标准答案：200 kN。",
+      "answerPoints": "25×8=200 kN。标准答案：200 kN。",
+      "difficulty": "中等",
+      "id": "g-0297"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "水压力按p=ρgh计算，水深10 m处静水压力约多少？取ρ=1000 kg/m³，g=9.81 m/s²。",
+      "standardAnswer": "p=1000×9.81×10=98100 Pa=98.1 kPa。标准答案：98.1 kPa。",
+      "answerPoints": "p=1000×9.81×10=98100 Pa=98.1 kPa。标准答案：98.1 kPa。",
+      "difficulty": "中等",
+      "id": "g-0298"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "土体容重18 kN/m³，厚度5 m，竖向自重应力约多少？",
+      "standardAnswer": "σ=γh=18×5=90 kPa。标准答案：90 kPa。",
+      "answerPoints": "σ=γh=18×5=90 kPa。标准答案：90 kPa。",
+      "difficulty": "中等",
+      "id": "g-0299"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某圆柱基础直径2 m，竖向荷载1500 kN，平均基底压力是多少？",
+      "standardAnswer": "面积=π×2²/4=π≈3.1416 m²；q=1500/3.1416≈477.5 kPa。标准答案：约478 kPa。",
+      "answerPoints": "面积=π×2²/4=π≈3.1416 m²；q=1500/3.1416≈477.5 kPa。标准答案：约478 kPa。",
+      "difficulty": "中等",
+      "id": "g-0300"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "钢柱长度3 m，回转半径30 mm，长细比是多少？",
+      "standardAnswer": "λ=L/i=3000/30=100。标准答案：100。",
+      "answerPoints": "λ=L/i=3000/30=100。标准答案：100。",
+      "difficulty": "中等",
+      "id": "g-0301"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某楼层质量500 t，地震水平加速度0.2g，等效惯性力约多少？取g=9.81 m/s²。",
+      "standardAnswer": "F=ma=500000×0.2×9.81≈981000 N=981 kN。标准答案：约981 kN。",
+      "answerPoints": "F=ma=500000×0.2×9.81≈981000 N=981 kN。标准答案：约981 kN。",
+      "difficulty": "中等",
+      "id": "g-0302"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "面积1000 m²楼板承受活荷载2 kN/m²，总活荷载是多少？",
+      "standardAnswer": "2×1000=2000 kN。标准答案：2000 kN。",
+      "answerPoints": "2×1000=2000 kN。标准答案：2000 kN。",
+      "difficulty": "中等",
+      "id": "g-0303"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "混凝土弹性模量30 GPa，压应力15 MPa，线弹性应变是多少？",
+      "standardAnswer": "ε=15/30000=0.0005。标准答案：5×10^-4。",
+      "answerPoints": "ε=15/30000=0.0005。标准答案：5×10^-4。",
+      "difficulty": "中等",
+      "id": "g-0304"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某基础沉降由20 mm增至26 mm，增幅是多少？",
+      "standardAnswer": "(26-20)/20=30%。标准答案：30%。",
+      "answerPoints": "(26-20)/20=30%。标准答案：30%。",
+      "difficulty": "中等",
+      "id": "g-0305"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某工程总工期100天，关键路径任务延期8天且无时差，总工期变为多少？",
+      "standardAnswer": "关键路径无时差，延期直接传递；新总工期=108天。标准答案：108天。",
+      "answerPoints": "关键路径无时差，延期直接传递；新总工期=108天。标准答案：108天。",
+      "difficulty": "中等",
+      "id": "g-0306"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某工程合同价5000万元，已完成工程量对应合同价值60%，已完成产值是多少？",
+      "standardAnswer": "5000×60%=3000万元。标准答案：3000万元。",
+      "answerPoints": "5000×60%=3000万元。标准答案：3000万元。",
+      "difficulty": "中等",
+      "id": "g-0307"
+    },
+    {
+      "category": "土木 / 结构计算",
+      "type": "笔试-计算题",
+      "question": "某构件设计承载力1200 kN，设计作用效应900 kN，承载力利用率是多少？",
+      "standardAnswer": "利用率=900/1200=75%。标准答案：75%。",
+      "answerPoints": "利用率=900/1200=75%。标准答案：75%。",
+      "difficulty": "中等",
+      "id": "g-0308"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相220 V电路接入11 Ω纯电阻，电流是多少？",
+      "standardAnswer": "I=U/R=220/11=20 A。标准答案：20 A。",
+      "answerPoints": "I=U/R=220/11=20 A。标准答案：20 A。",
+      "difficulty": "中等",
+      "id": "g-0309"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "单相负载电压220 V、电流10 A、功率因数0.8，有功功率是多少？",
+      "standardAnswer": "P=UIcosφ=220×10×0.8=1760 W。标准答案：1.76 kW。",
+      "answerPoints": "P=UIcosφ=220×10×0.8=1760 W。标准答案：1.76 kW。",
+      "difficulty": "中等",
+      "id": "g-0310"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "三相对称负载线电压380 V、线电流100 A、功率因数0.9，有功功率约多少？",
+      "standardAnswer": "P=√3UIcosφ≈1.732×380×100×0.9≈59.2 kW。标准答案：约59.2 kW。",
+      "answerPoints": "P=√3UIcosφ≈1.732×380×100×0.9≈59.2 kW。标准答案：约59.2 kW。",
+      "difficulty": "中等",
+      "id": "g-0311"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "输送功率相同，电压提高为原来的2倍，功率因数不变，电流约变为原来的多少？",
+      "standardAnswer": "P∝UI，功率不变时I∝1/U，因此电流减半。标准答案：原来的1/2。",
+      "answerPoints": "P∝UI，功率不变时I∝1/U，因此电流减半。标准答案：原来的1/2。",
+      "difficulty": "中等",
+      "id": "g-0312"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "线路电流从100 A降到50 A，电阻不变，I²R损耗变为原来的多少？",
+      "standardAnswer": "(50/100)²=1/4。标准答案：25%。",
+      "answerPoints": "(50/100)²=1/4。标准答案：25%。",
+      "difficulty": "中等",
+      "id": "g-0313"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "一台10 kW设备连续运行8小时，耗电量是多少？",
+      "standardAnswer": "E=Pt=10×8=80 kWh。标准答案：80 kWh。",
+      "answerPoints": "E=Pt=10×8=80 kWh。标准答案：80 kWh。",
+      "difficulty": "中等",
+      "id": "g-0314"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "100 kWh电池以50 kW恒功率放电，忽略损耗，理论可持续多久？",
+      "standardAnswer": "t=E/P=100/50=2 h。标准答案：2小时。",
+      "answerPoints": "t=E/P=100/50=2 h。标准答案：2小时。",
+      "difficulty": "中等",
+      "id": "g-0315"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "电池额定容量200 Ah，按100 A放电，理想情况下放电时间是多少？",
+      "standardAnswer": "t=200/100=2 h。标准答案：2小时。",
+      "answerPoints": "t=200/100=2 h。标准答案：2小时。",
+      "difficulty": "中等",
+      "id": "g-0316"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "变压器变比10:1，原边电压10 kV，理想副边电压是多少？",
+      "standardAnswer": "U2=U1/10=1 kV。标准答案：1 kV。",
+      "answerPoints": "U2=U1/10=1 kV。标准答案：1 kV。",
+      "difficulty": "中等",
+      "id": "g-0317"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "同步发电机极对数p=2，机械转速1500 rpm，电频率是多少？",
+      "standardAnswer": "f=pn/60=2×1500/60=50 Hz。标准答案：50 Hz。",
+      "answerPoints": "f=pn/60=2×1500/60=50 Hz。标准答案：50 Hz。",
+      "difficulty": "中等",
+      "id": "g-0318"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "光伏组件额定功率500 W，20块串并组合总额定功率是多少？",
+      "standardAnswer": "20×500=10000 W=10 kW。标准答案：10 kW。",
+      "answerPoints": "20×500=10000 W=10 kW。标准答案：10 kW。",
+      "difficulty": "中等",
+      "id": "g-0319"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "风机额定功率5 MW，满功率运行3小时发电量是多少？",
+      "standardAnswer": "E=5 MW×3 h=15 MWh。标准答案：15 MWh。",
+      "answerPoints": "E=5 MW×3 h=15 MWh。标准答案：15 MWh。",
+      "difficulty": "中等",
+      "id": "g-0320"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "某风场装机100 MW，年利用小时数2500 h，年发电量是多少？",
+      "standardAnswer": "E=100 MW×2500 h=250000 MWh=2.5亿kWh。标准答案：2.5亿kWh。",
+      "answerPoints": "E=100 MW×2500 h=250000 MWh=2.5亿kWh。标准答案：2.5亿kWh。",
+      "difficulty": "中等",
+      "id": "g-0321"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "电网频率由50 Hz降到49.8 Hz，频差是多少？",
+      "standardAnswer": "Δf=49.8-50=-0.2 Hz。标准答案：下降0.2 Hz。",
+      "answerPoints": "Δf=49.8-50=-0.2 Hz。标准答案：下降0.2 Hz。",
+      "difficulty": "中等",
+      "id": "g-0322"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "某逆变器输入100 kW，输出96 kW，效率是多少？",
+      "standardAnswer": "η=96/100=96%。标准答案：96%。",
+      "answerPoints": "η=96/100=96%。标准答案：96%。",
+      "difficulty": "中等",
+      "id": "g-0323"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "一条线路电阻0.2 Ω，电流100 A，线路有功损耗是多少？",
+      "standardAnswer": "P=I²R=100²×0.2=2000 W=2 kW。标准答案：2 kW。",
+      "answerPoints": "P=I²R=100²×0.2=2000 W=2 kW。标准答案：2 kW。",
+      "difficulty": "中等",
+      "id": "g-0324"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "电容C=100 μF，加在50 Hz正弦交流下，容抗约多少？",
+      "standardAnswer": "Xc=1/(2πfC)=1/(2π×50×100×10^-6)≈31.83 Ω。标准答案：约31.8 Ω。",
+      "answerPoints": "Xc=1/(2πfC)=1/(2π×50×100×10^-6)≈31.83 Ω。标准答案：约31.8 Ω。",
+      "difficulty": "中等",
+      "id": "g-0325"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "电感L=0.1 H，在50 Hz下感抗是多少？",
+      "standardAnswer": "XL=2πfL=2π×50×0.1≈31.42 Ω。标准答案：约31.4 Ω。",
+      "answerPoints": "XL=2πfL=2π×50×0.1≈31.42 Ω。标准答案：约31.4 Ω。",
+      "difficulty": "中等",
+      "id": "g-0326"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "某电机输入功率50 kW，效率92%，输出机械功率是多少？",
+      "standardAnswer": "Pout=50×0.92=46 kW。标准答案：46 kW。",
+      "answerPoints": "Pout=50×0.92=46 kW。标准答案：46 kW。",
+      "difficulty": "中等",
+      "id": "g-0327"
+    },
+    {
+      "category": "电气 / 能源计算",
+      "type": "笔试-计算题",
+      "question": "某储能系统充电效率95%、放电效率95%，往返效率是多少？",
+      "standardAnswer": "ηrt=0.95×0.95=0.9025。标准答案：90.25%。",
+      "answerPoints": "ηrt=0.95×0.95=0.9025。标准答案：90.25%。",
+      "difficulty": "中等",
+      "id": "g-0328"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "100万元本金，年利率5%，按单利计算2年本息合计是多少？",
+      "standardAnswer": "利息=100×5%×2=10万元；本息=110万元。标准答案：110万元。",
+      "answerPoints": "利息=100×5%×2=10万元；本息=110万元。标准答案：110万元。",
+      "difficulty": "中等",
+      "id": "g-0329"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "100万元本金，年利率5%，按年复利2年，本息合计是多少？",
+      "standardAnswer": "100×1.05²=110.25万元。标准答案：110.25万元。",
+      "answerPoints": "100×1.05²=110.25万元。标准答案：110.25万元。",
+      "difficulty": "中等",
+      "id": "g-0330"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "某债券面值1000元，票面利率4%，每年付息一次，年票息是多少？",
+      "standardAnswer": "1000×4%=40元。标准答案：40元。",
+      "answerPoints": "1000×4%=40元。标准答案：40元。",
+      "difficulty": "中等",
+      "id": "g-0331"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "某项目初始投资100万元，一年后净现金流110万元，折现率8%，NPV是多少？",
+      "standardAnswer": "NPV=-100+110/1.08≈1.852万元。标准答案：约1.85万元，为正。",
+      "answerPoints": "NPV=-100+110/1.08≈1.852万元。标准答案：约1.85万元，为正。",
+      "difficulty": "中等",
+      "id": "g-0332"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业收入1000万元，成本700万元，毛利率是多少？",
+      "standardAnswer": "毛利=300万元；毛利率=300/1000=30%。标准答案：30%。",
+      "answerPoints": "毛利=300万元；毛利率=300/1000=30%。标准答案：30%。",
+      "difficulty": "中等",
+      "id": "g-0333"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业净利润80万元，总资产800万元，ROA是多少？",
+      "standardAnswer": "ROA=80/800=10%。标准答案：10%。",
+      "answerPoints": "ROA=80/800=10%。标准答案：10%。",
+      "difficulty": "中等",
+      "id": "g-0334"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业净利润80万元，平均股东权益400万元，ROE是多少？",
+      "standardAnswer": "ROE=80/400=20%。标准答案：20%。",
+      "answerPoints": "ROE=80/400=20%。标准答案：20%。",
+      "difficulty": "中等",
+      "id": "g-0335"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "存款100亿元，贷款80亿元，存贷比是多少？",
+      "standardAnswer": "80/100=80%。标准答案：80%。",
+      "answerPoints": "80/100=80%。标准答案：80%。",
+      "difficulty": "中等",
+      "id": "g-0336"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "银行利息收入6亿元、利息支出3亿元，平均生息资产100亿元，简化净息差是多少？",
+      "standardAnswer": "简化净息差=(6-3)/100=3%。标准答案：3%。",
+      "answerPoints": "简化净息差=(6-3)/100=3%。标准答案：3%。",
+      "difficulty": "中等",
+      "id": "g-0337"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "某投资组合60%配置收益8%的资产A，40%配置收益3%的资产B，期望收益率是多少？",
+      "standardAnswer": "0.6×8%+0.4×3%=6%。标准答案：6%。",
+      "answerPoints": "0.6×8%+0.4×3%=6%。标准答案：6%。",
+      "difficulty": "中等",
+      "id": "g-0338"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "股票价格50元，每股收益2.5元，市盈率是多少？",
+      "standardAnswer": "PE=50/2.5=20倍。标准答案：20倍。",
+      "answerPoints": "PE=50/2.5=20倍。标准答案：20倍。",
+      "difficulty": "中等",
+      "id": "g-0339"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业流动资产300万元，流动负债200万元，流动比率是多少？",
+      "standardAnswer": "300/200=1.5。标准答案：1.5。",
+      "answerPoints": "300/200=1.5。标准答案：1.5。",
+      "difficulty": "中等",
+      "id": "g-0340"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "应收账款平均余额100万元，年赊销收入1200万元，应收账款周转次数是多少？",
+      "standardAnswer": "1200/100=12次。标准答案：12次/年。",
+      "answerPoints": "1200/100=12次。标准答案：12次/年。",
+      "difficulty": "中等",
+      "id": "g-0341"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "库存平均200万元，年销售成本1200万元，存货周转次数是多少？",
+      "standardAnswer": "1200/200=6次。标准答案：6次/年。",
+      "answerPoints": "1200/200=6次。标准答案：6次/年。",
+      "difficulty": "中等",
+      "id": "g-0342"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "某产品销售价格100元，单位成本70元，销售1万件，毛利是多少？",
+      "standardAnswer": "单位毛利30元；总毛利=30×10000=30万元。标准答案：30万元。",
+      "answerPoints": "单位毛利30元；总毛利=30×10000=30万元。标准答案：30万元。",
+      "difficulty": "中等",
+      "id": "g-0343"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "汇率由1美元兑7.0元人民币变为7.2元人民币，人民币相对美元是升值还是贬值？幅度约多少？",
+      "standardAnswer": "美元价格上涨，人民币贬值；按人民币/美元报价变化=(7.2-7.0)/7.0≈2.86%。标准答案：人民币约贬值2.86%。",
+      "answerPoints": "美元价格上涨，人民币贬值；按人民币/美元报价变化=(7.2-7.0)/7.0≈2.86%。标准答案：人民币约贬值2.86%。",
+      "difficulty": "中等",
+      "id": "g-0344"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "资产1000万元、负债600万元，资产负债率是多少？",
+      "standardAnswer": "600/1000=60%。标准答案：60%。",
+      "answerPoints": "600/1000=60%。标准答案：60%。",
+      "difficulty": "中等",
+      "id": "g-0345"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "企业EBIT为200万元，利息费用40万元，利息保障倍数是多少？",
+      "standardAnswer": "200/40=5倍。标准答案：5倍。",
+      "answerPoints": "200/40=5倍。标准答案：5倍。",
+      "difficulty": "中等",
+      "id": "g-0346"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "某基金期初净值1.00，期末1.08，期间分红0.02，简单收益率是多少？",
+      "standardAnswer": "(1.08+0.02-1.00)/1.00=10%。标准答案：10%。",
+      "answerPoints": "(1.08+0.02-1.00)/1.00=10%。标准答案：10%。",
+      "difficulty": "中等",
+      "id": "g-0347"
+    },
+    {
+      "category": "金融 / 财会计算",
+      "type": "笔试-计算题",
+      "question": "某项目每年节省成本30万元，初始投资90万元，不考虑折现，静态回收期是多少？",
+      "standardAnswer": "90/30=3年。标准答案：3年。",
+      "answerPoints": "90/30=3年。标准答案：3年。",
+      "difficulty": "中等",
+      "id": "g-0348"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "数据2、4、6、8、10的均值是多少？",
+      "standardAnswer": "总和30，样本数5，均值=6。标准答案：6。",
+      "answerPoints": "总和30，样本数5，均值=6。标准答案：6。",
+      "difficulty": "中等",
+      "id": "g-0349"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "数据1、3、5、7、100的中位数是多少？",
+      "standardAnswer": "排序后中间第3个数为5。标准答案：5。",
+      "answerPoints": "排序后中间第3个数为5。标准答案：5。",
+      "difficulty": "中等",
+      "id": "g-0350"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "二分类中TP=80、FP=20、FN=10，Precision是多少？",
+      "standardAnswer": "Precision=TP/(TP+FP)=80/100=80%。标准答案：80%。",
+      "answerPoints": "Precision=TP/(TP+FP)=80/100=80%。标准答案：80%。",
+      "difficulty": "中等",
+      "id": "g-0351"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "二分类中TP=80、FN=20，Recall是多少？",
+      "standardAnswer": "Recall=80/(80+20)=80%。标准答案：80%。",
+      "answerPoints": "Recall=80/(80+20)=80%。标准答案：80%。",
+      "difficulty": "中等",
+      "id": "g-0352"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "若Precision=0.8、Recall=0.5，F1是多少？",
+      "standardAnswer": "F1=2PR/(P+R)=2×0.8×0.5/1.3≈0.6154。标准答案：约0.615。",
+      "answerPoints": "F1=2PR/(P+R)=2×0.8×0.5/1.3≈0.6154。标准答案：约0.615。",
+      "difficulty": "中等",
+      "id": "g-0353"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "样本均值100，标准差20，某值140的z-score是多少？",
+      "standardAnswer": "z=(140-100)/20=2。标准答案：2。",
+      "answerPoints": "z=(140-100)/20=2。标准答案：2。",
+      "difficulty": "中等",
+      "id": "g-0354"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "A/B测试A组转化率10%，B组12%，B相对提升率是多少？",
+      "standardAnswer": "(12%-10%)/10%=20%。标准答案：20%。",
+      "answerPoints": "(12%-10%)/10%=20%。标准答案：20%。",
+      "difficulty": "中等",
+      "id": "g-0355"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某模型预测1000个样本，其中900个正确，准确率是多少？",
+      "standardAnswer": "900/1000=90%。标准答案：90%。",
+      "answerPoints": "900/1000=90%。标准答案：90%。",
+      "difficulty": "中等",
+      "id": "g-0356"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "MAE中4个样本绝对误差分别为1、2、3、4，MAE是多少？",
+      "standardAnswer": "(1+2+3+4)/4=2.5。标准答案：2.5。",
+      "answerPoints": "(1+2+3+4)/4=2.5。标准答案：2.5。",
+      "difficulty": "中等",
+      "id": "g-0357"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "预测值与真实值误差分别为1、-2、3，MSE是多少？",
+      "standardAnswer": "平方误差=1、4、9；MSE=(1+4+9)/3=14/3≈4.667。标准答案：约4.67。",
+      "answerPoints": "平方误差=1、4、9；MSE=(1+4+9)/3=14/3≈4.667。标准答案：约4.67。",
+      "difficulty": "中等",
+      "id": "g-0358"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某总体比例估计为60%，样本量100，期望成功样本数是多少？",
+      "standardAnswer": "100×0.6=60。标准答案：60个。",
+      "answerPoints": "100×0.6=60。标准答案：60个。",
+      "difficulty": "中等",
+      "id": "g-0359"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某变量协方差为12，两个变量标准差分别为3和4，相关系数是多少？",
+      "standardAnswer": "r=Cov/(σxσy)=12/(3×4)=1。标准答案：1。",
+      "answerPoints": "r=Cov/(σxσy)=12/(3×4)=1。标准答案：1。",
+      "difficulty": "中等",
+      "id": "g-0360"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "线性回归y=2+3x，当x=4时预测y是多少？",
+      "standardAnswer": "y=2+3×4=14。标准答案：14。",
+      "answerPoints": "y=2+3×4=14。标准答案：14。",
+      "difficulty": "中等",
+      "id": "g-0361"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某数据集正样本占5%，模型始终预测负类，Accuracy是多少？",
+      "standardAnswer": "负样本95%，全部预测负类则准确率95%。标准答案：95%，但该指标具有误导性。",
+      "answerPoints": "负样本95%，全部预测负类则准确率95%。标准答案：95%，但该指标具有误导性。",
+      "difficulty": "中等",
+      "id": "g-0362"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "100个样本按8:1:1划分训练/验证/测试集，各多少个？",
+      "standardAnswer": "训练80、验证10、测试10。标准答案：80/10/10。",
+      "answerPoints": "训练80、验证10、测试10。标准答案：80/10/10。",
+      "difficulty": "中等",
+      "id": "g-0363"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "若样本量从100扩大到400，在其他条件相同下，标准误大约变为原来的多少？",
+      "standardAnswer": "标准误∝1/√n；比例=√100/√400=1/2。标准答案：原来的1/2。",
+      "answerPoints": "标准误∝1/√n；比例=√100/√400=1/2。标准答案：原来的1/2。",
+      "difficulty": "中等",
+      "id": "g-0364"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "概率0.2的事件独立发生3次，恰好发生1次的概率是多少？",
+      "standardAnswer": "C(3,1)×0.2×0.8²=3×0.2×0.64=0.384。标准答案：38.4%。",
+      "answerPoints": "C(3,1)×0.2×0.8²=3×0.2×0.64=0.384。标准答案：38.4%。",
+      "difficulty": "中等",
+      "id": "g-0365"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "抛公平硬币3次，至少一次正面的概率是多少？",
+      "standardAnswer": "补集法：1-P(全反)=1-(1/2)^3=7/8=87.5%。标准答案：87.5%。",
+      "answerPoints": "补集法：1-P(全反)=1-(1/2)^3=7/8=87.5%。标准答案：87.5%。",
+      "difficulty": "中等",
+      "id": "g-0366"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "两个独立事件A、B概率分别0.4和0.5，同时发生的概率是多少？",
+      "standardAnswer": "独立事件P(A∩B)=0.4×0.5=0.2。标准答案：20%。",
+      "answerPoints": "独立事件P(A∩B)=0.4×0.5=0.2。标准答案：20%。",
+      "difficulty": "中等",
+      "id": "g-0367"
+    },
+    {
+      "category": "统计 / 数据计算",
+      "type": "笔试-计算题",
+      "question": "某网站10000次曝光带来300次点击、30次购买，CTR和点击到购买转化率分别是多少？",
+      "standardAnswer": "CTR=300/10000=3%；点击到购买转化率=30/300=10%。标准答案：3%和10%。",
+      "answerPoints": "CTR=300/10000=3%；点击到购买转化率=30/300=10%。标准答案：3%和10%。",
+      "difficulty": "中等",
+      "id": "g-0368"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定整数数组，返回两数之和等于target的两个下标。要求平均O(n)。",
+      "standardAnswer": "标准解法：一次遍历+哈希表。遍历到nums[i]时检查target-nums[i]是否已在哈希表；若在则返回对应下标与i，否则记录nums[i]→i。平均时间O(n)，空间O(n)。",
+      "answerPoints": "标准解法：一次遍历+哈希表。遍历到nums[i]时检查target-nums[i]是否已在哈希表；若在则返回对应下标与i，否则记录nums[i]→i。平均时间O(n)，空间O(n)。",
+      "difficulty": "中等",
+      "id": "g-0369"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "判断一个链表是否存在环，并要求O(1)额外空间。",
+      "standardAnswer": "标准解法：快慢指针。slow每次1步，fast每次2步；若有环二者必相遇；若fast或fast.next为空则无环。时间O(n)，空间O(1)。",
+      "answerPoints": "标准解法：快慢指针。slow每次1步，fast每次2步；若有环二者必相遇；若fast或fast.next为空则无环。时间O(n)，空间O(1)。",
+      "difficulty": "中等",
+      "id": "g-0370"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定字符串，求最长无重复字符子串长度。",
+      "standardAnswer": "标准解法：滑动窗口+哈希表记录字符最近位置。右指针推进，重复时左边界更新到max(left,last[ch]+1)。时间O(n)，空间O(字符集大小)。",
+      "answerPoints": "标准解法：滑动窗口+哈希表记录字符最近位置。右指针推进，重复时左边界更新到max(left,last[ch]+1)。时间O(n)，空间O(字符集大小)。",
+      "difficulty": "中等",
+      "id": "g-0371"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定二叉树，返回层序遍历结果。",
+      "standardAnswer": "标准解法：BFS队列。根节点入队；每轮记录当前队列长度并依次弹出该层节点，将左右孩子入队。时间O(n)，空间O(n)。",
+      "answerPoints": "标准解法：BFS队列。根节点入队；每轮记录当前队列长度并依次弹出该层节点，将左右孩子入队。时间O(n)，空间O(n)。",
+      "difficulty": "中等",
+      "id": "g-0372"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定有序数组和target，返回第一次出现的位置，不存在返回-1。",
+      "standardAnswer": "标准解法：二分查找左边界。命中后继续收缩右边界，或使用lower_bound形式找第一个>=target的位置再校验。时间O(log n)。",
+      "answerPoints": "标准解法：二分查找左边界。命中后继续收缩右边界，或使用lower_bound形式找第一个>=target的位置再校验。时间O(log n)。",
+      "difficulty": "中等",
+      "id": "g-0373"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "实现LRU缓存，get/put均要求O(1)。",
+      "standardAnswer": "标准解法：哈希表+双向链表。哈希表定位节点；链表维护最近使用顺序，头部最新、尾部最旧；访问或更新时移动到头部，超容量淘汰尾部。",
+      "answerPoints": "标准解法：哈希表+双向链表。哈希表定位节点；链表维护最近使用顺序，头部最新、尾部最旧；访问或更新时移动到头部，超容量淘汰尾部。",
+      "difficulty": "中等",
+      "id": "g-0374"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定网格0/1，统计岛屿数量。",
+      "standardAnswer": "标准解法：遍历每个格子，遇到未访问的1就做DFS/BFS把该连通块标记，计数+1。时间O(mn)，空间O(mn)最坏。",
+      "answerPoints": "标准解法：遍历每个格子，遇到未访问的1就做DFS/BFS把该连通块标记，计数+1。时间O(mn)，空间O(mn)最坏。",
+      "difficulty": "中等",
+      "id": "g-0375"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "合并两个有序链表。",
+      "standardAnswer": "标准解法：双指针+哑节点，比较两个当前节点较小者接到结果链表，最后接剩余部分。时间O(m+n)，空间O(1)额外。",
+      "answerPoints": "标准解法：双指针+哑节点，比较两个当前节点较小者接到结果链表，最后接剩余部分。时间O(m+n)，空间O(1)额外。",
+      "difficulty": "中等",
+      "id": "g-0376"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "求数组中的第K大元素。",
+      "standardAnswer": "标准解法：Quickselect平均O(n)，或维护大小为K的小顶堆，时间O(n log k)。面试时需说明两种方案取舍。",
+      "answerPoints": "标准解法：Quickselect平均O(n)，或维护大小为K的小顶堆，时间O(n log k)。面试时需说明两种方案取舍。",
+      "difficulty": "中等",
+      "id": "g-0377"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定括号字符串，判断是否有效。",
+      "standardAnswer": "标准解法：栈。左括号入栈；右括号必须与栈顶匹配，否则false；结束时栈必须为空。时间O(n)。",
+      "answerPoints": "标准解法：栈。左括号入栈；右括号必须与栈顶匹配，否则false；结束时栈必须为空。时间O(n)。",
+      "difficulty": "中等",
+      "id": "g-0378"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "实现单调队列求滑动窗口最大值。",
+      "standardAnswer": "标准解法：双端队列保存下标并维持对应值单调递减；移除过期下标，插入前弹出更小元素；队首即当前窗口最大值。时间O(n)。",
+      "answerPoints": "标准解法：双端队列保存下标并维持对应值单调递减；移除过期下标，插入前弹出更小元素；队首即当前窗口最大值。时间O(n)。",
+      "difficulty": "中等",
+      "id": "g-0379"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "求两个字符串的最长公共子序列长度。",
+      "standardAnswer": "标准解法：二维DP。dp[i][j]表示前i、j个字符LCS长度；相等则dp[i-1][j-1]+1，否则max(dp[i-1][j],dp[i][j-1])。时间O(mn)。",
+      "answerPoints": "标准解法：二维DP。dp[i][j]表示前i、j个字符LCS长度；相等则dp[i-1][j-1]+1，否则max(dp[i-1][j],dp[i][j-1])。时间O(mn)。",
+      "difficulty": "中等",
+      "id": "g-0380"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定会议时间区间，求最少需要多少会议室。",
+      "standardAnswer": "标准解法：按开始时间排序，维护结束时间最小堆；新会议开始时若最早结束<=开始则复用，否则新开会议室。最大堆大小即答案。",
+      "answerPoints": "标准解法：按开始时间排序，维护结束时间最小堆；新会议开始时若最早结束<=开始则复用，否则新开会议室。最大堆大小即答案。",
+      "difficulty": "中等",
+      "id": "g-0381"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "判断一个字符串是否为合法IPv4地址。",
+      "standardAnswer": "标准解法：按'.'切成4段；每段必须非空、仅数字、0~255；除单独0外不能有前导0。全部满足才合法。",
+      "answerPoints": "标准解法：按'.'切成4段；每段必须非空、仅数字、0~255；除单独0外不能有前导0。全部满足才合法。",
+      "difficulty": "中等",
+      "id": "g-0382"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定数组，求最大连续子数组和。",
+      "standardAnswer": "标准解法：Kadane。cur=max(nums[i],cur+nums[i])，ans=max(ans,cur)。时间O(n)，空间O(1)。",
+      "answerPoints": "标准解法：Kadane。cur=max(nums[i],cur+nums[i])，ans=max(ans,cur)。时间O(n)，空间O(1)。",
+      "difficulty": "中等",
+      "id": "g-0383"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "实现生产者消费者模型时如何保证线程安全？",
+      "standardAnswer": "标准答案：共享缓冲区用互斥锁保护；用条件变量/信号量表示非空和非满条件；等待必须放在循环中重新检查条件，避免虚假唤醒。",
+      "answerPoints": "标准答案：共享缓冲区用互斥锁保护；用条件变量/信号量表示非空和非满条件；等待必须放在循环中重新检查条件，避免虚假唤醒。",
+      "difficulty": "中等",
+      "id": "g-0384"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "实现线程安全的令牌桶限流器，应保存哪些状态？",
+      "standardAnswer": "标准答案：容量capacity、当前token数、补充速率rate、上次更新时间lastTime，并用锁或原子机制保护更新；请求到来先按时间补token，再判断是否足够并扣减。",
+      "answerPoints": "标准答案：容量capacity、当前token数、补充速率rate、上次更新时间lastTime，并用锁或原子机制保护更新；请求到来先按时间补token，再判断是否足够并扣减。",
+      "difficulty": "中等",
+      "id": "g-0385"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "从海量日志中找Top-K高频IP，内存不足怎么办？",
+      "standardAnswer": "标准答案：先按哈希把日志分桶到多个文件，使同一IP落同桶；每桶内部哈希计数取局部Top-K，再合并各桶Top-K用小顶堆求全局Top-K。",
+      "answerPoints": "标准答案：先按哈希把日志分桶到多个文件，使同一IP落同桶；每桶内部哈希计数取局部Top-K，再合并各桶Top-K用小顶堆求全局Top-K。",
+      "difficulty": "中等",
+      "id": "g-0386"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "给定DAG，如何得到拓扑排序？",
+      "standardAnswer": "标准解法：Kahn算法统计入度，把入度0节点入队；不断弹出并减少邻居入度，新入度0再入队。若最终处理节点数<n说明存在环。",
+      "answerPoints": "标准解法：Kahn算法统计入度，把入度0节点入队；不断弹出并减少邻居入度，新入度0再入队。若最终处理节点数<n说明存在环。",
+      "difficulty": "中等",
+      "id": "g-0387"
+    },
+    {
+      "category": "算法编程题",
+      "type": "笔试-编程题",
+      "question": "如何判断两个字符串是否为字母异位词？",
+      "standardAnswer": "标准解法：若长度不同直接false；统计字符频次并相减，最终全0则为异位词。固定字符集可用数组，时间O(n)。",
+      "answerPoints": "标准解法：若长度不同直接false；统计字符频次并相减，最终全0则为异位词。固定字符集可用数组，时间O(n)。",
+      "difficulty": "中等",
+      "id": "g-0388"
     }
   ]
 }
