@@ -4743,5 +4743,2121 @@
     "careerUrl": "",
     "website": "",
     "description": ""
+  },
+  {
+    "id": "c0314",
+    "name": "腾讯",
+    "industry": "互联网 / AI",
+    "sector": "互联网",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "运营",
+      "设计"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0315",
+    "name": "阿里巴巴",
+    "industry": "互联网 / AI",
+    "sector": "互联网",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "运营",
+      "商业"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0316",
+    "name": "京东",
+    "industry": "互联网 / AI",
+    "sector": "互联网/零售",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "供应链",
+      "零售"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0317",
+    "name": "美团",
+    "industry": "互联网 / AI",
+    "sector": "互联网/本地生活",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "运营",
+      "商业分析"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0318",
+    "name": "滴滴",
+    "industry": "互联网 / AI",
+    "sector": "互联网/出行",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "算法",
+      "产品",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0319",
+    "name": "快手",
+    "industry": "互联网 / AI",
+    "sector": "互联网/内容",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "运营",
+      "商业化"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0320",
+    "name": "哔哩哔哩",
+    "industry": "互联网 / AI",
+    "sector": "互联网/内容",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "内容",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0321",
+    "name": "小红书",
+    "industry": "互联网 / AI",
+    "sector": "互联网/社区",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "内容",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0322",
+    "name": "网易",
+    "industry": "互联网 / AI",
+    "sector": "互联网/游戏",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "游戏",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0323",
+    "name": "携程集团",
+    "industry": "互联网 / AI",
+    "sector": "互联网/旅游",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "运营",
+      "旅游"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0324",
+    "name": "拼多多",
+    "industry": "互联网 / AI",
+    "sector": "互联网/电商",
+    "nature": "民企",
+    "tags": [
+      "技术",
+      "产品",
+      "运营",
+      "商业分析"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0325",
+    "name": "科大讯飞",
+    "industry": "互联网 / AI",
+    "sector": "人工智能",
+    "nature": "民企",
+    "tags": [
+      "AI",
+      "算法",
+      "教育",
+      "政企"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0326",
+    "name": "360集团",
+    "industry": "互联网 / AI",
+    "sector": "互联网/安全",
+    "nature": "民企",
+    "tags": [
+      "安全",
+      "技术",
+      "产品"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0327",
+    "name": "商汤科技",
+    "industry": "互联网 / AI",
+    "sector": "人工智能",
+    "nature": "民企",
+    "tags": [
+      "AI",
+      "算法",
+      "研发"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0328",
+    "name": "旷视科技",
+    "industry": "互联网 / AI",
+    "sector": "人工智能",
+    "nature": "民企",
+    "tags": [
+      "AI",
+      "视觉",
+      "算法"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0329",
+    "name": "第四范式",
+    "industry": "互联网 / AI",
+    "sector": "人工智能",
+    "nature": "民企",
+    "tags": [
+      "AI",
+      "机器学习",
+      "平台"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0330",
+    "name": "月之暗面",
+    "industry": "互联网 / AI",
+    "sector": "大模型",
+    "nature": "民企",
+    "tags": [
+      "AI",
+      "大模型",
+      "算法"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0331",
+    "name": "智谱AI",
+    "industry": "互联网 / AI",
+    "sector": "大模型",
+    "nature": "民企",
+    "tags": [
+      "AI",
+      "大模型",
+      "算法"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0332",
+    "name": "MiniMax",
+    "industry": "互联网 / AI",
+    "sector": "大模型",
+    "nature": "民企",
+    "tags": [
+      "AI",
+      "大模型",
+      "产品"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0333",
+    "name": "中国建设银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "央国企",
+    "tags": [
+      "金融",
+      "科技",
+      "管培"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0334",
+    "name": "中国农业银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "央国企",
+    "tags": [
+      "金融",
+      "科技",
+      "管培"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0335",
+    "name": "交通银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "央国企",
+    "tags": [
+      "金融",
+      "科技",
+      "管培"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0336",
+    "name": "中国邮政储蓄银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "央国企",
+    "tags": [
+      "金融",
+      "科技",
+      "管培"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0337",
+    "name": "招商银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "民企",
+    "tags": [
+      "金融",
+      "科技",
+      "零售银行"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0338",
+    "name": "中信银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "央国企",
+    "tags": [
+      "金融",
+      "科技",
+      "管培"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0339",
+    "name": "兴业银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "国企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0340",
+    "name": "浦发银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "国企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0341",
+    "name": "平安银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "民企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0342",
+    "name": "民生银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "民企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0343",
+    "name": "光大银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "央国企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0344",
+    "name": "华夏银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "国企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0345",
+    "name": "广发银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "央国企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0346",
+    "name": "宁波银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "民企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0347",
+    "name": "杭州银行",
+    "industry": "金融 / 保险",
+    "sector": "银行",
+    "nature": "国企",
+    "tags": [
+      "金融",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0348",
+    "name": "平安集团",
+    "industry": "金融 / 保险",
+    "sector": "综合金融",
+    "nature": "民企",
+    "tags": [
+      "金融",
+      "保险",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0349",
+    "name": "中国人寿",
+    "industry": "金融 / 保险",
+    "sector": "保险",
+    "nature": "央国企",
+    "tags": [
+      "保险",
+      "金融",
+      "精算"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0350",
+    "name": "中国人保",
+    "industry": "金融 / 保险",
+    "sector": "保险",
+    "nature": "央国企",
+    "tags": [
+      "保险",
+      "金融",
+      "精算"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0351",
+    "name": "中国太保",
+    "industry": "金融 / 保险",
+    "sector": "保险",
+    "nature": "国企",
+    "tags": [
+      "保险",
+      "金融",
+      "精算"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0352",
+    "name": "泰康保险集团",
+    "industry": "金融 / 保险",
+    "sector": "保险",
+    "nature": "民企",
+    "tags": [
+      "保险",
+      "医疗",
+      "金融"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0353",
+    "name": "新华保险",
+    "industry": "金融 / 保险",
+    "sector": "保险",
+    "nature": "央国企",
+    "tags": [
+      "保险",
+      "金融"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0354",
+    "name": "中信证券",
+    "industry": "金融 / 保险",
+    "sector": "证券",
+    "nature": "央国企",
+    "tags": [
+      "投行",
+      "研究",
+      "量化"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0355",
+    "name": "中金公司",
+    "industry": "金融 / 保险",
+    "sector": "证券",
+    "nature": "央国企",
+    "tags": [
+      "投行",
+      "研究",
+      "量化"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0356",
+    "name": "华泰证券",
+    "industry": "金融 / 保险",
+    "sector": "证券",
+    "nature": "国企",
+    "tags": [
+      "投行",
+      "研究",
+      "金融科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0357",
+    "name": "国泰君安",
+    "industry": "金融 / 保险",
+    "sector": "证券",
+    "nature": "国企",
+    "tags": [
+      "投行",
+      "研究",
+      "金融科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0358",
+    "name": "广发证券",
+    "industry": "金融 / 保险",
+    "sector": "证券",
+    "nature": "民企",
+    "tags": [
+      "投行",
+      "研究"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0359",
+    "name": "申万宏源",
+    "industry": "金融 / 保险",
+    "sector": "证券",
+    "nature": "央国企",
+    "tags": [
+      "投行",
+      "研究"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0360",
+    "name": "招商证券",
+    "industry": "金融 / 保险",
+    "sector": "证券",
+    "nature": "央国企",
+    "tags": [
+      "投行",
+      "研究"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0361",
+    "name": "东方证券",
+    "industry": "金融 / 保险",
+    "sector": "证券",
+    "nature": "国企",
+    "tags": [
+      "投行",
+      "研究"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0362",
+    "name": "安永中国",
+    "industry": "金融 / 保险",
+    "sector": "专业服务",
+    "nature": "外企",
+    "tags": [
+      "审计",
+      "税务",
+      "咨询"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0363",
+    "name": "毕马威中国",
+    "industry": "金融 / 保险",
+    "sector": "专业服务",
+    "nature": "外企",
+    "tags": [
+      "审计",
+      "税务",
+      "咨询"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0364",
+    "name": "埃森哲",
+    "industry": "软件 / 工业软件",
+    "sector": "咨询/技术服务",
+    "nature": "外企",
+    "tags": [
+      "咨询",
+      "技术",
+      "数字化"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0365",
+    "name": "麦肯锡",
+    "industry": "金融 / 保险",
+    "sector": "管理咨询",
+    "nature": "外企",
+    "tags": [
+      "咨询",
+      "战略",
+      "分析"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0366",
+    "name": "波士顿咨询",
+    "industry": "金融 / 保险",
+    "sector": "管理咨询",
+    "nature": "外企",
+    "tags": [
+      "咨询",
+      "战略",
+      "分析"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0367",
+    "name": "贝恩公司",
+    "industry": "金融 / 保险",
+    "sector": "管理咨询",
+    "nature": "外企",
+    "tags": [
+      "咨询",
+      "战略",
+      "分析"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0368",
+    "name": "罗兰贝格",
+    "industry": "金融 / 保险",
+    "sector": "管理咨询",
+    "nature": "外企",
+    "tags": [
+      "咨询",
+      "战略",
+      "汽车"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0369",
+    "name": "君合律师事务所",
+    "industry": "金融 / 保险",
+    "sector": "法律服务",
+    "nature": "民企",
+    "tags": [
+      "法务",
+      "律师",
+      "合规"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0370",
+    "name": "金杜律师事务所",
+    "industry": "金融 / 保险",
+    "sector": "法律服务",
+    "nature": "民企",
+    "tags": [
+      "法务",
+      "律师",
+      "合规"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0371",
+    "name": "中伦律师事务所",
+    "industry": "金融 / 保险",
+    "sector": "法律服务",
+    "nature": "民企",
+    "tags": [
+      "法务",
+      "律师",
+      "合规"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0372",
+    "name": "方达律师事务所",
+    "industry": "金融 / 保险",
+    "sector": "法律服务",
+    "nature": "民企",
+    "tags": [
+      "法务",
+      "律师",
+      "合规"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0373",
+    "name": "迈瑞医疗",
+    "industry": "医药 / 医疗",
+    "sector": "医疗器械",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "临床",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0374",
+    "name": "复星医药",
+    "industry": "医药 / 医疗",
+    "sector": "医药",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "临床",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0375",
+    "name": "药明康德",
+    "industry": "医药 / 医疗",
+    "sector": "医药研发服务",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "化学",
+      "生物"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0376",
+    "name": "百济神州",
+    "industry": "医药 / 医疗",
+    "sector": "生物医药",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "临床",
+      "医学"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0377",
+    "name": "信达生物",
+    "industry": "医药 / 医疗",
+    "sector": "生物医药",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "临床",
+      "医学"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0378",
+    "name": "石药集团",
+    "industry": "医药 / 医疗",
+    "sector": "制药",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "生产",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0379",
+    "name": "中国生物制药",
+    "industry": "医药 / 医疗",
+    "sector": "制药",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "生产",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0380",
+    "name": "国药集团",
+    "industry": "医药 / 医疗",
+    "sector": "医药",
+    "nature": "央国企",
+    "tags": [
+      "医药",
+      "供应链",
+      "管理"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0381",
+    "name": "华润医药",
+    "industry": "医药 / 医疗",
+    "sector": "医药",
+    "nature": "央国企",
+    "tags": [
+      "医药",
+      "商业",
+      "管理"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0382",
+    "name": "九州通",
+    "industry": "医药 / 医疗",
+    "sector": "医药流通",
+    "nature": "民企",
+    "tags": [
+      "供应链",
+      "医药",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0383",
+    "name": "爱尔眼科",
+    "industry": "医药 / 医疗",
+    "sector": "医疗服务",
+    "nature": "民企",
+    "tags": [
+      "医疗",
+      "运营",
+      "管理"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0384",
+    "name": "华大基因",
+    "industry": "医药 / 医疗",
+    "sector": "生命科学",
+    "nature": "民企",
+    "tags": [
+      "生物",
+      "研发",
+      "数据"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0385",
+    "name": "联影医疗",
+    "industry": "医药 / 医疗",
+    "sector": "医疗器械",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "机械",
+      "电子"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0386",
+    "name": "鱼跃医疗",
+    "industry": "医药 / 医疗",
+    "sector": "医疗器械",
+    "nature": "民企",
+    "tags": [
+      "研发",
+      "产品",
+      "制造"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0387",
+    "name": "强生中国",
+    "industry": "医药 / 医疗",
+    "sector": "医疗健康",
+    "nature": "外企",
+    "tags": [
+      "医药",
+      "医疗器械",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0388",
+    "name": "罗氏中国",
+    "industry": "医药 / 医疗",
+    "sector": "医药",
+    "nature": "外企",
+    "tags": [
+      "医药",
+      "诊断",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0389",
+    "name": "诺华中国",
+    "industry": "医药 / 医疗",
+    "sector": "医药",
+    "nature": "外企",
+    "tags": [
+      "医药",
+      "临床",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0390",
+    "name": "阿斯利康中国",
+    "industry": "医药 / 医疗",
+    "sector": "医药",
+    "nature": "外企",
+    "tags": [
+      "医药",
+      "临床",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0391",
+    "name": "辉瑞中国",
+    "industry": "医药 / 医疗",
+    "sector": "医药",
+    "nature": "外企",
+    "tags": [
+      "医药",
+      "临床",
+      "市场"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0392",
+    "name": "宝洁中国",
+    "industry": "消费 / 零售",
+    "sector": "快消",
+    "nature": "外企",
+    "tags": [
+      "市场",
+      "供应链",
+      "财务",
+      "研发"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0393",
+    "name": "联合利华中国",
+    "industry": "消费 / 零售",
+    "sector": "快消",
+    "nature": "外企",
+    "tags": [
+      "市场",
+      "供应链",
+      "财务",
+      "研发"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0394",
+    "name": "欧莱雅中国",
+    "industry": "消费 / 零售",
+    "sector": "美妆",
+    "nature": "外企",
+    "tags": [
+      "市场",
+      "电商",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0395",
+    "name": "雀巢中国",
+    "industry": "消费 / 零售",
+    "sector": "食品",
+    "nature": "外企",
+    "tags": [
+      "市场",
+      "供应链",
+      "研发"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0396",
+    "name": "玛氏中国",
+    "industry": "消费 / 零售",
+    "sector": "食品",
+    "nature": "外企",
+    "tags": [
+      "市场",
+      "供应链",
+      "财务"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0397",
+    "name": "可口可乐中国",
+    "industry": "消费 / 零售",
+    "sector": "饮料",
+    "nature": "外企",
+    "tags": [
+      "市场",
+      "供应链",
+      "销售"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0398",
+    "name": "百事中国",
+    "industry": "消费 / 零售",
+    "sector": "食品饮料",
+    "nature": "外企",
+    "tags": [
+      "市场",
+      "供应链",
+      "销售"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0399",
+    "name": "伊利集团",
+    "industry": "农林 / 食品",
+    "sector": "乳业",
+    "nature": "民企",
+    "tags": [
+      "食品",
+      "市场",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0400",
+    "name": "蒙牛集团",
+    "industry": "农林 / 食品",
+    "sector": "乳业",
+    "nature": "央国企",
+    "tags": [
+      "食品",
+      "市场",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0401",
+    "name": "农夫山泉",
+    "industry": "消费 / 零售",
+    "sector": "饮料",
+    "nature": "民企",
+    "tags": [
+      "市场",
+      "销售",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0402",
+    "name": "海底捞",
+    "industry": "消费 / 零售",
+    "sector": "餐饮",
+    "nature": "民企",
+    "tags": [
+      "运营",
+      "门店管理",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0403",
+    "name": "华润万家",
+    "industry": "消费 / 零售",
+    "sector": "零售",
+    "nature": "央国企",
+    "tags": [
+      "零售",
+      "运营",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0404",
+    "name": "盒马",
+    "industry": "消费 / 零售",
+    "sector": "零售",
+    "nature": "民企",
+    "tags": [
+      "零售",
+      "运营",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0405",
+    "name": "屈臣氏中国",
+    "industry": "消费 / 零售",
+    "sector": "零售",
+    "nature": "外企",
+    "tags": [
+      "零售",
+      "市场",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0406",
+    "name": "顺丰集团",
+    "industry": "消费 / 零售",
+    "sector": "物流",
+    "nature": "民企",
+    "tags": [
+      "物流",
+      "科技",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0407",
+    "name": "京东物流",
+    "industry": "消费 / 零售",
+    "sector": "物流",
+    "nature": "民企",
+    "tags": [
+      "物流",
+      "供应链",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0408",
+    "name": "菜鸟集团",
+    "industry": "消费 / 零售",
+    "sector": "物流",
+    "nature": "民企",
+    "tags": [
+      "物流",
+      "供应链",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0409",
+    "name": "中通快递",
+    "industry": "消费 / 零售",
+    "sector": "物流",
+    "nature": "民企",
+    "tags": [
+      "物流",
+      "运营",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0410",
+    "name": "圆通速递",
+    "industry": "消费 / 零售",
+    "sector": "物流",
+    "nature": "民企",
+    "tags": [
+      "物流",
+      "运营",
+      "科技"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0411",
+    "name": "中粮集团",
+    "industry": "农林 / 食品",
+    "sector": "农业食品",
+    "nature": "央国企",
+    "tags": [
+      "农业",
+      "食品",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0412",
+    "name": "北大荒集团",
+    "industry": "农林 / 食品",
+    "sector": "农业",
+    "nature": "央国企",
+    "tags": [
+      "农业",
+      "食品",
+      "机械"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0413",
+    "name": "新希望集团",
+    "industry": "农林 / 食品",
+    "sector": "农业食品",
+    "nature": "民企",
+    "tags": [
+      "农业",
+      "食品",
+      "供应链"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0414",
+    "name": "牧原股份",
+    "industry": "农林 / 食品",
+    "sector": "农业养殖",
+    "nature": "民企",
+    "tags": [
+      "动物科学",
+      "食品",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0415",
+    "name": "温氏股份",
+    "industry": "农林 / 食品",
+    "sector": "农业养殖",
+    "nature": "民企",
+    "tags": [
+      "动物科学",
+      "食品",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0416",
+    "name": "海大集团",
+    "industry": "农林 / 食品",
+    "sector": "农业饲料",
+    "nature": "民企",
+    "tags": [
+      "动物科学",
+      "水产",
+      "研发"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0417",
+    "name": "益海嘉里",
+    "industry": "农林 / 食品",
+    "sector": "食品",
+    "nature": "外企",
+    "tags": [
+      "食品",
+      "供应链",
+      "工程"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0418",
+    "name": "新东方",
+    "industry": "教育 / 文化",
+    "sector": "教育",
+    "nature": "民企",
+    "tags": [
+      "教师",
+      "教研",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0419",
+    "name": "好未来",
+    "industry": "教育 / 文化",
+    "sector": "教育科技",
+    "nature": "民企",
+    "tags": [
+      "教师",
+      "教研",
+      "技术"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0420",
+    "name": "高途",
+    "industry": "教育 / 文化",
+    "sector": "教育科技",
+    "nature": "民企",
+    "tags": [
+      "教师",
+      "教研",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0421",
+    "name": "猿辅导",
+    "industry": "教育 / 文化",
+    "sector": "教育科技",
+    "nature": "民企",
+    "tags": [
+      "教师",
+      "教研",
+      "技术"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0422",
+    "name": "作业帮",
+    "industry": "教育 / 文化",
+    "sector": "教育科技",
+    "nature": "民企",
+    "tags": [
+      "教师",
+      "教研",
+      "技术"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0423",
+    "name": "得到",
+    "industry": "教育 / 文化",
+    "sector": "知识服务",
+    "nature": "民企",
+    "tags": [
+      "内容",
+      "产品",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0424",
+    "name": "新华网",
+    "industry": "教育 / 文化",
+    "sector": "媒体",
+    "nature": "央国企",
+    "tags": [
+      "新闻",
+      "编辑",
+      "技术"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0425",
+    "name": "人民网",
+    "industry": "教育 / 文化",
+    "sector": "媒体",
+    "nature": "央国企",
+    "tags": [
+      "新闻",
+      "编辑",
+      "技术"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0426",
+    "name": "中央广播电视总台",
+    "industry": "教育 / 文化",
+    "sector": "媒体",
+    "nature": "事业单位",
+    "tags": [
+      "新闻",
+      "编导",
+      "技术"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0427",
+    "name": "新华社",
+    "industry": "教育 / 文化",
+    "sector": "媒体",
+    "nature": "事业单位",
+    "tags": [
+      "新闻",
+      "外语",
+      "技术"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0428",
+    "name": "中国出版集团",
+    "industry": "教育 / 文化",
+    "sector": "出版",
+    "nature": "央国企",
+    "tags": [
+      "编辑",
+      "出版",
+      "营销"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0429",
+    "name": "中信出版集团",
+    "industry": "教育 / 文化",
+    "sector": "出版",
+    "nature": "央国企",
+    "tags": [
+      "编辑",
+      "出版",
+      "营销"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0430",
+    "name": "中国国际航空",
+    "industry": "消费 / 零售",
+    "sector": "航空运输",
+    "nature": "央国企",
+    "tags": [
+      "飞行",
+      "机务",
+      "市场",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0431",
+    "name": "中国南方航空",
+    "industry": "消费 / 零售",
+    "sector": "航空运输",
+    "nature": "央国企",
+    "tags": [
+      "飞行",
+      "机务",
+      "市场",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0432",
+    "name": "中国东方航空",
+    "industry": "消费 / 零售",
+    "sector": "航空运输",
+    "nature": "央国企",
+    "tags": [
+      "飞行",
+      "机务",
+      "市场",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0433",
+    "name": "春秋航空",
+    "industry": "消费 / 零售",
+    "sector": "航空运输",
+    "nature": "民企",
+    "tags": [
+      "飞行",
+      "机务",
+      "市场",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0434",
+    "name": "中国远洋海运集团",
+    "industry": "船舶 / 海工",
+    "sector": "航运物流",
+    "nature": "央国企",
+    "tags": [
+      "航运",
+      "物流",
+      "金融"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0435",
+    "name": "招商局集团",
+    "industry": "消费 / 零售",
+    "sector": "综合集团",
+    "nature": "央国企",
+    "tags": [
+      "交通",
+      "金融",
+      "地产"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0436",
+    "name": "中国外运",
+    "industry": "消费 / 零售",
+    "sector": "物流",
+    "nature": "央国企",
+    "tags": [
+      "物流",
+      "供应链",
+      "国际贸易"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0437",
+    "name": "华住集团",
+    "industry": "消费 / 零售",
+    "sector": "酒店",
+    "nature": "民企",
+    "tags": [
+      "运营",
+      "市场",
+      "管理"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0438",
+    "name": "锦江酒店",
+    "industry": "消费 / 零售",
+    "sector": "酒店",
+    "nature": "国企",
+    "tags": [
+      "运营",
+      "市场",
+      "管理"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0439",
+    "name": "万豪国际",
+    "industry": "消费 / 零售",
+    "sector": "酒店",
+    "nature": "外企",
+    "tags": [
+      "运营",
+      "市场",
+      "管理"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0440",
+    "name": "希尔顿",
+    "industry": "消费 / 零售",
+    "sector": "酒店",
+    "nature": "外企",
+    "tags": [
+      "运营",
+      "市场",
+      "管理"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0441",
+    "name": "保利发展",
+    "industry": "建筑 / 基建",
+    "sector": "房地产",
+    "nature": "央国企",
+    "tags": [
+      "工程",
+      "投资",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0442",
+    "name": "华润置地",
+    "industry": "建筑 / 基建",
+    "sector": "房地产",
+    "nature": "央国企",
+    "tags": [
+      "工程",
+      "投资",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0443",
+    "name": "招商蛇口",
+    "industry": "建筑 / 基建",
+    "sector": "房地产",
+    "nature": "央国企",
+    "tags": [
+      "工程",
+      "投资",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0444",
+    "name": "龙湖集团",
+    "industry": "建筑 / 基建",
+    "sector": "房地产",
+    "nature": "民企",
+    "tags": [
+      "工程",
+      "投资",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
+  },
+  {
+    "id": "c0445",
+    "name": "万科",
+    "industry": "建筑 / 基建",
+    "sector": "房地产",
+    "nature": "民企",
+    "tags": [
+      "工程",
+      "投资",
+      "运营"
+    ],
+    "headquarters": "",
+    "careerUrl": "",
+    "website": "",
+    "description": ""
   }
 ]
