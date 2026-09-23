@@ -1,9 +1,9 @@
 import {
   loadPlatformData, loadProfile, saveProfile, loadApplications, setApplication,
   loadFavorites, toggleFavorite, saveScannedJobs, lastScanAt
-} from "./data-store.js?v=20260923-v3";
-import { rankJobs, scoreJob } from "./matcher.js?v=20260923-v3";
-import { runWebScan } from "./scanner.js?v=20260923-v3";
+} from "./data-store.js?v=20260923-v4";
+import { rankJobs, scoreJob } from "./matcher.js?v=20260923-v4";
+import { runWebScan } from "./scanner.js?v=20260923-v4";
 
 const $ = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
