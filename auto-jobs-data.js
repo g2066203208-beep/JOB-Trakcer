@@ -1,19 +1,19 @@
 window.AUTO_SCAN_META = {
-  "updated_at": "2026-09-24T12:30:41+08:00",
+  "updated_at": "2026-09-24T16:32:30+08:00",
   "mode": "recent",
   "company": null,
   "company_targets": 449,
   "queries": 210,
-  "raw_results": 657,
-  "expanded_links": 172,
-  "qualified_jobs": 60,
-  "added": 1,
-  "total": 161,
+  "raw_results": 683,
+  "expanded_links": 186,
+  "qualified_jobs": 65,
+  "added": 5,
+  "total": 166,
   "providers": {
     "brave": 0,
-    "bing-rss": 304,
+    "bing-rss": 316,
     "duckduckgo": 0,
-    "errors": 129
+    "errors": 125
   }
 };
 window.AUTO_JOB_DATA = [
@@ -47,7 +47,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-5fdf4443938f2b",
@@ -79,7 +79,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-70e13afc34d40e",
@@ -111,7 +111,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-d799fdf4209604",
@@ -133,8 +133,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "供应链",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -150,7 +150,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-71b7206c693133",
@@ -220,7 +220,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-ca34fe0799c669",
@@ -256,7 +256,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-5e4af7d7bb1539",
@@ -342,13 +342,13 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "供应链",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
-    "openDate": "2026-09-23",
+    "openDate": "2026-09-24",
     "deadline": null,
-    "updated": "2026-09-23",
+    "updated": "2026-09-24",
     "requirements": "应届生招聘 首页 校园招聘 社会招聘 走进中兴 首页 校园招聘 社会招聘 走进中兴 招聘岗位 校招公告 蓝剑计划 中兴捧月 求职FAQ 应届生招聘 实习生招聘 未来领军招聘 2027届应届生校园招聘 研发 AI算法工程师 软件开发工程师 射频开发工程师 IC开发工程师 了解更多 > 营销 客户经理 MKT经理-技术 MKT经理-商务 网络技术工程师 了解更多 > 供应链 供应链管理工程师 全球采购经理 技术质量工程师 全球供应链交付经理 了解更多 > 运营支撑 人力资源经理 涉外律师 财务经理 财务数字化经理 了解更多 > AI浪潮向前，新的技术边界正在打开，中兴通讯全面拥抱AI，以“连接+算力”的战略布局，参与并推动这场面向未来的产业变革。依托40余年ICT领域积累，中兴通讯构建端到端AI全栈能力。从芯片、操作系统、数据库等底层根技术，到TCO最优的AI解决方案、持续领先的6G技术、创新的AI智能终端，AI不是少数岗位的关键词，它正在成为越来越多工作的底层变量。今天，我们向新一代年轻人发出邀请——未来正在发生，等你成为其中的创造者！ 五大资源，助力职业发展 互相尊重的文化 国际化的职业平台 矩阵式的发展通道 立体化的培训体系 有竞争力的薪酬福利 联系HR 校招有疑问？别急，HR来帮忙！ 如果您在参加中兴通讯2027届校园招聘的过程中，需要任何帮助，欢迎联系我们，我们会在第一时间为您答疑解惑。 加群咨询：关注“中兴通讯招聘” 微信公众号，回复 “校招QQ群” 获取答疑渠道； 邮件咨询：job@zte.com.cn。 我们更推荐您优先选择加入群聊，这样能更迅速地与相关招聘组取得联系，解决您的问题哦！期待与您互相认识与交流~ 走进中兴 员工福利 职业发展 培训学习 相关网站 中兴通讯官方网站 关注中兴通讯招聘平台 中兴通讯股份有限公司版权所有 ©2023 粤ICP11108162号 隐私保护",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://job.zte.com.cn/cn/campus-recruitment/Recruitment_positions/freshstudent.html/",
@@ -359,7 +359,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T18:00:55+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-9f0489da21761b",
@@ -423,7 +423,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-d703414cc3e568",
@@ -455,7 +455,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-cfba4156221169",
@@ -489,7 +489,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-eb7eef5f52ef38",
@@ -636,7 +636,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-5cef1873a46466",
@@ -956,7 +956,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-c11d8a271bf067",
@@ -1354,7 +1354,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-ea843779396351",
@@ -1482,8 +1482,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "JavaScript",
       "Java",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -1499,7 +1499,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-e95192a04f4ab8",
@@ -1531,7 +1531,39 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
+  },
+  {
+    "id": "auto-9e4f1d644e4e87",
+    "company": "华为",
+    "companyId": null,
+    "title": "华为招聘官网首页",
+    "unit": "自动发现",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "全网发现"
+    ],
+    "type": "自动发现",
+    "location": "待核验",
+    "degree": "待核验",
+    "majorsText": "待核验",
+    "majorTags": [],
+    "skills": [],
+    "headcount": "待核验",
+    "openDate": "2026-09-24",
+    "deadline": null,
+    "updated": "2026-09-24",
+    "requirements": "华为坚持“以奋斗者为本”，不搞论资排辈，坚持责任结果导向，将职级、回报与个人贡献、能力及时匹配。 我们敢于破格提拔，愿意给予优秀人才有挑战性的机会，获得更快速的成长",
+    "process": "以原始招聘页面为准",
+    "applyUrl": "https://career.huawei.com/cn",
+    "sourceUrl": "https://career.huawei.com/cn",
+    "source": "官方源自动发现 · career.huawei.com",
+    "note": "自动发现条目；投递前请核验专业、学历、地点和截止时间。",
+    "verified": true,
+    "auto": true,
+    "provider": "bing-rss",
+    "firstSeen": "2026-09-24T16:32:30+08:00",
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-f6cc7c88ab65c2",
@@ -1563,7 +1595,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-894d3866b8b017",
@@ -1595,7 +1627,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-4241c31872b756",
@@ -1627,7 +1659,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-3e50174daa25b4",
@@ -1646,8 +1678,8 @@ window.AUTO_JOB_DATA = [
     "majorTags": [],
     "skills": [
       "EDA",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -1663,7 +1695,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-6bb484d779e095",
@@ -1763,7 +1795,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-1f8edc820db952",
@@ -1782,14 +1814,14 @@ window.AUTO_JOB_DATA = [
     "majorTags": [],
     "skills": [
       "EDA",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
     "deadline": null,
     "updated": "2026-09-24",
-    "requirements": "发现宝洁中国的职位 搜索结果 没有结果 \"${pageStateData.searchKeyword}\" 没有结果 \"${pageStateData.placeVal}\" 您想考虑以下工作类别吗？ 了解我们的文化 我们每个人都带来了来自数十种文化背景的独特体验。我们共同的价值观每天都在统一我们的方向和决定。 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 f74d58bdeb524a289192bf8edbb94a6d",
+    "requirements": "发现宝洁中国的职位 搜索结果 没有结果 \"${pageStateData.searchKeyword}\" 没有结果 \"${pageStateData.placeVal}\" 您想考虑以下工作类别吗？ 了解我们的文化 我们每个人都带来了来自数十种文化背景的独特体验。我们共同的价值观每天都在统一我们的方向和决定。 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 4f0cd8c200444a21a0177aed5c78bf63",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://careers.pg.com.cn/cn/zh/search-results",
     "sourceUrl": "https://careers.pg.com.cn/cn/zh/search-results",
@@ -1799,7 +1831,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-963004d4556433",
@@ -1817,15 +1849,14 @@ window.AUTO_JOB_DATA = [
     "majorsText": "待核验",
     "majorTags": [],
     "skills": [
-      "CFA",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
     "deadline": null,
     "updated": "2026-09-24",
-    "requirements": "影响您不仅在宝洁的职业生涯 - 中国 Search results 从宝洁起飞，开启你的职场第一天 #PGDAY1 实习/实践项目 查看全部 > 了解更多 > 校园招聘及初级社招岗位 查看全部 > 了解更多 > 资深社招岗位 查看全部 > 了解更多 > 无论您是 在读学生 、高校 毕业生 还是 资深的专业人士，您 在宝洁的第一天， 是从对世界、品牌和您的职业生涯产生影响的开始。 我们的选人标准是根据在人才身上的潜力来决定的。在宝洁，您从第一天起便获得公司和团队的信任，相信您可以快速投入工作，去发挥主观能动性，去打造价值数十亿美元的品牌，去提升消费者的生活体验，从而让世界和生活变得更美好。 加入宝洁，您将承担早期责任，接受有意义的任务，领导各项计划，并发挥主人翁精神，在充满创新的工作环境中，激发层出不穷的新想法。同时，您还将接受世界一流的培训，助力您成为所在领域的领军人物。加入我们，从第一天起，您将通过在宝洁从事有意义的工作，让您的职业生涯迈向新的高度。 成长与发展： 成为领导型人才 与致力于打造的世界级领先品牌一样，我们致力于寻找和培养世界级的未来人才。 领导力是我们的核心价值观之一，也是我们在内外部取得成功不可或缺的因素。 查看成长与发展 探秘宝洁 点击了解宝洁：宝洁的文化、品牌、创新及有意义的工作内容 校园招聘及初级社招岗位 点击了解校园招聘项目及初级社招岗位机会 宝洁大中华区 点击了解宝洁是如何为超过十亿中国消费者提供服务的 资深社招岗位 点击了解资深社招岗位机会 Join us and help make life better through meaningful work that makes an impact from Day 1. 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 b4e8cfa1ff004eb293fd11489b0d193d",
+    "requirements": "影响您不仅在宝洁的职业生涯 - 中国 Search results 从宝洁起飞，开启你的职场第一天 #PGDAY1 实习/实践项目 查看全部 > 了解更多 > 校园招聘及初级社招岗位 查看全部 > 了解更多 > 资深社招岗位 查看全部 > 了解更多 > 无论您是 在读学生 、高校 毕业生 还是 资深的专业人士，您 在宝洁的第一天， 是从对世界、品牌和您的职业生涯产生影响的开始。 我们的选人标准是根据在人才身上的潜力来决定的。在宝洁，您从第一天起便获得公司和团队的信任，相信您可以快速投入工作，去发挥主观能动性，去打造价值数十亿美元的品牌，去提升消费者的生活体验，从而让世界和生活变得更美好。 加入宝洁，您将承担早期责任，接受有意义的任务，领导各项计划，并发挥主人翁精神，在充满创新的工作环境中，激发层出不穷的新想法。同时，您还将接受世界一流的培训，助力您成为所在领域的领军人物。加入我们，从第一天起，您将通过在宝洁从事有意义的工作，让您的职业生涯迈向新的高度。 成长与发展： 成为领导型人才 与致力于打造的世界级领先品牌一样，我们致力于寻找和培养世界级的未来人才。 领导力是我们的核心价值观之一，也是我们在内外部取得成功不可或缺的因素。 查看成长与发展 探秘宝洁 点击了解宝洁：宝洁的文化、品牌、创新及有意义的工作内容 校园招聘及初级社招岗位 点击了解校园招聘项目及初级社招岗位机会 宝洁大中华区 点击了解宝洁是如何为超过十亿中国消费者提供服务的 资深社招岗位 点击了解资深社招岗位机会 Join us and help make life better through meaningful work that makes an impact from Day 1. 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 d2362ca4ac0b4adf9eb979752d452a7f",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://careers.pg.com.cn/cn/zh/home",
     "sourceUrl": "https://careers.pg.com.cn/cn/zh/home",
@@ -1835,7 +1866,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-d8b143983cc3a5",
@@ -1869,7 +1900,39 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
+  },
+  {
+    "id": "auto-19ead72047b66d",
+    "company": "小米集团",
+    "companyId": null,
+    "title": "小米招聘 | 让全球每个人都能享受科技带来的美好生活",
+    "unit": "自动发现",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "全网发现"
+    ],
+    "type": "自动发现",
+    "location": "待核验",
+    "degree": "待核验",
+    "majorsText": "待核验",
+    "majorTags": [],
+    "skills": [],
+    "headcount": "待核验",
+    "openDate": "2026-09-24",
+    "deadline": null,
+    "updated": "2026-09-24",
+    "requirements": "小米2027全球顶尖人才校园招聘正式启动 小米集团实习生招聘火热进行中 小米集团AI人才专项正式启动！ 小米人才日精彩回顾 16年值得被记住的16件事 我们不需要完美的简历， 我们需要不甘于平凡的你。",
+    "process": "以原始招聘页面为准",
+    "applyUrl": "https://hr.xiaomi.com/",
+    "sourceUrl": "https://hr.xiaomi.com/",
+    "source": "官方源自动发现 · hr.xiaomi.com",
+    "note": "自动发现条目；投递前请核验专业、学历、地点和截止时间。",
+    "verified": true,
+    "auto": true,
+    "provider": "bing-rss",
+    "firstSeen": "2026-09-24T16:32:30+08:00",
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-e819cf7afc3ea1",
@@ -2893,8 +2956,8 @@ window.AUTO_JOB_DATA = [
       "供应链",
       "审计",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -2910,7 +2973,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-38aac88051b349",
@@ -2934,8 +2997,8 @@ window.AUTO_JOB_DATA = [
       "项目管理",
       "CPA",
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -2951,7 +3014,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-3e30979ff981c9",
@@ -2973,8 +3036,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "项目管理",
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -2990,7 +3053,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-ef412e18b34199",
@@ -3011,8 +3074,8 @@ window.AUTO_JOB_DATA = [
     ],
     "skills": [
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3028,7 +3091,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-e676e85a3e5d7b",
@@ -3052,8 +3115,8 @@ window.AUTO_JOB_DATA = [
       "项目管理",
       "CPA",
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3069,7 +3132,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-0a6d76d4c41ec5",
@@ -3090,8 +3153,8 @@ window.AUTO_JOB_DATA = [
     ],
     "skills": [
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3107,7 +3170,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-e9abf0a7fe965b",
@@ -3131,8 +3194,8 @@ window.AUTO_JOB_DATA = [
       "项目管理",
       "CPA",
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3148,7 +3211,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-a52382e64b3fae",
@@ -3173,8 +3236,8 @@ window.AUTO_JOB_DATA = [
       "数据分析",
       "供应链",
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3190,7 +3253,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-4684a193b23b3d",
@@ -3222,7 +3285,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-bc0c0aef204913",
@@ -3244,8 +3307,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "供应链",
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3261,7 +3324,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-e5d421eb60e2ac",
@@ -3284,8 +3347,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "审计",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3301,7 +3364,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-c37ca927580038",
@@ -3324,8 +3387,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "审计",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3341,7 +3404,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-812a48a835dfeb",
@@ -3365,8 +3428,8 @@ window.AUTO_JOB_DATA = [
       "项目管理",
       "CPA",
       "审计",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3382,7 +3445,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-eebcc9f8f61f0c",
@@ -3405,8 +3468,8 @@ window.AUTO_JOB_DATA = [
       "市场分析",
       "审计",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3422,7 +3485,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-8df08fcde42a77",
@@ -3446,8 +3509,8 @@ window.AUTO_JOB_DATA = [
       "嵌入式",
       "审计",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -3463,7 +3526,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-e2864122f9d790",
@@ -3481,13 +3544,13 @@ window.AUTO_JOB_DATA = [
     "majorsText": "待核验",
     "majorTags": [],
     "skills": [
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
-    "openDate": "2026-09-23",
+    "openDate": "2026-09-24",
     "deadline": null,
-    "updated": "2026-09-23",
+    "updated": "2026-09-24",
     "requirements": "A global leader in high-end manufacturing, offering one-stop solutions in R&D, design, and production for world-class brands. BYD technology is used in 2 out of every 10 smartphones globally.",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://job.byd.com/portal/pc/",
@@ -3498,7 +3561,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T17:23:51+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-fa711d90a2b85a",
@@ -3921,7 +3984,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-6b934c5dffeab0",
@@ -4057,8 +4120,8 @@ window.AUTO_JOB_DATA = [
     ],
     "skills": [
       "大模型",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4074,7 +4137,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-2ef86b4316f295",
@@ -4106,7 +4169,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-273ec2eaa70e22",
@@ -4172,7 +4235,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-d6f2bbe018124a",
@@ -4241,8 +4304,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4258,7 +4321,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-69dbe6f9e8be60",
@@ -4284,8 +4347,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4301,7 +4364,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-01e872bbcd2604",
@@ -4328,8 +4391,8 @@ window.AUTO_JOB_DATA = [
       "数据分析",
       "大模型",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4345,7 +4408,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-710390117d41c2",
@@ -4379,7 +4442,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-5efcbdc4df84b3",
@@ -4455,7 +4518,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-02133dad6f48ca",
@@ -4524,8 +4587,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4541,7 +4604,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-988e04cafe9b29",
@@ -4567,8 +4630,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4584,7 +4647,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-e47750b84b7717",
@@ -4654,8 +4717,8 @@ window.AUTO_JOB_DATA = [
       "Excel",
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4671,7 +4734,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-ce59dccea15989",
@@ -4697,8 +4760,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4714,7 +4777,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-ba822f798d9c0b",
@@ -4785,8 +4848,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4802,7 +4865,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-73a396b0e1d456",
@@ -4959,8 +5022,8 @@ window.AUTO_JOB_DATA = [
       "Excel",
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -4976,7 +5039,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-860420eb120f83",
@@ -5008,7 +5071,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-6ff8c27f17b8ed",
@@ -5034,8 +5097,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "数据分析",
       "运营",
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -5051,7 +5114,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-98f5492d60e60e",
@@ -5069,8 +5132,8 @@ window.AUTO_JOB_DATA = [
     "majorsText": "待核验",
     "majorTags": [],
     "skills": [
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -5086,7 +5149,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-75026859dcb434",
@@ -5118,7 +5181,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-066aeae2f63810",
@@ -5171,8 +5234,8 @@ window.AUTO_JOB_DATA = [
     "majorsText": "待核验",
     "majorTags": [],
     "skills": [
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -5188,7 +5251,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-9140310c085527",
@@ -5296,6 +5359,41 @@ window.AUTO_JOB_DATA = [
     "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
+    "id": "auto-6d7a7bd1cefc87",
+    "company": "Predictions for",
+    "companyId": null,
+    "title": "Predictions for 2027 | Future timeline - Quantumrun",
+    "unit": "自动发现",
+    "industry": "其他",
+    "tracks": [
+      "全网发现"
+    ],
+    "type": "自动发现",
+    "location": "待核验",
+    "degree": "待核验",
+    "majorsText": "待核验",
+    "majorTags": [],
+    "skills": [
+      "R",
+      "C"
+    ],
+    "headcount": "待核验",
+    "openDate": "2026-09-24",
+    "deadline": null,
+    "updated": "2026-09-24",
+    "requirements": "Read 48 predictions for 2027, a year that will see the world transform in big and small ways; this includes disruptions throughout our culture, technology, science, health and business sectors. It’s your future, discover wh",
+    "process": "以原始招聘页面为准",
+    "applyUrl": "https://www.quantumrun.com/future-timeline/2027",
+    "sourceUrl": "https://www.quantumrun.com/future-timeline/2027",
+    "source": "全网自动发现 · www.quantumrun.com",
+    "note": "自动发现条目；投递前请核验专业、学历、地点和截止时间。",
+    "verified": false,
+    "auto": true,
+    "provider": "bing-rss",
+    "firstSeen": "2026-09-24T16:32:30+08:00",
+    "lastSeen": "2026-09-24T16:32:30+08:00"
+  },
+  {
     "id": "auto-1ae8b1c2ba511c",
     "company": "Printable",
     "companyId": null,
@@ -5329,6 +5427,41 @@ window.AUTO_JOB_DATA = [
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
     "lastSeen": "2026-09-24T08:37:20+08:00"
+  },
+  {
+    "id": "auto-52d7c6e3970299",
+    "company": "Social Security",
+    "companyId": null,
+    "title": "Social Security 2027 COLA Forecast: Largest Raise Since 2023 — See the ...",
+    "unit": "自动发现",
+    "industry": "互联网 / AI",
+    "tracks": [
+      "全网发现"
+    ],
+    "type": "自动发现",
+    "location": "待核验",
+    "degree": "待核验",
+    "majorsText": "待核验",
+    "majorTags": [],
+    "skills": [
+      "R",
+      "C"
+    ],
+    "headcount": "待核验",
+    "openDate": "2026-09-24",
+    "deadline": null,
+    "updated": "2026-09-24",
+    "requirements": "Social Security 2027 COLA Forecast: Largest Raise Since 2023 — See the Latest Estimates and What They Mean for Your Check - Govtschemes.org Skip to content Govtschemes.org Home News & Policy Updates IRS & Taxes Social Security Federal Benefit Programs Govtschemes.org About Us | GovtSchemes.org Accessibility Statement | GovtSchemes.org Advertise With Us | GovtSchemes.org Affiliate Disclosure | GovtSchemes.org AI Usage Policy | GovtSchemes.org Contact Us | GovtSchemes.org Cookie Policy | GovtSchemes.org Corrections Policy | GovtSchemes.org Disclaimer | GovtSchemes.org DMCA Policy | GovtSchemes.org Editorial Policy | GovtSchemes.org Ethics & Transparency Policy | GovtSchemes.org Fact Checking Policy | GovtSchemes.org How We Research | GovtSchemes.org Our Authors | GovtSchemes.org Editorial Team Privacy Policy | GovtSchemes.org Terms & Conditions | GovtSchemes.org Why Trust Us | GovtSchemes.org Social Security 2027 COLA Forecast: Largest Raise Since 2023 — See the Latest Estimates and What They Mean for Your Check By Sam / September 24, 2026 Social Security 2027 COLA forecast is generating significant attention among the more than 75 million Americans who rely on Social Security and Su",
+    "process": "以原始招聘页面为准",
+    "applyUrl": "https://govtschemes.org/social-security-2027-cola-forecast/",
+    "sourceUrl": "https://govtschemes.org/social-security-2027-cola-forecast/",
+    "source": "全网自动发现 · govtschemes.org",
+    "note": "自动发现条目；投递前请核验专业、学历、地点和截止时间。",
+    "verified": false,
+    "auto": true,
+    "provider": "bing-rss",
+    "firstSeen": "2026-09-24T16:32:30+08:00",
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-0bc1c281952de5",
@@ -5382,8 +5515,8 @@ window.AUTO_JOB_DATA = [
     "majorsText": "待核验",
     "majorTags": [],
     "skills": [
-      "C",
-      "R"
+      "R",
+      "C"
     ],
     "headcount": "待核验",
     "openDate": "2026-09-24",
@@ -5399,7 +5532,44 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T12:30:41+08:00"
+    "lastSeen": "2026-09-24T16:32:30+08:00"
+  },
+  {
+    "id": "auto-93c4c587a36f9d",
+    "company": "京东方",
+    "companyId": null,
+    "title": "主页|全球京东方校招",
+    "unit": "自动发现",
+    "industry": "电子 / 智能硬件",
+    "tracks": [
+      "全网发现"
+    ],
+    "type": "自动发现",
+    "location": "待核验",
+    "degree": "博士",
+    "majorsText": "待核验",
+    "majorTags": [],
+    "skills": [
+      "JavaScript",
+      "Java",
+      "R",
+      "C"
+    ],
+    "headcount": "待核验",
+    "openDate": "2026-09-24",
+    "deadline": null,
+    "updated": "2026-09-24",
+    "requirements": "京东方科技集团股份有限公司 --> <script type=\"text/javascript\"> /*project config start*/ /*project config end*/ </script> </body> </html>",
+    "process": "以原始招聘页面为准",
+    "applyUrl": "https://campus.boe.com/",
+    "sourceUrl": "https://campus.boe.com/",
+    "source": "全网自动发现 · campus.boe.com",
+    "note": "自动发现条目；投递前请核验专业、学历、地点和截止时间。",
+    "verified": false,
+    "auto": true,
+    "provider": "bing-rss",
+    "firstSeen": "2026-09-24T16:32:30+08:00",
+    "lastSeen": "2026-09-24T16:32:30+08:00"
   },
   {
     "id": "auto-be9f97c0eed0b8",
