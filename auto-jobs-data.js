@@ -1,17 +1,17 @@
 window.AUTO_SCAN_META = {
-  "updated_at": "2026-09-24T08:37:20+08:00",
+  "updated_at": "2026-09-24T12:30:41+08:00",
   "mode": "recent",
   "company": null,
   "company_targets": 449,
   "queries": 210,
-  "raw_results": 626,
+  "raw_results": 657,
   "expanded_links": 172,
   "qualified_jobs": 60,
   "added": 1,
-  "total": 160,
+  "total": 161,
   "providers": {
     "brave": 0,
-    "bing-rss": 273,
+    "bing-rss": 304,
     "duckduckgo": 0,
     "errors": 129
   }
@@ -47,7 +47,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-5fdf4443938f2b",
@@ -79,7 +79,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-70e13afc34d40e",
@@ -111,7 +111,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-d799fdf4209604",
@@ -150,7 +150,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-71b7206c693133",
@@ -220,7 +220,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-ca34fe0799c669",
@@ -256,7 +256,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-5e4af7d7bb1539",
@@ -423,7 +423,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-d703414cc3e568",
@@ -455,7 +455,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-cfba4156221169",
@@ -489,7 +489,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-eb7eef5f52ef38",
@@ -636,7 +636,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-5cef1873a46466",
@@ -956,7 +956,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-c11d8a271bf067",
@@ -1354,7 +1354,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-ea843779396351",
@@ -1499,7 +1499,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-e95192a04f4ab8",
@@ -1531,7 +1531,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-f6cc7c88ab65c2",
@@ -1563,7 +1563,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-894d3866b8b017",
@@ -1595,7 +1595,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-4241c31872b756",
@@ -1627,7 +1627,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-3e50174daa25b4",
@@ -1663,7 +1663,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-6bb484d779e095",
@@ -1763,7 +1763,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-1f8edc820db952",
@@ -1789,7 +1789,7 @@ window.AUTO_JOB_DATA = [
     "openDate": "2026-09-24",
     "deadline": null,
     "updated": "2026-09-24",
-    "requirements": "发现宝洁中国的职位 搜索结果 没有结果 \"${pageStateData.searchKeyword}\" 没有结果 \"${pageStateData.placeVal}\" 您想考虑以下工作类别吗？ 了解我们的文化 我们每个人都带来了来自数十种文化背景的独特体验。我们共同的价值观每天都在统一我们的方向和决定。 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 8b7254da0afd4721be061b34de318ca4",
+    "requirements": "发现宝洁中国的职位 搜索结果 没有结果 \"${pageStateData.searchKeyword}\" 没有结果 \"${pageStateData.placeVal}\" 您想考虑以下工作类别吗？ 了解我们的文化 我们每个人都带来了来自数十种文化背景的独特体验。我们共同的价值观每天都在统一我们的方向和决定。 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 f74d58bdeb524a289192bf8edbb94a6d",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://careers.pg.com.cn/cn/zh/search-results",
     "sourceUrl": "https://careers.pg.com.cn/cn/zh/search-results",
@@ -1799,7 +1799,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-963004d4556433",
@@ -1817,6 +1817,7 @@ window.AUTO_JOB_DATA = [
     "majorsText": "待核验",
     "majorTags": [],
     "skills": [
+      "CFA",
       "C",
       "R"
     ],
@@ -1824,7 +1825,7 @@ window.AUTO_JOB_DATA = [
     "openDate": "2026-09-24",
     "deadline": null,
     "updated": "2026-09-24",
-    "requirements": "影响您不仅在宝洁的职业生涯 - 中国 Search results 从宝洁起飞，开启你的职场第一天 #PGDAY1 实习/实践项目 查看全部 > 了解更多 > 校园招聘及初级社招岗位 查看全部 > 了解更多 > 资深社招岗位 查看全部 > 了解更多 > 无论您是 在读学生 、高校 毕业生 还是 资深的专业人士，您 在宝洁的第一天， 是从对世界、品牌和您的职业生涯产生影响的开始。 我们的选人标准是根据在人才身上的潜力来决定的。在宝洁，您从第一天起便获得公司和团队的信任，相信您可以快速投入工作，去发挥主观能动性，去打造价值数十亿美元的品牌，去提升消费者的生活体验，从而让世界和生活变得更美好。 加入宝洁，您将承担早期责任，接受有意义的任务，领导各项计划，并发挥主人翁精神，在充满创新的工作环境中，激发层出不穷的新想法。同时，您还将接受世界一流的培训，助力您成为所在领域的领军人物。加入我们，从第一天起，您将通过在宝洁从事有意义的工作，让您的职业生涯迈向新的高度。 成长与发展： 成为领导型人才 与致力于打造的世界级领先品牌一样，我们致力于寻找和培养世界级的未来人才。 领导力是我们的核心价值观之一，也是我们在内外部取得成功不可或缺的因素。 查看成长与发展 探秘宝洁 点击了解宝洁：宝洁的文化、品牌、创新及有意义的工作内容 校园招聘及初级社招岗位 点击了解校园招聘项目及初级社招岗位机会 宝洁大中华区 点击了解宝洁是如何为超过十亿中国消费者提供服务的 资深社招岗位 点击了解资深社招岗位机会 Join us and help make life better through meaningful work that makes an impact from Day 1. 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 af2a26c62efb45b1a4ec87c569c71743",
+    "requirements": "影响您不仅在宝洁的职业生涯 - 中国 Search results 从宝洁起飞，开启你的职场第一天 #PGDAY1 实习/实践项目 查看全部 > 了解更多 > 校园招聘及初级社招岗位 查看全部 > 了解更多 > 资深社招岗位 查看全部 > 了解更多 > 无论您是 在读学生 、高校 毕业生 还是 资深的专业人士，您 在宝洁的第一天， 是从对世界、品牌和您的职业生涯产生影响的开始。 我们的选人标准是根据在人才身上的潜力来决定的。在宝洁，您从第一天起便获得公司和团队的信任，相信您可以快速投入工作，去发挥主观能动性，去打造价值数十亿美元的品牌，去提升消费者的生活体验，从而让世界和生活变得更美好。 加入宝洁，您将承担早期责任，接受有意义的任务，领导各项计划，并发挥主人翁精神，在充满创新的工作环境中，激发层出不穷的新想法。同时，您还将接受世界一流的培训，助力您成为所在领域的领军人物。加入我们，从第一天起，您将通过在宝洁从事有意义的工作，让您的职业生涯迈向新的高度。 成长与发展： 成为领导型人才 与致力于打造的世界级领先品牌一样，我们致力于寻找和培养世界级的未来人才。 领导力是我们的核心价值观之一，也是我们在内外部取得成功不可或缺的因素。 查看成长与发展 探秘宝洁 点击了解宝洁：宝洁的文化、品牌、创新及有意义的工作内容 校园招聘及初级社招岗位 点击了解校园招聘项目及初级社招岗位机会 宝洁大中华区 点击了解宝洁是如何为超过十亿中国消费者提供服务的 资深社招岗位 点击了解资深社招岗位机会 Join us and help make life better through meaningful work that makes an impact from Day 1. 宝洁大中华区 follow us © 2023 Procter & Gamble. All rights reserved. 粤ICP备05017514号 - 91 b4e8cfa1ff004eb293fd11489b0d193d",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://careers.pg.com.cn/cn/zh/home",
     "sourceUrl": "https://careers.pg.com.cn/cn/zh/home",
@@ -1834,7 +1835,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-d8b143983cc3a5",
@@ -1868,7 +1869,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-e819cf7afc3ea1",
@@ -2890,8 +2891,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "项目管理",
       "供应链",
-      "运营",
       "审计",
+      "运营",
       "C",
       "R"
     ],
@@ -2909,7 +2910,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-38aac88051b349",
@@ -2950,7 +2951,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-3e30979ff981c9",
@@ -2989,7 +2990,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-ef412e18b34199",
@@ -3027,7 +3028,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-e676e85a3e5d7b",
@@ -3068,7 +3069,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-0a6d76d4c41ec5",
@@ -3106,7 +3107,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-e9abf0a7fe965b",
@@ -3147,7 +3148,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-a52382e64b3fae",
@@ -3189,7 +3190,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-4684a193b23b3d",
@@ -3221,7 +3222,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-bc0c0aef204913",
@@ -3260,7 +3261,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-e5d421eb60e2ac",
@@ -3281,8 +3282,8 @@ window.AUTO_JOB_DATA = [
       "财务管理"
     ],
     "skills": [
-      "运营",
       "审计",
+      "运营",
       "C",
       "R"
     ],
@@ -3300,7 +3301,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-c37ca927580038",
@@ -3321,8 +3322,8 @@ window.AUTO_JOB_DATA = [
       "信息安全"
     ],
     "skills": [
-      "运营",
       "审计",
+      "运营",
       "C",
       "R"
     ],
@@ -3340,7 +3341,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-812a48a835dfeb",
@@ -3381,7 +3382,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-eebcc9f8f61f0c",
@@ -3402,8 +3403,8 @@ window.AUTO_JOB_DATA = [
     ],
     "skills": [
       "市场分析",
-      "运营",
       "审计",
+      "运营",
       "C",
       "R"
     ],
@@ -3421,7 +3422,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-8df08fcde42a77",
@@ -3443,8 +3444,8 @@ window.AUTO_JOB_DATA = [
     "skills": [
       "机器学习",
       "嵌入式",
-      "运营",
       "审计",
+      "运营",
       "C",
       "R"
     ],
@@ -3462,7 +3463,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-e2864122f9d790",
@@ -3920,7 +3921,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-6b934c5dffeab0",
@@ -4073,7 +4074,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-2ef86b4316f295",
@@ -4105,7 +4106,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-273ec2eaa70e22",
@@ -4171,7 +4172,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-d6f2bbe018124a",
@@ -4257,7 +4258,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-69dbe6f9e8be60",
@@ -4300,7 +4301,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T17:23:51+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-01e872bbcd2604",
@@ -4344,7 +4345,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-710390117d41c2",
@@ -4378,7 +4379,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-5efcbdc4df84b3",
@@ -4454,7 +4455,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-02133dad6f48ca",
@@ -4540,7 +4541,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-988e04cafe9b29",
@@ -4583,7 +4584,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-e47750b84b7717",
@@ -4670,7 +4671,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-ce59dccea15989",
@@ -4713,7 +4714,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-ba822f798d9c0b",
@@ -4801,7 +4802,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-73a396b0e1d456",
@@ -4975,7 +4976,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-860420eb120f83",
@@ -5007,7 +5008,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-6ff8c27f17b8ed",
@@ -5050,7 +5051,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "page-expand",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-98f5492d60e60e",
@@ -5085,7 +5086,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-75026859dcb434",
@@ -5117,7 +5118,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "official",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-066aeae2f63810",
@@ -5187,7 +5188,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-9140310c085527",
@@ -5279,10 +5280,10 @@ window.AUTO_JOB_DATA = [
       "R"
     ],
     "headcount": "待核验",
-    "openDate": "2026-09-23",
+    "openDate": "2026-09-24",
     "deadline": null,
-    "updated": "2026-09-23",
-    "requirements": "Monthly calendar for the month January in year 2027. Calendars – online and print friendly – for any year and month.",
+    "updated": "2026-09-24",
+    "requirements": "United States January 2027 – Calendar with American holidays. Monthly calendar for the month January in year 2027. Calendars – online and print friendly – for any year and month",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://www.timeanddate.com/calendar/monthly.html?year=2027&month=1&country=1",
     "sourceUrl": "https://www.timeanddate.com/calendar/monthly.html?year=2027&month=1&country=1",
@@ -5292,7 +5293,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-23T16:36:46+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-1ae8b1c2ba511c",
@@ -5388,7 +5389,7 @@ window.AUTO_JOB_DATA = [
     "openDate": "2026-09-24",
     "deadline": null,
     "updated": "2026-09-24",
-    "requirements": "Yearly calendar showing months for the year 2027. Calendars – online and print friendly – for any year and month.",
+    "requirements": "United States 2027 – Calendar with American holidays. Yearly calendar showing months for the year 2027. Calendars – online and print friendly – for any year and month",
     "process": "以原始招聘页面为准",
     "applyUrl": "https://www.timeanddate.com/calendar/?year=2027&country=1",
     "sourceUrl": "https://www.timeanddate.com/calendar/?year=2027&country=1",
@@ -5398,7 +5399,7 @@ window.AUTO_JOB_DATA = [
     "auto": true,
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
-    "lastSeen": "2026-09-24T08:37:20+08:00"
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-be9f97c0eed0b8",
@@ -5857,6 +5858,43 @@ window.AUTO_JOB_DATA = [
     "provider": "bing-rss",
     "firstSeen": "2026-09-23T16:36:46+08:00",
     "lastSeen": "2026-09-23T18:00:55+08:00"
+  },
+  {
+    "id": "auto-91c6bbb3e074e9",
+    "company": "长安汽车",
+    "companyId": null,
+    "title": "长安汽车招聘 - zhiye.com",
+    "unit": "自动发现",
+    "industry": "汽车 / 智能驾驶",
+    "tracks": [
+      "全网发现"
+    ],
+    "type": "自动发现",
+    "location": "待核验",
+    "degree": "待核验",
+    "majorsText": "待核验",
+    "majorTags": [],
+    "skills": [
+      "JavaScript",
+      "Java",
+      "C",
+      "R"
+    ],
+    "headcount": "待核验",
+    "openDate": "2026-09-24",
+    "deadline": null,
+    "updated": "2026-09-24",
+    "requirements": "长安汽车招聘 --> <script type=\"text/javascript\"> /*project config start*/ /*project config end*/ </script> </body> </html>",
+    "process": "以原始招聘页面为准",
+    "applyUrl": "https://changan.zhiye.com/Campus",
+    "sourceUrl": "https://changan.zhiye.com/Campus",
+    "source": "全网自动发现 · changan.zhiye.com",
+    "note": "自动发现条目；投递前请核验专业、学历、地点和截止时间。",
+    "verified": false,
+    "auto": true,
+    "provider": "bing-rss",
+    "firstSeen": "2026-09-24T12:30:41+08:00",
+    "lastSeen": "2026-09-24T12:30:41+08:00"
   },
   {
     "id": "auto-446841f5af101f",
