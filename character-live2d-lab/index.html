@@ -475,6 +475,18 @@ function applyRig(rig){
   cv.width=CW; cv.height=CH; fit();
   renderLayerList();
   const nStr=layers.reduce((s,L)=>s+(L.strands?L.strands.length:0),0);
+  window.__live2dStats={
+    ready:true,
+    layers:layers.length,
+    hairStrands:nStr,
+    canvas:{w:CW,h:CH},
+    anchors:{
+      eyeL:!!A.eyeL, eyeR:!!A.eyeR, mouth:!!A.mouth,
+      neck:!!A.neckPivot, body:!!A.bodyPivot
+    },
+    names:layers.map(L=>L.name),
+    warnings:[...(rig.warnings||[])]
+  };
   rigInfoMain = t('rigParts',{n:layers.length, m:nStr});
   rigInfoNotes = rig.warnings.length ? rig.warnings.map(w=>'⚠ '+w) : [];
   renderRigInfo();
