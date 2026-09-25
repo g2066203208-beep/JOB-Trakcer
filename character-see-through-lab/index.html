@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>See-through V3 Character Layer Lab</title>
+<style>
+:root{--bg:#0e1117;--panel:#171c24;--line:#303947;--ink:#eef4fb;--muted:#9ba7b6;--good:#72e7b0;--warn:#ffd56a;--bad:#ff8292;--accent:#6fd8ff}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1180px;margin:auto;padding:16px}.head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+h1{font-size:20px;margin:0}.pill{padding:7px 10px;border-radius:999px;background:#222936;font-size:12px}.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.controls button,.controls label{border:0;border-radius:11px;padding:10px 13px;background:#293140;color:white;font-weight:700;font-size:13px;cursor:pointer}.controls button.primary{background:#ff7193;color:#170d11}
+.controls input[type=file]{display:none}.token{width:min(100%,430px);border:1px solid var(--line);border-radius:10px;background:#11161e;color:white;padding:10px 12px}
+.note{font-size:13px;color:var(--muted);line-height:1.65;margin:10px 0 16px}.status{padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#131922;font-size:13px;line-height:1.5;white-space:pre-wrap}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;overflow:hidden}
+.card h3{font-size:14px;margin:0;padding:10px 12px;border-bottom:1px solid var(--line)}.view{position:relative;background:repeating-conic-gradient(#eef0f3 0 25%,#cfd3d8 0 50%) 50%/20px 20px;min-height:260px;display:grid;place-items:center;overflow:hidden}
+.view img,.view canvas{max-width:100%;max-height:560px;display:block}.wide{grid-column:span 2}.full{grid-column:1/-1}
+#layerGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.layer{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}.layer header{display:flex;justify-content:space-between;gap:6px;padding:8px 9px;font-size:11px}.layer .pair{display:grid;grid-template-columns:1fr 1fr;background:#fff}.layer canvas{width:100%;height:auto;display:block}.layer .tag{color:var(--accent)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.gallery figure{margin:0;background:#11161e;border-radius:10px;overflow:hidden}.gallery img{width:100%;display:block}.gallery figcaption{padding:6px;font-size:11px;color:var(--muted)}
+a{color:#7bdbff}.meta{margin-top:10px;font:11px ui-monospace,SFMono-Regular,Consolas,monospace;color:#8090a4;white-space:pre-wrap}
+@media(max-width:820px){.grid{grid-template-columns:1fr}.wide,.full{grid-column:auto}#layerGrid,.gallery{grid-template-columns:repeat(2,1fr)}main{padding:10px}.view{min-height:220px}}
+</style>
+<script src="./ag-psd.min.js"></script>
+</head>
+<body><main>
+<div class="head"><h1>See-through V3 高精度角色分层</h1><span class="pill">官方 ZeroGPU</span><span class="pill">PSD → Alpha Mask → 真实轮廓</span></div>
+<div id="status" class="status warn">准备就绪。点击“运行官方 See-through”。首次运行可能需要排 ZeroGPU 队列，通常约 1–3 分钟。</div>
+<div class="controls">
+<button id="run" class="primary">运行官方 See-through</button>
+<label>载入已有 PSD<input id="psdFile" type="file" accept=".psd,image/vnd.adobe.photoshop"></label>
+<button id="clear">清空结果</button>
+</div>
+<input id="token" class="token" type="password" autocomplete="off" placeholder="可选：Hugging Face token（只保存在本页内存，不保存）">
+<p class="note">这页不再用 MediaPipe，也不做矩形切割。它把当前角色图提交到 <b>24yearsold/see-through-demo</b>，拿回官方 See-through 分层 PSD；随后用 Auto-live2D 同款 <b>ag-psd</b> 在浏览器解析每个透明图层，并从 alpha 边界直接提取轮廓。若 ZeroGPU 临时限额，也可把官方输出 PSD 拖进来继续。</p>
+<div class="grid">
+<section class="card"><h3>输入角色</h3><div class="view"><img id="source" src="../character-puppet-lab/character.jpg?v=4" crossorigin="anonymous"></div></section>
+<section class="card"><h3>语义分层合成</h3><div class="view"><canvas id="semantic"></canvas></div></section>
+<section class="card"><h3>所有 Alpha 轮廓叠加</h3><div class="view"><canvas id="outline"></canvas></div></section>
+<section id="galleryCard" class="card full" hidden><h3>官方 Space 返回的分层预览</h3><div id="remoteGallery" class="gallery"></div></section>
+</div>
+<div id="downloadBox" class="note"></div>
+<div id="layerGrid"></div>
+<pre id="meta" class="meta"></pre>
+</main>
+<script type="module">
+import {Client,handle_file} from "https://cdn.jsdelivr.net/npm/@gradio/client/+esm";
+const $=id=>document.getElementById(id);
+const status=$('status'), layerGrid=$('layerGrid'), semantic=$('semantic'), outline=$('outline'), meta=$('meta');
+let currentClient=null;
+const palette={
+ 'front hair':'#20b8ff','back hair':'#006fc8','hair':'#159fe0',
+ 'face':'#ffad6b','irides':'#ff477f','eyebrow':'#81df51','eyewhite':'#dff9ff','eyelash':'#7255ff','eyes':'#55dcff',
+ 'mouth':'#ff5b87','nose':'#ff973f','ears':'#5ee0a0','earwear':'#f1cf4c','eyewear':'#b277ff','headwear':'#9a76ff',
+ 'neck':'#50d68c','neckwear':'#ff4e66','topwear':'#a75cff','handwear':'#45dc90','bottomwear':'#765ee8','legwear':'#4aa9e8','footwear':'#42cad1',
+ 'objects':'#f5ca45','tail':'#ef74d8','wings':'#78b8ff','unknown':'#9aa1aa'
+};
+function setStatus(msg,kind='warn'){status.textContent=msg;status.className='status '+kind}
+function normName(s){return String(s||'unnamed').toLowerCase().replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim()}
+function semanticName(name){
+ const n=normName(name);
+ const order=['front hair','back hair','eyewhite','eyelash','irides','eyebrow','eyewear','headwear','earwear','neckwear','topwear','handwear','bottomwear','legwear','footwear','face','mouth','nose','ears','neck','tail','wings','objects','hair','eyes'];
+ return order.find(k=>n.includes(k))||n||'unknown';
+}
+function colorFor(name){return palette[semanticName(name)]||palette.unknown}
+function clearResults(){layerGrid.innerHTML='';$('remoteGallery').innerHTML='';$('galleryCard').hidden=true;$('downloadBox').innerHTML='';meta.textContent='';for(const cv of [semantic,outline]){cv.width=1;cv.height=1;cv.getContext('2d').clearRect(0,0,1,1)}}
+$('clear').onclick=clearResults;
+
+async function sourceBlob(){
+ const r=await fetch($('source').src,{cache:'no-store'});if(!r.ok)throw new Error('输入图片获取失败 '+r.status);
+ const src=await r.blob();const bmp=await createImageBitmap(src);const s=Math.max(bmp.width,bmp.height);
+ const cv=document.createElement('canvas');cv.width=cv.height=s;const cx=cv.getContext('2d');cx.fillStyle='#fff';cx.fillRect(0,0,s,s);cx.drawImage(bmp,(s-bmp.width)/2,(s-bmp.height)/2);
+ return await new Promise(res=>cv.toBlob(res,'image/png',1));
+}
+function getEndpointMeta(api){
+ const named=api?.named_endpoints||{};const keys=Object.keys(named);
+ let key=keys.find(k=>/infer|predict|run/i.test(k))||keys[0]||'/predict';
+ if(!key.startsWith('/'))key='/'+key;return {key,def:named[key]||named[key.slice(1)]||{}};
+}
+function argFromParam(p,file){
+ const n=normName(p?.parameter_name||p?.label||p?.name||p?.component||'');
+ if(/image|img|upload|input/.test(n))return handle_file(file);
+ if(/resolution|size/.test(n))return 768;
+ if(/seed/.test(n))return 42;
+ if(/tblr|left right|split/.test(n))return true;
+ const d=p?.parameter_default??p?.default;
+ if(d!==undefined&&d!==null)return d;
+ const type=String(p?.python_type?.type||p?.type||'').toLowerCase();
+ if(type.includes('bool'))return false;if(type.includes('int')||type.includes('float'))return 0;return null;
+}
+async function runOfficial(){
+ clearResults();setStatus('1/5 正在连接官方 See-through ZeroGPU…');
+ const token=$('token').value.trim();const opts=token?{hf_token:token}:{};
+ currentClient=await Client.connect('24yearsold/see-through-demo',opts);
+ const api=await currentClient.view_api();const ep=getEndpointMeta(api);
+ meta.textContent='官方 Space API endpoint: '+ep.key+'\n'+JSON.stringify(api,null,2).slice(0,5000);
+ const png=await sourceBlob();const file=new File([png],'character.png',{type:'image/png'});
+ const params=ep.def?.parameters||[];
+ let attempts=[];
+ if(params.length)attempts.push({ep:ep.key,args:params.map(p=>argFromParam(p,file))});
+ const known=[ep.key,'/inference','/predict'].filter((v,i,a)=>v&&a.indexOf(v)===i);
+ for(const k of known){
+   attempts.push({ep:k,args:[handle_file(file),768,42,true]});
+   attempts.push({ep:k,args:[handle_file(file),768,42]});
+   attempts.push({ep:k,args:[handle_file(file),42]});
+ }
+ let result=null,lastErr=null,used=null;
+ for(const a of attempts){try{setStatus('2/5 已连接。正在提交官方模型：'+a.ep+'\nZeroGPU 可能排队，请不要关闭页面。');result=await currentClient.predict(a.ep,a.args);used=a;break}catch(e){lastErr=e}}
+ if(!result)throw lastErr||new Error('无法调用官方 Space endpoint');
+ setStatus('3/5 See-through 推理完成，正在读取 PSD / 分层预览…','good');
+ meta.textContent='使用 endpoint: '+used.ep+'\n返回：'+JSON.stringify(result.data,null,2).slice(0,12000);
+ showRemoteGallery(result.data);
+ const psd=findAsset(result.data,'.psd');
+ if(!psd)throw new Error('官方推理已返回，但没有找到 PSD 文件 URL。可查看页面下方 API 返回信息。');
+ const url=psd.url||psd.path||psd;
+ $('downloadBox').innerHTML='官方 PSD：<a target="_blank" rel="noopener" href="'+escapeHtml(url)+'">打开/下载分层 PSD</a>';
+ setStatus('4/5 PSD 已取得，正在解析透明图层与 alpha 轮廓…','good');
+ const r=await fetch(url);if(!r.ok)throw new Error('PSD 下载失败 '+r.status);
+ await parsePsd(await r.arrayBuffer());
+ setStatus('5/5 完成：下面显示的是 See-through PSD 的真实透明图层和 alpha 轮廓。','good');
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function walkAny(v,fn,seen=new Set()){
+ if(v==null)return;if(typeof v==='object'){if(seen.has(v))return;seen.add(v);fn(v);if(Array.isArray(v))v.forEach(x=>walkAny(x,fn,seen));else Object.values(v).forEach(x=>walkAny(x,fn,seen))}
+}
+function findAsset(data,ext){
+ let found=null;walkAny(data,o=>{if(found)return;for(const k of ['url','path','name','orig_name']){const v=o?.[k];if(typeof v==='string'&&v.toLowerCase().includes(ext)){found=o.url?o:v;break}}});return found;
+}
+function showRemoteGallery(data){
+ const items=[];walkAny(data,o=>{const u=o?.url;const n=o?.caption||o?.name||o?.orig_name||'';if(typeof u==='string'&&/\.(png|jpg|jpeg|webp)(\?|$)/i.test(u))items.push({url:u,name:n})});
+ const unique=[];const seen=new Set();for(const it of items)if(!seen.has(it.url)){seen.add(it.url);unique.push(it)}
+ if(!unique.length)return;$('galleryCard').hidden=false;const root=$('remoteGallery');
+ for(const it of unique.slice(0,40)){const f=document.createElement('figure'),im=new Image();im.src=it.url;im.loading='lazy';const cap=document.createElement('figcaption');cap.textContent=it.name||'layer';f.append(im,cap);root.append(f)}
+}
+function collectLayers(children,out=[],path=[]){
+ for(const l of children||[]){const p=[...path,l.name||'unnamed'];if(l.imageData?.data)out.push({layer:l,path:p.join(' / ')});if(l.children)collectLayers(l.children,out,p)}return out;
+}
+function previewCanvas(item,pw,ph,psdW,psdH){
+ const l=item.layer,id=l.imageData,cv=document.createElement('canvas');cv.width=pw;cv.height=ph;const ctx=cv.getContext('2d');ctx.clearRect(0,0,pw,ph);
+ const tmp=document.createElement('canvas');tmp.width=id.width;tmp.height=id.height;const tctx=tmp.getContext('2d');tctx.putImageData(new ImageData(new Uint8ClampedArray(id.data),id.width,id.height),0,0);
+ const sx=pw/psdW,sy=ph/psdH;ctx.drawImage(tmp,(l.left||0)*sx,(l.top||0)*sy,id.width*sx,id.height*sy);return cv;
+}
+function contourFrom(src,color='#111'){
+ const cv=document.createElement('canvas');cv.width=src.width;cv.height=src.height;const s=src.getContext('2d').getImageData(0,0,src.width,src.height),ctx=cv.getContext('2d');const o=ctx.createImageData(src.width,src.height);
+ const hex=color.replace('#','');const rgb=hex.length===6?[parseInt(hex.slice(0,2),16),parseInt(hex.slice(2,4),16),parseInt(hex.slice(4,6),16)]:[0,0,0];
+ const w=src.width,h=src.height,thr=20;
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const i=y*w+x,k=i*4,a=s.data[k+3];if(a<=thr)continue;const edge=x===0||y===0||x===w-1||y===h-1||s.data[k-4+3]<=thr||s.data[k+4+3]<=thr||s.data[k-w*4+3]<=thr||s.data[k+w*4+3]<=thr;if(edge){o.data[k]=rgb[0];o.data[k+1]=rgb[1];o.data[k+2]=rgb[2];o.data[k+3]=255}}
+ ctx.putImageData(o,0,0);return cv;
+}
+async function parsePsd(buf){
+ if(!window.agPsd)throw new Error('ag-psd 未加载');
+ const psd=window.agPsd.readPsd(new Uint8Array(buf),{useImageData:true,skipThumbnail:true});
+ const layers=collectLayers(psd.children||[]);if(!layers.length)throw new Error('PSD 中没有可绘制的 imageData 图层');
+ const max=520,scale=Math.min(1,max/Math.max(psd.width,psd.height)),pw=Math.max(1,Math.round(psd.width*scale)),ph=Math.max(1,Math.round(psd.height*scale));
+ semantic.width=outline.width=pw;semantic.height=outline.height=ph;
+ const sctx=semantic.getContext('2d'),octx=outline.getContext('2d');sctx.clearRect(0,0,pw,ph);octx.fillStyle='#fff';octx.fillRect(0,0,pw,ph);
+ layerGrid.innerHTML='';
+ for(const item of layers){
+   const sem=semanticName(item.path),color=colorFor(item.path),imgCv=previewCanvas(item,pw,ph,psd.width,psd.height),edge=contourFrom(imgCv,color);
+   const alpha=imgCv.getContext('2d').getImageData(0,0,pw,ph).data;
+   const overlay=sctx.getImageData(0,0,pw,ph);const hx=color.replace('#',''),rgb=[parseInt(hx.slice(0,2),16),parseInt(hx.slice(2,4),16),parseInt(hx.slice(4,6),16)];
+   for(let i=0;i<alpha.length;i+=4)if(alpha[i+3]>20){overlay.data[i]=rgb[0];overlay.data[i+1]=rgb[1];overlay.data[i+2]=rgb[2];overlay.data[i+3]=Math.max(overlay.data[i+3],190)}sctx.putImageData(overlay,0,0);
+   octx.drawImage(edge,0,0);
+   const card=document.createElement('article');card.className='layer';const header=document.createElement('header');header.innerHTML='<span>'+escapeHtml(item.path)+'</span><span class="tag">'+escapeHtml(sem)+'</span>';
+   const pair=document.createElement('div');pair.className='pair';pair.append(imgCv,edge);card.append(header,pair);layerGrid.append(card);
+ }
+ meta.textContent='PSD: '+psd.width+'×'+psd.height+'\n可绘制图层: '+layers.length+'\n\n'+layers.map((x,i)=>(i+1)+'. '+x.path+' → '+semanticName(x.path)).join('\n');
+}
+$('psdFile').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;clearResults();setStatus('正在解析本地 PSD…');try{await parsePsd(await f.arrayBuffer());setStatus('PSD 解析完成。','good')}catch(err){setStatus('PSD 解析失败：'+err.message,'bad')}};
+$('run').onclick=async()=>{try{$('run').disabled=true;await runOfficial()}catch(err){console.error(err);setStatus('官方推理未完成：'+err.message+'\n\n如果提示 ZeroGPU 配额/登录，可在上方填入自己的 Hugging Face token 后重试；也可以直接载入 See-through 生成的 PSD。','bad')}finally{$('run').disabled=false}};
+</script></body></html>
