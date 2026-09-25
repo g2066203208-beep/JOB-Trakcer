@@ -1,0 +1,36 @@
+name: Auto-live2D Smoke
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "character-live2d-lab/**"
+      - "character-see-through-lab/result.psd"
+      - "tests/live2d-smoke.mjs"
+      - ".github/workflows/live2d-smoke.yml"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Start static server
+        run: |
+          python3 -m http.server 8000 >/tmp/live2d-http.log 2>&1 &
+          sleep 2
+      - name: Run Auto-live2D browser smoke
+        run: node tests/live2d-smoke.mjs
+      - name: Upload screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live2d-smoke
+          path: live2d-smoke.png
+          if-no-files-found: ignore
