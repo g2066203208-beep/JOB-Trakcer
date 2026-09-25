@@ -34,8 +34,8 @@ a{color:#7bdbff}.meta{margin-top:10px;font:11px ui-monospace,SFMono-Regular,Cons
 <p class="note">这页不再用 MediaPipe，也不做矩形切割。它把当前角色图提交到 <b>24yearsold/see-through-demo</b>，拿回官方 See-through 分层 PSD；随后用 Auto-live2D 同款 <b>ag-psd</b> 在浏览器解析每个透明图层，并从 alpha 边界直接提取轮廓。若 ZeroGPU 临时限额，也可把官方输出 PSD 拖进来继续。</p>
 <div class="grid">
 <section class="card"><h3>输入角色</h3><div class="view"><img id="source" src="../character-puppet-lab/character.jpg?v=4" crossorigin="anonymous"></div></section>
-<section class="card"><h3>语义分层合成</h3><div class="view"><canvas id="semantic"></canvas></div></section>
-<section class="card"><h3>所有 Alpha 轮廓叠加</h3><div class="view"><canvas id="outline"></canvas></div></section>
+<section class="card"><h3>语义分层合成</h3><div class="view"><canvas id="semantic" style="background:url('./static-result/semantic-mask.png?v=1') center/contain no-repeat"></canvas></div></section>
+<section class="card"><h3>所有 Alpha 轮廓叠加</h3><div class="view"><canvas id="outline" style="background:url('./static-result/semantic-outline.png?v=1') center/contain no-repeat"></canvas></div></section>
 <section id="galleryCard" class="card full" hidden><h3>官方 Space 返回的分层预览</h3><div id="remoteGallery" class="gallery"></div></section>
 </div>
 <div id="downloadBox" class="note"></div>
@@ -178,5 +178,22 @@ async function loadCachedOfficial(){
     setStatus('官方 See-through 结果已加载：下面是真实 PSD 图层与 alpha 轮廓。','good');
   }catch(e){console.warn('cached See-through result unavailable',e)}
 }
+async function loadStaticLayerIndex(){
+  try{
+    const r=await fetch('./static-result/layers.json?v=1',{cache:'no-store'});if(!r.ok)return;
+    const d=await r.json();
+    if(layerGrid.children.length)return;
+    for(const item of d.layers){
+      const card=document.createElement('article');card.className='layer';
+      const header=document.createElement('header');header.innerHTML='<span>'+escapeHtml(item.path)+'</span><span class="tag">'+escapeHtml(item.semantic)+'</span>';
+      const pair=document.createElement('div');pair.className='pair';
+      const im=new Image();im.src='./'+item.file+'?v=1';im.loading='lazy';im.style.width='100%';
+      const blank=document.createElement('div');blank.style.background='#fff';blank.style.minHeight='80px';
+      pair.append(im,blank);card.append(header,pair);layerGrid.append(card);
+    }
+    meta.textContent='官方静态预览：'+d.width+'×'+d.height+'，'+d.count+' 个透明语义层。\n正在继续解析 PSD 以显示逐层 alpha 轮廓…';
+  }catch(e){console.warn(e)}
+}
+loadStaticLayerIndex();
 loadCachedOfficial();
 </script></body></html>
