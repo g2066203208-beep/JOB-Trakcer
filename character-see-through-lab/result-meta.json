@@ -1,0 +1,356 @@
+{
+  "space": "24yearsold/see-through-demo",
+  "endpoint": "/inference",
+  "when": "2026-09-25T13:57:50.574Z",
+  "data": [
+    {
+      "path": "/tmp/gradio/ca7d672f81dc922dac426b02bf6811c88aaf8edb381ea60e33aeaad16dd27928/seethrough_output.psd",
+      "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/ca7d672f81dc922dac426b02bf6811c88aaf8edb381ea60e33aeaad16dd27928/seethrough_output.psd",
+      "size": 5066910,
+      "orig_name": "seethrough_output.psd",
+      "mime_type": null,
+      "is_stream": false,
+      "meta": {
+        "_type": "gradio.FileData"
+      }
+    },
+    [
+      {
+        "image": {
+          "path": "/tmp/gradio/5dd3cb6c639a1d1069e593afd7294c9f26a804032502e471f687385d28f74366/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/5dd3cb6c639a1d1069e593afd7294c9f26a804032502e471f687385d28f74366/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "back hair"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/39e15b75631b449c7defafe25f0f4ed38ad904e10ef87cd1809acd59b58ea657/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/39e15b75631b449c7defafe25f0f4ed38ad904e10ef87cd1809acd59b58ea657/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "bottomwear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/88e4e11542bc186f2f02894ccb39a0fb8d46ef78cedd45c4da6d1409f95f9ede/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/88e4e11542bc186f2f02894ccb39a0fb8d46ef78cedd45c4da6d1409f95f9ede/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "ears"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/d2785119ef7c22438647231aef5ae82dbd4c19a7ec444bc4bbf0a56701b6dc3b/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/d2785119ef7c22438647231aef5ae82dbd4c19a7ec444bc4bbf0a56701b6dc3b/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "earwear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/bd76352591999cf905cd2ad296539dd468b1c6d05360113fd74fe6ff0a733b56/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/bd76352591999cf905cd2ad296539dd468b1c6d05360113fd74fe6ff0a733b56/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "eyebrow"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/2c5ee7c4b44f58869b4a6e8090e3db09947dd7dec77c6a1dc88dc9537cee563e/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/2c5ee7c4b44f58869b4a6e8090e3db09947dd7dec77c6a1dc88dc9537cee563e/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "eyelash"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/d2785119ef7c22438647231aef5ae82dbd4c19a7ec444bc4bbf0a56701b6dc3b/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/d2785119ef7c22438647231aef5ae82dbd4c19a7ec444bc4bbf0a56701b6dc3b/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "eyewear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/3580b19cc430c29f4511630a74a07fce49f84582903b6f55a6f916a3d744b4a8/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/3580b19cc430c29f4511630a74a07fce49f84582903b6f55a6f916a3d744b4a8/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "eyewhite"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/4a9e01852cc174aeec72a7d29e884ad39a52744c0938d2c4fb8f219570aad721/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/4a9e01852cc174aeec72a7d29e884ad39a52744c0938d2c4fb8f219570aad721/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "face"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/a4ce839b49cd586f473f79d457c2e924c1e8351269f56520cb4877abd097fa4d/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/a4ce839b49cd586f473f79d457c2e924c1e8351269f56520cb4877abd097fa4d/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "footwear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/871df11260e3c8c48d109312f47bed14c3940c593c6b2f89a904b9b3397cb541/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/871df11260e3c8c48d109312f47bed14c3940c593c6b2f89a904b9b3397cb541/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "front hair"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/212483809d6079f8843c380cbc6b5e2b662f3bf0c44b3ebee88b6dbbd865a55d/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/212483809d6079f8843c380cbc6b5e2b662f3bf0c44b3ebee88b6dbbd865a55d/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "handwear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/1e2cd164548fea39b87058b504a4db6c4963af1f8b8798060843147cf8c0c943/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/1e2cd164548fea39b87058b504a4db6c4963af1f8b8798060843147cf8c0c943/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "head"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/d2785119ef7c22438647231aef5ae82dbd4c19a7ec444bc4bbf0a56701b6dc3b/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/d2785119ef7c22438647231aef5ae82dbd4c19a7ec444bc4bbf0a56701b6dc3b/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "headwear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/01c961005314158af27407dc1c667f45dd4decadf257cb2420ca104d40e5d1fd/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/01c961005314158af27407dc1c667f45dd4decadf257cb2420ca104d40e5d1fd/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "irides"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/63a0f455806e04ff0aa654d6a9cb709a79d975256dca7224ac0ec85adf806d6d/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/63a0f455806e04ff0aa654d6a9cb709a79d975256dca7224ac0ec85adf806d6d/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "legwear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/99f9593185608970dac243a358d0d32e877ccf07b0999a6a6a90ae5c0c8952de/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/99f9593185608970dac243a358d0d32e877ccf07b0999a6a6a90ae5c0c8952de/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "mouth"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/04a9494770cbe67c90738f0f8fc6cf03ea50ca639838f9656fa3e80ffb8b5521/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/04a9494770cbe67c90738f0f8fc6cf03ea50ca639838f9656fa3e80ffb8b5521/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "neck"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/72eecdbebd913b0acd1170ceab73ef055a4e1c54801a2941047df5ac40b345e5/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/72eecdbebd913b0acd1170ceab73ef055a4e1c54801a2941047df5ac40b345e5/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "neckwear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/bee11a9aba9ed09302a7017a95e03a0e8a7281b9903b74bf58245de3030da959/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/bee11a9aba9ed09302a7017a95e03a0e8a7281b9903b74bf58245de3030da959/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "nose"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/e5489c479d54b9fdc22df11be47a8a40113ddbc8f811834ea12297d5473ced1c/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/e5489c479d54b9fdc22df11be47a8a40113ddbc8f811834ea12297d5473ced1c/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "objects"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/f9d7edf80bdf89ca24f1988d692d0e03a6f8c4bdacd54e98556e9d04d58882e6/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/f9d7edf80bdf89ca24f1988d692d0e03a6f8c4bdacd54e98556e9d04d58882e6/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "tail"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/53e2aa93d5d2251227e22fc32b6dca123df8760fd8abe8f84a6748370d119271/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/53e2aa93d5d2251227e22fc32b6dca123df8760fd8abe8f84a6748370d119271/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "topwear"
+      },
+      {
+        "image": {
+          "path": "/tmp/gradio/f38ab976d15612473d49994a45ba3ab1d2018b434cbca7aa48d877a3f001d682/image.webp",
+          "url": "https://24yearsold-see-through-demo.hf.space/gradio_api/file=/tmp/gradio/f38ab976d15612473d49994a45ba3ab1d2018b434cbca7aa48d877a3f001d682/image.webp",
+          "size": null,
+          "orig_name": null,
+          "mime_type": null,
+          "is_stream": false,
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "caption": "wings"
+      }
+    ]
+  ]
+}
