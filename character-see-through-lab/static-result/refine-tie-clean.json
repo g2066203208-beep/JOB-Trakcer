@@ -1,0 +1,14 @@
+{
+  "components": 75,
+  "kept": 1,
+  "largest": 2332,
+  "keptPixels": 2332,
+  "keptBboxes": [
+    [
+      125,
+      242,
+      187,
+      338
+    ]
+  ]
+}
