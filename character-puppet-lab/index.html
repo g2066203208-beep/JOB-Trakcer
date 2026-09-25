@@ -2,110 +2,82 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Paper Puppet Lab · Character Rig</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Character Puppet Lab</title>
 <style>
-:root{color-scheme:dark;--ink:#f4f1e8;--muted:#c9c3b5;--line:#ffffff2a}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#101311;color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
-body{min-height:100dvh;display:grid;place-items:center;overflow:hidden}
-.app{width:min(100vw,1100px);height:100dvh;display:grid;grid-template-rows:auto 1fr auto;position:relative;background:radial-gradient(1200px 600px at 50% -10%,#45584c55,transparent 65%),linear-gradient(#151a17,#0e1110)}
-.top{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);background:#101310d9;backdrop-filter:blur(14px);z-index:3}
-.title{font-weight:760;letter-spacing:.04em}.sub{font-size:12px;color:var(--muted);margin-left:auto}.badge{font-size:11px;padding:4px 8px;border:1px solid #ffffff25;border-radius:999px;background:#ffffff0d}
-.stage-wrap{position:relative;min-height:0;display:grid;place-items:center;overflow:hidden}
-.stage-card{position:relative;width:min(92vw,620px);aspect-ratio:691/780;border-radius:28px;overflow:hidden;box-shadow:0 24px 70px #0009,inset 0 0 0 1px #ffffff12;background:radial-gradient(100% 70% at 50% 30%,#6f8177 0 28%,#8b9990 29% 38%,#d7d1c5 39% 44%,#4a6b75 45% 72%,#283c43 73% 100%)}
-.stage-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#72847a 0 35%,#e7dfd1 36% 43%,#5b7d86 44% 72%,#263d45 73% 100%);filter:blur(12px);transform:scale(1.06);opacity:.72}
-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
-.hud{position:absolute;left:14px;top:14px;display:grid;gap:6px;z-index:2;pointer-events:none}
-.hud .pill{width:max-content;font-size:11px;padding:5px 8px;border-radius:999px;background:#0c0f0db8;border:1px solid #ffffff1b;backdrop-filter:blur(8px)}
-.bottom{padding:10px 12px 14px;border-top:1px solid var(--line);background:#101310e8;backdrop-filter:blur(14px);display:grid;gap:10px;z-index:3}
-.controls{display:flex;gap:8px;overflow:auto;padding-bottom:2px}
-button{appearance:none;border:1px solid #ffffff20;color:var(--ink);background:#ffffff0d;border-radius:13px;padding:10px 13px;font:inherit;white-space:nowrap}
-button.active{background:#f0eee5;color:#141714;border-color:#f0eee5}
-.range-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;font-size:12px;color:var(--muted)}
-input[type=range]{width:100%;accent-color:#e9e5d8}.note{font-size:11px;color:#aaa69b;line-height:1.45}
-@media (max-width:650px){.top{padding:9px 10px}.title{font-size:14px}.sub{display:none}.stage-card{width:min(100vw,560px);border-radius:0}.bottom{padding-bottom:max(12px,env(safe-area-inset-bottom))}}
+:root{--panel:#1d2129;--ink:#f2f4f8;--muted:#9ea7b3;--accent:#ff6f91;--line:#63d7ff}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 50% 10%,#252b35,#0d0f14 68%);color:var(--ink);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif}
+body{min-height:100svh;display:grid;place-items:center;padding:18px}
+.app{width:min(100%,980px);display:grid;grid-template-columns:minmax(300px,520px) minmax(260px,1fr);gap:18px;align-items:center}
+.card{background:rgba(25,29,36,.92);border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.36);overflow:hidden}
+.stage{position:relative;aspect-ratio:300/339;touch-action:none;user-select:none;background:#6f8077;isolation:isolate}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}.under{filter:saturate(.92) brightness(.72);opacity:.38}.part{transform-box:view-box;will-change:transform}
+#hairBack{transform-origin:150px 126px}#hairFront{transform-origin:150px 96px}#head{transform-origin:151px 149px}#torso{transform-origin:151px 250px}#leftArm{transform-origin:87px 207px}#rightArm{transform-origin:229px 204px}#tie{transform-origin:158px 205px}#lower{transform-origin:156px 292px}
+.debug{opacity:0;transition:.2s}.show-debug .debug{opacity:1}.joint{fill:#fff;stroke:#111;stroke-width:1.5}.bone{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;vector-effect:non-scaling-stroke}
+.badge,.fps{position:absolute;top:12px;padding:7px 10px;border-radius:999px;background:rgba(0,0,0,.58);backdrop-filter:blur(8px);font-size:12px;z-index:4}.badge{left:12px}.fps{right:12px;font:11px ui-monospace,monospace}
+.panel{padding:22px}h1{font-size:22px;margin:0 0 8px}p{color:var(--muted);line-height:1.6;margin:0 0 18px;font-size:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+button{appearance:none;border:0;border-radius:13px;padding:12px 14px;background:#2a303a;color:#fff;font-weight:700;font-size:14px;cursor:pointer;transition:.16s}button:hover{transform:translateY(-1px);background:#343b47}button.primary{background:var(--accent);color:#1a0d12}button.is-on{outline:2px solid var(--line);outline-offset:1px}
+.stat{display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 0;border-top:1px solid rgba(255,255,255,.07);font-size:13px}.stat span:last-child{color:#b8f4ff;font-family:ui-monospace,monospace}.legend{font-size:12px;color:var(--muted);line-height:1.7;margin-top:14px}
+@media(max-width:760px){body{padding:0}.app{display:block;width:100%;min-height:100svh}.card{border-radius:0;border-left:0;border-right:0}.stage-card,.panel-card{max-width:520px;margin:auto}}
 </style>
 </head>
 <body>
-<main class="app">
-<header class="top"><div class="title">Paper Puppet Lab</div><span class="badge">JOB-Trakcer / isolated lab</span><div class="sub">同一角色原图 · 分层纸偶实验</div></header>
-<section class="stage-wrap">
-<div class="stage-card">
-<canvas id="stage" width="691" height="780" aria-label="角色纸偶动画预览"></canvas>
-<div class="hud"><div class="pill" id="modeLabel">自然待机</div><div class="pill" id="fpsLabel">60 fps</div></div>
-</div>
-</section>
-<footer class="bottom">
-<div class="controls">
-<button class="mode active" data-mode="idle">自然待机</button>
-<button class="mode" data-mode="talk">说话动作</button>
-<button class="mode" data-mode="sway">左右摆动</button>
-<button id="skeletonBtn">骨骼：关</button>
-<button id="pauseBtn">暂停</button>
-</div>
-<div class="range-row"><span>动作幅度</span><input id="intensity" type="range" min="0" max="1.8" value="1" step=".05"><output id="intensityOut">1.00×</output></div>
-<div class="note">拖动/触摸画面：头部会跟随；头发、领巾、手臂采用独立弹性滞后。素材直接取自你提供的视频截图上半身，未重新生成角色。</div>
-</footer>
-</main>
+<div class="app">
+<section class="card stage-card"><div id="stage" class="stage">
+<div class="badge">JOB-Trakcer · Puppet Lab</div><div id="fps" class="fps">-- fps</div>
+<svg viewBox="0 0 300 339" aria-label="黑长发水手服角色动态纸偶">
+<defs>
+<image id="src" href="./character.jpg" width="300" height="339" preserveAspectRatio="none"/>
+<clipPath id="cHairBack"><path d="M60 9L240 0 278 42 279 235 229 275 216 190 76 196 59 267 25 234 46 66Z"/></clipPath>
+<clipPath id="cHairFront"><path d="M84 8L224 7 241 41 223 155 199 192 101 187 75 148 61 62Z"/></clipPath>
+<clipPath id="cHead"><path d="M82 57L222 51 239 106 222 177 194 199 113 197 77 173 64 111Z"/></clipPath>
+<clipPath id="cTorso"><path d="M86 173L231 168 264 222 241 339 77 339 53 235Z"/></clipPath>
+<clipPath id="cLArm"><path d="M0 205L93 170 118 216 86 246 113 300 74 339 42 285 0 261Z"/></clipPath>
+<clipPath id="cRArm"><path d="M215 170L276 190 300 246 293 339 238 339 221 257 195 221Z"/></clipPath>
+<clipPath id="cTie"><path d="M121 185L196 186 190 232 174 339 129 339 141 231Z"/></clipPath>
+<clipPath id="cLower"><path d="M55 261L254 257 276 339 34 339Z"/></clipPath>
+</defs>
+<use href="#src" class="under"/>
+<g id="hairBack" class="part" clip-path="url(#cHairBack)"><use href="#src"/></g>
+<g id="torso" class="part" clip-path="url(#cTorso)"><use href="#src"/></g>
+<g id="lower" class="part" clip-path="url(#cLower)"><use href="#src"/></g>
+<g id="leftArm" class="part" clip-path="url(#cLArm)"><use href="#src"/></g>
+<g id="rightArm" class="part" clip-path="url(#cRArm)"><use href="#src"/></g>
+<g id="head" class="part" clip-path="url(#cHead)"><use href="#src"/></g>
+<g id="hairFront" class="part" clip-path="url(#cHairFront)"><use href="#src"/></g>
+<g id="tie" class="part" clip-path="url(#cTie)"><use href="#src"/></g>
+<g class="debug" pointer-events="none">
+<path class="bone" d="M151 112L151 204L151 267M151 204L86 207M151 204L229 204M151 267L110 330M151 267L201 330"/>
+<circle class="joint" cx="151" cy="112" r="4"/><circle class="joint" cx="151" cy="204" r="4"/><circle class="joint" cx="86" cy="207" r="4"/><circle class="joint" cx="229" cy="204" r="4"/><circle class="joint" cx="151" cy="267" r="4"/>
+</g></svg></div></section>
+<section class="card panel-card"><div class="panel">
+<h1>角色自动纸偶实验</h1>
+<p>直接使用你发来的角色画面做 8 区纸偶驱动。移动鼠标或手指，头部会跟随；头发、身体、手臂和领巾有独立惯性。</p>
+<div class="grid"><button id="autoBtn" class="primary is-on">自动演示：开</button><button id="talkBtn">说话动作</button><button id="debugBtn">骨骼显示：关</button><button id="resetBtn">回正</button></div>
+<div class="stat"><span>分区节点</span><span>8</span></div><div class="stat"><span>头部跟随</span><span id="headStat">0.0°</span></div><div class="stat"><span>头发惯性</span><span id="hairStat">0.0°</span></div><div class="stat"><span>呼吸幅度</span><span id="breathStat">0.0%</span></div>
+<div class="legend">这是独立实验页，只放在 JOB-Trakcer/character-puppet-lab/，没有改 JOB-Trakcer 主站功能，也没有改 paperchalk-world。</div>
+</div></section></div>
 <script>
-(()=>{
-const DESIGN={w:691,h:780};
-const canvas=document.getElementById('stage');
-const ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
-const image=new Image();
-image.src='./character-source.jpg';
-const modeLabel=document.getElementById('modeLabel');
-const fpsLabel=document.getElementById('fpsLabel');
-const intensity=document.getElementById('intensity');
-const intensityOut=document.getElementById('intensityOut');
-const skeletonBtn=document.getElementById('skeletonBtn');
-const pauseBtn=document.getElementById('pauseBtn');
-
-const P={
-hairBackL:{poly:[[204,76],[177,126],[164,194],[164,280],[170,356],[164,438],[178,515],[170,604],[151,708],[187,754],[227,716],[243,624],[250,534],[257,455],[256,352],[250,256],[244,176]],pivot:[232,180]},
-hairBackR:{poly:[[438,70],[492,91],[535,126],[566,175],[578,240],[579,315],[573,394],[568,472],[559,551],[544,626],[514,704],[479,726],[466,681],[480,614],[490,540],[492,468],[484,391],[473,308],[459,224]],pivot:[480,170]},
-torso:{poly:[[223,431],[276,414],[330,417],[386,435],[445,421],[510,429],[571,466],[602,517],[600,603],[620,694],[577,735],[558,779],[198,779],[192,720],[207,650],[202,575],[187,511]],pivot:[389,495]},
-armL:{poly:[[166,461],[130,488],[89,508],[50,531],[25,557],[18,586],[35,620],[58,653],[89,681],[120,704],[154,720],[203,764],[242,732],[215,685],[189,645],[178,604],[194,563],[220,520],[215,484]],pivot:[198,506]},
-armR:{poly:[[541,462],[586,481],[610,518],[605,568],[600,619],[615,667],[628,707],[611,728],[578,734],[558,718],[543,673],[529,618],[519,561],[519,509]],pivot:[540,496]},
-head:{poly:[[345,9],[419,10],[480,27],[527,59],[563,111],[577,172],[580,239],[577,301],[570,357],[558,408],[536,449],[507,479],[470,468],[449,449],[412,461],[370,470],[330,461],[292,445],[254,422],[219,401],[191,379],[176,340],[165,298],[169,245],[179,190],[190,143],[211,95],[250,56],[300,27]],pivot:[390,425]},
-hairFrontL:{poly:[[196,88],[236,58],[286,73],[303,126],[297,200],[287,278],[280,357],[272,446],[262,535],[246,621],[229,672],[211,646],[218,582],[225,516],[226,454],[218,390],[201,331],[181,285],[176,213]],pivot:[245,135]},
-hairFrontR:{poly:[[425,62],[476,69],[520,95],[551,144],[570,203],[573,270],[567,342],[558,416],[546,493],[529,566],[509,631],[481,669],[465,641],[477,582],[485,520],[487,459],[480,398],[466,330],[451,265],[441,194]],pivot:[478,131]},
-tie:{poly:[[317,551],[357,559],[405,550],[447,573],[424,618],[411,680],[406,779],[329,779],[334,689],[339,621],[301,584]],pivot:[380,575]}
-};
-
-class Spring{
-constructor(x=0,k=135,d=18){this.x=x;this.v=0;this.k=k;this.d=d}
-step(target,dt){dt=Math.min(.033,Math.max(.001,dt));this.v+=(target-this.x)*this.k*dt;this.v*=Math.exp(-this.d*dt);this.x+=this.v*dt;return this.x}
-}
-const S={head:new Spring(0,115,15),body:new Spring(0,90,16),armL:new Spring(0,90,13),armR:new Spring(0,95,13),hairL:new Spring(0,72,9.5),hairR:new Spring(0,70,9.3),tie:new Spring(0,78,8.6),lookX:new Spring(0,80,15),lookY:new Spring(0,80,15),breath:new Spring(0,70,16)};
-let mode='idle',showSkeleton=false,paused=false,last=performance.now(),fpsT=last,frames=0;
-let pointer={x:.5,y:.45,active:false},amp=1;
-
-function polyPath(poly){ctx.beginPath();ctx.moveTo(poly[0][0],poly[0][1]);for(let i=1;i<poly.length;i++)ctx.lineTo(poly[i][0],poly[i][1]);ctx.closePath()}
-function drawPart(name,rot=0,tx=0,ty=0,sx=1,sy=1,alpha=1){
-const p=P[name],pv=p.pivot;ctx.save();ctx.translate(pv[0]+tx,pv[1]+ty);ctx.rotate(rot);ctx.scale(sx,sy);ctx.translate(-pv[0],-pv[1]);polyPath(p.poly);ctx.clip();ctx.globalAlpha=alpha;ctx.drawImage(image,0,0,DESIGN.w,DESIGN.h);ctx.restore()}
-function bg(){const g=ctx.createLinearGradient(0,0,0,DESIGN.h);g.addColorStop(0,'#718379');g.addColorStop(.36,'#82938a');g.addColorStop(.44,'#e5ddcf');g.addColorStop(.53,'#71909a');g.addColorStop(1,'#314b54');ctx.fillStyle=g;ctx.fillRect(0,0,DESIGN.w,DESIGN.h);ctx.fillStyle='rgba(255,255,255,.12)';ctx.fillRect(0,285,DESIGN.w,70);ctx.fillStyle='rgba(25,48,56,.16)';ctx.fillRect(0,520,DESIGN.w,260)}
-function bone(a,b){ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke()}
-function drawSkeleton(){ctx.save();ctx.lineWidth=2;ctx.strokeStyle='#57f2dc';ctx.fillStyle='#ffda66';const p={head:[390,425],chest:[390,505],lshoulder:[245,510],rshoulder:[535,500],lelbow:[117,615],relbow:[575,615],tie:[380,575]};bone(p.head,p.chest);bone(p.chest,p.lshoulder);bone(p.chest,p.rshoulder);bone(p.lshoulder,p.lelbow);bone(p.rshoulder,p.relbow);bone(p.chest,p.tie);Object.values(p).forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fill()});ctx.restore()}
-function update(dt,t){
-amp=Number(intensity.value)||1;const nx=(pointer.x-.5)*2,ny=(pointer.y-.45)*2;const lookX=S.lookX.step(pointer.active?nx:Math.sin(t*.00037)*.13,dt);const lookY=S.lookY.step(pointer.active?ny:0,dt);const idle=Math.sin(t*.00105),sway=mode==='sway'?Math.sin(t*.0019):0;const talkPulse=mode==='talk'?(Math.sin(t*.0072)*.5+.5):0;
-const bodyTarget=(idle*.006+sway*.032+lookX*.012)*amp;const headTarget=(-bodyTarget*.55+lookX*.034+Math.sin(t*.0016)*.005+(mode==='talk'?Math.sin(t*.0041)*.018:0))*amp;
-const body=S.body.step(bodyTarget,dt),head=S.head.step(headTarget,dt);const hairL=S.hairL.step(-head*.85-body*.55-lookX*.014,dt);const hairR=S.hairR.step(-head*.92-body*.52-lookX*.012,dt);
-const armBase=(mode==='talk'?Math.sin(t*.0034)*.022:idle*.006)+sway*.018;const armL=S.armL.step(armBase*amp,dt),armR=S.armR.step(-armBase*.72*amp+(mode==='talk'?talkPulse*.025:0),dt);
-const tie=S.tie.step(-body*1.35-head*.32+Math.sin(t*.0022)*.014*amp,dt);const breath=S.breath.step(((Math.sin(t*.0022)+1)*.5)*(mode==='talk'?1.15:1)*amp,dt);
-return{lookX,lookY,body,head,hairL,hairR,armL,armR,tie,breath}}
-function render(now){
-const dt=Math.min(.04,(now-last)/1000||.016);last=now;
-if(!paused){const a=update(dt,now);ctx.clearRect(0,0,DESIGN.w,DESIGN.h);bg();const by=-a.breath*1.7;drawPart('hairBackL',a.hairL,0,by);drawPart('hairBackR',a.hairR,0,by);drawPart('torso',a.body,0,by,1+a.breath*.004,1+a.breath*.010);drawPart('armL',a.armL,0,by);drawPart('armR',a.armR,0,by);drawPart('head',a.head,a.lookX*2.4,a.lookY*1.2+by);drawPart('hairFrontL',a.hairL*1.15,a.lookX*1.2,a.lookY*.6+by,.999,1.001,.98);drawPart('hairFrontR',a.hairR*1.14,a.lookX*1.2,a.lookY*.6+by,.999,1.001,.98);drawPart('tie',a.tie,0,by);if(showSkeleton)drawSkeleton()}
-frames++;if(now-fpsT>500){fpsLabel.textContent=Math.round(frames*1000/(now-fpsT))+' fps';frames=0;fpsT=now}requestAnimationFrame(render)}
-function pointerFromEvent(e){const r=canvas.getBoundingClientRect();pointer.x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));pointer.y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));pointer.active=true}
-canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture?.(e.pointerId);pointerFromEvent(e)});canvas.addEventListener('pointermove',e=>{if(e.pressure>0||e.pointerType==='mouse')pointerFromEvent(e)});canvas.addEventListener('pointerup',()=>pointer.active=false);canvas.addEventListener('pointercancel',()=>pointer.active=false);
-document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;document.querySelectorAll('.mode').forEach(x=>x.classList.toggle('active',x===b));modeLabel.textContent={idle:'自然待机',talk:'说话动作',sway:'左右摆动'}[mode]}));
-skeletonBtn.addEventListener('click',()=>{showSkeleton=!showSkeleton;skeletonBtn.textContent='骨骼：'+(showSkeleton?'开':'关');skeletonBtn.classList.toggle('active',showSkeleton)});
-pauseBtn.addEventListener('click',()=>{paused=!paused;pauseBtn.textContent=paused?'继续':'暂停';pauseBtn.classList.toggle('active',paused)});
-intensity.addEventListener('input',()=>intensityOut.value=Number(intensity.value).toFixed(2)+'×');
-image.onload=()=>requestAnimationFrame(render);
-})();
-</script>
-</body>
-</html>
+const stage=document.getElementById('stage'),$=id=>document.getElementById(id);
+const p={hairBack:$('hairBack'),hairFront:$('hairFront'),head:$('head'),torso:$('torso'),leftArm:$('leftArm'),rightArm:$('rightArm'),tie:$('tie'),lower:$('lower')};
+let auto=true,debug=false,talk=0,last=performance.now(),frames=0,fpsClock=last,targetX=0,targetY=0,pointerActive=false;
+const s={hair:0,hairV:0,head:0,headV:0,tie:0,tieV:0};
+function damp(n,target,dt,k=34,d=.78){const v=n+'V';s[v]+=(target-s[n])*k*dt;s[v]*=Math.pow(d,dt*60);s[n]+=s[v]*dt*60;return s[n]}
+function point(x,y){const r=stage.getBoundingClientRect();targetX=((x-r.left)/r.width-.5)*2;targetY=((y-r.top)/r.height-.5)*2;pointerActive=true}
+stage.addEventListener('pointermove',e=>point(e.clientX,e.clientY));stage.addEventListener('pointerdown',e=>point(e.clientX,e.clientY));stage.addEventListener('pointerleave',()=>pointerActive=false);
+$('autoBtn').onclick=()=>{auto=!auto;$('autoBtn').textContent='自动演示：'+(auto?'开':'关');$('autoBtn').classList.toggle('is-on',auto)};
+$('debugBtn').onclick=()=>{debug=!debug;stage.classList.toggle('show-debug',debug);$('debugBtn').textContent='骨骼显示：'+(debug?'开':'关');$('debugBtn').classList.toggle('is-on',debug)};
+$('talkBtn').onclick=()=>talk=1;$('resetBtn').onclick=()=>{targetX=targetY=0;pointerActive=false;talk=0};
+function tr(el,deg=0,x=0,y=0,sx=1,sy=1){el.style.transform='translate('+x+'px,'+y+'px) rotate('+deg+'deg) scale('+sx+','+sy+')'}
+function loop(now){const dt=Math.min(.035,(now-last)/1000||.016);last=now;const t=now/1000;
+if(!pointerActive&&auto){targetX=Math.sin(t*.73)*.38;targetY=Math.sin(t*.51)*.18}else if(!pointerActive){targetX*=.94;targetY*=.94}
+if(talk>0)talk=Math.max(0,talk-dt*1.35);const tw=talk>0?Math.sin((1-talk)*Math.PI*5)*talk:0;
+const head=damp('head',targetX*5.5+tw*2.1,dt,30,.76),hair=damp('hair',-head*.48-targetX*1.8,dt,19,.82),tie=damp('tie',-head*.35+Math.sin(t*1.9)*1.2+tw*2.7,dt,14,.84);
+const breath=(Math.sin(t*1.75)+1)*.5,b=.006+breath*.010,bob=Math.sin(t*1.75)*.55+tw*1.1;
+tr(p.torso,-head*.12,0,bob,1,1+b);tr(p.lower,head*.08,0,bob*.4,1,1+b*.35);tr(p.head,head,targetX*1.2,targetY*.8+bob*.42);
+tr(p.hairFront,head*.82+hair*.55,targetX*1.5,targetY*.7+bob*.35);tr(p.hairBack,head*.55+hair*.92,targetX*.7,targetY*.3+bob*.25);tr(p.tie,tie,0,bob*.7,1,1+b*.25);
+tr(p.leftArm,-1.1+Math.sin(t*1.4)*.6-tw*1.4,0,bob*.45);tr(p.rightArm,1.1-Math.sin(t*1.4)*.7+tw*4.8,0,bob*.45);
+$('headStat').textContent=head.toFixed(1)+'°';$('hairStat').textContent=hair.toFixed(1)+'°';$('breathStat').textContent=(b*100).toFixed(1)+'%';
+frames++;if(now-fpsClock>500){$('fps').textContent=Math.round(frames*1000/(now-fpsClock))+' fps';frames=0;fpsClock=now}requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+</script></body></html>
