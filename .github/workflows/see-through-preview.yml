@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: "20"
       - name: Install PSD preview dependencies
-        run: npm install --no-save ag-psd pngjs
+        run: npm install --no-save ag-psd pngjs canvas
       - name: Build semantic masks and contours
         run: node scripts/see-through-preview.mjs
       - name: Commit static previews
