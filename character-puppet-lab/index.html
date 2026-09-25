@@ -24,7 +24,7 @@ button{appearance:none;border:0;border-radius:13px;padding:12px 14px;background:
 <body>
 <div class="app">
 <section class="card stage-card"><div id="stage" class="stage">
-<div class="badge">JOB-Trakcer · Puppet Lab · v2</div><div id="fps" class="fps">-- fps</div><div id="imgError" style="display:none;position:absolute;left:16px;right:16px;top:64px;z-index:9;padding:12px;border-radius:12px;background:#7d1f2d;color:white;font-size:13px">角色图片加载失败</div>
+<div class="badge">JOB-Trakcer · Puppet Lab · v3</div><div id="fps" class="fps">-- fps</div><div id="imgError" style="display:none;position:absolute;left:16px;right:16px;top:64px;z-index:9;padding:12px;border-radius:12px;background:#7d1f2d;color:white;font-size:13px">角色图片加载失败</div>
 <svg viewBox="0 0 300 339" aria-label="黑长发水手服角色动态纸偶">
 <defs>
 <clipPath id="cHairBack"><path d="M60 9L240 0 278 42 279 235 229 275 216 190 76 196 59 267 25 234 46 66Z"/></clipPath>
@@ -36,15 +36,15 @@ button{appearance:none;border:0;border-radius:13px;padding:12px 14px;background:
 <clipPath id="cTie"><path d="M121 185L196 186 190 232 174 339 129 339 141 231Z"/></clipPath>
 <clipPath id="cLower"><path d="M55 261L254 257 276 339 34 339Z"/></clipPath>
 </defs>
-<image href="./character.jpg?v=2" class="under" width="300" height="339" preserveAspectRatio="none"/>
-<g id="hairBack" class="part" clip-path="url(#cHairBack)"><image href="./character.jpg?v=2" width="300" height="339" preserveAspectRatio="none"/></g>
-<g id="torso" class="part" clip-path="url(#cTorso)"><image href="./character.jpg?v=2" width="300" height="339" preserveAspectRatio="none"/></g>
-<g id="lower" class="part" clip-path="url(#cLower)"><image href="./character.jpg?v=2" width="300" height="339" preserveAspectRatio="none"/></g>
-<g id="leftArm" class="part" clip-path="url(#cLArm)"><image href="./character.jpg?v=2" width="300" height="339" preserveAspectRatio="none"/></g>
-<g id="rightArm" class="part" clip-path="url(#cRArm)"><image href="./character.jpg?v=2" width="300" height="339" preserveAspectRatio="none"/></g>
-<g id="head" class="part" clip-path="url(#cHead)"><image href="./character.jpg?v=2" width="300" height="339" preserveAspectRatio="none"/></g>
-<g id="hairFront" class="part" clip-path="url(#cHairFront)"><image href="./character.jpg?v=2" width="300" height="339" preserveAspectRatio="none"/></g>
-<g id="tie" class="part" clip-path="url(#cTie)"><image href="./character.jpg?v=2" width="300" height="339" preserveAspectRatio="none"/></g>
+<image href="./character.jpg?v=3" class="under" width="300" height="339" preserveAspectRatio="none"/>
+<g id="hairBack" class="part" clip-path="url(#cHairBack)"><image href="./character.jpg?v=3" width="300" height="339" preserveAspectRatio="none"/></g>
+<g id="torso" class="part" clip-path="url(#cTorso)"><image href="./character.jpg?v=3" width="300" height="339" preserveAspectRatio="none"/></g>
+<g id="lower" class="part" clip-path="url(#cLower)"><image href="./character.jpg?v=3" width="300" height="339" preserveAspectRatio="none"/></g>
+<g id="leftArm" class="part" clip-path="url(#cLArm)"><image href="./character.jpg?v=3" width="300" height="339" preserveAspectRatio="none"/></g>
+<g id="rightArm" class="part" clip-path="url(#cRArm)"><image href="./character.jpg?v=3" width="300" height="339" preserveAspectRatio="none"/></g>
+<g id="head" class="part" clip-path="url(#cHead)"><image href="./character.jpg?v=3" width="300" height="339" preserveAspectRatio="none"/></g>
+<g id="hairFront" class="part" clip-path="url(#cHairFront)"><image href="./character.jpg?v=3" width="300" height="339" preserveAspectRatio="none"/></g>
+<g id="tie" class="part" clip-path="url(#cTie)"><image href="./character.jpg?v=3" width="300" height="339" preserveAspectRatio="none"/></g>
 <g class="debug" pointer-events="none">
 <path class="bone" d="M151 112L151 204L151 267M151 204L86 207M151 204L229 204M151 267L110 330M151 267L201 330"/>
 <circle class="joint" cx="151" cy="112" r="4"/><circle class="joint" cx="151" cy="204" r="4"/><circle class="joint" cx="86" cy="207" r="4"/><circle class="joint" cx="229" cy="204" r="4"/><circle class="joint" cx="151" cy="267" r="4"/>
@@ -81,6 +81,6 @@ frames++;if(now-fpsClock>500){$('fps').textContent=Math.round(frames*1000/(now-f
 const probe=new Image();
 probe.onload=()=>{document.getElementById('imgError').style.display='none'};
 probe.onerror=()=>{document.getElementById('imgError').style.display='block'};
-probe.src='./character.jpg?v=2';
+probe.src='./character.jpg?v=3';
 requestAnimationFrame(loop);
 </script></body></html>
