@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Paper Puppet Lab · Character Rig</title>
+<style>
+:root{color-scheme:dark;--ink:#f4f1e8;--muted:#c9c3b5;--line:#ffffff2a}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#101311;color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+body{min-height:100dvh;display:grid;place-items:center;overflow:hidden}
+.app{width:min(100vw,1100px);height:100dvh;display:grid;grid-template-rows:auto 1fr auto;position:relative;background:radial-gradient(1200px 600px at 50% -10%,#45584c55,transparent 65%),linear-gradient(#151a17,#0e1110)}
+.top{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);background:#101310d9;backdrop-filter:blur(14px);z-index:3}
+.title{font-weight:760;letter-spacing:.04em}.sub{font-size:12px;color:var(--muted);margin-left:auto}.badge{font-size:11px;padding:4px 8px;border:1px solid #ffffff25;border-radius:999px;background:#ffffff0d}
+.stage-wrap{position:relative;min-height:0;display:grid;place-items:center;overflow:hidden}
+.stage-card{position:relative;width:min(92vw,620px);aspect-ratio:691/780;border-radius:28px;overflow:hidden;box-shadow:0 24px 70px #0009,inset 0 0 0 1px #ffffff12;background:radial-gradient(100% 70% at 50% 30%,#6f8177 0 28%,#8b9990 29% 38%,#d7d1c5 39% 44%,#4a6b75 45% 72%,#283c43 73% 100%)}
+.stage-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#72847a 0 35%,#e7dfd1 36% 43%,#5b7d86 44% 72%,#263d45 73% 100%);filter:blur(12px);transform:scale(1.06);opacity:.72}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.hud{position:absolute;left:14px;top:14px;display:grid;gap:6px;z-index:2;pointer-events:none}
+.hud .pill{width:max-content;font-size:11px;padding:5px 8px;border-radius:999px;background:#0c0f0db8;border:1px solid #ffffff1b;backdrop-filter:blur(8px)}
+.bottom{padding:10px 12px 14px;border-top:1px solid var(--line);background:#101310e8;backdrop-filter:blur(14px);display:grid;gap:10px;z-index:3}
+.controls{display:flex;gap:8px;overflow:auto;padding-bottom:2px}
+button{appearance:none;border:1px solid #ffffff20;color:var(--ink);background:#ffffff0d;border-radius:13px;padding:10px 13px;font:inherit;white-space:nowrap}
+button.active{background:#f0eee5;color:#141714;border-color:#f0eee5}
+.range-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;font-size:12px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:#e9e5d8}.note{font-size:11px;color:#aaa69b;line-height:1.45}
+@media (max-width:650px){.top{padding:9px 10px}.title{font-size:14px}.sub{display:none}.stage-card{width:min(100vw,560px);border-radius:0}.bottom{padding-bottom:max(12px,env(safe-area-inset-bottom))}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="top"><div class="title">Paper Puppet Lab</div><span class="badge">JOB-Trakcer / isolated lab</span><div class="sub">同一角色原图 · 分层纸偶实验</div></header>
+<section class="stage-wrap">
+<div class="stage-card">
+<canvas id="stage" width="691" height="780" aria-label="角色纸偶动画预览"></canvas>
+<div class="hud"><div class="pill" id="modeLabel">自然待机</div><div class="pill" id="fpsLabel">60 fps</div></div>
+</div>
+</section>
+<footer class="bottom">
+<div class="controls">
+<button class="mode active" data-mode="idle">自然待机</button>
+<button class="mode" data-mode="talk">说话动作</button>
+<button class="mode" data-mode="sway">左右摆动</button>
+<button id="skeletonBtn">骨骼：关</button>
+<button id="pauseBtn">暂停</button>
+</div>
+<div class="range-row"><span>动作幅度</span><input id="intensity" type="range" min="0" max="1.8" value="1" step=".05"><output id="intensityOut">1.00×</output></div>
+<div class="note">拖动/触摸画面：头部会跟随；头发、领巾、手臂采用独立弹性滞后。素材直接取自你提供的视频截图上半身，未重新生成角色。</div>
+</footer>
+</main>
+<script>
+(()=>{
+const DESIGN={w:691,h:780};
+const canvas=document.getElementById('stage');
+const ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
+const image=new Image();
+image.src='./character-source.jpg';
+const modeLabel=document.getElementById('modeLabel');
+const fpsLabel=document.getElementById('fpsLabel');
+const intensity=document.getElementById('intensity');
+const intensityOut=document.getElementById('intensityOut');
+const skeletonBtn=document.getElementById('skeletonBtn');
+const pauseBtn=document.getElementById('pauseBtn');
+
+const P={
+hairBackL:{poly:[[204,76],[177,126],[164,194],[164,280],[170,356],[164,438],[178,515],[170,604],[151,708],[187,754],[227,716],[243,624],[250,534],[257,455],[256,352],[250,256],[244,176]],pivot:[232,180]},
+hairBackR:{poly:[[438,70],[492,91],[535,126],[566,175],[578,240],[579,315],[573,394],[568,472],[559,551],[544,626],[514,704],[479,726],[466,681],[480,614],[490,540],[492,468],[484,391],[473,308],[459,224]],pivot:[480,170]},
+torso:{poly:[[223,431],[276,414],[330,417],[386,435],[445,421],[510,429],[571,466],[602,517],[600,603],[620,694],[577,735],[558,779],[198,779],[192,720],[207,650],[202,575],[187,511]],pivot:[389,495]},
+armL:{poly:[[166,461],[130,488],[89,508],[50,531],[25,557],[18,586],[35,620],[58,653],[89,681],[120,704],[154,720],[203,764],[242,732],[215,685],[189,645],[178,604],[194,563],[220,520],[215,484]],pivot:[198,506]},
+armR:{poly:[[541,462],[586,481],[610,518],[605,568],[600,619],[615,667],[628,707],[611,728],[578,734],[558,718],[543,673],[529,618],[519,561],[519,509]],pivot:[540,496]},
+head:{poly:[[345,9],[419,10],[480,27],[527,59],[563,111],[577,172],[580,239],[577,301],[570,357],[558,408],[536,449],[507,479],[470,468],[449,449],[412,461],[370,470],[330,461],[292,445],[254,422],[219,401],[191,379],[176,340],[165,298],[169,245],[179,190],[190,143],[211,95],[250,56],[300,27]],pivot:[390,425]},
+hairFrontL:{poly:[[196,88],[236,58],[286,73],[303,126],[297,200],[287,278],[280,357],[272,446],[262,535],[246,621],[229,672],[211,646],[218,582],[225,516],[226,454],[218,390],[201,331],[181,285],[176,213]],pivot:[245,135]},
+hairFrontR:{poly:[[425,62],[476,69],[520,95],[551,144],[570,203],[573,270],[567,342],[558,416],[546,493],[529,566],[509,631],[481,669],[465,641],[477,582],[485,520],[487,459],[480,398],[466,330],[451,265],[441,194]],pivot:[478,131]},
+tie:{poly:[[317,551],[357,559],[405,550],[447,573],[424,618],[411,680],[406,779],[329,779],[334,689],[339,621],[301,584]],pivot:[380,575]}
+};
+
+class Spring{
+constructor(x=0,k=135,d=18){this.x=x;this.v=0;this.k=k;this.d=d}
+step(target,dt){dt=Math.min(.033,Math.max(.001,dt));this.v+=(target-this.x)*this.k*dt;this.v*=Math.exp(-this.d*dt);this.x+=this.v*dt;return this.x}
+}
+const S={head:new Spring(0,115,15),body:new Spring(0,90,16),armL:new Spring(0,90,13),armR:new Spring(0,95,13),hairL:new Spring(0,72,9.5),hairR:new Spring(0,70,9.3),tie:new Spring(0,78,8.6),lookX:new Spring(0,80,15),lookY:new Spring(0,80,15),breath:new Spring(0,70,16)};
+let mode='idle',showSkeleton=false,paused=false,last=performance.now(),fpsT=last,frames=0;
+let pointer={x:.5,y:.45,active:false},amp=1;
+
+function polyPath(poly){ctx.beginPath();ctx.moveTo(poly[0][0],poly[0][1]);for(let i=1;i<poly.length;i++)ctx.lineTo(poly[i][0],poly[i][1]);ctx.closePath()}
+function drawPart(name,rot=0,tx=0,ty=0,sx=1,sy=1,alpha=1){
+const p=P[name],pv=p.pivot;ctx.save();ctx.translate(pv[0]+tx,pv[1]+ty);ctx.rotate(rot);ctx.scale(sx,sy);ctx.translate(-pv[0],-pv[1]);polyPath(p.poly);ctx.clip();ctx.globalAlpha=alpha;ctx.drawImage(image,0,0,DESIGN.w,DESIGN.h);ctx.restore()}
+function bg(){const g=ctx.createLinearGradient(0,0,0,DESIGN.h);g.addColorStop(0,'#718379');g.addColorStop(.36,'#82938a');g.addColorStop(.44,'#e5ddcf');g.addColorStop(.53,'#71909a');g.addColorStop(1,'#314b54');ctx.fillStyle=g;ctx.fillRect(0,0,DESIGN.w,DESIGN.h);ctx.fillStyle='rgba(255,255,255,.12)';ctx.fillRect(0,285,DESIGN.w,70);ctx.fillStyle='rgba(25,48,56,.16)';ctx.fillRect(0,520,DESIGN.w,260)}
+function bone(a,b){ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke()}
+function drawSkeleton(){ctx.save();ctx.lineWidth=2;ctx.strokeStyle='#57f2dc';ctx.fillStyle='#ffda66';const p={head:[390,425],chest:[390,505],lshoulder:[245,510],rshoulder:[535,500],lelbow:[117,615],relbow:[575,615],tie:[380,575]};bone(p.head,p.chest);bone(p.chest,p.lshoulder);bone(p.chest,p.rshoulder);bone(p.lshoulder,p.lelbow);bone(p.rshoulder,p.relbow);bone(p.chest,p.tie);Object.values(p).forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fill()});ctx.restore()}
+function update(dt,t){
+amp=Number(intensity.value)||1;const nx=(pointer.x-.5)*2,ny=(pointer.y-.45)*2;const lookX=S.lookX.step(pointer.active?nx:Math.sin(t*.00037)*.13,dt);const lookY=S.lookY.step(pointer.active?ny:0,dt);const idle=Math.sin(t*.00105),sway=mode==='sway'?Math.sin(t*.0019):0;const talkPulse=mode==='talk'?(Math.sin(t*.0072)*.5+.5):0;
+const bodyTarget=(idle*.006+sway*.032+lookX*.012)*amp;const headTarget=(-bodyTarget*.55+lookX*.034+Math.sin(t*.0016)*.005+(mode==='talk'?Math.sin(t*.0041)*.018:0))*amp;
+const body=S.body.step(bodyTarget,dt),head=S.head.step(headTarget,dt);const hairL=S.hairL.step(-head*.85-body*.55-lookX*.014,dt);const hairR=S.hairR.step(-head*.92-body*.52-lookX*.012,dt);
+const armBase=(mode==='talk'?Math.sin(t*.0034)*.022:idle*.006)+sway*.018;const armL=S.armL.step(armBase*amp,dt),armR=S.armR.step(-armBase*.72*amp+(mode==='talk'?talkPulse*.025:0),dt);
+const tie=S.tie.step(-body*1.35-head*.32+Math.sin(t*.0022)*.014*amp,dt);const breath=S.breath.step(((Math.sin(t*.0022)+1)*.5)*(mode==='talk'?1.15:1)*amp,dt);
+return{lookX,lookY,body,head,hairL,hairR,armL,armR,tie,breath}}
+function render(now){
+const dt=Math.min(.04,(now-last)/1000||.016);last=now;
+if(!paused){const a=update(dt,now);ctx.clearRect(0,0,DESIGN.w,DESIGN.h);bg();const by=-a.breath*1.7;drawPart('hairBackL',a.hairL,0,by);drawPart('hairBackR',a.hairR,0,by);drawPart('torso',a.body,0,by,1+a.breath*.004,1+a.breath*.010);drawPart('armL',a.armL,0,by);drawPart('armR',a.armR,0,by);drawPart('head',a.head,a.lookX*2.4,a.lookY*1.2+by);drawPart('hairFrontL',a.hairL*1.15,a.lookX*1.2,a.lookY*.6+by,.999,1.001,.98);drawPart('hairFrontR',a.hairR*1.14,a.lookX*1.2,a.lookY*.6+by,.999,1.001,.98);drawPart('tie',a.tie,0,by);if(showSkeleton)drawSkeleton()}
+frames++;if(now-fpsT>500){fpsLabel.textContent=Math.round(frames*1000/(now-fpsT))+' fps';frames=0;fpsT=now}requestAnimationFrame(render)}
+function pointerFromEvent(e){const r=canvas.getBoundingClientRect();pointer.x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));pointer.y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));pointer.active=true}
+canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture?.(e.pointerId);pointerFromEvent(e)});canvas.addEventListener('pointermove',e=>{if(e.pressure>0||e.pointerType==='mouse')pointerFromEvent(e)});canvas.addEventListener('pointerup',()=>pointer.active=false);canvas.addEventListener('pointercancel',()=>pointer.active=false);
+document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;document.querySelectorAll('.mode').forEach(x=>x.classList.toggle('active',x===b));modeLabel.textContent={idle:'自然待机',talk:'说话动作',sway:'左右摆动'}[mode]}));
+skeletonBtn.addEventListener('click',()=>{showSkeleton=!showSkeleton;skeletonBtn.textContent='骨骼：'+(showSkeleton?'开':'关');skeletonBtn.classList.toggle('active',showSkeleton)});
+pauseBtn.addEventListener('click',()=>{paused=!paused;pauseBtn.textContent=paused?'继续':'暂停';pauseBtn.classList.toggle('active',paused)});
+intensity.addEventListener('input',()=>intensityOut.value=Number(intensity.value).toFixed(2)+'×');
+image.onload=()=>requestAnimationFrame(render);
+})();
+</script>
+</body>
+</html>
