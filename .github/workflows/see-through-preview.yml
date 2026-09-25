@@ -1,0 +1,33 @@
+name: Build See-through Static Preview
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/see-through-preview.yml"
+      - "scripts/see-through-preview.mjs"
+      - "character-see-through-lab/result.psd"
+
+permissions:
+  contents: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install PSD preview dependencies
+        run: npm install --no-save ag-psd pngjs
+      - name: Build semantic masks and contours
+        run: node scripts/see-through-preview.mjs
+      - name: Commit static previews
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-see-through-lab/static-result
+          git diff --cached --quiet && exit 0
+          git commit -m "Add See-through semantic contour previews"
+          git push
