@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ML Character Contour Lab</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0d1015;color:#eef2f7;font-family:system-ui,"PingFang SC",sans-serif}
+main{max-width:1100px;margin:auto;padding:18px}.top{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.badge{padding:7px 11px;border-radius:999px;background:#202630}.ok{color:#7ef0bd}.warn{color:#ffd36a}.err{color:#ff8594}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:#171c24;border:1px solid #2c3440;border-radius:16px;overflow:hidden}
+.card h3{font-size:14px;margin:0;padding:10px 12px;border-bottom:1px solid #2c3440}.view{position:relative;background:#fff;aspect-ratio:300/339}
+img,canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.legend span{padding:6px 9px;border-radius:999px;background:#202630;font-size:12px}.note{color:#aeb8c5;line-height:1.65;font-size:13px;margin-top:14px}
+button{border:0;border-radius:10px;background:#ff6f91;color:#1b0e13;font-weight:700;padding:10px 14px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}main{padding:10px}}
+</style></head><body><main>
+<div class="top"><strong>ML 语义轮廓提取</strong><span class="badge">MediaPipe Selfie Multiclass</span><span id="status" class="badge warn">正在加载模型…</span><button id="rerun">重新识别</button></div>
+<div class="grid">
+<section class="card"><h3>原图</h3><div class="view"><img id="src" src="../character-puppet-lab/character.jpg?v=4" crossorigin="anonymous"></div></section>
+<section class="card"><h3>模型逐像素语义 Mask</h3><div class="view"><canvas id="mask"></canvas></div></section>
+<section class="card"><h3>从 Mask 提取的真实轮廓线</h3><div class="view"><canvas id="contour"></canvas></div></section>
+</div>
+<div class="legend">
+<span>蓝：头发</span><span>绿：身体皮肤/手臂</span><span>橙：脸</span><span>紫：衣服</span><span>黄：配饰</span><span>红：领巾二次细分</span>
+</div>
+<p class="note">这页不使用任何矩形裁剪。第一阶段由模型对每一个像素分类；轮廓线由相邻像素类别发生变化的位置自动提取。红色领巾是在模型“衣服/配饰”结果内再用原图颜色做二次细分。后续可把这些 mask 直接变成透明 PNG alpha，再交给 Auto-live2D/See-through 工作流。</p>
+<script type="module">
+import {FilesetResolver,ImageSegmenter} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.34/+esm";
+const status=document.getElementById('status'),img=document.getElementById('src'),maskCv=document.getElementById('mask'),contourCv=document.getElementById('contour');
+let segmenter=null;
+const COLORS=[[0,0,0],[35,185,255],[70,235,145],[255,170,75],[180,95,255],[255,215,80]];
+const NAMES=['background','hair','body-skin','face-skin','clothes','accessory'];
+function setStatus(t,kind='warn'){status.textContent=t;status.className='badge '+kind}
+function drawResult(result){
+ const cm=result.categoryMask;if(!cm)throw new Error('没有返回 categoryMask');
+ const arr=cm.getAsUint8Array(),w=cm.width,h=cm.height;
+ maskCv.width=contourCv.width=w;maskCv.height=contourCv.height=h;
+ const mctx=maskCv.getContext('2d'),cctx=contourCv.getContext('2d');
+ const mi=mctx.createImageData(w,h),ci=cctx.createImageData(w,h);
+ const probe=document.createElement('canvas');probe.width=w;probe.height=h;const pctx=probe.getContext('2d');pctx.drawImage(img,0,0,w,h);const src=pctx.getImageData(0,0,w,h).data;
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){const i=y*w+x,k=i*4,cls=arr[i]||0;let col=COLORS[cls]||[255,255,255];
+   // tie refinement: saturated red pixels in lower-center person region
+   const r=src[k],g=src[k+1],b=src[k+2];const red=(r>95&&r>g*1.35&&r>b*1.18&&y>h*.45&&x>w*.28&&x<w*.72);
+   if(red&&(cls===4||cls===5)){col=[255,70,105]}
+   mi.data[k]=col[0];mi.data[k+1]=col[1];mi.data[k+2]=col[2];mi.data[k+3]=cls===0?45:235;
+   const edge=x===0||y===0||x===w-1||y===h-1||arr[i-1]!==cls||arr[i+1]!==cls||arr[i-w]!==cls||arr[i+w]!==cls;
+   ci.data[k]=edge?col[0]:255;ci.data[k+1]=edge?col[1]:255;ci.data[k+2]=edge?col[2]:255;ci.data[k+3]=255;
+ }
+ mctx.putImageData(mi,0,0);cctx.putImageData(ci,0,0);
+ const counts=new Array(6).fill(0);for(const v of arr)if(v<6)counts[v]++;
+ setStatus('识别完成：'+NAMES.slice(1).map((n,i)=>n+' '+Math.round(counts[i+1]*100/arr.length)+'%').join(' · '),'ok');
+ try{result.close()}catch{}
+}
+function run(){if(!segmenter||!img.complete)return;setStatus('正在逐像素识别…');segmenter.segment(img,drawResult)}
+async function init(){
+ try{
+   const vision=await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.34/wasm");
+   segmenter=await ImageSegmenter.createFromOptions(vision,{baseOptions:{modelAssetPath:"https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/latest/selfie_multiclass_256x256.tflite",delegate:"GPU"},runningMode:"IMAGE",outputCategoryMask:true,outputConfidenceMasks:false});
+   setStatus('模型已加载，开始识别…');run();
+ }catch(e){console.error(e);setStatus('模型加载失败：'+e.message,'err')}
+}
+img.addEventListener('load',run);document.getElementById('rerun').onclick=run;init();
+</script></main></body></html>
