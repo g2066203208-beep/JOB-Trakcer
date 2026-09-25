@@ -1,0 +1,30 @@
+name: Clean Refined Tie Mask
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/clean-tie-mask.yml"
+      - "scripts/clean-tie-mask.mjs"
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install --no-save pngjs
+      - run: node scripts/clean-tie-mask.mjs
+      - name: Commit cleaned tie mask
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-see-through-lab/static-result/refine-tie-mask-clean.png character-see-through-lab/static-result/refine-tie-outline-clean.png character-see-through-lab/static-result/refine-tie-clean.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Clean EVF-SAM2 necktie mask"
+          git push
