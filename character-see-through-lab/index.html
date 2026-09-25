@@ -167,4 +167,16 @@ async function parsePsd(buf){
 }
 $('psdFile').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;clearResults();setStatus('正在解析本地 PSD…');try{await parsePsd(await f.arrayBuffer());setStatus('PSD 解析完成。','good')}catch(err){setStatus('PSD 解析失败：'+err.message,'bad')}};
 $('run').onclick=async()=>{try{$('run').disabled=true;await runOfficial()}catch(err){console.error(err);setStatus('官方推理未完成：'+err.message+'\n\n如果提示 ZeroGPU 配额/登录，可在上方填入自己的 Hugging Face token 后重试；也可以直接载入 See-through 生成的 PSD。','bad')}finally{$('run').disabled=false}};
+async function loadCachedOfficial(){
+  try{
+    const r=await fetch('./result.psd?v=official-1',{cache:'no-store'});
+    if(!r.ok)return;
+    clearResults();
+    setStatus('检测到仓库中已完成的官方 See-through 结果，正在解析分层 PSD…','good');
+    await parsePsd(await r.arrayBuffer());
+    $('downloadBox').innerHTML='已缓存官方结果：<a href="./result.psd?v=official-1" download>下载 result.psd</a>';
+    setStatus('官方 See-through 结果已加载：下面是真实 PSD 图层与 alpha 轮廓。','good');
+  }catch(e){console.warn('cached See-through result unavailable',e)}
+}
+loadCachedOfficial();
 </script></body></html>
