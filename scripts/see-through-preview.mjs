@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import 'ag-psd/initialize-canvas.js';
 import {readPsd} from 'ag-psd';
 import {PNG} from 'pngjs';
 
