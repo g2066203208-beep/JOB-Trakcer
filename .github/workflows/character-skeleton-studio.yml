@@ -1,0 +1,53 @@
+name: Character Skeleton Studio Smoke
+
+on:
+  push:
+    paths:
+      - "character-skeleton-studio/**"
+      - ".github/workflows/character-skeleton-studio.yml"
+  pull_request:
+    paths:
+      - "character-skeleton-studio/**"
+      - ".github/workflows/character-skeleton-studio.yml"
+
+jobs:
+  studio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Static studio regression
+        run: node character-skeleton-studio/test.mjs
+
+      - name: Install browser driver
+        run: npm install --no-save playwright-core
+
+      - name: Detect Chrome
+        id: chrome
+        shell: bash
+        run: |
+          CHROME_PATH="$(which google-chrome || which google-chrome-stable || which chromium || which chromium-browser || true)"
+          test -n "$CHROME_PATH"
+          echo "path=$CHROME_PATH" >> "$GITHUB_OUTPUT"
+          "$CHROME_PATH" --version
+
+      - name: Start local site
+        shell: bash
+        run: |
+          python3 -m http.server 8080 >/tmp/skeleton-studio-http.log 2>&1 &
+          for i in {1..40}; do
+            if curl -fsS http://127.0.0.1:8080/character-skeleton-studio/ >/dev/null; then
+              exit 0
+            fi
+            sleep .25
+          done
+          cat /tmp/skeleton-studio-http.log
+          exit 1
+
+      - name: Real browser drag regression
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.path }}
+        run: node character-skeleton-studio/browser-test.mjs
