@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-09-26T12:30:08+08:00",
+  "updated_at": "2026-09-26T16:30:43+08:00",
   "meta": {
-    "updated_at": "2026-09-26T12:30:08+08:00",
+    "updated_at": "2026-09-26T16:30:43+08:00",
     "mode": "recent",
     "company": null,
     "company_targets": 449,
     "queries": 210,
-    "raw_results": 643,
-    "expanded_links": 172,
-    "qualified_jobs": 59,
-    "added": 1,
-    "total": 175,
+    "raw_results": 661,
+    "expanded_links": 156,
+    "qualified_jobs": 66,
+    "added": 5,
+    "total": 180,
     "providers": {
       "brave": 0,
-      "bing-rss": 290,
+      "bing-rss": 340,
       "duckduckgo": 0,
-      "errors": 130
+      "errors": 121
     }
   }
 }
