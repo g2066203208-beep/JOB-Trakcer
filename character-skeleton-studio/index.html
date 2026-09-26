@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#111827">
 <title>人物骨骼工作室 · UniJob Lab</title>
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="./studio.css?v=2">
+<link rel="stylesheet" href="./studio.css?v=3">
 </head>
 <body>
 <header class="topbar">
   <div>
     <span class="kicker">CHARACTER SKELETON STUDIO</span>
     <h1>人物骨骼工作室</h1>
-    <p>基于实测比例的最简 2D 纸片骨骼。直接拖动任意关节点测试连接。</p>
+    <p>基于实测比例的刚体 2D 骨骼。骨长锁定，拖手/脚使用两段 IK，拖肘/膝使用刚体 FK。</p>
   </div>
   <div class="toolbar">
     <button id="resetBtn" type="button">重置骨架</button>
@@ -30,11 +30,11 @@
       <div><b>216</b><span>大腿 / px</span></div><div><b>242</b><span>小腿 / px</span></div>
       <div><b>100×104</b><span>手框 / px</span></div><div><b>74×91</b><span>脚框 / px</span></div>
     </div></section>
-    <section><span class="eyebrow">SELECTED JOINT</span><h2 id="selectedName">未选择</h2><div class="coord-row"><span>X</span><output id="selectedX">—</output></div><div class="coord-row"><span>Y</span><output id="selectedY">—</output></div><p class="hint">鼠标或手指按住蓝色关节点拖动。所有骨段会实时保持连接。</p></section>
+    <section><span class="eyebrow">SELECTED JOINT</span><h2 id="selectedName">未选择</h2><div class="coord-row"><span>X</span><output id="selectedX">—</output></div><div class="coord-row"><span>Y</span><output id="selectedY">—</output></div><p class="hint">鼠标或手指拖蓝色关节点。手腕/脚踝为 IK 末端；肘/膝旋转刚体链；躯干锚点拖动会整体平移。</p></section>
     <section><span class="eyebrow">LIVE LENGTH</span><h2>当前骨段长度</h2><div id="lengthList" class="length-list"></div></section>
   </aside>
-  <section class="stage-card"><div class="stage-head"><span>拖动蓝色圆点</span><span id="dragState">READY</span></div><div id="stageWrap" class="stage-wrap"><svg id="skeletonSvg" viewBox="-360 -150 720 1160" role="img" aria-label="可拖拽人物骨骼编辑器"><g id="gridLayer"></g><g id="skeletonLayer"></g><g id="jointLayer"></g></svg></div><footer><span>比例基准：D = 224 px</span><span>自由拖拽模式 · 无 IK 约束</span></footer></section>
+  <section class="stage-card"><div class="stage-head"><span>拖动蓝色圆点</span><span id="dragState">READY</span></div><div id="stageWrap" class="stage-wrap"><svg id="skeletonSvg" viewBox="-360 -150 720 1160" role="img" aria-label="可拖拽人物骨骼编辑器"><g id="gridLayer"></g><g id="skeletonLayer"></g><g id="jointLayer"></g></svg></div><footer><span>比例基准：D = 224 px</span><span>骨长锁定 · 2-Bone IK + 刚体 FK</span></footer></section>
 </main>
-<script type="module" src="./studio.js?v=2"></script>
+<script type="module" src="./studio.js?v=3"></script>
 </body>
 </html>
