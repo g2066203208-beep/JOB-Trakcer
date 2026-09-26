@@ -1,0 +1,22 @@
+name: Character Skeleton Studio Smoke
+
+on:
+  push:
+    paths:
+      - "character-skeleton-studio/**"
+      - ".github/workflows/character-skeleton-studio.yml"
+  pull_request:
+    paths:
+      - "character-skeleton-studio/**"
+      - ".github/workflows/character-skeleton-studio.yml"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Static studio regression
+        run: node character-skeleton-studio/test.mjs
