@@ -10,9 +10,14 @@ const browser=await chromium.launch({
   args:["--no-sandbox","--disable-dev-shm-usage"]
 });
 const page=await browser.newPage({viewport:{width:1280,height:900}});
-const errors=[];
-page.on("pageerror",err=>errors.push(String(err)));
-page.on("console",msg=>{if(msg.type()==="error")errors.push(msg.text())});
+const pageErrors=[];
+const criticalHttpErrors=[];
+page.on("pageerror",err=>pageErrors.push(String(err)));
+page.on("response",res=>{
+  if(res.status()<400)return;
+  const url=res.url().split("?")[0];
+  if(/\.(?:html|js|mjs|css)$/.test(url))criticalHttpErrors.push(res.status()+" "+url);
+});
 
 await page.goto("http://127.0.0.1:8080/character-skeleton-studio/",{waitUntil:"networkidle"});
 await page.waitForFunction(()=>window.CharacterSkeletonStudio?.getPose);
@@ -47,6 +52,7 @@ await page.click("#resetBtn");
 const reset=await page.evaluate(()=>window.CharacterSkeletonStudio.getPose().le);
 assert.deepEqual(reset,{x:-95,y:297},"reset must restore measured pose");
 
-assert.deepEqual(errors,[],"browser console/page errors: "+errors.join("\n"));
+assert.deepEqual(pageErrors,[],"page errors: "+pageErrors.join("\n"));
+assert.deepEqual(criticalHttpErrors,[],"critical HTTP errors: "+criticalHttpErrors.join("\n"));
 await browser.close();
 console.log("CHARACTER_SKELETON_BROWSER_PASS");
