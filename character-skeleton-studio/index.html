@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>人物骨骼工作室 · UniJob Lab</title>
+<link rel="stylesheet" href="./studio.css?v=1">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <span class="kicker">CHARACTER SKELETON STUDIO</span>
+    <h1>人物骨骼工作室</h1>
+    <p>基于实测比例的最简 2D 纸片骨骼。直接拖动任意关节点测试连接。</p>
+  </div>
+  <div class="toolbar">
+    <button id="resetBtn" type="button">重置骨架</button>
+    <button id="centerBtn" type="button">居中视图</button>
+    <label class="toggle"><input id="labelToggle" type="checkbox" checked> 显示点名</label>
+  </div>
+</header>
+
+<main class="workspace">
+  <aside class="panel">
+    <section>
+      <span class="eyebrow">REFERENCE</span>
+      <h2>实测模板</h2>
+      <div class="metric-grid">
+        <div><b>224</b><span>头径 D / px</span></div>
+        <div><b>36×34</b><span>脖子 / px</span></div>
+        <div><b>120</b><span>肩宽 / px</span></div>
+        <div><b>276</b><span>躯干高 / px</span></div>
+        <div><b>139</b><span>上臂 / px</span></div>
+        <div><b>145</b><span>前臂 / px</span></div>
+        <div><b>216</b><span>大腿 / px</span></div>
+        <div><b>242</b><span>小腿 / px</span></div>
+        <div><b>100×104</b><span>手框 / px</span></div>
+        <div><b>74×91</b><span>脚框 / px</span></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">SELECTED JOINT</span>
+      <h2 id="selectedName">未选择</h2>
+      <div class="coord-row"><span>X</span><output id="selectedX">—</output></div>
+      <div class="coord-row"><span>Y</span><output id="selectedY">—</output></div>
+      <p class="hint">鼠标或手指按住蓝色关节点拖动。所有骨段会实时保持连接。</p>
+    </section>
+
+    <section>
+      <span class="eyebrow">LIVE LENGTH</span>
+      <h2>当前骨段长度</h2>
+      <div id="lengthList" class="length-list"></div>
+    </section>
+  </aside>
+
+  <section class="stage-card">
+    <div class="stage-head">
+      <span>拖动蓝色圆点</span>
+      <span id="dragState">READY</span>
+    </div>
+    <div id="stageWrap" class="stage-wrap">
+      <svg id="skeletonSvg" viewBox="-360 -150 720 1160" role="img" aria-label="可拖拽人物骨骼编辑器">
+        <g id="gridLayer"></g>
+        <g id="skeletonLayer"></g>
+        <g id="jointLayer"></g>
+      </svg>
+    </div>
+    <footer>
+      <span>比例基准：D = 224 px</span>
+      <span>自由拖拽模式 · 无 IK 约束</span>
+    </footer>
+  </section>
+</main>
+
+<script type="module" src="./studio.js?v=1"></script>
+</body>
+</html>
