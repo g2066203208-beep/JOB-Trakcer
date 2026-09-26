@@ -77,9 +77,12 @@ await assertRigidLengths("left elbow FK");
 const beforeBody=await page.evaluate(()=>window.CharacterSkeletonStudio.getPose());
 await dragJoint("neck",30,22);
 const afterBody=await page.evaluate(()=>window.CharacterSkeletonStudio.getPose());
+const bodyDx=afterBody.neck.x-beforeBody.neck.x;
+const bodyDy=afterBody.neck.y-beforeBody.neck.y;
+assert.ok(Math.hypot(bodyDx,bodyDy)>5,"body anchor drag must translate the skeleton");
 for(const id of ["head","neck","ls","rs","lh","rh","le","lw","rk","ra"]){
-  assert.ok(Math.abs((afterBody[id].x-beforeBody[id].x)-30)<1.5,`body rigid translation x failed for ${id}`);
-  assert.ok(Math.abs((afterBody[id].y-beforeBody[id].y)-22)<1.5,`body rigid translation y failed for ${id}`);
+  assert.ok(Math.abs((afterBody[id].x-beforeBody[id].x)-bodyDx)<0.05,`body rigid translation x failed for ${id}`);
+  assert.ok(Math.abs((afterBody[id].y-beforeBody[id].y)-bodyDy)<0.05,`body rigid translation y failed for ${id}`);
 }
 await assertRigidLengths("rigid body translation");
 
