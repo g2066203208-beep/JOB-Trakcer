@@ -147,7 +147,7 @@ async function runVisionParts(){
   try{
     const result=await visionRequest({type:"run",imageUrl:state.url,text:VISION_PHRASES.join(", ")});
     state.parts=normalizeVisionParts(result.parsed,state.source.width,state.source.height);
-    if(location.search.includes("demo"))state.parts=state.parts.slice(0,8);
+    if(location.search.includes("demo"))state.parts=state.parts.slice(0,3);
     if(!state.parts.length)state.parts=[{id:"character",label:"角色主体",query:"character",box:[0,0,state.source.width,state.source.height],x:state.source.width/2,y:state.source.height/2,confidence:"主体兜底"}];
     step(2,"done");ui.mode.textContent="Florence-2";modelStatus("AI 部件理解完成 · "+state.parts.length+" 个候选部件","ready");
   }catch(e){
