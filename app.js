@@ -332,6 +332,14 @@ reset();
 window.CharacterRigForge = {
   getManifest: () => state.manifest ? JSON.parse(JSON.stringify(state.manifest)) : null,
   getParts: () => JSON.parse(JSON.stringify(state.parts)),
+  getLayerStats: () => state.layers.map(layer => {
+    const w=layer.canvas.width,h=layer.canvas.height,data=layer.canvas.getContext("2d").getImageData(0,0,w,h).data;
+    let pixels=0,minX=w,minY=h,maxX=-1,maxY=-1;
+    for(let y=0;y<h;y+=2)for(let x=0;x<w;x+=2){
+      const a=data[(y*w+x)*4+3];if(a>24){pixels++;if(x<minX)minX=x;if(y<minY)minY=y;if(x>maxX)maxX=x;if(y>maxY)maxY=y}
+    }
+    return {id:layer.id,label:layer.label,alphaCoverage:pixels/Math.max(1,(Math.ceil(w/2)*Math.ceil(h/2))),bbox:maxX<0?null:[minX/w,minY/h,maxX/w,maxY/h],source:layer.source,confidence:layer.confidence};
+  }),
   getLayerData: async () => {
     const out = {};
     for (const layer of state.layers) {
