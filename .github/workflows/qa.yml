@@ -1,0 +1,15 @@
+name: Rig Forge Static QA
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Node syntax check
+        run: node --check app.js
+      - name: Static contract test
+        run: node test.mjs
