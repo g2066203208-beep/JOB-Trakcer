@@ -6,35 +6,53 @@
 
 `立绘 → ML 主体解析 → 人体关键点 → 骨骼候选 → 可动画图层 → rig manifest`
 
-## 技术路线
+## 新版 AI 拆层路线
 
-当前浏览器版不是把“最强研究模型”硬塞进网页，而是选择能在 GitHub Pages 直接运行的 WebML 路线：
+当前版本已经停止使用“根据骨骼坐标画椭圆/胶囊”的假拆层算法。
 
-- Transformers.js 4.3 + WebGPU，浏览器端运行 ONNX 模型。Transformers.js v4 引入了新的 WebGPU runtime。
-- `onnx-community/BEN2-ONNX` 做主体抠图；它有明确的 Transformers.js / background-removal 用法。
-- MediaPipe Pose Landmarker 做人体关键点。
-- Rig Inference 把关键点转换成父子骨骼、pivot 和图层关系。
-- PNG 图层保持原图坐标系，可直接继续接 Canvas / WebGL 骨骼播放器。
+实际流程变为：
 
-Transformers.js 4 已提供新的 WebGPU runtime，可在浏览器中直接运行 ONNX 模型。WebGPU 在 2026 年已经有较广泛的浏览器支持，但仍需要 WASM fallback。citeturn818367search1turn818367search0
+`立绘 → Anime 前景 matte → Florence-2 部件定位 → SAM3 真实轮廓分割 → RGBA 图层 → Rig manifest`
 
-## 为什么它还不是最终版
+### 1. Florence-2
 
-“单张动漫立绘 → 完整可动画图层”这个任务，2026 年已经出现了更接近终局的研究路线。
+使用 `onnx-community/Florence-2-base-ft`，230M 参数，浏览器 WebGPU / WASM worker 推理。
 
-**See-through** 是目前与我们的目标最直接对应的研究项目之一：它针对单张 anime illustration 做 layer decomposition，可推断绘制顺序，并生成最多约 23 个语义层，包括头发、脸、眼睛、衣服、饰品等。citeturn534972search3
+它先做开放词汇的 phrase grounding，寻找：
 
-**SAM 3 / SAM 3.1** 则是更通用的前沿视觉基础模型，支持文本概念、视觉 exemplar、点/框提示，并在 2026 年推出了 3.1 的多对象 multiplex。citeturn201572search0turn201572search2
+- hair / face / neck
+- clothing / dress / skirt / sleeve
+- left/right arm / hand / leg / shoe
+- ribbon / bow / accessory
+- bag / backpack / weapon / tail / wing / hat / cape 等
 
-但是官方 SAM 3.1 完整实现仍以 PyTorch/CUDA 环境为主；它不能直接作为 GitHub Pages 的纯静态网页后端运行。citeturn178082search6 社区已经有浏览器 ONNX 化路线，例如 SAM 3 的 text-prompt ONNX 和 SAM 3 tracker 的 Transformers.js ONNX 版本。citeturn749219search0turn538786search0
+这一步的作用是**理解“有哪些部件、它们在哪里”**，而不是生成骨骼。
 
-因此这个项目的终局路线是：
+### 2. SAM3
 
-`Browser WebGPU MVP`
-→ `SAM 3 / 3.1 browser ONNX`
-→ `Anime-specific part segmentation`
-→ `See-through style inpainting + occlusion reconstruction`
-→ `real bone-ready assets`
+Florence-2 给出的每一个真实图像框，会单独交给 `onnx-community/sam3-tracker-ONNX` 做 promptable pixel mask。
+
+这意味着最终图层来自真实图像边界，而不是骨骼坐标几何估计。
+
+### 3. Pose / Rig
+
+Pose Landmarker 仍然保留，但它只用于动画骨骼辅助：
+
+`pose → joints → bones → pivot / parent`
+
+**不再参与图像拆层。**
+
+### 4. 仍未完成的高质量重建
+
+遮挡区域补全是下一阶段。
+
+真正的高质量路线会继续研究 See-through / Bunraku / Qwen-Image-Layered 的 single-image layer reconstruction，让“被头发、衣服、手臂遮住的像素”也可以被重建出来。
+
+所以当前版本应该理解为：
+
+**真实可见区域的 AI 拆层器 + rig 数据生成器**
+
+而不是声称已经完成完整的 hidden-region reconstruction。
 
 ## GitHub Pages
 
