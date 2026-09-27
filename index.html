@@ -19,7 +19,7 @@
 <div class="stage-footer"><div><span class="metric-label">检测关节</span><b id="jointCount">—</b></div><div><span class="metric-label">骨骼段</span><b id="boneCount">—</b></div><div><span class="metric-label">素材层</span><b id="layerCount">—</b></div><div><span class="metric-label">推理状态</span><b id="inferenceMode">—</b></div></div></section>
 <section class="right-column">
 <div class="card"><div class="card-head"><h2>骨骼</h2><span id="rigBadge">未生成</span></div><div id="jointList" class="list empty-list">上传并解析后显示关节。</div></div>
-<div class="card"><div class="card-head"><h2>语义拆层素材</h2><span>PNG · Z-Order</span></div><div id="layerList" class="list empty-list">上传并解析后生成图层。</div><div class="export-actions"><button id="manifestBtn" class="ghost wide" disabled>导出 rig-manifest.json</button><button id="downloadAllBtn" class="primary wide" disabled>导出全部 PNG</button></div></div>
+<div class="card"><div class="card-head"><h2>语义拆层素材</h2><span>直接预览 · PNG</span></div><div id="layerList" class="layer-gallery empty-list">上传并解析后生成图层。</div><div class="export-actions"><button id="manifestBtn" class="ghost wide" disabled>导出 rig-manifest.json</button><button id="downloadAllBtn" class="primary wide" disabled>导出全部 PNG</button></div></div>
 <div class="card notes"><h2>智能拆层状态</h2><p>SAM3 会以人体关键点生成的点/框提示作为对象提示，再输出每个语义候选的独立 mask。未运行 SAM3 前，右侧显示的是候选层；运行后才标记为模型 mask。</p></div>
 </section></main>
 <footer>Character Rig Forge · MVP 0.1</footer>
