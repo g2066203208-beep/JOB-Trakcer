@@ -223,10 +223,19 @@ function buildLayerMask(name){
   const circle=(p,r)=>{ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fill()};
   const ellipse=(p,rx,ry)=>{ctx.beginPath();ctx.ellipse(p.x,p.y,rx,ry,0,0,Math.PI*2);ctx.fill()};
   const lw=(a,b,k,min)=>Math.max(min,len(a,b)*k);
+  const centerHead={x:m.head.x,y:m.head.y};
   switch(name){
-    case"head":ellipse(m.head,m.r,m.r*1.12);break;
-    case"hair-candidate":ellipse({x:m.head.x,y:m.head.y-m.r*.26},m.r*1.12,m.r*.92);break;
+    case"back-hair":ellipse({x:m.head.x,y:m.head.y-m.r*.28},m.r*1.18,m.r*.98);break;
+    case"head":ellipse(m.head,m.r,m.r*1.10);break;
+    case"front-hair":ellipse({x:m.head.x,y:m.head.y-m.r*.50},m.r*1.10,m.r*.52);break;
+    case"face":ellipse({x:m.head.x,y:m.head.y+m.r*.12},m.r*.76,m.r*.86);break;
+    case"eye-L":circle({x:m.head.x-m.r*.30,y:m.head.y+m.r*.12},Math.max(5,m.r*.09));break;
+    case"eye-R":circle({x:m.head.x+m.r*.30,y:m.head.y+m.r*.12},Math.max(5,m.r*.09));break;
+    case"mouth":capsule({x:m.head.x-m.r*.18,y:m.head.y+m.r*.48},{x:m.head.x+m.r*.18,y:m.head.y+m.r*.48},Math.max(4,m.r*.065));break;
+    case"neck":capsule(q.leftShoulder,q.rightShoulder,Math.max(10,len(q.leftShoulder,q.rightShoulder)*.18));break;
     case"torso":{const a=q.leftShoulder,b=q.rightShoulder,c1=q.rightHip,d=q.leftHip,p=Math.max(10,len(a,b)*.08);ctx.beginPath();ctx.moveTo(a.x-p,a.y-p);ctx.lineTo(b.x+p,b.y-p);ctx.lineTo(c1.x+p,c1.y+p);ctx.lineTo(d.x-p,d.y+p);ctx.closePath();ctx.fill();break}
+    case"clothes":{const a=q.leftShoulder,b=q.rightShoulder,c1=q.rightHip,d=q.leftHip,p=Math.max(16,len(a,b)*.18);ctx.beginPath();ctx.moveTo(a.x-p,a.y-p);ctx.lineTo(b.x+p,b.y-p);ctx.lineTo(c1.x+p,c1.y+p);ctx.lineTo(d.x-p,d.y+p);ctx.closePath();ctx.fill();break}
+    case"accessory":{circle(mid(q.leftHip,q.rightHip),Math.max(12,m.r*.14));break}
     case"upper-arm-L":capsule(q.leftShoulder,q.leftElbow,lw(q.leftShoulder,q.leftElbow,.20,14));break;
     case"forearm-L":capsule(q.leftElbow,q.leftWrist,lw(q.leftElbow,q.leftWrist,.22,13));break;
     case"hand-L":circle(q.leftWrist,Math.max(12,len(q.leftElbow,q.leftWrist)*.16));break;
@@ -300,7 +309,7 @@ function renderJoints(){if(!state.joints.length){ui.joints.className="list empty
   ui.joints.className="list";ui.joints.innerHTML=state.joints.map(j=>'<div class="joint-row"><span class="dot"></span><div><div class="row-name">'+j.label+'</div><div class="row-meta">'+j.x.toFixed(0)+', '+j.y.toFixed(0)+'</div></div><span class="row-meta">'+j.id+'</span></div>').join("");
 }
 function renderLayers(){if(!state.layers.length){ui.layers.className="list empty-list";ui.layers.textContent="上传并解析后生成图层。";return}
-  ui.layers.className="list";ui.layers.innerHTML=state.layers.map(l=>'<div class="layer-row"><span class="layer-dot"></span><div><div class="row-name">'+l.label+'</div><div class="row-meta">pivot: '+l.pivot+' · parent: '+l.parent+'</div></div><button class="mini-btn" data-layer="'+l.id+'">PNG</button></div>').join("");
+  ui.layers.className="list";ui.layers.innerHTML=state.layers.map(l=>'<div class="layer-row"><span class="layer-dot"></span><div><div class="row-name">'+l.label+'</div><div class="row-meta">Z '+l.zOrder+' · pivot: '+l.pivot+' · parent: '+l.parent+' · '+(l.confidence??"候选")+'</div></div><button class="mini-btn" data-layer="'+l.id+'">PNG</button></div>').join("");
   ui.layers.querySelectorAll("[data-layer]").forEach(b=>b.addEventListener("click",()=>downloadLayer(b.dataset.layer)));
 }
 function blobOf(c){return new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(new Error("PNG export failed")),"image/png"))}
