@@ -1,10 +1,10 @@
-import { pipeline, env as hfEnv } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm";
+import { pipeline, env as hfEnv } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.0/+esm";
 import { FilesetResolver, PoseLandmarker } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.0.1/+esm";
 
 hfEnv.allowLocalModels=false;
 hfEnv.useBrowserCache=true;
 
-const MATTE_MODEL="Xenova/modnet";
+const MATTE_MODEL="onnx-community/anime-seg-ONNX";
 const POSE_MODEL="https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/pose_landmarker_full.task";
 const WASM_ROOT="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.0.1/wasm";
 const $=id=>document.getElementById(id);
@@ -51,7 +51,7 @@ function put(canvas,imageData){canvas.width=imageData.width;canvas.height=imageD
 
 async function getMatte(){
   if(state.matte)return state.matte;modelStatus("加载主体 ML…","busy");
-  state.matte=await pipeline("background-removal",MATTE_MODEL,{dtype:"q8"});return state.matte;
+  state.matte=await pipeline("background-removal",MATTE_MODEL,{device:navigator.gpu?"webgpu":"wasm",dtype:navigator.gpu?"fp16":"q8"});return state.matte;
 }
 async function getPoseModel(){
   if(state.poseModel)return state.poseModel;modelStatus("加载骨骼 ML…","busy");
