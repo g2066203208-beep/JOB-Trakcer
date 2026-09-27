@@ -19,7 +19,8 @@ const ui={
 
 const state={
   file:null,img:null,url:null,matte:null,poseModel:null,pose:null,poseNamed:null,joints:[],bones:[],layers:[],manifest:null,
-  source:document.createElement("canvas"),subject:document.createElement("canvas"),sam3:null,sam3Processor:null,sam3Image:null
+  source:document.createElement("canvas"),subject:document.createElement("canvas"),sam3:null,sam3Processor:null,sam3Image:null,
+  parts:[],visionWorker:null,visionSeq:0,visionRequests:new Map()
 };
 
 function modelStatus(text,kind=""){ui.status.textContent=text;ui.dot.className=kind}
@@ -98,11 +99,61 @@ function normalizePose(result){
   return Object.values(out).filter(v=>v.visibility>=.2).length>=8?out:fallbackPose();
 }
 async function runPose(){
-  step(2,"active");
-  try{state.pose=await (await getPoseModel()).detect(state.img);state.poseNamed=normalizePose(state.pose);step(2,"done")}
-  catch(e){console.warn("pose",e);state.poseNamed=fallbackPose();step(2,"done");modelStatus("姿态 ML 失败 · 比例兜底","busy")}
+  try{state.pose=await (await getPoseModel()).detect(state.img);state.poseNamed=normalizePose(state.pose)}
+  catch(e){console.warn("pose",e);state.poseNamed=fallbackPose()}
 }
 
+function getVisionWorker(){
+  if(state.visionWorker)return state.visionWorker;
+  state.visionWorker=new Worker("./vision-worker.js",{type:"module"});
+  state.visionWorker.addEventListener("message",e=>{
+    const d=e.data||{},req=state.visionRequests.get(d.id);
+    if(!req)return;
+    if(d.type==="result"){state.visionRequests.delete(d.id);req.resolve(d)}
+    else if(d.type==="error"){state.visionRequests.delete(d.id);req.reject(new Error(d.message))}
+  });
+  return state.visionWorker;
+}
+function visionRequest(message){
+  return new Promise((resolve,reject)=>{
+    const id=++state.visionSeq;
+    state.visionRequests.set(id,{resolve,reject});
+    getVisionWorker().postMessage({...message,id});
+  });
+}
+const VISION_PHRASES=["hair","face","neck","shirt","top","dress","skirt","sleeve","glove","hand","left arm","right arm","left hand","right hand","left leg","right leg","left shoe","right shoe","ribbon","bow","accessory","bag","backpack","weapon","tail","wing","hat","jacket","coat","cape","stocking"];
+const PHRASE_LABELS={hair:"头发",face:"脸",neck:"脖子",shirt:"上衣",top:"上衣",dress:"裙装",skirt:"裙子",sleeve:"衣袖",glove:"手套",hand:"手","left arm":"左手臂","right arm":"右手臂","left hand":"左手","right hand":"右手","left leg":"左腿","right leg":"右腿","left shoe":"左脚/鞋","right shoe":"右脚/鞋",ribbon:"丝带",bow:"蝴蝶结",accessory:"饰品",bag:"包",backpack:"背包",weapon:"武器",tail:"尾巴",wing:"翅膀",hat:"帽子",jacket:"外套",coat:"外套",cape:"披风",stocking:"长袜"};
+function iouBox(a,b){
+  const ax=Math.max(a[0],b[0]),ay=Math.max(a[1],b[1]),bx=Math.min(a[2],b[2]),by=Math.min(a[3],b[3]);
+  const inter=Math.max(0,bx-ax)*Math.max(0,by-ay),aa=Math.max(1,(a[2]-a[0])*(a[3]-a[1])),ab=Math.max(1,(b[2]-b[0])*(b[3]-b[1]));
+  return inter/Math.max(1,aa+ab-inter);
+}
+function normalizeVisionParts(parsed,w,h){
+  const body=parsed?.["<CAPTION_TO_PHRASE_GROUNDING>"] ?? parsed?.["<OD>"] ?? Object.values(parsed||{})[0] ?? {};
+  const boxes=body.bboxes||body.boxes||[],labels=body.bboxes_labels||body.labels||[],parts=[];
+  for(let i=0;i<Math.min(boxes.length,labels.length);i++){
+    const rawLabel=String(labels[i]??"object").trim().toLowerCase(),box=(boxes[i]||[]).map(Number);
+    if(box.length!==4||box.some(n=>!Number.isFinite(n)))continue;
+    const x1=Math.max(0,Math.min(w,box[0])),y1=Math.max(0,Math.min(h,box[1])),x2=Math.max(0,Math.min(w,box[2])),y2=Math.max(0,Math.min(h,box[3]));
+    if(x2-x1<8||y2-y1<8||(x2-x1)*(y2-y1)<w*h*0.0015)continue;
+    const canonical=PHRASE_LABELS[rawLabel]||rawLabel;
+    if(parts.some(p=>p.label===canonical&&iouBox(p.box,[x1,y1,x2,y2])>.72))continue;
+    parts.push({id:"part-"+(parts.length+1),label:canonical,query:rawLabel,box:[x1,y1,x2,y2],x:(x1+x2)/2,y:(y1+y2)/2,confidence:"Florence-2 grounded"});
+  }
+  return parts.slice(0,22);
+}
+async function runVisionParts(){
+  step(2,"active");modelStatus("Florence-2 正在理解立绘部件…","busy");
+  try{
+    const result=await visionRequest({type:"run",imageUrl:state.url,text:VISION_PHRASES.join(", ")});
+    state.parts=normalizeVisionParts(result.parsed,state.source.width,state.source.height);
+    if(!state.parts.length)state.parts=[{id:"character",label:"角色主体",query:"character",box:[0,0,state.source.width,state.source.height],x:state.source.width/2,y:state.source.height/2,confidence:"主体兜底"}];
+    step(2,"done");ui.mode.textContent="Florence-2";modelStatus("AI 部件理解完成 · "+state.parts.length+" 个候选部件","ready");
+  }catch(e){
+    console.warn("vision",e);state.parts=[{id:"character",label:"角色主体",query:"character",box:[0,0,state.source.width,state.source.height],x:state.source.width/2,y:state.source.height/2,confidence:"主体兜底"}];
+    step(2,"done");ui.mode.textContent="主体兜底";modelStatus("视觉理解失败 · 只保留主体","busy");
+  }
+}
 async function getSam3(){
   if(state.sam3 && state.sam3Processor)return;
   modelStatus("加载 SAM3 智能拆层…","busy");
@@ -170,38 +221,47 @@ function applyMaskToSubject(maskCanvas){
   ctx.drawImage(state.subject,0,0);ctx.globalCompositeOperation="destination-in";ctx.drawImage(maskCanvas,0,0);ctx.globalCompositeOperation="source-over";return c;
 }
 async function runSam3LayerDecomposition(){
-  if(!state.joints.length)return;
-  step(3,"active");modelStatus("SAM3 正在生成部件 mask…","busy");
+  if(!state.parts.length)return;
+  step(3,"active");modelStatus("SAM3 正在沿真实轮廓拆分部件…","busy");
   await getSam3();
-  const prompts=rigPromptPoints();
-  const inputPoints=[prompts.map(x=>x.points)];
-  const inputLabels=[prompts.map(()=>[1])];
-  const inputBoxes=[prompts.map(x=>x.box)];
-  const inputs=await state.sam3Processor({images:state.sam3Image,input_points:inputPoints,input_labels:inputLabels,input_boxes:inputBoxes,return_tensors:"np"});
-  const outputs=await state.sam3(inputs,{multimask_output:false});
-  const processed=await state.sam3Processor.post_process_masks(outputs.pred_masks,inputs.original_sizes);
-  const packed=processed?.[0];
-  if(!packed)throw new Error("SAM3 returned no masks");
-  const dims=packed.dims??[], count=prompts.length;
-  const masks=[];
-  for(let i=0;i<count;i++){
-    let mask;
-    if(dims.length===4){const h=dims[2],w=dims[3];const sliceSize=h*w;mask={data:packed.data.slice(i*sliceSize,(i+1)*sliceSize),dims:[h,w]}}
-    else if(dims.length===3){const h=dims[1],w=dims[2];const sliceSize=h*w;mask={data:packed.data.slice(i*sliceSize,(i+1)*sliceSize),dims:[h,w]}}
-    else mask=packed;
-    masks.push(mask);
+  const results=[];
+  for(let i=0;i<state.parts.length;i++){
+    const part=state.parts[i];
+    if(part.id==="character"){
+      const canvas=document.createElement("canvas");canvas.width=state.source.width;canvas.height=state.source.height;canvas.getContext("2d").drawImage(state.subject,0,0);
+      results.push({...part,canvas,source:"ML subject"});continue;
+    }
+    try{
+      const [x1,y1,x2,y2]=part.box;
+      const inputs=await state.sam3Processor(state.sam3Image,{input_boxes:[[[x1,y1,x2,y2]]],return_tensors:"np"});
+      const outputs=await state.sam3(inputs,{multimask_output:true});
+      const processed=await state.sam3Processor.post_process_masks(outputs.pred_masks,inputs.original_sizes,inputs.reshaped_input_sizes);
+      const maskTensor=processed?.[0]?.[0];if(!maskTensor)throw new Error("empty mask");
+      const maskImage=RawImage.fromTensor(maskTensor),scores=outputs.iou_scores?.data||[];
+      const count=scores.length||1;let best=0;for(let j=1;j<count;j++)if(scores[j]>scores[best])best=j;
+      const maskData=new Uint8Array(maskImage.width*maskImage.height);
+      for(let p=0;p<maskData.length;p++)maskData[p]=maskImage.data[count*p+best]===1?255:0;
+      const mc=document.createElement("canvas");mc.width=maskImage.width;mc.height=maskImage.height;const mi=mc.getContext("2d").createImageData(mc.width,mc.height);
+      for(let p=0;p<maskData.length;p++){const o=p*4;mi.data[o]=255;mi.data[o+1]=255;mi.data[o+2]=255;mi.data[o+3]=maskData[p]}
+      mc.getContext("2d").putImageData(mi,0,0);
+      const canvas=applyMaskToSubject(mc),coverage=maskData.reduce((a,v)=>a+(v?1:0),0)/Math.max(1,maskData.length);
+      const score=scores.length?("SAM3 "+scores[best].toFixed(2)):"SAM3";
+      results.push({...part,canvas,source:"SAM3 mask ∩ Anime matte",confidence:score+(coverage<0.003?" · tiny":"")});
+    }catch(e){
+      console.warn("SAM3 part failed",part,e);
+      const empty=document.createElement("canvas");empty.width=state.source.width;empty.height=state.source.height;
+      results.push({...part,canvas:empty,source:"SAM3 failed",confidence:"待人工确认"});
+    }
+    modelStatus("SAM3 拆层 "+(i+1)+"/"+state.parts.length+" · "+part.label,"busy");
   }
-  const byId=new Map(prompts.map((p,i)=>[p.id,masks[i]]));
-  for(const layer of state.layers){
-    const mask=byId.get(layer.id);
-    if(!mask)continue;
-    layer.canvas=applyMaskToSubject(tensorMaskToCanvas(mask,state.source.width,state.source.height));
-    layer.source="SAM3 mask ∩ ML subject";layer.confidence="model-mask";
-  }
-  state.manifest.inference.sam3Model=SAM3_MODEL;state.manifest.inference.semanticModel="SAM3 promptable visual segmentation";
-  state.manifest.inference.decomposition="SAM3 tracker multi-object point prompts";
-  state.manifest.layers=state.layers.map(l=>({id:l.id,label:l.label,parent:l.parent,pivot:l.pivot,bone:l.bone,x:l.x/state.source.width,y:l.y/state.source.height,source:l.source}));
-  step(3,"done");step(4,"done");ui.mode.textContent="SAM3 + ML";renderLayers();drawView();modelStatus("SAM3 智能拆层完成","ready");
+  state.layers=results.map((p,i)=>({...p,z:i,zOrder:i,parent:i===0?"root":"character",pivot:"auto",bone:null}));
+  const w=state.source.width,h=state.source.height;
+  state.manifest.inference.sam3Model=SAM3_MODEL;
+  state.manifest.inference.semanticModel="Florence-2 semantic grounding + SAM3 mask refinement";
+  state.manifest.inference.decomposition="open-vocabulary region discovery → promptable mask extraction";
+  state.manifest.layers=state.layers.map(l=>({id:l.id,label:l.label,parent:l.parent,pivot:l.pivot,zOrder:l.zOrder,x:l.x/w,y:l.y/h,box:l.box,source:l.source}));
+  step(3,"done");step(4,"done");ui.mode.textContent="Florence-2 + SAM3";ui.layerCount.textContent=state.layers.length;
+  ui.badge.textContent="真实轮廓层已生成";ui.badge.style.color="var(--accent)";ui.manifest.disabled=false;ui.all.disabled=false;renderLayers();drawView();modelStatus("AI 拆层完成 · "+state.layers.length+" 层","ready");
 }
 
 function buildRig(){
@@ -216,85 +276,21 @@ function buildRig(){
   state.meta={neck,pelvis,head,r,w:state.source.width,h:state.source.height};step(3,"done");
 }
 
-function buildLayerMask(name){
-  const q=state.poseNamed,m=state.meta,w=state.source.width,h=state.source.height,c=document.createElement("canvas");c.width=w;c.height=h;
-  const ctx=c.getContext("2d");ctx.drawImage(state.subject,0,0);ctx.globalCompositeOperation="destination-in";ctx.fillStyle="#fff";
-  const capsule=(a,b,s)=>{ctx.save();ctx.lineCap="round";ctx.lineWidth=s;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.restore()};
-  const circle=(p,r)=>{ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fill()};
-  const ellipse=(p,rx,ry)=>{ctx.beginPath();ctx.ellipse(p.x,p.y,rx,ry,0,0,Math.PI*2);ctx.fill()};
-  const lw=(a,b,k,min)=>Math.max(min,len(a,b)*k);
-  const centerHead={x:m.head.x,y:m.head.y};
-  switch(name){
-    case"back-hair":ellipse({x:m.head.x,y:m.head.y-m.r*.28},m.r*1.18,m.r*.98);break;
-    case"head":ellipse(m.head,m.r,m.r*1.10);break;
-    case"front-hair":ellipse({x:m.head.x,y:m.head.y-m.r*.50},m.r*1.10,m.r*.52);break;
-    case"face":ellipse({x:m.head.x,y:m.head.y+m.r*.12},m.r*.76,m.r*.86);break;
-    case"eye-L":circle({x:m.head.x-m.r*.30,y:m.head.y+m.r*.12},Math.max(5,m.r*.09));break;
-    case"eye-R":circle({x:m.head.x+m.r*.30,y:m.head.y+m.r*.12},Math.max(5,m.r*.09));break;
-    case"mouth":capsule({x:m.head.x-m.r*.18,y:m.head.y+m.r*.48},{x:m.head.x+m.r*.18,y:m.head.y+m.r*.48},Math.max(4,m.r*.065));break;
-    case"neck":capsule(q.leftShoulder,q.rightShoulder,Math.max(10,len(q.leftShoulder,q.rightShoulder)*.18));break;
-    case"torso":{const a=q.leftShoulder,b=q.rightShoulder,c1=q.rightHip,d=q.leftHip,p=Math.max(10,len(a,b)*.08);ctx.beginPath();ctx.moveTo(a.x-p,a.y-p);ctx.lineTo(b.x+p,b.y-p);ctx.lineTo(c1.x+p,c1.y+p);ctx.lineTo(d.x-p,d.y+p);ctx.closePath();ctx.fill();break}
-    case"clothes":{const a=q.leftShoulder,b=q.rightShoulder,c1=q.rightHip,d=q.leftHip,p=Math.max(16,len(a,b)*.18);ctx.beginPath();ctx.moveTo(a.x-p,a.y-p);ctx.lineTo(b.x+p,b.y-p);ctx.lineTo(c1.x+p,c1.y+p);ctx.lineTo(d.x-p,d.y+p);ctx.closePath();ctx.fill();break}
-    case"accessory":{circle(mid(q.leftHip,q.rightHip),Math.max(12,m.r*.14));break}
-    case"upper-arm-L":capsule(q.leftShoulder,q.leftElbow,lw(q.leftShoulder,q.leftElbow,.20,14));break;
-    case"forearm-L":capsule(q.leftElbow,q.leftWrist,lw(q.leftElbow,q.leftWrist,.22,13));break;
-    case"hand-L":circle(q.leftWrist,Math.max(12,len(q.leftElbow,q.leftWrist)*.16));break;
-    case"upper-arm-R":capsule(q.rightShoulder,q.rightElbow,lw(q.rightShoulder,q.rightElbow,.20,14));break;
-    case"forearm-R":capsule(q.rightElbow,q.rightWrist,lw(q.rightElbow,q.rightWrist,.22,13));break;
-    case"hand-R":circle(q.rightWrist,Math.max(12,len(q.rightElbow,q.rightWrist)*.16));break;
-    case"thigh-L":capsule(q.leftHip,q.leftKnee,lw(q.leftHip,q.leftKnee,.30,22));break;
-    case"shin-L":capsule(q.leftKnee,q.leftAnkle,lw(q.leftKnee,q.leftAnkle,.28,20));break;
-    case"foot-L":capsule(q.leftAnkle,q.leftFoot,Math.max(18,len(q.leftAnkle,q.leftFoot)*.9));break;
-    case"thigh-R":capsule(q.rightHip,q.rightKnee,lw(q.rightHip,q.rightKnee,.30,22));break;
-    case"shin-R":capsule(q.rightKnee,q.rightAnkle,lw(q.rightKnee,q.rightAnkle,.28,20));break;
-    case"foot-R":capsule(q.rightAnkle,q.rightFoot,Math.max(18,len(q.rightAnkle,q.rightFoot)*.9));break;
-  }
-  ctx.globalCompositeOperation="source-over";return c;
-}
-
 function buildLayers(){
   step(4,"active");
-  const q=state.poseNamed;
-  const pivotMap={
-    "back-hair":"neck","front-hair":"head","head":"neck","face":"head","eye-L":"head","eye-R":"head","mouth":"head","neck":"neck","torso":"neck","clothes":"neck","accessory":"neck",
-    "upper-arm-L":"shoulderL","forearm-L":"elbowL","hand-L":"wristL","upper-arm-R":"shoulderR","forearm-R":"elbowR","hand-R":"wristR",
-    "thigh-L":"hipL","shin-L":"kneeL","foot-L":"ankleL","thigh-R":"hipR","shin-R":"kneeR","foot-R":"ankleR"
-  };
-  const parentMap={
-    "back-hair":"body","head":"body","front-hair":"head","face":"head","eye-L":"face","eye-R":"face","mouth":"face","neck":"root","torso":"root","clothes":"torso","accessory":"torso",
-    "upper-arm-L":"torso","forearm-L":"upper-arm-L","hand-L":"forearm-L","upper-arm-R":"torso","forearm-R":"upper-arm-R","hand-R":"forearm-R",
-    "thigh-L":"torso","shin-L":"thigh-L","foot-L":"shin-L","thigh-R":"torso","shin-R":"thigh-R","foot-R":"shin-R"
-  };
-  const labels={
-    "back-hair":"后发","front-hair":"前发","head":"头","face":"脸","eye-L":"左眼","eye-R":"右眼","mouth":"嘴","neck":"脖子","torso":"躯干","clothes":"衣服","accessory":"饰品",
-    "upper-arm-L":"左上臂","forearm-L":"左前臂","hand-L":"左手","upper-arm-R":"右上臂","forearm-R":"右前臂","hand-R":"右手",
-    "thigh-L":"左大腿","shin-L":"左小腿","foot-L":"左脚","thigh-R":"右大腿","shin-R":"右小腿","foot-R":"右脚"
-  };
-  const order=["back-hair","thigh-L","thigh-R","torso","upper-arm-L","upper-arm-R","forearm-L","forearm-R","clothes","neck","head","face","eye-L","eye-R","mouth","front-hair","hand-L","hand-R","shin-L","shin-R","foot-L","foot-R","accessory"];
-  const promptSet=semanticPromptSet();
-  const pivots=state.joints;
-  const guessPoint={
-    "back-hair":q.nose,"front-hair":q.nose,"head":q.nose,"face":q.nose,"eye-L":{x:q.nose.x-len(q.leftShoulder,q.rightShoulder)*.28,y:q.nose.y+len(q.leftShoulder,q.rightShoulder)*.08},
-    "eye-R":{x:q.nose.x+len(q.leftShoulder,q.rightShoulder)*.28,y:q.nose.y+len(q.leftShoulder,q.rightShoulder)*.08},"mouth":{x:q.nose.x,y:q.nose.y+len(q.leftShoulder,q.rightShoulder)*.30},
-    "neck":mid(q.leftShoulder,q.rightShoulder),"torso":mid(mid(q.leftShoulder,q.rightShoulder),mid(q.leftHip,q.rightHip)),"clothes":mid(mid(q.leftShoulder,q.rightShoulder),mid(q.leftHip,q.rightHip)),
-    "accessory":mid(q.leftHip,q.rightHip),"upper-arm-L":mid(q.leftShoulder,q.leftElbow),"forearm-L":mid(q.leftElbow,q.leftWrist),"hand-L":q.leftWrist,
-    "upper-arm-R":mid(q.rightShoulder,q.rightElbow),"forearm-R":mid(q.rightElbow,q.rightWrist),"hand-R":q.rightWrist,
-    "thigh-L":mid(q.leftHip,q.leftKnee),"shin-L":mid(q.leftKnee,q.leftAnkle),"foot-L":q.leftFoot,"thigh-R":mid(q.rightHip,q.rightKnee),"shin-R":mid(q.rightKnee,q.rightAnkle),"foot-R":q.rightFoot
-  };
-  const promptById=new Map(promptSet.map(x=>[x.id,x]));
-  state.layers=order.map((id,z)=>{
-    const canvas=buildLayerMask(id) || document.createElement("canvas");
-    const j=pivots.find(x=>x.id===pivotMap[id]);
-    return {id,label:labels[id],pivot:pivotMap[id],parent:parentMap[id],canvas,x:j?.x??guessPoint[id]?.x??0,y:j?.y??guessPoint[id]?.y??0,z,zOrder:z,source:"ml-subject ∩ semantic-rig-region",prompt:promptById.get(id)};
-  });
   const w=state.source.width,h=state.source.height;
-  state.manifest={schemaVersion:"0.2.0",studio:"Character Rig Forge",source:{name:state.file?.name??"unknown",width:w,height:h},
-    inference:{subjectModel:MATTE_MODEL,poseModel:POSE_MODEL,mode:state.pose?.landmarks?.length?"ml+geometric":"fallback+geometric",semanticModel:null,decomposition:"semantic candidates pending SAM3"},
+  state.layers=state.parts.map((p,i)=>({
+    ...p,z:i,zOrder:i,parent:"root",pivot:"auto",bone:null,
+    canvas:(()=>{const c=document.createElement("canvas");c.width=w;c.height=h;return c})(),
+    source:"waiting for SAM3 mask"
+  }));
+  state.manifest={schemaVersion:"0.3.0",studio:"Character Rig Forge",source:{name:state.file?.name??"unknown",width:w,height:h},
+    inference:{subjectModel:MATTE_MODEL,poseModel:POSE_MODEL,mode:"vision-grounded",semanticModel:"Florence-2",decomposition:"grounded regions pending SAM3"},
     joints:Object.fromEntries(state.joints.map(j=>[j.id,{label:j.label,x:j.x/w,y:j.y/h}])),bones:state.bones,
-    layers:state.layers.map(l=>({id:l.id,label:l.label,parent:l.parent,pivot:l.pivot,zOrder:l.zOrder,x:l.x/w,y:l.y/h,source:l.source}))
+    layers:state.layers.map(l=>({id:l.id,label:l.label,parent:l.parent,pivot:l.pivot,zOrder:l.zOrder,x:l.x/w,y:l.y/h,box:l.box,source:l.source}))
   };
-  step(4,"done");ui.jointCount.textContent=state.joints.length;ui.boneCount.textContent=state.bones.length;ui.layerCount.textContent=state.layers.length;ui.mode.textContent=state.pose?.landmarks?.length?"ML":"Fallback";
-  ui.badge.textContent="语义候选已生成";ui.badge.style.color="var(--accent)";ui.manifest.disabled=false;ui.all.disabled=false;ui.sam.disabled=false;renderJoints();renderLayers();drawView();modelStatus("语义拆层候选就绪 · 等待 SAM3","ready");
+  ui.jointCount.textContent=state.joints.length||"—";ui.boneCount.textContent=state.bones.length||"—";ui.layerCount.textContent=state.layers.length;ui.mode.textContent="Florence-2";
+  ui.badge.textContent="待 SAM3 精修";ui.badge.style.color="var(--accent)";ui.manifest.disabled=false;ui.all.disabled=false;renderJoints();renderLayers();drawView();step(4,"done");
 }
 
 function drawView(){
@@ -321,8 +317,8 @@ async function downloadLayer(id){const l=state.layers.find(x=>x.id===id);if(!l)r
 async function downloadAll(){for(const l of state.layers)await downloadLayer(l.id)}
 function downloadManifest(){if(!state.manifest)return;const u=URL.createObjectURL(new Blob([JSON.stringify(state.manifest,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="rig-manifest.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
 
-async function analyze(){if(!state.file)return;ui.analyze.disabled=true;ui.sam.disabled=true;try{await runMatte();await runPose();buildRig();buildLayers()}catch(e){console.error(e);modelStatus("解析出错 · 查看控制台","busy")}finally{ui.analyze.disabled=false}}
-function reset(){if(state.url)URL.revokeObjectURL(state.url);state.file=null;state.img=null;state.pose=null;state.poseNamed=null;state.joints=[];state.bones=[];state.layers=[];state.manifest=null;
+async function analyze(){if(!state.file)return;ui.analyze.disabled=true;ui.sam.disabled=true;try{await runMatte();await runVisionParts();await runPose();buildRig();buildLayers();await runSam3LayerDecomposition()}catch(e){console.error(e);modelStatus("解析出错 · 已保留当前结果","busy")}finally{ui.analyze.disabled=false;ui.sam.disabled=false}}
+function reset(){if(state.url)URL.revokeObjectURL(state.url);state.file=null;state.img=null;state.pose=null;state.poseNamed=null;state.joints=[];state.bones=[];state.layers=[];state.parts=[];state.manifest=null;
   ui.input.value="";ui.analyze.disabled=true;ui.manifest.disabled=true;ui.all.disabled=true;ui.sam.disabled=true;ui.jointCount.textContent="—";ui.boneCount.textContent="—";ui.layerCount.textContent="—";ui.mode.textContent="—";ui.meta.textContent="等待立绘";ui.badge.textContent="未生成";ui.badge.style.color="";
   ui.joints.className="list empty-list";ui.joints.textContent="上传并解析后显示关节。";ui.layers.className="list empty-list";ui.layers.textContent="上传并解析后生成图层。";resetSteps();ui.canvas.width=1;ui.canvas.height=1;ui.frame.classList.add("empty");ui.frame.querySelector(".empty-stage").style.display="flex";modelStatus("等待立绘");
 }
@@ -334,6 +330,7 @@ reset();
 
 window.CharacterRigForge = {
   getManifest: () => state.manifest ? JSON.parse(JSON.stringify(state.manifest)) : null,
+  getParts: () => JSON.parse(JSON.stringify(state.parts)),
   getLayerData: async () => {
     const out = {};
     for (const layer of state.layers) {
