@@ -309,9 +309,13 @@ function renderJoints(){if(!state.joints.length){ui.joints.className="list empty
   ui.joints.className="list";ui.joints.innerHTML=state.joints.map(j=>'<div class="joint-row"><span class="dot"></span><div><div class="row-name">'+j.label+'</div><div class="row-meta">'+j.x.toFixed(0)+', '+j.y.toFixed(0)+'</div></div><span class="row-meta">'+j.id+'</span></div>').join("");
 }
 function renderLayers(){if(!state.layers.length){ui.layers.className="list empty-list";ui.layers.textContent="上传并解析后生成图层。";return}
-  ui.layers.className="list";ui.layers.innerHTML=state.layers.map(l=>'<div class="layer-row"><span class="layer-dot"></span><div><div class="row-name">'+l.label+'</div><div class="row-meta">Z '+l.zOrder+' · pivot: '+l.pivot+' · parent: '+l.parent+' · '+(l.confidence??"候选")+'</div></div><button class="mini-btn" data-layer="'+l.id+'">PNG</button></div>').join("");
-  ui.layers.querySelectorAll("[data-layer]").forEach(b=>b.addEventListener("click",()=>downloadLayer(b.dataset.layer)));
+  ui.layers.className="layer-gallery";
+  ui.layers.innerHTML=state.layers.map(l=>'<article class="layer-card" data-layer-card="'+l.id+'"><div class="layer-thumb-wrap"><canvas class="layer-thumb" width="96" height="96" data-thumb="'+l.id+'"></canvas></div><div class="layer-info"><div class="layer-title">'+l.label+'</div><div class="layer-meta">Z '+l.zOrder+' · '+(l.confidence??"候选")+'</div></div><div class="layer-actions"><button class="mini-btn" data-preview="'+l.id+'">查看</button><button class="mini-btn" data-layer="'+l.id+'">PNG</button></div></article>').join("");
+  ui.layers.querySelectorAll("[data-thumb]").forEach(t=>{const l=state.layers.find(x=>x.id===t.dataset.thumb);if(!l?.canvas)return;const ctx=t.getContext("2d");const s=Math.min(92/l.canvas.width,92/l.canvas.height);const w=Math.max(1,Math.round(l.canvas.width*s)),h=Math.max(1,Math.round(l.canvas.height*s));ctx.clearRect(0,0,96,96);ctx.drawImage(l.canvas,Math.round((96-w)/2),Math.round((96-h)/2),w,h)});
+  ui.layers.querySelectorAll("[data-layer]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();downloadLayer(b.dataset.layer)}));
+  ui.layers.querySelectorAll("[data-preview]").forEach(b=>b.addEventListener("click",()=>showLayerPreview(b.dataset.preview)));
 }
+function showLayerPreview(id){const l=state.layers.find(x=>x.id===id);if(!l?.canvas)return;ui.canvas.width=state.source.width;ui.canvas.height=state.source.height;const ctx=ui.canvas.getContext("2d");ctx.clearRect(0,0,ui.canvas.width,ui.canvas.height);ctx.drawImage(l.canvas,0,0);ui.meta.textContent=l.label+" · "+state.source.width+" × "+state.source.height;ui.mode.textContent=(l.confidence==="model-mask"?"SAM3":"候选")+" · 单层预览";}
 function blobOf(c){return new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(new Error("PNG export failed")),"image/png"))}
 async function downloadLayer(id){const l=state.layers.find(x=>x.id===id);if(!l)return;const u=URL.createObjectURL(await blobOf(l.canvas)),a=document.createElement("a");a.href=u;a.download=id+".png";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
 async function downloadAll(){for(const l of state.layers)await downloadLayer(l.id)}
