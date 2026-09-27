@@ -1,0 +1,38 @@
+name: Rig Forge Live ML Demo
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Install browser runner
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Download CC0 test character
+        run: curl -L --fail --retry 3 -o /tmp/test-character.png https://openclipart.org/image/2000px/171797
+      - name: Start studio
+        run: |
+          python3 -m http.server 4173 > /tmp/rig-forge-server.log 2>&1 &
+          sleep 3
+      - name: Run browser ML pipeline
+        run: node e2e/run-demo.mjs
+      - name: Upload generated rig package
+        uses: actions/upload-artifact@v4
+        with:
+          name: character-rig-forge-demo
+          path: artifacts/rig-forge-demo/
+          if-no-files-found: error
