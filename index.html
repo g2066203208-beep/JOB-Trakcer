@@ -2,25 +2,25 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Character Rig Forge</title><link rel="stylesheet" href="./styles.css"></head>
 <body>
-<header class="topbar"><div><div class="eyebrow">CHARACTER RIG FORGE</div><h1>立绘骨骼素材工作室</h1><p>单张立绘 → ML 主体解析 → 骨骼关键点 → 可动画素材</p></div><div class="model-chip"><span id="modelDot"></span><span id="modelStatus">等待立绘</span></div></header>
+<header class="topbar"><div><div class="eyebrow">CHARACTER RIG FORGE</div><h1>立绘骨骼素材工作室</h1><p>单张立绘 → AI 部件理解 → 真实轮廓拆层 → 可动画素材</p></div><div class="model-chip"><span id="modelDot"></span><span id="modelStatus">等待立绘</span></div></header>
 <main class="workspace">
 <section class="left-column">
 <div class="card upload-card" id="dropZone"><input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden><div class="upload-icon">✦</div><h2>放入一张立绘</h2><p>拖拽图片，或点击选择。建议正面、半身或全身角色立绘。</p><button id="chooseBtn" class="primary">选择立绘</button><div class="drop-hint">PNG / JPG / WebP</div></div>
 <div class="card control-card"><div class="card-head"><h2>解析流程</h2><span id="progressText">0 / 4</span></div><div class="steps">
-<div class="step" data-step="1"><span>01</span><div><b>主体抠图</b><small>ML background matte</small></div><i>待机</i></div>
-<div class="step" data-step="2"><span>02</span><div><b>人体关键点</b><small>33-point pose model</small></div><i>待机</i></div>
-<div class="step" data-step="3"><span>03</span><div><b>骨骼推断</b><small>joint + hierarchy</small></div><i>待机</i></div>
-<div class="step" data-step="4"><span>04</span><div><b>素材生成</b><small>transparent animation layers</small></div><i>待机</i></div>
-</div><button id="analyzeBtn" class="primary wide" disabled>开始 ML 拆解</button><button id="samBtn" class="secondary wide" disabled>SAM3 智能拆层</button><button id="resetBtn" class="ghost wide">清空工作区</button></div>
-<div class="card info-card"><h2>模型链</h2><div class="model-row"><b>MODNet</b><span>主体 alpha / 抠图</span></div><div class="model-row"><b>Pose Landmarker</b><span>33 个人体关键点</span></div><div class="model-row"><b>Rig Inference</b><span>骨长 / pivot / parent</span></div><p class="privacy">图片不上传到工作室后端。推理在浏览器执行；模型权重首次使用时从模型仓库加载。</p></div>
+<div class="step" data-step="1"><span>01</span><div><b>Anime 主体抠图</b><small>foreground matte</small></div><i>待机</i></div>
+<div class="step" data-step="2"><span>02</span><div><b>AI 部件理解</b><small>Florence-2 grounding</small></div><i>待机</i></div>
+<div class="step" data-step="3"><span>03</span><div><b>真实轮廓拆层</b><small>SAM3 mask refinement</small></div><i>待机</i></div>
+<div class="step" data-step="4"><span>04</span><div><b>动画资产生成</b><small>RGBA layers + rig data</small></div><i>待机</i></div>
+</div><button id="analyzeBtn" class="primary wide" disabled>开始 ML 拆解</button><button id="samBtn" class="secondary wide" disabled>重新精修这些轮廓</button><button id="resetBtn" class="ghost wide">清空工作区</button></div>
+<div class="card info-card"><h2>模型链</h2><div class="model-row"><b>Anime Matte</b><span>角色前景 alpha</span></div><div class="model-row"><b>Florence-2 · 230M</b><span>开放词汇部件定位</span></div><div class="model-row"><b>SAM3</b><span>真实像素轮廓 mask</span></div><div class="model-row"><b>Pose / Rig</b><span>仅用于动画骨架辅助</span></div><p class="privacy">图片默认不上传到工作室后端。视觉理解与分割在浏览器执行；首次使用会下载并缓存模型权重。</p></div>
 </section>
-<section class="stage card"><div class="card-head"><div><h2>解析画布</h2><span id="imageMeta">等待立绘</span></div><div class="toolbar"><label><input id="showSkeleton" type="checkbox" checked> 骨骼</label><label><input id="showSubject" type="checkbox" checked> 主体遮罩</label></div></div>
+<section class="stage card"><div class="card-head"><div><h2>解析画布</h2><span id="imageMeta">等待立绘</span></div><div class="toolbar"><label><input id="showSkeleton" type="checkbox" checked> 骨骼</label><label><input id="showSubject" type="checkbox" checked> 主体</label></div></div>
 <div id="canvasFrame" class="canvas-frame empty"><div class="empty-stage"><div class="empty-bone">◌</div><b>这里会出现立绘、骨骼与分层预览</b><span>先上传图片</span></div><canvas id="viewCanvas"></canvas></div>
 <div class="stage-footer"><div><span class="metric-label">检测关节</span><b id="jointCount">—</b></div><div><span class="metric-label">骨骼段</span><b id="boneCount">—</b></div><div><span class="metric-label">素材层</span><b id="layerCount">—</b></div><div><span class="metric-label">推理状态</span><b id="inferenceMode">—</b></div></div></section>
 <section class="right-column">
 <div class="card"><div class="card-head"><h2>骨骼</h2><span id="rigBadge">未生成</span></div><div id="jointList" class="list empty-list">上传并解析后显示关节。</div></div>
 <div class="card"><div class="card-head"><h2>语义拆层素材</h2><span>直接预览 · PNG</span></div><div id="layerList" class="layer-gallery empty-list">上传并解析后生成图层。</div><div class="export-actions"><button id="manifestBtn" class="ghost wide" disabled>导出 rig-manifest.json</button><button id="downloadAllBtn" class="primary wide" disabled>导出全部 PNG</button></div></div>
-<div class="card notes"><h2>智能拆层状态</h2><p>SAM3 会以人体关键点生成的点/框提示作为对象提示，再输出每个语义候选的独立 mask。未运行 SAM3 前，右侧显示的是候选层；运行后才标记为模型 mask。</p></div>
+<div class="card notes"><h2>现在真正发生什么</h2><p>Florence-2 先从图像中寻找开放词汇部件，再把每个部件的真实框交给 SAM3 做像素级分割。骨骼只用于后续动画辅助，不再参与“画假区域”。遮挡补全暂列为下一阶段高质量 GPU 重建模块。</p></div>
 </section></main>
 <footer>Character Rig Forge · MVP 0.1</footer>
 <script type="module" src="./app.js"></script></body></html>
