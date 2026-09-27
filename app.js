@@ -327,3 +327,15 @@ ui.choose.addEventListener("click",e=>{e.stopPropagation();ui.input.click()});ui
 ["dragenter","dragover"].forEach(ev=>ui.drop.addEventListener(ev,e=>{e.preventDefault();ui.drop.classList.add("dragover")}));["dragleave","drop"].forEach(ev=>ui.drop.addEventListener(ev,e=>{e.preventDefault();ui.drop.classList.remove("dragover")}));
 ui.drop.addEventListener("drop",e=>accept(e.dataTransfer.files?.[0]));ui.analyze.addEventListener("click",analyze);ui.sam.addEventListener("click",async()=>{ui.sam.disabled=true;try{await runSam3LayerDecomposition()}catch(e){console.error(e);modelStatus("SAM3 失败 · 保留当前 mask","busy")}finally{ui.sam.disabled=false}});ui.reset.addEventListener("click",reset);ui.skeleton.addEventListener("change",drawView);ui.subject.addEventListener("change",drawView);ui.manifest.addEventListener("click",downloadManifest);ui.all.addEventListener("click",downloadAll);
 reset();
+
+window.CharacterRigForge = {
+  getManifest: () => state.manifest ? JSON.parse(JSON.stringify(state.manifest)) : null,
+  getLayerData: async () => {
+    const out = {};
+    for (const layer of state.layers) {
+      const blob = await new Promise((resolve,reject)=>layer.canvas.toBlob(b=>b?resolve(b):reject(new Error("PNG export failed")),"image/png"));
+      out[layer.id] = Array.from(new Uint8Array(await blob.arrayBuffer()));
+    }
+    return out;
+  }
+};
