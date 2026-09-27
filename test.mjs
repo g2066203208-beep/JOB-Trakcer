@@ -1,9 +1,10 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
-for(const p of ["index.html","styles.css","app.js","README.md","manifest.schema.json"])assert.ok(fs.existsSync(p),"missing "+p);
-const html=fs.readFileSync("index.html","utf8"),app=fs.readFileSync("app.js","utf8"),readme=fs.readFileSync("README.md","utf8");
-for(const s of ["立绘骨骼素材工作室","SAM3 智能拆层","语义拆层素材","导出 rig-manifest.json"])assert.ok(html.includes(s),"missing html "+s);
-for(const s of ["onnx-community/BEN2-ONNX","Sam3TrackerModel","onnx-community/sam3-tracker-ONNX","PoseLandmarker","semanticPromptSet","input_boxes","zOrder","back-hair","front-hair","eye-L","eye-R","accessory","fallbackPose"])assert.ok(app.includes(s),"missing app "+s);
-assert.ok((app.match(/\{id:"/g)||[]).length>=20,"semantic layer definitions missing");
-assert.ok(readme.includes("See-through"),"missing research reference");
-console.log("Character Rig Forge semantic decomposition checks: PASS");
+for(const p of ["index.html","styles.css","app.js","vision-worker.js","README.md","manifest.schema.json"])assert.ok(fs.existsSync(p),"missing "+p);
+const html=fs.readFileSync("index.html","utf8"),app=fs.readFileSync("app.js","utf8"),worker=fs.readFileSync("vision-worker.js","utf8"),readme=fs.readFileSync("README.md","utf8");
+for(const s of ["立绘骨骼素材工作室","AI 部件理解","真实轮廓拆层","语义拆层素材","直接预览","导出 rig-manifest.json"])assert.ok(html.includes(s),"missing html "+s);
+for(const s of ["onnx-community/BEN2-ONNX","Sam3TrackerModel","onnx-community/sam3-tracker-ONNX","Florence-2","runVisionParts","normalizeVisionParts","input_boxes","parts:[]","getParts"])assert.ok(app.includes(s),"missing app "+s);
+for(const s of ["Florence2ForConditionalGeneration","onnx-community/Florence-2-base-ft","CAPTION_TO_PHRASE_GROUNDING","webgpu","wasm"])assert.ok(worker.includes(s),"missing worker "+s);
+assert.ok(app.includes('function buildLayers()')&&!app.includes('function buildLayerMask(name)'),"geometric fake layer builder should be gone");
+assert.ok(readme.includes("Bunraku")&&readme.includes("See-through"),"missing research references");
+console.log("Character Rig Forge vision-grounded decomposition checks: PASS");
