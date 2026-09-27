@@ -11,7 +11,7 @@
 <div class="step" data-step="2"><span>02</span><div><b>人体关键点</b><small>33-point pose model</small></div><i>待机</i></div>
 <div class="step" data-step="3"><span>03</span><div><b>骨骼推断</b><small>joint + hierarchy</small></div><i>待机</i></div>
 <div class="step" data-step="4"><span>04</span><div><b>素材生成</b><small>transparent animation layers</small></div><i>待机</i></div>
-</div><button id="analyzeBtn" class="primary wide" disabled>开始 ML 拆解</button><button id="resetBtn" class="ghost wide">清空工作区</button></div>
+</div><button id="analyzeBtn" class="primary wide" disabled>开始 ML 拆解</button><button id="samBtn" class="secondary wide" disabled>SAM3 智能拆层</button><button id="resetBtn" class="ghost wide">清空工作区</button></div>
 <div class="card info-card"><h2>模型链</h2><div class="model-row"><b>MODNet</b><span>主体 alpha / 抠图</span></div><div class="model-row"><b>Pose Landmarker</b><span>33 个人体关键点</span></div><div class="model-row"><b>Rig Inference</b><span>骨长 / pivot / parent</span></div><p class="privacy">图片不上传到工作室后端。推理在浏览器执行；模型权重首次使用时从模型仓库加载。</p></div>
 </section>
 <section class="stage card"><div class="card-head"><div><h2>解析画布</h2><span id="imageMeta">等待立绘</span></div><div class="toolbar"><label><input id="showSkeleton" type="checkbox" checked> 骨骼</label><label><input id="showSubject" type="checkbox" checked> 主体遮罩</label></div></div>
