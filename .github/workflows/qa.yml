@@ -11,5 +11,7 @@ jobs:
       - uses: actions/checkout@v6
       - name: Node syntax check
         run: node --check app.js
+      - name: Vision worker syntax check
+        run: node --check vision-worker.js
       - name: Static contract test
         run: node test.mjs
