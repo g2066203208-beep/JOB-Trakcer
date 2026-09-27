@@ -10,8 +10,8 @@
 
 当前浏览器版不是把“最强研究模型”硬塞进网页，而是选择能在 GitHub Pages 直接运行的 WebML 路线：
 
-- Transformers.js 4.3 + WebGPU，浏览器端运行 ONNX 模型。
-- `onnx-community/anime-seg-ONNX` 做动漫角色主体抠图。
+- Transformers.js 4.3 + WebGPU，浏览器端运行 ONNX 模型。Transformers.js v4 引入了新的 WebGPU runtime。
+- `onnx-community/BEN2-ONNX` 做主体抠图；它有明确的 Transformers.js / background-removal 用法。
 - MediaPipe Pose Landmarker 做人体关键点。
 - Rig Inference 把关键点转换成父子骨骼、pivot 和图层关系。
 - PNG 图层保持原图坐标系，可直接继续接 Canvas / WebGL 骨骼播放器。
@@ -87,3 +87,9 @@ python -m http.server 8080
 ## License / Model Notice
 
 本仓库代码与第三方模型的许可证并不等价。尤其 SAM 3 / SAM 3.1 及其社区导出的 ONNX 模型需要分别遵守其模型许可证。部署前应检查你实际使用的模型权重及其来源许可证。
+
+### 当前已接入的前沿浏览器分割
+
+工作室现在同时接入 `onnx-community/sam3-tracker-ONNX` 作为 SAM3 多对象智能 mask 引擎。它基于 Meta 的 SAM3，可用点、框等视觉提示生成对象 mask，并支持同一张图的多个对象批处理；Transformers.js 已提供对应的浏览器接口。citeturn131496search0turn131496search4turn929782search3
+
+当前按钮“**SAM3 智能拆层**”会利用 ML 人体关键点作为每个候选部件的正向提示点，让 SAM3 负责边界，而不是继续使用纯几何胶囊。
