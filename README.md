@@ -90,6 +90,6 @@ python -m http.server 8080
 
 ### 当前已接入的前沿浏览器分割
 
-工作室现在同时接入 `onnx-community/sam3-tracker-ONNX` 作为 SAM3 多对象智能 mask 引擎。它基于 Meta 的 SAM3，可用点、框等视觉提示生成对象 mask，并支持同一张图的多个对象批处理；Transformers.js 已提供对应的浏览器接口。citeturn131496search0turn131496search4turn929782search3
+工作室现在同时接入 `onnx-community/sam3-tracker-ONNX` 作为 SAM3 多对象智能 mask 引擎，并已经把人体关键点自动转换成点 + 框双提示。它基于 Meta 的 SAM3，可用点、框等视觉提示生成对象 mask，并支持同一张图的多个对象批处理；Transformers.js 已提供对应的浏览器接口。citeturn131496search0turn131496search4turn929782search3
 
 当前按钮“**SAM3 智能拆层**”会利用 ML 人体关键点作为每个候选部件的正向提示点，让 SAM3 负责边界，而不是继续使用纯几何胶囊。
