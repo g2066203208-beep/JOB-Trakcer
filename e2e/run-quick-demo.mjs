@@ -6,7 +6,7 @@ const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1});
 page.on("console",m=>{if(m.type()==="error")console.error("[page]",m.text())});
 page.on("pageerror",e=>console.error("[pageerror]",e));
-await page.goto("http://127.0.0.1:4173/",{waitUntil:"networkidle",timeout:120000});
+await page.goto("http://127.0.0.1:4173/?demo=1",{waitUntil:"networkidle",timeout:120000});
 await page.setInputFiles("#fileInput","/tmp/test-character.png");
 await page.click("#analyzeBtn");
 await page.waitForFunction(()=>document.querySelector("#progressText")?.textContent==="4 / 4",null,{timeout:900000});
