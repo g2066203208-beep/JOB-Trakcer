@@ -17,6 +17,6 @@ await fs.writeFile("artifacts/rig-forge-quick/rig-manifest.json",JSON.stringify(
 for(const[id,bytes]of Object.entries(layers))await fs.writeFile("artifacts/rig-forge-quick/"+id+".png",Buffer.from(bytes));
 await page.locator("#canvasFrame").screenshot({path:"artifacts/rig-forge-quick/preview.png"});
 await page.screenshot({path:"artifacts/rig-forge-quick/studio-full.png",fullPage:true});
-await fs.writeFile("artifacts/rig-forge-quick/README.txt","Source: OpenClipart #171797\nPipeline: BEN2 background removal + MediaPipe Pose + semantic rig candidates\n");
+await fs.writeFile("artifacts/rig-forge-quick/README.txt","Source: OpenClipart #171797\nPipeline: Anime matte + Florence-2 semantic grounding + SAM3 mask refinement + Pose/Rig auxiliary\n");
 await browser.close();
 console.log("Quick ML export:",Object.keys(layers).length,"layers");
