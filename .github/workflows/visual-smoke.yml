@@ -24,7 +24,7 @@ jobs:
           mkdir -p visual-smoke
           found=0
           for i in {1..40}; do
-            if curl -fsSL "$URL" | grep -q "v0.7.0"; then found=1; break; fi
+            if curl -fsSL "$URL" | grep -q "v0.7.1"; then found=1; break; fi
             sleep 3
           done
           test "$found" = "1"
