@@ -24,7 +24,7 @@ jobs:
           mkdir -p visual-smoke
           found=0
           for i in {1..40}; do
-            if curl -fsSL "$URL" | grep -q "v0.6.1"; then found=1; break; fi
+            if curl -fsSL "$URL" | grep -q "v0.7.0"; then found=1; break; fi
             sleep 3
           done
           test "$found" = "1"
@@ -52,6 +52,52 @@ jobs:
           time.sleep(.8)
 
           checks={}
+          checks["manifest_total"]=d.execute_script("return state.manifest.length")
+          checks["manifest_remote"]=d.execute_script("return state.manifest.filter(x=>x.remote).length")
+          assert checks["manifest_total"]==425, checks
+          assert checks["manifest_remote"]==413, checks
+
+          def open_remote(character,costume,view,name):
+              result=d.execute_async_script("""
+                const [character,costume,view,done]=arguments;
+                const c=state.manifest.find(x=>x.character===character&&(x.costume||x.appearance)===costume&&x.view===view);
+                if(!c){done({error:'case not found'});return}
+                loadCase(c).then(()=>{
+                  const b=spineRT.display?.getLocalBounds?.();
+                  done({
+                    id:c.id,title:c.title,remote:!!c.remote,ready:spineRT.ready,error:spineRT.error||null,
+                    bones:state.project?.bones?.length||0,slots:state.project?.slots?.length||0,
+                    animations:Object.keys(state.project?.animations||{}),
+                    bounds:b?{w:b.width,h:b.height}:null,
+                    spine:state.project?.skeleton?.spine||null
+                  })
+                }).catch(e=>done({error:String(e?.message||e)}));
+              """,character,costume,view)
+              checks[name]=result
+              assert result.get("remote") is True, result
+              assert result.get("ready") is True, result
+              assert not result.get("error"), result
+              assert result.get("bones",0)>20 and result.get("slots",0)>10, result
+              assert result.get("bounds") and result["bounds"]["w"]>10 and result["bounds"]["h"]>10, result
+              d.save_screenshot(f"{out}/{name}.png")
+
+          # Actual open/play coverage for the new 425-case library.
+          open_remote("凯尔希","默认","战斗正面","remote-kaltsit-front")
+          assert "Attack" in checks["remote-kaltsit-front"]["animations"], checks["remote-kaltsit-front"]
+          assert checks["remote-kaltsit-front"]["bones"]==136, checks["remote-kaltsit-front"]
+          open_remote("棘刺","惬意","战斗正面","remote-thorns-skin-front")
+          open_remote("陈","岁红霞","战斗正面","remote-chen-alias-front")
+          open_remote("可颂","默认","基建","remote-croissant-special-build")
+          assert "Interact" in checks["remote-croissant-special-build"]["animations"], checks["remote-croissant-special-build"]
+
+          # Re-open the built-in Amiya case before the legacy interaction checks.
+          d.execute_async_script("""
+            const done=arguments[0],c=state.manifest.find(x=>x.id==='amiya-default-front');
+            loadCase(c).then(()=>done(true)).catch(e=>done(String(e)));
+          """)
+          wait.until(lambda x: "Runtime ✓" in x.find_element(By.ID,"hud").text)
+          time.sleep(.5)
+
           def stale_visible():
               return d.execute_script("""
                 const sp=spineRT.display;
