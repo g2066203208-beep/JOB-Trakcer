@@ -555,7 +555,7 @@ try{
   const wantsRun=new URLSearchParams(location.search).get("sample")==="run";
   if(wantsRun){
     loadSerializedProject(createRunCycleSample(),true);
-    zoom=8;$("zoom").value=zoom;
+    zoom=6;$("zoom").value=zoom;
     setTimeout(startPlayback,120);
   }else{
     const saved=localStorage.getItem("pixel-motion-studio-autosave");
