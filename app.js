@@ -191,53 +191,51 @@ function applyRuntimeSlotEdits(){const sp=spineRT.display;if(!sp?.skeleton)retur
 function runtimeBone(name){return spineRT.display?.skeleton?.bones?.find(b=>(b.data?.name||b.name)===name)||null}
 function activeRuntimeBoneSet(){
  const sp=spineRT.display,skeleton=sp?.skeleton;if(!spineRT.ready||!skeleton)return null;
- const bones=skeleton.bones||[],active=new Set(),addBone=b=>{
+ const active=new Set(),addBone=b=>{
   while(b){const n=b.data?.name||b.name;if(!n||active.has(n))break;active.add(n);b=b.parent||null}
  };
  const slots=skeleton.slots||[];
  for(let i=0;i<slots.length;i++){
-  const slot=slots[i],slotName=slot.data?.name||state.project?.slots?.[i]?.name;
+  const slot=slots[i],slotName=slot.data?.name||state.project?.slots?.[i]?.name,container=sp.slotContainers?.[i];
   if(state.project?.skinEdits?.slotVisibility?.[slotName]===false)continue;
-  const att=slot.attachment;
-  if(!att)continue;
+  if(container&&container.visible===false)continue;
+  const alpha=slot.color?.a??slot.a??1;if(alpha<=0.02)continue;
+  if(!slot.attachment)continue;
+  // Only the slot's owning bone defines the readable structure.
+  // Weighted mesh influence bones are deformation internals and stay hidden
+  // unless explicitly selected from the bone tree.
   addBone(slot.bone);
-  const weighted=att.bones;
-  if(Array.isArray(weighted)||weighted?.length){
-   for(let p=0;p<weighted.length;){
-    const count=weighted[p++]|0;
-    if(count<=0||count>64){break}
-    for(let j=0;j<count&&p<weighted.length;j++){
-     const bi=weighted[p++]|0;if(bones[bi])addBone(bones[bi]);
-    }
-   }
-  }
  }
  if(state.selectedBone)addBone(runtimeBone(state.selectedBone));
  return active;
 }
 function runtimePoseScreen(){
  const sp=spineRT.display;if(!spineRT.ready||!sp)return[];
- const PIXI=window.PIXI,active=activeRuntimeBoneSet(),out=[];
+ const PIXI=window.PIXI,active=activeRuntimeBoneSet(),out=[],map=new Map();
  for(const b of sp.skeleton.bones||[]){
   const name=b.data?.name||b.name;if(active&&!active.has(name))continue;
-  const length=+b.data?.length||0,m00=b.m00??b.a??1,m10=b.m10??b.c??0;
-  const p=sp.toGlobal(new PIXI.Point(b.worldX??0,b.worldY??0)),q=sp.toGlobal(new PIXI.Point((b.worldX??0)+m00*length,(b.worldY??0)+m10*length));
-  out.push({name,x:p.x,y:p.y,x2:q.x,y2:q.y,bone:b,length});
+  const p=sp.toGlobal(new PIXI.Point(b.worldX??0,b.worldY??0));
+  const row={name,x:p.x,y:p.y,bone:b,parentName:b.parent?(b.parent.data?.name||b.parent.name):null};
+  out.push(row);map.set(name,row)
  }
+ for(const r of out)r.parent=r.parentName?map.get(r.parentName)||null:null;
  return out
 }
 function drawRuntimeRig(alpha=1,ghost=false){
- const sel=state.selectedBone;ctx.save();ctx.globalAlpha=alpha;
- for(const b of runtimePoseScreen()){
-  const selected=b.name===sel,root=!b.bone.parent;
-  ctx.lineCap='round';
-  if(!root&&b.length>1){
-   ctx.lineWidth=ghost?1.5:(selected?3:2);
-   ctx.strokeStyle=ghost?'#5b7596':(selected?'#ffd43b':'#7891ad');
-   ctx.beginPath();ctx.moveTo(b.x,b.y);ctx.lineTo(b.x2,b.y2);ctx.stroke();
-  }
+ const sel=state.selectedBone,rows=runtimePoseScreen(),byName=new Map(rows.map(x=>[x.name,x]));
+ ctx.save();ctx.globalAlpha=alpha;ctx.lineCap='round';ctx.lineJoin='round';
+ // Draw actual parent -> child topology, never arbitrary bone.length guide bars.
+ for(const b of rows){
+  if(!b.parent)continue;
+  const selected=b.name===sel||b.parent.name===sel;
+  ctx.lineWidth=ghost?1.4:(selected?3:2);
+  ctx.strokeStyle=ghost?'#5b7596':(selected?'#ffd43b':'#7891ad');
+  ctx.beginPath();ctx.moveTo(b.parent.x,b.parent.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+ }
+ for(const b of rows){
+  const selected=b.name===sel,root=!b.parent;
   ctx.fillStyle=selected?'#ffd43b':(root?'#8290a3':'#c4d2e1');
-  ctx.beginPath();ctx.arc(b.x,b.y,selected?4.5:(root?2.2:2.8),0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.arc(b.x,b.y,selected?4.5:(root?2.1:2.8),0,Math.PI*2);ctx.fill();
   if(state.showNames&&!ghost){ctx.font='10px ui-monospace,monospace';ctx.fillStyle='#aeb9c8';ctx.fillText(b.name,b.x+5,b.y-5)}
  }
  ctx.restore()
