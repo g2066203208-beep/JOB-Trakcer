@@ -2,34 +2,144 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>申论 DAY60</title>
+<title>申论 DAY60 · 统一学习日记</title>
 <style>
-:root{--bg:#f4f1e9;--paper:#fffdf8;--ink:#222;--muted:#746f65;--line:#ded7c9;--accent:#9f2f24;--green:#2d6c52}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
-main{max-width:960px;margin:auto;padding:34px 18px 80px}a{color:inherit}
-.top{display:flex;justify-content:space-between;gap:16px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:18px}
+:root{--bg:#f4f1e9;--paper:#fffdf8;--ink:#222;--muted:#746f65;--line:#ded7c9;--accent:#9f2f24;--green:#2d6c52;--soft:#eee8dc}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
+main{max-width:1040px;margin:auto;padding:32px 18px 80px}a{color:inherit}
+.top{display:flex;justify-content:space-between;gap:18px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:18px}
 .back{font-size:13px;color:var(--muted);text-decoration:none}.ey{font-size:11px;color:var(--accent);font-weight:800;letter-spacing:.14em}
-h1{margin:4px 0 0;font-size:34px}.progress{font-weight:800;color:var(--green)}
-.method{margin:20px 0;background:#ede8dc;border-left:4px solid var(--accent);padding:14px 16px;line-height:1.7}
-.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px}
-.day{min-height:88px;background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:12px;text-decoration:none}
-.day.done{border-color:#8eb3a1}.day b{display:block;font-size:16px}.day span{display:block;font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4}.day.lock{opacity:.5}
+h1{margin:4px 0 0;font-size:36px}.progress{font-weight:800;color:var(--green)}
+.method{margin:18px 0;background:var(--soft);border-left:4px solid var(--accent);padding:14px 16px}
+.nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px;margin:18px 0 28px}
+.nav a,.nav div{min-height:82px;background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:11px;text-decoration:none}
+.nav a{border-color:#8eb3a1}.nav b{display:block}.nav span{display:block;color:var(--muted);font-size:11px;margin-top:5px;line-height:1.35}.lock{opacity:.45}
+.day{background:var(--paper);border:1px solid var(--line);border-radius:16px;margin:18px 0;overflow:hidden}
+.day summary{cursor:pointer;padding:18px 20px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.day summary::-webkit-details-marker{display:none}.day summary:hover{background:#faf7f0}
+.day-title b{font-size:21px}.day-title span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.badge{white-space:nowrap;color:var(--green);font-weight:800;font-size:12px}
+.content{border-top:1px solid var(--line);padding:20px}
+.content h2{font-size:18px;margin:24px 0 8px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.content h3{font-size:15px;margin:18px 0 6px}.q{background:#f0ebe1;border-radius:10px;padding:13px 15px}.answer{border-left:4px solid var(--green);padding:4px 0 4px 15px}
+.warn{background:#fff5e9;border-left:4px solid var(--accent);padding:12px 15px}
+.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{border:1px solid var(--line);border-radius:999px;padding:3px 8px;font-size:11px;color:var(--muted)}
+.raw{display:inline-block;margin-top:14px;color:var(--accent);font-size:12px}
+footer{margin-top:28px;color:var(--muted);font-size:12px}
+@media(max-width:640px){.top{display:block}.progress{margin-top:10px}.day summary{align-items:flex-start}}
 </style>
 </head>
 <body><main>
-<div class="top"><div><a class="back" href="../">← 考公工作室</a><div class="ey">BAILU · SHENLUN 60 DAYS</div><h1>申论 DAY60</h1></div><div class="progress">2 / 60</div></div>
-<div class="method"><b>固定方法：</b>审题 → 先找全 → 同类合并 → 前置提炼 → 总分作答 → 原词/错字/混点检查</div>
-<div class="days" id="days"></div>
+<div class="top">
+  <div>
+    <a class="back" href="../">← 考公工作室</a>
+    <div class="ey">BAILU · SHENLUN 60 DAYS</div>
+    <h1>申论 DAY60 学习日记</h1>
+  </div>
+  <div class="progress">2 / 60</div>
+</div>
+
+<div class="method"><b>固定方法：</b>审题 → 先找全 → 同类合并 → 前置提炼 → 总分作答 → 原词 / 错字 / 混点检查。<br><b>以后所有 DAY 都集中在这一张网页里</b>，不再为每一天单独建 HTML。</div>
+
+<div class="nav">
+  <a href="#day01" onclick="openDay('day01')"><b>DAY01</b><span>✅ M农场 · 青年创业启示</span></a>
+  <a href="#day02" onclick="openDay('day02')"><b>DAY02</b><span>✅ 总结课 · 老马题</span></a>
+  <div class="lock"><b>DAY03</b><span>待学习</span></div>
+  <div class="lock"><b>DAY04</b><span>待学习</span></div>
+  <div class="lock"><b>DAY05</b><span>待学习</span></div>
+  <div class="lock"><b>DAY06–60</b><span>按进度逐日加入</span></div>
+</div>
+
+<details class="day" id="day01" open>
+<summary><div class="day-title"><b>DAY01 · M农场青年创业启示</b><span>2026-10-03 · 2020国考副省第二题</span></div><div class="badge">✅ 已完成</div></summary>
+<div class="content">
+<div class="tags"><span class="tag">找点</span><span class="tag">同类合并</span><span class="tag">前置提炼</span><span class="tag">总分结构</span></div>
+
+<h2>题目</h2>
+<div class="q">“给定资料2”中，M农场的案例为新时代青年创业提供了哪些启示？<br><b>要求：</b>分析全面，条理清晰。不超过300字。</div>
+
+<h2>今天真正学会的东西</h2>
+<h3>1. 先圈，不急着提炼</h3>
+<p>用“问题 / 痛点 → 动作 → 目的 / 效果”帮助找信息，但要记住：<b>有动作，不等于一定是最终答案。</b></p>
+<h3>2. 长句顺着动作链读</h3>
+<p><b>采集 → 分析 → 建模 → 识别 → 指导 → 实现智能管理</b>。不能只圈句首和句尾。</p>
+<h3>3. 先全圈，再找“大动作”</h3>
+<p>例如一产、二产、三产的具体做法，最后由“<b>一二三产业高度融合发展 / 打造新型全产业链模式</b>”统领。</p>
+<h3>4. 始终回题</h3>
+<p>判断一个信息能否成为答案时，问：<b>这句话能不能转成“新时代青年创业者应该……”？</b></p>
+
+<h2>4个大点</h2>
+<p><b>① 运用高新技术：</b>人工智能、机器代替人工、大数据、无人化和智能化管理。</p>
+<p><b>② 产业融合发展：</b>多元化产业、衍生产品、一二三产业融合、新型全产业链。</p>
+<p><b>③ 打造年轻人队伍：</b>青年平台、吸引年轻人、增强职业认同。</p>
+<p><b>④ 具备社会担当：</b>乡村振兴、国家战略、做对国家和社会有意义的事。</p>
+
+<h2>我的最终答案</h2>
+<div class="answer">
+<p><b>一是运用高新技术。</b>运用人工智能等技术提高效率；通过机器代替人工降低成本；运用大数据技术实现无人化、智能化管理。</p>
+<p><b>二是产业融合发展。</b>引入旅游、文化、艺术等多元化产业，推动一二三产业高度融合，打造新型全产业链模式，开发衍生产品，创造更多发展机遇。</p>
+<p><b>三是打造年轻人队伍。</b>为青年搭建发展平台，吸引年轻人参与，增强从业年轻人的职业认同感。</p>
+<p><b>四是具备社会担当。</b>主动融入国家发展战略，投身乡村振兴等国家事业，做对国家和社会发展有意义的事情。</p>
+</div>
+
+<h2>暴露的问题</h2>
+<div class="warn">提炼太早；过度具体；加入材料没有的词；把所有动作都当答案；不会区分例子与上位概念；容易自造表达；总分结构不稳定。</div>
+
+<h2>DAY01 记忆卡</h2>
+<p><b>先圈，不要过早提炼；长句顺动作链；段尾找大动作；同类合并再提炼；始终回题。</b></p>
+<a class="raw" href="./DAY01.md">查看 DAY01 完整 Markdown 原始日记 →</a>
+</div>
+</details>
+
+<details class="day" id="day02" open>
+<summary><div class="day-title"><b>DAY02 · 条理、审题与老马题</b><span>2026-10-03 · 总结课 + DAY2作业</span></div><div class="badge">✅ 已完成</div></summary>
+<div class="content">
+<div class="tags"><span class="tag">审题</span><span class="tag">字数预判</span><span class="tag">条=合并</span><span class="tag">理=提炼</span></div>
+
+<h2>DAY02 总结课</h2>
+<p><b>条 = 合并同类项；理 = 给每组加前置提炼词。</b></p>
+<p>固定流程：<b>找点 → 合并 → 提炼 → 总分作答。</b></p>
+<p>审题先看：<b>题干动作 / 作答对象 / 字数预判</b>。今天最大的纠正：<b>200字约8行，不等于8条。</b></p>
+
+<h2>DAY02 作业</h2>
+<div class="q"><b>2020国考地市第一题：</b>根据“给定资料1”，请你谈谈老马是怎样“当好基层这根‘绣花针’”的。<br><b>要求：</b>全面、准确、有条理。不超过200字。</div>
+
+<h2>白鹭公开讲解整理出的5点框架</h2>
+<p>① <b>坚持学习，练就本领。</b><br>
+② <b>与时俱进，用心疏导。</b><br>
+③ <b>真诚待人，立规重效。</b><br>
+④ <b>培养人才，做好传帮带。</b><br>
+⑤ <b>主动负责，视为终身事业。</b></p>
+
+<h2>今天的错误</h2>
+<div class="warn">
+<p><b>材料外拔高：</b>“对党忠诚”“温柔相接”“为国美德”等不来自材料。</p>
+<p><b>过度合并：</b>24字接待规矩不能直接吞进“用心调解”，它支撑独立的大点。</p>
+<p><b>混点：</b>群众接待态度与“为群众服务视为终身事业”要分开。</p>
+<p><b>原词检查：</b>调节→调解；情感疏导→情绪疏导；自动站出来→主动站出来。</p>
+</div>
+
+<h2>我的最终答案</h2>
+<div class="answer">
+<p><b>一是加强学习，提升本领。</b>熟悉政策，坚持学习并做好工作记录；</p>
+<p><b>二是用心调解群众矛盾。</b>做好思想政治工作、情绪疏导和心灵抚慰，帮助群众解开心结；</p>
+<p><b>三是真诚善待群众。</b>规范接待流程，认真倾听记录、交流引导、解决问题；</p>
+<p><b>四是发挥传帮带作用。</b>培养善做调解工作的“小马”，带动更多人参与基层治理；</p>
+<p><b>五是主动负责。</b>把为群众服务视为终身事业，群众有困难时主动站出来。</p>
+</div>
+
+<h2>DAY02 记忆卡</h2>
+<p><b>审题先看动作 / 对象 / 字数；先找全再合并；条=合并，理=提炼；材料没有的不拔高；提交前查原词、错字、重复与混点。</b></p>
+<a class="raw" href="./DAY02.md">查看 DAY02 完整 Markdown 原始日记 →</a>
+</div>
+</details>
+
+<footer>统一页面模式：以后 DAY03、DAY04……都直接追加到这里；Markdown 继续保留作为完整原始学习记录。</footer>
+</main>
 <script>
-const box=document.getElementById('days');
-for(let i=1;i<=60;i++){
- const n=String(i).padStart(2,'0'),done=i<=2,a=document.createElement(done?'a':'div');
- a.className='day '+(done?'done':'lock');
- if(i===1)a.href='./DAY01.html';
- if(i===2)a.href='./DAY02.html';
- const desc=i===1?'✅ M农场 · 青年创业启示':i===2?'✅ 总结课 · 老马题':'待学习';
- a.innerHTML='<b>DAY'+n+'</b><span>'+desc+'</span>';
- box.appendChild(a);
+function openDay(id){
+  const el=document.getElementById(id); if(el) el.open=true;
 }
+if(location.hash){openDay(location.hash.slice(1))}
 </script>
-</main></body></html>
+</body></html>
