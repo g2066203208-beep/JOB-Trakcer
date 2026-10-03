@@ -1,0 +1,349 @@
+{
+  "name": "修女少女 / Sister",
+  "source": "GPT Image generated parts atlas derived from the user-supplied character reference",
+  "masterReference": "User-provided character sheet",
+  "assetPolicy": {
+    "allFormalPartsGeneratedBy": "GPT Image",
+    "pythonCutting": false,
+    "offlineCrop": false,
+    "atlasUsage": "The browser/Spine runtime samples regions directly from one GPT Image-generated transparent parts atlas. No Python slicing is used."
+  },
+  "atlasSize": [
+    724,
+    543
+  ],
+  "parts": {
+    "veil_back": {
+      "atlas": [
+        233,
+        29,
+        210,
+        214
+      ],
+      "pivot": [
+        105,
+        25
+      ],
+      "bone": "veil_back"
+    },
+    "hair_back": {
+      "atlas": [
+        390,
+        273,
+        89,
+        102
+      ],
+      "pivot": [
+        44,
+        82
+      ],
+      "bone": "hair_back"
+    },
+    "leg_R_upper": {
+      "atlas": [
+        307,
+        427,
+        44,
+        54
+      ],
+      "pivot": [
+        22,
+        6
+      ],
+      "bone": "leg_R_upper"
+    },
+    "leg_R_lower": {
+      "atlas": [
+        308,
+        469,
+        42,
+        64
+      ],
+      "pivot": [
+        21,
+        5
+      ],
+      "bone": "leg_R_lower"
+    },
+    "foot_R": {
+      "atlas": [
+        429,
+        451,
+        49,
+        81
+      ],
+      "pivot": [
+        24,
+        8
+      ],
+      "bone": "foot_R"
+    },
+    "skirt_back": {
+      "atlas": [
+        452,
+        103,
+        143,
+        138
+      ],
+      "pivot": [
+        71,
+        14
+      ],
+      "bone": "skirt_back"
+    },
+    "torso_outer": {
+      "atlas": [
+        469,
+        18,
+        120,
+        105
+      ],
+      "pivot": [
+        60,
+        92
+      ],
+      "bone": "chest"
+    },
+    "skirt_front": {
+      "atlas": [
+        454,
+        103,
+        141,
+        138
+      ],
+      "pivot": [
+        70,
+        14
+      ],
+      "bone": "skirt_front"
+    },
+    "apron": {
+      "atlas": [
+        628,
+        87,
+        69,
+        151
+      ],
+      "pivot": [
+        34,
+        8
+      ],
+      "bone": "apron"
+    },
+    "belt": {
+      "atlas": [
+        609,
+        49,
+        95,
+        31
+      ],
+      "pivot": [
+        47,
+        15
+      ],
+      "bone": "belt"
+    },
+    "arm_L_upper": {
+      "atlas": [
+        418,
+        61,
+        59,
+        64
+      ],
+      "pivot": [
+        53,
+        10
+      ],
+      "bone": "arm_L_upper"
+    },
+    "arm_L_lower": {
+      "atlas": [
+        418,
+        109,
+        61,
+        64
+      ],
+      "pivot": [
+        53,
+        6
+      ],
+      "bone": "arm_L_lower"
+    },
+    "hand_L": {
+      "atlas": [
+        397,
+        433,
+        30,
+        42
+      ],
+      "pivot": [
+        15,
+        5
+      ],
+      "bone": "hand_L"
+    },
+    "arm_R_upper": {
+      "atlas": [
+        571,
+        60,
+        49,
+        65
+      ],
+      "pivot": [
+        6,
+        10
+      ],
+      "bone": "arm_R_upper"
+    },
+    "arm_R_lower": {
+      "atlas": [
+        568,
+        108,
+        55,
+        66
+      ],
+      "pivot": [
+        6,
+        6
+      ],
+      "bone": "arm_R_lower"
+    },
+    "hand_R": {
+      "atlas": [
+        438,
+        433,
+        31,
+        42
+      ],
+      "pivot": [
+        15,
+        5
+      ],
+      "bone": "hand_R"
+    },
+    "leg_L_upper": {
+      "atlas": [
+        241,
+        427,
+        44,
+        54
+      ],
+      "pivot": [
+        22,
+        6
+      ],
+      "bone": "leg_L_upper"
+    },
+    "leg_L_lower": {
+      "atlas": [
+        242,
+        469,
+        42,
+        64
+      ],
+      "pivot": [
+        21,
+        5
+      ],
+      "bone": "leg_L_lower"
+    },
+    "foot_L": {
+      "atlas": [
+        378,
+        451,
+        50,
+        81
+      ],
+      "pivot": [
+        25,
+        8
+      ],
+      "bone": "foot_L"
+    },
+    "face": {
+      "atlas": [
+        234,
+        276,
+        74,
+        94
+      ],
+      "pivot": [
+        37,
+        80
+      ],
+      "bone": "face"
+    },
+    "hair_front": {
+      "atlas": [
+        305,
+        274,
+        88,
+        101
+      ],
+      "pivot": [
+        44,
+        82
+      ],
+      "bone": "hair_front"
+    },
+    "veil_front": {
+      "atlas": [
+        635,
+        356,
+        74,
+        50
+      ],
+      "pivot": [
+        37,
+        42
+      ],
+      "bone": "veil_front"
+    }
+  },
+  "drawOrder": [
+    "veil_back",
+    "hair_back",
+    "leg_R_upper",
+    "leg_R_lower",
+    "foot_R",
+    "skirt_back",
+    "torso_outer",
+    "skirt_front",
+    "apron",
+    "belt",
+    "arm_L_upper",
+    "arm_L_lower",
+    "hand_L",
+    "arm_R_upper",
+    "arm_R_lower",
+    "hand_R",
+    "leg_L_upper",
+    "leg_L_lower",
+    "foot_L",
+    "face",
+    "hair_front",
+    "veil_front"
+  ],
+  "loops": {
+    "Idle": true,
+    "Move": true,
+    "Attack": false,
+    "Hurt": false,
+    "Death": false
+  },
+  "durations": {
+    "Idle": 2.4,
+    "Move": 0.8,
+    "Attack": 0.85,
+    "Hurt": 0.48,
+    "Death": 1.4
+  },
+  "design": {
+    "role": "2D 游戏可操作角色 / Q版修女少女",
+    "view": "向右 3/4",
+    "silhouette": "短发 + 大头巾 + 黑白修女外衣 + 白色围裙 + 短靴",
+    "movement": "短步行走 / 小跑风格移动",
+    "attack": "右手快速前击，身体压缩蓄力后释放",
+    "secondaryMotion": "头巾、裙摆、头发做延迟跟随"
+  }
+}
