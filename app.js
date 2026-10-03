@@ -150,6 +150,7 @@ async function prepareSkin(){
    const parsed=parseAtlas(state.project.atlas.text);state.atlasRegions=parsed.regions;
    const img=new Image();await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=state.project.atlas.imageData});
    state.textureImage=img;state.textureReady=true;
+   fitView();renderAll();
   }catch(e){console.warn('Canvas skin fallback prepare failed',e)}
  }
  await buildSpineRuntime();
