@@ -1,0 +1,36 @@
+name: Visual Smoke Test
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+      - name: Capture deployed page
+        shell: bash
+        run: |
+          set -euxo pipefail
+          URL="https://g2066203208-beep.github.io/JOB-Trakcer/"
+          mkdir -p visual-smoke
+          for i in {1..20}; do
+            if curl -fsSL "$URL" | grep -q "Rig Motion Lab"; then break; fi
+            sleep 3
+          done
+          google-chrome --headless=new --no-sandbox --disable-gpu             --window-size=1600,1000 --virtual-time-budget=18000             --screenshot=visual-smoke/page.png "$URL" || true
+          google-chrome --headless=new --no-sandbox --disable-gpu             --virtual-time-budget=18000 --dump-dom "$URL"             > visual-smoke/dom.html 2> visual-smoke/chrome.err || true
+          grep -o 'id="hud"[^>]*>[^<]*' visual-smoke/dom.html > visual-smoke/hud.txt || true
+          grep -o 'Rig Motion Lab[^<]*' visual-smoke/dom.html | head -3 > visual-smoke/version.txt || true
+          ls -lah visual-smoke
+      - name: Upload visual smoke artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-smoke
+          path: visual-smoke/
