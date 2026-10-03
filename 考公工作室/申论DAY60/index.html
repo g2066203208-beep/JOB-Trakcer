@@ -17,16 +17,18 @@ h1{margin:4px 0 0;font-size:34px}.progress{font-weight:800;color:var(--green)}
 </style>
 </head>
 <body><main>
-<div class="top"><div><a class="back" href="../">← 考公工作室</a><div class="ey">BAILU · SHENLUN 60 DAYS</div><h1>申论 DAY60</h1></div><div class="progress">1 / 60</div></div>
-<div class="method"><b>固定方法：</b>先圈 → 看重复 → 找总括句 / 大动作 → 同类合并 → 前置提炼 → 总分作答</div>
+<div class="top"><div><a class="back" href="../">← 考公工作室</a><div class="ey">BAILU · SHENLUN 60 DAYS</div><h1>申论 DAY60</h1></div><div class="progress">2 / 60</div></div>
+<div class="method"><b>固定方法：</b>审题 → 先找全 → 同类合并 → 前置提炼 → 总分作答 → 原词/错字/混点检查</div>
 <div class="days" id="days"></div>
 <script>
 const box=document.getElementById('days');
 for(let i=1;i<=60;i++){
- const n=String(i).padStart(2,'0'),a=document.createElement(i===1?'a':'div');
- a.className='day '+(i===1?'done':'lock');
+ const n=String(i).padStart(2,'0'),done=i<=2,a=document.createElement(done?'a':'div');
+ a.className='day '+(done?'done':'lock');
  if(i===1)a.href='./DAY01.html';
- a.innerHTML='<b>DAY'+n+'</b><span>'+(i===1?'✅ M农场 · 青年创业启示':'待学习')+'</span>';
+ if(i===2)a.href='./DAY02.html';
+ const desc=i===1?'✅ M农场 · 青年创业启示':i===2?'✅ 总结课 · 老马题':'待学习';
+ a.innerHTML='<b>DAY'+n+'</b><span>'+desc+'</span>';
  box.appendChild(a);
 }
 </script>
