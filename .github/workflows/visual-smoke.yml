@@ -91,6 +91,25 @@ jobs:
           d.find_element(By.CSS_SELECTOR,'[data-ins="bone"]').click()
           time.sleep(.3)
 
+          # Base-building corpus must also use the large batch.
+          d.find_element(By.CSS_SELECTOR,'[data-case="amiya-default-base"]').click()
+          wait.until(lambda x: "Runtime ✓" in x.find_element(By.ID,"hud").text)
+          time.sleep(.6)
+          Select(d.find_element(By.ID,"animSelect")).select_by_value("action:Interact")
+          d.find_element(By.CSS_SELECTOR,'[data-ins="train"]').click()
+          time.sleep(.6)
+          base_text=d.find_element(By.ID,"insPane").text
+          checks["base_training_text"]=base_text
+          assert "基建 · 142 个工程" in base_text, base_text
+          assert "Interact" in base_text, base_text
+          assert "84 个" in base_text, base_text
+          d.save_screenshot(f"{out}/training-base-interact.png")
+          d.find_element(By.CSS_SELECTOR,'[data-case="amiya-default-front"]').click()
+          wait.until(lambda x: "Runtime ✓" in x.find_element(By.ID,"hud").text)
+          time.sleep(.5)
+          d.find_element(By.CSS_SELECTOR,'[data-ins="bone"]').click()
+          time.sleep(.3)
+
           # Case templates must be read-only and Save must open Save As.
           checks["case_save_button"]=d.find_element(By.ID,"saveBtn").text
           assert checks["case_save_button"]=="另存为", checks
