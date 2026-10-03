@@ -1,27 +1,23 @@
 # Rig Motion Lab · 骨骼动画工作室
 
-专业级、纯网页、GitHub Pages 可托管的骨骼动画工作室。当前仓库内置由用户提供的阿米娅 Spine 3.5.51 工程转换得到的 12 套骨骼动作案例，保留骨骼层级、Setup Pose、IK/Transform/Path 约束元数据和骨骼动画时间线。
+GitHub Pages 托管的浏览器端 2D 骨骼动画工作室。仓库内置用户提供的阿米娅 Spine 3.5.51 工程作为案例库。
 
-## 已实现
+## 当前能力
 
-- 案例库：12 套阿米娅工程（4 外观 × 战斗正面/战斗背面/基建）
-- Spine JSON / ZIP 导入（浏览器端，不上传第三方服务器）
-- 骨骼层级树、骨骼选择、锁定、隐藏、搜索
-- Setup Pose 与动画时间线预览
-- 播放 / 暂停 / 循环 / 速度 / FPS / 帧步进 / 时间跳转
-- 2D 骨骼画布：平移、缩放、网格、关节、骨名、洋葱皮
-- Inspector：X/Y/旋转/缩放/长度，直接编辑
-- 创建空工程 / Humanoid 预设 / 新建骨骼 / 复制 / 删除 / 重设
-- 当前帧关键帧写入覆盖层；撤销 / 重做
-- Pose 镜像、重置、快照、参考叠加与姿态评分
-- IndexedDB 本地持久化；工程 JSON 导入/导出
-- 原始 Spine 3.5 JSON 可被解析为骨骼工作工程
-- GitHub Pages 静态托管，无后端依赖
+- 12 套阿米娅案例（4 外观 × 战斗正面 / 战斗背面 / 基建）
+- **完整皮肤显示**：读取 Spine `.atlas + PNG + slots + skins`
+- Region attachment 与 weighted Mesh attachment 实时蒙皮渲染
+- Slot attachment 动画、slot 显隐、附件强制切换、drawOrder
+- 皮肤透明度、皮肤/骨架独立开关
+- Spine JSON + Atlas + PNG 多选导入
+- 完整 ZIP 导入：自动匹配 JSON / Atlas / PNG
+- 骨骼树、Setup Pose、动画播放、逐帧、时间线
+- 骨骼创建 / 复制 / 删除 / 改父级 / 拖动 / 数值编辑
+- 非破坏式当前帧关键帧覆盖、撤销 / 重做
+- 姿态快照、参考叠加、训练评分
+- IndexedDB 浏览器本地工程保存与 JSON 导出
+- GitHub Pages 静态托管
 
-## 数据说明
+## Spine 兼容说明
 
-内置案例是 **bone-motion 精简工程**，目标是骨骼动作学习、观察、修改和训练。原始 ZIP 中的 slot/mesh/deform/texture attachment 数据不会被工作室篡改；如果需要查看原始工程，可直接把 ZIP 或 JSON 拖入网页。
-
-## GitHub Pages
-
-入口为 `index.html`。仓库启用 Pages 后可直接通过 GitHub Pages 地址使用。
+当前渲染器支持 Spine 3.5 JSON 的骨骼动画、Region、weighted/unweighted Mesh、Slot attachment 和 drawOrder。`deform` 数据会保留在工程中，但暂未提供逐顶点 deform 曲线编辑器；这是后续专业网格编辑阶段要继续补齐的部分。
