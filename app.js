@@ -62,12 +62,9 @@ function expandRemoteCases(builtins){
  return out
 }
 async function ensureSkeletonBinaryConverter(){
- if(window.SkeletonBinary)return;
- await loadOneOf([
-  'https://cdn.jsdelivr.net/gh/Aceship/AN-EN-Tags@d7264a3cc4e6455ad8fa87754d318cbd91a0f862/js/spine-skeleton-binary.js',
-  'https://raw.githubusercontent.com/Aceship/AN-EN-Tags/d7264a3cc4e6455ad8fa87754d318cbd91a0f862/js/spine-skeleton-binary.js'
- ],'spine35-binary-converter');
- if(!window.SkeletonBinary)throw new Error('Spine 3.5 二进制转换器未初始化')
+ if(window.SkeletonBinary35)return;
+ await loadOneOf(['vendor/SkeletonBinary3.5.js?v=0.8.2'],'spine35-binary-converter');
+ if(!window.SkeletonBinary35)throw new Error('Spine 3.5.51 二进制转换器未初始化')
 }
 async function fetchRemoteCaseData(c){
  if(remoteCaseCache.has(c.id))return deep(remoteCaseCache.get(c.id));
@@ -77,7 +74,7 @@ async function fetchRemoteCaseData(c){
  if(!skelRes.ok)throw new Error('骨骼资源加载失败 HTTP '+skelRes.status);
  if(!atlasRes.ok)throw new Error('Atlas 加载失败 HTTP '+atlasRes.status);
  await ensureSkeletonBinaryConverter();
- const bytes=new Uint8Array(await skelRes.arrayBuffer()),conv=new window.SkeletonBinary();
+ const bytes=new Uint8Array(await skelRes.arrayBuffer()),conv=new window.SkeletonBinary35();
  conv.data=bytes;conv.nextNum=0;conv.json={};conv.initJson();
  const d=conv.json||{};
  if(!d.bones?.length)throw new Error('二进制骨骼解析为空');
