@@ -276,8 +276,93 @@ function showModal(){$('#modalWrap').classList.add('show')}function hideModal(){
 
 let jszipPromise=null;function ensureJSZip(){if(window.JSZip)return Promise.resolve(window.JSZip);if(jszipPromise)return jszipPromise;jszipPromise=new Promise((resolve,reject)=>{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';sc.onload=()=>resolve(window.JSZip);sc.onerror=()=>reject(new Error('ZIP 模块加载失败，请检查网络后重试'));document.head.appendChild(sc)});return jszipPromise}
 async function zipEntryForJson(z,jsonName,data){const dir=jsonName.includes('/')?jsonName.slice(0,jsonName.lastIndexOf('/')+1):'',base=jsonName.split('/').pop().replace(/\.json$/i,''),atlasEntry=z.file(dir+base+'.atlas')||Object.values(z.files).find(e=>!e.dir&&e.name.startsWith(dir)&&e.name.toLowerCase().endsWith('.atlas'));if(!atlasEntry)return {name:jsonName,data};const atlasText=await atlasEntry.async('text'),page=parseAtlas(atlasText).page,imgEntry=page?z.file(dir+page):null;if(!imgEntry)return {name:jsonName,data:{...data,atlas:{text:atlasText,imageName:page||'',imageData:null}}};const b64=await imgEntry.async('base64');return {name:jsonName,data:{...data,atlas:{text:atlasText,imageName:page,imageData:'data:image/png;base64,'+b64}}}}
-async function importFiles(files){const arr=[...files];if(!arr.length)return;const zipFile=arr.find(f=>f.name.toLowerCase().endsWith('.zip'));if(zipFile){let Zip;try{Zip=await ensureJSZip()}catch(e){alert(e.message);return}const z=await Zip.loadAsync(zipFile),entries=[];for(const [name,e] of Object.entries(z.files)){if(!e.dir&&name.toLowerCase().endsWith('.json')){try{const txt=await e.async('text'),d=JSON.parse(txt);if(d.bones&&d.animations)entries.push(await zipEntryForJson(z,name,d))}catch(err){console.warn(name,err)}}}if(!entries.length){alert('ZIP 中没有识别到 Spine JSON');return}if(entries.length===1)await loadProject(normalizeProject(entries[0].data,entries[0].name));else chooseZip(entries);return}
- const jf=arr.find(f=>f.name.toLowerCase().endsWith('.json'));if(jf){try{let d=JSON.parse(await jf.text());const af=arr.find(f=>f.name.toLowerCase().endsWith('.atlas'));if(af){const at=await af.text(),page=parseAtlas(at).page,pf=arr.find(f=>f.name===page||f.name.toLowerCase().endsWith('.png'));if(pf){const dataURL=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(pf)});d={...d,atlas:{text:at,imageName:page||pf.name,imageData:dataURL}}}}await loadProject(normalizeProject(d,d.name||jf.name))}catch(e){alert('JSON 解析失败：'+e.message)}return}}
+function spineBinaryVersion(bytes){
+ try{
+  if(!bytes||bytes.length<10)return '';
+  let i=8,len=0,shift=0,b=0;
+  do{b=bytes[i++];len|=(b&127)<<shift;shift+=7;if(i>=bytes.length)return ''}while(b&128);
+  len=Math.max(0,len-1);if(!len||i+len>bytes.length)return '';
+  return new TextDecoder().decode(bytes.slice(i,i+len))
+ }catch{return ''}
+}
+function dataUrlForBlob(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(r.error);r.readAsDataURL(blob)})}
+async function convertSpine35Binary(bytes,atlasText,imageData,imageName,title,version){
+ await ensureSkeletonBinaryConverter();
+ const conv=new window.SkeletonBinary35();conv.data=bytes;conv.nextNum=0;conv.json={};conv.initJson();
+ const d=conv.json||{};if(!d.bones?.length)throw new Error('Spine 3.5 二进制解析为空');
+ d.atlas={text:atlasText,imageData,imageName};d.source={name:title,spine:version||d.skeleton?.spine||'3.5.51',provider:'本地导入'};
+ return normalizeProject(d,title)
+}
+async function openSpine42RawPreview({title,version,skeletonKey,atlasKey,rawDataURIs}){
+ disposeR1999Player();
+ $('#modal').innerHTML=`<h2>${esc(title)}</h2><div class="note"><b>检测到 Spine ${esc(version||'4.2')} 二进制。</b><br>它不能交给主工作室的 Spine 3.5 编辑 Runtime 解析，因此这里进入 4.2 只读预览；动画、皮肤和原始文件不会被错误转换。</div><div id="r1999Status" class="note">正在初始化 Spine 4.2 Player…</div><div id="r1999Player" class="r1999-player"></div><div id="r1999Animations" class="note"></div><div class="actions"><button data-close class="primary">关闭</button></div>`;
+ showModal();wireClose();$$('[data-close]').forEach(b=>b.onclick=()=>{disposeR1999Player();hideModal()});
+ try{
+  await ensureSpine42Player();
+  r1999Player=new window.spine.SpinePlayer('r1999Player',{
+   skeleton:skeletonKey,atlas:atlasKey,rawDataURIs,showControls:true,premultipliedAlpha:true,backgroundColor:'#080b10',alpha:true,
+   success:(player)=>{const names=(player.skeleton?.data?.animations||[]).map(a=>a.name);$('#r1999Status').textContent=title+' · Spine '+version+' · '+names.length+' animations';$('#r1999Animations').textContent=names.length?'动作：'+names.join(' · '):'未读取到动作列表';const first=names.find(n=>/idle|stand|wait/i.test(n))||names[0];if(first)try{player.setAnimation(first,true)}catch{}},
+   error:(_player,msg)=>{$('#r1999Status').textContent='加载失败：'+String(msg||'Spine 4.2 runtime error')}
+  })
+ }catch(e){$('#r1999Status').textContent='加载失败：'+String(e?.message||e)}
+}
+async function importLooseBinary(arr,sf){
+ const af=arr.find(f=>f.name.toLowerCase().endsWith('.atlas'));if(!af)throw new Error('缺少 .atlas');
+ const pngs=arr.filter(f=>f.name.toLowerCase().endsWith('.png'));if(!pngs.length)throw new Error('缺少 Atlas PNG');
+ const bytes=new Uint8Array(await sf.arrayBuffer()),version=spineBinaryVersion(bytes),atlasText=await af.text(),page=parseAtlas(atlasText).page;
+ if(/^3\.5\./.test(version)){
+  const pf=pngs.find(f=>f.name===page)||pngs[0],imageData=await dataUrlForBlob(pf);
+  await loadProject(await convertSpine35Binary(bytes,atlasText,imageData,page||pf.name,sf.name,version));return
+ }
+ if(/^4\.2\./.test(version)){
+  const raw={};raw[sf.name]=await dataUrlForBlob(sf);raw[af.name]=await dataUrlForBlob(af);
+  for(const p of pngs)raw[p.name]=await dataUrlForBlob(p);
+  await openSpine42RawPreview({title:sf.name,version,skeletonKey:sf.name,atlasKey:af.name,rawDataURIs:raw});return
+ }
+ throw new Error('暂不支持的 Spine 二进制版本：'+(version||'无法识别')+'。主编辑器支持 3.5，4.2 自动进入只读预览。')
+}
+async function importBinaryZipEntry(z,name){
+ const e=z.file(name);if(!e)throw new Error('ZIP 骨骼条目不存在');
+ const dir=name.includes('/')?name.slice(0,name.lastIndexOf('/')+1):'',base=name.split('/').pop().replace(/\.skel$/i,'');
+ const bytes=await e.async('uint8array'),version=spineBinaryVersion(bytes);
+ const atlasEntry=z.file(dir+base+'.atlas')||Object.values(z.files).find(x=>!x.dir&&x.name.startsWith(dir)&&x.name.toLowerCase().endsWith('.atlas'));
+ if(!atlasEntry)throw new Error(name+' 缺少同目录 .atlas');
+ const atlasText=await atlasEntry.async('text'),page=parseAtlas(atlasText).page;
+ const pngEntries=Object.values(z.files).filter(x=>!x.dir&&x.name.startsWith(dir)&&x.name.toLowerCase().endsWith('.png'));
+ if(!pngEntries.length)throw new Error(name+' 缺少同目录 PNG');
+ if(/^3\.5\./.test(version)){
+  const pf=pngEntries.find(x=>x.name===dir+page)||pngEntries[0],b64=await pf.async('base64');
+  await loadProject(await convertSpine35Binary(bytes,atlasText,'data:image/png;base64,'+b64,page||pf.name.split('/').pop(),name,version));return
+ }
+ if(/^4\.2\./.test(version)){
+  const raw={};raw[name]='data:application/octet-stream;base64,'+await e.async('base64');raw[atlasEntry.name]='data:text/plain;base64,'+await atlasEntry.async('base64');
+  for(const p of pngEntries)raw[p.name]='data:image/png;base64,'+await p.async('base64');
+  await openSpine42RawPreview({title:name,version,skeletonKey:name,atlasKey:atlasEntry.name,rawDataURIs:raw});return
+ }
+ throw new Error(name+'：暂不支持的 Spine 二进制版本 '+(version||'无法识别'))
+}
+function chooseBinaryZip(z,names){
+ $('#modal').innerHTML=`<h2>ZIP 中发现 ${names.length} 个 Spine Binary 工程</h2><div>${names.map((n,i)=>`<div class="case-card" data-zskel="${i}"><div class="case-title">${esc(n)}</div><div class="case-meta"><span class="badge">.skel</span></div></div>`).join('')}</div><div class="actions"><button data-close>取消</button></div>`;showModal();wireClose();
+ $$('[data-zskel]').forEach(x=>x.onclick=async()=>{hideModal();try{await importBinaryZipEntry(z,names[+x.dataset.zskel])}catch(e){alert('Binary 导入失败：'+e.message)}})
+}
+async function importFiles(files){
+ const arr=[...files];if(!arr.length)return;
+ const zipFile=arr.find(f=>f.name.toLowerCase().endsWith('.zip'));
+ if(zipFile){
+  let Zip;try{Zip=await ensureJSZip()}catch(e){alert(e.message);return}
+  const z=await Zip.loadAsync(zipFile),entries=[];
+  for(const [name,e] of Object.entries(z.files)){if(!e.dir&&name.toLowerCase().endsWith('.json')){try{const txt=await e.async('text'),d=JSON.parse(txt);if(d.bones&&d.animations)entries.push(await zipEntryForJson(z,name,d))}catch(err){console.warn(name,err)}}}
+  if(entries.length){if(entries.length===1)await loadProject(normalizeProject(entries[0].data,entries[0].name));else chooseZip(entries);return}
+  const skels=Object.values(z.files).filter(e=>!e.dir&&e.name.toLowerCase().endsWith('.skel')).map(e=>e.name);
+  if(skels.length){if(skels.length===1){try{await importBinaryZipEntry(z,skels[0])}catch(e){alert('Binary 导入失败：'+e.message)}}else chooseBinaryZip(z,skels);return}
+  alert('ZIP 中没有识别到 Spine JSON 或 .skel');return
+ }
+ const jf=arr.find(f=>f.name.toLowerCase().endsWith('.json'));
+ if(jf){try{let d=JSON.parse(await jf.text());const af=arr.find(f=>f.name.toLowerCase().endsWith('.atlas'));if(af){const at=await af.text(),page=parseAtlas(at).page,pf=arr.find(f=>f.name===page||f.name.toLowerCase().endsWith('.png'));if(pf){const dataURL=await dataUrlForBlob(pf);d={...d,atlas:{text:at,imageName:page||pf.name,imageData:dataURL}}}}await loadProject(normalizeProject(d,d.name||jf.name))}catch(e){alert('JSON 解析失败：'+e.message)}return}
+ const sf=arr.find(f=>f.name.toLowerCase().endsWith('.skel'));
+ if(sf){try{await importLooseBinary(arr,sf)}catch(e){alert('Binary 导入失败：'+e.message)}return}
+ alert('没有识别到可导入的 Spine JSON、ZIP 或 .skel')
+}
 function chooseZip(entries){$('#modal').innerHTML=`<h2>ZIP 中发现 ${entries.length} 个骨骼工程</h2><div>${entries.map((e,i)=>`<div class="case-card" data-z="${i}"><div class="case-title">${esc(e.name)}</div><div class="case-meta"><span class="badge">${e.data.bones?.length||0} bones</span><span class="badge">${e.data.slots?.length||0} slots</span><span class="badge">${e.data.atlas?.imageData?'含皮肤':'仅骨骼'}</span></div></div>`).join('')}</div><div class="actions"><button data-close>取消</button></div>`;showModal();$$('[data-z]').forEach(x=>x.onclick=async()=>{await loadProject(normalizeProject(entries[+x.dataset.z].data,entries[+x.dataset.z].name));hideModal()});wireClose()}
 async function saveProject(){
  if(!state.project)return;
