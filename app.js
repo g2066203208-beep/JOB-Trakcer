@@ -18,8 +18,8 @@ function normalizeProject(data,name='未命名工程'){
  return {id:data.id||uid(),name:data.name||name,createdAt:data.createdAt||Date.now(),updatedAt:Date.now(),schema:'rig-motion-lab/project@3',source:data.source||{},skeleton:data.skeleton||{},bones,slots:data.slots||[],skins:data.skins||{},atlas:data.atlas||null,sourceImages:data.sourceImages||{},activeSkin:data.activeSkin||skinNames[0]||'default',skinEdits:data.skinEdits||{slotVisibility:{},attachments:{}},ik:data.ik||[],transform:data.transform||[],path:data.path||[],events:data.events||{},animations,durations,activeAnimation:data.activeAnimation||Object.keys(animations)[0]||'Setup Pose',customKeys:data.customKeys||{},notes:data.notes||'',tags:data.tags||[]};
 }
 function measureDuration(a){let mx=0;const stack=[a];while(stack.length){const x=stack.pop();if(Array.isArray(x)) stack.push(...x);else if(x&&typeof x==='object'){if(typeof x.time==='number')mx=Math.max(mx,x.time);stack.push(...Object.values(x))}}return mx}
-function historySnap(){return {bones:state.project.bones,customKeys:state.project.customKeys,skinEdits:state.project.skinEdits,activeSkin:state.project.activeSkin}}
-function restoreSnap(x){state.project.bones=x.bones;state.project.customKeys=x.customKeys;state.project.skinEdits=x.skinEdits||{slotVisibility:{},attachments:{}};state.project.activeSkin=x.activeSkin||state.project.activeSkin}
+function historySnap(){return {bones:state.project.bones,animations:state.project.animations,durations:state.project.durations,customKeys:state.project.customKeys,skinEdits:state.project.skinEdits,activeSkin:state.project.activeSkin}}
+function restoreSnap(x){state.project.bones=x.bones;if(x.animations)state.project.animations=x.animations;if(x.durations)state.project.durations=x.durations;state.project.customKeys=x.customKeys;state.project.skinEdits=x.skinEdits||{slotVisibility:{},attachments:{}};state.project.activeSkin=x.activeSkin||state.project.activeSkin;if(typeof spineRT!=='undefined'&&spineRT.ready)buildSpineRuntime().then(()=>{syncRuntimePose();renderAll()})}
 function pushHistory(){if(!state.project)return;state.history.push(JSON.stringify(historySnap()));if(state.history.length>60)state.history.shift();state.future=[]}
 function undo(){if(!state.history.length||!state.project)return;state.future.push(JSON.stringify(historySnap()));restoreSnap(JSON.parse(state.history.pop()));renderAll()}
 function redo(){if(!state.future.length||!state.project)return;state.history.push(JSON.stringify(historySnap()));restoreSnap(JSON.parse(state.future.pop()));renderAll()}
@@ -113,12 +113,103 @@ async function zipEntryForJson(z,jsonName,data){const dir=jsonName.includes('/')
 async function importFiles(files){const arr=[...files];if(!arr.length)return;const zipFile=arr.find(f=>f.name.toLowerCase().endsWith('.zip'));if(zipFile){let Zip;try{Zip=await ensureJSZip()}catch(e){alert(e.message);return}const z=await Zip.loadAsync(zipFile),entries=[];for(const [name,e] of Object.entries(z.files)){if(!e.dir&&name.toLowerCase().endsWith('.json')){try{const txt=await e.async('text'),d=JSON.parse(txt);if(d.bones&&d.animations)entries.push(await zipEntryForJson(z,name,d))}catch(err){console.warn(name,err)}}}if(!entries.length){alert('ZIP 中没有识别到 Spine JSON');return}if(entries.length===1)await loadProject(normalizeProject(entries[0].data,entries[0].name));else chooseZip(entries);return}
  const jf=arr.find(f=>f.name.toLowerCase().endsWith('.json'));if(jf){try{let d=JSON.parse(await jf.text());const af=arr.find(f=>f.name.toLowerCase().endsWith('.atlas'));if(af){const at=await af.text(),page=parseAtlas(at).page,pf=arr.find(f=>f.name===page||f.name.toLowerCase().endsWith('.png'));if(pf){const dataURL=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(pf)});d={...d,atlas:{text:at,imageName:page||pf.name,imageData:dataURL}}}}await loadProject(normalizeProject(d,d.name||jf.name))}catch(e){alert('JSON 解析失败：'+e.message)}return}}
 function chooseZip(entries){$('#modal').innerHTML=`<h2>ZIP 中发现 ${entries.length} 个骨骼工程</h2><div>${entries.map((e,i)=>`<div class="case-card" data-z="${i}"><div class="case-title">${esc(e.name)}</div><div class="case-meta"><span class="badge">${e.data.bones?.length||0} bones</span><span class="badge">${e.data.slots?.length||0} slots</span><span class="badge">${e.data.atlas?.imageData?'含皮肤':'仅骨骼'}</span></div></div>`).join('')}</div><div class="actions"><button data-close>取消</button></div>`;showModal();$$('[data-z]').forEach(x=>x.onclick=async()=>{await loadProject(normalizeProject(entries[+x.dataset.z].data,entries[+x.dataset.z].name));hideModal()});wireClose()}
-async function saveProject(){if(!state.project)return;state.project.updatedAt=Date.now();await dbPut(deep(state.project));$('#saveState').textContent='已保存 '+new Date().toLocaleTimeString();if(state.leftTab==='projects')renderLeft()}
+async function saveProject(){
+ if(!state.project)return;
+ if(state.sourceCase){saveAsProject();return}
+ state.project.updatedAt=Date.now();await dbPut(deep(state.project));
+ $('#saveState').textContent='已保存 '+new Date().toLocaleTimeString();
+ if(state.leftTab==='projects')renderLeft()
+}
+function saveAsProject(){
+ if(!state.project)return;
+ const sourceCase=state.sourceCase,base=sourceCase?.title||state.project.name||'骨骼工程';
+ $('#modal').innerHTML=`<h2>另存为工程</h2><div class="note">${sourceCase?'仓库案例是只读模板，不能覆盖保存。你的修改会复制为独立工程，原案例保持不变。':'保存一个新的工程副本。'}</div><div class="field"><label>工程名</label><input id="saveAsName" value="${esc(sourceCase?base+' · 修改版':base+' · 副本')}"></div><div class="actions"><button data-close>取消</button><button id="confirmSaveAs" class="primary">另存</button></div>`;
+ showModal();wireClose();
+ $('#saveAsName').select();
+ $('#confirmSaveAs').onclick=async()=>{
+  const name=$('#saveAsName').value.trim()||base;
+  const copy=deep(state.project),now=Date.now();
+  copy.id=uid();copy.name=name;copy.createdAt=now;copy.updatedAt=now;
+  copy.source={...(copy.source||{}),derivedFromCase:sourceCase?.id||copy.source?.derivedFromCase||null};
+  state.project=copy;state.sourceCase=null;
+  await dbPut(deep(copy));hideModal();renderAll();
+  $('#saveState').textContent='已另存 '+new Date().toLocaleTimeString()
+ }
+}
 function exportProject(){if(!state.project)return;const blob=new Blob([JSON.stringify(state.project,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(state.project.name||'rig-project').replace(/[\\/:*?"<>|]+/g,'_')+'.rig.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 
+function screenToSkeleton(sx,sy){
+ if(!spineRT.ready||!spineRT.display||!window.PIXI)return null;
+ return spineRT.display.toLocal(new PIXI.Point(sx,sy))
+}
+function skeletonToParentLocal(bone,pt){
+ const p=bone?.parent;if(!p)return {x:pt.x,y:pt.y};
+ const a=p.m00??p.a??1,b=p.m01??p.b??0,c=p.m10??p.c??0,d=p.m11??p.d??1;
+ const dx=pt.x-(p.worldX??0),dy=pt.y-(p.worldY??0),det=a*d-b*c;
+ if(Math.abs(det)<1e-8)return {x:bone.x,y:bone.y};
+ return {x:(dx*d-dy*b)/det,y:(dy*a-dx*c)/det}
+}
+async function commitRuntimeBoneDrag(drag){
+ if(!drag||!state.project)return;
+ const setup=state.project.bones.find(b=>b.name===drag.name),pose=runtimeLocalPose(drag.name),seg=segmentAtTime();
+ if(!setup||!pose||!seg.name)return;
+ const anim=state.project.animations[seg.name];anim.bones??={};anim.bones[setup.name]??={};const bt=anim.bones[setup.name],t=seg.localTime;
+ if(drag.mode==='rotate'){
+  bt.rotate??=[];upsertFrame(bt.rotate,t,{angle:pose.rotation-(+setup.rotation||0)})
+ }else{
+  bt.translate??=[];upsertFrame(bt.translate,t,{x:pose.x-(+setup.x||0),y:pose.y-(+setup.y||0)})
+ }
+ state.project.durations[seg.name]=measureDuration(anim);
+ await buildSpineRuntime();syncRuntimePose();renderTimeline();renderInspector();renderMeta()
+}
 canvas.addEventListener('wheel',e=>{e.preventDefault();const before=toWorld(e.offsetX,e.offsetY),factor=Math.exp(-e.deltaY*.001);state.view.zoom=clamp(state.view.zoom*factor,.05,20);const after=toWorld(e.offsetX,e.offsetY);state.view.x+=(after[0]-before[0])*state.view.zoom;state.view.y-=(after[1]-before[1])*state.view.zoom},{passive:false});
-canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);if(e.button===1||e.altKey){state.drag={type:'pan',x:e.clientX,y:e.clientY,vx:state.view.x,vy:state.view.y};return}const b=hitBone(e.offsetX,e.offsetY);if(b){state.selectedBone=b.name;renderLeft();renderInspector();renderTimeline();const bone=selected();if(!bone?.locked){pushHistory();state.drag={type:'bone',bone,start:toWorld(e.offsetX,e.offsetY),x:bone.x,y:bone.y}}}else state.drag={type:'pan',x:e.clientX,y:e.clientY,vx:state.view.x,vy:state.view.y}});
-canvas.addEventListener('pointermove',e=>{if(!state.drag)return;if(state.drag.type==='pan'){state.view.x=state.drag.vx+e.clientX-state.drag.x;state.view.y=state.drag.vy+e.clientY-state.drag.y}else{const b=state.drag.bone,w=toWorld(e.offsetX,e.offsetY),dx=w[0]-state.drag.start[0],dy=w[1]-state.drag.start[1];if(b.parent){const p=worldPose(state.currentTime).find(x=>x.name===b.parent);if(p){const rr=-rad(p.wr),lx=Math.cos(rr)*dx-Math.sin(rr)*dy,ly=Math.sin(rr)*dx+Math.cos(rr)*dy;b.x=state.drag.x+lx/(p.wsx||1);b.y=state.drag.y+ly/(p.wsy||1)}}else{b.x=state.drag.x+dx;b.y=state.drag.y+dy}renderInspector()}});canvas.addEventListener('pointerup',()=>state.drag=null);
+canvas.addEventListener('contextmenu',e=>e.preventDefault());
+canvas.addEventListener('pointerdown',e=>{
+ canvas.setPointerCapture(e.pointerId);
+ if(e.button===1||e.altKey){state.drag={type:'pan',x:e.clientX,y:e.clientY,vx:state.view.x,vy:state.view.y};canvas.style.cursor='grabbing';return}
+ const hit=hitBone(e.offsetX,e.offsetY);
+ if(!hit){state.drag={type:'pan',x:e.clientX,y:e.clientY,vx:state.view.x,vy:state.view.y};canvas.style.cursor='grabbing';return}
+ state.selectedBone=hit.name;renderLeft();renderInspector();renderTimeline();
+ const setup=selected(),rb=runtimeBone(hit.name);
+ if(!setup||setup.locked||!spineRT.ready||!rb)return;
+ syncRuntimePose();
+ const live=runtimeBone(hit.name),screen=runtimePoseScreen().find(x=>x.name===hit.name),pose=runtimeLocalPose(hit.name);
+ if(!live||!screen||!pose)return;
+ pushHistory();
+ try{spineRT.display.state?.clearTracks?.()}catch{}
+ spineRT.currentClip=null;spineRT.entry=null;
+ state.drag={
+  type:'runtime-bone',mode:e.shiftKey?'rotate':'move',name:hit.name,
+  startPose:pose,originScreen:{x:screen.x,y:screen.y},
+  startPointer:{x:e.offsetX,y:e.offsetY},
+  startAngle:Math.atan2(e.offsetY-screen.y,e.offsetX-screen.x)
+ };
+ canvas.style.cursor=e.shiftKey?'alias':'grabbing'
+});
+canvas.addEventListener('pointermove',e=>{
+ if(!state.drag)return;
+ if(state.drag.type==='pan'){
+  state.view.x=state.drag.vx+e.clientX-state.drag.x;state.view.y=state.drag.vy+e.clientY-state.drag.y;return
+ }
+ if(state.drag.type!=='runtime-bone')return;
+ const rb=runtimeBone(state.drag.name);if(!rb)return;
+ if(state.drag.mode==='rotate'){
+  const a=Math.atan2(e.offsetY-state.drag.originScreen.y,e.offsetX-state.drag.originScreen.x);
+  let delta=deg(a-state.drag.startAngle);while(delta>180)delta-=360;while(delta<-180)delta+=360;
+  rb.rotation=state.drag.startPose.rotation+delta
+ }else{
+  const pt=screenToSkeleton(e.offsetX,e.offsetY);if(!pt)return;
+  const local=skeletonToParentLocal(rb,pt);rb.x=local.x;rb.y=local.y
+ }
+ try{spineRT.display.update(0)}catch{try{spineRT.display.skeleton.updateWorldTransform()}catch{}}
+ applyRuntimeSlotEdits();syncRuntimeViewport();renderInspector()
+});
+async function finishPointer(){
+ const d=state.drag;state.drag=null;canvas.style.cursor='crosshair';
+ if(d?.type==='runtime-bone')await commitRuntimeBoneDrag(d)
+}
+canvas.addEventListener('pointerup',finishPointer);
+canvas.addEventListener('pointercancel',finishPointer);
 
 function setupDrop(){const z=$('#dropZone');if(!z)return;['dragenter','dragover'].forEach(n=>z.addEventListener(n,e=>{e.preventDefault();z.classList.add('drag')}));['dragleave','drop'].forEach(n=>z.addEventListener(n,e=>{e.preventDefault();z.classList.remove('drag')}));z.addEventListener('drop',e=>importFiles(e.dataTransfer.files))}
 
@@ -186,8 +277,47 @@ function duration(){return motionDuration()}
 function currentRawClip(){const s=segmentAtTime();if(s.name)state.project.activeAnimation=s.name;return s}
 
 function syncRuntimeViewport(){if(!spineRT.renderer||!spineRT.display)return;const r=canvas.getBoundingClientRect();const w=Math.max(1,Math.round(r.width)),h=Math.max(1,Math.round(r.height));if(spineRT.renderer.width!==(w*(window.devicePixelRatio||1))||spineRT.renderer.height!==(h*(window.devicePixelRatio||1)))spineRT.renderer.resize(w,h);spineRT.display.position.set(w/2+state.view.x,h/2+state.view.y);spineRT.display.scale.set(state.view.zoom);spineRT.display.alpha=state.skinOpacity;spineRT.host.style.display=state.showSkin?'block':'none'}
-function syncRuntimePose(){if(!spineRT.ready||!spineRT.display||!state.project)return;const seg=currentRawClip(),sp=spineRT.display;if(!seg.name)return;try{if(spineRT.currentClip!==seg.name){spineRT.entry=sp.state.setAnimationByName(0,seg.name,false);spineRT.currentClip=seg.name}const e=sp.state.getCurrent?.(0)||spineRT.entry;if(e){const safeEnd=Math.max(0,seg.duration-0.000001);const tt=seg.duration?Math.min(seg.localTime,safeEnd):0;e.time=tt;e.lastTime=Math.max(-1,tt-0.00001);e.loop=false;e.mix=1}sp.skeleton.setToSetupPose();sp.update(0);applyRuntimeSlotEdits();syncRuntimeViewport()}catch(e){console.error(e);spineRT.error=String(e?.message||e)}}
-function applyRuntimeSlotEdits(){const sp=spineRT.display;if(!sp?.skeleton)return;const slots=sp.skeleton.slots||[];for(let i=0;i<slots.length;i++){const slot=slots[i],name=slot.data?.name||state.project.slots?.[i]?.name;const vis=state.project?.skinEdits?.slotVisibility?.[name]!==false;if(sp.slotContainers?.[i])sp.slotContainers[i].visible=vis&&state.showSkin;const forced=state.project?.skinEdits?.attachments?.[name];if(forced!==undefined&&forced!==null&&forced!=='__AUTO__'){try{sp.skeleton.setAttachment(name,forced||null)}catch{}}}}
+function resetRuntimePlayback(){
+ const sp=spineRT.display;if(!sp)return;
+ try{sp.state?.clearTracks?.()}catch{}
+ spineRT.currentClip=null;spineRT.entry=null;
+ try{sp.skeleton?.setToSetupPose?.()}catch{}
+ try{sp.skeleton?.updateWorldTransform?.()}catch{}
+ for(const c of sp.slotContainers||[])c.visible=false
+}
+function syncRuntimePose(){
+ if(!spineRT.ready||!spineRT.display||!state.project||state.drag?.type==='runtime-bone')return;
+ const seg=currentRawClip(),sp=spineRT.display;if(!seg.name)return;
+ try{
+  if(spineRT.currentClip!==seg.name){
+   try{sp.state?.clearTracks?.()}catch{}
+   spineRT.entry=sp.state.setAnimationByName(0,seg.name,false);spineRT.currentClip=seg.name
+  }
+  const e=sp.state.getCurrent?.(0)||spineRT.entry;
+  if(e){
+   const safeEnd=Math.max(0,seg.duration-0.000001),tt=seg.duration?Math.min(seg.localTime,safeEnd):0;
+   e.time=tt;e.lastTime=Math.max(-1,tt-0.00001);e.loop=false;e.mix=1
+  }
+  sp.skeleton.setToSetupPose();
+  sp.update(0);
+  applyRuntimeSlotEdits();
+  syncRuntimeViewport()
+ }catch(e){console.error(e);spineRT.error=String(e?.message||e)}
+}
+function applyRuntimeSlotEdits(){
+ const sp=spineRT.display;if(!sp?.skeleton)return;
+ const slots=sp.skeleton.slots||[];
+ for(let i=0;i<slots.length;i++){
+  const slot=slots[i],name=slot.data?.name||state.project.slots?.[i]?.name,container=sp.slotContainers?.[i];
+  const userVisible=state.project?.skinEdits?.slotVisibility?.[name]!==false;
+  const forced=state.project?.skinEdits?.attachments?.[name];
+  if(forced!==undefined&&forced!==null&&forced!=='__AUTO__'){try{sp.skeleton.setAttachment(name,forced||null)}catch{}}
+  // Critical: never revive an empty slot container. pixi-spine hides it when
+  // the current animation has no attachment; forcing it visible resurrects
+  // stale sprites/meshes from previous perspective parts.
+  if(container)container.visible=!!slot.attachment&&userVisible&&state.showSkin
+ }
+}
 function runtimeBone(name){return spineRT.display?.skeleton?.bones?.find(b=>(b.data?.name||b.name)===name)||null}
 function activeRuntimeBoneSet(){
  const sp=spineRT.display,skeleton=sp?.skeleton;if(!spineRT.ready||!skeleton)return null;
@@ -260,7 +390,7 @@ async function loadCase(c){const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw 
 async function loadProject(p){state.project=normalizeProject(p,p.name);state.sourceCase=null;state.activeMotion=null;ensureMotionSelection();const seg=currentRawClip();state.project.activeAnimation=seg.name||Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
 
 function renderAnimSelect(){const s=$('#animSelect');if(!state.project){s.innerHTML='<option>无动画</option>';return}ensureMotionSelection();const defs=motionDefs(),actions=defs.filter(x=>x.kind==='action'),clips=defs.filter(x=>x.kind==='clip');s.innerHTML=`<optgroup label="动作组（按文件语义串联）">${actions.map(x=>`<option value="${esc(x.id)}" ${x.id===state.activeMotion?'selected':''}>${esc(x.label)}</option>`).join('')}</optgroup><optgroup label="原始 Spine 片段">${clips.map(x=>`<option value="${esc(x.id)}" ${x.id===state.activeMotion?'selected':''}>${esc(x.label)}</option>`).join('')}</optgroup>`;s.value=state.activeMotion}
-function renderMeta(){if(!state.project){$('#footProject').textContent='未加载工程';$('#hud').textContent='选择案例或新建工程';return}const d=duration(),seg=segmentAtTime(),def=activeMotionDef();$('#timeRange').max=d||1;$('#timeRange').value=state.currentTime;$('#timeLabel').textContent=`${state.currentTime.toFixed(3)} / ${d.toFixed(3)}`;$('#footProject').textContent=`${state.project.name} · ${state.project.bones.length} bones · Spine ${state.project.skeleton?.spine||'?'}`;const rt=spineRT.ready?'Runtime ✓':(spineRT.error?'Runtime 错误 · '+spineRT.error:'Runtime 加载中');$('#hud').textContent=`${def.label}  ›  ${seg.name||'—'} ${seg.localTime.toFixed(3)}s  |  ${(state.currentTime*state.fps).toFixed(0)}f  |  zoom ${(state.view.zoom*100).toFixed(0)}%  |  ${rt}`;$('#playBtn').textContent=state.playing?'❚❚':'▶'}
+function renderMeta(){if(!state.project){$('#footProject').textContent='未加载工程';$('#hud').textContent='选择案例或新建工程';return}const d=duration(),seg=segmentAtTime(),def=activeMotionDef();$('#timeRange').max=d||1;$('#timeRange').value=state.currentTime;$('#timeLabel').textContent=`${state.currentTime.toFixed(3)} / ${d.toFixed(3)}`;$('#footProject').textContent=`${state.project.name} · ${state.project.bones.length} bones · Spine ${state.project.skeleton?.spine||'?'}`;const rt=spineRT.ready?'Runtime ✓':(spineRT.error?'Runtime 错误 · '+spineRT.error:'Runtime 加载中');$('#hud').textContent=`${def.label}  ›  ${seg.name||'—'} ${seg.localTime.toFixed(3)}s  |  ${(state.currentTime*state.fps).toFixed(0)}f  |  zoom ${(state.view.zoom*100).toFixed(0)}%  |  ${rt}`;$('#playBtn').textContent=state.playing?'❚❚':'▶';if($('#loopBtn'))$('#loopBtn').textContent='循环 '+(state.loop?'✓':'');$('#saveBtn').textContent=state.sourceCase?'另存为':'保存';if(state.sourceCase&&!state.playing)$('#saveState').textContent='案例只读 · 修改请另存'}
 function renderTimeline(){const box=$('#tracks');if(!state.project){box.innerHTML='';return}const d=duration()||.001,segs=segmentList(),active=segmentAtTime();let strip=`<div class="motion-strip">${segs.map((s,i)=>`<div class="motion-seg ${i===active.index?'active':''}" style="left:${s.offset/d*100}%;width:${Math.max(.4,s.duration/d*100)}%" title="${esc(s.name)} ${s.duration.toFixed(3)}s">${esc(s.name)}</div>`).join('')}`;for(const s of segs){for(const ev of state.project.animations?.[s.name]?.events||[]){const x=(s.offset+(+ev.time||0))/d*100;strip+=`<i class="event-mark" style="left:${x}%"></i><span class="event-label" style="left:${x}%">${esc(ev.name||'event')}</span>`}}strip+='</div>';
  const bones=state.project.bones.filter(b=>segs.some(s=>state.project.animations?.[s.name]?.bones?.[b.name]));let html=strip;for(const b of bones.slice(0,140)){const times=[];for(const s of segs){const td=state.project.animations?.[s.name]?.bones?.[b.name]||{};for(const arr of Object.values(td))if(Array.isArray(arr))arr.forEach(k=>times.push(s.offset+(+k.time||0)))}html+=`<div class="track"><div class="track-label">${esc(b.name)}</div><div class="track-lane" data-lane="${esc(b.name)}">${[...new Set(times.map(x=>x.toFixed(5)))].map(Number).sort((a,z)=>a-z).map(t=>`<i class="kf" style="left:${clamp(t/d*100,0,100)}%" title="${t.toFixed(3)}"></i>`).join('')}<i class="playhead" style="left:${clamp(state.currentTime/d*100,0,100)}%"></i></div></div>`}box.innerHTML=html;$$('[data-lane]').forEach(l=>l.onclick=e=>{const r=l.getBoundingClientRect();state.currentTime=clamp((e.clientX-r.left)/r.width*d,0,d);state.selectedBone=l.dataset.lane;currentRawClip();renderMeta();renderTimeline();renderInspector()});renderMeta()}
 
@@ -271,7 +401,7 @@ async function writePoseKey(prop,value){const setup=selected(),seg=segmentAtTime
  else if(prop==='x'||prop==='y'){bt.translate??=[];const cur=sampleFrames(bt.translate,t,['x','y'],{x:0,y:0});cur[prop]=value-(+(setup[prop])||0);upsertFrame(bt.translate,t,{x:cur.x,y:cur.y})}
  else if(prop==='scaleX'||prop==='scaleY'){bt.scale??=[];const cur=sampleFrames(bt.scale,t,['x','y'],{x:1,y:1});const k=prop==='scaleX'?'x':'y',base=+(setup[prop])||1;cur[k]=value/base;upsertFrame(bt.scale,t,{x:cur.x,y:cur.y})}
  state.project.durations[seg.name]=measureDuration(anim);await buildSpineRuntime();syncRuntimePose();renderTimeline();renderInspector()}
-function runtimeLocalPose(name){const b=runtimeBone(name);if(!b)return null;return {x:+b.x||0,y:+b.y||0,rotation:+(b.rotationIK??b.rotation)||0,scaleX:b.scaleX==null?1:+b.scaleX,scaleY:b.scaleY==null?1:+b.scaleY}}
+function runtimeLocalPose(name){const b=runtimeBone(name);if(!b)return null;return {x:+b.x||0,y:+b.y||0,rotation:+b.rotation||0,scaleX:b.scaleX==null?1:+b.scaleX,scaleY:b.scaleY==null?1:+b.scaleY}}
 
 const _legacyInspector=renderInspector;
 renderInspector=function(){const p=$('#insPane');if(!state.project){p.innerHTML='<div class="empty">暂无工程</div>';return}
@@ -281,29 +411,29 @@ renderInspector=function(){const p=$('#insPane');if(!state.project){p.innerHTML=
  return _legacyInspector()};
 
 $$('[data-left]').forEach(b=>b.onclick=()=>{$$('[data-left]').forEach(x=>x.classList.toggle('active',x===b));state.leftTab=b.dataset.left;renderLeft()});$$('[data-ins]').forEach(b=>b.onclick=()=>{$$('[data-ins]').forEach(x=>x.classList.toggle('active',x===b));state.insTab=b.dataset.ins;renderInspector()});
-$('#leftSearch').oninput=renderLeft;$('#newBtn').onclick=newProjectModal;$('#importBtn').onclick=()=>$('#fileInput').click();$('#fileInput').onchange=e=>importFiles(e.target.files);$('#saveBtn').onclick=saveProject;$('#exportBtn').onclick=exportProject;$('#undoBtn').onclick=undo;$('#redoBtn').onclick=redo;$('#helpBtn').onclick=showHelp;$('#fitBtn').onclick=fitView;$('#gridBtn').onclick=()=>{state.showGrid=!state.showGrid;$('#gridBtn').textContent='网格 '+(state.showGrid?'✓':'')};$('#skinBtn').onclick=()=>{state.showSkin=!state.showSkin;$('#skinBtn').textContent='皮肤 '+(state.showSkin?'✓':'');syncRuntimeViewport()};$('#rigBtn').onclick=()=>{state.showRig=!state.showRig;$('#rigBtn').textContent='骨架 '+(state.showRig?'✓':'')};$('#namesBtn').onclick=()=>{state.showNames=!state.showNames;$('#namesBtn').textContent='骨名 '+(state.showNames?'✓':'')};$('#onionBtn').onclick=()=>{state.onion=!state.onion;$('#onionBtn').textContent='洋葱皮 '+(state.onion?'✓':'')};$('#animSelect').onchange=e=>{state.activeMotion=e.target.value;state.currentTime=0;spineRT.currentClip=null;currentRawClip();syncRuntimePose();renderAll()};$('#speedSelect').onchange=e=>state.speed=+e.target.value;$('#playBtn').onclick=()=>{if(!state.playing&&state.currentTime>=duration()-1e-6){state.currentTime=0;spineRT.currentClip=null}state.playing=!state.playing;renderMeta()};$('#timeRange').oninput=e=>{state.currentTime=+e.target.value;renderTimeline();renderInspector()};$('#fpsInput').onchange=e=>{state.fps=clamp(+e.target.value||30,1,120);renderInspector()};$('#prevFrame').onclick=()=>{state.currentTime=clamp(state.currentTime-1/state.fps,0,duration());renderTimeline();renderInspector()};$('#nextFrame').onclick=()=>{state.currentTime=clamp(state.currentTime+1/state.fps,0,duration());renderTimeline();renderInspector()};$('#addKeyBtn').onclick=addCurrentKey;
+$('#leftSearch').oninput=renderLeft;$('#newBtn').onclick=newProjectModal;$('#importBtn').onclick=()=>$('#fileInput').click();$('#fileInput').onchange=e=>importFiles(e.target.files);$('#saveBtn').onclick=saveProject;$('#exportBtn').onclick=exportProject;$('#undoBtn').onclick=undo;$('#redoBtn').onclick=redo;$('#helpBtn').onclick=showHelp;$('#fitBtn').onclick=fitView;$('#gridBtn').onclick=()=>{state.showGrid=!state.showGrid;$('#gridBtn').textContent='网格 '+(state.showGrid?'✓':'')};$('#skinBtn').onclick=()=>{state.showSkin=!state.showSkin;$('#skinBtn').textContent='皮肤 '+(state.showSkin?'✓':'');syncRuntimeViewport()};$('#rigBtn').onclick=()=>{state.showRig=!state.showRig;$('#rigBtn').textContent='骨架 '+(state.showRig?'✓':'')};$('#namesBtn').onclick=()=>{state.showNames=!state.showNames;$('#namesBtn').textContent='骨名 '+(state.showNames?'✓':'')};$('#onionBtn').onclick=()=>{state.onion=!state.onion;$('#onionBtn').textContent='洋葱皮 '+(state.onion?'✓':'')};$('#animSelect').onchange=e=>{resetRuntimePlayback();state.activeMotion=e.target.value;state.currentTime=0;currentRawClip();syncRuntimePose();renderAll()};$('#speedSelect').onchange=e=>state.speed=+e.target.value;$('#playBtn').onclick=()=>{if(!state.playing&&state.currentTime>=duration()-1e-6){state.currentTime=0;resetRuntimePlayback();syncRuntimePose()}state.playing=!state.playing;renderMeta()};if($('#loopBtn'))$('#loopBtn').onclick=()=>{state.loop=!state.loop;$('#loopBtn').textContent='循环 '+(state.loop?'✓':'');renderInspector()};$('#timeRange').oninput=e=>{state.currentTime=+e.target.value;renderTimeline();renderInspector()};$('#fpsInput').onchange=e=>{state.fps=clamp(+e.target.value||30,1,120);renderInspector()};$('#prevFrame').onclick=()=>{state.currentTime=clamp(state.currentTime-1/state.fps,0,duration());renderTimeline();renderInspector()};$('#nextFrame').onclick=()=>{state.currentTime=clamp(state.currentTime+1/state.fps,0,duration());renderTimeline();renderInspector()};$('#addKeyBtn').onclick=addCurrentKey;
 window.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName))return;if(e.code==='Space'){e.preventDefault();state.playing=!state.playing;renderMeta()}else if(e.key==='f'||e.key==='F')fitView();else if(e.key==='ArrowLeft')$('#prevFrame').click();else if(e.key==='ArrowRight')$('#nextFrame').click();else if(e.key==='Delete')deleteBone();else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();e.shiftKey?redo():undo()}else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='y'){e.preventDefault();redo()}});
-function motionIsOneShot(){
- const d=activeMotionDef();return d.kind==='action'&&['action:Attack','action:Skill','action:Skill_2','action:Start','action:Stun'].includes(d.id)
+function motionIsRest(){
+ const id=activeMotionDef().id;return id==='action:Idle'||id==='action:Default'||id==='clip:Idle'||id==='clip:Default'
 }
 function returnToRestMotion(){
  const defs=motionDefs(),rest=defs.find(x=>x.id==='action:Idle')||defs.find(x=>x.id==='action:Default');
- if(rest){
-  state.activeMotion=rest.id;state.currentTime=0;state.playing=false;spineRT.currentClip=null;spineRT.entry=null;
-  currentRawClip();syncRuntimePose();renderAnimSelect();renderTimeline();renderInspector();renderMeta();return true
- }
- return false
+ if(!rest)return false;
+ resetRuntimePlayback();state.activeMotion=rest.id;state.currentTime=0;state.playing=false;
+ currentRawClip();syncRuntimePose();renderAnimSelect();renderTimeline();renderInspector();renderMeta();return true
 }
 function tick(t){
  if(state.playing&&state.project){
   if(!state.lastT)state.lastT=t;
   state.currentTime+=(t-state.lastT)/1000*state.speed;
   const d=duration();
-  if(state.currentTime>=d){
-   if(motionIsOneShot()){
-    if(!returnToRestMotion()){state.currentTime=0;state.playing=false;spineRT.currentClip=null;syncRuntimePose()}
-   }else if(state.loop&&d>0)state.currentTime=state.currentTime%d;
-   else{state.currentTime=d;state.playing=false}
+  if(d>0&&state.currentTime>=d){
+   if(state.loop){
+    state.currentTime=state.currentTime%d;
+    resetRuntimePlayback();syncRuntimePose()
+   }else if(!motionIsRest()){
+    if(!returnToRestMotion()){state.currentTime=0;state.playing=false;resetRuntimePlayback();syncRuntimePose()}
+   }else{state.currentTime=d;state.playing=false}
   }
   renderMeta();if(Math.floor(t/80)!==Math.floor(state.lastT/80))renderTimeline()
  }
