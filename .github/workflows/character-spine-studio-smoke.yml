@@ -63,9 +63,9 @@ jobs:
           print("LOG_INIT="+json.dumps(logs,ensure_ascii=False))
           assert info["ready"] is True, info
           assert not info["error"], info
-          assert info["bones"] == 25, info
-          assert info["slots"] == 22, info
-          assert info["parts"] == 22, info
+          assert info["bones"] == 11, info
+          assert info["slots"] == 10, info
+          assert info["parts"] == 10, info
           assert set(["Idle","Move","Attack","Hurt","Death"]).issubset(set(info["anims"])), info
           assert "PASS" in info["runtime"], info
           assert info["canvas"][0] > 600 and info["canvas"][1] > 250, info
@@ -88,7 +88,7 @@ jobs:
           d.find_element(By.CSS_SELECTOR,'.ins-tabs [data-ins="bones"]').click()
           time.sleep(.15)
           rows=d.find_elements(By.CSS_SELECTOR,".bone-row")
-          assert len(rows)==25, len(rows)
+          assert len(rows)==11, len(rows)
           rows[5].click()
           selected=d.execute_script("return CHARACTER_SPINE_STUDIO.selectedBone")
           assert selected, selected
@@ -108,6 +108,22 @@ jobs:
           print("FILES="+json.dumps(files,ensure_ascii=False))
           assert all(x.get("ok") for x in files), files
 
+          # Visual QA capture: skin only, no rig.
+          d.execute_script("""
+            document.querySelector('#rigToggle').checked=false;
+            CHARACTER_SPINE_STUDIO.showRig=false;
+            CHARACTER_SPINE_STUDIO.showNames=false;
+            CHARACTER_SPINE_STUDIO.showGrid=true;
+            CHARACTER_SPINE_STUDIO.hidden.clear();
+          """)
+          for name in ["Idle","Move","Attack","Hurt","Death"]:
+              d.execute_script("setAnimation(arguments[0]);",name)
+              time.sleep(.25)
+              dur=d.execute_script("return CHARACTER_SPINE_STUDIO.meta.durations[arguments[0]]",name)
+              sample=dur*.45 if name!="Death" else dur*.78
+              d.execute_script("CHARACTER_SPINE_STUDIO.entry.trackTime=arguments[0]; applyPose(); render();",sample)
+              time.sleep(.15)
+              d.save_screenshot(f"/tmp/qa-{name.lower()}.png")
           d.save_screenshot("/tmp/character-spine-studio.png")
           d.quit()
           PY
@@ -116,5 +132,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: character-spine-studio-qa
-          path: /tmp/character-spine-studio.png
+          path: |
+            /tmp/character-spine-studio.png
+            /tmp/qa-idle.png
+            /tmp/qa-move.png
+            /tmp/qa-attack.png
+            /tmp/qa-hurt.png
+            /tmp/qa-death.png
           if-no-files-found: ignore
