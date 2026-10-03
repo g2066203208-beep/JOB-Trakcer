@@ -370,7 +370,25 @@ function drawRuntimeRig(alpha=1,ghost=false){
  }
  ctx.restore()
 }
-function hitBone(sx,sy){if(spineRT.ready){let best=null,bd=14;for(const b of runtimePoseScreen()){const d=Math.hypot(b.x-sx,b.y-sy);if(d<bd){best={name:b.name,runtime:b.bone};bd=d}}return best}let best=null,bd=14;for(const b of worldPose(state.currentTime)){const [x,y]=toScreen(b.wx,b.wy),d=Math.hypot(x-sx,y-sy);if(d<bd){best=b;bd=d}}return best}
+function pointSegmentDistance(px,py,x1,y1,x2,y2){
+ const vx=x2-x1,vy=y2-y1,wx=px-x1,wy=py-y1,l2=vx*vx+vy*vy;
+ if(l2<1e-6)return Math.hypot(px-x1,py-y1);
+ const t=clamp((wx*vx+wy*vy)/l2,0,1),x=x1+t*vx,y=y1+t*vy;
+ return Math.hypot(px-x,py-y)
+}
+function hitBone(sx,sy){
+ if(spineRT.ready){
+  const rows=runtimePoseScreen();let best=null,bd=14;
+  // Joints get first priority.
+  for(const b of rows){const d=Math.hypot(b.x-sx,b.y-sy);if(d<bd){best={name:b.name,runtime:b.bone};bd=d}}
+  if(best)return best;
+  // Then allow clicking directly on a bone segment. The child bone owns the segment.
+  bd=8;
+  for(const b of rows){if(!b.parent)continue;const d=pointSegmentDistance(sx,sy,b.parent.x,b.parent.y,b.x,b.y);if(d<bd){best={name:b.name,runtime:b.bone};bd=d}}
+  return best
+ }
+ let best=null,bd=14;for(const b of worldPose(state.currentTime)){const [x,y]=toScreen(b.wx,b.wy),d=Math.hypot(x-sx,y-sy);if(d<bd){best=b;bd=d}}return best
+}
 function draw(){
  resizeCanvas();const r=canvas.getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);
  if(state.project&&spineRT.ready){syncRuntimePose();spineRT.renderer.render(spineRT.stage)}
