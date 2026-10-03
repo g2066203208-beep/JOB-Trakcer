@@ -1,3 +1,4 @@
+import { createRunCycleSample } from "./run-sample.js";
 const $ = (id) => document.getElementById(id);
 const displayCanvas = $("displayCanvas");
 const dctx = displayCanvas.getContext("2d", { alpha: true });
@@ -517,6 +518,14 @@ $("resizeCanvas").onclick=()=>{
   project.width=nw;project.height=nh;refreshAll();scheduleAutosave();setStatus(`画布已调整为 ${nw}×${nh}`);
 };
 
+$("loadRunSample").onclick=()=>{
+  if(!confirm("载入我画的 8 帧跑步示例？当前工程会保留在浏览器自动保存中。"))return;
+  loadSerializedProject(createRunCycleSample(),true);
+  zoom=8;$("zoom").value=zoom;
+  setStatus("已载入原创 8 帧跑步循环");
+  startPlayback();
+};
+
 $("newProject").onclick=()=>{
   if(!confirm("新建工程？当前未导出的修改仍会保留在浏览器自动保存中。"))return;
   const w=clamp(Number(prompt("画布宽度（像素）","64"))||64,8,512);
@@ -541,7 +550,14 @@ displayCanvas.addEventListener("wheel",e=>{
 },{passive:false});
 
 try{
-  const saved=localStorage.getItem("pixel-motion-studio-autosave");
-  if(saved) loadSerializedProject(JSON.parse(saved),true);
-  else refreshAll();
+  const wantsRun=new URLSearchParams(location.search).get("sample")==="run";
+  if(wantsRun){
+    loadSerializedProject(createRunCycleSample(),true);
+    zoom=8;$("zoom").value=zoom;
+    setTimeout(startPlayback,120);
+  }else{
+    const saved=localStorage.getItem("pixel-motion-studio-autosave");
+    if(saved) loadSerializedProject(JSON.parse(saved),true);
+    else refreshAll();
+  }
 }catch{refreshAll();}
