@@ -23,3 +23,9 @@ GitHub Pages 托管的浏览器端 2D 骨骼动画工作室。仓库内置用户
 ## Spine 兼容说明
 
 当前渲染器支持 Spine 3.5 JSON 的骨骼动画、Region、weighted/unweighted Mesh、Slot attachment 和 drawOrder。`deform` 数据会保留在工程中，但暂未提供逐顶点 deform 曲线编辑器；这是后续专业网格编辑阶段要继续补齐的部分。
+
+## v0.5.2
+
+- 鼠标直接拖骨骼编辑，Shift 拖动旋转。
+- Attack / Skill 循环播放与透视部件残留清理。
+- 仓库案例只读，只能另存为工程。
