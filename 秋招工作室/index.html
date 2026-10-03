@@ -6,93 +6,69 @@
 <style>
 :root{--bg:#f4f1e9;--paper:#fffdf8;--ink:#22201c;--muted:#706b63;--line:#ddd6ca;--accent:#9d3025;--green:#2e7057;--amber:#a36b1f;--soft:#eee8dc}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
-main{max-width:1180px;margin:auto;padding:30px 18px 70px}a{color:inherit}
+main{max-width:1240px;margin:auto;padding:30px 18px 70px}a{color:inherit}
 header{display:flex;justify-content:space-between;gap:20px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:18px}
 .ey{font-size:11px;letter-spacing:.15em;color:var(--accent);font-weight:800}h1{font-size:36px;margin:5px 0}.sub{color:var(--muted);line-height:1.65}.small{font-size:12px;color:var(--muted)}
-.notice{background:var(--soft);border-left:4px solid var(--accent);padding:14px 16px;margin:18px 0;line-height:1.7}
+.notice{background:var(--soft);border-left:4px solid var(--green);padding:14px 16px;margin:18px 0;line-height:1.7}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0}.stat{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:13px}.stat b{display:block;font-size:22px}.stat span{font-size:11px;color:var(--muted)}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.toolbar button,.toolbar a{border:1px solid var(--line);background:var(--paper);border-radius:9px;padding:8px 11px;text-decoration:none;cursor:pointer;font:inherit}.toolbar .primary{background:var(--ink);color:white}
-.form{display:none;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:16px;margin-bottom:14px}.form.open{display:block}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.grid label{font-size:11px;color:var(--muted)}input,select,textarea{width:100%;margin-top:4px;padding:9px;border:1px solid var(--line);border-radius:8px;background:white;font:inherit;color:var(--ink)}textarea{min-height:90px}.full{grid-column:1/-1}
-.tablewrap{overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:13px}table{border-collapse:collapse;width:100%;min-width:960px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:11px;color:var(--muted);background:#faf7f0}.company{font-weight:800}.role{font-size:12px;color:var(--muted)}
+.form{display:none;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:16px;margin-bottom:14px}.form.open{display:block}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.grid label{font-size:11px;color:var(--muted)}input,select,textarea{width:100%;margin-top:4px;padding:9px;border:1px solid var(--line);border-radius:8px;background:white;font:inherit;color:var(--ink)}textarea{min-height:88px}.full{grid-column:1/-1}
+.tablewrap{overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:13px}table{border-collapse:collapse;width:100%;min-width:1040px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:11px;color:var(--muted);background:#faf7f0}.company{font-weight:800}.role{font-size:12px;color:var(--muted);max-width:310px}.source{display:inline-block;margin-top:4px;font-size:11px;color:var(--accent)}
 .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 7px;font-size:11px}.pA{color:var(--accent);font-weight:800}.pB{color:var(--amber)}.pC{color:var(--muted)}
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.card{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:16px}.card h3{margin:0 0 3px}.card .meta{font-size:12px;color:var(--muted)}.prep{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}.prep div{border-top:1px solid var(--line);padding-top:7px;font-size:12px;line-height:1.5}.prep b{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}
-.empty{padding:28px;text-align:center;color:var(--muted)}
-button.danger{color:#8a2a22}.actions button{border:0;background:none;cursor:pointer;text-decoration:underline;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.card{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:16px}.card h3{margin:0 0 3px}.card .meta{font-size:12px;color:var(--muted)}.public{margin-top:10px;background:#f7f2e8;padding:10px;border-radius:8px;font-size:12px;line-height:1.55}.prep{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}.prep div{border-top:1px solid var(--line);padding-top:7px;font-size:12px;line-height:1.5}.prep b,.public b{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}
+.empty{padding:28px;text-align:center;color:var(--muted)}button.danger{color:#8a2a22}.actions button{border:0;background:none;cursor:pointer;text-decoration:underline;color:var(--muted)}
 @media(max-width:800px){header{display:block}.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr}}@media(max-width:520px){.grid,.stats{grid-template-columns:1fr}.full{grid-column:auto}}
 </style>
 </head>
 <body><main>
-<header><div><a class="small" href="../学习总控台/">← 学习总控台</a><div class="ey">AUTUMN RECRUITMENT WORKSPACE</div><h1>秋招工作室</h1><div class="sub">不是只记“投了什么”，而是把每个已投岗位变成一份针对性准备清单。</div></div><div class="small">状态保存在当前浏览器；可导出JSON备份</div></header>
+<header><div><a class="small" href="../学习总控台/">← 学习总控台</a><div class="ey">AUTUMN RECRUITMENT WORKSPACE</div><h1>秋招工作室</h1><div class="sub">已投企业 → 公开岗位核查 → 针对准备 → 流程跟踪。</div></div><div class="small">2026-10-04 · 公开岗位已核查一轮</div></header>
 
-<div class="notice"><b>旧投递清单目前无法从 Git 历史可靠还原。</b>旧版 JOB-Trakcer 的个人“已申请/被拒/备注”记录曾存在浏览器 LocalStorage / Supabase 用户数据中，并未提交进仓库。这里不会猜企业名称。你把旧投递截图或名单给我后，我再把真实记录固化到仓库。</div>
+<div class="notice"><b>已录入你刚确认的8个投递对象。</b>企业层面全部记为“已投递”。具体岗位只有能被公开页面/岗位ID支持的才写死；其余显示“待核对”，同时列出2027公开岗位池，避免把猜测当成你的真实投递。</div>
 
 <section class="stats">
-<div class="stat"><b id="nAll">0</b><span>已记录岗位</span></div>
-<div class="stat"><b id="nActive">0</b><span>流程中</span></div>
-<div class="stat"><b id="nInterview">0</b><span>面试阶段</span></div>
-<div class="stat"><b id="nOffer">0</b><span>Offer</span></div>
-<div class="stat"><b id="nA">0</b><span>A级重点</span></div>
+<div class="stat"><b id="nAll">0</b><span>已投企业/记录</span></div><div class="stat"><b id="nActive">0</b><span>流程中</span></div><div class="stat"><b id="nInterview">0</b><span>面试阶段</span></div><div class="stat"><b id="nOffer">0</b><span>Offer</span></div><div class="stat"><b id="nA">0</b><span>A级重点</span></div>
 </section>
 
-<div class="toolbar">
-<button class="primary" id="addBtn">+ 新增已投岗位</button>
-<button id="exportBtn">导出JSON</button>
-<button id="importBtn">导入JSON</button>
-<input type="file" id="importFile" accept=".json" hidden>
-<a href="./已投企业岗位.md">查看仓库记录模板</a>
-</div>
+<div class="toolbar"><button class="primary" id="addBtn">+ 新增已投岗位</button><button id="exportBtn">导出JSON</button><button id="importBtn">导入JSON</button><input type="file" id="importFile" accept=".json" hidden><a href="./已投企业岗位.md">查看完整核查记录</a></div>
 
-<form class="form" id="form">
-<div class="grid">
-<label>企业<input id="company" required placeholder="公司名称"></label>
-<label>岗位<input id="role" required placeholder="岗位名称"></label>
-<label>地点<input id="location" placeholder="城市/地区"></label>
-<label>优先级<select id="priority"><option>A</option><option selected>B</option><option>C</option></select></label>
-<label>当前状态<select id="status"><option>已投递</option><option>测评</option><option>笔试</option><option>一面</option><option>二面/终面</option><option>HR</option><option>Offer</option><option>无反馈</option><option>拒绝</option><option>主动结束</option></select></label>
-<label>投递日期<input id="applyDate" type="date"></label>
-<label>下一节点<input id="nextDate" placeholder="如 10/08 笔试"></label>
-<label>简历版本<input id="resume" placeholder="如 CAE-v3"></label>
-<label class="full">下一步动作<input id="nextAction" placeholder="例如：周一前完成公司研究+30道专业题"></label>
-<label class="full">JD核心关键词<textarea id="keywords"></textarea></label>
-<label class="full">岗位能力/我的匹配证据/缺口<textarea id="fit"></textarea></label>
-<label class="full">针对准备：企业研究 / 笔试 / 面试 / 项目故事<textarea id="prep"></textarea></label>
-</div>
-<div class="toolbar"><button class="primary" type="submit">保存</button><button type="button" id="cancelBtn">取消</button></div>
-</form>
+<form class="form" id="form"><div class="grid">
+<label>企业<input id="company" required></label><label>实际投递岗位<input id="role" required></label><label>地点<input id="location"></label><label>优先级<select id="priority"><option>A</option><option selected>B</option><option>C</option></select></label>
+<label>当前状态<select id="status"><option>已投递</option><option>测评</option><option>笔试</option><option>一面</option><option>二面/终面</option><option>HR</option><option>Offer</option><option>无反馈</option><option>拒绝</option><option>主动结束</option></select></label><label>投递日期<input id="applyDate" type="date"></label><label>下一节点<input id="nextDate"></label><label>简历版本<input id="resume"></label>
+<label class="full">公开核查到的2027岗位池<textarea id="publicRoles"></textarea></label><label class="full">来源链接<input id="source"></label><label class="full">下一步动作<input id="nextAction"></label><label class="full">JD核心关键词<textarea id="keywords"></textarea></label><label class="full">岗位能力/匹配证据/缺口<textarea id="fit"></textarea></label><label class="full">针对准备<textarea id="prep"></textarea></label>
+</div><div class="toolbar"><button class="primary" type="submit">保存</button><button type="button" id="cancelBtn">取消</button></div></form>
 
-<div class="tablewrap">
-<table><thead><tr><th>优先级</th><th>企业 / 岗位</th><th>状态</th><th>投递日期</th><th>下一节点</th><th>下一步动作</th><th>操作</th></tr></thead><tbody id="rows"></tbody></table>
-<div class="empty" id="empty">还没有真实投递记录。不要凭记忆乱填；把你的投递截图/名单给我后统一导入。</div>
-</div>
+<div class="tablewrap"><table><thead><tr><th>优先级</th><th>企业 / 实际岗位</th><th>公开岗位池</th><th>状态</th><th>下一节点</th><th>下一步动作</th><th>操作</th></tr></thead><tbody id="rows"></tbody></table><div class="empty" id="empty">暂无记录</div></div>
 
-<h2>针对准备</h2>
-<div class="cards" id="cards"></div>
+<h2>逐企业针对准备</h2><div class="cards" id="cards"></div>
 </main>
 <script>
-const KEY='job-applications-2026-v1';let data=[];
-try{data=JSON.parse(localStorage.getItem(KEY)||'[]')}catch{data=[]}
+const DEFAULTS=[
+{company:'中国建设银行',role:'具体机构与岗位待核对',location:'若为海南分行：海南多地',priority:'B',status:'已投递',applyDate:'',nextDate:'',resume:'',publicRoles:'海南省分行2027公开4类：管理培训生、科技类专项人才、客户经理岗、客服经理岗。',source:'https://job.ccb.com/',nextAction:'从建行“我的应聘”核对机构+志愿岗位；同步准备银行统一笔试。',keywords:'管理培训、金融科技、客户营销、网点服务、基层培养',fit:'先核对实际志愿；不同岗准备重点差异很大。',prep:'笔试：行测/英语/经济金融/银行常识/时政。面试：为什么建行、基层轮岗、客户服务、数字金融/绿色金融、海南自贸港业务。'},
+{company:'中国邮政储蓄银行',role:'具体岗位待核对',location:'海南省分行公开覆盖海口、三亚、儋州、琼海、文昌、东方、万宁等',priority:'B',status:'已投递',applyDate:'',nextDate:'',resume:'',publicRoles:'海南省分行：U培生（经营管理）、U培生（金融科技）、U培生（销售精英）、客户服务经理。',source:'https://psbc2027.zhaopin.com/jobs/index.html?id=10134793',nextAction:'登录邮储网申核对两个志愿；按实际岗拆经营/科技/营销准备。',keywords:'U培生、经营管理、金融科技、销售、客户服务、轮岗培养',fit:'公开岗位覆盖理工类，但实际投递岗需要从网申记录确认。',prep:'笔试+半结构化面试；重点准备邮储“三农/城乡居民/中小企业”定位、零售银行特色，以及经营管理/金融科技/营销三套岗位动机。'},
+{company:'中国工商银行',role:'具体机构与岗位待核对',location:'若为海南分行：海口、三亚及县域',priority:'B',status:'已投递',applyDate:'',nextDate:'',resume:'',publicRoles:'海南分行2027公开类别：专业英才、科技菁英、客户经理、客服经理。',source:'https://job.icbc.com.cn/pc/index.html#/main/school/home/post',nextAction:'在工行人才招聘“已申请职位”核对机构与岗位。',keywords:'专业英才、科技菁英、客户经理、客服经理、基层锻炼',fit:'专业英才偏综合/重点业务；科技菁英偏研发/数据；客户经理偏营销；客服经理偏网点综合服务。',prep:'工行笔试+面试；准备为何工行、岗位差异、客户营销情景、数字化转型、风险合规、是否接受基层及县域安排。'},
+{company:'中国农业银行',role:'岗位ID 155603542（标题待核验）',location:'海南省方向待核对',priority:'B',status:'已投递',applyDate:'',nextDate:'',resume:'',publicRoles:'海南省分行公开方向：省行本部岗位、城区客户经理岗、城区综合业务岗、县域客户经理岗、县域综合业务岗。',source:'https://career.abchina.com/build/index.html#/PositionDetails/:155603542',nextAction:'打开农行个人投递记录，把岗位ID 155603542对应标题抄回工作室。',keywords:'省行本部、客户经理、综合业务、乡村振兴、县域金融、绿色金融',fit:'唯一可保留的精确标识是岗位ID；公开页面暂未解析出该ID标题。',prep:'重点准备农行服务“三农/乡村振兴”、县域金融、绿色金融；同时做银行笔试与客户经理/综合业务情景题。'},
+{company:'交通银行',role:'具体机构与岗位待核对',location:'若为海南分行：海口及部分支行',priority:'B',status:'已投递',applyDate:'',nextDate:'',resume:'',publicRoles:'海南省分行2027公开方向：客户经理、金融科技、法律顾问、综合秘书、党建管理。',source:'https://job.bankcomm.com/#/school/main',nextAction:'进入交行“我的申请”核对实际方向；若是客户经理，优先准备营销+金融基础。',keywords:'客户经理、金融科技、法律合规、综合秘书、党建管理',fit:'不同方向专业要求差异大，必须先核对实际志愿。',prep:'准备交行国际化/综合化特点、海南自贸港业务、客户经理场景、金融科技/合规/秘书方向专业题；通用笔试同步推进。'},
+{company:'中国电建招聘平台',role:'具体子企业与岗位待核对',location:'全国',priority:'B',status:'已投递',applyDate:'',nextDate:'',resume:'',publicRoles:'集团统一招聘平台；个人“我的投递”页才能确定具体子企业与岗位。',source:'https://zhaopin.powerchina.cn/stu/delivery',nextAction:'打开“我的投递”，逐条复制子企业+岗位，拆成独立记录。',keywords:'工程建设、勘察设计、新能源、项目管理、EPC',fit:'集团跨度大，不核对子企业就无法做真正针对准备。',prep:'共通准备：中国电建业务板块、EPC/投建营、项目全周期、工程安全质量进度成本；拿到具体岗位后再补专业题。'},
+{company:'中国电建集团海南电力设计研究院有限公司',role:'实际投递岗位待核对',location:'海南·海口',priority:'B',status:'已投递',applyDate:'',nextDate:'',resume:'',publicRoles:'2027公开：土建设计（1）、通信工程设计（1）、电气设计（6）、海外商务经理（1）、会计（1）。',source:'https://job.ncepu.edu.cn/zpgg/5105d3e9e4b549b493bc01e798d3bc9b.htm',nextAction:'核对你实际投的是不是“土建设计”；若是，立即做土木专业面试清单。',keywords:'规划咨询、勘察设计、工程总承包、土建设计、电气设计、项目现场',fit:'土建设计公开要求土木工程/水利水电工程、硕士；公司业务与电力工程设计和总承包高度相关。',prep:'土木方向：结构力学、混凝土/钢结构、地基基础、AutoCAD/识图、电力工程土建场景；准备一个完整项目故事和“为什么转入电力设计”。'},
+{company:'中电建新能源集团股份有限公司',role:'实际投递岗位待核对',location:'海南·海口/万宁等',priority:'B',status:'已投递',applyDate:'',nextDate:'',resume:'',publicRoles:'海南/南方海投公开含：工程建设部工程建设岗、市场经营部市场开发岗、电厂运营部电气管理岗、电厂运维岗、安全质量环保部安全管理岗、计划发展部法务岗。',source:'https://djxny.zhiye.com/custom/campus?hideMenu=1&c2=40&location=fgs',nextAction:'核对实际岗位；若为土木相关，优先按“工程建设岗/市场开发岗”准备。',keywords:'新能源、海上风电、工程建设、项目管理、市场开发、海口/万宁、驻场出差',fit:'公开工程建设岗和市场开发岗均接受土木等工科；工程建设岗要求熟悉新能源项目建设及工程管控流程。',prep:'掌握新能源项目开发—设计—招采—施工—并网—运营；进度/成本/质量/安全四控制；风光和海上风电基础；工程识图、数据统计、现场协调与出差适应。'}
+];
+const KEY='job-applications-2026-v2';let data;
+try{const raw=localStorage.getItem(KEY);data=raw?JSON.parse(raw):DEFAULTS}catch{data=DEFAULTS}
 const $=id=>document.getElementById(id);
 function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
 function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function render(){
- $('nAll').textContent=data.length;
- $('nActive').textContent=data.filter(x=>!['Offer','拒绝','主动结束'].includes(x.status)).length;
- $('nInterview').textContent=data.filter(x=>['一面','二面/终面','HR'].includes(x.status)).length;
- $('nOffer').textContent=data.filter(x=>x.status==='Offer').length;
- $('nA').textContent=data.filter(x=>x.priority==='A').length;
- $('empty').style.display=data.length?'none':'block';
- $('rows').innerHTML=data.map((x,i)=>`<tr><td><span class="pill p${esc(x.priority)}">${esc(x.priority)}</span></td><td><div class="company">${esc(x.company)}</div><div class="role">${esc(x.role)} · ${esc(x.location||'地点未填')}</div></td><td>${esc(x.status)}</td><td>${esc(x.applyDate||'—')}</td><td>${esc(x.nextDate||'—')}</td><td>${esc(x.nextAction||'—')}</td><td class="actions"><button data-edit="${i}">编辑</button> · <button class="danger" data-del="${i}">删除</button></td></tr>`).join('');
- $('cards').innerHTML=data.slice().sort((a,b)=>({A:0,B:1,C:2}[a.priority]-({A:0,B:1,C:2}[b.priority]))).map(x=>`<article class="card"><h3>${esc(x.company)} · ${esc(x.role)}</h3><div class="meta">${esc(x.priority)}级 · ${esc(x.status)} · ${esc(x.location||'地点未填')}</div><div class="prep"><div><b>JD关键词</b>${esc(x.keywords||'待补')}</div><div><b>匹配/缺口</b>${esc(x.fit||'待补')}</div><div><b>针对准备</b>${esc(x.prep||'待补')}</div><div><b>下一步</b>${esc(x.nextAction||'待补')}</div></div></article>`).join('');
- document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{if(confirm('删除这条投递记录？')){data.splice(+b.dataset.del,1);save()}});
- document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openForm(+b.dataset.edit));
+ $('nAll').textContent=data.length;$('nActive').textContent=data.filter(x=>!['Offer','拒绝','主动结束'].includes(x.status)).length;$('nInterview').textContent=data.filter(x=>['一面','二面/终面','HR'].includes(x.status)).length;$('nOffer').textContent=data.filter(x=>x.status==='Offer').length;$('nA').textContent=data.filter(x=>x.priority==='A').length;$('empty').style.display=data.length?'none':'block';
+ $('rows').innerHTML=data.map((x,i)=>`<tr><td><span class="pill p${esc(x.priority)}">${esc(x.priority)}</span></td><td><div class="company">${esc(x.company)}</div><div class="role">${esc(x.role)} · ${esc(x.location||'地点未填')}</div>${x.source?'<a class="source" target="_blank" rel="noopener" href="'+esc(x.source)+'">来源 ↗</a>':''}</td><td><div class="role">${esc(x.publicRoles||'待补')}</div></td><td>${esc(x.status)}</td><td>${esc(x.nextDate||'—')}</td><td>${esc(x.nextAction||'—')}</td><td class="actions"><button data-edit="${i}">编辑</button> · <button class="danger" data-del="${i}">删除</button></td></tr>`).join('');
+ $('cards').innerHTML=data.slice().sort((a,b)=>({A:0,B:1,C:2}[a.priority]-({A:0,B:1,C:2}[b.priority]))).map(x=>`<article class="card"><h3>${esc(x.company)}</h3><div class="meta">${esc(x.priority)}级 · ${esc(x.status)} · 实际岗位：${esc(x.role)}</div><div class="public"><b>公开核查岗位池</b>${esc(x.publicRoles||'待补')}</div><div class="prep"><div><b>关键词</b>${esc(x.keywords||'待补')}</div><div><b>匹配/缺口</b>${esc(x.fit||'待补')}</div><div><b>针对准备</b>${esc(x.prep||'待补')}</div><div><b>下一步</b>${esc(x.nextAction||'待补')}</div></div></article>`).join('');
+ document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{if(confirm('删除这条投递记录？')){data.splice(+b.dataset.del,1);save()}});document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openForm(+b.dataset.edit));
 }
-let editing=-1;
-function openForm(i=-1){editing=i;$('form').classList.add('open');const x=i>=0?data[i]:{};['company','role','location','priority','status','applyDate','nextDate','resume','nextAction','keywords','fit','prep'].forEach(k=>{if($(k))$(k).value=x[k]??($(k).tagName==='SELECT'?$(k).options[0].value:'')});window.scrollTo({top:$('form').offsetTop-20,behavior:'smooth'})}
+let editing=-1,fields=['company','role','location','priority','status','applyDate','nextDate','resume','publicRoles','source','nextAction','keywords','fit','prep'];
+function openForm(i=-1){editing=i;$('form').classList.add('open');const x=i>=0?data[i]:{};fields.forEach(k=>{if($(k))$(k).value=x[k]??($(k).tagName==='SELECT'?$(k).options[0].value:'')});window.scrollTo({top:$('form').offsetTop-20,behavior:'smooth'})}
 $('addBtn').onclick=()=>openForm();$('cancelBtn').onclick=()=>{$('form').classList.remove('open');editing=-1};
-$('form').onsubmit=e=>{e.preventDefault();const x={};['company','role','location','priority','status','applyDate','nextDate','resume','nextAction','keywords','fit','prep'].forEach(k=>x[k]=$(k).value.trim());if(editing>=0)data[editing]=x;else data.unshift(x);$('form').reset();$('form').classList.remove('open');editing=-1;save()};
+$('form').onsubmit=e=>{e.preventDefault();const x={};fields.forEach(k=>x[k]=$(k).value.trim());if(editing>=0)data[editing]=x;else data.unshift(x);$('form').reset();$('form').classList.remove('open');editing=-1;save()};
 $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='秋招已投岗位.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),500)};
-$('importBtn').onclick=()=>$('importFile').click();
-$('importFile').onchange=async e=>{try{const v=JSON.parse(await e.target.files[0].text());if(!Array.isArray(v))throw 0;data=v;save()}catch{alert('JSON格式不正确')}};
-render();
+$('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async e=>{try{const v=JSON.parse(await e.target.files[0].text());if(!Array.isArray(v))throw 0;data=v;save()}catch{alert('JSON格式不正确')}};
+if(!localStorage.getItem(KEY))save();else render();
 </script>
 </body></html>
