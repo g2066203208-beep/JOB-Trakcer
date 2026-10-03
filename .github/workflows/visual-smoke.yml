@@ -48,10 +48,27 @@ jobs:
           d.set_window_size(1600,1000)
           d.get(url)
           wait=WebDriverWait(d,35)
-          wait.until(lambda x: "Runtime ✓" in x.find_element(By.ID,"hud").text)
+          time.sleep(5)
+          initial=d.execute_script("""
+            return {
+              hud:document.querySelector('#hud')?.textContent||'',
+              manifest:state?.manifest?.length||0,
+              project:state?.project?.name||null,
+              sourceCase:state?.sourceCase?.id||null,
+              spineReady:spineRT?.ready||false,
+              spineError:spineRT?.error||null,
+              appVersion:document.querySelector('.brand small')?.textContent||''
+            }
+          """)
+          if "Runtime ✓" not in initial["hud"]:
+              print("INITIAL_DIAGNOSTIC="+json.dumps(initial,ensure_ascii=False))
+              print("BROWSER_LOG="+json.dumps(d.get_log("browser"),ensure_ascii=False))
+              d.save_screenshot(f"{out}/startup-failure.png")
+              open(f"{out}/startup.html","w",encoding="utf-8").write(d.page_source)
+              raise AssertionError(initial)
           time.sleep(.8)
 
-          checks={}
+          checks={"initial":initial}
           checks["manifest_total"]=d.execute_script("return state.manifest.length")
           checks["manifest_remote"]=d.execute_script("return state.manifest.filter(x=>x.remote).length")
           assert checks["manifest_total"]==425, checks
@@ -246,6 +263,7 @@ jobs:
           cat visual-smoke/checks.json
           ls -lah visual-smoke
       - name: Upload visual smoke artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: visual-smoke
