@@ -1,77 +1,23 @@
-# Rig Motion Lab · 阿米娅 Spine 3.5 动作工作室
+# Rig Motion Lab · 骨骼动画工作室
 
-这是针对本仓库内 **阿米娅 Spine 3.5.51 原始工程** 重做的浏览器端工作室，不再使用自制的近似骨骼播放器。
+GitHub Pages 托管的浏览器端 2D 骨骼动画工作室。仓库内置用户提供的阿米娅 Spine 3.5.51 工程作为案例库。
 
-## 先说明资源真实结构
+## 当前能力
 
-上传包中的：
+- 12 套阿米娅案例（4 外观 × 战斗正面 / 战斗背面 / 基建）
+- **完整皮肤显示**：读取 Spine `.atlas + PNG + slots + skins`
+- Region attachment 与 weighted Mesh attachment 实时蒙皮渲染
+- Slot attachment 动画、slot 显隐、附件强制切换、drawOrder
+- 皮肤透明度、皮肤/骨架独立开关
+- Spine JSON + Atlas + PNG 多选导入
+- 完整 ZIP 导入：自动匹配 JSON / Atlas / PNG
+- 骨骼树、Setup Pose、动画播放、逐帧、时间线
+- 骨骼创建 / 复制 / 删除 / 改父级 / 拖动 / 数值编辑
+- 非破坏式当前帧关键帧覆盖、撤销 / 重做
+- 姿态快照、参考叠加、训练评分
+- IndexedDB 浏览器本地工程保存与 JSON 导出
+- GitHub Pages 静态托管
 
-- `默认`
-- `报童`
-- `见习联结者`
-- `播种者`
+## Spine 兼容说明
 
-是 **4 套独立角色/外观工程**，不是同一个 Spine JSON 内的 4 个 Skin。每一套又各自分为：
-
-- 战斗正面
-- 战斗背面
-- 基建
-
-因此案例库一共是 **12 个独立 Spine 工程**。这些 JSON 内部的 `skins` 实际只有 `default`。
-
-战斗工程中的动作也不是简单的一堆无关 Clip。工作室会把原始片段按工程语义组织为：
-
-- `Attack_Begin → Attack → Attack_End`
-- `Skill_Begin → Skill → [Skill_Loop_2] → Skill_End`
-- `Skill_2_Begin → Skill_2 → Skill_2_End`
-
-同时保留每一个原始 Spine Clip，方便逐段检查和编辑。
-
-## 为什么必须使用真实 Spine 3.5 Runtime
-
-这些动作不只包含 Bone 的 rotate / translate / scale。原工程同时使用：
-
-- Bone：rotate / translate / scale / shear
-- Slot：attachment / color
-- IK Constraint
-- Transform Constraint
-- Path Constraint
-- Deform
-- Draw Order
-- Event
-- Region / Mesh / weighted Mesh attachment
-
-其中复杂工程包含大量 Path Constraint。若只手算骨骼矩阵再贴图，动作、网格和约束结果都会失真。
-
-因此当前版使用与 Spine 3.5 数据对应的 **pixi-spine 1.3.x runtime** 作为权威求值器；皮肤、约束、deform、drawOrder、attachment 动画都由 runtime 执行，Canvas 只负责编辑器网格和骨骼操作层。
-
-## 当前工作室能力
-
-- 12 套原始阿米娅工程案例库
-- 真实 Spine 3.5 Runtime 播放
-- 原始动作片段 + Begin/Main/End 动作组
-- `.atlas + PNG + JSON` 皮肤与 Mesh 渲染
-- IK / Transform / Path / Deform / DrawOrder / Event 的运行时求值
-- 骨骼层级、当前 Runtime 姿态检查
-- 对当前原始动画片段写入 translate / rotate / scale 关键帧
-- Setup Pose 编辑并重建 Runtime
-- Slot 显隐、Attachment 强制切换、透明度
-- 播放、逐帧、时间线、阶段条、事件标记
-- Spine JSON / ZIP 导入
-- 浏览器 IndexedDB 工程保存、JSON 导出
-- GitHub Pages 托管
-
-## 编辑边界
-
-当前版首先保证 **“看见的动作就是原文件真实运行结果”**。它已经不再伪造 Spine 求值。
-
-仍需继续扩展的专业编辑能力包括：
-
-- IK / Transform / Path Constraint 的可视控制器与关键帧编辑 UI
-- Deform 顶点逐点编辑和曲线编辑器
-- Mesh 权重刷与顶点工具
-- Dope Sheet / Graph Editor
-- Event 编辑器
-- Spine 原生格式完整回写/导出验证
-
-这些功能应建立在真实 Runtime 之上，而不是再写一套近似动画系统。
+当前渲染器支持 Spine 3.5 JSON 的骨骼动画、Region、weighted/unweighted Mesh、Slot attachment 和 drawOrder。`deform` 数据会保留在工程中，但暂未提供逐顶点 deform 曲线编辑器；这是后续专业网格编辑阶段要继续补齐的部分。
