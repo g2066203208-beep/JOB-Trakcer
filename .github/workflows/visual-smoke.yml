@@ -137,6 +137,7 @@ jobs:
           time.sleep(.8)
           shot("idle-after-attack")
           assert checks["idle-after-attack_stale_empty_slots"]==0, checks
+          d.execute_script("state.playing=false; state.lastT=0; renderMeta();")
 
           # With loop disabled, a one-shot returns to Idle after completion.
           d.find_element(By.ID,"loopBtn").click()
