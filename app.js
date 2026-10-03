@@ -15,7 +15,7 @@ function normalizeProject(data,name='未命名工程'){
  const bones=(data.bones||[]).map((b,i)=>({name:b.name||`bone_${i}`,parent:b.parent||null,length:+b.length||0,x:+b.x||0,y:+b.y||0,rotation:+b.rotation||0,scaleX:b.scaleX==null?1:+b.scaleX,scaleY:b.scaleY==null?1:+b.scaleY,shearX:+b.shearX||0,shearY:+b.shearY||0,transform:b.transform||'normal',hidden:!!b.hidden,locked:!!b.locked}));
  const animations=data.animations||{}; const durations=data.durations||Object.fromEntries(Object.entries(animations).map(([n,a])=>[n,measureDuration(a)]));
  const skinNames=Object.keys(data.skins||{});
- return {id:data.id||uid(),name:data.name||name,createdAt:data.createdAt||Date.now(),updatedAt:Date.now(),schema:'rig-motion-lab/project@3',source:data.source||{},skeleton:data.skeleton||{},bones,slots:data.slots||[],skins:data.skins||{},atlas:data.atlas||null,sourceImages:data.sourceImages||{},activeSkin:data.activeSkin||skinNames[0]||'default',skinEdits:data.skinEdits||{slotVisibility:{},attachments:{}},ik:data.ik||[],transform:data.transform||[],path:data.path||[],events:data.events||{},animations,durations,activeAnimation:data.activeAnimation||Object.keys(animations)[0]||'Setup Pose',customKeys:data.customKeys||{},notes:data.notes||'',tags:data.tags||[]};
+ return {id:data.id||uid(),name:data.name||name,createdAt:data.createdAt||Date.now(),updatedAt:Date.now(),schema:'rig-motion-lab/project@3',source:data.source||{},remote:data.remote||null,skeleton:data.skeleton||{},bones,slots:data.slots||[],skins:data.skins||{},atlas:data.atlas||null,sourceImages:data.sourceImages||{},activeSkin:data.activeSkin||skinNames[0]||'default',skinEdits:data.skinEdits||{slotVisibility:{},attachments:{}},ik:data.ik||[],transform:data.transform||[],path:data.path||[],events:data.events||{},animations,durations,activeAnimation:data.activeAnimation||Object.keys(animations)[0]||'Setup Pose',customKeys:data.customKeys||{},notes:data.notes||'',tags:data.tags||[]};
 }
 function measureDuration(a){let mx=0;const stack=[a];while(stack.length){const x=stack.pop();if(Array.isArray(x)) stack.push(...x);else if(x&&typeof x==='object'){if(typeof x.time==='number')mx=Math.max(mx,x.time);stack.push(...Object.values(x))}}return mx}
 function historySnap(){return {bones:state.project.bones,animations:state.project.animations,durations:state.project.durations,customKeys:state.project.customKeys,skinEdits:state.project.skinEdits,activeSkin:state.project.activeSkin}}
@@ -24,8 +24,92 @@ function pushHistory(){if(!state.project)return;state.history.push(JSON.stringif
 function undo(){if(!state.history.length||!state.project)return;state.future.push(JSON.stringify(historySnap()));restoreSnap(JSON.parse(state.history.pop()));renderAll()}
 function redo(){if(!state.future.length||!state.project)return;state.history.push(JSON.stringify(historySnap()));restoreSnap(JSON.parse(state.future.pop()));renderAll()}
 
-async function loadManifest(){try{const r=await fetch('data/cases.json',{cache:'no-store'});state.manifest=(await r.json()).cases||[]}catch(e){console.error(e)}renderLeft()}
-async function loadCase(c){const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));let raw;if('DecompressionStream' in window){const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));raw=await new Response(stream).text()}else throw new Error('当前浏览器不支持 gzip 解压，请使用最新版 Chrome / Edge / Safari');const d=JSON.parse(raw);state.sourceCase=c;state.project=normalizeProject({...d,name:c.title,id:'case-'+c.id},c.title);state.project.activeAnimation=state.project.animations.Idle?'Idle':Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
+const remoteCaseCache=new Map();
+function remoteViewMeta(code){return ({b:{view:'基建',dir:'build'},r:{view:'战斗背面',dir:'back'},f:{view:'战斗正面',dir:'front'}})[code]}
+function remoteAssetStem(code,stem){
+ let s=String(stem||'').replaceAll('#','_');
+ if(code==='b'&&!s.startsWith('build_'))s='build_'+s;
+ return s
+}
+function remoteAssetUrls(remote){
+ const m=remoteViewMeta(remote.viewCode),stem=remoteAssetStem(remote.viewCode,remote.stem);
+ const base='https://raw.githubusercontent.com/Aceship/Arknight-Images/main/spineassets/character/'+encodeURIComponent(remote.charKey)+'/'+m.dir+'/'+encodeURIComponent(stem);
+ return {stem,skel:base+'.skel',atlas:base+'.atlas',png:base+'.png'}
+}
+function expandRemoteCases(builtins){
+ const rows=window.RIG_ALL_CASES||[],views=['b','r','f'],builtKeys=new Set((builtins||[]).map(c=>[c.character,c.costume||c.appearance,c.view].join('|'))),out=[];let n=0;
+ for(const row of rows){
+  const [character,costume,charKey,map]=row;
+  for(const code of views){
+   const info=map?.[code];if(!info)continue;
+   const vm=remoteViewMeta(code),dedupe=[character,costume,vm.view].join('|');
+   if(builtKeys.has(dedupe))continue;
+   const [stem,bones,slots]=info;
+   out.push({
+    id:'remote-'+(++n),title:character+' · '+costume+' · '+vm.view,
+    character,costume,appearance:costume,view:vm.view,spine:'3.5.51',
+    bones,slots,attachments:null,animations:[],
+    remote:{provider:'Aceship/Arknight-Images',charKey,viewCode:code,stem}
+   })
+  }
+ }
+ return out
+}
+async function ensureSkeletonBinaryConverter(){
+ if(window.SkeletonBinary)return;
+ await loadOneOf([
+  'https://cdn.jsdelivr.net/gh/Aceship/AN-EN-Tags@d7264a3cc4e6455ad8fa87754d318cbd91a0f862/js/spine-skeleton-binary.js',
+  'https://raw.githubusercontent.com/Aceship/AN-EN-Tags/d7264a3cc4e6455ad8fa87754d318cbd91a0f862/js/spine-skeleton-binary.js'
+ ],'spine35-binary-converter');
+ if(!window.SkeletonBinary)throw new Error('Spine 3.5 二进制转换器未初始化')
+}
+async function fetchRemoteCaseData(c){
+ if(remoteCaseCache.has(c.id))return deep(remoteCaseCache.get(c.id));
+ const urls=remoteAssetUrls(c.remote);
+ $('#hud').textContent='正在加载 '+c.title+' …';
+ const [skelRes,atlasRes]=await Promise.all([fetch(urls.skel,{cache:'force-cache'}),fetch(urls.atlas,{cache:'force-cache'})]);
+ if(!skelRes.ok)throw new Error('骨骼资源加载失败 HTTP '+skelRes.status);
+ if(!atlasRes.ok)throw new Error('Atlas 加载失败 HTTP '+atlasRes.status);
+ await ensureSkeletonBinaryConverter();
+ const bytes=new Uint8Array(await skelRes.arrayBuffer()),conv=new window.SkeletonBinary();
+ conv.data=bytes;conv.nextNum=0;conv.json={};conv.initJson();
+ const d=conv.json||{};
+ if(!d.bones?.length)throw new Error('二进制骨骼解析为空');
+ d.atlas={text:await atlasRes.text(),imageData:urls.png,imageName:urls.stem+'.png'};
+ d.source={name:c.title,spine:d.skeleton?.spine||c.spine||'3.5.51',provider:'Aceship/Arknight-Images',remote:true};
+ d.remote={...c.remote,urls};
+ remoteCaseCache.set(c.id,deep(d));
+ return d
+}
+async function loadManifest(){
+ try{
+  const r=await fetch('data/cases.json',{cache:'no-store'}),builtins=(await r.json()).cases||[];
+  state.manifest=[...builtins,...expandRemoteCases(builtins)];
+ }catch(e){console.error(e)}
+ renderLeft()
+}
+async function loadCase(c){
+ try{
+  let d;
+  if(c.remote)d=await fetchRemoteCaseData(c);
+  else{
+   const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);
+   const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));let raw;
+   if('DecompressionStream' in window){const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));raw=await new Response(stream).text()}
+   else throw new Error('当前浏览器不支持 gzip 解压，请使用最新版 Chrome / Edge / Safari');
+   d=JSON.parse(raw)
+  }
+  state.sourceCase=c;
+  state.project=normalizeProject({...d,name:c.title,id:'case-'+c.id},c.title);
+  state.project.activeAnimation=state.project.animations.Idle?'Idle':Object.keys(state.project.animations)[0]||'Setup Pose';
+  state.currentTime=0;state.playing=false;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];
+  await prepareSkin();fitView();renderAll()
+ }catch(e){
+  console.error('Case load failed',c,e);
+  $('#modal').innerHTML='<h2>案例加载失败</h2><div class="note warn">'+esc(c?.title||'案例')+'<br>'+esc(String(e?.message||e))+'</div><div class="actions"><button data-close class="primary">关闭</button></div>';
+  showModal();wireClose();throw e
+ }
+}
 async function loadProject(p){state.project=normalizeProject(p,p.name);state.sourceCase=null;state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
 
 function timelineFrames(anim,bone,type){return anim?.bones?.[bone]?.[type]||[]}
@@ -54,7 +138,7 @@ function parseAtlas(text){
  }
  return {page,regions}
 }
-async function prepareSkin(){state.atlasRegions=new Map();state.regionCanvases=new Map();state.attachmentImages=new Map();state.textureImage=null;state.textureReady=false;if(!state.project?.atlas?.text||!state.project?.atlas?.imageData)return;const parsed=parseAtlas(state.project.atlas.text);state.atlasRegions=parsed.regions;const img=new Image();await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=state.project.atlas.imageData});state.textureImage=img;state.textureReady=true}
+async function prepareSkin(){state.atlasRegions=new Map();state.regionCanvases=new Map();state.attachmentImages=new Map();state.textureImage=null;state.textureReady=false;if(!state.project?.atlas?.text||!state.project?.atlas?.imageData)return;const parsed=parseAtlas(state.project.atlas.text);state.atlasRegions=parsed.regions;const img=new Image();if(/^https?:/i.test(state.project.atlas.imageData))img.crossOrigin='anonymous';await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=state.project.atlas.imageData});state.textureImage=img;state.textureReady=true}
 function regionFor(name){if(!name)return null;return state.atlasRegions.get(name)||state.atlasRegions.get(String(name).split('/').pop())||null}
 function getRegionCanvas(region){if(!region||!state.textureImage)return null;const key=region.name;if(state.regionCanvases.has(key))return state.regionCanvases.get(key);const img=state.textureImage,piece=document.createElement('canvas');piece.width=Math.max(1,region.w);piece.height=Math.max(1,region.h);const pc=piece.getContext('2d');if(region.rotate){const tmp=document.createElement('canvas');tmp.width=Math.max(1,region.h);tmp.height=Math.max(1,region.w);tmp.getContext('2d').drawImage(img,region.x,region.y,region.h,region.w,0,0,region.h,region.w);pc.save();pc.translate(0,region.h);pc.rotate(-Math.PI/2);pc.drawImage(tmp,0,0);pc.restore()}else pc.drawImage(img,region.x,region.y,region.w,region.h,0,0,region.w,region.h);const full=document.createElement('canvas');full.width=Math.max(1,region.origW);full.height=Math.max(1,region.origH);const fy=region.origH-region.offsetY-region.h;full.getContext('2d').drawImage(piece,region.offsetX,fy);state.regionCanvases.set(key,full);return full}
 function lastFrame(frames,t){let out=null;for(const f of frames||[]){if((+f.time||0)<=t+1e-6)out=f;else break}return out}
@@ -82,7 +166,7 @@ function renderMeta(){if(!state.project){$('#footProject').textContent='未加�
 function renderAnimSelect(){const s=$('#animSelect');if(!state.project){s.innerHTML='<option>无动画</option>';return}const names=Object.keys(state.project.animations);s.innerHTML=(names.length?names:['Setup Pose']).map(n=>`<option ${n===state.project.activeAnimation?'selected':''}>${esc(n)}</option>`).join('')}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-function renderLeft(){const q=$('#leftSearch').value?.trim().toLowerCase()||'',pane=$('#leftPane');if(state.leftTab==='cases'){const list=state.manifest.filter(c=>(c.title+' '+c.animations.join(' ')).toLowerCase().includes(q));pane.innerHTML=`<div class="section-title"><span>仓库案例 ${list.length}</span><span class="badge">Spine 3.5</span></div>`+list.map(c=>`<div class="case-card ${state.sourceCase?.id===c.id?'active':''}" data-case="${c.id}"><div class="case-title">${esc(c.title)}</div><div class="case-meta"><span class="badge">${c.bones} bones</span><span class="badge">${c.slots||0} slots</span><span class="badge">${c.attachments||0} attachments</span><span class="badge">${esc(c.view)}</span></div></div>`).join('')+`<div class="drop" id="dropZone">拖入 Spine JSON / ZIP<br>导入为新工程</div>`;$$('[data-case]').forEach(el=>el.onclick=()=>loadCase(state.manifest.find(c=>c.id===el.dataset.case)));setupDrop();return}
+function renderLeft(){const q=$('#leftSearch').value?.trim().toLowerCase()||'',pane=$('#leftPane');if(state.leftTab==='cases'){const list=state.manifest.filter(c=>((c.title||'')+' '+(c.character||'')+' '+(c.costume||'')+' '+(c.view||'')+' '+(c.animations||[]).join(' ')).toLowerCase().includes(q));pane.innerHTML=`<div class="section-title"><span>全量案例 ${list.length}${q?' / '+state.manifest.length:''}</span><span class="badge">85 角色 · Spine 3.5</span></div><div class="note">共 ${state.manifest.length} 个可打开工程。阿米娅 12 个内置工程本地读取，其余案例按需加载原始 .skel / .atlas / PNG；案例均只读，修改请另存。</div>`+list.map(c=>`<div class="case-card ${state.sourceCase?.id===c.id?'active':''}" data-case="${c.id}"><div class="case-title">${esc(c.title)}</div><div class="case-meta"><span class="badge">${c.bones} bones</span><span class="badge">${c.slots||0} slots</span><span class="badge">${c.remote?'按需加载':'内置'}</span><span class="badge">${esc(c.view)}</span></div></div>`).join('')+`<div class="drop" id="dropZone">拖入 Spine JSON / ZIP<br>导入为新工程</div>`;$('[data-case]').forEach(el=>el.onclick=()=>loadCase(state.manifest.find(c=>c.id===el.dataset.case)));setupDrop();return}
  if(state.leftTab==='bones'){if(!state.project){pane.innerHTML='<div class="empty">先加载一个工程</div>';return}const bones=state.project.bones,children=new Map();bones.forEach(b=>{if(!children.has(b.parent))children.set(b.parent,[]);children.get(b.parent).push(b)});let html='<div class="section-title"><span>骨骼层级</span><button id="addBoneSmall">＋</button></div>';function walk(parent,depth){for(const b of children.get(parent)||[]){if(!b.name.toLowerCase().includes(q)&&q){}else html+=`<div class="tree-row ${b.name===state.selectedBone?'active':''}" data-bone="${esc(b.name)}" style="padding-left:${depth*13}px"><span class="tw">${(children.get(b.name)||[]).length?'›':''}</span><span class="bone-dot"></span><span class="name">${esc(b.name)}</span>${b.locked?'🔒':''}${b.hidden?'◌':''}</div>`;walk(b.name,depth+1)}}walk(null,0);pane.innerHTML=html;$$('[data-bone]').forEach(el=>el.onclick=()=>{state.selectedBone=el.dataset.bone;renderLeft();renderInspector();renderTimeline()});$('#addBoneSmall').onclick=addBone;return}
  dbAll().then(items=>{pane.innerHTML='<div class="section-title"><span>本地工程</span><span>'+items.length+'</span></div>'+items.filter(x=>x.name.toLowerCase().includes(q)).map(p=>`<div class="case-card" data-project="${p.id}"><div class="case-title">${esc(p.name)}</div><div class="case-meta"><span class="badge">${p.bones?.length||0} bones</span><span>${new Date(p.updatedAt||p.createdAt).toLocaleString()}</span></div></div>`).join('')+'<div class="note">工程保存在当前浏览器 IndexedDB。使用“导出”可生成可迁移的工程 JSON。</div>';$$('[data-project]').forEach(el=>el.onclick=async()=>loadProject(await dbGet(el.dataset.project)))})}
 
