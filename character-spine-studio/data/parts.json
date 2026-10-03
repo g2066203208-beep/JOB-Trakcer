@@ -1,12 +1,12 @@
 {
   "name": "修女少女 / Sister",
-  "source": "GPT Image generated parts atlas derived from the user-supplied character reference",
+  "source": "GPT Image generated character and independent parts sheet derived from the user-supplied reference",
   "masterReference": "User-provided character sheet",
   "assetPolicy": {
     "allFormalPartsGeneratedBy": "GPT Image",
     "pythonCutting": false,
     "offlineCrop": false,
-    "atlasUsage": "The browser/Spine runtime samples regions directly from one GPT Image-generated transparent parts atlas. No Python slicing is used."
+    "atlasUsage": "Every visible attachment is sampled directly at runtime from a GPT Image-generated asset region. Python is not used to create or cut formal art assets."
   },
   "atlasSize": [
     724,
@@ -15,313 +15,145 @@
   "parts": {
     "veil_back": {
       "atlas": [
-        233,
-        29,
-        210,
-        214
+        497,
+        356,
+        139,
+        109
       ],
       "pivot": [
-        105,
-        25
+        69,
+        13
       ],
       "bone": "veil_back"
     },
-    "hair_back": {
+    "leg_R": {
       "atlas": [
-        390,
-        273,
-        89,
-        102
+        354,
+        435,
+        30,
+        91
       ],
       "pivot": [
-        44,
-        82
+        15,
+        4
       ],
-      "bone": "hair_back"
+      "bone": "leg_R"
     },
-    "leg_R_upper": {
+    "boot_R": {
       "atlas": [
-        307,
-        427,
-        44,
-        54
-      ],
-      "pivot": [
-        22,
-        6
-      ],
-      "bone": "leg_R_upper"
-    },
-    "leg_R_lower": {
-      "atlas": [
-        308,
+        439,
         469,
-        42,
-        64
+        48,
+        58
+      ],
+      "pivot": [
+        24,
+        5
+      ],
+      "bone": "boot_R"
+    },
+    "leg_L": {
+      "atlas": [
+        320,
+        435,
+        33,
+        91
+      ],
+      "pivot": [
+        16,
+        4
+      ],
+      "bone": "leg_L"
+    },
+    "boot_L": {
+      "atlas": [
+        387,
+        468,
+        43,
+        59
       ],
       "pivot": [
         21,
         5
       ],
-      "bone": "leg_R_lower"
+      "bone": "boot_L"
     },
-    "foot_R": {
+    "body_outer": {
       "atlas": [
-        429,
-        451,
-        49,
-        81
+        548,
+        379,
+        116,
+        157
       ],
       "pivot": [
-        24,
-        8
+        58,
+        16
       ],
-      "bone": "foot_R"
-    },
-    "skirt_back": {
-      "atlas": [
-        452,
-        103,
-        143,
-        138
-      ],
-      "pivot": [
-        71,
-        14
-      ],
-      "bone": "skirt_back"
-    },
-    "torso_outer": {
-      "atlas": [
-        469,
-        18,
-        120,
-        105
-      ],
-      "pivot": [
-        60,
-        92
-      ],
-      "bone": "chest"
-    },
-    "skirt_front": {
-      "atlas": [
-        454,
-        103,
-        141,
-        138
-      ],
-      "pivot": [
-        70,
-        14
-      ],
-      "bone": "skirt_front"
-    },
-    "apron": {
-      "atlas": [
-        628,
-        87,
-        69,
-        151
-      ],
-      "pivot": [
-        34,
-        8
-      ],
-      "bone": "apron"
-    },
-    "belt": {
-      "atlas": [
-        609,
-        49,
-        95,
-        31
-      ],
-      "pivot": [
-        47,
-        15
-      ],
-      "bone": "belt"
-    },
-    "arm_L_upper": {
-      "atlas": [
-        418,
-        61,
-        59,
-        64
-      ],
-      "pivot": [
-        53,
-        10
-      ],
-      "bone": "arm_L_upper"
-    },
-    "arm_L_lower": {
-      "atlas": [
-        418,
-        109,
-        61,
-        64
-      ],
-      "pivot": [
-        53,
-        6
-      ],
-      "bone": "arm_L_lower"
+      "bone": "body"
     },
     "hand_L": {
       "atlas": [
-        397,
-        433,
-        30,
-        42
+        391,
+        438,
+        36,
+        34
       ],
       "pivot": [
-        15,
+        18,
         5
       ],
       "bone": "hand_L"
     },
-    "arm_R_upper": {
-      "atlas": [
-        571,
-        60,
-        49,
-        65
-      ],
-      "pivot": [
-        6,
-        10
-      ],
-      "bone": "arm_R_upper"
-    },
-    "arm_R_lower": {
-      "atlas": [
-        568,
-        108,
-        55,
-        66
-      ],
-      "pivot": [
-        6,
-        6
-      ],
-      "bone": "arm_R_lower"
-    },
     "hand_R": {
       "atlas": [
+        439,
         438,
-        433,
-        31,
-        42
+        36,
+        34
       ],
       "pivot": [
-        15,
+        18,
         5
       ],
       "bone": "hand_R"
     },
-    "leg_L_upper": {
+    "head_main": {
       "atlas": [
-        241,
-        427,
-        44,
-        54
-      ],
-      "pivot": [
-        22,
-        6
-      ],
-      "bone": "leg_L_upper"
-    },
-    "leg_L_lower": {
-      "atlas": [
-        242,
-        469,
-        42,
-        64
-      ],
-      "pivot": [
-        21,
-        5
-      ],
-      "bone": "leg_L_lower"
-    },
-    "foot_L": {
-      "atlas": [
-        378,
-        451,
-        50,
-        81
-      ],
-      "pivot": [
-        25,
-        8
-      ],
-      "bone": "foot_L"
-    },
-    "face": {
-      "atlas": [
-        234,
-        276,
-        74,
-        94
-      ],
-      "pivot": [
         37,
-        80
-      ],
-      "bone": "face"
-    },
-    "hair_front": {
-      "atlas": [
-        305,
-        274,
-        88,
-        101
+        7,
+        182,
+        160
       ],
       "pivot": [
-        44,
-        82
+        91,
+        155
       ],
-      "bone": "hair_front"
+      "bone": "head"
     },
     "veil_front": {
       "atlas": [
-        635,
-        356,
-        74,
-        50
+        639,
+        355,
+        80,
+        83
       ],
       "pivot": [
-        37,
-        42
+        40,
+        8
       ],
       "bone": "veil_front"
     }
   },
   "drawOrder": [
     "veil_back",
-    "hair_back",
-    "leg_R_upper",
-    "leg_R_lower",
-    "foot_R",
-    "skirt_back",
-    "torso_outer",
-    "skirt_front",
-    "apron",
-    "belt",
-    "arm_L_upper",
-    "arm_L_lower",
+    "leg_R",
+    "boot_R",
+    "leg_L",
+    "boot_L",
+    "body_outer",
     "hand_L",
-    "arm_R_upper",
-    "arm_R_lower",
     "hand_R",
-    "leg_L_upper",
-    "leg_L_lower",
-    "foot_L",
-    "face",
-    "hair_front",
+    "head_main",
     "veil_front"
   ],
   "loops": {
@@ -341,9 +173,18 @@
   "design": {
     "role": "2D 游戏可操作角色 / Q版修女少女",
     "view": "向右 3/4",
-    "silhouette": "短发 + 大头巾 + 黑白修女外衣 + 白色围裙 + 短靴",
-    "movement": "短步行走 / 小跑风格移动",
-    "attack": "右手快速前击，身体压缩蓄力后释放",
-    "secondaryMotion": "头巾、裙摆、头发做延迟跟随"
+    "silhouette": "灰棕短发 + 黑白修女头巾 + 黑色外衣 + 白色围裙 + 白袜 + 深色短靴",
+    "movement": "小幅短步移动；先保证部件连接稳定，再增加透视替换件",
+    "attack": "整体压缩蓄力后前冲，避免错误手臂透视",
+    "secondaryMotion": "头巾晚于头部和身体 2–4 帧产生跟随"
+  },
+  "visualQA": {
+    "round1": "REBUILDING",
+    "round2": "PENDING",
+    "round3": "PENDING",
+    "notes": [
+      "旧版 Runtime PASS 但视觉 FAIL：Atlas/Pivot/比例错误。",
+      "v2 先用 10 个稳定 GPT Image 附件重建完整人物。"
+    ]
   }
 }
