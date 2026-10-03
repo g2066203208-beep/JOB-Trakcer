@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>申论 DAY60</title>
+<style>
+:root{--bg:#f4f1e9;--paper:#fffdf8;--ink:#222;--muted:#746f65;--line:#ded7c9;--accent:#9f2f24;--green:#2d6c52}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:960px;margin:auto;padding:34px 18px 80px}a{color:inherit}
+.top{display:flex;justify-content:space-between;gap:16px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:18px}
+.back{font-size:13px;color:var(--muted);text-decoration:none}.ey{font-size:11px;color:var(--accent);font-weight:800;letter-spacing:.14em}
+h1{margin:4px 0 0;font-size:34px}.progress{font-weight:800;color:var(--green)}
+.method{margin:20px 0;background:#ede8dc;border-left:4px solid var(--accent);padding:14px 16px;line-height:1.7}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px}
+.day{min-height:88px;background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:12px;text-decoration:none}
+.day.done{border-color:#8eb3a1}.day b{display:block;font-size:16px}.day span{display:block;font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4}.day.lock{opacity:.5}
+</style>
+</head>
+<body><main>
+<div class="top"><div><a class="back" href="../">← 考公工作室</a><div class="ey">BAILU · SHENLUN 60 DAYS</div><h1>申论 DAY60</h1></div><div class="progress">1 / 60</div></div>
+<div class="method"><b>固定方法：</b>先圈 → 看重复 → 找总括句 / 大动作 → 同类合并 → 前置提炼 → 总分作答</div>
+<div class="days" id="days"></div>
+<script>
+const box=document.getElementById('days');
+for(let i=1;i<=60;i++){
+ const n=String(i).padStart(2,'0'),a=document.createElement(i===1?'a':'div');
+ a.className='day '+(i===1?'done':'lock');
+ if(i===1)a.href='./DAY01.html';
+ a.innerHTML='<b>DAY'+n+'</b><span>'+(i===1?'✅ M农场 · 青年创业启示':'待学习')+'</span>';
+ box.appendChild(a);
+}
+</script>
+</main></body></html>
