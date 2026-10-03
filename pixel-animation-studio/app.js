@@ -1,4 +1,4 @@
-import { createRunCycleSample } from "./run-sample.js?v=20261003-2050";
+import { createRunCycleSample } from "./run-sample.js?v=20261003-2120";
 const $ = (id) => document.getElementById(id);
 const displayCanvas = $("displayCanvas");
 const dctx = displayCanvas.getContext("2d", { alpha: true });
@@ -521,10 +521,10 @@ $("resizeCanvas").onclick=()=>{
 $("loadRunSample").onclick=()=>{
   stopPlayback();
   loadSerializedProject(createRunCycleSample(),true);
-  zoom=8;$("zoom").value=zoom;
+  zoom=6;$("zoom").value=zoom;
   refreshAll();
-  setStatus("跑步示例已载入，正在播放");
-  $("loadRunSample").textContent="✓ 跑步示例已载入";
+  setStatus("双马尾角色跑步已载入，正在播放");
+  $("loadRunSample").textContent="✓ 双马尾跑步已载入";
   setTimeout(startPlayback,60);
 };
 
