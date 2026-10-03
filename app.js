@@ -204,4 +204,114 @@ $('#leftSearch').oninput=renderLeft;$('#newBtn').onclick=newProjectModal;$('#imp
 window.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName))return;if(e.code==='Space'){e.preventDefault();state.playing=!state.playing;renderMeta()}else if(e.key==='f'||e.key==='F')fitView();else if(e.key==='ArrowLeft')$('#prevFrame').click();else if(e.key==='ArrowRight')$('#nextFrame').click();else if(e.key==='Delete')deleteBone();else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();e.shiftKey?redo():undo()}else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='y'){e.preventDefault();redo()}});
 function tick(t){if(state.playing&&state.project){if(!state.lastT)state.lastT=t;state.currentTime+=(t-state.lastT)/1000*state.speed;const d=duration();if(state.currentTime>d){if(state.loop)state.currentTime=d?state.currentTime%d:0;else{state.currentTime=d;state.playing=false}}renderMeta();if(Math.floor(t/80)!==Math.floor(state.lastT/80))renderTimeline()}state.lastT=t;requestAnimationFrame(tick)}
 window.addEventListener('resize',()=>resizeCanvas());
+
+/* ================================================================
+   Motion learning + runtime pose training
+   Learns style statistics from the repository's embedded Amiya corpus
+   and scores reference poses from the authoritative Spine runtime.
+   ================================================================ */
+const motionLearn={cache:new Map(),result:null,loading:false,error:null,requestKey:null};
+
+function runtimePoseModel(){
+ if(!spineRT.ready||!spineRT.display?.skeleton)return worldPose(state.currentTime).map(b=>({name:b.name,wx:b.wx,wy:b.wy,wr:b.wr,length:b.length||0}));
+ try{syncRuntimePose()}catch{}
+ return (spineRT.display.skeleton.bones||[]).map(b=>{
+  const m00=b.m00??b.a??1,m10=b.m10??b.c??0;
+  return {name:b.data?.name||b.name,wx:+(b.worldX??0)||0,wy:+(b.worldY??0)||0,wr:deg(Math.atan2(m10,m00)),length:+(b.data?.length||0)||0};
+ });
+}
+function captureReference(name){
+ state.reference={pose:deep(runtimePoseModel()),name:name||`${activeMotionDef().label} @ ${state.currentTime.toFixed(3)}s`,time:state.currentTime,runtime:spineRT.ready};
+ renderInspector();
+}
+makeSnapshot=function(){
+ const snap={id:uid(),name:`${activeMotionDef().label} ${state.currentTime.toFixed(3)}`,pose:deep(runtimePoseModel()),time:state.currentTime,runtime:spineRT.ready};
+ state.snapshots.push(snap);state.reference=snap;renderInspector();
+};
+function poseErrorRows(){
+ if(!state.reference?.pose?.length)return[];
+ const cur=runtimePoseModel(),ref=new Map(state.reference.pose.map(b=>[b.name,b]));
+ return cur.map(b=>{const r=ref.get(b.name);if(!r)return null;const dist=Math.hypot(b.wx-r.wx,b.wy-r.wy),angle=Math.abs(((b.wr-r.wr+540)%360)-180);const scale=Math.max(20,(b.length||r.length||40)*1.2);const score=(Math.exp(-dist/scale)*.68+Math.exp(-angle/28)*.32)*100;return {name:b.name,dist,angle,score}}).filter(Boolean).sort((a,b)=>a.score-b.score);
+}
+poseScore=function(){
+ const rows=poseErrorRows();return rows.length?Math.round(rows.reduce((n,r)=>n+r.score,0)/rows.length):0;
+};
+
+async function unpackLearningCase(c){
+ if(motionLearn.cache.has(c.id))return motionLearn.cache.get(c.id);
+ const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);
+ const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));
+ if(!('DecompressionStream' in window))throw new Error('浏览器不支持 gzip 解压');
+ const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));
+ const data=JSON.parse(await new Response(stream).text());
+ motionLearn.cache.set(c.id,data);return data;
+}
+function learningActionName(){
+ const def=activeMotionDef();if(!def)return null;
+ return def.id?.startsWith('action:')?def.id.slice(7):(def.segments?.[0]||state.project?.activeAnimation||null);
+}
+function actionSegmentsForData(data,name){
+ const A=data?.animations||{},has=n=>!!A[n];
+ if(name==='Attack')return ['Attack_Begin','Attack','Attack_End'].filter(has);
+ if(name==='Skill')return ['Skill_Begin','Skill','Skill_Loop_2','Skill_End'].filter(has);
+ if(name==='Skill_2')return ['Skill_2_Begin','Skill_2','Skill_2_End'].filter(has);
+ return has(name)?[name]:[];
+}
+function signatureForData(data,action){
+ const segs=actionSegmentsForData(data,action),bones=new Map();let duration=0,keyCount=0;
+ for(const seg of segs){
+  const anim=data.animations?.[seg]||{};duration+=measureDuration(anim);
+  for(const [name,timelines] of Object.entries(anim.bones||{})){
+   const st=bones.get(name)||{name,keys:0,rotSpan:0,moveSpan:0,segments:0};st.segments++;
+   const rot=timelines.rotate||[];if(rot.length){const vals=rot.map(x=>+x.angle||0);st.rotSpan+=Math.max(...vals)-Math.min(...vals);st.keys+=rot.length;keyCount+=rot.length}
+   const tr=timelines.translate||[];if(tr.length){const xs=tr.map(x=>+x.x||0),ys=tr.map(x=>+x.y||0);st.moveSpan+=Math.hypot(Math.max(...xs)-Math.min(...xs),Math.max(...ys)-Math.min(...ys));st.keys+=tr.length;keyCount+=tr.length}
+   for(const k of ['scale','shear']){const arr=timelines[k]||[];st.keys+=arr.length;keyCount+=arr.length}
+   bones.set(name,st);
+  }
+ }
+ const ranked=[...bones.values()].map(b=>({...b,energy:b.rotSpan+b.moveSpan*.35+b.keys*.25})).sort((a,b)=>b.energy-a.energy);
+ return {segments:segs,duration,keyCount,activeBones:bones.size,ranked};
+}
+function median(a){const x=a.filter(Number.isFinite).sort((a,b)=>a-b);if(!x.length)return 0;const m=Math.floor(x.length/2);return x.length%2?x[m]:(x[m-1]+x[m])/2}
+async function learnMotionCorpus(force=false){
+ if(!state.project)return;
+ const action=learningActionName(),view=state.sourceCase?.view||null,key=`${view||'all'}|${action||'none'}`;
+ if(!force&&motionLearn.requestKey===key&&motionLearn.result)return;
+ if(motionLearn.loading)return;
+ motionLearn.loading=true;motionLearn.error=null;motionLearn.requestKey=key;renderInspector();
+ try{
+  const candidates=state.manifest.filter(c=>(!view||c.view===view)&&c.animations?.includes(action));
+  const profiles=[];
+  for(const c of candidates){const data=await unpackLearningCase(c);profiles.push({caseInfo:c,...signatureForData(data,action)})}
+  const aggregate=new Map();
+  for(const p of profiles)for(const b of p.ranked){const x=aggregate.get(b.name)||{name:b.name,count:0,energy:0,keys:0};x.count++;x.energy+=b.energy;x.keys+=b.keys;aggregate.set(b.name,x)}
+  const common=[...aggregate.values()].map(x=>({...x,avgEnergy:x.energy/x.count})).sort((a,b)=>(b.count-a.count)||(b.avgEnergy-a.avgEnergy)).slice(0,10);
+  motionLearn.result={key,action,view,profiles,common,medianDuration:median(profiles.map(x=>x.duration)),medianKeys:median(profiles.map(x=>x.keyCount)),medianBones:median(profiles.map(x=>x.activeBones))};
+ }catch(e){motionLearn.error=String(e?.message||e);motionLearn.result=null}
+ finally{motionLearn.loading=false;renderInspector()}
+}
+function currentMotionSignature(){return signatureForData(runtimeRawSkeleton()||{},learningActionName())}
+function renderLearningInspector(){
+ const p=$('#insPane'),score=state.reference?poseScore():null,rows=state.reference?poseErrorRows().slice(0,6):[];
+ const r=motionLearn.result,action=learningActionName(),current=currentMotionSignature();
+ if(!motionLearn.loading&&!motionLearn.error&&(!r||r.action!==action||r.view!==(state.sourceCase?.view||null)))queueMicrotask(()=>learnMotionCorpus());
+ const corpusHtml=motionLearn.loading?'<div class="note">正在读取仓库案例并建立动作统计…</div>':motionLearn.error?`<div class="note warn">${esc(motionLearn.error)}</div>`:r?`<div class="metric"><span>学习范围</span><span>${esc(r.view||'全部视角')} · ${r.profiles.length} 个工程</span></div><div class="metric"><span>动作</span><span>${esc(r.action||'—')}</span></div><div class="metric"><span>典型时长</span><span>${r.medianDuration.toFixed(3)} s</span></div><div class="metric"><span>典型关键帧量</span><span>${Math.round(r.medianKeys)}</span></div><div class="metric"><span>典型参与骨骼</span><span>${Math.round(r.medianBones)}</span></div><div class="section-title"><span>共同主运动骨骼</span><span>跨外观</span></div>${r.common.map((b,i)=>`<div class="metric"><span>${i+1}. ${esc(b.name)}</span><span>${b.count}/${r.profiles.length}</span></div>`).join('')}<div class="section-title"><span>当前动作结构</span><span>${current.segments.length} 段</span></div><div class="metric"><span>时长</span><span>${current.duration.toFixed(3)} s</span></div><div class="metric"><span>关键帧量</span><span>${current.keyCount}</span></div><div class="metric"><span>参与骨骼</span><span>${current.activeBones}</span></div>`:'<div class="note">当前动作没有可学习的同类案例。</div>';
+ p.innerHTML=`<div class="section-title"><span>动作学习</span><span class="runtime-badge ${spineRT.ready?'':'bad'}">${spineRT.ready?'真实 Spine 姿态':'近似姿态'}</span></div><div class="note">这里不是只看一帧。它会对同一视角下 4 套阿米娅工程的同类动作做统计，学习动作时长、关键帧密度和主要发力骨骼；换动作时会自动重新学习。</div>${corpusHtml}<div class="toolbar-row"><button id="relearnMotion">重新学习当前动作</button><button id="setRuntimeRef">当前帧设为参考</button></div><div class="section-title"><span>姿态复现训练</span><span class="badge">${state.reference?'Pose Match':'未设参考'}</span></div>${state.reference?`<div class="score">${score}%</div><div class="note">参考：${esc(state.reference.name)}<br>评分直接读取 Spine Runtime 约束后的骨骼世界姿态。</div>${rows.map(x=>`<div class="metric"><span>${esc(x.name)}</span><span>位移 ${x.dist.toFixed(1)} · 角度 ${x.angle.toFixed(1)}°</span></div>`).join('')}<div class="toolbar-row"><button id="clearRuntimeRef">清除参考</button></div>`:'<div class="note">把当前真实运行姿态设为参考，然后修改当前动作关键帧，就可以看复现误差。</div>'}`;
+ $('#relearnMotion').onclick=()=>learnMotionCorpus(true);$('#setRuntimeRef').onclick=()=>captureReference(`${activeMotionDef().label} @ ${state.currentTime.toFixed(3)}s`);
+ if($('#clearRuntimeRef'))$('#clearRuntimeRef').onclick=()=>{state.reference=null;renderInspector()};
+}
+
+const _learningInspectorBase=renderInspector;
+renderInspector=function(){if(state.project&&state.insTab==='train'){renderLearningInspector();return}_learningInspectorBase()};
+
+async function writeFullPoseKey(){
+ const setup=selected(),rp=runtimeLocalPose(setup?.name),seg=segmentAtTime();if(!setup||!rp||!seg.name)return;
+ pushHistory();const anim=state.project.animations[seg.name];anim.bones??={};anim.bones[setup.name]??={};const bt=anim.bones[setup.name],t=seg.localTime;
+ bt.rotate??=[];upsertFrame(bt.rotate,t,{angle:rp.rotation-(+setup.rotation||0)});
+ bt.translate??=[];upsertFrame(bt.translate,t,{x:rp.x-(+setup.x||0),y:rp.y-(+setup.y||0)});
+ bt.scale??=[];upsertFrame(bt.scale,t,{x:rp.scaleX/(+setup.scaleX||1),y:rp.scaleY/(+setup.scaleY||1)});
+ state.project.durations[seg.name]=measureDuration(anim);await buildSpineRuntime();syncRuntimePose();renderTimeline();renderInspector();
+}
+$('#addKeyBtn').onclick=()=>writeFullPoseKey();
+
 loadManifest().then(async()=>{const locals=await dbAll();if(locals.length)await loadProject(locals.sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0))[0]);else if(state.manifest.length)await loadCase(state.manifest.find(c=>c.id==='amiya-default-front')||state.manifest[0])});renderAll();requestAnimationFrame(draw);requestAnimationFrame(tick);
