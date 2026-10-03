@@ -87,7 +87,7 @@
       ],
       "pivot": [
         58,
-        16
+        55
       ],
       "bone": "body"
     },
@@ -179,12 +179,13 @@
     "secondaryMotion": "头巾晚于头部和身体 2–4 帧产生跟随"
   },
   "visualQA": {
-    "round1": "REBUILDING",
-    "round2": "PENDING",
+    "round1": "PASS_WITH_MINOR",
+    "round2": "REBUILDING",
     "round3": "PENDING",
     "notes": [
-      "旧版 Runtime PASS 但视觉 FAIL：Atlas/Pivot/比例错误。",
-      "v2 先用 10 个稳定 GPT Image 附件重建完整人物。"
+      "线上 Atlas 已确认与 GPT Image 正式素材一致。",
+      "静态角色已完整显示；头、外衣、手、腿、靴全部可见。",
+      "Death v2 视觉 FAIL：下肢未继承身体倒地；v3 改为腰部主轴并重建父子层级。"
     ]
   }
 }
