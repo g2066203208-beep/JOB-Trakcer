@@ -24,7 +24,7 @@ jobs:
           mkdir -p visual-smoke
           found=0
           for i in {1..40}; do
-            if curl -fsSL "$URL" | grep -q "v0.5.1"; then found=1; break; fi
+            if curl -fsSL "$URL" | grep -q "v0.5.2"; then found=1; break; fi
             sleep 3
           done
           test "$found" = "1"
@@ -125,22 +125,28 @@ jobs:
           checks["mouse_target"]=point
           if point:
               canvas=d.find_element(By.ID,"stage")
-              # Selenium pointer origin is the element center; runtime coords are canvas-local.
+              # Freeze on a non-round time so a drag must change the timeline data.
+              slider=d.find_element(By.ID,"timeRange")
+              d.execute_script("arguments[0].value='0.413'; arguments[0].dispatchEvent(new Event('input',{bubbles:true}));",slider)
+              time.sleep(.3)
+              checks["mouse_before_translate"]=d.execute_script("""
+                const seg=segmentAtTime(),name=arguments[0];
+                return JSON.stringify(state.project.animations?.[seg.name]?.bones?.[name]?.translate||[]);
+              """,point["name"])
               size=canvas.size
               ox=point["x"]-size["width"]/2
               oy=point["y"]-size["height"]/2
-              try:
-                  ActionChains(d).move_to_element_with_offset(canvas,ox,oy).click_and_hold().move_by_offset(18,6).release().perform()
-                  time.sleep(1.2)
-                  checks["mouse_drag_selected"]=d.execute_script("return state.selectedBone")
-                  checks["mouse_drag_has_translate_key"]=d.execute_script("""
-                    const seg=segmentAtTime(),name=state.selectedBone,arr=state.project.animations?.[seg.name]?.bones?.[name]?.translate||[];
-                    return arr.some(k=>Math.abs((+k.time||0)-seg.localTime)<0.001);
-                  """)
-                  assert checks["mouse_drag_selected"]==point["name"], checks
-                  assert checks["mouse_drag_has_translate_key"] is True, checks
-              except Exception as e:
-                  checks["mouse_drag_error"]=str(e)
+              ActionChains(d).move_to_element_with_offset(canvas,ox,oy).click_and_hold().move_by_offset(18,6).release().perform()
+              time.sleep(1.4)
+              checks["mouse_drag_selected"]=d.execute_script("return state.selectedBone")
+              checks["mouse_after_translate"]=d.execute_script("""
+                const seg=segmentAtTime(),name=arguments[0];
+                return JSON.stringify(state.project.animations?.[seg.name]?.bones?.[name]?.translate||[]);
+              """,point["name"])
+              checks["mouse_playing_after_drag"]=d.execute_script("return state.playing")
+              assert checks["mouse_drag_selected"]==point["name"], checks
+              assert checks["mouse_after_translate"]!=checks["mouse_before_translate"], checks
+              assert checks["mouse_playing_after_drag"] is False, checks
 
           open(f"{out}/checks.json","w",encoding="utf-8").write(json.dumps(checks,ensure_ascii=False,indent=2))
           open(f"{out}/dom.html","w",encoding="utf-8").write(d.page_source)
