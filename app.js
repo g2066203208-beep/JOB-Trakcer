@@ -27,14 +27,20 @@ function redo(){if(!state.future.length||!state.project)return;state.history.pus
 const remoteCaseCache=new Map();
 function remoteViewMeta(code){return ({b:{view:'基建',dir:'build'},r:{view:'战斗背面',dir:'back'},f:{view:'战斗正面',dir:'front'}})[code]}
 function remoteAssetStem(code,stem){
- let s=String(stem||'').replaceAll('#','_');
+ let s=String(stem||'');
  if(code==='b'&&!s.startsWith('build_'))s='build_'+s;
  return s
 }
+function remoteSkinFolder(remote){
+ const stem=String(remote.stem||'').replace(/^build_/,'');
+ return remote.costume==='默认'?'defaultskin':stem
+}
 function remoteAssetUrls(remote){
  const m=remoteViewMeta(remote.viewCode),stem=remoteAssetStem(remote.viewCode,remote.stem);
- const base='https://raw.githubusercontent.com/Aceship/Arknight-Images/main/spineassets/character/'+encodeURIComponent(remote.charKey)+'/'+m.dir+'/'+encodeURIComponent(stem);
- return {stem,skel:base+'.skel',atlas:base+'.atlas',png:base+'.png'}
+ const folder=remoteSkinFolder(remote);
+ const root='https://torappu.prts.wiki/assets/char_spine/'+encodeURIComponent(remote.charKey)+'/'+encodeURIComponent(folder)+'/'+m.dir+'/';
+ const base=root+encodeURIComponent(stem);
+ return {stem,folder,skel:base+'.skel',atlas:base+'.atlas',png:base+'.png'}
 }
 function expandRemoteCases(builtins){
  const rows=window.RIG_ALL_CASES||[],views=['b','r','f'],builtKeys=new Set((builtins||[]).map(c=>[c.character,c.costume||c.appearance,c.view].join('|'))),out=[];let n=0;
@@ -49,7 +55,7 @@ function expandRemoteCases(builtins){
     id:'remote-'+(++n),title:character+' · '+costume+' · '+vm.view,
     character,costume,appearance:costume,view:vm.view,spine:'3.5.51',
     bones,slots,attachments:null,animations:[],
-    remote:{provider:'Aceship/Arknight-Images',charKey,viewCode:code,stem}
+    remote:{provider:'PRTS Spine CDN',charKey,costume,viewCode:code,stem}
    })
   }
  }
@@ -76,7 +82,7 @@ async function fetchRemoteCaseData(c){
  const d=conv.json||{};
  if(!d.bones?.length)throw new Error('二进制骨骼解析为空');
  d.atlas={text:await atlasRes.text(),imageData:urls.png,imageName:urls.stem+'.png'};
- d.source={name:c.title,spine:d.skeleton?.spine||c.spine||'3.5.51',provider:'Aceship/Arknight-Images',remote:true};
+ d.source={name:c.title,spine:d.skeleton?.spine||c.spine||'3.5.51',provider:'PRTS Spine CDN',remote:true};
  d.remote={...c.remote,urls};
  remoteCaseCache.set(c.id,deep(d));
  return d
