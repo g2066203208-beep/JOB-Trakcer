@@ -143,5 +143,6 @@ jobs:
             /tmp/qa-move.png
             /tmp/qa-attack.png
             /tmp/qa-hurt.png
-            /tmp/qa-death.png\n            /tmp/qa-atlas.png
+            /tmp/qa-death.png
+            /tmp/qa-atlas.png
           if-no-files-found: ignore
