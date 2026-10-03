@@ -126,26 +126,26 @@
       }
     },
     {
-      "id": "flutterpage-310501",
-      "name": "纸信圈儿",
-      "nameEng": "Flutterpage",
+      "id": "anjo-nala-310001",
+      "name": "天使娜娜",
+      "nameEng": "Anjo Nala",
       "category": "06-high-complexity",
       "focus": [
-        "超大 Fight 数据",
-        "复杂附件切换",
-        "高密度动作/特效编排"
+        "高复杂度 Fight",
+        "多附件/多层动作编排",
+        "复杂角色表演与战斗切换"
       ],
-      "upstream": "roles/v2a3_310501_zxqe",
-      "local": "spine/06-high-complexity/flutterpage-310501",
+      "upstream": "roles/v2a2_310001_tsnn",
+      "local": "spine/06-high-complexity/anjo-nala-310001",
       "spineVersion": "4.2.36",
       "files": {
-        "atlas": "310501_zxqe.atlas",
-        "texture": "310501_zxqe.png",
-        "bloom": "310501_zxqe_bloom.png",
+        "atlas": "310001_tsnn.atlas",
+        "texture": "310001_tsnn.png",
+        "bloom": "310001_tsnn_bloom.png",
         "views": {
-          "fight": "310501_zxqe_fight.skel",
-          "room": "310501_zxqe_room.skel",
-          "ui": "310501_zxqe_ui.skel"
+          "fight": "310001_tsnn_fight.skel",
+          "room": "310001_tsnn_room.skel",
+          "ui": "310001_tsnn_ui.skel"
         }
       }
     },
