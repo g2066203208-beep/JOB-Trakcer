@@ -494,7 +494,28 @@ function draw(){
 }
 function fitView(){if(spineRT.ready&&spineRT.display){syncRuntimePose();let b;try{b=spineRT.display.getLocalBounds()}catch{}if(b&&isFinite(b.width)&&b.width>0&&b.height>0){const r=canvas.getBoundingClientRect();state.view.zoom=clamp(Math.min((r.width-100)/b.width,(r.height-100)/b.height),.05,12);state.view.x=-(b.x+b.width/2)*state.view.zoom;state.view.y=-(b.y+b.height/2)*state.view.zoom;syncRuntimeViewport();return}}if(!state.project)return;const p=worldPose(state.currentTime);if(!p.length)return;let xs=[],ys=[];for(const b of p){xs.push(b.wx);ys.push(b.wy)}const r=canvas.getBoundingClientRect(),minx=Math.min(...xs),maxx=Math.max(...xs),miny=Math.min(...ys),maxy=Math.max(...ys);state.view.zoom=clamp(Math.min((r.width-120)/(maxx-minx||100),(r.height-120)/(maxy-miny||100)),.15,8);state.view.x=-(minx+maxx)/2*state.view.zoom;state.view.y=(miny+maxy)/2*state.view.zoom}
 
-async function loadCase(c){const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));let raw;if('DecompressionStream' in window){const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));raw=await new Response(stream).text()}else throw new Error('当前浏览器不支持 gzip 解压，请使用最新版 Chrome / Edge / Safari');const d=JSON.parse(raw);state.sourceCase=c;state.project=normalizeProject({...d,name:c.title,id:'case-'+c.id},c.title);state.activeMotion=null;ensureMotionSelection();const seg=currentRawClip();state.project.activeAnimation=seg.name||Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
+async function loadCase(c){
+ try{
+  let d;
+  if(c.remote)d=await fetchRemoteCaseData(c);
+  else{
+   const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);
+   const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));let raw;
+   if('DecompressionStream' in window){const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));raw=await new Response(stream).text()}
+   else throw new Error('当前浏览器不支持 gzip 解压，请使用最新版 Chrome / Edge / Safari');
+   d=JSON.parse(raw)
+  }
+  state.sourceCase=c;state.project=normalizeProject({...d,name:c.title,id:'case-'+c.id},c.title);
+  state.activeMotion=null;ensureMotionSelection();const seg=currentRawClip();
+  state.project.activeAnimation=seg.name||Object.keys(state.project.animations)[0]||'Setup Pose';
+  state.currentTime=0;state.playing=false;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];
+  await prepareSkin();fitView();renderAll()
+ }catch(e){
+  console.error('Case load failed',c,e);
+  $('#modal').innerHTML='<h2>案例加载失败</h2><div class="note warn">'+esc(c?.title||'案例')+'<br>'+esc(String(e?.message||e))+'</div><div class="actions"><button data-close class="primary">关闭</button></div>';
+  showModal();wireClose();throw e
+ }
+}
 async function loadProject(p){state.project=normalizeProject(p,p.name);state.sourceCase=null;state.activeMotion=null;ensureMotionSelection();const seg=currentRawClip();state.project.activeAnimation=seg.name||Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
 
 function renderAnimSelect(){const s=$('#animSelect');if(!state.project){s.innerHTML='<option>无动画</option>';return}ensureMotionSelection();const defs=motionDefs(),actions=defs.filter(x=>x.kind==='action'),clips=defs.filter(x=>x.kind==='clip');s.innerHTML=`<optgroup label="动作组（按文件语义串联）">${actions.map(x=>`<option value="${esc(x.id)}" ${x.id===state.activeMotion?'selected':''}>${esc(x.label)}</option>`).join('')}</optgroup><optgroup label="原始 Spine 片段">${clips.map(x=>`<option value="${esc(x.id)}" ${x.id===state.activeMotion?'selected':''}>${esc(x.label)}</option>`).join('')}</optgroup>`;s.value=state.activeMotion}
