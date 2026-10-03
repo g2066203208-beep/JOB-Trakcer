@@ -6,3 +6,18 @@
 .slot-row{display:grid;grid-template-columns:28px minmax(0,1fr) 90px;align-items:center;gap:5px;min-height:28px;border-bottom:1px solid #19202b;padding:2px 5px;font-size:10px;cursor:pointer}
 .slot-row:last-child{border-bottom:0}.slot-row:hover{background:#171f2a}.slot-row.active{background:#263244;box-shadow:inset 2px 0 var(--accent)}
 .slot-row button{width:25px;height:22px;padding:0;border:0;background:transparent;color:var(--good)}.slot-row span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.slot-row small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);text-align:right}
+
+/* Spine 3.5 authoritative runtime layer */
+#spineHost{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+#spineHost canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block}
+#stage{position:absolute;inset:0;z-index:1;background:transparent}
+.motion-strip{position:relative;height:32px;background:#0d1219;border-bottom:1px solid #1b2230;overflow:hidden}
+.motion-seg{position:absolute;top:4px;bottom:4px;border:1px solid #34435a;background:#192330;border-radius:4px;padding:4px 6px;font:10px var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#c7d3df}
+.motion-seg.active{border-color:var(--accent);color:#fff;background:#3b3212}
+.event-mark{position:absolute;top:1px;bottom:1px;width:2px;background:#ff7b72;box-shadow:0 0 4px #ff7b72aa;pointer-events:none}
+.event-label{position:absolute;top:2px;transform:translateX(3px);font:9px var(--mono);color:#ff9d96;white-space:nowrap;pointer-events:none}
+.runtime-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 6px;border-radius:999px;border:1px solid #35506c;background:#101a25;color:#a9c9e8;font-size:10px}
+.runtime-badge.bad{border-color:#704044;color:#ffaaa4;background:#261417}
+.pose-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.pose-grid .field{grid-template-columns:64px 1fr;margin:2px 0}
+.readonly-val{font:11px var(--mono);background:#0b0f15;border:1px solid #222b39;border-radius:5px;padding:6px 7px;color:#aab6c6}
+.warn{border-left:3px solid #e4b72b;padding-left:8px;color:#cdbf8b}
