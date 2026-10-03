@@ -69,7 +69,7 @@ jobs:
           print("LOG_AFTER",json.dumps(logs,ensure_ascii=False))
           d.save_screenshot("/tmp/pixel-studio.png")
           assert after["cards"]==8, after
-          assert after["layers"]==7, after
-          assert "8帧跑步循环" in after["project"], after
+          assert after["layers"]==11, after
+          assert "双马尾蓝衣少女" in after["project"], after
           d.quit()
           PY
