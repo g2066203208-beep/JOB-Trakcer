@@ -118,20 +118,27 @@ jobs:
 
           # Direct mouse edit smoke test: drag one visible joint.
           point=d.execute_script("""
-            const a=runtimePoseScreen().filter(x=>x.parent);
-            return a.length?{x:a[0].x,y:a[0].y,name:a[0].name}:null;
+            const a=runtimePoseScreen().filter(x=>x.parent && Math.hypot(x.x-x.parent.x,x.y-x.parent.y)>18);
+            const p=a.find(x=>x.x>40&&x.y>40&&x.x<document.querySelector('#stage').clientWidth-40&&x.y<document.querySelector('#stage').clientHeight-40)||a[0];
+            return p?{x:p.x,y:p.y,name:p.name}:null;
           """)
           checks["mouse_target"]=point
           if point:
               canvas=d.find_element(By.ID,"stage")
-              # Selenium offsets are relative to the element top-left corner.
-              ox=point["x"]
-              oy=point["y"]
+              # Selenium pointer origin is the element center; runtime coords are canvas-local.
+              size=canvas.size
+              ox=point["x"]-size["width"]/2
+              oy=point["y"]-size["height"]/2
               try:
                   ActionChains(d).move_to_element_with_offset(canvas,ox,oy).click_and_hold().move_by_offset(18,6).release().perform()
                   time.sleep(1.2)
                   checks["mouse_drag_selected"]=d.execute_script("return state.selectedBone")
+                  checks["mouse_drag_has_translate_key"]=d.execute_script("""
+                    const seg=segmentAtTime(),name=state.selectedBone,arr=state.project.animations?.[seg.name]?.bones?.[name]?.translate||[];
+                    return arr.some(k=>Math.abs((+k.time||0)-seg.localTime)<0.001);
+                  """)
                   assert checks["mouse_drag_selected"]==point["name"], checks
+                  assert checks["mouse_drag_has_translate_key"] is True, checks
               except Exception as e:
                   checks["mouse_drag_error"]=str(e)
 
