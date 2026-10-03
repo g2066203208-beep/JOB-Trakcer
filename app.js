@@ -169,7 +169,7 @@ canvas.addEventListener('pointerdown',e=>{
  if(e.button===1||e.altKey){state.drag={type:'pan',x:e.clientX,y:e.clientY,vx:state.view.x,vy:state.view.y};canvas.style.cursor='grabbing';return}
  const hit=hitBone(e.offsetX,e.offsetY);
  if(!hit){state.drag={type:'pan',x:e.clientX,y:e.clientY,vx:state.view.x,vy:state.view.y};canvas.style.cursor='grabbing';return}
- state.selectedBone=hit.name;renderLeft();renderInspector();renderTimeline();
+ state.selectedBone=hit.name;state.playing=false;renderLeft();renderInspector();renderTimeline();renderMeta();
  const setup=selected(),rb=runtimeBone(hit.name);
  if(!setup||setup.locked||!spineRT.ready||!rb)return;
  syncRuntimePose();
