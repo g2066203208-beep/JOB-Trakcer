@@ -9,19 +9,34 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Probe PRTS case files
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+      - name: Install Selenium
+        run: python3 -m pip install --quiet selenium
+      - name: Probe PRTS and runtime binary API
         shell: bash
         run: |
           set -euxo pipefail
           base="https://torappu.prts.wiki/assets/char_spine/char_003_kalts/defaultskin/front/char_003_kalts"
-          for ext in json skel atlas png; do
+          for ext in skel atlas png; do
             code=$(curl -L -A "Mozilla/5.0" -sS -o "/tmp/kalts.$ext" -w "%{http_code}" "$base.$ext" || true)
             bytes=$(wc -c < "/tmp/kalts.$ext" 2>/dev/null || echo 0)
             echo "$ext HTTP=$code bytes=$bytes"
           done
-          base2="https://torappu.prts.wiki/assets/char_spine/char_293_thorns/char_293_thorns_it_1/front/char_293_thorns_it_1"
-          for ext in json skel atlas png; do
-            code=$(curl -L -A "Mozilla/5.0" -sS -o "/tmp/thorns.$ext" -w "%{http_code}" "$base2.$ext" || true)
-            bytes=$(wc -c < "/tmp/thorns.$ext" 2>/dev/null || echo 0)
-            echo "skin-$ext HTTP=$code bytes=$bytes"
-          done
+          cat > /tmp/probe.py <<'PY'
+          import json,time
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          o=Options();o.add_argument("--headless=new");o.add_argument("--no-sandbox");o.add_argument("--disable-gpu");o.add_argument("--enable-unsafe-swiftshader")
+          d=webdriver.Chrome(options=o)
+          d.get("https://g2066203208-beep.github.io/JOB-Trakcer/")
+          time.sleep(6)
+          out=d.execute_script("""
+            const P=window.PIXI?.spine||{},SR=P.SpineRuntime||{},C=P.core||{};
+            const pick=o=>Object.keys(o||{}).filter(k=>/Skeleton|Binary|Atlas|Attachment/i.test(k)).sort();
+            return {P:pick(P),SR:pick(SR),core:pick(C),version:document.querySelector('.brand small')?.textContent||''};
+          """)
+          print("RUNTIME_KEYS="+json.dumps(out,ensure_ascii=False))
+          d.quit()
+          PY
+          python3 /tmp/probe.py
