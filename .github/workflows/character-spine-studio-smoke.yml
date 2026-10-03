@@ -125,6 +125,11 @@ jobs:
               time.sleep(.15)
               d.save_screenshot(f"/tmp/qa-{name.lower()}.png")
           d.save_screenshot("/tmp/character-spine-studio.png")
+          d.get(os.environ["URL"]+"atlas-debug.html")
+          time.sleep(1)
+          atlas_info=d.execute_script("return {w:document.querySelector('#atlas')?.naturalWidth||0,h:document.querySelector('#atlas')?.naturalHeight||0,info:document.querySelector('#info')?.textContent||''}")
+          print("ATLAS="+json.dumps(atlas_info,ensure_ascii=False))
+          d.save_screenshot("/tmp/qa-atlas.png")
           d.quit()
           PY
       - name: Upload visual QA screenshot
@@ -138,5 +143,5 @@ jobs:
             /tmp/qa-move.png
             /tmp/qa-attack.png
             /tmp/qa-hurt.png
-            /tmp/qa-death.png
+            /tmp/qa-death.png\n            /tmp/qa-atlas.png
           if-no-files-found: ignore
