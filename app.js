@@ -500,16 +500,51 @@ async function unpackLearningCase(c){
  const data=JSON.parse(await new Response(stream).text());
  motionLearn.cache.set(c.id,data);return data;
 }
+function semanticLearningAction(name){
+ const n=String(name||'');
+ if(/^Attack/i.test(n))return 'Attack';
+ if(/^Skill(?:_|)?3/i.test(n)||/^Skill3/i.test(n))return 'Skill_3';
+ if(/^Skill(?:_|)?2/i.test(n)||/^Skill2/i.test(n))return 'Skill_2';
+ if(/^Skill/i.test(n))return 'Skill';
+ if(/^Idle/i.test(n))return 'Idle';
+ if(/^Default$/i.test(n))return 'Default';
+ if(/^Start/i.test(n))return 'Start';
+ if(/^Die/i.test(n))return 'Die';
+ if(/^Stun/i.test(n))return 'Stun';
+ return n
+}
 function learningActionName(){
  const def=activeMotionDef();if(!def)return null;
- return def.id?.startsWith('action:')?def.id.slice(7):(def.segments?.[0]||state.project?.activeAnimation||null);
+ const raw=def.id?.startsWith('action:')?def.id.slice(7):(def.segments?.[0]||state.project?.activeAnimation||null);
+ return semanticLearningAction(raw)
+}
+function learningFamilyCode(action){
+ return ({Attack:'A',Skill:'S',Skill_2:'S2',Skill_3:'S3',Idle:'I',Default:'D',Start:'T',Die:'X',Stun:'U'})[action]||null
+}
+function inferLearningView(){
+ if(state.sourceCase?.view)return state.sourceCase.view;
+ const names=(state.project?.bones||[]).map(b=>b.name);
+ const f=names.filter(n=>/^F[_-]/i.test(n)).length,b=names.filter(n=>/^B[_-]/i.test(n)).length;
+ if(f>b*1.25)return '战斗正面';if(b>f*1.25)return '战斗背面';
+ return isCombatProject()?'战斗正面':'基建'
 }
 function actionSegmentsForData(data,name){
- const A=data?.animations||{},has=n=>!!A[n];
- if(name==='Attack')return ['Attack_Begin','Attack','Attack_End'].filter(has);
- if(name==='Skill')return ['Skill_Begin','Skill','Skill_Loop_2','Skill_End'].filter(has);
- if(name==='Skill_2')return ['Skill_2_Begin','Skill_2','Skill_2_End'].filter(has);
- return has(name)?[name]:[];
+ const A=data?.animations||{},names=Object.keys(A);
+ const exact=n=>names.includes(n);
+ if(name==='Attack'){
+  const seq=['Attack_Begin','Attack_Pre','Attack_Start','Attack','Attack_Loop','Attack_End'].filter(exact);
+  return seq.length?seq:names.filter(n=>/^Attack/i.test(n))
+ }
+ if(name==='Skill'){
+  const seq=['Skill_Begin','Skill_Start','Skill','Skill_Loop','Skill_Loop_2','Skill_End'].filter(exact);
+  return seq.length?seq:names.filter(n=>/^Skill(?![_ ]?[23]|[23])/i.test(n))
+ }
+ if(name==='Skill_2'){
+  const seq=['Skill_2_Begin','Skill2_Begin','Skill_2','Skill2','Skill_2_Loop','Skill2_Loop','Skill_2_End','Skill2_End'].filter(exact);
+  return seq.length?seq:names.filter(n=>/^Skill(?:_|)?2|^Skill2/i.test(n))
+ }
+ if(name==='Skill_3')return names.filter(n=>/^Skill(?:_|)?3|^Skill3/i.test(n));
+ return names.filter(n=>semanticLearningAction(n)===name)
 }
 function signatureForData(data,action){
  const segs=actionSegmentsForData(data,action),bones=new Map();let duration=0,keyCount=0;
@@ -524,35 +559,72 @@ function signatureForData(data,action){
   }
  }
  const ranked=[...bones.values()].map(b=>({...b,energy:b.rotSpan+b.moveSpan*.35+b.keys*.25})).sort((a,b)=>b.energy-a.energy);
- return {segments:segs,duration,keyCount,activeBones:bones.size,ranked};
+ return {segments:segs,duration,keyCount,activeBones:bones.size,ranked}
 }
 function median(a){const x=a.filter(Number.isFinite).sort((a,b)=>a-b);if(!x.length)return 0;const m=Math.floor(x.length/2);return x.length%2?x[m]:(x[m-1]+x[m])/2}
+async function unpackLearningCase(c){
+ if(motionLearn.cache.has(c.id))return motionLearn.cache.get(c.id);
+ const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);
+ const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));
+ if(!('DecompressionStream' in window))throw new Error('浏览器不支持 gzip 解压');
+ const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));
+ const data=JSON.parse(await new Response(stream).text());
+ motionLearn.cache.set(c.id,data);return data
+}
+function corpusCharacterRows(view,fam){
+ const c=window.RIG_LEARNING_SUMMARY?.characters||[];
+ return c.filter(row=>(row[3]?.[view]||0)>0&&(row[4]?.[fam]||0)>0)
+}
 async function learnMotionCorpus(force=false){
  if(!state.project)return;
- const action=learningActionName(),view=state.sourceCase?.view||null,key=`${view||'all'}|${action||'none'}`;
+ const action=learningActionName(),view=inferLearningView(),fam=learningFamilyCode(action),key=`${view}|${fam||action||'none'}`;
  if(!force&&motionLearn.requestKey===key&&motionLearn.result)return;
  if(motionLearn.loading)return;
  motionLearn.loading=true;motionLearn.error=null;motionLearn.requestKey=key;renderInspector();
  try{
-  const candidates=state.manifest.filter(c=>(!view||c.view===view)&&c.animations?.includes(action));
+  const big=window.RIG_LEARNING_SUMMARY;
+  if(big&&fam){
+   const row=(big.global||[]).find(x=>x[0]===view&&x[1]===fam);
+   if(row){
+    const chars=corpusCharacterRows(view,fam);
+    motionLearn.result={
+     key,action,view,fam,source:'bulk',
+     projectCount:row[2],characterCount:row[3],
+     medianDuration:+row[4]||0,medianKeys:+row[5]||0,medianBones:+row[6]||0,
+     common:(row[7]||[]).map(([name,count])=>({name,count})),
+     characters:chars,corpusStats:big.stats
+    };
+    return
+   }
+  }
+  // Fallback for actions not represented in the large corpus.
+  const candidates=state.manifest.filter(c=>(!view||c.view===view)&&c.animations?.some(n=>semanticLearningAction(n)===action));
   const profiles=[];
   for(const c of candidates){const data=await unpackLearningCase(c);profiles.push({caseInfo:c,...signatureForData(data,action)})}
   const aggregate=new Map();
   for(const p of profiles)for(const b of p.ranked){const x=aggregate.get(b.name)||{name:b.name,count:0,energy:0,keys:0};x.count++;x.energy+=b.energy;x.keys+=b.keys;aggregate.set(b.name,x)}
   const common=[...aggregate.values()].map(x=>({...x,avgEnergy:x.energy/x.count})).sort((a,b)=>(b.count-a.count)||(b.avgEnergy-a.avgEnergy)).slice(0,10);
-  motionLearn.result={key,action,view,profiles,common,medianDuration:median(profiles.map(x=>x.duration)),medianKeys:median(profiles.map(x=>x.keyCount)),medianBones:median(profiles.map(x=>x.activeBones))};
+  motionLearn.result={key,action,view,source:'legacy',projectCount:profiles.length,characterCount:profiles.length,profiles,common,medianDuration:median(profiles.map(x=>x.duration)),medianKeys:median(profiles.map(x=>x.keyCount)),medianBones:median(profiles.map(x=>x.activeBones)),characters:[]}
  }catch(e){motionLearn.error=String(e?.message||e);motionLearn.result=null}
  finally{motionLearn.loading=false;renderInspector()}
 }
 function currentMotionSignature(){return signatureForData(runtimeRawSkeleton()||{},learningActionName())}
+function showLearningCorpusModal(){
+ const big=window.RIG_LEARNING_SUMMARY;if(!big)return;
+ const labels=big.labels||{},rows=big.characters||[];
+ $('#modal').innerHTML=`<h2>动作学习语料库</h2><div class="note"><b>${big.stats.characters} 个有效角色 · ${big.stats.projects} 个 Spine 工程</b><br>战斗正面 ${big.stats.views?.['战斗正面']||0} · 战斗背面 ${big.stats.views?.['战斗背面']||0} · 基建 ${big.stats.views?.['基建']||0}<br>无法解析：${(big.stats.invalid||[]).map(esc).join('、')||'无'}</div><div style="max-height:55vh;overflow:auto">${rows.map(r=>`<div class="case-card"><div class="case-title">${esc(r[0])} <span class="badge">${r[1]} 工程</span></div><div class="case-meta">${r[2].map(esc).join(' · ')} · ${Object.entries(r[4]||{}).map(([k,v])=>`${esc(labels[k]||k)} ${v}`).join(' · ')}</div></div>`).join('')}</div><div class="actions"><button data-close class="primary">关闭</button></div>`;
+ showModal();wireClose()
+}
 function renderLearningInspector(){
  const p=$('#insPane'),score=state.reference?poseScore():null,rows=state.reference?poseErrorRows().slice(0,6):[];
- const r=motionLearn.result,action=learningActionName(),current=currentMotionSignature();
- if(!motionLearn.loading&&!motionLearn.error&&(!r||r.action!==action||r.view!==(state.sourceCase?.view||null)))queueMicrotask(()=>learnMotionCorpus());
- const corpusHtml=motionLearn.loading?'<div class="note">正在读取仓库案例并建立动作统计…</div>':motionLearn.error?`<div class="note warn">${esc(motionLearn.error)}</div>`:r?`<div class="metric"><span>学习范围</span><span>${esc(r.view||'全部视角')} · ${r.profiles.length} 个工程</span></div><div class="metric"><span>动作</span><span>${esc(r.action||'—')}</span></div><div class="metric"><span>典型时长</span><span>${r.medianDuration.toFixed(3)} s</span></div><div class="metric"><span>典型关键帧量</span><span>${Math.round(r.medianKeys)}</span></div><div class="metric"><span>典型参与骨骼</span><span>${Math.round(r.medianBones)}</span></div><div class="section-title"><span>共同主运动骨骼</span><span>跨外观</span></div>${r.common.map((b,i)=>`<div class="metric"><span>${i+1}. ${esc(b.name)}</span><span>${b.count}/${r.profiles.length}</span></div>`).join('')}<div class="section-title"><span>当前动作结构</span><span>${current.segments.length} 段</span></div><div class="metric"><span>时长</span><span>${current.duration.toFixed(3)} s</span></div><div class="metric"><span>关键帧量</span><span>${current.keyCount}</span></div><div class="metric"><span>参与骨骼</span><span>${current.activeBones}</span></div>`:'<div class="note">当前动作没有可学习的同类案例。</div>';
- p.innerHTML=`<div class="section-title"><span>动作学习</span><span class="runtime-badge ${spineRT.ready?'':'bad'}">${spineRT.ready?'真实 Spine 姿态':'近似姿态'}</span></div><div class="note">这里不是只看一帧。它会对同一视角下 4 套阿米娅工程的同类动作做统计，学习动作时长、关键帧密度和主要发力骨骼；换动作时会自动重新学习。</div>${corpusHtml}<div class="toolbar-row"><button id="relearnMotion">重新学习当前动作</button><button id="setRuntimeRef">当前帧设为参考</button></div><div class="section-title"><span>姿态复现训练</span><span class="badge">${state.reference?'Pose Match':'未设参考'}</span></div>${state.reference?`<div class="score">${score}%</div><div class="note">参考：${esc(state.reference.name)}<br>评分直接读取 Spine Runtime 约束后的骨骼世界姿态。</div>${rows.map(x=>`<div class="metric"><span>${esc(x.name)}</span><span>位移 ${x.dist.toFixed(1)} · 角度 ${x.angle.toFixed(1)}°</span></div>`).join('')}<div class="toolbar-row"><button id="clearRuntimeRef">清除参考</button></div>`:'<div class="note">把当前真实运行姿态设为参考，然后修改当前动作关键帧，就可以看复现误差。</div>'}`;
- $('#relearnMotion').onclick=()=>learnMotionCorpus(true);$('#setRuntimeRef').onclick=()=>captureReference(`${activeMotionDef().label} @ ${state.currentTime.toFixed(3)}s`);
- if($('#clearRuntimeRef'))$('#clearRuntimeRef').onclick=()=>{state.reference=null;renderInspector()};
+ const r=motionLearn.result,action=learningActionName(),view=inferLearningView(),current=currentMotionSignature(),big=window.RIG_LEARNING_SUMMARY;
+ if(!motionLearn.loading&&!motionLearn.error&&(!r||r.action!==action||r.view!==view))queueMicrotask(()=>learnMotionCorpus());
+ const corpusHtml=motionLearn.loading?'<div class="note">正在读取大批动作语料…</div>':motionLearn.error?`<div class="note warn">${esc(motionLearn.error)}</div>`:r?`<div class="metric"><span>学习范围</span><span>${esc(r.view)} · ${r.projectCount} 个工程</span></div><div class="metric"><span>有效角色</span><span>${r.characterCount} 个</span></div><div class="metric"><span>动作</span><span>${esc(r.action||'—')}</span></div><div class="metric"><span>典型时长</span><span>${r.medianDuration.toFixed(3)} s</span></div><div class="metric"><span>典型关键帧量</span><span>${Math.round(r.medianKeys)}</span></div><div class="metric"><span>典型参与骨骼</span><span>${Math.round(r.medianBones)}</span></div><div class="section-title"><span>共同主运动骨骼</span><span>跨角色</span></div>${r.common.map((b,i)=>`<div class="metric"><span>${i+1}. ${esc(b.name)}</span><span>${b.count} 工程</span></div>`).join('')}<div class="section-title"><span>当前动作结构</span><span>${current.segments.length} 段</span></div><div class="metric"><span>时长</span><span>${current.duration.toFixed(3)} s</span></div><div class="metric"><span>关键帧量</span><span>${current.keyCount}</span></div><div class="metric"><span>参与骨骼</span><span>${current.activeBones}</span></div>`:'<div class="note">当前动作没有可学习的同类案例。</div>';
+ p.innerHTML=`<div class="section-title"><span>动作学习</span><span class="runtime-badge ${spineRT.ready?'':'bad'}">${spineRT.ready?'真实 Spine 姿态':'近似姿态'}</span></div><div class="note"><b>大批学习库已接入：</b>${big?.stats?.characters||0} 个有效角色 / ${big?.stats?.projects||0} 个 Spine 工程。按战斗正面、战斗背面、基建和动作类型统计，不再只学 4 套阿米娅。</div><div class="toolbar-row"><button id="showCorpusChars">查看语料角色</button><button id="relearnMotion">重新统计当前动作</button></div>${corpusHtml}<div class="toolbar-row"><button id="setRuntimeRef">当前帧设为参考</button></div><div class="section-title"><span>姿态复现训练</span><span class="badge">${state.reference?'Pose Match':'未设参考'}</span></div>${state.reference?`<div class="score">${score}%</div><div class="note">参考：${esc(state.reference.name)}<br>评分直接读取 Spine Runtime 约束后的骨骼世界姿态。</div>${rows.map(x=>`<div class="metric"><span>${esc(x.name)}</span><span>位移 ${x.dist.toFixed(1)} · 角度 ${x.angle.toFixed(1)}°</span></div>`).join('')}<div class="toolbar-row"><button id="clearRuntimeRef">清除参考</button></div>`:'<div class="note">把当前真实运行姿态设为参考，然后修改当前动作关键帧，就可以看复现误差。</div>'}`;
+ $('#showCorpusChars').onclick=showLearningCorpusModal;
+ $('#relearnMotion').onclick=()=>learnMotionCorpus(true);
+ $('#setRuntimeRef').onclick=()=>captureReference(`${activeMotionDef().label} @ ${state.currentTime.toFixed(3)}s`);
+ if($('#clearRuntimeRef'))$('#clearRuntimeRef').onclick=()=>{state.reference=null;renderInspector()}
 }
 
 const _learningInspectorBase=renderInspector;
