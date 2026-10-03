@@ -25,21 +25,10 @@ jobs:
               bytes=$(wc -c < "/tmp/probe.$ext" 2>/dev/null || echo 0)
               echo "$ext HTTP=$code bytes=$bytes"
               if [ "$ext" = "skel" ] && [ "$code" = "200" ]; then
-                python3 -c 'b=open("/tmp/probe.skel","rb").read(); i=0
-def vint():
- global i
- r=s=0
- while True:
-  x=b[i]; i+=1; r|=(x&127)<<s
-  if x<128: return r
-  s+=7
-def st():
- global i
- n=vint()
- if n==0:return None
- if n==1:return ""
- n-=1; z=b[i:i+n]; i+=n; return z.decode("utf-8","replace")
-print("SKEL_HEADER",st(),st())'
+                echo "SKEL_STRINGS:"
+                strings -n 4 /tmp/probe.skel | head -n 8 || true
+                echo "SKEL_HEX:"
+                od -An -tx1 -N80 /tmp/probe.skel || true
               fi
             done
           done
