@@ -21,3 +21,10 @@
 .pose-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.pose-grid .field{grid-template-columns:64px 1fr;margin:2px 0}
 .readonly-val{font:11px var(--mono);background:#0b0f15;border:1px solid #222b39;border-radius:5px;padding:6px 7px;color:#aab6c6}
 .warn{border-left:3px solid #e4b72b;padding-left:8px;color:#cdbf8b}
+
+/* Reverse: 1999 Spine 4.2 study viewer */
+.r1999-card .case-title small{font-weight:500;color:var(--muted);margin-left:4px}
+.case-focus{margin-top:6px;color:#91a0b3;font-size:10px;line-height:1.45}
+.r1999-view-buttons{margin:10px 0;display:flex;gap:6px;flex-wrap:wrap}
+.r1999-player{height:min(56vh,540px);min-height:360px;margin:10px 0;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#080b10}
+#modal:has(.r1999-player){width:min(1000px,94vw)}

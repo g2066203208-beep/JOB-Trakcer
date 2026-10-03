@@ -3,7 +3,7 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)); const rad=d=>d*Math.PI/180; const deg=r=>r*180/Math.PI;
 const deep=o=>structuredClone(o); const uid=()=>Math.random().toString(36).slice(2,10);
-const state={manifest:[],project:null,sourceCase:null,selectedBone:null,selectedSlot:null,currentTime:0,playing:false,lastT:0,speed:1,fps:30,loop:true,showGrid:true,showNames:false,onion:false,showSkin:true,showRig:true,skinOpacity:1,leftTab:'cases',insTab:'bone',view:{x:0,y:0,zoom:1},drag:null,history:[],future:[],overrides:{},snapshots:[],reference:null,atlasRegions:new Map(),regionCanvases:new Map(),textureImage:null,textureReady:false,attachmentImages:new Map()};
+const state={manifest:[],project:null,sourceCase:null,selectedBone:null,selectedSlot:null,currentTime:0,playing:false,lastT:0,speed:1,fps:30,loop:true,showGrid:true,showNames:false,onion:false,showSkin:true,showRig:true,skinOpacity:1,leftTab:'cases',insTab:'bone',view:{x:0,y:0,zoom:1},drag:null,history:[],future:[],overrides:{},snapshots:[],reference:null,study1999:[],atlasRegions:new Map(),regionCanvases:new Map(),textureImage:null,textureReady:false,attachmentImages:new Map()};
 const canvas=$('#stage'),ctx=canvas.getContext('2d');
 
 const dbp=new Promise((resolve,reject)=>{const r=indexedDB.open('rig-motion-lab',1);r.onupgradeneeded=()=>{r.result.createObjectStore('projects',{keyPath:'id'})};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
@@ -27,20 +27,28 @@ function redo(){if(!state.future.length||!state.project)return;state.history.pus
 const remoteCaseCache=new Map();
 function remoteViewMeta(code){return ({b:{view:'基建',dir:'build'},r:{view:'战斗背面',dir:'back'},f:{view:'战斗正面',dir:'front'}})[code]}
 function remoteAssetStem(code,stem){
- let s=String(stem||'');
+ let s=String(stem||'').replace(/#/g,'_');
  if(code==='b'&&!s.startsWith('build_'))s='build_'+s;
  return s
 }
 function remoteSkinFolder(remote){
- const stem=String(remote.stem||'').replace(/^build_/,'');
+ const stem=remoteAssetStem(remote.viewCode,remote.stem).replace(/^build_/,'');
  return remote.costume==='默认'?'defaultskin':stem
 }
-function remoteAssetUrls(remote){
- const m=remoteViewMeta(remote.viewCode),stem=remoteAssetStem(remote.viewCode,remote.stem);
- const folder=remoteSkinFolder(remote);
- const root='https://torappu.prts.wiki/assets/char_spine/'+encodeURIComponent(remote.charKey)+'/'+encodeURIComponent(folder)+'/'+m.dir+'/';
- const base=root+encodeURIComponent(stem);
- return {stem,folder,skel:base+'.skel',atlas:base+'.atlas',png:base+'.png'}
+function remoteAssetCandidates(remote){
+ const m=remoteViewMeta(remote.viewCode),stem=remoteAssetStem(remote.viewCode,remote.stem),baseStem=stem.replace(/^build_/,'');
+ const modernFolder=remoteSkinFolder(remote);
+ const modernRoot='https://torappu.prts.wiki/assets/char_spine/'+encodeURIComponent(remote.charKey)+'/'+encodeURIComponent(modernFolder)+'/'+m.dir+'/';
+ const modernBase=modernRoot+encodeURIComponent(stem);
+ const scope=remote.costume==='默认'?'char':'skin';
+ const legacyFolder=remote.viewCode==='r'?'back_'+baseStem:(remote.viewCode==='b'?'build_'+baseStem:baseStem);
+ const legacyFile=remote.viewCode==='b'?'build_'+baseStem:baseStem;
+ const legacyRoot='https://static.prts.wiki/spine/'+scope+'/'+encodeURIComponent(remote.charKey)+'/'+encodeURIComponent(legacyFolder)+'/';
+ const legacyBase=legacyRoot+encodeURIComponent(legacyFile);
+ return [
+  {provider:'PRTS 新资源',base:modernBase,skel:modernBase+'.skel',atlas:modernBase+'.atlas',png:modernBase+'.png'},
+  {provider:'PRTS 旧资源',base:legacyBase,skel:legacyBase+'.skel',atlas:legacyBase+'.atlas',png:legacyBase+'.png'}
+ ]
 }
 function expandRemoteCases(builtins){
  const rows=window.RIG_ALL_CASES||[],views=['b','r','f'],builtKeys=new Set((builtins||[]).map(c=>[c.character,c.costume||c.appearance,c.view].join('|'))),out=[];let n=0;
@@ -68,26 +76,96 @@ async function ensureSkeletonBinaryConverter(){
 }
 async function fetchRemoteCaseData(c){
  if(remoteCaseCache.has(c.id))return deep(remoteCaseCache.get(c.id));
- const urls=remoteAssetUrls(c.remote);
+ const candidates=remoteAssetCandidates(c.remote),failures=[];
  $('#hud').textContent='正在加载 '+c.title+' …';
- const [skelRes,atlasRes]=await Promise.all([fetch(urls.skel,{cache:'force-cache'}),fetch(urls.atlas,{cache:'force-cache'})]);
- if(!skelRes.ok)throw new Error('骨骼资源加载失败 HTTP '+skelRes.status);
- if(!atlasRes.ok)throw new Error('Atlas 加载失败 HTTP '+atlasRes.status);
  await ensureSkeletonBinaryConverter();
- const bytes=new Uint8Array(await skelRes.arrayBuffer()),conv=new window.SkeletonBinary35();
- conv.data=bytes;conv.nextNum=0;conv.json={};conv.initJson();
- const d=conv.json||{};
- if(!d.bones?.length)throw new Error('二进制骨骼解析为空');
- d.atlas={text:await atlasRes.text(),imageData:urls.png,imageName:urls.stem+'.png'};
- d.source={name:c.title,spine:d.skeleton?.spine||c.spine||'3.5.51',provider:'PRTS Spine CDN',remote:true};
- d.remote={...c.remote,urls};
- remoteCaseCache.set(c.id,deep(d));
- return d
+ for(const urls of candidates){
+  try{
+   const [skelRes,atlasRes]=await Promise.all([fetch(urls.skel,{cache:'force-cache'}),fetch(urls.atlas,{cache:'force-cache'})]);
+   if(!skelRes.ok||!atlasRes.ok){
+    failures.push(urls.provider+' HTTP '+skelRes.status+'/'+atlasRes.status);
+    continue
+   }
+   const bytes=new Uint8Array(await skelRes.arrayBuffer()),conv=new window.SkeletonBinary35();
+   conv.data=bytes;conv.nextNum=0;conv.json={};conv.initJson();
+   const data=conv.json||{};
+   if(!data.bones?.length){failures.push(urls.provider+' 二进制解析为空');continue}
+   const atlasText=await atlasRes.text(),page=parseAtlas(atlasText).page;
+   const imageData=page?new URL(page,urls.atlas).href:urls.png;
+   data.atlas={text:atlasText,imageData,imageName:page||imageData.split('/').pop()};
+   data.source={name:c.title,spine:data.skeleton?.spine||c.spine||'3.5.51',provider:urls.provider,remote:true};
+   data.remote={...c.remote,urls};
+   remoteCaseCache.set(c.id,deep(data));
+   return data
+  }catch(e){failures.push(urls.provider+' '+String(e?.message||e))}
+ }
+ throw new Error('远程案例两套资源源均加载失败：'+failures.join('；'))
+}
+
+let r1999Player=null,r1999Sample=null;
+function disposeR1999Player(){try{r1999Player?.dispose?.()}catch{}r1999Player=null}
+async function ensureSpine42Player(){
+ if(window.spine?.SpinePlayer&&document.getElementById('spine-player-42-runtime'))return;
+ if(!document.getElementById('spine-player-42-css')){
+  const l=document.createElement('link');l.id='spine-player-42-css';l.rel='stylesheet';l.href='https://unpkg.com/@esotericsoftware/spine-player@4.2.*/dist/spine-player.css';document.head.appendChild(l)
+ }
+ await loadOneOf([
+  'https://unpkg.com/@esotericsoftware/spine-player@4.2.*/dist/iife/spine-player.js',
+  'https://cdn.jsdelivr.net/npm/@esotericsoftware/spine-player@4.2.*/dist/iife/spine-player.js'
+ ],'spine-player-42-runtime');
+ if(!window.spine?.SpinePlayer)throw new Error('Spine 4.2 Player 未初始化')
+}
+function r1999ViewLabel(k){return ({fight:'Fight 战斗',fight_special:'Fight Special 特殊战斗',room:'Room 房间',ui:'UI 展示'})[k]||k}
+async function loadR1999View(sample,viewKey){
+ const status=$('#r1999Status'),host=$('#r1999Player'),animInfo=$('#r1999Animations');
+ if(!host||!sample?.files?.views?.[viewKey])return;
+ $$('[data-r1999-view]').forEach(b=>b.classList.toggle('primary',b.dataset.r1999View===viewKey));
+ status.textContent='正在加载 '+sample.name+' · '+r1999ViewLabel(viewKey)+' · Spine '+(sample.spineVersion||'4.2')+' …';
+ animInfo.textContent='';
+ disposeR1999Player();host.innerHTML='';
+ try{
+  await ensureSpine42Player();
+  const base='data/reverse1999-study/'+sample.local+'/';
+  r1999Player=new window.spine.SpinePlayer('r1999Player',{
+   skeleton:base+sample.files.views[viewKey],
+   atlas:base+sample.files.atlas,
+   showControls:true,
+   premultipliedAlpha:true,
+   backgroundColor:'#080b10',
+   alpha:true,
+   success:(player)=>{
+    const names=(player.skeleton?.data?.animations||[]).map(a=>a.name);
+    status.textContent=sample.name+' · '+r1999ViewLabel(viewKey)+' · Spine '+(sample.spineVersion||'4.2')+' · '+names.length+' animations';
+    animInfo.textContent=names.length?'动作：'+names.join(' · '):'未读取到动作列表';
+    const preferred=names.find(n=>/^idle$/i.test(n))||names.find(n=>/idle|stand|wait/i.test(n))||names[0];
+    if(preferred)try{player.setAnimation(preferred,true)}catch{}
+   },
+   error:(_player,msg)=>{status.textContent='加载失败：'+String(msg||'Spine 4.2 runtime error')}
+  })
+ }catch(e){status.textContent='加载失败：'+String(e?.message||e)}
+}
+function openR1999Study(sample){
+ r1999Sample=sample;disposeR1999Player();
+ const views=Object.keys(sample.files?.views||{}),first=views.includes('fight')?'fight':views[0];
+ $('#modal').innerHTML=`<h2>Reverse: 1999 · ${esc(sample.name)} <small style="color:var(--muted);font-weight:500">${esc(sample.nameEng||'')}</small></h2>
+ <div class="note"><b>学习重点：</b>${(sample.focus||[]).map(esc).join(' · ')}<br><b>骨骼版本：</b>Spine ${esc(sample.spineVersion||'4.2')} · 本地仓库资产 · 只读学习样本</div>
+ <div class="toolbar-row r1999-view-buttons">${views.map(v=>`<button data-r1999-view="${esc(v)}">${esc(r1999ViewLabel(v))}</button>`).join('')}</div>
+ <div id="r1999Status" class="note">准备加载…</div><div id="r1999Player" class="r1999-player"></div><div id="r1999Animations" class="note"></div>
+ <div class="actions"><button data-close class="primary">关闭</button></div>`;
+ showModal();wireClose();
+ $$('[data-r1999-view]').forEach(b=>b.onclick=()=>loadR1999View(sample,b.dataset.r1999View));
+ $$('[data-close]').forEach(b=>b.onclick=()=>{disposeR1999Player();hideModal()});
+ if(first)loadR1999View(sample,first)
 }
 async function loadManifest(){
  try{
-  const r=await fetch('data/cases.json',{cache:'no-store'}),builtins=(await r.json()).cases||[];
+  const [caseRes,studyRes]=await Promise.all([
+   fetch('data/cases.json',{cache:'no-store'}),
+   fetch('data/reverse1999-study/catalog.json',{cache:'no-store'})
+  ]);
+  const builtins=(await caseRes.json()).cases||[];
   state.manifest=[...builtins,...expandRemoteCases(builtins)];
+  state.study1999=studyRes.ok?((await studyRes.json()).samples||[]):[]
  }catch(e){console.error(e)}
  renderLeft()
 }
@@ -169,7 +247,8 @@ function renderMeta(){if(!state.project){$('#footProject').textContent='未加�
 function renderAnimSelect(){const s=$('#animSelect');if(!state.project){s.innerHTML='<option>无动画</option>';return}const names=Object.keys(state.project.animations);s.innerHTML=(names.length?names:['Setup Pose']).map(n=>`<option ${n===state.project.activeAnimation?'selected':''}>${esc(n)}</option>`).join('')}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-function renderLeft(){const q=$('#leftSearch').value?.trim().toLowerCase()||'',pane=$('#leftPane');if(state.leftTab==='cases'){const list=state.manifest.filter(c=>((c.title||'')+' '+(c.character||'')+' '+(c.costume||'')+' '+(c.view||'')+' '+(c.animations||[]).join(' ')).toLowerCase().includes(q));pane.innerHTML=`<div class="section-title"><span>全量案例 ${list.length}${q?' / '+state.manifest.length:''}</span><span class="badge">85 角色 · Spine 3.5</span></div><div class="note">共 ${state.manifest.length} 个可打开工程。阿米娅 12 个内置工程本地读取，其余案例按需加载原始 .skel / .atlas / PNG；案例均只读，修改请另存。</div>`+list.map(c=>`<div class="case-card ${state.sourceCase?.id===c.id?'active':''}" data-case="${c.id}"><div class="case-title">${esc(c.title)}</div><div class="case-meta"><span class="badge">${c.bones} bones</span><span class="badge">${c.slots||0} slots</span><span class="badge">${c.remote?'按需加载':'内置'}</span><span class="badge">${esc(c.view)}</span></div></div>`).join('')+`<div class="drop" id="dropZone">拖入 Spine JSON / ZIP<br>导入为新工程</div>`;document.querySelectorAll('[data-case]').forEach(el=>el.onclick=()=>loadCase(state.manifest.find(c=>c.id===el.dataset.case)));setupDrop();return}
+function renderLeft(){const q=$('#leftSearch').value?.trim().toLowerCase()||'',pane=$('#leftPane');if(state.leftTab==='cases'){const list=state.manifest.filter(c=>((c.title||'')+' '+(c.character||'')+' '+(c.costume||'')+' '+(c.view||'')+' '+(c.animations||[]).join(' ')).toLowerCase().includes(q));pane.innerHTML=`<div class="section-title"><span>动作语料 ${list.length}${q?' / '+state.manifest.length:''}</span><span class="badge">425 工程</span></div><div class="note">阿米娅 12 个内置工程本地读取；其余旧案例使用 <b>PRTS 双源加载</b>：新资源地址优先、旧 static 地址自动回退，并修正旧资料里 <code># → _</code> 的历史文件名问题。仓库案例只读，修改请另存。</div>`+list.map(c=>`<div class="case-card ${state.sourceCase?.id===c.id?'active':''}" data-case="${c.id}"><div class="case-title">${esc(c.title)}</div><div class="case-meta"><span class="badge">${c.bones} bones</span><span class="badge">${c.slots||0} slots</span><span class="badge">${c.remote?'双源按需加载':'内置'}</span><span class="badge">${esc(c.view)}</span></div></div>`).join('')+`<div class="drop" id="dropZone">拖入 Spine JSON / ZIP<br>导入为新工程</div>`;document.querySelectorAll('[data-case]').forEach(el=>el.onclick=()=>loadCase(state.manifest.find(c=>c.id===el.dataset.case)));setupDrop();return}
+ if(state.leftTab==='r1999'){const list=(state.study1999||[]).filter(c=>((c.name||'')+' '+(c.nameEng||'')+' '+(c.category||'')+' '+(c.focus||[]).join(' ')).toLowerCase().includes(q));pane.innerHTML=`<div class="section-title"><span>Reverse: 1999 学习库 ${list.length}</span><span class="badge">Spine 4.2.36</span></div><div class="note">8 套精选样本已本地归档。这里使用独立的 <b>Spine 4.2 Player</b>，不会再拿主工作室的 3.5 Runtime 强行解析。点击角色后可切换 Fight / Room / UI。</div>`+list.map(c=>`<div class="case-card r1999-card" data-r1999="${esc(c.id)}"><div class="case-title">${esc(c.name)} <small>${esc(c.nameEng||'')}</small></div><div class="case-meta"><span class="badge">${esc(c.category)}</span><span class="badge">${Object.keys(c.files?.views||{}).length} views</span></div><div class="case-focus">${(c.focus||[]).map(esc).join(' · ')}</div></div>`).join('');$$('[data-r1999]').forEach(el=>el.onclick=()=>openR1999Study(state.study1999.find(c=>c.id===el.dataset.r1999)));return}
  if(state.leftTab==='bones'){if(!state.project){pane.innerHTML='<div class="empty">先加载一个工程</div>';return}const bones=state.project.bones,children=new Map();bones.forEach(b=>{if(!children.has(b.parent))children.set(b.parent,[]);children.get(b.parent).push(b)});let html='<div class="section-title"><span>骨骼层级</span><button id="addBoneSmall">＋</button></div>';function walk(parent,depth){for(const b of children.get(parent)||[]){if(!b.name.toLowerCase().includes(q)&&q){}else html+=`<div class="tree-row ${b.name===state.selectedBone?'active':''}" data-bone="${esc(b.name)}" style="padding-left:${depth*13}px"><span class="tw">${(children.get(b.name)||[]).length?'›':''}</span><span class="bone-dot"></span><span class="name">${esc(b.name)}</span>${b.locked?'🔒':''}${b.hidden?'◌':''}</div>`;walk(b.name,depth+1)}}walk(null,0);pane.innerHTML=html;$$('[data-bone]').forEach(el=>el.onclick=()=>{state.selectedBone=el.dataset.bone;renderLeft();renderInspector();renderTimeline()});$('#addBoneSmall').onclick=addBone;return}
  dbAll().then(items=>{pane.innerHTML='<div class="section-title"><span>本地工程</span><span>'+items.length+'</span></div>'+items.filter(x=>x.name.toLowerCase().includes(q)).map(p=>`<div class="case-card" data-project="${p.id}"><div class="case-title">${esc(p.name)}</div><div class="case-meta"><span class="badge">${p.bones?.length||0} bones</span><span>${new Date(p.updatedAt||p.createdAt).toLocaleString()}</span></div></div>`).join('')+'<div class="note">工程保存在当前浏览器 IndexedDB。使用“导出”可生成可迁移的工程 JSON。</div>';$$('[data-project]').forEach(el=>el.onclick=async()=>loadProject(await dbGet(el.dataset.project)))})}
 
@@ -197,8 +276,93 @@ function showModal(){$('#modalWrap').classList.add('show')}function hideModal(){
 
 let jszipPromise=null;function ensureJSZip(){if(window.JSZip)return Promise.resolve(window.JSZip);if(jszipPromise)return jszipPromise;jszipPromise=new Promise((resolve,reject)=>{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';sc.onload=()=>resolve(window.JSZip);sc.onerror=()=>reject(new Error('ZIP 模块加载失败，请检查网络后重试'));document.head.appendChild(sc)});return jszipPromise}
 async function zipEntryForJson(z,jsonName,data){const dir=jsonName.includes('/')?jsonName.slice(0,jsonName.lastIndexOf('/')+1):'',base=jsonName.split('/').pop().replace(/\.json$/i,''),atlasEntry=z.file(dir+base+'.atlas')||Object.values(z.files).find(e=>!e.dir&&e.name.startsWith(dir)&&e.name.toLowerCase().endsWith('.atlas'));if(!atlasEntry)return {name:jsonName,data};const atlasText=await atlasEntry.async('text'),page=parseAtlas(atlasText).page,imgEntry=page?z.file(dir+page):null;if(!imgEntry)return {name:jsonName,data:{...data,atlas:{text:atlasText,imageName:page||'',imageData:null}}};const b64=await imgEntry.async('base64');return {name:jsonName,data:{...data,atlas:{text:atlasText,imageName:page,imageData:'data:image/png;base64,'+b64}}}}
-async function importFiles(files){const arr=[...files];if(!arr.length)return;const zipFile=arr.find(f=>f.name.toLowerCase().endsWith('.zip'));if(zipFile){let Zip;try{Zip=await ensureJSZip()}catch(e){alert(e.message);return}const z=await Zip.loadAsync(zipFile),entries=[];for(const [name,e] of Object.entries(z.files)){if(!e.dir&&name.toLowerCase().endsWith('.json')){try{const txt=await e.async('text'),d=JSON.parse(txt);if(d.bones&&d.animations)entries.push(await zipEntryForJson(z,name,d))}catch(err){console.warn(name,err)}}}if(!entries.length){alert('ZIP 中没有识别到 Spine JSON');return}if(entries.length===1)await loadProject(normalizeProject(entries[0].data,entries[0].name));else chooseZip(entries);return}
- const jf=arr.find(f=>f.name.toLowerCase().endsWith('.json'));if(jf){try{let d=JSON.parse(await jf.text());const af=arr.find(f=>f.name.toLowerCase().endsWith('.atlas'));if(af){const at=await af.text(),page=parseAtlas(at).page,pf=arr.find(f=>f.name===page||f.name.toLowerCase().endsWith('.png'));if(pf){const dataURL=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(pf)});d={...d,atlas:{text:at,imageName:page||pf.name,imageData:dataURL}}}}await loadProject(normalizeProject(d,d.name||jf.name))}catch(e){alert('JSON 解析失败：'+e.message)}return}}
+function spineBinaryVersion(bytes){
+ try{
+  if(!bytes||bytes.length<10)return '';
+  let i=8,len=0,shift=0,b=0;
+  do{b=bytes[i++];len|=(b&127)<<shift;shift+=7;if(i>=bytes.length)return ''}while(b&128);
+  len=Math.max(0,len-1);if(!len||i+len>bytes.length)return '';
+  return new TextDecoder().decode(bytes.slice(i,i+len))
+ }catch{return ''}
+}
+function dataUrlForBlob(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(r.error);r.readAsDataURL(blob)})}
+async function convertSpine35Binary(bytes,atlasText,imageData,imageName,title,version){
+ await ensureSkeletonBinaryConverter();
+ const conv=new window.SkeletonBinary35();conv.data=bytes;conv.nextNum=0;conv.json={};conv.initJson();
+ const d=conv.json||{};if(!d.bones?.length)throw new Error('Spine 3.5 二进制解析为空');
+ d.atlas={text:atlasText,imageData,imageName};d.source={name:title,spine:version||d.skeleton?.spine||'3.5.51',provider:'本地导入'};
+ return normalizeProject(d,title)
+}
+async function openSpine42RawPreview({title,version,skeletonKey,atlasKey,rawDataURIs}){
+ disposeR1999Player();
+ $('#modal').innerHTML=`<h2>${esc(title)}</h2><div class="note"><b>检测到 Spine ${esc(version||'4.2')} 二进制。</b><br>它不能交给主工作室的 Spine 3.5 编辑 Runtime 解析，因此这里进入 4.2 只读预览；动画、皮肤和原始文件不会被错误转换。</div><div id="r1999Status" class="note">正在初始化 Spine 4.2 Player…</div><div id="r1999Player" class="r1999-player"></div><div id="r1999Animations" class="note"></div><div class="actions"><button data-close class="primary">关闭</button></div>`;
+ showModal();wireClose();$$('[data-close]').forEach(b=>b.onclick=()=>{disposeR1999Player();hideModal()});
+ try{
+  await ensureSpine42Player();
+  r1999Player=new window.spine.SpinePlayer('r1999Player',{
+   skeleton:skeletonKey,atlas:atlasKey,rawDataURIs,showControls:true,premultipliedAlpha:true,backgroundColor:'#080b10',alpha:true,
+   success:(player)=>{const names=(player.skeleton?.data?.animations||[]).map(a=>a.name);$('#r1999Status').textContent=title+' · Spine '+version+' · '+names.length+' animations';$('#r1999Animations').textContent=names.length?'动作：'+names.join(' · '):'未读取到动作列表';const first=names.find(n=>/idle|stand|wait/i.test(n))||names[0];if(first)try{player.setAnimation(first,true)}catch{}},
+   error:(_player,msg)=>{$('#r1999Status').textContent='加载失败：'+String(msg||'Spine 4.2 runtime error')}
+  })
+ }catch(e){$('#r1999Status').textContent='加载失败：'+String(e?.message||e)}
+}
+async function importLooseBinary(arr,sf){
+ const af=arr.find(f=>f.name.toLowerCase().endsWith('.atlas'));if(!af)throw new Error('缺少 .atlas');
+ const pngs=arr.filter(f=>f.name.toLowerCase().endsWith('.png'));if(!pngs.length)throw new Error('缺少 Atlas PNG');
+ const bytes=new Uint8Array(await sf.arrayBuffer()),version=spineBinaryVersion(bytes),atlasText=await af.text(),page=parseAtlas(atlasText).page;
+ if(/^3\.5\./.test(version)){
+  const pf=pngs.find(f=>f.name===page)||pngs[0],imageData=await dataUrlForBlob(pf);
+  await loadProject(await convertSpine35Binary(bytes,atlasText,imageData,page||pf.name,sf.name,version));return
+ }
+ if(/^4\.2\./.test(version)){
+  const raw={};raw[sf.name]=await dataUrlForBlob(sf);raw[af.name]=await dataUrlForBlob(af);
+  for(const p of pngs)raw[p.name]=await dataUrlForBlob(p);
+  await openSpine42RawPreview({title:sf.name,version,skeletonKey:sf.name,atlasKey:af.name,rawDataURIs:raw});return
+ }
+ throw new Error('暂不支持的 Spine 二进制版本：'+(version||'无法识别')+'。主编辑器支持 3.5，4.2 自动进入只读预览。')
+}
+async function importBinaryZipEntry(z,name){
+ const e=z.file(name);if(!e)throw new Error('ZIP 骨骼条目不存在');
+ const dir=name.includes('/')?name.slice(0,name.lastIndexOf('/')+1):'',base=name.split('/').pop().replace(/\.skel$/i,'');
+ const bytes=await e.async('uint8array'),version=spineBinaryVersion(bytes);
+ const atlasEntry=z.file(dir+base+'.atlas')||Object.values(z.files).find(x=>!x.dir&&x.name.startsWith(dir)&&x.name.toLowerCase().endsWith('.atlas'));
+ if(!atlasEntry)throw new Error(name+' 缺少同目录 .atlas');
+ const atlasText=await atlasEntry.async('text'),page=parseAtlas(atlasText).page;
+ const pngEntries=Object.values(z.files).filter(x=>!x.dir&&x.name.startsWith(dir)&&x.name.toLowerCase().endsWith('.png'));
+ if(!pngEntries.length)throw new Error(name+' 缺少同目录 PNG');
+ if(/^3\.5\./.test(version)){
+  const pf=pngEntries.find(x=>x.name===dir+page)||pngEntries[0],b64=await pf.async('base64');
+  await loadProject(await convertSpine35Binary(bytes,atlasText,'data:image/png;base64,'+b64,page||pf.name.split('/').pop(),name,version));return
+ }
+ if(/^4\.2\./.test(version)){
+  const raw={};raw[name]='data:application/octet-stream;base64,'+await e.async('base64');raw[atlasEntry.name]='data:text/plain;base64,'+await atlasEntry.async('base64');
+  for(const p of pngEntries)raw[p.name]='data:image/png;base64,'+await p.async('base64');
+  await openSpine42RawPreview({title:name,version,skeletonKey:name,atlasKey:atlasEntry.name,rawDataURIs:raw});return
+ }
+ throw new Error(name+'：暂不支持的 Spine 二进制版本 '+(version||'无法识别'))
+}
+function chooseBinaryZip(z,names){
+ $('#modal').innerHTML=`<h2>ZIP 中发现 ${names.length} 个 Spine Binary 工程</h2><div>${names.map((n,i)=>`<div class="case-card" data-zskel="${i}"><div class="case-title">${esc(n)}</div><div class="case-meta"><span class="badge">.skel</span></div></div>`).join('')}</div><div class="actions"><button data-close>取消</button></div>`;showModal();wireClose();
+ $$('[data-zskel]').forEach(x=>x.onclick=async()=>{hideModal();try{await importBinaryZipEntry(z,names[+x.dataset.zskel])}catch(e){alert('Binary 导入失败：'+e.message)}})
+}
+async function importFiles(files){
+ const arr=[...files];if(!arr.length)return;
+ const zipFile=arr.find(f=>f.name.toLowerCase().endsWith('.zip'));
+ if(zipFile){
+  let Zip;try{Zip=await ensureJSZip()}catch(e){alert(e.message);return}
+  const z=await Zip.loadAsync(zipFile),entries=[];
+  for(const [name,e] of Object.entries(z.files)){if(!e.dir&&name.toLowerCase().endsWith('.json')){try{const txt=await e.async('text'),d=JSON.parse(txt);if(d.bones&&d.animations)entries.push(await zipEntryForJson(z,name,d))}catch(err){console.warn(name,err)}}}
+  if(entries.length){if(entries.length===1)await loadProject(normalizeProject(entries[0].data,entries[0].name));else chooseZip(entries);return}
+  const skels=Object.values(z.files).filter(e=>!e.dir&&e.name.toLowerCase().endsWith('.skel')).map(e=>e.name);
+  if(skels.length){if(skels.length===1){try{await importBinaryZipEntry(z,skels[0])}catch(e){alert('Binary 导入失败：'+e.message)}}else chooseBinaryZip(z,skels);return}
+  alert('ZIP 中没有识别到 Spine JSON 或 .skel');return
+ }
+ const jf=arr.find(f=>f.name.toLowerCase().endsWith('.json'));
+ if(jf){try{let d=JSON.parse(await jf.text());const af=arr.find(f=>f.name.toLowerCase().endsWith('.atlas'));if(af){const at=await af.text(),page=parseAtlas(at).page,pf=arr.find(f=>f.name===page||f.name.toLowerCase().endsWith('.png'));if(pf){const dataURL=await dataUrlForBlob(pf);d={...d,atlas:{text:at,imageName:page||pf.name,imageData:dataURL}}}}await loadProject(normalizeProject(d,d.name||jf.name))}catch(e){alert('JSON 解析失败：'+e.message)}return}
+ const sf=arr.find(f=>f.name.toLowerCase().endsWith('.skel'));
+ if(sf){try{await importLooseBinary(arr,sf)}catch(e){alert('Binary 导入失败：'+e.message)}return}
+ alert('没有识别到可导入的 Spine JSON、ZIP 或 .skel')
+}
 function chooseZip(entries){$('#modal').innerHTML=`<h2>ZIP 中发现 ${entries.length} 个骨骼工程</h2><div>${entries.map((e,i)=>`<div class="case-card" data-z="${i}"><div class="case-title">${esc(e.name)}</div><div class="case-meta"><span class="badge">${e.data.bones?.length||0} bones</span><span class="badge">${e.data.slots?.length||0} slots</span><span class="badge">${e.data.atlas?.imageData?'含皮肤':'仅骨骼'}</span></div></div>`).join('')}</div><div class="actions"><button data-close>取消</button></div>`;showModal();$$('[data-z]').forEach(x=>x.onclick=async()=>{await loadProject(normalizeProject(entries[+x.dataset.z].data,entries[+x.dataset.z].name));hideModal()});wireClose()}
 async function saveProject(){
  if(!state.project)return;
