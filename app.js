@@ -25,8 +25,8 @@ function undo(){if(!state.history.length||!state.project)return;state.future.pus
 function redo(){if(!state.future.length||!state.project)return;state.history.push(JSON.stringify(historySnap()));restoreSnap(JSON.parse(state.future.pop()));renderAll()}
 
 async function loadManifest(){try{const r=await fetch('data/cases.json',{cache:'no-store'});state.manifest=(await r.json()).cases||[]}catch(e){console.error(e)}renderLeft()}
-async function loadCase(c){const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));let raw;if('DecompressionStream' in window){const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));raw=await new Response(stream).text()}else throw new Error('当前浏览器不支持 gzip 解压，请使用最新版 Chrome / Edge / Safari');const d=JSON.parse(raw);state.sourceCase=c;state.project=normalizeProject({...d,name:c.title,id:'case-'+c.id},c.title);state.project.activeAnimation=state.project.animations.Idle?'Idle':Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=state.project.bones[0]?.name||null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
-async function loadProject(p){state.project=normalizeProject(p,p.name);state.sourceCase=null;state.currentTime=0;state.selectedBone=state.project.bones[0]?.name||null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
+async function loadCase(c){const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));let raw;if('DecompressionStream' in window){const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));raw=await new Response(stream).text()}else throw new Error('当前浏览器不支持 gzip 解压，请使用最新版 Chrome / Edge / Safari');const d=JSON.parse(raw);state.sourceCase=c;state.project=normalizeProject({...d,name:c.title,id:'case-'+c.id},c.title);state.project.activeAnimation=state.project.animations.Idle?'Idle':Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
+async function loadProject(p){state.project=normalizeProject(p,p.name);state.sourceCase=null;state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
 
 function timelineFrames(anim,bone,type){return anim?.bones?.[bone]?.[type]||[]}
 function bezierEase(t,c){if(!Array.isArray(c)||c.length<4)return t;const [x1,y1,x2,y2]=c;let lo=0,hi=1,u=t;for(let i=0;i<10;i++){u=(lo+hi)/2;const x=3*(1-u)*(1-u)*u*x1+3*(1-u)*u*u*x2+u*u*u;if(x<t)lo=u;else hi=u}return 3*(1-u)*(1-u)*u*y1+3*(1-u)*u*u*y2+u*u*u}
@@ -189,8 +189,59 @@ function syncRuntimeViewport(){if(!spineRT.renderer||!spineRT.display)return;con
 function syncRuntimePose(){if(!spineRT.ready||!spineRT.display||!state.project)return;const seg=currentRawClip(),sp=spineRT.display;if(!seg.name)return;try{if(spineRT.currentClip!==seg.name){spineRT.entry=sp.state.setAnimationByName(0,seg.name,false);spineRT.currentClip=seg.name}const e=sp.state.getCurrent?.(0)||spineRT.entry;if(e){const safeEnd=Math.max(0,seg.duration-0.000001);const tt=seg.duration?Math.min(seg.localTime,safeEnd):0;e.time=tt;e.lastTime=Math.max(-1,tt-0.00001);e.loop=false;e.mix=1}sp.skeleton.setToSetupPose();sp.update(0);applyRuntimeSlotEdits();syncRuntimeViewport()}catch(e){console.error(e);spineRT.error=String(e?.message||e)}}
 function applyRuntimeSlotEdits(){const sp=spineRT.display;if(!sp?.skeleton)return;const slots=sp.skeleton.slots||[];for(let i=0;i<slots.length;i++){const slot=slots[i],name=slot.data?.name||state.project.slots?.[i]?.name;const vis=state.project?.skinEdits?.slotVisibility?.[name]!==false;if(sp.slotContainers?.[i])sp.slotContainers[i].visible=vis&&state.showSkin;const forced=state.project?.skinEdits?.attachments?.[name];if(forced!==undefined&&forced!==null&&forced!=='__AUTO__'){try{sp.skeleton.setAttachment(name,forced||null)}catch{}}}}
 function runtimeBone(name){return spineRT.display?.skeleton?.bones?.find(b=>(b.data?.name||b.name)===name)||null}
-function runtimePoseScreen(){const sp=spineRT.display;if(!spineRT.ready||!sp)return[];const PIXI=window.PIXI;const out=[];for(const b of sp.skeleton.bones||[]){const name=b.data?.name||b.name,length=+b.data?.length||0,m00=b.m00??b.a??1,m10=b.m10??b.c??0;const p=sp.toGlobal(new PIXI.Point(b.worldX??0,b.worldY??0)),q=sp.toGlobal(new PIXI.Point((b.worldX??0)+m00*length,(b.worldY??0)+m10*length));out.push({name,x:p.x,y:p.y,x2:q.x,y2:q.y,bone:b})}return out}
-function drawRuntimeRig(alpha=1,ghost=false){const sel=state.selectedBone;ctx.save();ctx.globalAlpha=alpha;for(const b of runtimePoseScreen()){const selected=b.name===sel;ctx.lineCap='round';ctx.lineWidth=ghost?2:3;ctx.strokeStyle=ghost?'#5b7596':(selected?'#ffd43b':'#7891ad');ctx.beginPath();ctx.moveTo(b.x,b.y);ctx.lineTo(b.x2,b.y2);ctx.stroke();ctx.fillStyle=selected?'#ffd43b':'#c4d2e1';ctx.beginPath();ctx.arc(b.x,b.y,selected?5:3.2,0,Math.PI*2);ctx.fill();if(state.showNames&&!ghost){ctx.font='10px ui-monospace,monospace';ctx.fillStyle='#aeb9c8';ctx.fillText(b.name,b.x+6,b.y-6)}}ctx.restore()}
+function activeRuntimeBoneSet(){
+ const sp=spineRT.display,skeleton=sp?.skeleton;if(!spineRT.ready||!skeleton)return null;
+ const bones=skeleton.bones||[],active=new Set(),addBone=b=>{
+  while(b){const n=b.data?.name||b.name;if(!n||active.has(n))break;active.add(n);b=b.parent||null}
+ };
+ const slots=skeleton.slots||[];
+ for(let i=0;i<slots.length;i++){
+  const slot=slots[i],slotName=slot.data?.name||state.project?.slots?.[i]?.name;
+  if(state.project?.skinEdits?.slotVisibility?.[slotName]===false)continue;
+  const att=slot.attachment;
+  if(!att)continue;
+  addBone(slot.bone);
+  const weighted=att.bones;
+  if(Array.isArray(weighted)||weighted?.length){
+   for(let p=0;p<weighted.length;){
+    const count=weighted[p++]|0;
+    if(count<=0||count>64){break}
+    for(let j=0;j<count&&p<weighted.length;j++){
+     const bi=weighted[p++]|0;if(bones[bi])addBone(bones[bi]);
+    }
+   }
+  }
+ }
+ if(state.selectedBone)addBone(runtimeBone(state.selectedBone));
+ return active;
+}
+function runtimePoseScreen(){
+ const sp=spineRT.display;if(!spineRT.ready||!sp)return[];
+ const PIXI=window.PIXI,active=activeRuntimeBoneSet(),out=[];
+ for(const b of sp.skeleton.bones||[]){
+  const name=b.data?.name||b.name;if(active&&!active.has(name))continue;
+  const length=+b.data?.length||0,m00=b.m00??b.a??1,m10=b.m10??b.c??0;
+  const p=sp.toGlobal(new PIXI.Point(b.worldX??0,b.worldY??0)),q=sp.toGlobal(new PIXI.Point((b.worldX??0)+m00*length,(b.worldY??0)+m10*length));
+  out.push({name,x:p.x,y:p.y,x2:q.x,y2:q.y,bone:b,length});
+ }
+ return out
+}
+function drawRuntimeRig(alpha=1,ghost=false){
+ const sel=state.selectedBone;ctx.save();ctx.globalAlpha=alpha;
+ for(const b of runtimePoseScreen()){
+  const selected=b.name===sel,root=!b.bone.parent;
+  ctx.lineCap='round';
+  if(!root&&b.length>1){
+   ctx.lineWidth=ghost?1.5:(selected?3:2);
+   ctx.strokeStyle=ghost?'#5b7596':(selected?'#ffd43b':'#7891ad');
+   ctx.beginPath();ctx.moveTo(b.x,b.y);ctx.lineTo(b.x2,b.y2);ctx.stroke();
+  }
+  ctx.fillStyle=selected?'#ffd43b':(root?'#8290a3':'#c4d2e1');
+  ctx.beginPath();ctx.arc(b.x,b.y,selected?4.5:(root?2.2:2.8),0,Math.PI*2);ctx.fill();
+  if(state.showNames&&!ghost){ctx.font='10px ui-monospace,monospace';ctx.fillStyle='#aeb9c8';ctx.fillText(b.name,b.x+5,b.y-5)}
+ }
+ ctx.restore()
+}
 function hitBone(sx,sy){if(spineRT.ready){let best=null,bd=14;for(const b of runtimePoseScreen()){const d=Math.hypot(b.x-sx,b.y-sy);if(d<bd){best={name:b.name,runtime:b.bone};bd=d}}return best}let best=null,bd=14;for(const b of worldPose(state.currentTime)){const [x,y]=toScreen(b.wx,b.wy),d=Math.hypot(x-sx,y-sy);if(d<bd){best=b;bd=d}}return best}
 function draw(){
  resizeCanvas();const r=canvas.getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);
@@ -207,8 +258,8 @@ function draw(){
 }
 function fitView(){if(spineRT.ready&&spineRT.display){syncRuntimePose();let b;try{b=spineRT.display.getLocalBounds()}catch{}if(b&&isFinite(b.width)&&b.width>0&&b.height>0){const r=canvas.getBoundingClientRect();state.view.zoom=clamp(Math.min((r.width-100)/b.width,(r.height-100)/b.height),.05,12);state.view.x=-(b.x+b.width/2)*state.view.zoom;state.view.y=-(b.y+b.height/2)*state.view.zoom;syncRuntimeViewport();return}}if(!state.project)return;const p=worldPose(state.currentTime);if(!p.length)return;let xs=[],ys=[];for(const b of p){xs.push(b.wx);ys.push(b.wy)}const r=canvas.getBoundingClientRect(),minx=Math.min(...xs),maxx=Math.max(...xs),miny=Math.min(...ys),maxy=Math.max(...ys);state.view.zoom=clamp(Math.min((r.width-120)/(maxx-minx||100),(r.height-120)/(maxy-miny||100)),.15,8);state.view.x=-(minx+maxx)/2*state.view.zoom;state.view.y=(miny+maxy)/2*state.view.zoom}
 
-async function loadCase(c){const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));let raw;if('DecompressionStream' in window){const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));raw=await new Response(stream).text()}else throw new Error('当前浏览器不支持 gzip 解压，请使用最新版 Chrome / Edge / Safari');const d=JSON.parse(raw);state.sourceCase=c;state.project=normalizeProject({...d,name:c.title,id:'case-'+c.id},c.title);state.activeMotion=null;ensureMotionSelection();const seg=currentRawClip();state.project.activeAnimation=seg.name||Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=state.project.bones[0]?.name||null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
-async function loadProject(p){state.project=normalizeProject(p,p.name);state.sourceCase=null;state.activeMotion=null;ensureMotionSelection();const seg=currentRawClip();state.project.activeAnimation=seg.name||Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=state.project.bones[0]?.name||null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
+async function loadCase(c){const b64=window.RIG_CASE_PACK?.[c.id];if(!b64)throw new Error('案例数据不存在: '+c.id);const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));let raw;if('DecompressionStream' in window){const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));raw=await new Response(stream).text()}else throw new Error('当前浏览器不支持 gzip 解压，请使用最新版 Chrome / Edge / Safari');const d=JSON.parse(raw);state.sourceCase=c;state.project=normalizeProject({...d,name:c.title,id:'case-'+c.id},c.title);state.activeMotion=null;ensureMotionSelection();const seg=currentRawClip();state.project.activeAnimation=seg.name||Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
+async function loadProject(p){state.project=normalizeProject(p,p.name);state.sourceCase=null;state.activeMotion=null;ensureMotionSelection();const seg=currentRawClip();state.project.activeAnimation=seg.name||Object.keys(state.project.animations)[0]||'Setup Pose';state.currentTime=0;state.selectedBone=null;state.selectedSlot=state.project.slots[0]?.name||null;state.history=[];state.future=[];await prepareSkin();fitView();renderAll()}
 
 function renderAnimSelect(){const s=$('#animSelect');if(!state.project){s.innerHTML='<option>无动画</option>';return}ensureMotionSelection();const defs=motionDefs(),actions=defs.filter(x=>x.kind==='action'),clips=defs.filter(x=>x.kind==='clip');s.innerHTML=`<optgroup label="动作组（按文件语义串联）">${actions.map(x=>`<option value="${esc(x.id)}" ${x.id===state.activeMotion?'selected':''}>${esc(x.label)}</option>`).join('')}</optgroup><optgroup label="原始 Spine 片段">${clips.map(x=>`<option value="${esc(x.id)}" ${x.id===state.activeMotion?'selected':''}>${esc(x.label)}</option>`).join('')}</optgroup>`;s.value=state.activeMotion}
 function renderMeta(){if(!state.project){$('#footProject').textContent='未加载工程';$('#hud').textContent='选择案例或新建工程';return}const d=duration(),seg=segmentAtTime(),def=activeMotionDef();$('#timeRange').max=d||1;$('#timeRange').value=state.currentTime;$('#timeLabel').textContent=`${state.currentTime.toFixed(3)} / ${d.toFixed(3)}`;$('#footProject').textContent=`${state.project.name} · ${state.project.bones.length} bones · Spine ${state.project.skeleton?.spine||'?'}`;const rt=spineRT.ready?'Runtime ✓':(spineRT.error?'Runtime 错误 · '+spineRT.error:'Runtime 加载中');$('#hud').textContent=`${def.label}  ›  ${seg.name||'—'} ${seg.localTime.toFixed(3)}s  |  ${(state.currentTime*state.fps).toFixed(0)}f  |  zoom ${(state.view.zoom*100).toFixed(0)}%  |  ${rt}`;$('#playBtn').textContent=state.playing?'❚❚':'▶'}
@@ -232,9 +283,34 @@ renderInspector=function(){const p=$('#insPane');if(!state.project){p.innerHTML=
  return _legacyInspector()};
 
 $$('[data-left]').forEach(b=>b.onclick=()=>{$$('[data-left]').forEach(x=>x.classList.toggle('active',x===b));state.leftTab=b.dataset.left;renderLeft()});$$('[data-ins]').forEach(b=>b.onclick=()=>{$$('[data-ins]').forEach(x=>x.classList.toggle('active',x===b));state.insTab=b.dataset.ins;renderInspector()});
-$('#leftSearch').oninput=renderLeft;$('#newBtn').onclick=newProjectModal;$('#importBtn').onclick=()=>$('#fileInput').click();$('#fileInput').onchange=e=>importFiles(e.target.files);$('#saveBtn').onclick=saveProject;$('#exportBtn').onclick=exportProject;$('#undoBtn').onclick=undo;$('#redoBtn').onclick=redo;$('#helpBtn').onclick=showHelp;$('#fitBtn').onclick=fitView;$('#gridBtn').onclick=()=>{state.showGrid=!state.showGrid;$('#gridBtn').textContent='网格 '+(state.showGrid?'✓':'')};$('#skinBtn').onclick=()=>{state.showSkin=!state.showSkin;$('#skinBtn').textContent='皮肤 '+(state.showSkin?'✓':'');syncRuntimeViewport()};$('#rigBtn').onclick=()=>{state.showRig=!state.showRig;$('#rigBtn').textContent='骨架 '+(state.showRig?'✓':'')};$('#namesBtn').onclick=()=>{state.showNames=!state.showNames;$('#namesBtn').textContent='骨名 '+(state.showNames?'✓':'')};$('#onionBtn').onclick=()=>{state.onion=!state.onion;$('#onionBtn').textContent='洋葱皮 '+(state.onion?'✓':'')};$('#animSelect').onchange=e=>{state.activeMotion=e.target.value;state.currentTime=0;spineRT.currentClip=null;currentRawClip();syncRuntimePose();renderAll()};$('#speedSelect').onchange=e=>state.speed=+e.target.value;$('#playBtn').onclick=()=>{state.playing=!state.playing;renderMeta()};$('#timeRange').oninput=e=>{state.currentTime=+e.target.value;renderTimeline();renderInspector()};$('#fpsInput').onchange=e=>{state.fps=clamp(+e.target.value||30,1,120);renderInspector()};$('#prevFrame').onclick=()=>{state.currentTime=clamp(state.currentTime-1/state.fps,0,duration());renderTimeline();renderInspector()};$('#nextFrame').onclick=()=>{state.currentTime=clamp(state.currentTime+1/state.fps,0,duration());renderTimeline();renderInspector()};$('#addKeyBtn').onclick=addCurrentKey;
+$('#leftSearch').oninput=renderLeft;$('#newBtn').onclick=newProjectModal;$('#importBtn').onclick=()=>$('#fileInput').click();$('#fileInput').onchange=e=>importFiles(e.target.files);$('#saveBtn').onclick=saveProject;$('#exportBtn').onclick=exportProject;$('#undoBtn').onclick=undo;$('#redoBtn').onclick=redo;$('#helpBtn').onclick=showHelp;$('#fitBtn').onclick=fitView;$('#gridBtn').onclick=()=>{state.showGrid=!state.showGrid;$('#gridBtn').textContent='网格 '+(state.showGrid?'✓':'')};$('#skinBtn').onclick=()=>{state.showSkin=!state.showSkin;$('#skinBtn').textContent='皮肤 '+(state.showSkin?'✓':'');syncRuntimeViewport()};$('#rigBtn').onclick=()=>{state.showRig=!state.showRig;$('#rigBtn').textContent='骨架 '+(state.showRig?'✓':'')};$('#namesBtn').onclick=()=>{state.showNames=!state.showNames;$('#namesBtn').textContent='骨名 '+(state.showNames?'✓':'')};$('#onionBtn').onclick=()=>{state.onion=!state.onion;$('#onionBtn').textContent='洋葱皮 '+(state.onion?'✓':'')};$('#animSelect').onchange=e=>{state.activeMotion=e.target.value;state.currentTime=0;spineRT.currentClip=null;currentRawClip();syncRuntimePose();renderAll()};$('#speedSelect').onchange=e=>state.speed=+e.target.value;$('#playBtn').onclick=()=>{if(!state.playing&&state.currentTime>=duration()-1e-6){state.currentTime=0;spineRT.currentClip=null}state.playing=!state.playing;renderMeta()};$('#timeRange').oninput=e=>{state.currentTime=+e.target.value;renderTimeline();renderInspector()};$('#fpsInput').onchange=e=>{state.fps=clamp(+e.target.value||30,1,120);renderInspector()};$('#prevFrame').onclick=()=>{state.currentTime=clamp(state.currentTime-1/state.fps,0,duration());renderTimeline();renderInspector()};$('#nextFrame').onclick=()=>{state.currentTime=clamp(state.currentTime+1/state.fps,0,duration());renderTimeline();renderInspector()};$('#addKeyBtn').onclick=addCurrentKey;
 window.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName))return;if(e.code==='Space'){e.preventDefault();state.playing=!state.playing;renderMeta()}else if(e.key==='f'||e.key==='F')fitView();else if(e.key==='ArrowLeft')$('#prevFrame').click();else if(e.key==='ArrowRight')$('#nextFrame').click();else if(e.key==='Delete')deleteBone();else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();e.shiftKey?redo():undo()}else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='y'){e.preventDefault();redo()}});
-function tick(t){if(state.playing&&state.project){if(!state.lastT)state.lastT=t;state.currentTime+=(t-state.lastT)/1000*state.speed;const d=duration();if(state.currentTime>d){if(state.loop)state.currentTime=d?state.currentTime%d:0;else{state.currentTime=d;state.playing=false}}renderMeta();if(Math.floor(t/80)!==Math.floor(state.lastT/80))renderTimeline()}state.lastT=t;requestAnimationFrame(tick)}
+function motionIsOneShot(){
+ const d=activeMotionDef();return d.kind==='action'&&['action:Attack','action:Skill','action:Skill_2','action:Start','action:Stun'].includes(d.id)
+}
+function returnToRestMotion(){
+ const defs=motionDefs(),rest=defs.find(x=>x.id==='action:Idle')||defs.find(x=>x.id==='action:Default');
+ if(rest){
+  state.activeMotion=rest.id;state.currentTime=0;state.playing=false;spineRT.currentClip=null;spineRT.entry=null;
+  currentRawClip();syncRuntimePose();renderAnimSelect();renderTimeline();renderInspector();renderMeta();return true
+ }
+ return false
+}
+function tick(t){
+ if(state.playing&&state.project){
+  if(!state.lastT)state.lastT=t;
+  state.currentTime+=(t-state.lastT)/1000*state.speed;
+  const d=duration();
+  if(state.currentTime>=d){
+   if(motionIsOneShot()){
+    if(!returnToRestMotion()){state.currentTime=0;state.playing=false;spineRT.currentClip=null;syncRuntimePose()}
+   }else if(state.loop&&d>0)state.currentTime=state.currentTime%d;
+   else{state.currentTime=d;state.playing=false}
+  }
+  renderMeta();if(Math.floor(t/80)!==Math.floor(state.lastT/80))renderTimeline()
+ }
+ state.lastT=t;requestAnimationFrame(tick)
+}
 window.addEventListener('resize',()=>resizeCanvas());
 
 /* ================================================================
