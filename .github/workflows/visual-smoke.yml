@@ -67,6 +67,30 @@ jobs:
               checks[name+"_stale_empty_slots"]=stale_visible()
               d.save_screenshot(f"{out}/{name}.png")
 
+          # Bulk learning corpus must be loaded into the hosted UI.
+          train=d.find_element(By.CSS_SELECTOR,'[data-ins="train"]')
+          train.click()
+          time.sleep(.8)
+          train_text=d.find_element(By.ID,"insPane").text
+          checks["training_text"]=train_text
+          assert "85 个有效角色" in train_text, train_text
+          assert "425 个 Spine 工程" in train_text, train_text
+          assert "139 个工程" in train_text or "136 个工程" in train_text or "142 个工程" in train_text, train_text
+          d.save_screenshot(f"{out}/training-corpus.png")
+          d.find_element(By.ID,"showCorpusChars").click()
+          time.sleep(.4)
+          corpus_text=d.find_element(By.ID,"modal").text
+          checks["corpus_has_kal"]=("凯尔希" in corpus_text)
+          checks["corpus_has_thorns"]=("棘刺" in corpus_text)
+          checks["corpus_has_texas"]=("德克萨斯" in corpus_text)
+          checks["corpus_has_guard_amiya"]=("阿米娅（近卫）" in corpus_text)
+          checks["corpus_invalid_xiao"]=("阿消（损坏）" in corpus_text)
+          assert all([checks["corpus_has_kal"],checks["corpus_has_thorns"],checks["corpus_has_texas"],checks["corpus_has_guard_amiya"],checks["corpus_invalid_xiao"]]), checks
+          d.save_screenshot(f"{out}/corpus-characters.png")
+          d.find_element(By.CSS_SELECTOR,"[data-close]").click()
+          d.find_element(By.CSS_SELECTOR,'[data-ins="bone"]').click()
+          time.sleep(.3)
+
           # Case templates must be read-only and Save must open Save As.
           checks["case_save_button"]=d.find_element(By.ID,"saveBtn").text
           assert checks["case_save_button"]=="另存为", checks
