@@ -511,6 +511,12 @@ function semanticLearningAction(name){
  if(/^Start/i.test(n))return 'Start';
  if(/^Die/i.test(n))return 'Die';
  if(/^Stun/i.test(n))return 'Stun';
+ if(/^Interact/i.test(n))return 'Interact';
+ if(/^Move/i.test(n))return 'Move';
+ if(/^Relax/i.test(n))return 'Relax';
+ if(/^Sit/i.test(n))return 'Sit';
+ if(/^Sleep/i.test(n))return 'Sleep';
+ if(/^Special/i.test(n))return 'Special';
  return n
 }
 function learningActionName(){
@@ -519,7 +525,7 @@ function learningActionName(){
  return semanticLearningAction(raw)
 }
 function learningFamilyCode(action){
- return ({Attack:'A',Skill:'S',Skill_2:'S2',Skill_3:'S3',Idle:'I',Default:'D',Start:'T',Die:'X',Stun:'U'})[action]||null
+ return ({Attack:'A',Skill:'S',Skill_2:'S2',Skill_3:'S3',Idle:'I',Default:'D',Start:'T',Die:'X',Stun:'U',Interact:'N',Move:'M',Relax:'R',Sit:'Q',Sleep:'L',Special:'P'})[action]||null
 }
 function inferLearningView(){
  if(state.sourceCase?.view)return state.sourceCase.view;
