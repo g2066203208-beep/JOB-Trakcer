@@ -14,20 +14,63 @@ jobs:
     steps:
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
-      - name: Capture deployed page
+      - name: Install Selenium
+        run: python3 -m pip install --quiet selenium
+      - name: Capture deployed motion states
         shell: bash
         run: |
           set -euxo pipefail
           URL="https://g2066203208-beep.github.io/JOB-Trakcer/"
           mkdir -p visual-smoke
-          for i in {1..20}; do
+          for i in {1..30}; do
             if curl -fsSL "$URL" | grep -q "Rig Motion Lab"; then break; fi
             sleep 3
           done
-          google-chrome --headless=new --no-sandbox --disable-gpu             --window-size=1600,1000 --virtual-time-budget=18000             --screenshot=visual-smoke/page.png "$URL" || true
-          google-chrome --headless=new --no-sandbox --disable-gpu             --virtual-time-budget=18000 --dump-dom "$URL"             > visual-smoke/dom.html 2> visual-smoke/chrome.err || true
-          grep -o 'id="hud"[^>]*>[^<]*' visual-smoke/dom.html > visual-smoke/hud.txt || true
-          grep -o 'Rig Motion Lab[^<]*' visual-smoke/dom.html | head -3 > visual-smoke/version.txt || true
+          cat > /tmp/capture.py <<'PY'
+          import json, time, os
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          from selenium.webdriver.common.by import By
+          from selenium.webdriver.support.ui import WebDriverWait, Select
+          from selenium.webdriver.support import expected_conditions as EC
+
+          out="visual-smoke"
+          url=os.environ.get("RIG_URL")
+          opts=Options()
+          opts.add_argument("--headless=new")
+          opts.add_argument("--no-sandbox")
+          opts.add_argument("--disable-gpu")
+          opts.add_argument("--enable-unsafe-swiftshader")
+          opts.add_argument("--window-size=1600,1000")
+          d=webdriver.Chrome(options=opts)
+          d.set_window_size(1600,1000)
+          d.get(url)
+          wait=WebDriverWait(d,30)
+          wait.until(lambda x: "Runtime" in x.find_element(By.ID,"hud").text)
+          time.sleep(1)
+
+          def shot(name, motion=None, t=None):
+              if motion:
+                  sel=Select(d.find_element(By.ID,"animSelect"))
+                  sel.select_by_value(motion)
+                  time.sleep(.6)
+              if t is not None:
+                  slider=d.find_element(By.ID,"timeRange")
+                  mx=float(slider.get_attribute("max") or "0")
+                  val=min(max(float(t),0),mx)
+                  d.execute_script("arguments[0].value=arguments[1]; arguments[0].dispatchEvent(new Event('input',{bubbles:true}));",slider,str(val))
+                  time.sleep(.7)
+              hud=d.find_element(By.ID,"hud").text
+              open(f"{out}/{name}.hud.txt","w",encoding="utf-8").write(hud)
+              d.save_screenshot(f"{out}/{name}.png")
+
+          shot("idle")
+          shot("attack-mid","action:Attack",1.0)
+          shot("skill-mid","action:Skill",0.7)
+          open(f"{out}/dom.html","w",encoding="utf-8").write(d.page_source)
+          d.quit()
+          PY
+          RIG_URL="$URL" python3 /tmp/capture.py
           ls -lah visual-smoke
       - name: Upload visual smoke artifact
         uses: actions/upload-artifact@v4
