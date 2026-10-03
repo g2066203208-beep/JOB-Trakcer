@@ -1,6 +1,8 @@
 name: Probe Remote Spine Cases
 on:
   workflow_dispatch:
+  push:
+    branches: [ main ]
 permissions:
   contents: read
 jobs:
