@@ -1,0 +1,111 @@
+name: Monster Spine Studio Smoke
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "monster-spine-studio/**"
+      - ".github/workflows/monster-spine-studio-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: browser-actions/setup-chrome@v1
+      - run: python3 -m pip install --quiet selenium
+      - name: Verify hosted monster Spine studio
+        env:
+          URL: https://g2066203208-beep.github.io/JOB-Trakcer/monster-spine-studio/
+        run: |
+          set -euo pipefail
+          for i in {1..40}; do
+            if curl -fsSL "$URL" | grep -q "MUSHROOM SPINE STUDIO"; then break; fi
+            sleep 3
+          done
+          python3 - <<'PY'
+          import os,time,json
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          from selenium.webdriver.common.by import By
+
+          url=os.environ["URL"]
+          opts=Options()
+          opts.add_argument("--headless=new")
+          opts.add_argument("--no-sandbox")
+          opts.add_argument("--disable-gpu")
+          opts.add_argument("--enable-unsafe-swiftshader")
+          opts.add_argument("--window-size=1600,1000")
+          opts.set_capability("goog:loggingPrefs",{"browser":"ALL"})
+          d=webdriver.Chrome(options=opts)
+          d.get(url)
+          for _ in range(80):
+              ready=d.execute_script("return !!window.MONSTER_STUDIO?.ready")
+              if ready: break
+              time.sleep(.25)
+          info=d.execute_script("""
+            const s=window.MONSTER_STUDIO;
+            return {
+              ready:!!s?.ready,error:s?.error||null,
+              bones:s?.skeleton?.bones?.length||0,
+              slots:s?.skeleton?.slots?.length||0,
+              anims:Object.keys(s?.json?.animations||{}),
+              active:s?.active||null,
+              parts:Object.keys(s?.meta?.parts||{}).length,
+              canvas:[document.querySelector('#stageCanvas')?.width||0,document.querySelector('#stageCanvas')?.height||0],
+              runtime:document.querySelector('#runtimeText')?.textContent||''
+            }
+          """)
+          print("INIT="+json.dumps(info,ensure_ascii=False))
+          print("LOG="+json.dumps(d.get_log("browser"),ensure_ascii=False))
+          assert info["ready"] is True, info
+          assert not info["error"], info
+          assert info["bones"] >= 18, info
+          assert info["slots"] >= 16, info
+          assert info["parts"] >= 16, info
+          assert set(["Idle","Move","Attack","Hurt","Death"]).issubset(set(info["anims"])), info
+          assert "PASS" in info["runtime"], info
+          assert info["canvas"][0] > 500 and info["canvas"][1] > 300, info
+
+          t1=d.execute_script("return window.MONSTER_STUDIO.entry?.trackTime||0")
+          time.sleep(.6)
+          t2=d.execute_script("return window.MONSTER_STUDIO.entry?.trackTime||0")
+          assert t2 > t1, (t1,t2)
+
+          # Click attack clip and verify Spine state changed.
+          attack=d.find_elements(By.CSS_SELECTOR,"#animList .anim-btn")
+          [x for x in attack if "Attack" in x.text][0].click()
+          time.sleep(.25)
+          a=d.execute_script("return {active:MONSTER_STUDIO.active,loop:MONSTER_STUDIO.loop,time:MONSTER_STUDIO.entry?.trackTime||0}")
+          print("ATTACK="+json.dumps(a,ensure_ascii=False))
+          assert a["active"]=="Attack", a
+          assert a["loop"] is False, a
+
+          # Rig UI and bone selection.
+          d.find_element(By.ID,"rigToggle").click()
+          d.find_element(By.CSS_SELECTOR,'.ins-tabs [data-ins="bones"]').click()
+          time.sleep(.2)
+          rows=d.find_elements(By.CSS_SELECTOR,".bone-row")
+          assert len(rows)>=18, len(rows)
+          rows[2].click()
+          selected=d.execute_script("return MONSTER_STUDIO.selectedBone")
+          assert selected, selected
+
+          # Asset endpoints must exist.
+          files=d.execute_async_script("""
+            const done=arguments[0];
+            Promise.all([
+              './assets/master_reference.png','./assets/mushhorn.png',
+              './data/mushhorn.json','./data/mushhorn.atlas','./data/parts.json'
+            ].map(x=>fetch(x).then(r=>({x,ok:r.ok,status:r.status,size:+r.headers.get('content-length')||0}))))
+            .then(done).catch(e=>done({error:String(e)}));
+          """)
+          print("FILES="+json.dumps(files,ensure_ascii=False))
+          assert all(x.get("ok") for x in files), files
+
+          d.save_screenshot("/tmp/monster-spine-studio.png")
+          d.quit()
+          PY
