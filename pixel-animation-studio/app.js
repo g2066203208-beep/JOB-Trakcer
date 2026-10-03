@@ -1,4 +1,4 @@
-import { createRunCycleSample } from "./run-sample.js";
+import { createRunCycleSample } from "./run-sample.js?v=20261003-2050";
 const $ = (id) => document.getElementById(id);
 const displayCanvas = $("displayCanvas");
 const dctx = displayCanvas.getContext("2d", { alpha: true });
@@ -519,11 +519,13 @@ $("resizeCanvas").onclick=()=>{
 };
 
 $("loadRunSample").onclick=()=>{
-  if(!confirm("载入我画的 8 帧跑步示例？当前工程会保留在浏览器自动保存中。"))return;
+  stopPlayback();
   loadSerializedProject(createRunCycleSample(),true);
   zoom=8;$("zoom").value=zoom;
-  setStatus("已载入原创 8 帧跑步循环");
-  startPlayback();
+  refreshAll();
+  setStatus("跑步示例已载入，正在播放");
+  $("loadRunSample").textContent="✓ 跑步示例已载入";
+  setTimeout(startPlayback,60);
 };
 
 $("newProject").onclick=()=>{
