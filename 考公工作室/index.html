@@ -7,44 +7,70 @@
 <style>
 :root{--bg:#f4f1e9;--paper:#fffdf8;--ink:#222;--muted:#746f65;--line:#ded7c9;--accent:#9f2f24;--green:#2d6c52}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
-main{max-width:920px;margin:auto;padding:42px 20px 80px}
-header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:28px}
+main{max-width:1000px;margin:auto;padding:38px 20px 80px}a{color:inherit}
+header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:24px}
 .eyebrow{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:800}
 h1{font-size:38px;margin:8px 0 8px}.sub{color:var(--muted);line-height:1.7}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.toplink{display:inline-block;margin-top:14px;text-decoration:none;border:1px solid var(--line);background:var(--paper);padding:8px 11px;border-radius:9px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:14px}
 .card{display:block;text-decoration:none;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 6px 20px rgba(55,43,29,.04)}
 .card:hover{border-color:#b9ad99;transform:translateY(-1px)}
-.card h2{margin:0 0 8px;font-size:22px}.meta{color:var(--muted);font-size:13px}.bar{height:8px;background:#ebe6db;border-radius:999px;overflow:hidden;margin:18px 0 8px}.bar i{display:block;width:1.6667%;height:100%;background:var(--green)}
-.done{color:var(--green);font-weight:800}.method{margin-top:26px;background:#ede8dc;border-left:4px solid var(--accent);padding:18px 20px;line-height:1.8}
-footer{margin-top:34px;color:var(--muted);font-size:12px}
+.card h2{margin:0 0 8px;font-size:22px}.meta{color:var(--muted);font-size:13px;line-height:1.6}
+.bar{height:8px;background:#ebe6db;border-radius:999px;overflow:hidden;margin:18px 0 8px}.bar i{display:block;width:1.6667%;height:100%;background:var(--green)}
+.done{color:var(--green);font-weight:800}.doing{color:var(--accent);font-weight:800}
+.method{margin-top:22px;background:#ede8dc;border-left:4px solid var(--accent);padding:18px 20px;line-height:1.8}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.split div{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px}
+footer{margin-top:28px;color:var(--muted);font-size:12px}
+@media(max-width:650px){.grid,.split{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main>
 <header>
-  <div class="eyebrow">STUDY WORKSPACE</div>
+  <div class="eyebrow">CIVIL SERVICE EXAM WORKSPACE</div>
   <h1>考公工作室</h1>
-  <div class="sub">把每天真实做过的题、圈过的原文、犯过的错误和最终答案留下来。<br>申论以白鹭 DAY60 讲解思路为主，半月谈讲义为题目和材料依据。</div>
+  <div class="sub">考公拆成两条线：<b>行测负责速度、正确率和取舍；申论负责审题、找点、合并与表达。</b><br>两条线分开训练、统一复盘。</div>
+  <a class="toplink" href="../学习总控台/">← 返回一周学习总控台</a>
 </header>
+
 <div class="grid">
+  <a class="card" href="./行测/">
+    <div class="meta">行测 · DAILY 2H</div>
+    <h2>行测周训练</h2>
+    <p>资料分析 → 判断推理 → 数量关系 → 言语理解 → 混合限时 → 整套模拟 → 错题复盘。</p>
+    <div class="meta">每天 08:30–10:30；每次必须记录题量、正确率、用时和错因。</div>
+  </a>
+
   <a class="card" href="./申论DAY60/">
-    <div class="meta">申论 · 60 DAYS</div>
+    <div class="meta">申论 · 白鹭 DAY60</div>
     <h2>申论 DAY60</h2>
     <div class="bar"><i></i></div>
-    <div><span class="done">DAY01 已完成</span> · 1 / 60</div>
-    <p class="meta">当前：2020国考副省第二题 · M农场青年创业启示</p>
+    <div><span class="done">DAY01 已完成</span> · <span class="doing">DAY02 进行中</span></div>
+    <p class="meta">每天 10:40–11:40；材料 → 圈点 → 合并 → 提炼 → 作答 → 对照 → 日记。</p>
   </a>
+
   <div class="card">
-    <div class="meta">COMING NEXT</div>
-    <h2>行测 / 面试 / 时政</h2>
-    <p class="meta">后续按学习实际进度继续建立，不提前堆空目录。</p>
+    <div class="meta">行测周检验</div>
+    <h2>周六整套模拟</h2>
+    <p>严格按考试节奏完成，不边做边查。结束后统计模块正确率、用时和放弃策略。</p>
+  </div>
+
+  <div class="card">
+    <div class="meta">申论周检验</div>
+    <h2>周六限时整题 + 周日重写</h2>
+    <p>周六独立完整作答；周日重写本周最差的一题，重点检查“条理”和材料外自造词。</p>
   </div>
 </div>
+
 <div class="method">
-  <b>DAY01 核心方法</b><br>
-  先圈 → 看重复 → 找总括句 / 大动作 → 同类合并 → 前置提炼 → 总分作答
+  <b>当前训练原则</b>
+  <div class="split">
+    <div><b>行测：</b>不追求“全部会做”，追求在限定时间里拿到更多稳定分。专项日练能力，周六练整卷取舍。</div>
+    <div><b>申论：</b>严格以白鹭 DAY60 为主。先圈全，再合并，再提炼；不把模型自己补出的词冒充标准答案。</div>
+  </div>
 </div>
-<footer>Last updated · 2026-10-03</footer>
+
+<footer>Last updated · 2026-10-03 · 当前申论进度：DAY02 总结课</footer>
 </main>
 </body>
 </html>
