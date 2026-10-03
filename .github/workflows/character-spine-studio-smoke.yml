@@ -1,0 +1,113 @@
+name: Character Spine Studio Smoke
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "character-spine-studio/**"
+      - ".github/workflows/character-spine-studio-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: browser-actions/setup-chrome@v1
+      - run: python3 -m pip install --quiet selenium
+      - name: Verify hosted human Spine studio
+        env:
+          URL: https://g2066203208-beep.github.io/JOB-Trakcer/character-spine-studio/
+        run: |
+          set -euo pipefail
+          for i in {1..50}; do
+            if curl -fsSL "$URL" | grep -q "SISTER SPINE STUDIO"; then break; fi
+            sleep 3
+          done
+          python3 - <<'PY'
+          import os,time,json
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          from selenium.webdriver.common.by import By
+
+          opts=Options()
+          opts.add_argument("--headless=new")
+          opts.add_argument("--no-sandbox")
+          opts.add_argument("--disable-gpu")
+          opts.add_argument("--enable-unsafe-swiftshader")
+          opts.add_argument("--window-size=1700,1100")
+          opts.set_capability("goog:loggingPrefs",{"browser":"ALL"})
+          d=webdriver.Chrome(options=opts)
+          d.get(os.environ["URL"])
+          for _ in range(100):
+              if d.execute_script("return !!window.CHARACTER_SPINE_STUDIO?.ready"): break
+              time.sleep(.25)
+
+          info=d.execute_script("""
+            const s=window.CHARACTER_SPINE_STUDIO;
+            return {
+              ready:!!s?.ready,error:s?.error||null,
+              bones:s?.skeleton?.bones?.length||0,
+              slots:s?.skeleton?.slots?.length||0,
+              parts:Object.keys(s?.meta?.parts||{}).length,
+              anims:Object.keys(s?.json?.animations||{}),
+              active:s?.active||null,
+              runtime:document.querySelector('#runtimeBadge')?.textContent||'',
+              canvas:[document.querySelector('#stageCanvas')?.width||0,document.querySelector('#stageCanvas')?.height||0]
+            }
+          """)
+          print("INIT="+json.dumps(info,ensure_ascii=False))
+          logs=d.get_log("browser")
+          print("LOG_INIT="+json.dumps(logs,ensure_ascii=False))
+          assert info["ready"] is True, info
+          assert not info["error"], info
+          assert info["bones"] == 25, info
+          assert info["slots"] == 22, info
+          assert info["parts"] == 22, info
+          assert set(["Idle","Move","Attack","Hurt","Death"]).issubset(set(info["anims"])), info
+          assert "PASS" in info["runtime"], info
+          assert info["canvas"][0] > 600 and info["canvas"][1] > 350, info
+
+          t1=d.execute_script("return CHARACTER_SPINE_STUDIO.entry?.trackTime||0")
+          time.sleep(.65)
+          t2=d.execute_script("return CHARACTER_SPINE_STUDIO.entry?.trackTime||0")
+          assert t2 > t1, (t1,t2)
+
+          # Attack switches through real AnimationState.
+          buttons=d.find_elements(By.CSS_SELECTOR,"#animList .anim-btn")
+          [b for b in buttons if "Attack" in b.text][0].click()
+          time.sleep(.2)
+          attack=d.execute_script("return {active:CHARACTER_SPINE_STUDIO.active,loop:CHARACTER_SPINE_STUDIO.loop,t:CHARACTER_SPINE_STUDIO.entry?.trackTime||0}")
+          print("ATTACK="+json.dumps(attack,ensure_ascii=False))
+          assert attack["active"]=="Attack", attack
+          assert attack["loop"] is False, attack
+
+          # Bone inspector.
+          d.find_element(By.CSS_SELECTOR,'.ins-tabs [data-ins="bones"]').click()
+          time.sleep(.15)
+          rows=d.find_elements(By.CSS_SELECTOR,".bone-row")
+          assert len(rows)==25, len(rows)
+          rows[5].click()
+          selected=d.execute_script("return CHARACTER_SPINE_STUDIO.selectedBone")
+          assert selected, selected
+
+          # Formal files.
+          files=d.execute_async_script("""
+            const done=arguments[0];
+            Promise.all([
+              './assets/nun_parts_atlas.png',
+              './data/character.json',
+              './data/character.atlas',
+              './data/parts.json',
+              './vendor/spine43.js'
+            ].map(x=>fetch(x).then(r=>({x,ok:r.ok,status:r.status,size:+r.headers.get('content-length')||0}))))
+            .then(done).catch(e=>done({error:String(e)}));
+          """)
+          print("FILES="+json.dumps(files,ensure_ascii=False))
+          assert all(x.get("ok") for x in files), files
+
+          d.save_screenshot("/tmp/character-spine-studio.png")
+          d.quit()
+          PY
