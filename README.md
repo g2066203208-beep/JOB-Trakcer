@@ -14,7 +14,7 @@ GitHub Pages 托管的浏览器端 2D 骨骼动画工作室。仓库内置阿米
 - 骨骼树、Setup Pose、动画播放、逐帧、时间线
 - 骨骼创建 / 复制 / 删除 / 改父级 / 拖动 / 数值编辑
 - 非破坏式当前帧关键帧覆盖、撤销 / 重做
-- **大批动作学习语料**：已解析 86 个角色压缩包，其中 85 个角色有效，共 425 个 Spine 3.5.51 工程；按战斗正面 / 战斗背面 / 基建与 Attack / Skill / Skill_2 / Skill_3 / Idle / Default / Start / Die / Stun 等动作族统计典型时长、关键帧密度、参与骨骼与共同主运动骨骼
+- **大批动作学习语料**：已解析 86 个角色压缩包，其中 85 个角色有效，共 425 个 Spine 3.5.51 工程；按战斗正面 / 战斗背面 / 基建与 Attack / Skill / Skill_2 / Skill_3 / Idle / Default / Start / Die / Stun / Interact / Move / Relax / Sit / Sleep / Special 等动作族统计典型时长、关键帧密度、参与骨骼与共同主运动骨骼
 - **真实 Runtime 姿态训练**：直接读取 Spine 约束后的骨骼世界姿态，显示逐骨位移/角度误差
 - 姿态快照、参考叠加、训练评分
 - IndexedDB 浏览器本地工程保存与 JSON 导出
@@ -24,7 +24,7 @@ GitHub Pages 托管的浏览器端 2D 骨骼动画工作室。仓库内置阿米
 
 当前渲染器支持 Spine 3.5 JSON 的骨骼动画、Region、weighted/unweighted Mesh、Slot attachment 和 drawOrder。`deform` 数据会保留在工程中，但暂未提供逐顶点 deform 曲线编辑器；这是后续专业网格编辑阶段要继续补齐的部分。
 
-## v0.6.0
+## v0.6.1
 
 - 新增 85 个有效角色、425 个 Spine 工程的大批动作学习统计；训练页可查看语料角色和当前动作覆盖量。
 - 鼠标直接拖骨骼编辑，Shift 拖动旋转。
