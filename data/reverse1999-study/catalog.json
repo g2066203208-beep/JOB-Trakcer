@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "sourceRepository": "myssal/Reverse-1999-CN-Asset",
   "sourceBranch": "master",
   "importedAt": "2026-10-03",
@@ -16,7 +16,18 @@
         "标准人形战斗动作"
       ],
       "upstream": "roles/300401_hongnujian",
-      "local": "spine/01-classic-combat/lilya-300401"
+      "local": "spine/01-classic-combat/lilya-300401",
+      "spineVersion": "4.2.36",
+      "files": {
+        "atlas": "300401_hongnujian.atlas",
+        "texture": "300401_hongnujian.png",
+        "bloom": "300401_hongnujian_bloom.png",
+        "views": {
+          "fight": "300401_hongnujian_fight.skel",
+          "room": "300401_hongnujian_room.skel",
+          "ui": "300401_hongnujian_ui.skel"
+        }
+      }
     },
     {
       "id": "isolde-308101",
@@ -29,7 +40,18 @@
         "Fight 与 Room 的动作气质差异"
       ],
       "upstream": "roles/v1a7_308101_ysed",
-      "local": "spine/02-cloth-performance/isolde-308101"
+      "local": "spine/02-cloth-performance/isolde-308101",
+      "spineVersion": "4.2.36",
+      "files": {
+        "atlas": "308101_ysed.atlas",
+        "texture": "308101_ysed.png",
+        "bloom": "308101_ysed_bloom.png",
+        "views": {
+          "fight": "308101_ysed_fight.skel",
+          "room": "308101_ysed_room.skel",
+          "ui": "308101_ysed_ui.skel"
+        }
+      }
     },
     {
       "id": "windsong-307701",
@@ -42,7 +64,18 @@
         "远程攻击姿态"
       ],
       "upstream": "roles/v1a8_307701_beifangshaoge",
-      "local": "spine/03-prop-motion/windsong-307701"
+      "local": "spine/03-prop-motion/windsong-307701",
+      "spineVersion": "4.2.36",
+      "files": {
+        "atlas": "307701_beifangshaoge.atlas",
+        "texture": "307701_beifangshaoge.png",
+        "bloom": "307701_beifangshaoge_bloom.png",
+        "views": {
+          "fight": "307701_beifangshaoge_fight.skel",
+          "room": "307701_beifangshaoge_room.skel",
+          "ui": "307701_beifangshaoge_ui.skel"
+        }
+      }
     },
     {
       "id": "lucy-308601",
@@ -55,7 +88,18 @@
         "复杂战斗骨架与特效"
       ],
       "upstream": "roles/v1a9_308601_luxi",
-      "local": "spine/04-mechanical-rig/lucy-308601"
+      "local": "spine/04-mechanical-rig/lucy-308601",
+      "spineVersion": "4.2.36",
+      "files": {
+        "atlas": "308601_luxi.atlas",
+        "texture": "308601_luxi.png",
+        "bloom": "308601_luxi_bloom.png",
+        "views": {
+          "fight": "308601_luxi_fight.skel",
+          "room": "308601_luxi_room.skel",
+          "ui": "308601_luxi_ui.skel"
+        }
+      }
     },
     {
       "id": "mercuria-309501",
@@ -68,7 +112,18 @@
         "UI/Room 表演"
       ],
       "upstream": "roles/v2a0_309501_hzsx",
-      "local": "spine/05-fx-layering/mercuria-309501"
+      "local": "spine/05-fx-layering/mercuria-309501",
+      "spineVersion": "4.2.36",
+      "files": {
+        "atlas": "309501_hzsx.atlas",
+        "texture": "309501_hzsx.png",
+        "bloom": "309501_hzsx_bloom.png",
+        "views": {
+          "fight": "309501_hzsx_fight.skel",
+          "room": "309501_hzsx_room.skel",
+          "ui": "309501_hzsx_ui.skel"
+        }
+      }
     },
     {
       "id": "flutterpage-310501",
@@ -81,7 +136,18 @@
         "高密度动作/特效编排"
       ],
       "upstream": "roles/v2a3_310501_zxqe",
-      "local": "spine/06-high-complexity/flutterpage-310501"
+      "local": "spine/06-high-complexity/flutterpage-310501",
+      "spineVersion": "4.2.36",
+      "files": {
+        "atlas": "310501_zxqe.atlas",
+        "texture": "310501_zxqe.png",
+        "bloom": "310501_zxqe_bloom.png",
+        "views": {
+          "fight": "310501_zxqe_fight.skel",
+          "room": "310501_zxqe_room.skel",
+          "ui": "310501_zxqe_ui.skel"
+        }
+      }
     },
     {
       "id": "nautika-312001",
@@ -94,7 +160,18 @@
         "现代绑定组织"
       ],
       "upstream": "roles/v2a8_312001_ndk",
-      "local": "spine/07-modern-pipeline/nautika-312001"
+      "local": "spine/07-modern-pipeline/nautika-312001",
+      "spineVersion": "4.2.36",
+      "files": {
+        "atlas": "312001_ndk.atlas",
+        "texture": "312001_ndk.png",
+        "bloom": "312001_ndk_bloom.png",
+        "views": {
+          "fight": "312001_ndk_fight.skel",
+          "room": "312001_ndk_room.skel",
+          "ui": "312001_ndk_ui.skel"
+        }
+      }
     },
     {
       "id": "a-knight-300701",
@@ -107,7 +184,19 @@
         "无传统人体躯干的运动设计"
       ],
       "upstream": "roles/300701_weixiukai",
-      "local": "spine/08-nonhuman-floating/a-knight-300701"
+      "local": "spine/08-nonhuman-floating/a-knight-300701",
+      "spineVersion": "4.2.36",
+      "files": {
+        "atlas": "300701_weixiukai.atlas",
+        "texture": "300701_weixiukai.png",
+        "bloom": "300701_weixiukai_bloom.png",
+        "views": {
+          "fight": "300701_weixiukai_fight.skel",
+          "fight_special": "300701_weixiukai_fight_special.skel",
+          "room": "300701_weixiukai_room.skel",
+          "ui": "300701_weixiukai_ui.skel"
+        }
+      }
     }
   ],
   "l2dStudyTargets": [
