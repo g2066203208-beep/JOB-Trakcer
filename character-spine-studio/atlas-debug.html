@@ -1,0 +1,5 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Atlas QA</title>
+<style>html,body{margin:0;background:#111;color:#fff;font-family:monospace}main{padding:20px}img{display:block;max-width:none;border:2px solid #a97cff;background:repeating-conic-gradient(#333 0 25%,#222 0 50%) 0/20px 20px}pre{white-space:pre-wrap}</style></head>
+<body><main><h1>ONLINE ATLAS QA</h1><pre id="info">loading…</pre><img id="atlas" src="./assets/nun_parts_atlas.png?v=qa3"></main>
+<script>const i=document.querySelector('#atlas');i.onload=()=>document.querySelector('#info').textContent='naturalWidth='+i.naturalWidth+' naturalHeight='+i.naturalHeight+' currentSrc='+i.currentSrc;i.onerror=()=>document.querySelector('#info').textContent='LOAD ERROR';</script>
+</body></html>
