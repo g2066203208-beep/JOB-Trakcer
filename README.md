@@ -1,113 +1,70 @@
-# Character Rig Forge
+# 骨骼动画训练工作室 · Rig Motion Lab
 
-**独立、可直接部署到 GitHub Pages 的立绘骨骼素材工作室。**
+一个用于**整理骨骼动作参考、逐帧拆解、临摹关节点、误差评分和建立重复训练队列**的纯前端工作室。
 
-目标是把一张动漫立绘变成可以进入 2D 骨骼动画系统的资产：
+> 本仓库已从原 JOB-Trakcer 项目整体重置。旧的求职追踪器前端、后端和测试代码均不再属于当前 `main` 版本。
 
-`立绘 → ML 主体解析 → 人体关键点 → 骨骼候选 → 可动画图层 → rig manifest`
+## 当前版本
 
-## 新版 AI 拆层路线
+- 动作资料库：按分类、阶段、视角、标签检索。
+- 骨骼训练画布：拖拽关节点进行姿势临摹。
+- 参考叠加：黄色参考骨架 + 白色训练骨架。
+- 逐帧时间条：动作可按 FPS 播放。
+- 自动误差：按关节距离计算匹配度，并强调骨盆、胸腔等关键结构。
+- 今日训练队列：把薄弱动作加入重复训练。
+- 导入：PNG/JPG/GIF 参考图，以及标准骨骼 JSON。
+- 导出：完整训练包 JSON（不内嵌图片）。
+- 本地保存：动作元数据、训练队列、历史最高分保存在浏览器 LocalStorage。
 
-当前版本已经停止使用“根据骨骼坐标画椭圆/胶囊”的假拆层算法。
+## 骨骼 JSON 格式
 
-实际流程变为：
+单动作：
 
-`立绘 → Anime 前景 matte → Florence-2 部件定位 → SAM3 真实轮廓分割 → RGBA 图层 → Rig manifest`
+```json
+{
+  "name": "walk-contact",
+  "category": "位移",
+  "angle": "3/4",
+  "phase": "接触",
+  "fps": 12,
+  "tags": ["重心转移", "对侧摆臂"],
+  "frames": [
+    {
+      "head": [0.50, 0.15],
+      "neck": [0.50, 0.25],
+      "chest": [0.50, 0.39],
+      "pelvis": [0.50, 0.56],
+      "lShoulder": [0.42, 0.29],
+      "lElbow": [0.36, 0.41],
+      "lWrist": [0.33, 0.54],
+      "rShoulder": [0.58, 0.29],
+      "rElbow": [0.64, 0.41],
+      "rWrist": [0.67, 0.54],
+      "lHip": [0.46, 0.58],
+      "lKnee": [0.44, 0.75],
+      "lAnkle": [0.42, 0.92],
+      "rHip": [0.54, 0.58],
+      "rKnee": [0.56, 0.75],
+      "rAnkle": [0.58, 0.92]
+    }
+  ]
+}
+```
 
-### 1. Florence-2
+坐标推荐使用 `0~1` 归一化坐标。也可输入像素坐标，导入时会按当前帧最大坐标近似归一化。
 
-使用 `onnx-community/Florence-2-base-ft`，230M 参数，浏览器 WebGPU / WASM worker 推理。
+支持的关节名：`head, neck, chest, pelvis, lShoulder, lElbow, lWrist, rShoulder, rElbow, rWrist, lHip, lKnee, lAnkle, rHip, rKnee, rAnkle`。
 
-它先做开放词汇的 phrase grounding，寻找：
+也可以使用 `{ "joints": { ... } }` 包住每帧关节。
 
-- hair / face / neck
-- clothing / dress / skirt / sleeve
-- left/right arm / hand / leg / shoe
-- ribbon / bow / accessory
-- bag / backpack / weapon / tail / wing / hat / cape 等
+## 下一阶段（接入真实骨骼素材后）
 
-这一步的作用是**理解“有哪些部件、它们在哪里”**，而不是生成骨骼。
-
-### 2. SAM3
-
-Florence-2 给出的每一个真实图像框，会单独交给 `onnx-community/sam3-tracker-ONNX` 做 promptable pixel mask。
-
-这意味着最终图层来自真实图像边界，而不是骨骼坐标几何估计。
-
-### 3. Pose / Rig
-
-Pose Landmarker 仍然保留，但它只用于动画骨骼辅助：
-
-`pose → joints → bones → pivot / parent`
-
-**不再参与图像拆层。**
-
-### 4. 仍未完成的高质量重建
-
-遮挡区域补全是下一阶段。
-
-真正的高质量路线会继续研究 See-through / Bunraku / Qwen-Image-Layered 的 single-image layer reconstruction，让“被头发、衣服、手臂遮住的像素”也可以被重建出来。
-
-所以当前版本应该理解为：
-
-**真实可见区域的 AI 拆层器 + rig 数据生成器**
-
-而不是声称已经完成完整的 hidden-region reconstruction。
-
-## GitHub Pages
-
-这个仓库本身就是独立静态站点，不依赖 paperchalk-world，也不依赖旧 JOB-Trakcer 内容。
-
-GitHub Pages 可以直接从仓库发布 HTML/CSS/JavaScript；也可以使用 GitHub Actions 自动部署。citeturn452276search3turn452276search4
-
-首次使用时浏览器会下载模型权重，因此第一次分析会比较慢。WebGPU 浏览器会优先使用 GPU，无法使用时回退到 WASM。
+1. 将用户提供的全部动画骨骼统一命名、分动作/阶段/视角并建立动作语义标签。
+2. 把图片参考逐张标注为可评分骨骼数据。
+3. 增加 9 宫格透视与胸腔/骨盆块训练，而不只使用关节点火柴人。
+4. 增加动作节奏曲线、重心轨迹、肩髋扭转和剪影评分。
+5. 为同一角色建立“头部—胸腔—骨盆—四肢”可组合的模块化训练集。
 
 ## 运行
 
-本地：
-
-```bash
-python -m http.server 8080
-```
-
-然后打开：
-
-`http://localhost:8080/`
-
-线上则使用该仓库的 GitHub Pages 地址。
-
-## 输出
-
-- `rig-manifest.json`
-- 每个候选部件的透明 PNG
-- joint / bone hierarchy
-- pivot / parent bone 信息
-- 推理模型与模式记录
-
-## 后续专用训练模型
-
-最终真正需要训练的不是普通“人物抠图”，而是**面向骨骼动画资产的 Anime Rig Segmentation / Matting 模型**。
-
-训练标注建议包含：
-
-`backHair, frontHair, head, face, neck, torso, upperArm, forearm, hand, thigh, shin, foot, clothes, accessory`
-
-以及：
-
-- 每个部件的像素级 alpha mask
-- 父骨骼
-- pivot
-- 遮挡前后关系
-- 被遮挡区域的重建目标
-
-这样模型的输出就不是“看起来像拆图”，而是可以直接交给骨骼动画播放器的资产。
-
-## License / Model Notice
-
-本仓库代码与第三方模型的许可证并不等价。尤其 SAM 3 / SAM 3.1 及其社区导出的 ONNX 模型需要分别遵守其模型许可证。部署前应检查你实际使用的模型权重及其来源许可证。
-
-### 当前已接入的前沿浏览器分割
-
-工作室现在同时接入 `onnx-community/sam3-tracker-ONNX` 作为 SAM3 多对象智能 mask 引擎，并已经把人体关键点自动转换成点 + 框双提示。它基于 Meta 的 SAM3，可用点、框等视觉提示生成对象 mask，并支持同一张图的多个对象批处理；Transformers.js 已提供对应的浏览器接口。citeturn131496search0turn131496search4turn929782search3
-
-当前按钮“**SAM3 智能拆层**”会利用 ML 人体关键点作为每个候选部件的正向提示点，让 SAM3 负责边界，而不是继续使用纯几何胶囊。
+这是无构建依赖的静态站点。直接打开 `index.html`，或通过 GitHub Pages / 任意静态服务器部署即可。

@@ -1,26 +1,689 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Character Rig Forge</title><link rel="stylesheet" href="./styles.css"></head>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0f1115" />
+  <title>骨骼动画训练工作室 · Rig Motion Lab</title>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0b0d10;
+  --panel: #11141a;
+  --panel-2: #171b22;
+  --panel-3: #1d222b;
+  --line: #2c333d;
+  --line-soft: #222832;
+  --text: #f4f6f8;
+  --muted: #8d96a3;
+  --accent: #ffcf33;
+  --accent-2: #ffd95f;
+  --danger: #ff6961;
+  --good: #7ee2a8;
+  --blue: #7db9ff;
+  --radius: 14px;
+  --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); font-family: var(--font); }
+button, input, select { font: inherit; }
+button { color: inherit; }
+body { overflow: hidden; }
+.app-shell { min-height: 100vh; display: grid; grid-template-rows: 72px 1fr 30px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); padding: 0 18px; background: #0f1217; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.brand h1 { font-size: 17px; margin: 0 0 3px; letter-spacing: .04em; }
+.brand p { margin: 0; color: var(--muted); font-size: 10px; letter-spacing: .14em; }
+.brand-mark { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 10px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; padding: 7px; gap: 3px; transform: rotate(-5deg); }
+.brand-mark span { height: 5px; border-radius: 99px; background: var(--accent); }
+.brand-mark span:nth-child(2) { height: 19px; }
+.top-actions { display: flex; gap: 8px; align-items: center; }
+.save-state { color: var(--muted); font-size: 11px; margin-right: 8px; }
+.button, .icon-button, .mode-tab, .tool-toggle, .chip, .text-button { border: 1px solid var(--line); background: var(--panel-2); border-radius: 9px; cursor: pointer; transition: .16s ease; }
+.button:hover, .icon-button:hover, .mode-tab:hover, .tool-toggle:hover, .chip:hover { border-color: #4a5361; transform: translateY(-1px); }
+.button { padding: 10px 13px; font-size: 12px; font-weight: 700; }
+.button.primary { background: var(--accent); border-color: var(--accent); color: #111; }
+.button.ghost { background: transparent; }
+.button.small { padding: 7px 10px; font-size: 11px; }
+.button.full { width: 100%; margin-top: 12px; }
+.file-button input { display: none; }
+.workspace { min-height: 0; display: grid; grid-template-columns: 270px minmax(500px, 1fr) 300px; }
+.sidebar, .inspector { min-height: 0; background: var(--panel); }
+.sidebar { padding: 16px; border-right: 1px solid var(--line); display: flex; flex-direction: column; }
+.inspector { padding: 14px; border-left: 1px solid var(--line); overflow-y: auto; }
+.section-head, .panel-title, .timeline-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.section-head h2, .panel h2 { font-size: 15px; margin: 3px 0 0; }
+.eyebrow { color: var(--muted); font-size: 9px; letter-spacing: .15em; font-weight: 800; }
+.icon-button { width: 30px; height: 30px; display: grid; place-items: center; padding: 0; }
+.search-box { height: 38px; margin-top: 14px; border: 1px solid var(--line); background: #0e1115; border-radius: 10px; display: flex; align-items: center; gap: 8px; padding: 0 10px; }
+.search-box span { color: var(--muted); font-size: 18px; }
+.search-box input { background: transparent; border: 0; outline: 0; color: var(--text); width: 100%; font-size: 12px; }
+.filter-row { display: flex; gap: 6px; margin: 10px 0 12px; overflow-x: auto; }
+.chip { white-space: nowrap; padding: 6px 9px; color: var(--muted); font-size: 10px; }
+.chip.active { color: #111; background: var(--accent); border-color: var(--accent); }
+.library-list { min-height: 0; overflow-y: auto; display: grid; gap: 7px; padding-right: 3px; }
+.library-item { border: 1px solid var(--line-soft); border-radius: 11px; padding: 10px; background: #13171d; cursor: pointer; display: grid; grid-template-columns: 42px 1fr; gap: 10px; align-items: center; }
+.library-item:hover { border-color: #414a57; }
+.library-item.active { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.library-thumb { width: 42px; height: 42px; border-radius: 8px; background: #0d1014; border: 1px solid var(--line); display: grid; place-items: center; color: var(--accent); font-weight: 900; font-size: 10px; overflow: hidden; }
+.library-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: .78; }
+.library-main strong { display: block; font-size: 12px; margin-bottom: 4px; }
+.library-main span { font-size: 9px; color: var(--muted); }
+.drop-zone { margin-top: 12px; border: 1px dashed #3a424d; border-radius: 12px; padding: 13px; text-align: center; background: #0d1014; }
+.drop-zone.drag { border-color: var(--accent); background: rgba(255,207,51,.06); }
+.drop-zone strong, .drop-zone span, .drop-zone small { display: block; }
+.drop-zone strong { font-size: 11px; }
+.drop-zone span { margin: 4px 0; font-size: 9px; color: var(--accent); letter-spacing: .08em; }
+.drop-zone small { color: var(--muted); font-size: 9px; line-height: 1.4; }
+.stage-column { min-height: 0; display: grid; grid-template-rows: 48px minmax(0, 1fr) 142px; background: #0b0d10; }
+.stage-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border-bottom: 1px solid var(--line); }
+.mode-tabs, .stage-tools { display: flex; gap: 6px; align-items: center; }
+.mode-tab, .tool-toggle { padding: 6px 10px; font-size: 10px; background: transparent; color: var(--muted); }
+.mode-tab.active { color: #111; background: var(--accent); border-color: var(--accent); }
+.tool-toggle.active { color: var(--accent); border-color: #665a21; background: #201d12; }
+.stage-wrap { position: relative; overflow: hidden; background: radial-gradient(circle at center, #171b21 0, #0f1216 58%, #0a0c0f 100%); }
+#rigCanvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; z-index: 2; }
+.reference-image-wrap { position: absolute; inset: 8%; z-index: 1; display: grid; place-items: center; pointer-events: none; opacity: .32; }
+.reference-image-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; filter: saturate(.6) contrast(1.05); }
+.canvas-hint { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); z-index: 4; background: rgba(6,8,10,.72); border: 1px solid var(--line); color: var(--muted); border-radius: 99px; padding: 7px 12px; font-size: 10px; pointer-events: none; }
+.zoom-badge { position: absolute; right: 12px; bottom: 12px; z-index: 4; font-size: 9px; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 4px 7px; background: rgba(11,13,16,.8); }
+.timeline-panel { border-top: 1px solid var(--line); background: #101319; padding: 10px 12px; min-width: 0; }
+.timeline-topline strong { font-size: 11px; margin-left: 8px; }
+.timeline-controls { display: flex; gap: 5px; align-items: center; color: var(--muted); font-size: 10px; }
+.icon-button.play { width: 34px; color: var(--accent); }
+.frame-strip { display: flex; gap: 8px; overflow-x: auto; margin-top: 9px; padding-bottom: 5px; }
+.frame-card { flex: 0 0 74px; height: 76px; border: 1px solid var(--line); border-radius: 9px; background: #0b0e12; cursor: pointer; position: relative; overflow: hidden; }
+.frame-card canvas { width: 100%; height: 100%; }
+.frame-card span { position: absolute; left: 5px; bottom: 4px; font-size: 8px; color: var(--muted); background: rgba(0,0,0,.5); padding: 2px 4px; border-radius: 4px; }
+.frame-card.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.score-card { display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: center; border-bottom: 1px solid var(--line); padding: 4px 2px 14px; }
+.score-ring { width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--accent) 0deg, #252b33 0deg); position: relative; }
+.score-ring::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--panel); }
+.score-ring div { z-index: 1; text-align: center; }
+.score-ring strong { display: block; font-size: 22px; }
+.score-ring span { color: var(--muted); font-size: 8px; }
+.score-card h2 { margin: 4px 0; font-size: 14px; }
+.score-card p { margin: 0; color: var(--muted); font-size: 9px; line-height: 1.45; }
+.panel { border-bottom: 1px solid var(--line); padding: 14px 1px; }
+.panel-title { font-size: 11px; font-weight: 800; margin-bottom: 10px; }
+.text-button { background: transparent; border: 0; color: var(--accent); padding: 0; font-size: 9px; }
+.muted { color: var(--muted); font-size: 9px; font-weight: 500; }
+.meta-grid { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.meta-grid div { background: #0e1115; border: 1px solid var(--line-soft); border-radius: 8px; padding: 8px; }
+.meta-grid dt { color: var(--muted); font-size: 8px; margin-bottom: 4px; }
+.meta-grid dd { margin: 0; font-size: 10px; font-weight: 700; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.tag { border: 1px solid #4a4320; color: #d4bd59; background: #1c1a11; padding: 4px 6px; border-radius: 6px; font-size: 8px; }
+.error-list { display: grid; gap: 7px; }
+.error-row { display: grid; grid-template-columns: 60px 1fr 34px; gap: 7px; align-items: center; font-size: 9px; }
+.error-row span:first-child { color: #c6cbd2; }
+.error-bar { height: 5px; background: #252b33; border-radius: 99px; overflow: hidden; }
+.error-bar i { display: block; height: 100%; border-radius: 99px; background: var(--accent); }
+.error-row em { font-style: normal; text-align: right; color: var(--muted); }
+.training-panel { border-bottom: 0; }
+.queue-count { display: inline-grid; place-items: center; min-width: 20px; height: 20px; border-radius: 99px; background: var(--accent); color: #111; font-size: 9px; }
+.training-queue { display: grid; gap: 6px; }
+.queue-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px; background: #0e1115; border: 1px solid var(--line-soft); border-radius: 8px; font-size: 9px; }
+.queue-item strong { font-size: 9px; }
+.queue-item span { color: var(--muted); }
+.statusbar { display: flex; align-items: center; gap: 22px; padding: 0 14px; border-top: 1px solid var(--line); background: #0e1115; color: var(--muted); font-size: 9px; overflow: hidden; white-space: nowrap; }
+.status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--good); margin-right: 6px; box-shadow: 0 0 8px var(--good); }
+dialog { width: min(500px, calc(100vw - 30px)); border: 1px solid var(--line); border-radius: 16px; background: #11151b; color: var(--text); padding: 0; box-shadow: 0 24px 80px rgba(0,0,0,.5); }
+dialog::backdrop { background: rgba(0,0,0,.65); backdrop-filter: blur(4px); }
+#metaForm { padding: 18px; }
+.dialog-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+.dialog-head h2 { margin: 4px 0 0; font-size: 18px; }
+#metaForm label { display: grid; gap: 6px; color: var(--muted); font-size: 10px; margin-bottom: 12px; }
+#metaForm input, #metaForm select { width: 100%; background: #0b0e12; color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 10px; outline: 0; }
+#metaForm input:focus, #metaForm select:focus { border-color: var(--accent); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+@media (max-width: 1100px) {
+  .workspace { grid-template-columns: 230px minmax(430px, 1fr) 260px; }
+  .save-state { display: none; }
+}
+@media (max-width: 850px) {
+  body { overflow: auto; }
+  .app-shell { display: block; }
+  .topbar { height: auto; padding: 12px; gap: 10px; flex-wrap: wrap; }
+  .workspace { display: block; }
+  .sidebar, .inspector { border: 0; }
+  .sidebar { height: auto; }
+  .library-list { max-height: 320px; }
+  .stage-column { height: 760px; }
+  .statusbar { display: none; }
+}
+
+  </style>
+</head>
 <body>
-<header class="topbar"><div><div class="eyebrow">CHARACTER RIG FORGE</div><h1>立绘骨骼素材工作室</h1><p>单张立绘 → AI 部件理解 → 真实轮廓拆层 → 可动画素材</p></div><div class="model-chip"><span id="modelDot"></span><span id="modelStatus">等待立绘</span></div></header>
-<main class="workspace">
-<section class="left-column">
-<div class="card upload-card" id="dropZone"><input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden><div class="upload-icon">✦</div><h2>放入一张立绘</h2><p>拖拽图片，或点击选择。建议正面、半身或全身角色立绘。</p><button id="chooseBtn" class="primary">选择立绘</button><div class="drop-hint">PNG / JPG / WebP</div></div>
-<div class="card control-card"><div class="card-head"><h2>解析流程</h2><span id="progressText">0 / 4</span></div><div class="steps">
-<div class="step" data-step="1"><span>01</span><div><b>Anime 主体抠图</b><small>foreground matte</small></div><i>待机</i></div>
-<div class="step" data-step="2"><span>02</span><div><b>AI 部件理解</b><small>Florence-2 grounding</small></div><i>待机</i></div>
-<div class="step" data-step="3"><span>03</span><div><b>真实轮廓拆层</b><small>SAM3 mask refinement</small></div><i>待机</i></div>
-<div class="step" data-step="4"><span>04</span><div><b>动画资产生成</b><small>RGBA layers + rig data</small></div><i>待机</i></div>
-</div><button id="analyzeBtn" class="primary wide" disabled>开始 ML 拆解</button><button id="samBtn" class="secondary wide" disabled>重新精修这些轮廓</button><button id="resetBtn" class="ghost wide">清空工作区</button></div>
-<div class="card info-card"><h2>模型链</h2><div class="model-row"><b>Anime Matte</b><span>角色前景 alpha</span></div><div class="model-row"><b>Florence-2 · 230M</b><span>开放词汇部件定位</span></div><div class="model-row"><b>SAM3</b><span>真实像素轮廓 mask</span></div><div class="model-row"><b>Pose / Rig</b><span>仅用于动画骨架辅助</span></div><p class="privacy">图片默认不上传到工作室后端。视觉理解与分割在浏览器执行；首次使用会下载并缓存模型权重。</p></div>
-</section>
-<section class="stage card"><div class="card-head"><div><h2>解析画布</h2><span id="imageMeta">等待立绘</span></div><div class="toolbar"><label><input id="showSkeleton" type="checkbox" checked> 骨骼</label><label><input id="showSubject" type="checkbox" checked> 主体</label></div></div>
-<div id="canvasFrame" class="canvas-frame empty"><div class="empty-stage"><div class="empty-bone">◌</div><b>这里会出现立绘、骨骼与分层预览</b><span>先上传图片</span></div><canvas id="viewCanvas"></canvas></div>
-<div class="stage-footer"><div><span class="metric-label">检测关节</span><b id="jointCount">—</b></div><div><span class="metric-label">骨骼段</span><b id="boneCount">—</b></div><div><span class="metric-label">素材层</span><b id="layerCount">—</b></div><div><span class="metric-label">推理状态</span><b id="inferenceMode">—</b></div></div></section>
-<section class="right-column">
-<div class="card"><div class="card-head"><h2>骨骼</h2><span id="rigBadge">未生成</span></div><div id="jointList" class="list empty-list">上传并解析后显示关节。</div></div>
-<div class="card"><div class="card-head"><h2>语义拆层素材</h2><span>直接预览 · PNG</span></div><div id="layerList" class="layer-gallery empty-list">上传并解析后生成图层。</div><div class="export-actions"><button id="manifestBtn" class="ghost wide" disabled>导出 rig-manifest.json</button><button id="downloadAllBtn" class="primary wide" disabled>导出全部 PNG</button></div></div>
-<div class="card notes"><h2>现在真正发生什么</h2><p>Florence-2 先从图像中寻找开放词汇部件，再把每个部件的真实框交给 SAM3 做像素级分割。骨骼只用于后续动画辅助，不再参与“画假区域”。遮挡补全暂列为下一阶段高质量 GPU 重建模块。</p></div>
-</section></main>
-<footer>Character Rig Forge · MVP 0.1</footer>
-<script type="module" src="./app.js"></script></body></html>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div>
+          <h1>骨骼动画训练工作室</h1>
+          <p>RIG MOTION LAB · 动作拆解 / 临摹 / 误差训练</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="save-state" id="saveState">本地训练库 · 已保存</div>
+        <button class="button ghost" id="exportBtn">导出训练包</button>
+        <label class="button primary file-button">
+          导入骨骼资料
+          <input id="fileInput" type="file" accept="image/*,.json,application/json" multiple />
+        </label>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">01 / LIBRARY</span>
+            <h2>动作资料库</h2>
+          </div>
+          <button class="icon-button" id="newPoseBtn" title="新建空白骨骼">＋</button>
+        </div>
+
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" placeholder="搜索动作、阶段、标签…" />
+        </label>
+
+        <div class="filter-row" id="filterRow">
+          <button class="chip active" data-filter="all">全部</button>
+          <button class="chip" data-filter="基础">基础</button>
+          <button class="chip" data-filter="位移">位移</button>
+          <button class="chip" data-filter="战斗">战斗</button>
+        </div>
+
+        <div class="library-list" id="libraryList"></div>
+
+        <div class="drop-zone" id="dropZone">
+          <strong>拖入你的骨骼素材</strong>
+          <span>PNG / JPG / GIF / Rig JSON</span>
+          <small>图片用于参考临摹；标准 JSON 可直接逐帧评分。</small>
+        </div>
+      </aside>
+
+      <section class="stage-column">
+        <div class="stage-toolbar">
+          <div class="mode-tabs" id="modeTabs">
+            <button class="mode-tab active" data-mode="practice">训练</button>
+            <button class="mode-tab" data-mode="inspect">拆解</button>
+            <button class="mode-tab" data-mode="compare">叠加</button>
+          </div>
+          <div class="stage-tools">
+            <button class="tool-toggle active" id="gridToggle">网格</button>
+            <button class="tool-toggle active" id="ghostToggle">参考骨架</button>
+            <button class="tool-toggle" id="labelsToggle">关节点</button>
+            <button class="button small" id="resetPoseBtn">重置动作</button>
+          </div>
+        </div>
+
+        <div class="stage-wrap" id="stageWrap">
+          <div class="reference-image-wrap" id="referenceImageWrap" hidden>
+            <img id="referenceImage" alt="动作参考" />
+          </div>
+          <canvas id="rigCanvas" width="960" height="720"></canvas>
+          <div class="canvas-hint" id="canvasHint">拖拽关节点临摹参考骨架 · 松手后自动计算误差</div>
+          <div class="zoom-badge">100%</div>
+        </div>
+
+        <div class="timeline-panel">
+          <div class="timeline-topline">
+            <div>
+              <span class="eyebrow">FRAME STRIP</span>
+              <strong id="poseTitle">—</strong>
+            </div>
+            <div class="timeline-controls">
+              <button class="icon-button" id="prevFrame">◀</button>
+              <button class="icon-button play" id="playBtn">▶</button>
+              <button class="icon-button" id="nextFrame">▶</button>
+              <span id="frameCounter">1 / 1</span>
+            </div>
+          </div>
+          <div class="frame-strip" id="frameStrip"></div>
+        </div>
+      </section>
+
+      <aside class="inspector">
+        <div class="score-card">
+          <div class="score-ring" id="scoreRing">
+            <div><strong id="scoreValue">—</strong><span>匹配度</span></div>
+          </div>
+          <div>
+            <span class="eyebrow">LIVE SCORE</span>
+            <h2 id="scoreLabel">等待训练</h2>
+            <p id="scoreNote">选择一个标准骨骼动作，然后拖拽关节点开始临摹。</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">
+            <span>动作拆解</span>
+            <button class="text-button" id="editMetaBtn">编辑</button>
+          </div>
+          <dl class="meta-grid" id="metaGrid"></dl>
+          <div class="tag-list" id="tagList"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><span>关节误差</span><span class="muted">px</span></div>
+          <div class="error-list" id="errorList"></div>
+        </div>
+
+        <div class="panel training-panel">
+          <div class="panel-title"><span>今日训练队列</span><span id="queueCount" class="queue-count">0</span></div>
+          <div id="trainingQueue" class="training-queue"></div>
+          <button class="button full" id="addQueueBtn">把当前动作加入训练</button>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="statusbar">
+      <span><i class="status-dot"></i> 本地工作室模式</span>
+      <span id="datasetStatus">内置示例动作已载入</span>
+      <span>快捷键：← → 切帧 · Space 播放 · R 重置</span>
+    </footer>
+  </div>
+
+  <dialog id="metaDialog">
+    <form method="dialog" id="metaForm">
+      <div class="dialog-head">
+        <div><span class="eyebrow">POSE METADATA</span><h2>编辑动作信息</h2></div>
+        <button class="icon-button" value="cancel">×</button>
+      </div>
+      <label>动作名称<input id="metaName" required /></label>
+      <div class="form-grid">
+        <label>分类<select id="metaCategory"><option>基础</option><option>位移</option><option>战斗</option><option>表演</option><option>自定义</option></select></label>
+        <label>视角<input id="metaAngle" placeholder="正面 / 3/4 / 侧面" /></label>
+      </div>
+      <label>动作阶段<input id="metaPhase" placeholder="接触 / 下沉 / 腾空 / 击打…" /></label>
+      <label>标签（逗号分隔）<input id="metaTags" placeholder="重心, 扭转, 剪影" /></label>
+      <div class="dialog-actions">
+        <button class="button ghost" value="cancel">取消</button>
+        <button class="button primary" value="default" id="saveMetaBtn">保存</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+(() => {
+  const JOINTS = [
+    'head','neck','chest','pelvis',
+    'lShoulder','lElbow','lWrist','rShoulder','rElbow','rWrist',
+    'lHip','lKnee','lAnkle','rHip','rKnee','rAnkle'
+  ];
+  const LABELS = {
+    head:'头', neck:'颈', chest:'胸', pelvis:'骨盆',
+    lShoulder:'左肩', lElbow:'左肘', lWrist:'左腕', rShoulder:'右肩', rElbow:'右肘', rWrist:'右腕',
+    lHip:'左髋', lKnee:'左膝', lAnkle:'左踝', rHip:'右髋', rKnee:'右膝', rAnkle:'右踝'
+  };
+  const BONES = [
+    ['head','neck'],['neck','chest'],['chest','pelvis'],
+    ['neck','lShoulder'],['lShoulder','lElbow'],['lElbow','lWrist'],
+    ['neck','rShoulder'],['rShoulder','rElbow'],['rElbow','rWrist'],
+    ['pelvis','lHip'],['lHip','lKnee'],['lKnee','lAnkle'],
+    ['pelvis','rHip'],['rHip','rKnee'],['rKnee','rAnkle']
+  ];
+
+  const STORAGE_KEY = 'rig-motion-lab.v1';
+
+  const clone = (v) => JSON.parse(JSON.stringify(v));
+  const lerp = (a,b,t) => a + (b-a)*t;
+
+  function basePose() {
+    return {
+      head:[.5,.15], neck:[.5,.25], chest:[.5,.39], pelvis:[.5,.56],
+      lShoulder:[.42,.29], lElbow:[.36,.41], lWrist:[.33,.54],
+      rShoulder:[.58,.29], rElbow:[.64,.41], rWrist:[.67,.54],
+      lHip:[.46,.58], lKnee:[.44,.75], lAnkle:[.42,.92],
+      rHip:[.54,.58], rKnee:[.56,.75], rAnkle:[.58,.92]
+    };
+  }
+
+  function poseWith(overrides) {
+    const p = basePose();
+    Object.entries(overrides).forEach(([k,v]) => p[k] = v);
+    return p;
+  }
+
+  const SEED = [
+    {
+      id:'walk-contact', name:'步行 · 接触位', category:'位移', angle:'3/4', phase:'接触', fps:12,
+      tags:['重心转移','对侧摆臂','前后分离'],
+      frames:[
+        poseWith({head:[.49,.16],chest:[.48,.39],pelvis:[.5,.57],lElbow:[.39,.39],lWrist:[.43,.52],rElbow:[.67,.43],rWrist:[.71,.56],lKnee:[.4,.76],lAnkle:[.31,.91],rKnee:[.62,.76],rAnkle:[.7,.91]}),
+        poseWith({head:[.5,.17],chest:[.49,.4],pelvis:[.5,.58],lElbow:[.42,.42],lWrist:[.46,.54],rElbow:[.64,.42],rWrist:[.68,.53],lKnee:[.44,.77],lAnkle:[.38,.92],rKnee:[.58,.75],rAnkle:[.63,.91]}),
+        poseWith({head:[.51,.155],chest:[.51,.385],pelvis:[.51,.56],lElbow:[.46,.43],lWrist:[.5,.53],rElbow:[.61,.4],rWrist:[.64,.51],lKnee:[.5,.74],lAnkle:[.49,.91],rKnee:[.56,.77],rAnkle:[.58,.92]})
+      ]
+    },
+    {
+      id:'run-flight', name:'跑步 · 腾空位', category:'位移', angle:'侧面', phase:'腾空', fps:16,
+      tags:['腾空','躯干前倾','腿部压缩'],
+      frames:[
+        poseWith({head:[.56,.17],neck:[.54,.26],chest:[.52,.39],pelvis:[.48,.56],lShoulder:[.47,.29],lElbow:[.37,.38],lWrist:[.43,.47],rShoulder:[.61,.31],rElbow:[.7,.41],rWrist:[.64,.49],lHip:[.44,.59],lKnee:[.33,.69],lAnkle:[.42,.81],rHip:[.52,.59],rKnee:[.64,.69],rAnkle:[.71,.81]}),
+        poseWith({head:[.58,.16],neck:[.56,.25],chest:[.53,.38],pelvis:[.49,.55],lElbow:[.39,.36],lWrist:[.46,.45],rElbow:[.69,.43],rWrist:[.63,.51],lKnee:[.35,.65],lAnkle:[.45,.76],rKnee:[.62,.73],rAnkle:[.69,.84]}),
+        poseWith({head:[.59,.17],neck:[.56,.26],chest:[.53,.39],pelvis:[.5,.56],lElbow:[.42,.36],lWrist:[.49,.45],rElbow:[.68,.44],rWrist:[.61,.52],lKnee:[.38,.63],lAnkle:[.49,.73],rKnee:[.59,.76],rAnkle:[.65,.87]})
+      ]
+    },
+    {
+      id:'attack-anticipation', name:'斩击 · 预备位', category:'战斗', angle:'3/4', phase:'预备', fps:12,
+      tags:['反向扭转','蓄力','强剪影'],
+      frames:[
+        poseWith({head:[.47,.15],neck:[.49,.25],chest:[.52,.4],pelvis:[.47,.57],lShoulder:[.42,.3],lElbow:[.34,.26],lWrist:[.31,.17],rShoulder:[.59,.31],rElbow:[.7,.28],rWrist:[.76,.19],lHip:[.43,.6],lKnee:[.36,.76],lAnkle:[.31,.91],rHip:[.52,.59],rKnee:[.61,.74],rAnkle:[.67,.9]}),
+        poseWith({head:[.46,.16],neck:[.49,.26],chest:[.53,.41],pelvis:[.47,.58],lElbow:[.33,.25],lWrist:[.29,.16],rElbow:[.72,.27],rWrist:[.79,.18],lKnee:[.34,.77],lAnkle:[.29,.91],rKnee:[.63,.72],rAnkle:[.69,.88]})
+      ]
+    },
+    {
+      id:'idle-balance', name:'站立 · 平衡练习', category:'基础', angle:'正面', phase:'静态', fps:8,
+      tags:['中线','肩髋倾斜','稳定'], frames:[basePose()]
+    }
+  ];
+
+  const state = {
+    poses: [], selectedId: null, frameIndex: 0, mode:'practice', filter:'all', search:'',
+    showGrid:true, showGhost:true, showLabels:false, trainee:null, selectedJoint:null,
+    playing:false, playTimer:null, queue:[], lastScores:{}, sessionImages:{}
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    canvas:$('rigCanvas'), stageWrap:$('stageWrap'), list:$('libraryList'), frameStrip:$('frameStrip'),
+    title:$('poseTitle'), counter:$('frameCounter'), meta:$('metaGrid'), tags:$('tagList'), errors:$('errorList'),
+    scoreValue:$('scoreValue'), scoreLabel:$('scoreLabel'), scoreNote:$('scoreNote'), scoreRing:$('scoreRing'),
+    queue:$('trainingQueue'), queueCount:$('queueCount'), search:$('searchInput'), filterRow:$('filterRow'),
+    refWrap:$('referenceImageWrap'), refImg:$('referenceImage'), hint:$('canvasHint'), saveState:$('saveState'),
+    datasetStatus:$('datasetStatus'), dialog:$('metaDialog'), form:$('metaForm'),
+    metaName:$('metaName'), metaCategory:$('metaCategory'), metaAngle:$('metaAngle'), metaPhase:$('metaPhase'), metaTags:$('metaTags')
+  };
+  const ctx = els.canvas.getContext('2d');
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw);
+        state.poses = Array.isArray(saved.poses) && saved.poses.length ? saved.poses : clone(SEED);
+        state.queue = Array.isArray(saved.queue) ? saved.queue : [];
+        state.lastScores = saved.lastScores || {};
+      } else state.poses = clone(SEED);
+    } catch { state.poses = clone(SEED); }
+    state.selectedId = state.poses[0]?.id || null;
+    resetTrainee(true);
+    renderAll();
+  }
+
+  function save() {
+    const safePoses = state.poses.map(p => ({...p, imageData: p.imageData && p.imageData.length < 1500000 ? p.imageData : undefined}));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({poses:safePoses, queue:state.queue, lastScores:state.lastScores}));
+      els.saveState.textContent = '本地训练库 · 已保存';
+    } catch {
+      els.saveState.textContent = '素材过大 · 元数据未完全保存';
+    }
+  }
+
+  function selectedPose() { return state.poses.find(p => p.id === state.selectedId) || state.poses[0]; }
+  function selectedFrame() { const p = selectedPose(); return p?.frames?.[state.frameIndex] || null; }
+
+  function resetTrainee(skipRender=false) {
+    const ref = selectedFrame();
+    state.trainee = ref ? perturb(ref, .055) : basePose();
+    state.selectedJoint = null;
+    if (!skipRender) renderAll();
+  }
+
+  function perturb(frame, amount) {
+    const out = clone(frame);
+    JOINTS.forEach((k,i) => {
+      if (!out[k]) return;
+      const phase = i * 2.17 + state.frameIndex * .91;
+      out[k][0] = clamp(out[k][0] + Math.sin(phase)*amount, .04,.96);
+      out[k][1] = clamp(out[k][1] + Math.cos(phase*.83)*amount, .05,.96);
+    });
+    return out;
+  }
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+
+  function renderAll() {
+    renderLibrary(); renderTimeline(); renderInspector(); renderQueue(); renderReferenceImage(); resizeCanvas(); draw();
+  }
+
+  function renderLibrary() {
+    const q = state.search.trim().toLowerCase();
+    const filtered = state.poses.filter(p => {
+      const inFilter = state.filter === 'all' || p.category === state.filter;
+      const hay = [p.name,p.category,p.phase,p.angle,...(p.tags||[])].join(' ').toLowerCase();
+      return inFilter && (!q || hay.includes(q));
+    });
+    els.list.innerHTML = filtered.map(p => {
+      const image = p.imageData ? `<img src="${p.imageData}" alt=""/>` : (p.category || '骨').slice(0,2);
+      return `<div class="library-item ${p.id===state.selectedId?'active':''}" data-id="${escapeAttr(p.id)}">
+        <div class="library-thumb">${image}</div>
+        <div class="library-main"><strong>${escapeHtml(p.name)}</strong><span>${escapeHtml(p.category||'自定义')} · ${escapeHtml(p.phase||'未标注')} · ${p.frames?.length||0}帧</span></div>
+      </div>`;
+    }).join('') || `<div class="muted" style="padding:14px">没有匹配动作</div>`;
+    els.list.querySelectorAll('.library-item').forEach(el => el.addEventListener('click', () => selectPose(el.dataset.id)));
+  }
+
+  function renderTimeline() {
+    const p = selectedPose();
+    if (!p) return;
+    els.title.textContent = p.name;
+    els.counter.textContent = `${state.frameIndex+1} / ${Math.max(1,p.frames?.length||0)}`;
+    els.frameStrip.innerHTML = '';
+    (p.frames || [basePose()]).forEach((frame, i) => {
+      const card = document.createElement('button');
+      card.className = `frame-card ${i===state.frameIndex?'active':''}`;
+      card.innerHTML = `<canvas width="148" height="152"></canvas><span>F${String(i+1).padStart(2,'0')}</span>`;
+      card.addEventListener('click',()=> setFrame(i));
+      els.frameStrip.appendChild(card);
+      drawMini(card.querySelector('canvas'), frame);
+    });
+  }
+
+  function renderInspector() {
+    const p = selectedPose(); if (!p) return;
+    els.meta.innerHTML = [
+      ['分类',p.category||'自定义'],['阶段',p.phase||'未标注'],['视角',p.angle||'未标注'],['帧率',`${p.fps||12} fps`]
+    ].map(([a,b])=>`<div><dt>${escapeHtml(a)}</dt><dd>${escapeHtml(String(b))}</dd></div>`).join('');
+    els.tags.innerHTML = (p.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('') || '<span class="muted">暂无标签</span>';
+
+    const score = calculateScore();
+    if (!selectedFrame()) {
+      els.scoreValue.textContent='—'; els.scoreLabel.textContent='图片参考'; els.scoreNote.textContent='图片素材需要先标注骨架，之后才能进入自动评分。';
+      els.scoreRing.style.background='conic-gradient(#39404a 0deg,#252b33 0deg)';
+      els.errors.innerHTML='<div class="muted">暂无可计算关节</div>'; return;
+    }
+    els.scoreValue.textContent = Math.round(score.total);
+    els.scoreLabel.textContent = score.total >= 90 ? '结构稳定' : score.total >= 75 ? '接近参考' : score.total >= 55 ? '继续校准' : '重新观察重心';
+    els.scoreNote.textContent = score.worst ? `当前最大误差：${LABELS[score.worst.name]}。优先修正大关节，再处理腕踝。` : '拖拽关节点开始训练。';
+    els.scoreRing.style.background = `conic-gradient(var(--accent) ${score.total*3.6}deg,#252b33 0deg)`;
+    els.errors.innerHTML = score.parts.slice(0,7).map(x=>`<div class="error-row"><span>${LABELS[x.name]}</span><div class="error-bar"><i style="width:${Math.min(100,x.px/1.3)}%"></i></div><em>${Math.round(x.px)}</em></div>`).join('');
+  }
+
+  function renderQueue() {
+    const items = state.queue.map(id => state.poses.find(p=>p.id===id)).filter(Boolean);
+    els.queueCount.textContent = items.length;
+    els.queue.innerHTML = items.map(p => `<div class="queue-item"><div><strong>${escapeHtml(p.name)}</strong><br><span>${escapeHtml(p.phase||'未标注')}</span></div><button class="text-button" data-remove="${escapeAttr(p.id)}">移除</button></div>`).join('') || '<div class="muted">还没有动作。把难动作加入这里反复练。</div>';
+    els.queue.querySelectorAll('[data-remove]').forEach(b=>b.addEventListener('click',()=>{state.queue=state.queue.filter(id=>id!==b.dataset.remove);save();renderQueue();}));
+  }
+
+  function renderReferenceImage() {
+    const p = selectedPose();
+    if (p?.imageData) { els.refImg.src=p.imageData; els.refWrap.hidden=false; }
+    else { els.refWrap.hidden=true; els.refImg.removeAttribute('src'); }
+  }
+
+  function calculateScore() {
+    const ref = selectedFrame(); const trainee = state.trainee;
+    if (!ref || !trainee) return {total:0,parts:[],worst:null};
+    const rect = els.canvas.getBoundingClientRect();
+    const scale = Math.min(rect.width || 700, rect.height || 600);
+    const parts = JOINTS.filter(k=>ref[k]&&trainee[k]).map(name=>{
+      const dx=(ref[name][0]-trainee[name][0])*scale, dy=(ref[name][1]-trainee[name][1])*scale;
+      return {name,px:Math.hypot(dx,dy)};
+    }).sort((a,b)=>b.px-a.px);
+    const weights = {pelvis:1.7,chest:1.5,neck:1.35,head:1.2,lHip:1.25,rHip:1.25,lShoulder:1.15,rShoulder:1.15};
+    let sum=0,w=0;
+    parts.forEach(x=>{const ww=weights[x.name]||1;sum+=x.px*ww;w+=ww;});
+    const avg = w ? sum/w : 0;
+    const total = clamp(100 - avg*1.55, 0, 100);
+    return {total,parts,worst:parts[0]||null};
+  }
+
+  function resizeCanvas() {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const rect = els.stageWrap.getBoundingClientRect();
+    const w = Math.max(320,Math.round(rect.width*dpr));
+    const h = Math.max(320,Math.round(rect.height*dpr));
+    if (els.canvas.width !== w || els.canvas.height !== h) { els.canvas.width=w; els.canvas.height=h; }
+  }
+
+  function draw() {
+    const c=els.canvas, dpr=Math.min(2,window.devicePixelRatio||1), w=c.width/dpr,h=c.height/dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
+    if (state.showGrid) drawGrid(w,h);
+    const ref=selectedFrame();
+    if (ref && state.showGhost) drawSkeleton(ref,w,h,{ghost:true,labels:false});
+    if (state.trainee && ref) drawSkeleton(state.trainee,w,h,{ghost:false,labels:state.showLabels});
+    if (!ref) drawEmptyMessage(w,h);
+  }
+
+  function drawGrid(w,h) {
+    ctx.save(); ctx.strokeStyle='rgba(255,255,255,.045)'; ctx.lineWidth=1;
+    const step=Math.max(28,Math.round(Math.min(w,h)/12));
+    for(let x=w/2%step;x<w;x+=step){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+    for(let y=h/2%step;y<h;y+=step){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+    ctx.strokeStyle='rgba(255,207,51,.10)';
+    ctx.beginPath();ctx.moveTo(w/2,0);ctx.lineTo(w/2,h);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,h*.56);ctx.lineTo(w,h*.56);ctx.stroke();
+    ctx.restore();
+  }
+
+  function toPx(p,w,h){ return [p[0]*w,p[1]*h]; }
+  function drawSkeleton(frame,w,h,opt={}) {
+    const ghost=!!opt.ghost;
+    ctx.save(); ctx.lineCap='round'; ctx.lineJoin='round';
+    ctx.strokeStyle = ghost ? 'rgba(255,207,51,.32)' : '#edf0f4';
+    ctx.fillStyle = ghost ? 'rgba(255,207,51,.28)' : '#11151b';
+    ctx.lineWidth = ghost ? 4 : 5;
+    BONES.forEach(([a,b])=>{ if(!frame[a]||!frame[b])return; const A=toPx(frame[a],w,h),B=toPx(frame[b],w,h);ctx.beginPath();ctx.moveTo(...A);ctx.lineTo(...B);ctx.stroke(); });
+    JOINTS.forEach(name=>{ if(!frame[name])return; const [x,y]=toPx(frame[name],w,h);ctx.beginPath();ctx.arc(x,y,ghost?6:8,0,Math.PI*2);ctx.fill();ctx.strokeStyle=ghost?'rgba(255,207,51,.5)':(name===state.selectedJoint?'#ffcf33':'#f4f6f8');ctx.lineWidth=ghost?2:3;ctx.stroke(); if(opt.labels){ctx.fillStyle='#aeb6c1';ctx.font='10px var(--font)';ctx.fillText(LABELS[name],x+11,y-8);} });
+    const head=frame.head, neck=frame.neck; if(head&&neck){const [hx,hy]=toPx(head,w,h), [nx,ny]=toPx(neck,w,h);const r=Math.max(14,Math.hypot(hx-nx,hy-ny)*.48);ctx.beginPath();ctx.arc(hx,hy,r,0,Math.PI*2);ctx.strokeStyle=ghost?'rgba(255,207,51,.32)':'#edf0f4';ctx.lineWidth=ghost?3:4;ctx.stroke();}
+    ctx.restore();
+  }
+
+  function drawEmptyMessage(w,h) {
+    ctx.save();ctx.fillStyle='#8d96a3';ctx.textAlign='center';ctx.font='13px var(--font)';ctx.fillText('图片参考模式：可观察素材；下一步可在此标注参考骨架',w/2,h/2);ctx.restore();
+  }
+
+  function drawMini(canvas, frame) {
+    const c=canvas.getContext('2d'), w=canvas.width,h=canvas.height;c.clearRect(0,0,w,h);c.save();c.strokeStyle='#aeb5bf';c.fillStyle='#111';c.lineWidth=3;c.lineCap='round';
+    BONES.forEach(([a,b])=>{if(!frame[a]||!frame[b])return;c.beginPath();c.moveTo(frame[a][0]*w,frame[a][1]*h);c.lineTo(frame[b][0]*w,frame[b][1]*h);c.stroke();});
+    c.restore();
+  }
+
+  function selectPose(id) { state.selectedId=id;state.frameIndex=0;stopPlaying();resetTrainee(true);renderAll(); }
+  function setFrame(i) { const p=selectedPose();if(!p)return;state.frameIndex=(i+(p.frames?.length||1))%(p.frames?.length||1);resetTrainee(true);renderTimeline();renderInspector();draw(); }
+  function nextFrame(delta){ setFrame(state.frameIndex+delta); }
+
+  function canvasPoint(ev) {
+    const rect=els.canvas.getBoundingClientRect(); return [(ev.clientX-rect.left)/rect.width,(ev.clientY-rect.top)/rect.height];
+  }
+  function nearestJoint(pt) {
+    if(!state.trainee)return null; const rect=els.canvas.getBoundingClientRect();let best=null,bestD=Infinity;
+    JOINTS.forEach(k=>{const p=state.trainee[k];if(!p)return;const d=Math.hypot((p[0]-pt[0])*rect.width,(p[1]-pt[1])*rect.height);if(d<bestD){bestD=d;best=k;}});
+    return bestD<26?best:null;
+  }
+
+  function pointerDown(ev){ if(!selectedFrame())return; const pt=canvasPoint(ev);state.selectedJoint=nearestJoint(pt);if(state.selectedJoint){els.canvas.setPointerCapture?.(ev.pointerId);draw();} }
+  function pointerMove(ev){ if(!state.selectedJoint||!state.trainee)return; const pt=canvasPoint(ev);state.trainee[state.selectedJoint]=[clamp(pt[0],.02,.98),clamp(pt[1],.02,.98)];draw();renderInspector(); }
+  function pointerUp(){ if(!state.selectedJoint)return; const score=calculateScore();const p=selectedPose();state.lastScores[p.id]=Math.round(Math.max(state.lastScores[p.id]||0,score.total));state.selectedJoint=null;save();renderInspector();draw(); }
+
+  function togglePlay(){ state.playing?stopPlaying():startPlaying(); }
+  function startPlaying(){const p=selectedPose();if(!p?.frames?.length||p.frames.length<2)return;state.playing=true;$('playBtn').textContent='Ⅱ';const fps=Math.min(24,Math.max(2,p.fps||12));state.playTimer=setInterval(()=>nextFrame(1),1000/fps);}
+  function stopPlaying(){state.playing=false;$('playBtn').textContent='▶';clearInterval(state.playTimer);state.playTimer=null;}
+
+  function importFiles(fileList) {
+    [...fileList].forEach(file => {
+      if (file.type.includes('json') || file.name.toLowerCase().endsWith('.json')) {
+        const reader=new FileReader(); reader.onload=()=>{try{importJson(JSON.parse(reader.result),file.name);}catch(e){alert(`无法读取 ${file.name}：${e.message}`);}};reader.readAsText(file);
+      } else if (file.type.startsWith('image/')) {
+        const reader=new FileReader(); reader.onload=()=>importImage(file,reader.result);reader.readAsDataURL(file);
+      }
+    });
+  }
+
+  function normalizeFrame(frame) {
+    const src=frame.joints||frame; const out={};
+    JOINTS.forEach(k=>{const v=src[k];if(Array.isArray(v)&&v.length>=2)out[k]=[Number(v[0]),Number(v[1])];});
+    if(Object.keys(out).length<8) throw new Error('骨骼帧至少需要 8 个已命名关节点');
+    const vals=Object.values(out).flat(); const looksPixels=vals.some(v=>Math.abs(v)>2);
+    if(looksPixels){const maxX=Math.max(...Object.values(out).map(v=>v[0]),1), maxY=Math.max(...Object.values(out).map(v=>v[1]),1);Object.values(out).forEach(v=>{v[0]/=maxX;v[1]/=maxY;});}
+    return out;
+  }
+
+  function importJson(data, filename='import.json') {
+    const packs = Array.isArray(data) ? data : (Array.isArray(data.poses) ? data.poses : [data]);
+    let count=0;
+    packs.forEach((src,idx)=>{
+      if(!Array.isArray(src.frames))return;
+      const frames=src.frames.map(normalizeFrame);
+      const id=`import-${Date.now()}-${idx}`;
+      state.poses.unshift({id,name:src.name||filename.replace(/\.json$/i,''),category:src.category||'自定义',angle:src.angle||'未标注',phase:src.phase||'未标注',fps:Number(src.fps)||12,tags:Array.isArray(src.tags)?src.tags:['导入'],frames});count++;
+    });
+    if(!count) throw new Error('没有找到 frames 数组');
+    state.selectedId=state.poses[0].id;state.frameIndex=0;resetTrainee(true);els.datasetStatus.textContent=`已导入 ${count} 组标准骨骼动作`;save();renderAll();
+  }
+
+  function importImage(file, dataUrl) {
+    const id=`image-${Date.now()}-${Math.random().toString(36).slice(2,7)}`;
+    state.poses.unshift({id,name:file.name.replace(/\.[^.]+$/,''),category:'自定义',angle:'未标注',phase:'待拆解',fps:12,tags:['图片参考','待标注'],frames:[],imageData:dataUrl});
+    state.selectedId=id;state.frameIndex=0;state.trainee=null;els.datasetStatus.textContent='图片参考已加入资料库（标注功能将在后续动作整理时使用）';save();renderAll();
+  }
+
+  function exportPack() {
+    const pack={version:1,exportedAt:new Date().toISOString(),jointNames:JOINTS,bones:BONES,poses:state.poses.map(({imageData,...p})=>p),queue:state.queue,lastScores:state.lastScores};
+    const blob=new Blob([JSON.stringify(pack,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='rig-motion-training-pack.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),500);
+  }
+
+  function newPose() {
+    const id=`pose-${Date.now()}`;state.poses.unshift({id,name:'未命名骨骼动作',category:'自定义',angle:'正面',phase:'关键姿势',fps:12,tags:['手动创建'],frames:[basePose()]});state.selectedId=id;state.frameIndex=0;resetTrainee(true);save();renderAll();openMeta();
+  }
+
+  function openMeta(){const p=selectedPose();if(!p)return;els.metaName.value=p.name||'';els.metaCategory.value=[...els.metaCategory.options].some(o=>o.value===p.category)?p.category:'自定义';els.metaAngle.value=p.angle||'';els.metaPhase.value=p.phase||'';els.metaTags.value=(p.tags||[]).join(', ');els.dialog.showModal();}
+  function saveMeta(ev){ev.preventDefault();const p=selectedPose();if(!p)return;p.name=els.metaName.value.trim()||p.name;p.category=els.metaCategory.value;p.angle=els.metaAngle.value.trim()||'未标注';p.phase=els.metaPhase.value.trim()||'未标注';p.tags=els.metaTags.value.split(/[,，]/).map(s=>s.trim()).filter(Boolean);save();els.dialog.close();renderAll();}
+
+  function escapeHtml(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  function escapeAttr(s){return escapeHtml(s).replace(/'/g,'&#39;');}
+
+  els.canvas.addEventListener('pointerdown',pointerDown);els.canvas.addEventListener('pointermove',pointerMove);els.canvas.addEventListener('pointerup',pointerUp);els.canvas.addEventListener('pointercancel',pointerUp);
+  window.addEventListener('resize',()=>{resizeCanvas();draw();});
+  $('prevFrame').addEventListener('click',()=>nextFrame(-1));$('nextFrame').addEventListener('click',()=>nextFrame(1));$('playBtn').addEventListener('click',togglePlay);
+  $('resetPoseBtn').addEventListener('click',()=>resetTrainee());
+  $('gridToggle').addEventListener('click',e=>{state.showGrid=!state.showGrid;e.currentTarget.classList.toggle('active',state.showGrid);draw();});
+  $('ghostToggle').addEventListener('click',e=>{state.showGhost=!state.showGhost;e.currentTarget.classList.toggle('active',state.showGhost);draw();});
+  $('labelsToggle').addEventListener('click',e=>{state.showLabels=!state.showLabels;e.currentTarget.classList.toggle('active',state.showLabels);draw();});
+  els.search.addEventListener('input',e=>{state.search=e.target.value;renderLibrary();});
+  els.filterRow.addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(!b)return;state.filter=b.dataset.filter;els.filterRow.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active',x===b));renderLibrary();});
+  $('modeTabs').addEventListener('click',e=>{const b=e.target.closest('[data-mode]');if(!b)return;state.mode=b.dataset.mode;$('modeTabs').querySelectorAll('.mode-tab').forEach(x=>x.classList.toggle('active',x===b));els.hint.textContent=state.mode==='inspect'?'拆解模式：观察中线、肩髋倾斜与负空间':state.mode==='compare'?'叠加模式：白色为你的骨架，黄色为参考骨架':'拖拽关节点临摹参考骨架 · 松手后自动计算误差';});
+  $('fileInput').addEventListener('change',e=>importFiles(e.target.files));
+  $('exportBtn').addEventListener('click',exportPack);$('newPoseBtn').addEventListener('click',newPose);$('editMetaBtn').addEventListener('click',openMeta);$('saveMetaBtn').addEventListener('click',saveMeta);
+  $('addQueueBtn').addEventListener('click',()=>{const p=selectedPose();if(p&&!state.queue.includes(p.id)){state.queue.push(p.id);save();renderQueue();}});
+  ['dragenter','dragover'].forEach(type=>$('dropZone').addEventListener(type,e=>{e.preventDefault();$('dropZone').classList.add('drag');}));
+  ['dragleave','drop'].forEach(type=>$('dropZone').addEventListener(type,e=>{e.preventDefault();$('dropZone').classList.remove('drag');}));
+  $('dropZone').addEventListener('drop',e=>importFiles(e.dataTransfer.files));
+  window.addEventListener('keydown',e=>{if(els.dialog.open)return;if(e.key==='ArrowLeft')nextFrame(-1);if(e.key==='ArrowRight')nextFrame(1);if(e.code==='Space'){e.preventDefault();togglePlay();}if(e.key.toLowerCase()==='r')resetTrainee();});
+
+  load();
+})();
+
+  </script>
+</body>
+</html>
