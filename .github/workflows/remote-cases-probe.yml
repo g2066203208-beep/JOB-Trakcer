@@ -1,0 +1,27 @@
+name: Probe Remote Spine Cases
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe PRTS case files
+        shell: bash
+        run: |
+          set -euxo pipefail
+          base="https://torappu.prts.wiki/assets/char_spine/char_003_kalts/defaultskin/front/char_003_kalts"
+          for ext in json skel atlas png; do
+            code=$(curl -L -A "Mozilla/5.0" -sS -o "/tmp/kalts.$ext" -w "%{http_code}" "$base.$ext" || true)
+            bytes=$(wc -c < "/tmp/kalts.$ext" 2>/dev/null || echo 0)
+            echo "$ext HTTP=$code bytes=$bytes"
+          done
+          base2="https://torappu.prts.wiki/assets/char_spine/char_293_thorns/char_293_thorns_it_1/front/char_293_thorns_it_1"
+          for ext in json skel atlas png; do
+            code=$(curl -L -A "Mozilla/5.0" -sS -o "/tmp/thorns.$ext" -w "%{http_code}" "$base2.$ext" || true)
+            bytes=$(wc -c < "/tmp/thorns.$ext" 2>/dev/null || echo 0)
+            echo "skin-$ext HTTP=$code bytes=$bytes"
+          done
