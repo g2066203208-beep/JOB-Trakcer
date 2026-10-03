@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高效一周学习总控台</title>
+<style>
+:root{
+  --bg:#f4f1e9;--paper:#fffdf8;--ink:#22201c;--muted:#706b63;--line:#ddd6ca;
+  --accent:#9d3025;--green:#2e7057;--soft:#eee8dc;--blue:#395d77;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1280px;margin:auto;padding:28px 18px 70px}
+a{color:inherit}
+.hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.ey{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:800}
+h1{margin:6px 0 6px;font-size:38px}.sub{color:var(--muted);line-height:1.7}.date{font-weight:800}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px}
+.kpi b{font-size:21px;display:block}.kpi span{font-size:12px;color:var(--muted)}
+.notice{background:var(--soft);border-left:4px solid var(--accent);padding:14px 16px;margin:16px 0;line-height:1.7}
+.progressbox{display:flex;gap:14px;align-items:center;margin:14px 0 24px}
+.progress{height:10px;background:#e8e1d5;border-radius:999px;overflow:hidden;flex:1}.progress i{display:block;height:100%;width:0;background:var(--green);transition:.2s}
+#progressText{font-size:13px;color:var(--muted);min-width:90px;text-align:right}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:28px 0 10px}
+.section-title h2{margin:0;font-size:24px}.section-title span{font-size:12px;color:var(--muted)}
+.tablewrap{overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:1060px}
+th,td{border-bottom:1px solid var(--line);padding:13px 12px;vertical-align:top;text-align:left}
+th{font-size:12px;color:var(--muted);background:#faf7f0;position:sticky;top:0}
+td.time{white-space:nowrap;font-weight:800;width:115px}
+td.module{font-weight:800;width:130px}
+tr.now{outline:2px solid var(--accent);outline-offset:-2px;background:#fff8ef}
+.task{display:flex;gap:10px;line-height:1.5}
+.task input{margin-top:4px;accent-color:var(--green)}
+.daygrid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.day{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:14px;min-height:280px}
+.day.today{border:2px solid var(--accent)}
+.day h3{margin:0 0 8px;font-size:17px}.day .d{font-size:11px;color:var(--muted)}
+.day ul{padding-left:18px;margin:10px 0 0}.day li{margin:7px 0;font-size:13px;line-height:1.45}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 7px;font-size:11px;color:var(--muted)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rule{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;line-height:1.75}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.links a{text-decoration:none;border:1px solid var(--line);background:var(--paper);padding:9px 12px;border-radius:10px}
+.small{font-size:12px;color:var(--muted)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.daygrid{grid-template-columns:1fr 1fr}.rules{grid-template-columns:1fr}}
+@media(max-width:560px){h1{font-size:30px}.daygrid,.kpis{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+  <div>
+    <div class="ey">WEEKLY EXECUTION DASHBOARD</div>
+    <h1>高效一周学习总控台</h1>
+    <div class="sub">执行周期 <span class="date">2026/10/05–10/11</span>。10/04 只做启动整理：错题归档、岗位池、论文材料、六级资料，不额外堆新任务。</div>
+  </div>
+  <div class="small">原则：产出优先 ＞ 时长优先 ＞ 完美主义</div>
+</section>
+
+<section class="kpis">
+  <div class="kpi"><b>14h</b><span>行测 / 周</span></div>
+  <div class="kpi"><b>7h</b><span>申论 / 周</span></div>
+  <div class="kpi"><b>21h</b><span>秋招（投递+能力）/ 周</span></div>
+  <div class="kpi"><b>9h20m</b><span>大论文 / 周</span></div>
+  <div class="kpi"><b>7h</b><span>六级 / 周</span></div>
+</section>
+
+<div class="notice">
+  <b>每天固定节奏：</b>08:30 行测 → 10:40 申论 → 13:30 秋招核心 → 15:40 大论文 → 19:00 六级 → 20:10 秋招能力 → 21:10 收尾。<br>
+  两小时块用 <b>50+10+50+10</b>，一小时块用 <b>45+15</b>。每个块结束必须留下“看得见的结果”。
+</div>
+
+<div class="progressbox">
+  <div class="progress"><i id="bar"></i></div>
+  <div id="progressText">0 / 49 完成</div>
+</div>
+
+<div class="section-title"><h2>每天时间表</h2><span>勾选会保存在本浏览器</span></div>
+<div class="tablewrap">
+<table>
+<thead><tr><th>时间</th><th>模块</th><th>周一 10/05</th><th>周二 10/06</th><th>周三 10/07</th><th>周四 10/08</th><th>周五 10/09</th><th>周六 10/10</th><th>周日 10/11</th></tr></thead>
+<tbody id="schedule">
+<tr data-start="08:30" data-end="10:30">
+<td class="time">08:30–10:30</td><td class="module">行测</td>
+<td><label class="task"><input type="checkbox" data-id="m-xc"><span><b>资料分析</b><br>40题限时；整理公式/速算；错题二刷10题。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="t-xc"><span><b>判断推理</b><br>图推20 + 定义20 + 类比20 + 逻辑20，按错因分类。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="w-xc"><span><b>数量关系</b><br>高频模型：工程、行程、利润、排列组合；30–40题。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="th-xc"><span><b>言语理解</b><br>主旨/意图/逻辑填空，60题限时；记录犹豫题。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="f-xc"><span><b>资料+判断混合</b><br>按考试速度做，重点练节奏切换。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="sa-xc"><span><b>整套行测模拟</b><br>严格计时；考后只做数据统计，不边做边查。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="su-xc"><span><b>错题复盘</b><br>重做本周错题；找最弱两类再各补15题。</span></label></td>
+</tr>
+<tr data-start="10:40" data-end="11:40">
+<td class="time">10:40–11:40</td><td class="module">申论</td>
+<td><label class="task"><input type="checkbox" data-id="m-sl"><span>白鹭 DAY60：推进1天；审题→圈点→合并→答案→对照。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="t-sl"><span>推进1天；强制练“条=合并、理=提炼”。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="w-sl"><span>推进1天；限时圈材料，长句按动作链找点。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="th-sl"><span>推进1天；重点练前置提炼词，不擅自造词。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="f-sl"><span>推进1天；完成后回看本周前4天错误。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="sa-sl"><span>限时完整作答1题；写完再对照白鹭讲法。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="su-sl"><span>周复盘：重写本周最差1题，更新学习日记。</span></label></td>
+</tr>
+<tr data-start="13:30" data-end="15:30">
+<td class="time">13:30–15:30</td><td class="module">秋招核心</td>
+<td><label class="task"><input type="checkbox" data-id="m-job"><span><b>岗位池</b><br>筛20个→重点8个；定制简历2版；投递6–8个。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="t-job"><span><b>定向投递</b><br>重点岗位JD拆解；改关键词；投递6–8个；跟进昨天。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="w-job"><span><b>笔试/测评日</b><br>优先处理测评与截止近岗位；空档再投递4–6个。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="th-job"><span><b>公司研究</b><br>目标公司5家：业务/岗位/面经；投递高匹配岗位。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="f-job"><span><b>状态清理</b><br>跟进本周投递；补空缺；拒绝低匹配无效海投。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="sa-job"><span><b>笔试集中处理</b><br>机考/测评/作业优先；无任务则更新作品/项目材料。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="su-job"><span><b>周复盘</b><br>统计投递→笔试→面试转化；确定下周Top 10岗位。</span></label></td>
+</tr>
+<tr data-start="15:40" data-end="17:00">
+<td class="time">15:40–17:00</td><td class="module">大论文</td>
+<td><label class="task"><input type="checkbox" data-id="m-paper"><span>文献2篇 + 结构笔记；明确本周要完成的小节。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="t-paper"><span>实验/代码主任务；必须产出可复现结果或明确报错记录。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="w-paper"><span>数据处理/图表；至少完成1张可进论文的图或表。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="th-paper"><span>正文写作：600–1000字，不边写边无限查资料。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="f-paper"><span>本周内容整合：图表+文字+引用；清掉明显缺口。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="sa-paper"><span>难点攻坚：只解决一个最卡的问题，留下过程记录。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="su-paper"><span>轻复盘：整理文件、版本、参考文献；列下周3个里程碑。</span></label></td>
+</tr>
+<tr data-start="19:00" data-end="20:00">
+<td class="time">19:00–20:00</td><td class="module">六级</td>
+<td><label class="task"><input type="checkbox" data-id="m-cet"><span>核心词60 + 听力1组；精听错句。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="t-cet"><span>核心词60 + 阅读2篇；定位错因。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="w-cet"><span>核心词60 + 听力1组；跟读10分钟。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="th-cet"><span>翻译1篇 + 作文1篇框架；整理表达10条。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="f-cet"><span>阅读+词汇错题回炉；限时完成。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="sa-cet"><span>真题半套/整套，严格计时；记录分项正确率。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="su-cet"><span>本周错词+错题复盘；筛下周高频薄弱项。</span></label></td>
+</tr>
+<tr data-start="20:10" data-end="21:10">
+<td class="time">20:10–21:10</td><td class="module">秋招能力</td>
+<td><label class="task"><input type="checkbox" data-id="m-int"><span>1分钟/3分钟自我介绍 + 2个STAR项目故事。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="t-int"><span>专业八股/基础题30个；不会的单列而非抄答案。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="w-int"><span>项目深挖：背景、难点、你的贡献、指标、复盘。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="th-int"><span>手撕/笔试题或岗位专业题；限时1小时。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="f-int"><span>模拟面试：录音/录像30分钟 + 复盘30分钟。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="sa-int"><span>面经集中练：高频题10个，答案压到1–2分钟。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="su-int"><span>能力复盘：把本周不会的题整理成下周清单。</span></label></td>
+</tr>
+<tr data-start="21:10" data-end="21:30">
+<td class="time">21:10–21:30</td><td class="module">收尾</td>
+<td><label class="task"><input type="checkbox" data-id="m-end"><span>记录行测正确率、申论进度、投递数、论文产出、六级完成度；写明天前三件事。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="t-end"><span>同上；只记数据和问题，不写长日记。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="w-end"><span>检查一周中段是否偏科；必要时调整周四周五。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="th-end"><span>更新错题/岗位状态/论文版本。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="f-end"><span>统计工作日完成率；把积压最多的一项放到周六。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="sa-end"><span>模拟结果和弱项落表；周日只补最关键缺口。</span></label></td>
+<td><label class="task"><input type="checkbox" data-id="su-end"><span>周总结：完成率、转化率、薄弱项；排下周计划。</span></label></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="section-title"><h2>本周7天重点</h2><span>每天只有一个“主矛盾”</span></div>
+<div class="daygrid">
+<div class="day" data-dow="1"><div class="d">MON · 10/05</div><h3>建立节奏</h3><span class="tag">资料分析</span><ul><li>秋招建立高质量岗位池</li><li>论文明确本周小节</li><li>六级回到固定训练</li></ul></div>
+<div class="day" data-dow="2"><div class="d">TUE · 10/06</div><h3>大量输入</h3><span class="tag">判断推理</span><ul><li>定向投递，不海投</li><li>论文实验/代码</li><li>六级阅读</li></ul></div>
+<div class="day" data-dow="3"><div class="d">WED · 10/07</div><h3>攻克薄弱</h3><span class="tag">数量关系</span><ul><li>优先笔试测评</li><li>论文产出图表</li><li>项目表达深挖</li></ul></div>
+<div class="day" data-dow="4"><div class="d">THU · 10/08</div><h3>输出强化</h3><span class="tag">言语理解</span><ul><li>公司研究+高匹配投递</li><li>论文正文写作</li><li>六级写译</li></ul></div>
+<div class="day" data-dow="5"><div class="d">FRI · 10/09</div><h3>限时混合</h3><span class="tag">资料+判断</span><ul><li>清理秋招状态</li><li>论文周内容整合</li><li>模拟面试</li></ul></div>
+<div class="day" data-dow="6"><div class="d">SAT · 10/10</div><h3>真实模拟</h3><span class="tag">整套行测</span><ul><li>申论完整限时题</li><li>笔试/面经集中处理</li><li>六级真题模拟</li></ul></div>
+<div class="day" data-dow="0"><div class="d">SUN · 10/11</div><h3>复盘收口</h3><span class="tag">错题周复盘</span><ul><li>不开无关新坑</li><li>看转化率而非投递数量</li><li>安排下周三个里程碑</li></ul></div>
+</div>
+
+<div class="section-title"><h2>验收标准</h2><span>“完成”必须能被检查</span></div>
+<div class="rules">
+<div class="rule"><b>考公</b><br>行测：记录题量、正确率、用时、错因；周六整套模拟。<br>申论：每天推进白鹭DAY60，必须留下圈点/合并逻辑/最终答案或复盘。</div>
+<div class="rule"><b>秋招</b><br>每天有投递/跟进/笔试/面试至少一项真实推进；每个岗位有状态。周日看“投递→笔试→面试”转化，不只看投递总数。</div>
+<div class="rule"><b>大论文</b><br>每天至少留下一个版本可见产物：新增正文、图表、实验结果、代码记录或文献笔记。禁止“看了一下午文献但没有记录”。</div>
+<div class="rule"><b>六级</b><br>词汇贯穿，听力/阅读/写译轮换；周六真题检验，周日只复盘错误。每周至少一次完整或接近完整计时训练。</div>
+</div>
+
+<div class="links">
+<a href="../考公工作室/">进入考公工作室</a>
+<a href="../考公工作室/行测/">行测周训练</a>
+<a href="../考公工作室/申论DAY60/">申论 DAY60</a>
+</div>
+</main>
+<script>
+const key='weekly-plan-2026-10-05';
+const checks=[...document.querySelectorAll('input[type=checkbox]')];
+const saved=JSON.parse(localStorage.getItem(key)||'{}');
+checks.forEach(c=>{c.checked=!!saved[c.dataset.id];c.addEventListener('change',()=>{saved[c.dataset.id]=c.checked;localStorage.setItem(key,JSON.stringify(saved));update();});});
+function update(){const n=checks.filter(c=>c.checked).length;document.getElementById('bar').style.width=(n/checks.length*100)+'%';document.getElementById('progressText').textContent=n+' / '+checks.length+' 完成';}
+update();
+const now=new Date(), dow=now.getDay();
+document.querySelectorAll('.day').forEach(x=>{if(+x.dataset.dow===dow)x.classList.add('today')});
+function mins(s){const [h,m]=s.split(':').map(Number);return h*60+m}
+const cur=now.getHours()*60+now.getMinutes();
+document.querySelectorAll('#schedule tr[data-start]').forEach(r=>{if(cur>=mins(r.dataset.start)&&cur<mins(r.dataset.end))r.classList.add('now')});
+</script>
+</body>
+</html>
