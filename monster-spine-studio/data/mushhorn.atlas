@@ -1,0 +1,134 @@
+monster_atlas_small.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pma: false
+
+shell
+  rotate: false
+  xy: 2, 2
+  size: 221, 159
+  orig: 221, 159
+  offset: 0, 0
+  index: -1
+
+body
+  rotate: false
+  xy: 226, 2
+  size: 185, 130
+  orig: 185, 130
+  offset: 0, 0
+  index: -1
+
+head
+  rotate: false
+  xy: 2, 164
+  size: 136, 112
+  orig: 136, 112
+  offset: 0, 0
+  index: -1
+
+antenna_left
+  rotate: false
+  xy: 141, 164
+  size: 56, 100
+  orig: 56, 100
+  offset: 0, 0
+  index: -1
+
+tail_base
+  rotate: false
+  xy: 200, 164
+  size: 84, 97
+  orig: 84, 97
+  offset: 0, 0
+  index: -1
+
+antenna_right
+  rotate: false
+  xy: 287, 164
+  size: 75, 84
+  orig: 75, 84
+  offset: 0, 0
+  index: -1
+
+tail_tip
+  rotate: false
+  xy: 365, 164
+  size: 70, 80
+  orig: 70, 80
+  offset: 0, 0
+  index: -1
+
+leg_front_upper
+  rotate: false
+  xy: 2, 279
+  size: 92, 70
+  orig: 92, 70
+  offset: 0, 0
+  index: -1
+
+leg_front_lower
+  rotate: false
+  xy: 97, 279
+  size: 92, 68
+  orig: 92, 68
+  offset: 0, 0
+  index: -1
+
+leg_mid_upper
+  rotate: false
+  xy: 192, 279
+  size: 78, 64
+  orig: 78, 64
+  offset: 0, 0
+  index: -1
+
+leg_far_upper
+  rotate: false
+  xy: 273, 279
+  size: 75, 63
+  orig: 75, 63
+  offset: 0, 0
+  index: -1
+
+leg_back_upper
+  rotate: false
+  xy: 351, 279
+  size: 84, 61
+  orig: 84, 61
+  offset: 0, 0
+  index: -1
+
+leg_far_lower
+  rotate: false
+  xy: 438, 279
+  size: 56, 61
+  orig: 56, 61
+  offset: 0, 0
+  index: -1
+
+leg_mid_lower
+  rotate: false
+  xy: 2, 352
+  size: 75, 57
+  orig: 75, 57
+  offset: 0, 0
+  index: -1
+
+leg_back_lower
+  rotate: false
+  xy: 80, 352
+  size: 82, 52
+  orig: 82, 52
+  offset: 0, 0
+  index: -1
+
+eye_glow
+  rotate: false
+  xy: 165, 352
+  size: 50, 52
+  orig: 50, 52
+  offset: 0, 0
+  index: -1
