@@ -25,29 +25,21 @@ jobs:
               bytes=$(wc -c < "/tmp/probe.$ext" 2>/dev/null || echo 0)
               echo "$ext HTTP=$code bytes=$bytes"
               if [ "$ext" = "skel" ] && [ "$code" = "200" ]; then
-                python3 - <<'PY'
-p="/tmp/probe.skel"
-b=open(p,"rb").read()
-i=0
+                python3 -c 'b=open("/tmp/probe.skel","rb").read(); i=0
 def vint():
  global i
- r=0;s=0
+ r=s=0
  while True:
-  x=b[i];i+=1;r|=(x&127)<<s
-  if x<128:return r
+  x=b[i]; i+=1; r|=(x&127)<<s
+  if x<128: return r
   s+=7
-def string():
+def st():
+ global i
  n=vint()
  if n==0:return None
  if n==1:return ""
- n-=1
- global i
- z=b[i:i+n];i+=n
- return z.decode("utf-8","replace")
-try:
- print("SKEL_HEADER",string(),string())
-except Exception as e: print("HEADER_ERR",e)
-PY
+ n-=1; z=b[i:i+n]; i+=n; return z.decode("utf-8","replace")
+print("SKEL_HEADER",st(),st())'
               fi
             done
           done
