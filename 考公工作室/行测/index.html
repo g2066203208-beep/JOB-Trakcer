@@ -18,15 +18,14 @@ button{border:1px solid var(--line);background:var(--ink);color:#fff;border-radi
 <div class="top"><h1>行测 · 一周高效训练</h1><div class="sub">每天 08:30–10:30。题目不再临时找：已经按上传讲义固定到每天任务里。</div></div>
 
 <section class="today">
-<h2>今天 10/04 · 资料分析启动摸底：40题</h2>
-<div class="material"><b>唯一用题：</b>《2027资料分析-夸夸刷-必考题型专项拔高》<br>
-<b>第一章「基期」：</b>PDF 第13–16页「小试牛刀」10题 + PDF 第17–32页「渐入佳境」30题 = <b>40题</b>。<br>
-今天先不跳章节，不混其他题。做题过程中不要提前看每组末尾答案。</div>
+<h2>今天 10/04 · 资料分析实际进度：已到第43页</h2>
+<div class="material"><b>实际进度已纠正：</b>《2027资料分析-夸夸刷-必考题型专项拔高》已经做到 <b>PDF第43页</b>，第一章「基期」已完成，并已进入第二章「现期」。<br>
+<b>今天从第44页继续：</b>先完成第44–47页，把“现期”例题与优化习惯这一小段收掉；不再重复前面的40题。</div>
 <div class="steps">
-<div class="step"><b>① 60分钟</b><br>连续完成40题，卡题先标记后跳。</div>
-<div class="step"><b>② 10分钟</b><br>休息，不对答案。</div>
-<div class="step"><b>③ 40分钟</b><br>对答案，只复盘错题和超时题。</div>
-<div class="step"><b>④ 10分钟</b><br>记录正确率、用时、5类错因。</div>
+<div class="step"><b>① 从第44页开始</b><br>按顺序做，不回头重复基期。</div>
+<div class="step"><b>② 做到第47页</b><br>完成现期例题与优化习惯。</div>
+<div class="step"><b>③ 对答案</b><br>只复盘错题、慢题和不确定题。</div>
+<div class="step"><b>④ 记录进度</b><br>下一起点固定为第48页。</div>
 </div>
 <div class="log">
 <label>做对题数 / 40<input id="correct" type="number" min="0" max="40"></label>
@@ -52,7 +51,7 @@ button{border:1px solid var(--line);background:var(--ink);color:#fff;border-radi
 <div class="links"><a href="./资料/">资料索引</a><a href="../../学习资料/">总资料库</a></div>
 </main>
 <script>
-const KEY='xingce-2026-10-04-base40',ids=['correct','minutes','slow','redo','errors'];
+const KEY='xingce-2026-10-04-page43',ids=['correct','minutes','slow','redo','errors'];
 const s=JSON.parse(localStorage.getItem(KEY)||'{}');ids.forEach(id=>{if(s[id]!==undefined)document.getElementById(id).value=s[id]});
 document.getElementById('save').onclick=()=>{const x={};ids.forEach(id=>x[id]=document.getElementById(id).value);localStorage.setItem(KEY,JSON.stringify(x));document.getElementById('saved').textContent='已保存';setTimeout(()=>document.getElementById('saved').textContent='',1600)};
 </script></body></html>
