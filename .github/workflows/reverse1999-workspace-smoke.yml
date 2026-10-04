@@ -1,0 +1,117 @@
+name: Reverse 1999 Workspace Smoke
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "app.js"
+      - "index.html"
+      - "styles.css"
+      - "spine38-host.html"
+      - "vendor/spine38canvas.js"
+      - "data/reverse1999-study/**"
+      - ".github/workflows/reverse1999-workspace-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: browser-actions/setup-chrome@v1
+      - run: python3 -m pip install --quiet selenium
+      - name: Verify 1999 case in main Rig Motion Lab workspace
+        env:
+          URL: https://g2066203208-beep.github.io/JOB-Trakcer/
+        run: |
+          set -euo pipefail
+          for i in {1..60}; do
+            if curl -fsSL "$URL" | grep -q "v0.8.6"; then break; fi
+            sleep 3
+          done
+          python3 - <<'PY'
+          import os,time,json
+          from selenium import webdriver
+          from selenium.webdriver.chrome.options import Options
+          from selenium.webdriver.common.by import By
+          from selenium.webdriver.support.ui import Select
+
+          o=Options()
+          o.add_argument("--headless=new")
+          o.add_argument("--no-sandbox")
+          o.add_argument("--disable-gpu")
+          o.add_argument("--enable-unsafe-swiftshader")
+          o.add_argument("--window-size=1700,1050")
+          o.set_capability("goog:loggingPrefs",{"browser":"ALL"})
+          d=webdriver.Chrome(options=o)
+          d.get(os.environ["URL"])
+          time.sleep(3)
+
+          d.find_element(By.CSS_SELECTOR,'[data-left="r1999"]').click()
+          time.sleep(.5)
+          cards=d.find_elements(By.CSS_SELECTOR,'[data-r1999-workspace]')
+          assert cards, "workspace38 card missing"
+          cards[0].click()
+
+          for _ in range(120):
+              if d.execute_script("return !!window.SPINE38_WORKSPACE?.ready"):
+                  break
+              time.sleep(.25)
+
+          info=d.execute_script("""
+            const f=document.querySelector('#spine38Host'),api=f?.contentWindow?.SPINE38_HOST;
+            return {
+              project:state.project?.name||null,
+              version:state.project?.skeleton?.spine||null,
+              bones:state.project?.bones?.length||0,
+              slots:state.project?.slots?.length||0,
+              animations:Object.keys(state.project?.animations||{}),
+              source:state.project?.source?.runtime||null,
+              ready:!!window.SPINE38_WORKSPACE?.ready,
+              error:window.SPINE38_WORKSPACE?.error||null,
+              bridge:api?.getInfo?.()||null,
+              hud:document.querySelector('#hud')?.textContent||'',
+              canvas:[document.querySelector('#stage')?.width||0,document.querySelector('#stage')?.height||0]
+            }
+          """)
+          print("INFO="+json.dumps(info,ensure_ascii=False))
+          print("LOG="+json.dumps(d.get_log("browser"),ensure_ascii=False))
+          assert info["ready"] is True and not info["error"], info
+          assert info["source"]=="spine38", info
+          assert info["version"]=="3.8.95", info
+          assert info["bones"]==42 and info["slots"]==16, info
+          assert {"idle","move","born"}.issubset(set(info["animations"])), info
+          assert info["bridge"]["bones"]==42 and info["bridge"]["slots"]==16, info
+          assert "Spine 3.8 Runtime" in info["hud"], info
+
+          Select(d.find_element(By.ID,"animSelect")).select_by_value("action:move")
+          time.sleep(.4)
+          d.find_element(By.ID,"playBtn").click()
+          t1=d.execute_script("return state.currentTime")
+          time.sleep(.8)
+          t2=d.execute_script("return state.currentTime")
+          assert t2>t1,(t1,t2)
+          active=d.execute_script("return document.querySelector('#spine38Host').contentWindow.SPINE38_HOST.getInfo().active")
+          assert active=="move",active
+
+          d.find_element(By.CSS_SELECTOR,'[data-ins="skin"]').click()
+          time.sleep(.3)
+          atlas=d.find_element(By.CSS_SELECTOR,".atlas-preview img")
+          for _ in range(20):
+              if d.execute_script("return arguments[0].naturalWidth",atlas)>0:
+                  break
+              time.sleep(.1)
+          dims=d.execute_script("return [arguments[0].naturalWidth,arguments[0].naturalHeight]",atlas)
+          assert dims==[512,512],dims
+
+          d.save_screenshot("/tmp/reverse1999-workspace.png")
+          d.quit()
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reverse1999-workspace
+          path: /tmp/reverse1999-workspace.png
+          if-no-files-found: ignore
