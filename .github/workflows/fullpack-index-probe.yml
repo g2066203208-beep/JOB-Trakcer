@@ -1,0 +1,55 @@
+name: Probe Fullpack Metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - "data/fullpack/**"
+      - ".github/workflows/fullpack-index-probe.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode local fullpack metadata
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64,gzip,json,glob
+          rows=[]
+          for fn in sorted(glob.glob("data/fullpack/pack-*.json")):
+              pack=json.load(open(fn,encoding="utf-8"))
+              for key,b64 in pack.items():
+                  try:
+                      raw=gzip.decompress(base64.b64decode(b64))
+                      d=json.loads(raw)
+                      src=d.get("source") or {}
+                      remote=d.get("remote") or {}
+                      rows.append({
+                          "key":key,
+                          "pack":fn.rsplit("/",1)[-1],
+                          "name":d.get("name"),
+                          "source_name":src.get("name"),
+                          "provider":src.get("provider"),
+                          "charKey":remote.get("charKey"),
+                          "costume":remote.get("costume"),
+                          "viewCode":remote.get("viewCode"),
+                          "stem":remote.get("stem"),
+                          "spine":(d.get("skeleton") or {}).get("spine"),
+                          "bones":len(d.get("bones") or []),
+                          "slots":len(d.get("slots") or []),
+                          "animations":list((d.get("animations") or {}).keys())[:12]
+                      })
+                  except Exception as e:
+                      rows.append({"key":key,"pack":fn.rsplit("/",1)[-1],"error":str(e)})
+          print("FULLPACK_META_BEGIN")
+          for r in rows:
+              print(json.dumps(r,ensure_ascii=False,separators=(",",":")))
+          print("FULLPACK_META_END")
+          print("TOTAL",len(rows))
+          PY
