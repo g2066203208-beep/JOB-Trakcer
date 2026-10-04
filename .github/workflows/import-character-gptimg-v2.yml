@@ -1,0 +1,56 @@
+name: Import GPT Image Character Parts V2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - ".github/workflows/import-character-gptimg-v2.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install image tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y imagemagick
+      - name: Download GPT Image generated master and independent parts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p character-spine-studio/assets/v2/raw character-spine-studio/assets/v2/parts
+
+          curl -L --fail --retry 3 "https://cdn.openart.ai/watermarked_images/Cgeu6Xk2VjI7NIZSc0kj/thumbnail_2f4b56de_1791075401917.webp" -o character-spine-studio/assets/v2/raw/master.webp
+          curl -L --fail --retry 3 "https://cdn.openart.ai/watermarked_images/Cgeu6Xk2VjI7NIZSc0kj/thumbnail_85154ca2_1791075502414.webp" -o character-spine-studio/assets/v2/raw/head_veil.webp
+          curl -L --fail --retry 3 "https://cdn.openart.ai/watermarked_images/Cgeu6Xk2VjI7NIZSc0kj/thumbnail_896af6e1_1791075499515.webp" -o character-spine-studio/assets/v2/raw/torso_skirt.webp
+          curl -L --fail --retry 3 "https://cdn.openart.ai/watermarked_images/Cgeu6Xk2VjI7NIZSc0kj/thumbnail_394334cd_1791075501490.webp" -o character-spine-studio/assets/v2/raw/upper_arm.webp
+          curl -L --fail --retry 3 "https://cdn.openart.ai/watermarked_images/Cgeu6Xk2VjI7NIZSc0kj/thumbnail_20bb1ca6_1791075506278.webp" -o character-spine-studio/assets/v2/raw/lower_arm.webp
+          curl -L --fail --retry 3 "https://cdn.openart.ai/watermarked_images/Cgeu6Xk2VjI7NIZSc0kj/thumbnail_3dd9b9f3_1791075551897.webp" -o character-spine-studio/assets/v2/raw/hand.webp
+          curl -L --fail --retry 3 "https://cdn.openart.ai/watermarked_images/Cgeu6Xk2VjI7NIZSc0kj/thumbnail_00a6e86e_1791075593283.webp" -o character-spine-studio/assets/v2/raw/thigh.webp
+          curl -L --fail --retry 3 "https://cdn.openart.ai/watermarked_images/Cgeu6Xk2VjI7NIZSc0kj/thumbnail_47882592_1791075512480.webp" -o character-spine-studio/assets/v2/raw/shin_boot.webp
+
+          # These are already independent GPT Image outputs.
+          # The only processing below removes empty transparent border and converts WebP transport copies to PNG.
+          convert character-spine-studio/assets/v2/raw/master.webp -trim +repage character-spine-studio/assets/v2/master_reference.png
+          for n in head_veil torso_skirt upper_arm lower_arm hand thigh shin_boot; do
+            convert "character-spine-studio/assets/v2/raw/${n}.webp" -trim +repage "character-spine-studio/assets/v2/parts/${n}.png"
+          done
+
+          identify character-spine-studio/assets/v2/master_reference.png
+          identify character-spine-studio/assets/v2/parts/*.png
+      - name: Commit imported assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add character-spine-studio/assets/v2
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "art: import independent GPT Image character parts v2"
+          git push
