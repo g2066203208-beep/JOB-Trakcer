@@ -74,10 +74,43 @@ async function ensureSkeletonBinaryConverter(){
  await loadOneOf(['vendor/SkeletonBinary3.5.js?v=0.8.2'],'spine35-binary-converter');
  if(!window.SkeletonBinary35)throw new Error('Spine 3.5.51 二进制转换器未初始化')
 }
+const localPack48Cache=new Map();
+let localPack48IndexPromise=null;
+async function decodeGzipCaseB64(b64){
+ const bin=Uint8Array.from(atob(b64),x=>x.charCodeAt(0));
+ if(!('DecompressionStream' in window))throw new Error('当前浏览器不支持 gzip 解压');
+ const stream=new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'));
+ return JSON.parse(await new Response(stream).text())
+}
+async function localPack48Index(){
+ if(!localPack48IndexPromise)localPack48IndexPromise=fetch('data/fullpack48/index.json',{cache:'force-cache'}).then(r=>{if(!r.ok)throw new Error('fullpack48 index HTTP '+r.status);return r.json()});
+ return localPack48IndexPromise
+}
+async function fetchLocalPackedCase(c){
+ const rawStem=String(c.remote?.stem||''),code=c.remote?.viewCode;
+ if(!rawStem||!code)return null;
+ let idx;try{idx=await localPack48Index()}catch(e){console.warn('Local pack index unavailable',e);return null}
+ const exact=code+'|'+rawStem,normalized=code+'|'+rawStem.replace(/#/g,'_');
+ const pack=idx.keys?.[exact]||idx.keys?.[normalized];if(!pack)return null;
+ let obj=localPack48Cache.get(pack);
+ if(!obj){
+  const r=await fetch('data/fullpack48/'+pack,{cache:'force-cache'});if(!r.ok)throw new Error(pack+' HTTP '+r.status);
+  obj=await r.json();localPack48Cache.set(pack,obj)
+ }
+ const b64=obj[exact]||obj[normalized];if(!b64)return null;
+ const d=await decodeGzipCaseB64(b64);
+ d.source={...(d.source||{}),name:c.title,provider:'仓库本地 fullpack48',localPack:pack,remote:false};
+ d.remote={...c.remote,localPack:pack};
+ return d
+}
 async function fetchRemoteCaseData(c){
  if(remoteCaseCache.has(c.id))return deep(remoteCaseCache.get(c.id));
- const candidates=remoteAssetCandidates(c.remote),failures=[];
  $('#hud').textContent='正在加载 '+c.title+' …';
+ try{
+  const local=await fetchLocalPackedCase(c);
+  if(local){remoteCaseCache.set(c.id,deep(local));return local}
+ }catch(e){console.warn('Local fullpack48 load failed',c,e)}
+ const candidates=remoteAssetCandidates(c.remote),failures=[];
  await ensureSkeletonBinaryConverter();
  for(const urls of candidates){
   try{
@@ -247,7 +280,7 @@ function renderMeta(){if(!state.project){$('#footProject').textContent='未加�
 function renderAnimSelect(){const s=$('#animSelect');if(!state.project){s.innerHTML='<option>无动画</option>';return}const names=Object.keys(state.project.animations);s.innerHTML=(names.length?names:['Setup Pose']).map(n=>`<option ${n===state.project.activeAnimation?'selected':''}>${esc(n)}</option>`).join('')}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-function renderLeft(){const q=$('#leftSearch').value?.trim().toLowerCase()||'',pane=$('#leftPane');if(state.leftTab==='cases'){const list=state.manifest.filter(c=>((c.title||'')+' '+(c.character||'')+' '+(c.costume||'')+' '+(c.view||'')+' '+(c.animations||[]).join(' ')).toLowerCase().includes(q));pane.innerHTML=`<div class="section-title"><span>动作语料 ${list.length}${q?' / '+state.manifest.length:''}</span><span class="badge">425 工程</span></div><div class="note">阿米娅 12 个内置工程本地读取；其余旧案例使用 <b>PRTS 双源加载</b>：新资源地址优先、旧 static 地址自动回退，并修正旧资料里 <code># → _</code> 的历史文件名问题。仓库案例只读，修改请另存。</div>`+list.map(c=>`<div class="case-card ${state.sourceCase?.id===c.id?'active':''}" data-case="${c.id}"><div class="case-title">${esc(c.title)}</div><div class="case-meta"><span class="badge">${c.bones} bones</span><span class="badge">${c.slots||0} slots</span><span class="badge">${c.remote?'双源按需加载':'内置'}</span><span class="badge">${esc(c.view)}</span></div></div>`).join('')+`<div class="drop" id="dropZone">拖入 Spine JSON / ZIP<br>导入为新工程</div>`;document.querySelectorAll('[data-case]').forEach(el=>el.onclick=()=>loadCase(state.manifest.find(c=>c.id===el.dataset.case)));setupDrop();return}
+function renderLeft(){const q=$('#leftSearch').value?.trim().toLowerCase()||'',pane=$('#leftPane');if(state.leftTab==='cases'){const list=state.manifest.filter(c=>((c.title||'')+' '+(c.character||'')+' '+(c.costume||'')+' '+(c.view||'')+' '+(c.animations||[]).join(' ')).toLowerCase().includes(q));pane.innerHTML=`<div class="section-title"><span>动作语料 ${list.length}${q?' / '+state.manifest.length:''}</span><span class="badge">425 工程</span></div><div class="note">阿米娅 12 个内置工程本地读取；另有 <b>90 个 fullpack48 本地工程优先加载</b>。本地没有时才使用 PRTS 双源回退，并修正旧资料里 <code># → _</code> 的历史文件名问题。仓库案例只读，修改请另存。</div>`+list.map(c=>`<div class="case-card ${state.sourceCase?.id===c.id?'active':''}" data-case="${c.id}"><div class="case-title">${esc(c.title)}</div><div class="case-meta"><span class="badge">${c.bones} bones</span><span class="badge">${c.slots||0} slots</span><span class="badge">${c.remote?'双源按需加载':'内置'}</span><span class="badge">${esc(c.view)}</span></div></div>`).join('')+`<div class="drop" id="dropZone">拖入 Spine JSON / ZIP<br>导入为新工程</div>`;document.querySelectorAll('[data-case]').forEach(el=>el.onclick=()=>loadCase(state.manifest.find(c=>c.id===el.dataset.case)));setupDrop();return}
  if(state.leftTab==='r1999'){const list=(state.study1999||[]).filter(c=>((c.name||'')+' '+(c.nameEng||'')+' '+(c.category||'')+' '+(c.focus||[]).join(' ')).toLowerCase().includes(q));pane.innerHTML=`<div class="section-title"><span>Reverse: 1999 学习库 ${list.length}</span><span class="badge">Spine 4.2.36</span></div><div class="note">8 套精选样本已本地归档。这里使用独立的 <b>Spine 4.2 Player</b>，不会再拿主工作室的 3.5 Runtime 强行解析。点击角色后可切换 Fight / Room / UI。</div>`+list.map(c=>`<div class="case-card r1999-card" data-r1999="${esc(c.id)}"><div class="case-title">${esc(c.name)} <small>${esc(c.nameEng||'')}</small></div><div class="case-meta"><span class="badge">${esc(c.category)}</span><span class="badge">${Object.keys(c.files?.views||{}).length} views</span></div><div class="case-focus">${(c.focus||[]).map(esc).join(' · ')}</div></div>`).join('');$$('[data-r1999]').forEach(el=>el.onclick=()=>openR1999Study(state.study1999.find(c=>c.id===el.dataset.r1999)));return}
  if(state.leftTab==='bones'){if(!state.project){pane.innerHTML='<div class="empty">先加载一个工程</div>';return}const bones=state.project.bones,children=new Map();bones.forEach(b=>{if(!children.has(b.parent))children.set(b.parent,[]);children.get(b.parent).push(b)});let html='<div class="section-title"><span>骨骼层级</span><button id="addBoneSmall">＋</button></div>';function walk(parent,depth){for(const b of children.get(parent)||[]){if(!b.name.toLowerCase().includes(q)&&q){}else html+=`<div class="tree-row ${b.name===state.selectedBone?'active':''}" data-bone="${esc(b.name)}" style="padding-left:${depth*13}px"><span class="tw">${(children.get(b.name)||[]).length?'›':''}</span><span class="bone-dot"></span><span class="name">${esc(b.name)}</span>${b.locked?'🔒':''}${b.hidden?'◌':''}</div>`;walk(b.name,depth+1)}}walk(null,0);pane.innerHTML=html;$$('[data-bone]').forEach(el=>el.onclick=()=>{state.selectedBone=el.dataset.bone;renderLeft();renderInspector();renderTimeline()});$('#addBoneSmall').onclick=addBone;return}
  dbAll().then(items=>{pane.innerHTML='<div class="section-title"><span>本地工程</span><span>'+items.length+'</span></div>'+items.filter(x=>x.name.toLowerCase().includes(q)).map(p=>`<div class="case-card" data-project="${p.id}"><div class="case-title">${esc(p.name)}</div><div class="case-meta"><span class="badge">${p.bones?.length||0} bones</span><span>${new Date(p.updatedAt||p.createdAt).toLocaleString()}</span></div></div>`).join('')+'<div class="note">工程保存在当前浏览器 IndexedDB。使用“导出”可生成可迁移的工程 JSON。</div>';$$('[data-project]').forEach(el=>el.onclick=async()=>loadProject(await dbGet(el.dataset.project)))})}
