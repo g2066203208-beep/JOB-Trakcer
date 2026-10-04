@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090d16">
+<title>Reverse:1999 Reference · 人物骨骼动画工作室</title>
+<link rel="stylesheet" href="./style.css?v=1.0.1">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">◆</span><div><b>SPINE STUDIO · 1999 REFERENCE</b><small>原始 Spine 3.8.95 → 我们自己的骨骼动画工作室</small></div></div>
+  <nav class="top-tabs">
+    <button class="active" data-panel="animate">动画查看</button>
+    <button data-panel="parts">原始素材</button>
+    <button data-panel="rig">骨骼结构</button>
+    <button data-panel="export">文件</button>
+  </nav>
+  <div class="top-actions">
+    <span id="runtimeBadge" class="badge warn">Spine 3.8 检查中</span>
+    <button id="backToMain">返回角色工作室</button>
+    <button id="saveWorkspace">保存视图</button>
+    <button id="exportWorkspace" class="primary">导出参考</button>
+  </div>
+</header>
+
+<main class="workspace">
+  <aside class="left panel">
+    <section class="identity">
+      <canvas id="portraitCanvas" width="220" height="220"></canvas>
+      <div><p>当前参考案例</p><h1>地牢小人</h1><span>dilaoxiaoren · Reverse:1999</span></div>
+    </section>
+    <section>
+      <div class="section-title"><h3>读取状态</h3><span>PIPELINE</span></div>
+      <div class="pipeline">
+        <div class="pipe done"><b>01</b><div><strong>原始资源</strong><small>Reverse-1999-CN-Asset</small></div><i>✓</i></div>
+        <div class="pipe done"><b>02</b><div><strong>Atlas 素材</strong><small><span id="partCount">16</span> 个 Region</small></div><i>✓</i></div>
+        <div class="pipe done"><b>03</b><div><strong>Spine 绑定</strong><small><span id="boneCount">42</span> Bones / <span id="slotCount">16</span> Slots</small></div><i>✓</i></div>
+        <div class="pipe done"><b>04</b><div><strong>动画</strong><small>born / idle / move 等 8 组</small></div><i>✓</i></div>
+        <div class="pipe" id="qaPipe"><b>05</b><div><strong>本地 Runtime 自测</strong><small id="qaText">正在验证…</small></div><i>…</i></div>
+      </div>
+    </section>
+    <section>
+      <div class="section-title"><h3>动画列表</h3><span id="clipCount">8 CLIPS</span></div>
+      <div id="animList" class="anim-list"></div>
+    </section>
+    <section>
+      <div class="section-title"><h3>显示</h3><span>VIEW</span></div>
+      <div class="view-options">
+        <label><input id="skinToggle" type="checkbox" checked>角色皮肤</label>
+        <label><input id="rigToggle" type="checkbox">骨骼</label>
+        <label><input id="namesToggle" type="checkbox">骨名</label>
+        <label><input id="meshToggle" type="checkbox">Mesh 三角</label>
+        <label><input id="gridToggle" type="checkbox" checked>舞台网格</label>
+      </div>
+    </section>
+    <section class="policy">
+      <div class="section-title"><h3>参考规则</h3><span>READ ONLY</span></div>
+      <p><b>这里展示的是 1999 原始 Spine 素材，不改原数据。</b></p>
+      <p>用途是观察拆件、关节重叠、Mesh 形变、骨骼层级与动作节奏，作为我们自己的角色制作参考。</p>
+    </section>
+  </aside>
+
+  <section class="center">
+    <section class="stage panel">
+      <div class="stage-head">
+        <div><span>LOCAL SPINE 3.8 RUNTIME PREVIEW</span><h2 id="clipTitle">idle · Reverse:1999 原动画</h2></div>
+        <div class="stage-stats"><b id="statBones">— bones</b><b id="statSlots">— slots</b><b id="statFps">60 FPS</b></div>
+      </div>
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="stageCanvas"></canvas>
+        <div class="canvas-tip">我们自己的舞台 · 本地 Spine 3.8 Canvas Runtime · 点击骨点选择 · Alt+拖动平移 · 滚轮缩放</div>
+      </div>
+      <div class="transport">
+        <button id="prevFrame">◀|</button><button id="playPause" class="play">Ⅱ</button><button id="nextFrame">|▶</button>
+        <span id="timeText">0.000 / 0.000</span>
+        <input id="timeSlider" type="range" min="0" max="1" step=".001" value="0">
+        <select id="speedSelect"><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+        <button id="loopBtn" class="on">循环 ✓</button><button id="fitBtn">适配</button>
+      </div>
+    </section>
+    <section class="timeline panel">
+      <div class="timeline-head"><div><span>ORIGINAL DOPE SHEET</span><h3 id="timelineTitle">idle</h3></div><div class="legend"><i class="rot"></i>Rotate <i class="move"></i>Translate <i class="scale"></i>Scale</div></div>
+      <div class="timeline-scroll"><div id="timeRuler" class="time-ruler"></div><div id="tracks" class="tracks"></div><div id="playhead" class="playhead"></div></div>
+    </section>
+  </section>
+
+  <aside class="right panel">
+    <div class="ins-tabs">
+      <button class="active" data-ins="design">案例</button><button data-ins="parts">素材</button><button data-ins="bones">骨骼</button><button data-ins="clip">动画</button><button data-ins="files">文件</button>
+    </div>
+    <div id="inspector" class="inspector"></div>
+  </aside>
+
+  <section class="parts-strip panel">
+    <div class="parts-head"><div><span>ORIGINAL REVERSE:1999 ATLAS REGIONS</span><h3>原始素材拆件</h3></div><p>直接读取 dilaoxiaoren.png + .atlas；不是重新画，也不是截图。</p></div>
+    <div id="partsGrid" class="parts-grid"></div>
+  </section>
+</main>
+</div>
+<script src="./vendor/spine38canvas.js?v=1.0.0"></script>
+<script src="./reference-1999.js?v=1.0.0"></script>
+</body>
+</html>
