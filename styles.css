@@ -28,3 +28,7 @@
 .r1999-view-buttons{margin:10px 0;display:flex;gap:6px;flex-wrap:wrap}
 .r1999-player{height:min(56vh,540px);min-height:360px;margin:10px 0;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#080b10}
 #modal:has(.r1999-player){width:min(1000px,94vw)}
+
+#spine38Host{position:absolute;inset:0;z-index:0;width:100%;height:100%;border:0;background:#0c0f14;pointer-events:none}
+.atlas-preview{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:linear-gradient(45deg,#151b22 25%,transparent 25%) 0 0/16px 16px,linear-gradient(-45deg,#151b22 25%,transparent 25%) 0 8px/16px 16px,linear-gradient(45deg,transparent 75%,#151b22 75%) 8px -8px/16px 16px,linear-gradient(-45deg,transparent 75%,#151b22 75%) -8px 0/16px 16px,#0c1016}
+.atlas-preview img{display:block;width:100%;height:auto;max-height:260px;object-fit:contain}
