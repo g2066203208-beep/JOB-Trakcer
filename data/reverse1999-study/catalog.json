@@ -1,10 +1,31 @@
 {
-  "version": 2,
+  "version": 3,
   "sourceRepository": "myssal/Reverse-1999-CN-Asset",
   "sourceBranch": "master",
-  "importedAt": "2026-10-03",
+  "importedAt": "2026-10-04",
   "purpose": "Spine/L2D animation study reference for Rig Motion Lab",
   "samples": [
+    {
+      "id": "dilaoxiaoren-legacy38",
+      "name": "地牢小人",
+      "nameEng": "dilaoxiaoren",
+      "category": "00-small-rig",
+      "mode": "workspace38",
+      "focus": [
+        "小体量拆件",
+        "42 骨 / 16 Slot",
+        "Mesh 与 Deform",
+        "idle / move 基础循环"
+      ],
+      "upstream": "roles/dilaoxiaoren",
+      "local": "spine/00-small-rig/dilaoxiaoren",
+      "spineVersion": "3.8.95",
+      "files": {
+        "json": "dilaoxiaoren.json",
+        "atlas": "dilaoxiaoren.atlas",
+        "texture": "dilaoxiaoren.png"
+      }
+    },
     {
       "id": "lilya-300401",
       "name": "红弩箭",
