@@ -24,11 +24,11 @@ jobs:
       - run: python3 -m pip install --quiet selenium
       - name: Verify 1999 case in main Rig Motion Lab workspace
         env:
-          URL: https://g2066203208-beep.github.io/JOB-Trakcer/
+          URL: https://g2066203208-beep.github.io/JOB-Trakcer/?v=0.8.7
         run: |
           set -euo pipefail
           for i in {1..60}; do
-            if curl -fsSL "$URL" | grep -q "v0.8.6"; then break; fi
+            if curl -fsSL "$URL" | grep -q "v0.8.7"; then break; fi
             sleep 3
           done
           python3 - <<'PY'
