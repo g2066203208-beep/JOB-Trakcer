@@ -1,0 +1,1792 @@
+{
+  "version": 1,
+  "generatedFrom": "data/fullpack",
+  "count": 255,
+  "byTitle": {
+    "12F · 默认 · 基建": {
+      "pack": "pack-00.json",
+      "key": "full-0001",
+      "spine": "3.5.51",
+      "bones": 69,
+      "slots": 40
+    },
+    "12F · 默认 · 战斗背面": {
+      "pack": "pack-00.json",
+      "key": "full-0002",
+      "spine": "3.5.51",
+      "bones": 55,
+      "slots": 24
+    },
+    "12F · 默认 · 战斗正面": {
+      "pack": "pack-00.json",
+      "key": "full-0003",
+      "spine": "3.5.51",
+      "bones": 69,
+      "slots": 40
+    },
+    "Castle-3 · SUM019.ver · 基建": {
+      "pack": "pack-00.json",
+      "key": "full-0004",
+      "spine": "3.5.51",
+      "bones": 29,
+      "slots": 33
+    },
+    "Castle-3 · SUM019.ver · 战斗背面": {
+      "pack": "pack-00.json",
+      "key": "full-0005",
+      "spine": "3.5.51",
+      "bones": 30,
+      "slots": 34
+    },
+    "Castle-3 · SUM019.ver · 战斗正面": {
+      "pack": "pack-00.json",
+      "key": "full-0006",
+      "spine": "3.5.51",
+      "bones": 34,
+      "slots": 38
+    },
+    "Castle-3 · 默认 · 基建": {
+      "pack": "pack-00.json",
+      "key": "full-0007",
+      "spine": "3.5.51",
+      "bones": 28,
+      "slots": 30
+    },
+    "Castle-3 · 默认 · 战斗背面": {
+      "pack": "pack-00.json",
+      "key": "full-0008",
+      "spine": "3.5.51",
+      "bones": 29,
+      "slots": 31
+    },
+    "Castle-3 · 默认 · 战斗正面": {
+      "pack": "pack-00.json",
+      "key": "full-0009",
+      "spine": "3.5.51",
+      "bones": 33,
+      "slots": 35
+    },
+    "Lancet-2 · 默认 · 基建": {
+      "pack": "pack-00.json",
+      "key": "full-0010",
+      "spine": "3.5.51",
+      "bones": 27,
+      "slots": 25
+    },
+    "Lancet-2 · 默认 · 战斗背面": {
+      "pack": "pack-00.json",
+      "key": "full-0011",
+      "spine": "3.5.51",
+      "bones": 31,
+      "slots": 26
+    },
+    "Lancet-2 · 默认 · 战斗正面": {
+      "pack": "pack-00.json",
+      "key": "full-0012",
+      "spine": "3.5.51",
+      "bones": 32,
+      "slots": 30
+    },
+    "THRM-EX · 默认 · 基建": {
+      "pack": "pack-00.json",
+      "key": "full-0013",
+      "spine": "3.5.51",
+      "bones": 16,
+      "slots": 14
+    },
+    "THRM-EX · 默认 · 战斗背面": {
+      "pack": "pack-00.json",
+      "key": "full-0014",
+      "spine": "3.5.51",
+      "bones": 21,
+      "slots": 17
+    },
+    "THRM-EX · 默认 · 战斗正面": {
+      "pack": "pack-00.json",
+      "key": "full-0015",
+      "spine": "3.5.51",
+      "bones": 21,
+      "slots": 17
+    },
+    "W · 恍惚 · 基建": {
+      "pack": "pack-00.json",
+      "key": "full-0016",
+      "spine": "3.5.51",
+      "bones": 195,
+      "slots": 137
+    },
+    "W · 恍惚 · 战斗背面": {
+      "pack": "pack-00.json",
+      "key": "full-0017",
+      "spine": "3.5.51",
+      "bones": 244,
+      "slots": 141
+    },
+    "W · 恍惚 · 战斗正面": {
+      "pack": "pack-00.json",
+      "key": "full-0018",
+      "spine": "3.5.51",
+      "bones": 244,
+      "slots": 141
+    },
+    "W · 默认 · 基建": {
+      "pack": "pack-00.json",
+      "key": "full-0019",
+      "spine": "3.5.51",
+      "bones": 114,
+      "slots": 60
+    },
+    "W · 默认 · 战斗背面": {
+      "pack": "pack-00.json",
+      "key": "full-0020",
+      "spine": "3.5.51",
+      "bones": 113,
+      "slots": 62
+    },
+    "W · 默认 · 战斗正面": {
+      "pack": "pack-00.json",
+      "key": "full-0021",
+      "spine": "3.5.51",
+      "bones": 132,
+      "slots": 73
+    },
+    "假日威龙陈 · 默认 · 基建": {
+      "pack": "pack-00.json",
+      "key": "full-0022",
+      "spine": "3.5.51",
+      "bones": 158,
+      "slots": 109
+    },
+    "假日威龙陈 · 默认 · 战斗背面": {
+      "pack": "pack-01.json",
+      "key": "full-0023",
+      "spine": "3.5.51",
+      "bones": 151,
+      "slots": 105
+    },
+    "假日威龙陈 · 默认 · 战斗正面": {
+      "pack": "pack-01.json",
+      "key": "full-0024",
+      "spine": "3.5.51",
+      "bones": 175,
+      "slots": 140
+    },
+    "凯尔希 · 默认 · 基建": {
+      "pack": "pack-01.json",
+      "key": "full-0025",
+      "spine": "3.5.51",
+      "bones": 137,
+      "slots": 87
+    },
+    "凯尔希 · 默认 · 战斗背面": {
+      "pack": "pack-01.json",
+      "key": "full-0026",
+      "spine": "3.5.51",
+      "bones": 87,
+      "slots": 54
+    },
+    "凯尔希 · 默认 · 战斗正面": {
+      "pack": "pack-01.json",
+      "key": "full-0027",
+      "spine": "3.5.51",
+      "bones": 136,
+      "slots": 83
+    },
+    "初雪 · 开斯特之霜 · 基建": {
+      "pack": "pack-01.json",
+      "key": "full-0028",
+      "spine": "3.5.51",
+      "bones": 117,
+      "slots": 75
+    },
+    "初雪 · 开斯特之霜 · 战斗背面": {
+      "pack": "pack-01.json",
+      "key": "full-0029",
+      "spine": "3.5.51",
+      "bones": 76,
+      "slots": 37
+    },
+    "初雪 · 开斯特之霜 · 战斗正面": {
+      "pack": "pack-01.json",
+      "key": "full-0030",
+      "spine": "3.5.51",
+      "bones": 114,
+      "slots": 67
+    },
+    "初雪 · 默认 · 基建": {
+      "pack": "pack-01.json",
+      "key": "full-0031",
+      "spine": "3.5.51",
+      "bones": 107,
+      "slots": 55
+    },
+    "初雪 · 默认 · 战斗背面": {
+      "pack": "pack-01.json",
+      "key": "full-0032",
+      "spine": "3.5.51",
+      "bones": 80,
+      "slots": 40
+    },
+    "初雪 · 默认 · 战斗正面": {
+      "pack": "pack-01.json",
+      "key": "full-0033",
+      "spine": "3.5.51",
+      "bones": 107,
+      "slots": 55
+    },
+    "华法琳 · 盛宴 · 基建": {
+      "pack": "pack-01.json",
+      "key": "full-0034",
+      "spine": "3.5.51",
+      "bones": 140,
+      "slots": 67
+    },
+    "华法琳 · 盛宴 · 战斗背面": {
+      "pack": "pack-01.json",
+      "key": "full-0035",
+      "spine": "3.5.51",
+      "bones": 86,
+      "slots": 39
+    },
+    "华法琳 · 盛宴 · 战斗正面": {
+      "pack": "pack-01.json",
+      "key": "full-0036",
+      "spine": "3.5.51",
+      "bones": 127,
+      "slots": 59
+    },
+    "华法琳 · 默认 · 基建": {
+      "pack": "pack-01.json",
+      "key": "full-0037",
+      "spine": "3.5.51",
+      "bones": 83,
+      "slots": 46
+    },
+    "华法琳 · 默认 · 战斗背面": {
+      "pack": "pack-01.json",
+      "key": "full-0038",
+      "spine": "3.5.51",
+      "bones": 67,
+      "slots": 27
+    },
+    "华法琳 · 默认 · 战斗正面": {
+      "pack": "pack-01.json",
+      "key": "full-0039",
+      "spine": "3.5.51",
+      "bones": 87,
+      "slots": 45
+    },
+    "卡夫卡 · 默认 · 基建": {
+      "pack": "pack-01.json",
+      "key": "full-0040",
+      "spine": "3.5.51",
+      "bones": 89,
+      "slots": 89
+    },
+    "卡夫卡 · 默认 · 战斗背面": {
+      "pack": "pack-01.json",
+      "key": "full-0041",
+      "spine": "3.5.51",
+      "bones": 80,
+      "slots": 74
+    },
+    "卡夫卡 · 默认 · 战斗正面": {
+      "pack": "pack-02.json",
+      "key": "full-0042",
+      "spine": "3.5.51",
+      "bones": 102,
+      "slots": 100
+    },
+    "卡涅利安 · 默认 · 基建": {
+      "pack": "pack-02.json",
+      "key": "full-0043",
+      "spine": "3.5.51",
+      "bones": 95,
+      "slots": 68
+    },
+    "卡涅利安 · 默认 · 战斗背面": {
+      "pack": "pack-02.json",
+      "key": "full-0044",
+      "spine": "3.5.51",
+      "bones": 70,
+      "slots": 36
+    },
+    "卡涅利安 · 默认 · 战斗正面": {
+      "pack": "pack-02.json",
+      "key": "full-0045",
+      "spine": "3.5.51",
+      "bones": 103,
+      "slots": 74
+    },
+    "卡缇 · 快乐卫士 · 基建": {
+      "pack": "pack-02.json",
+      "key": "full-0046",
+      "spine": "3.5.51",
+      "bones": 91,
+      "slots": 58
+    },
+    "卡缇 · 快乐卫士 · 战斗背面": {
+      "pack": "pack-02.json",
+      "key": "full-0047",
+      "spine": "3.5.51",
+      "bones": 69,
+      "slots": 41
+    },
+    "卡缇 · 快乐卫士 · 战斗正面": {
+      "pack": "pack-02.json",
+      "key": "full-0048",
+      "spine": "3.5.51",
+      "bones": 91,
+      "slots": 58
+    },
+    "卡缇 · 默认 · 基建": {
+      "pack": "pack-02.json",
+      "key": "full-0049",
+      "spine": "3.5.51",
+      "bones": 71,
+      "slots": 44
+    },
+    "卡缇 · 默认 · 战斗背面": {
+      "pack": "pack-02.json",
+      "key": "full-0050",
+      "spine": "3.5.51",
+      "bones": 60,
+      "slots": 29
+    },
+    "卡缇 · 默认 · 战斗正面": {
+      "pack": "pack-02.json",
+      "key": "full-0051",
+      "spine": "3.5.51",
+      "bones": 71,
+      "slots": 44
+    },
+    "卡达 · 默认 · 基建": {
+      "pack": "pack-02.json",
+      "key": "full-0052",
+      "spine": "3.5.51",
+      "bones": 109,
+      "slots": 66
+    },
+    "卡达 · 默认 · 战斗背面": {
+      "pack": "pack-02.json",
+      "key": "full-0053",
+      "spine": "3.5.51",
+      "bones": 66,
+      "slots": 52
+    },
+    "卡达 · 默认 · 战斗正面": {
+      "pack": "pack-02.json",
+      "key": "full-0054",
+      "spine": "3.5.51",
+      "bones": 126,
+      "slots": 75
+    },
+    "古米 · 夏卉 FA011 · 基建": {
+      "pack": "pack-02.json",
+      "key": "full-0055",
+      "spine": "3.5.51",
+      "bones": 62,
+      "slots": 59
+    },
+    "古米 · 夏卉 FA011 · 战斗背面": {
+      "pack": "pack-02.json",
+      "key": "full-0056",
+      "spine": "3.5.51",
+      "bones": 44,
+      "slots": 34
+    },
+    "古米 · 夏卉 FA011 · 战斗正面": {
+      "pack": "pack-02.json",
+      "key": "full-0057",
+      "spine": "3.5.51",
+      "bones": 62,
+      "slots": 58
+    },
+    "古米 · 默认 · 基建": {
+      "pack": "pack-02.json",
+      "key": "full-0058",
+      "spine": "3.5.51",
+      "bones": 49,
+      "slots": 49
+    },
+    "古米 · 默认 · 战斗背面": {
+      "pack": "pack-02.json",
+      "key": "full-0059",
+      "spine": "3.5.51",
+      "bones": 34,
+      "slots": 28
+    },
+    "古米 · 默认 · 战斗正面": {
+      "pack": "pack-02.json",
+      "key": "full-0060",
+      "spine": "3.5.51",
+      "bones": 47,
+      "slots": 49
+    },
+    "可颂 · 探寻者sk03 · 基建": {
+      "pack": "pack-02.json",
+      "key": "full-0061",
+      "spine": "3.5.51",
+      "bones": 133,
+      "slots": 108
+    },
+    "可颂 · 探寻者sk03 · 战斗背面": {
+      "pack": "pack-02.json",
+      "key": "full-0062",
+      "spine": "3.5.51",
+      "bones": 66,
+      "slots": 37
+    },
+    "可颂 · 探寻者sk03 · 战斗正面": {
+      "pack": "pack-02.json",
+      "key": "full-0063",
+      "spine": "3.5.51",
+      "bones": 97,
+      "slots": 55
+    },
+    "可颂 · 清晨七点 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0064",
+      "spine": "3.5.51",
+      "bones": 128,
+      "slots": 84
+    },
+    "可颂 · 清晨七点 · 战斗背面": {
+      "pack": "pack-03.json",
+      "key": "full-0065",
+      "spine": "3.5.51",
+      "bones": 57,
+      "slots": 32
+    },
+    "可颂 · 清晨七点 · 战斗正面": {
+      "pack": "pack-03.json",
+      "key": "full-0066",
+      "spine": "3.5.51",
+      "bones": 113,
+      "slots": 73
+    },
+    "可颂 · 默认 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0067",
+      "spine": "3.5.51",
+      "bones": 98,
+      "slots": 55
+    },
+    "可颂 · 默认 · 战斗背面": {
+      "pack": "pack-03.json",
+      "key": "full-0068",
+      "spine": "3.5.51",
+      "bones": 78,
+      "slots": 41
+    },
+    "可颂 · 默认 · 战斗正面": {
+      "pack": "pack-03.json",
+      "key": "full-0069",
+      "spine": "3.5.51",
+      "bones": 98,
+      "slots": 54
+    },
+    "吽 · 一介车夫 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0070",
+      "spine": "3.5.51",
+      "bones": 100,
+      "slots": 78
+    },
+    "吽 · 一介车夫 · 战斗背面": {
+      "pack": "pack-03.json",
+      "key": "full-0071",
+      "spine": "3.5.51",
+      "bones": 84,
+      "slots": 49
+    },
+    "吽 · 一介车夫 · 战斗正面": {
+      "pack": "pack-03.json",
+      "key": "full-0072",
+      "spine": "3.5.51",
+      "bones": 116,
+      "slots": 78
+    },
+    "吽 · 默认 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0073",
+      "spine": "3.5.51",
+      "bones": 73,
+      "slots": 60
+    },
+    "吽 · 默认 · 战斗背面": {
+      "pack": "pack-03.json",
+      "key": "full-0074",
+      "spine": "3.5.51",
+      "bones": 56,
+      "slots": 33
+    },
+    "吽 · 默认 · 战斗正面": {
+      "pack": "pack-03.json",
+      "key": "full-0075",
+      "spine": "3.5.51",
+      "bones": 76,
+      "slots": 61
+    },
+    "嘉维尔 · 战医 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0076",
+      "spine": "3.5.51",
+      "bones": 96,
+      "slots": 48
+    },
+    "嘉维尔 · 战医 · 战斗背面": {
+      "pack": "pack-03.json",
+      "key": "full-0077",
+      "spine": "3.5.51",
+      "bones": 74,
+      "slots": 35
+    },
+    "嘉维尔 · 战医 · 战斗正面": {
+      "pack": "pack-03.json",
+      "key": "full-0078",
+      "spine": "3.5.51",
+      "bones": 96,
+      "slots": 48
+    },
+    "嘉维尔 · 默认 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0079",
+      "spine": "3.5.51",
+      "bones": 92,
+      "slots": 38
+    },
+    "嘉维尔 · 默认 · 战斗背面": {
+      "pack": "pack-03.json",
+      "key": "full-0080",
+      "spine": "3.5.51",
+      "bones": 75,
+      "slots": 26
+    },
+    "嘉维尔 · 默认 · 战斗正面": {
+      "pack": "pack-03.json",
+      "key": "full-0081",
+      "spine": "3.5.51",
+      "bones": 88,
+      "slots": 38
+    },
+    "地灵 · 默认 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0082",
+      "spine": "3.5.51",
+      "bones": 55,
+      "slots": 36
+    },
+    "地灵 · 默认 · 战斗背面": {
+      "pack": "pack-03.json",
+      "key": "full-0083",
+      "spine": "3.5.51",
+      "bones": 53,
+      "slots": 28
+    },
+    "地灵 · 默认 · 战斗正面": {
+      "pack": "pack-03.json",
+      "key": "full-0084",
+      "spine": "3.5.51",
+      "bones": 55,
+      "slots": 36
+    },
+    "坚雷 · 默认 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0085",
+      "spine": "3.5.51",
+      "bones": 84,
+      "slots": 63
+    },
+    "坚雷 · 默认 · 战斗背面": {
+      "pack": "pack-03.json",
+      "key": "full-0086",
+      "spine": "3.5.51",
+      "bones": 55,
+      "slots": 35
+    },
+    "坚雷 · 默认 · 战斗正面": {
+      "pack": "pack-03.json",
+      "key": "full-0087",
+      "spine": "3.5.51",
+      "bones": 92,
+      "slots": 67
+    },
+    "奥斯塔 · 默认 · 基建": {
+      "pack": "pack-03.json",
+      "key": "full-0088",
+      "spine": "3.5.51",
+      "bones": 86,
+      "slots": 60
+    },
+    "奥斯塔 · 默认 · 战斗背面": {
+      "pack": "pack-04.json",
+      "key": "full-0089",
+      "spine": "3.5.51",
+      "bones": 62,
+      "slots": 34
+    },
+    "奥斯塔 · 默认 · 战斗正面": {
+      "pack": "pack-04.json",
+      "key": "full-0090",
+      "spine": "3.5.51",
+      "bones": 87,
+      "slots": 60
+    },
+    "孑 · 沙滩护卫 GT002 · 基建": {
+      "pack": "pack-04.json",
+      "key": "full-0091",
+      "spine": "3.5.51",
+      "bones": 102,
+      "slots": 100
+    },
+    "孑 · 沙滩护卫 GT002 · 战斗背面": {
+      "pack": "pack-04.json",
+      "key": "full-0092",
+      "spine": "3.5.51",
+      "bones": 70,
+      "slots": 54
+    },
+    "孑 · 沙滩护卫 GT002 · 战斗正面": {
+      "pack": "pack-04.json",
+      "key": "full-0093",
+      "spine": "3.5.51",
+      "bones": 95,
+      "slots": 95
+    },
+    "孑 · 默认 · 基建": {
+      "pack": "pack-04.json",
+      "key": "full-0094",
+      "spine": "3.5.51",
+      "bones": 82,
+      "slots": 57
+    },
+    "孑 · 默认 · 战斗背面": {
+      "pack": "pack-04.json",
+      "key": "full-0095",
+      "spine": "3.5.51",
+      "bones": 83,
+      "slots": 40
+    },
+    "孑 · 默认 · 战斗正面": {
+      "pack": "pack-04.json",
+      "key": "full-0096",
+      "spine": "3.5.51",
+      "bones": 81,
+      "slots": 56
+    },
+    "安哲拉 · 默认 · 基建": {
+      "pack": "pack-04.json",
+      "key": "full-0097",
+      "spine": "3.5.51",
+      "bones": 113,
+      "slots": 67
+    },
+    "安哲拉 · 默认 · 战斗背面": {
+      "pack": "pack-04.json",
+      "key": "full-0098",
+      "spine": "3.5.51",
+      "bones": 88,
+      "slots": 40
+    },
+    "安哲拉 · 默认 · 战斗正面": {
+      "pack": "pack-04.json",
+      "key": "full-0099",
+      "spine": "3.5.51",
+      "bones": 115,
+      "slots": 66
+    },
+    "安德切尔 · 默认 · 基建": {
+      "pack": "pack-04.json",
+      "key": "full-0100",
+      "spine": "3.5.51",
+      "bones": 100,
+      "slots": 66
+    },
+    "安德切尔 · 默认 · 战斗背面": {
+      "pack": "pack-04.json",
+      "key": "full-0101",
+      "spine": "3.5.51",
+      "bones": 47,
+      "slots": 32
+    },
+    "安德切尔 · 默认 · 战斗正面": {
+      "pack": "pack-04.json",
+      "key": "full-0102",
+      "spine": "3.5.51",
+      "bones": 97,
+      "slots": 66
+    },
+    "安比尔 · 默认 · 基建": {
+      "pack": "pack-04.json",
+      "key": "full-0103",
+      "spine": "3.5.51",
+      "bones": 93,
+      "slots": 70
+    },
+    "安比尔 · 默认 · 战斗背面": {
+      "pack": "pack-04.json",
+      "key": "full-0104",
+      "spine": "3.5.51",
+      "bones": 77,
+      "slots": 49
+    },
+    "安比尔 · 默认 · 战斗正面": {
+      "pack": "pack-04.json",
+      "key": "full-0105",
+      "spine": "3.5.51",
+      "bones": 92,
+      "slots": 72
+    },
+    "安洁莉娜 · 夏卉 FA017 · 基建": {
+      "pack": "pack-04.json",
+      "key": "full-0106",
+      "spine": "3.5.51",
+      "bones": 187,
+      "slots": 137
+    },
+    "安洁莉娜 · 夏卉 FA017 · 战斗正面": {
+      "pack": "pack-04.json",
+      "key": "full-0107",
+      "spine": "3.5.51",
+      "bones": 169,
+      "slots": 114
+    },
+    "安洁莉娜 · 质素访客 · 基建": {
+      "pack": "pack-04.json",
+      "key": "full-0108",
+      "spine": "3.5.51",
+      "bones": 127,
+      "slots": 93
+    },
+    "安洁莉娜 · 质素访客 · 战斗正面": {
+      "pack": "pack-05.json",
+      "key": "full-0109",
+      "spine": "3.5.51",
+      "bones": 119,
+      "slots": 84
+    },
+    "安洁莉娜 · 默认 · 基建": {
+      "pack": "pack-05.json",
+      "key": "full-0110",
+      "spine": "3.5.51",
+      "bones": 108,
+      "slots": 78
+    },
+    "安洁莉娜 · 默认 · 战斗正面": {
+      "pack": "pack-05.json",
+      "key": "full-0111",
+      "spine": "3.5.51",
+      "bones": 108,
+      "slots": 78
+    },
+    "安赛尔 · 悠然假日HDm06 · 基建": {
+      "pack": "pack-05.json",
+      "key": "full-0112",
+      "spine": "3.5.51",
+      "bones": 130,
+      "slots": 85
+    },
+    "安赛尔 · 悠然假日HDm06 · 战斗背面": {
+      "pack": "pack-05.json",
+      "key": "full-0113",
+      "spine": "3.5.51",
+      "bones": 93,
+      "slots": 51
+    },
+    "安赛尔 · 悠然假日HDm06 · 战斗正面": {
+      "pack": "pack-05.json",
+      "key": "full-0114",
+      "spine": "3.5.51",
+      "bones": 128,
+      "slots": 72
+    },
+    "安赛尔 · 默认 · 基建": {
+      "pack": "pack-05.json",
+      "key": "full-0115",
+      "spine": "3.5.51",
+      "bones": 88,
+      "slots": 68
+    },
+    "安赛尔 · 默认 · 战斗背面": {
+      "pack": "pack-05.json",
+      "key": "full-0116",
+      "spine": "3.5.51",
+      "bones": 72,
+      "slots": 41
+    },
+    "安赛尔 · 默认 · 战斗正面": {
+      "pack": "pack-05.json",
+      "key": "full-0117",
+      "spine": "3.5.51",
+      "bones": 84,
+      "slots": 68
+    },
+    "嵯峨 · 默认 · 基建": {
+      "pack": "pack-05.json",
+      "key": "full-0118",
+      "spine": "3.5.51",
+      "bones": 174,
+      "slots": 83
+    },
+    "嵯峨 · 默认 · 战斗背面": {
+      "pack": "pack-05.json",
+      "key": "full-0119",
+      "spine": "3.5.51",
+      "bones": 138,
+      "slots": 62
+    },
+    "嵯峨 · 默认 · 战斗正面": {
+      "pack": "pack-05.json",
+      "key": "full-0120",
+      "spine": "3.5.51",
+      "bones": 177,
+      "slots": 89
+    },
+    "布洛卡 · 默认 · 基建": {
+      "pack": "pack-05.json",
+      "key": "full-0121",
+      "spine": "3.5.51",
+      "bones": 98,
+      "slots": 58
+    },
+    "布洛卡 · 默认 · 战斗背面": {
+      "pack": "pack-05.json",
+      "key": "full-0122",
+      "spine": "3.5.51",
+      "bones": 61,
+      "slots": 30
+    },
+    "布洛卡 · 默认 · 战斗正面": {
+      "pack": "pack-05.json",
+      "key": "full-0123",
+      "spine": "3.5.51",
+      "bones": 105,
+      "slots": 65
+    },
+    "德克萨斯 · 寒冬信使 · 基建": {
+      "pack": "pack-05.json",
+      "key": "full-0124",
+      "spine": "3.5.51",
+      "bones": 104,
+      "slots": 55
+    },
+    "德克萨斯 · 寒冬信使 · 战斗背面": {
+      "pack": "pack-05.json",
+      "key": "full-0125",
+      "spine": "3.5.51",
+      "bones": 72,
+      "slots": 36
+    },
+    "德克萨斯 · 寒冬信使 · 战斗正面": {
+      "pack": "pack-05.json",
+      "key": "full-0126",
+      "spine": "3.5.51",
+      "bones": 102,
+      "slots": 58
+    },
+    "德克萨斯 · 意志 · 基建": {
+      "pack": "pack-06.json",
+      "key": "full-0127",
+      "spine": "3.5.51",
+      "bones": 259,
+      "slots": 176
+    },
+    "德克萨斯 · 意志 · 战斗背面": {
+      "pack": "pack-06.json",
+      "key": "full-0128",
+      "spine": "3.5.51",
+      "bones": 206,
+      "slots": 119
+    },
+    "德克萨斯 · 意志 · 战斗正面": {
+      "pack": "pack-06.json",
+      "key": "full-0129",
+      "spine": "3.5.51",
+      "bones": 206,
+      "slots": 119
+    },
+    "德克萨斯 · 默认 · 基建": {
+      "pack": "pack-06.json",
+      "key": "full-0130",
+      "spine": "3.5.51",
+      "bones": 84,
+      "slots": 50
+    },
+    "德克萨斯 · 默认 · 战斗背面": {
+      "pack": "pack-06.json",
+      "key": "full-0131",
+      "spine": "3.5.51",
+      "bones": 63,
+      "slots": 34
+    },
+    "德克萨斯 · 默认 · 战斗正面": {
+      "pack": "pack-06.json",
+      "key": "full-0132",
+      "spine": "3.5.51",
+      "bones": 83,
+      "slots": 50
+    },
+    "惊蛰 · 默认 · 基建": {
+      "pack": "pack-06.json",
+      "key": "full-0133",
+      "spine": "3.5.51",
+      "bones": 76,
+      "slots": 71
+    },
+    "惊蛰 · 默认 · 战斗背面": {
+      "pack": "pack-06.json",
+      "key": "full-0134",
+      "spine": "3.5.51",
+      "bones": 69,
+      "slots": 53
+    },
+    "惊蛰 · 默认 · 战斗正面": {
+      "pack": "pack-06.json",
+      "key": "full-0135",
+      "spine": "3.5.51",
+      "bones": 86,
+      "slots": 74
+    },
+    "拜松 · 默认 · 基建": {
+      "pack": "pack-06.json",
+      "key": "full-0136",
+      "spine": "3.5.51",
+      "bones": 55,
+      "slots": 50
+    },
+    "拜松 · 默认 · 战斗背面": {
+      "pack": "pack-06.json",
+      "key": "full-0137",
+      "spine": "3.5.51",
+      "bones": 46,
+      "slots": 40
+    },
+    "拜松 · 默认 · 战斗正面": {
+      "pack": "pack-06.json",
+      "key": "full-0138",
+      "spine": "3.5.51",
+      "bones": 55,
+      "slots": 50
+    },
+    "斑点 · 专业人士 · 基建": {
+      "pack": "pack-06.json",
+      "key": "full-0139",
+      "spine": "3.5.51",
+      "bones": 181,
+      "slots": 129
+    },
+    "斑点 · 专业人士 · 战斗背面": {
+      "pack": "pack-06.json",
+      "key": "full-0140",
+      "spine": "3.5.51",
+      "bones": 76,
+      "slots": 53
+    },
+    "斑点 · 专业人士 · 战斗正面": {
+      "pack": "pack-06.json",
+      "key": "full-0141",
+      "spine": "3.5.51",
+      "bones": 107,
+      "slots": 76
+    },
+    "斑点 · 默认 · 基建": {
+      "pack": "pack-06.json",
+      "key": "full-0142",
+      "spine": "3.5.51",
+      "bones": 82,
+      "slots": 62
+    },
+    "斑点 · 默认 · 战斗背面": {
+      "pack": "pack-06.json",
+      "key": "full-0143",
+      "spine": "3.5.51",
+      "bones": 79,
+      "slots": 41
+    },
+    "斑点 · 默认 · 战斗正面": {
+      "pack": "pack-06.json",
+      "key": "full-0144",
+      "spine": "3.5.51",
+      "bones": 82,
+      "slots": 62
+    },
+    "断崖 · 受验者 · 基建": {
+      "pack": "pack-06.json",
+      "key": "full-0145",
+      "spine": "3.5.51",
+      "bones": 121,
+      "slots": 129
+    },
+    "断崖 · 受验者 · 战斗背面": {
+      "pack": "pack-07.json",
+      "key": "full-0146",
+      "spine": "3.5.51",
+      "bones": 74,
+      "slots": 58
+    },
+    "断崖 · 受验者 · 战斗正面": {
+      "pack": "pack-07.json",
+      "key": "full-0147",
+      "spine": "3.5.51",
+      "bones": 91,
+      "slots": 101
+    },
+    "断崖 · 默认 · 基建": {
+      "pack": "pack-07.json",
+      "key": "full-0148",
+      "spine": "3.5.51",
+      "bones": 99,
+      "slots": 66
+    },
+    "断崖 · 默认 · 战斗背面": {
+      "pack": "pack-07.json",
+      "key": "full-0149",
+      "spine": "3.5.51",
+      "bones": 90,
+      "slots": 64
+    },
+    "断崖 · 默认 · 战斗正面": {
+      "pack": "pack-07.json",
+      "key": "full-0150",
+      "spine": "3.5.51",
+      "bones": 122,
+      "slots": 89
+    },
+    "断罪者 · 默认 · 基建": {
+      "pack": "pack-07.json",
+      "key": "full-0151",
+      "spine": "3.5.51",
+      "bones": 67,
+      "slots": 42
+    },
+    "断罪者 · 默认 · 战斗背面": {
+      "pack": "pack-07.json",
+      "key": "full-0152",
+      "spine": "3.5.51",
+      "bones": 82,
+      "slots": 38
+    },
+    "断罪者 · 默认 · 战斗正面": {
+      "pack": "pack-07.json",
+      "key": "full-0153",
+      "spine": "3.5.51",
+      "bones": 70,
+      "slots": 44
+    },
+    "暗锁 · 夏卉 FA008 · 基建": {
+      "pack": "pack-07.json",
+      "key": "full-0154",
+      "spine": "3.5.51",
+      "bones": 139,
+      "slots": 70
+    },
+    "暗锁 · 夏卉 FA008 · 战斗背面": {
+      "pack": "pack-07.json",
+      "key": "full-0155",
+      "spine": "3.5.51",
+      "bones": 127,
+      "slots": 48
+    },
+    "暗锁 · 夏卉 FA008 · 战斗正面": {
+      "pack": "pack-07.json",
+      "key": "full-0156",
+      "spine": "3.5.51",
+      "bones": 157,
+      "slots": 76
+    },
+    "暗锁 · 小鬼当家 · 基建": {
+      "pack": "pack-07.json",
+      "key": "full-0157",
+      "spine": "3.5.51",
+      "bones": 74,
+      "slots": 47
+    },
+    "暗锁 · 小鬼当家 · 战斗背面": {
+      "pack": "pack-07.json",
+      "key": "full-0158",
+      "spine": "3.5.51",
+      "bones": 68,
+      "slots": 34
+    },
+    "暗锁 · 小鬼当家 · 战斗正面": {
+      "pack": "pack-07.json",
+      "key": "full-0159",
+      "spine": "3.5.51",
+      "bones": 86,
+      "slots": 50
+    },
+    "暗锁 · 默认 · 基建": {
+      "pack": "pack-07.json",
+      "key": "full-0160",
+      "spine": "3.5.51",
+      "bones": 86,
+      "slots": 39
+    },
+    "暗锁 · 默认 · 战斗背面": {
+      "pack": "pack-07.json",
+      "key": "full-0161",
+      "spine": "3.5.51",
+      "bones": 73,
+      "slots": 26
+    },
+    "暗锁 · 默认 · 战斗正面": {
+      "pack": "pack-07.json",
+      "key": "full-0162",
+      "spine": "3.5.51",
+      "bones": 154,
+      "slots": 65
+    },
+    "暴行 · 默认 · 基建": {
+      "pack": "pack-07.json",
+      "key": "full-0163",
+      "spine": "3.5.51",
+      "bones": 95,
+      "slots": 46
+    },
+    "暴行 · 默认 · 战斗背面": {
+      "pack": "pack-07.json",
+      "key": "full-0164",
+      "spine": "3.5.51",
+      "bones": 56,
+      "slots": 28
+    },
+    "暴行 · 默认 · 战斗正面": {
+      "pack": "pack-07.json",
+      "key": "full-0165",
+      "spine": "3.5.51",
+      "bones": 95,
+      "slots": 46
+    },
+    "暴雨 · 默认 · 基建": {
+      "pack": "pack-07.json",
+      "key": "full-0166",
+      "spine": "3.5.51",
+      "bones": 96,
+      "slots": 59
+    },
+    "暴雨 · 默认 · 战斗背面": {
+      "pack": "pack-08.json",
+      "key": "full-0167",
+      "spine": "3.5.51",
+      "bones": 77,
+      "slots": 32
+    },
+    "暴雨 · 默认 · 战斗正面": {
+      "pack": "pack-08.json",
+      "key": "full-0168",
+      "spine": "3.5.51",
+      "bones": 105,
+      "slots": 63
+    },
+    "杜宾 · 少尉 · 基建": {
+      "pack": "pack-08.json",
+      "key": "full-0169",
+      "spine": "3.5.51",
+      "bones": 115,
+      "slots": 70
+    },
+    "杜宾 · 少尉 · 战斗背面": {
+      "pack": "pack-08.json",
+      "key": "full-0170",
+      "spine": "3.5.51",
+      "bones": 282,
+      "slots": 137
+    },
+    "杜宾 · 少尉 · 战斗正面": {
+      "pack": "pack-08.json",
+      "key": "full-0171",
+      "spine": "3.5.51",
+      "bones": 282,
+      "slots": 137
+    },
+    "杜宾 · 默认 · 基建": {
+      "pack": "pack-08.json",
+      "key": "full-0172",
+      "spine": "3.5.51",
+      "bones": 56,
+      "slots": 34
+    },
+    "杜宾 · 默认 · 战斗背面": {
+      "pack": "pack-08.json",
+      "key": "full-0173",
+      "spine": "3.5.51",
+      "bones": 84,
+      "slots": 30
+    },
+    "杜宾 · 默认 · 战斗正面": {
+      "pack": "pack-08.json",
+      "key": "full-0174",
+      "spine": "3.5.51",
+      "bones": 96,
+      "slots": 38
+    },
+    "杜林 · 默认 · 基建": {
+      "pack": "pack-08.json",
+      "key": "full-0175",
+      "spine": "3.5.51",
+      "bones": 62,
+      "slots": 39
+    },
+    "杜林 · 默认 · 战斗背面": {
+      "pack": "pack-08.json",
+      "key": "full-0176",
+      "spine": "3.5.51",
+      "bones": 50,
+      "slots": 20
+    },
+    "杜林 · 默认 · 战斗正面": {
+      "pack": "pack-08.json",
+      "key": "full-0177",
+      "spine": "3.5.51",
+      "bones": 63,
+      "slots": 39
+    },
+    "杰克 · 默认 · 基建": {
+      "pack": "pack-08.json",
+      "key": "full-0178",
+      "spine": "3.5.51",
+      "bones": 82,
+      "slots": 70
+    },
+    "杰克 · 默认 · 战斗背面": {
+      "pack": "pack-08.json",
+      "key": "full-0179",
+      "spine": "3.5.51",
+      "bones": 147,
+      "slots": 127
+    },
+    "杰克 · 默认 · 战斗正面": {
+      "pack": "pack-08.json",
+      "key": "full-0180",
+      "spine": "3.5.51",
+      "bones": 147,
+      "slots": 127
+    },
+    "杰西卡 · 君子兰 · 基建": {
+      "pack": "pack-08.json",
+      "key": "full-0181",
+      "spine": "3.5.51",
+      "bones": 94,
+      "slots": 53
+    },
+    "杰西卡 · 君子兰 · 战斗背面": {
+      "pack": "pack-08.json",
+      "key": "full-0182",
+      "spine": "3.5.51",
+      "bones": 70,
+      "slots": 30
+    },
+    "杰西卡 · 君子兰 · 战斗正面": {
+      "pack": "pack-08.json",
+      "key": "full-0183",
+      "spine": "3.5.51",
+      "bones": 92,
+      "slots": 51
+    },
+    "杰西卡 · 燃灰 · 基建": {
+      "pack": "pack-08.json",
+      "key": "full-0184",
+      "spine": "3.5.51",
+      "bones": 109,
+      "slots": 76
+    },
+    "杰西卡 · 燃灰 · 战斗背面": {
+      "pack": "pack-08.json",
+      "key": "full-0185",
+      "spine": "3.5.51",
+      "bones": 83,
+      "slots": 44
+    },
+    "杰西卡 · 燃灰 · 战斗正面": {
+      "pack": "pack-08.json",
+      "key": "full-0186",
+      "spine": "3.5.51",
+      "bones": 104,
+      "slots": 64
+    },
+    "杰西卡 · 铁块 · 基建": {
+      "pack": "pack-08.json",
+      "key": "full-0187",
+      "spine": "3.5.51",
+      "bones": 91,
+      "slots": 62
+    },
+    "杰西卡 · 铁块 · 战斗背面": {
+      "pack": "pack-09.json",
+      "key": "full-0188",
+      "spine": "3.5.51",
+      "bones": 73,
+      "slots": 40
+    },
+    "杰西卡 · 铁块 · 战斗正面": {
+      "pack": "pack-09.json",
+      "key": "full-0189",
+      "spine": "3.5.51",
+      "bones": 82,
+      "slots": 57
+    },
+    "杰西卡 · 默认 · 基建": {
+      "pack": "pack-09.json",
+      "key": "full-0190",
+      "spine": "3.5.51",
+      "bones": 110,
+      "slots": 70
+    },
+    "杰西卡 · 默认 · 战斗背面": {
+      "pack": "pack-09.json",
+      "key": "full-0191",
+      "spine": "3.5.51",
+      "bones": 78,
+      "slots": 38
+    },
+    "杰西卡 · 默认 · 战斗正面": {
+      "pack": "pack-09.json",
+      "key": "full-0192",
+      "spine": "3.5.51",
+      "bones": 110,
+      "slots": 67
+    },
+    "极境 · 雪夜回音 · 基建": {
+      "pack": "pack-09.json",
+      "key": "full-0193",
+      "spine": "3.5.51",
+      "bones": 163,
+      "slots": 101
+    },
+    "极境 · 雪夜回音 · 战斗背面": {
+      "pack": "pack-09.json",
+      "key": "full-0194",
+      "spine": "3.5.51",
+      "bones": 172,
+      "slots": 84
+    },
+    "极境 · 雪夜回音 · 战斗正面": {
+      "pack": "pack-09.json",
+      "key": "full-0195",
+      "spine": "3.5.51",
+      "bones": 208,
+      "slots": 134
+    },
+    "极境 · 默认 · 基建": {
+      "pack": "pack-09.json",
+      "key": "full-0196",
+      "spine": "3.5.51",
+      "bones": 91,
+      "slots": 74
+    },
+    "极境 · 默认 · 战斗背面": {
+      "pack": "pack-09.json",
+      "key": "full-0197",
+      "spine": "3.5.51",
+      "bones": 79,
+      "slots": 48
+    },
+    "极境 · 默认 · 战斗正面": {
+      "pack": "pack-09.json",
+      "key": "full-0198",
+      "spine": "3.5.51",
+      "bones": 105,
+      "slots": 80
+    },
+    "柏喙 · 软绒 · 基建": {
+      "pack": "pack-09.json",
+      "key": "full-0199",
+      "spine": "3.5.51",
+      "bones": 148,
+      "slots": 88
+    },
+    "柏喙 · 软绒 · 战斗背面": {
+      "pack": "pack-09.json",
+      "key": "full-0200",
+      "spine": "3.5.51",
+      "bones": 65,
+      "slots": 34
+    },
+    "柏喙 · 软绒 · 战斗正面": {
+      "pack": "pack-09.json",
+      "key": "full-0201",
+      "spine": "3.5.51",
+      "bones": 107,
+      "slots": 55
+    },
+    "柏喙 · 默认 · 基建": {
+      "pack": "pack-09.json",
+      "key": "full-0202",
+      "spine": "3.5.51",
+      "bones": 103,
+      "slots": 63
+    },
+    "柏喙 · 默认 · 战斗背面": {
+      "pack": "pack-09.json",
+      "key": "full-0203",
+      "spine": "3.5.51",
+      "bones": 80,
+      "slots": 41
+    },
+    "柏喙 · 默认 · 战斗正面": {
+      "pack": "pack-09.json",
+      "key": "full-0204",
+      "spine": "3.5.51",
+      "bones": 110,
+      "slots": 68
+    },
+    "格劳克斯 · 广场扫荡客 · 基建": {
+      "pack": "pack-09.json",
+      "key": "full-0205",
+      "spine": "3.5.51",
+      "bones": 124,
+      "slots": 112
+    },
+    "格劳克斯 · 广场扫荡客 · 战斗背面": {
+      "pack": "pack-10.json",
+      "key": "full-0206",
+      "spine": "3.5.51",
+      "bones": 93,
+      "slots": 70
+    },
+    "格劳克斯 · 广场扫荡客 · 战斗正面": {
+      "pack": "pack-10.json",
+      "key": "full-0207",
+      "spine": "3.5.51",
+      "bones": 124,
+      "slots": 110
+    },
+    "格劳克斯 · 默认 · 基建": {
+      "pack": "pack-10.json",
+      "key": "full-0208",
+      "spine": "3.5.51",
+      "bones": 86,
+      "slots": 68
+    },
+    "格劳克斯 · 默认 · 战斗背面": {
+      "pack": "pack-10.json",
+      "key": "full-0209",
+      "spine": "3.5.51",
+      "bones": 68,
+      "slots": 46
+    },
+    "格劳克斯 · 默认 · 战斗正面": {
+      "pack": "pack-10.json",
+      "key": "full-0210",
+      "spine": "3.5.51",
+      "bones": 86,
+      "slots": 68
+    },
+    "格拉尼 · 美妙时光 · 基建": {
+      "pack": "pack-10.json",
+      "key": "full-0211",
+      "spine": "3.5.51",
+      "bones": 98,
+      "slots": 64
+    },
+    "格拉尼 · 美妙时光 · 战斗背面": {
+      "pack": "pack-10.json",
+      "key": "full-0212",
+      "spine": "3.5.51",
+      "bones": 77,
+      "slots": 38
+    },
+    "格拉尼 · 美妙时光 · 战斗正面": {
+      "pack": "pack-10.json",
+      "key": "full-0213",
+      "spine": "3.5.51",
+      "bones": 91,
+      "slots": 55
+    },
+    "格拉尼 · 默认 · 基建": {
+      "pack": "pack-10.json",
+      "key": "full-0214",
+      "spine": "3.5.51",
+      "bones": 111,
+      "slots": 62
+    },
+    "格拉尼 · 默认 · 战斗背面": {
+      "pack": "pack-10.json",
+      "key": "full-0215",
+      "spine": "3.5.51",
+      "bones": 96,
+      "slots": 41
+    },
+    "格拉尼 · 默认 · 战斗正面": {
+      "pack": "pack-10.json",
+      "key": "full-0216",
+      "spine": "3.5.51",
+      "bones": 100,
+      "slots": 57
+    },
+    "格雷伊 · 八音蛋匠人 · 基建": {
+      "pack": "pack-10.json",
+      "key": "full-0217",
+      "spine": "3.5.51",
+      "bones": 105,
+      "slots": 77
+    },
+    "格雷伊 · 八音蛋匠人 · 战斗背面": {
+      "pack": "pack-10.json",
+      "key": "full-0218",
+      "spine": "3.5.51",
+      "bones": 81,
+      "slots": 54
+    },
+    "格雷伊 · 八音蛋匠人 · 战斗正面": {
+      "pack": "pack-10.json",
+      "key": "full-0219",
+      "spine": "3.5.51",
+      "bones": 114,
+      "slots": 84
+    },
+    "格雷伊 · 默认 · 基建": {
+      "pack": "pack-10.json",
+      "key": "full-0220",
+      "spine": "3.5.51",
+      "bones": 66,
+      "slots": 56
+    },
+    "格雷伊 · 默认 · 战斗背面": {
+      "pack": "pack-10.json",
+      "key": "full-0221",
+      "spine": "3.5.51",
+      "bones": 51,
+      "slots": 36
+    },
+    "格雷伊 · 默认 · 战斗正面": {
+      "pack": "pack-10.json",
+      "key": "full-0222",
+      "spine": "3.5.51",
+      "bones": 67,
+      "slots": 56
+    },
+    "棘刺 · 惬意 · 基建": {
+      "pack": "pack-10.json",
+      "key": "full-0223",
+      "spine": "3.5.51",
+      "bones": 148,
+      "slots": 98
+    },
+    "棘刺 · 惬意 · 战斗背面": {
+      "pack": "pack-10.json",
+      "key": "full-0224",
+      "spine": "3.5.51",
+      "bones": 104,
+      "slots": 67
+    },
+    "棘刺 · 惬意 · 战斗正面": {
+      "pack": "pack-11.json",
+      "key": "full-0225",
+      "spine": "3.5.51",
+      "bones": 148,
+      "slots": 98
+    },
+    "棘刺 · 默认 · 基建": {
+      "pack": "pack-11.json",
+      "key": "full-0226",
+      "spine": "3.5.51",
+      "bones": 156,
+      "slots": 84
+    },
+    "棘刺 · 默认 · 战斗背面": {
+      "pack": "pack-11.json",
+      "key": "full-0227",
+      "spine": "3.5.51",
+      "bones": 108,
+      "slots": 53
+    },
+    "棘刺 · 默认 · 战斗正面": {
+      "pack": "pack-11.json",
+      "key": "full-0228",
+      "spine": "3.5.51",
+      "bones": 156,
+      "slots": 84
+    },
+    "槐琥 · 默认 · 基建": {
+      "pack": "pack-11.json",
+      "key": "full-0229",
+      "spine": "3.5.51",
+      "bones": 114,
+      "slots": 66
+    },
+    "槐琥 · 默认 · 战斗背面": {
+      "pack": "pack-11.json",
+      "key": "full-0230",
+      "spine": "3.5.51",
+      "bones": 209,
+      "slots": 106
+    },
+    "槐琥 · 默认 · 战斗正面": {
+      "pack": "pack-11.json",
+      "key": "full-0231",
+      "spine": "3.5.51",
+      "bones": 209,
+      "slots": 106
+    },
+    "歌蕾蒂娅 · 歌蕾蒂娅 · 基建": {
+      "pack": "pack-11.json",
+      "key": "full-0232",
+      "spine": "3.5.51",
+      "bones": 173,
+      "slots": 101
+    },
+    "歌蕾蒂娅 · 歌蕾蒂娅 · 战斗背面": {
+      "pack": "pack-11.json",
+      "key": "full-0233",
+      "spine": "3.5.51",
+      "bones": 147,
+      "slots": 61
+    },
+    "歌蕾蒂娅 · 歌蕾蒂娅 · 战斗正面": {
+      "pack": "pack-11.json",
+      "key": "full-0234",
+      "spine": "3.5.51",
+      "bones": 174,
+      "slots": 100
+    },
+    "波登可 · 小憩初醒 · 基建": {
+      "pack": "pack-11.json",
+      "key": "full-0235",
+      "spine": "3.5.51",
+      "bones": 125,
+      "slots": 82
+    },
+    "波登可 · 小憩初醒 · 战斗背面": {
+      "pack": "pack-11.json",
+      "key": "full-0236",
+      "spine": "3.5.51",
+      "bones": 91,
+      "slots": 47
+    },
+    "波登可 · 小憩初醒 · 战斗正面": {
+      "pack": "pack-11.json",
+      "key": "full-0237",
+      "spine": "3.5.51",
+      "bones": 113,
+      "slots": 70
+    },
+    "波登可 · 默认 · 基建": {
+      "pack": "pack-11.json",
+      "key": "full-0238",
+      "spine": "3.5.51",
+      "bones": 75,
+      "slots": 60
+    },
+    "波登可 · 默认 · 战斗背面": {
+      "pack": "pack-11.json",
+      "key": "full-0239",
+      "spine": "3.5.51",
+      "bones": 61,
+      "slots": 35
+    },
+    "波登可 · 默认 · 战斗正面": {
+      "pack": "pack-12.json",
+      "key": "full-0240",
+      "spine": "3.5.51",
+      "bones": 75,
+      "slots": 60
+    },
+    "火神 · 默认 · 基建": {
+      "pack": "pack-12.json",
+      "key": "full-0241",
+      "spine": "3.5.51",
+      "bones": 81,
+      "slots": 49
+    },
+    "火神 · 默认 · 战斗背面": {
+      "pack": "pack-12.json",
+      "key": "full-0242",
+      "spine": "3.5.51",
+      "bones": 49,
+      "slots": 25
+    },
+    "火神 · 默认 · 战斗正面": {
+      "pack": "pack-12.json",
+      "key": "full-0243",
+      "spine": "3.5.51",
+      "bones": 81,
+      "slots": 48
+    },
+    "灰喉 · 归巢 · 基建": {
+      "pack": "pack-12.json",
+      "key": "full-0244",
+      "spine": "3.5.51",
+      "bones": 90,
+      "slots": 58
+    },
+    "灰喉 · 归巢 · 战斗背面": {
+      "pack": "pack-12.json",
+      "key": "full-0245",
+      "spine": "3.5.51",
+      "bones": 92,
+      "slots": 47
+    },
+    "灰喉 · 归巢 · 战斗正面": {
+      "pack": "pack-12.json",
+      "key": "full-0246",
+      "spine": "3.5.51",
+      "bones": 110,
+      "slots": 71
+    },
+    "灰喉 · 默认 · 基建": {
+      "pack": "pack-12.json",
+      "key": "full-0247",
+      "spine": "3.5.51",
+      "bones": 85,
+      "slots": 54
+    },
+    "灰喉 · 默认 · 战斗背面": {
+      "pack": "pack-12.json",
+      "key": "full-0248",
+      "spine": "3.5.51",
+      "bones": 79,
+      "slots": 42
+    },
+    "灰喉 · 默认 · 战斗正面": {
+      "pack": "pack-12.json",
+      "key": "full-0249",
+      "spine": "3.5.51",
+      "bones": 101,
+      "slots": 64
+    },
+    "灰烬 · 游侠 · 基建": {
+      "pack": "pack-12.json",
+      "key": "full-0250",
+      "spine": "3.5.51",
+      "bones": 226,
+      "slots": 135
+    },
+    "灰烬 · 游侠 · 战斗背面": {
+      "pack": "pack-12.json",
+      "key": "full-0251",
+      "spine": "3.5.51",
+      "bones": 162,
+      "slots": 83
+    },
+    "灰烬 · 游侠 · 战斗正面": {
+      "pack": "pack-12.json",
+      "key": "full-0252",
+      "spine": "3.5.51",
+      "bones": 226,
+      "slots": 135
+    },
+    "灰烬 · 默认 · 基建": {
+      "pack": "pack-12.json",
+      "key": "full-0253",
+      "spine": "3.5.51",
+      "bones": 122,
+      "slots": 104
+    },
+    "灰烬 · 默认 · 战斗背面": {
+      "pack": "pack-12.json",
+      "key": "full-0254",
+      "spine": "3.5.51",
+      "bones": 110,
+      "slots": 88
+    },
+    "灰烬 · 默认 · 战斗正面": {
+      "pack": "pack-12.json",
+      "key": "full-0255",
+      "spine": "3.5.51",
+      "bones": 122,
+      "slots": 104
+    }
+  }
+}
