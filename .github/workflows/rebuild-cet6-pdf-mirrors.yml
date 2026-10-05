@@ -1,0 +1,79 @@
+name: Rebuild CET6 PDF mirrors
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rebuild-cet6-pdf-mirrors.yml'
+      - '六级工作室/资料/2026新东方全套/.pdf-b64/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild PDF mirrors from staged base64 chunks
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64, hashlib, shutil
+
+          root = Path("六级工作室/资料/2026新东方全套")
+          source = root / ".pdf-b64"
+          out = root / "PDF影印版"
+
+          if not source.exists():
+              print("No staged CET-6 base64 source found; nothing to rebuild.")
+              raise SystemExit(0)
+
+          mapping = {
+              "01": ("26英语六级--2024年12月三套真题--新东方_影印版.pdf", "b051e49f08dc8b1aeddbacb49dcbf609c9ffca15cf618b058399ce8134bcac93"),
+              "02": ("26英语六级--2025年12月三套真题--新东方_影印版.pdf", "f1e24ea0b56e8f884447614c413173b9e778fc20acc9e720772c013f8ecfb894"),
+              "03": ("26英语六级--2025年6月三套真题--新东方_影印版.pdf", "5999d2952e294e803a33823f2471be397049315cc5419ba93cebe004b5f003a4"),
+              "04": ("26英语六级--2025年6月六级三套真题--新东方_影印版.pdf", "8ed9feee840128f31932ba2891e245b4b9d7d52c3b8d624729fadff0fd3e8a13"),
+              "05": ("26英语六级--2025年6月四级三套真题--新东方_影印版.pdf", "80f5734240e0de160b8583e8c3f5aca0f2290795f8a675496a4ac34b7627020a"),
+              "06": ("26英语六级--三套刷题卷题+解析--新东方_影印版.pdf", "c4f5991363d38904419553f0557f8b7dccffa033af849157a96bce601dbbb520"),
+              "07": ("26英语六级--写译讲义--新东方_影印版.pdf", "54e25405a9a5beb87c77cb3ad014ea05e03ab4e1d3b39414d2d8eca0eb3aa1db"),
+              "08": ("26英语六级--听力讲义--新东方_影印版.pdf", "c8b958fa302174df77c7eacf12eafa4059217c49bbd0e81371a92b447cc16c9d"),
+              "09": ("26英语六级--词汇讲义--新东方_影印版.pdf", "24209f77c92972fa7b87789bae3142c5b661d65d19f8006c7737c3258b3a9f43"),
+              "10": ("26英语六级--语法讲义--新东方_影印版.pdf", "2a24abaa952e42c522b5be40ce9f2b45bcd464ff22f6f5e9acb9d6c6146deeab"),
+              "11": ("26英语六级--阅读讲义--新东方_影印版.pdf", "fb837b10e3a9b6f87d650ee913ec4b73796796b0b391c0316ad654cb0e42ff86"),
+          }
+
+          out.mkdir(parents=True, exist_ok=True)
+          for key, (filename, expected_sha256) in mapping.items():
+              folder = source / key
+              parts = sorted(folder.glob("part-*.b64"))
+              if not parts:
+                  raise RuntimeError(f"Missing staged chunks for {key}")
+              encoded = "".join(p.read_text(encoding="ascii").strip() for p in parts)
+              raw = base64.b64decode(encoded, validate=True)
+              actual = hashlib.sha256(raw).hexdigest()
+              if actual != expected_sha256:
+                  raise RuntimeError(f"SHA-256 mismatch for {filename}: {actual}")
+              if not raw.startswith(b"%PDF-"):
+                  raise RuntimeError(f"Not a PDF: {filename}")
+              (out / filename).write_bytes(raw)
+              print(f"rebuilt {filename}: {len(raw)} bytes, sha256={actual}")
+
+          shutil.rmtree(source)
+
+      - name: Commit rebuilt PDFs
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A "六级工作室/资料/2026新东方全套"
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Rebuild CET-6 PDF mirror library"
+          git push origin HEAD:main
