@@ -39,7 +39,9 @@ SOURCES_PATH = ROOT / "discovery_sources.csv"
 GEN = ROOT / "generated"
 SITES_PATH = GEN / "sites.json"
 PENDING_PATH = GEN / "pending.json"
-STATUS_PATH = ROOT / "STATUS.md"\nDISCOVERED_PATH = GEN / "discovered_companies.json"\nFEED_PATH = GEN / "recruitment_feed.json"
+STATUS_PATH = ROOT / "STATUS.md"
+DISCOVERED_PATH = GEN / "discovered_companies.json"
+FEED_PATH = GEN / "recruitment_feed.json"
 
 UA = "Mozilla/5.0 (compatible; OfficialRecruitmentRadar/1.0; +https://github.com/g2066203208-beep/JOB-Trakcer)"
 TIMEOUT = 14
