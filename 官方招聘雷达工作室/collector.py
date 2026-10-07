@@ -35,6 +35,7 @@ except Exception:
 
 ROOT = Path(__file__).resolve().parent
 CSV_PATH = ROOT / "companies.csv"
+SOURCES_PATH = ROOT / "discovery_sources.csv"
 GEN = ROOT / "generated"
 SITES_PATH = GEN / "sites.json"
 PENDING_PATH = GEN / "pending.json"
