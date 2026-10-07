@@ -38,7 +38,7 @@ CSV_PATH = ROOT / "companies.csv"
 GEN = ROOT / "generated"
 SITES_PATH = GEN / "sites.json"
 PENDING_PATH = GEN / "pending.json"
-STATUS_PATH = ROOT / "STATUS.md"
+STATUS_PATH = ROOT / "STATUS.md"\nDISCOVERED_PATH = GEN / "discovered_companies.json"\nFEED_PATH = GEN / "recruitment_feed.json"
 
 UA = "Mozilla/5.0 (compatible; OfficialRecruitmentRadar/1.0; +https://github.com/g2066203208-beep/JOB-Trakcer)"
 TIMEOUT = 14
@@ -204,6 +204,51 @@ def main():
     pending = []
     checked = now_iso()
 
+    discovered_companies, authoritative_feed = harvest_authoritative_sources()
+    seeded_names = {r["company"].strip() for r in rows if r.get("company")}
+    new_companies = [x for x in discovered_companies if x["company"] not in seeded_names]
+
+    DISCOVERED_PATH.write_text(
+        json.dumps({
+            "generated_at": checked,
+            "company_count": len(discovered_companies),
+            "new_company_count": len(new_companies),
+            "companies": discovered_companies
+        }, ensure_ascii=False, indent=2),
+        "utf-8"
+    )
+    FEED_PATH.write_text(
+        json.dumps({
+            "generated_at": checked,
+            "item_count": len(authoritative_feed),
+            "items": authoritative_feed
+        }, ensure_ascii=False, indent=2),
+        "utf-8"
+    )
+
+    # 权威目录中新出现的公司按日轮转搜索，避免一次请求过多。
+    if new_companies:
+        batch_size = min(25, len(new_companies))
+        day_index = datetime.now(timezone.utc).timetuple().tm_yday
+        start = (day_index * batch_size) % len(new_companies)
+        batch = [new_companies[(start + i) % len(new_companies)] for i in range(batch_size)]
+        for item in batch:
+            for candidate in search_candidates(item["company"], max_results=5):
+                pending.append({
+                    "company": item["company"],
+                    "category": item["scope"] + "（权威目录自动发现）",
+                    "priority": "B",
+                    "official_home": "",
+                    "candidate_url": candidate["url"],
+                    "candidate_root_domain": root_domain(candidate["url"]),
+                    "title": candidate.get("title", ""),
+                    "snippet": candidate.get("snippet", ""),
+                    "reason": "权威企业名录发现的新公司；招聘入口仍需建立官网证据链",
+                    "discovered_at": checked,
+                    "authority_source": item["source_url"]
+                })
+            time.sleep(0.35)
+
     for row in rows:
         company = row["company"].strip()
         category = row.get("category", "").strip()
@@ -354,6 +399,8 @@ def main():
         f"- 当前可访问（HTTP < 400）：**{ok_count}**",
         f"- 本轮页面变化：**{changed_count}**",
         f"- 待核验候选：**{len(pending)}**",
+        f"- 权威目录发现企业：**{len(discovered_companies)}**（其中种子池外 {len(new_companies)}）",
+        f"- 权威招聘动态：**{len(authoritative_feed)}**",
         "",
         "## 已确认入口",
         "",
