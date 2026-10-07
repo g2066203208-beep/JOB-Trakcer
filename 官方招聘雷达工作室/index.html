@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>官方招聘雷达工作室</title>
+<style>
+:root{--bg:#f4f6f8;--paper:#fff;--ink:#17212b;--muted:#66717e;--line:#dce2e8;--blue:#175cd3;--green:#14804a;--amber:#a15c00;--red:#c4320a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1380px;margin:auto;padding:28px 18px 70px}
+a{color:var(--blue);text-decoration:none}
+header{display:flex;justify-content:space-between;gap:20px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:16px}
+h1{margin:4px 0 6px;font-size:34px}
+.ey{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--blue)}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.notice{margin:16px 0;background:#eef4ff;border-left:4px solid var(--blue);padding:13px 15px;line-height:1.65}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:13px}
+.stat b{display:block;font-size:23px}
+.stat span{font-size:11px;color:var(--muted)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+input,select{padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:white;font:inherit}
+input{min-width:280px}
+.tablewrap{overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:1080px}
+th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:11px;background:#f8fafc;color:var(--muted)}
+td{font-size:13px}
+.company{font-weight:800}
+.pill{display:inline-block;border-radius:999px;padding:2px 7px;font-size:11px;border:1px solid var(--line)}
+.ok{color:var(--green)}
+.warn{color:var(--amber)}
+.bad{color:var(--red)}
+.url{max-width:360px;overflow-wrap:anywhere}
+section{margin-top:26px}
+.pending{background:#fff9ed;border:1px solid #f1d4a8;border-radius:12px;padding:14px}
+.pending table{min-width:900px}
+.empty{padding:26px;text-align:center;color:var(--muted)}
+@media(max-width:760px){header{display:block}.stats{grid-template-columns:repeat(2,1fr)}input{min-width:100%;width:100%}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div>
+<a class="small" href="../秋招工作室/">← 秋招工作室</a>
+<div class="ey">OFFICIAL RECRUITMENT RADAR</div>
+<h1>官方招聘雷达工作室</h1>
+<div class="muted">全网发现 → 官方证据链核验 → 招聘入口巡检 → 页面变化追踪</div>
+</div>
+<div class="small" id="updated">等待数据…</div>
+</header>
+
+<div class="notice"><b>这里优先解决“哪个才是真官网”。</b> 搜索结果不会直接升级为官网；同企业官方主域或由企业官网直接反链的招聘入口才能自动确认。跨域候选统一进入待核验池。</div>
+
+<div class="stats">
+<div class="stat"><b id="companies">0</b><span>公司种子</span></div>
+<div class="stat"><b id="sites">0</b><span>已确认招聘入口</span></div>
+<div class="stat"><b id="reachable">0</b><span>当前可访问</span></div>
+<div class="stat"><b id="changed">0</b><span>本轮页面变化</span></div>
+<div class="stat"><b id="pendingN">0</b><span>待核验候选</span></div>
+</div>
+
+<div class="toolbar">
+<input id="q" placeholder="搜索企业 / 地区 / 类别 / 招聘网址">
+<select id="ver">
+<option value="">全部验证级别</option>
+<option>verified_seed</option>
+<option>official-domain</option>
+<option>official-linked</option>
+</select>
+<select id="prio">
+<option value="">全部优先级</option>
+<option>A</option>
+<option>B</option>
+<option>C</option>
+</select>
+<a href="./STATUS.md">查看扫描状态</a>
+<a href="./companies.csv">公司种子池</a>
+</div>
+
+<div class="tablewrap">
+<table>
+<thead>
+<tr><th>优先</th><th>企业</th><th>类别 / 关注地区</th><th>官方招聘入口</th><th>验证</th><th>状态</th><th>最后核验</th></tr>
+</thead>
+<tbody id="rows"></tbody>
+</table>
+<div class="empty" id="empty">暂无数据，首次自动任务运行后会生成。</div>
+</div>
+
+<section>
+<h2>待核验候选</h2>
+<div class="pending">
+<div class="small">这些是全网自动发现的线索，尚不能当成官方投递入口。</div>
+<div class="tablewrap" style="margin-top:10px">
+<table>
+<thead><tr><th>企业</th><th>候选网址</th><th>标题</th><th>原因</th></tr></thead>
+<tbody id="pendingRows"></tbody>
+</table>
+<div class="empty" id="pendingEmpty">当前没有待核验候选。</div>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+var siteData={sites:[]};
+var pendingData={candidates:[]};
+
+function esc(s){
+  return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+  });
+}
+
+function statusClass(x){
+  var s=Number(x.http_status);
+  if(s&&s<400)return 'ok';
+  if(s)return 'bad';
+  return 'warn';
+}
+
+function render(){
+  var q=document.getElementById('q').value.trim().toLowerCase();
+  var v=document.getElementById('ver').value;
+  var p=document.getElementById('prio').value;
+  var xs=(siteData.sites||[]).filter(function(x){
+    var hay=[x.company,x.category,x.focus,x.recruitment_url,x.title].join(' ').toLowerCase();
+    return (!q||hay.indexOf(q)>=0)&&(!v||x.verification===v)&&(!p||x.priority===p);
+  });
+
+  document.getElementById('rows').innerHTML=xs.map(function(x){
+    var redirect='';
+    if(x.final_url&&x.final_url!==x.recruitment_url){
+      redirect='<div class="small muted">→ '+esc(x.final_url)+'</div>';
+    }
+    var status=(x.http_status==null?'ERR':x.http_status)+(x.changed_since_last_scan?' · 页面变化':'');
+    var checked=esc((x.last_checked||'').replace('T',' ').replace('+00:00',' UTC'));
+    return '<tr>'+
+      '<td><b>'+esc(x.priority)+'</b></td>'+
+      '<td><div class="company">'+esc(x.company)+'</div><div class="small muted">'+esc(x.title||'')+'</div></td>'+
+      '<td>'+esc(x.category)+'<div class="small muted">'+esc(x.focus)+'</div></td>'+
+      '<td class="url"><a target="_blank" rel="noopener" href="'+esc(x.recruitment_url)+'">'+esc(x.recruitment_url)+'</a>'+redirect+'</td>'+
+      '<td><span class="pill">'+esc(x.verification)+'</span></td>'+
+      '<td class="'+statusClass(x)+'">'+status+'</td>'+
+      '<td class="small">'+checked+'</td>'+
+      '</tr>';
+  }).join('');
+
+  document.getElementById('empty').style.display=xs.length?'none':'block';
+
+  var ps=pendingData.candidates||[];
+  document.getElementById('pendingRows').innerHTML=ps.map(function(x){
+    return '<tr>'+
+      '<td><b>'+esc(x.company)+'</b></td>'+
+      '<td class="url"><a target="_blank" rel="noopener" href="'+esc(x.candidate_url)+'">'+esc(x.candidate_url)+'</a></td>'+
+      '<td>'+esc(x.title)+'</td>'+
+      '<td class="small">'+esc(x.reason)+'</td>'+
+      '</tr>';
+  }).join('');
+  document.getElementById('pendingEmpty').style.display=ps.length?'none':'block';
+}
+
+async function boot(){
+  try{
+    siteData=await fetch('./generated/sites.json',{cache:'no-store'}).then(function(r){return r.json()});
+  }catch(e){}
+  try{
+    pendingData=await fetch('./generated/pending.json',{cache:'no-store'}).then(function(r){return r.json()});
+  }catch(e){}
+  document.getElementById('companies').textContent=siteData.company_count||0;
+  document.getElementById('sites').textContent=siteData.site_count||0;
+  document.getElementById('reachable').textContent=siteData.reachable_count||0;
+  document.getElementById('changed').textContent=siteData.changed_count||0;
+  document.getElementById('pendingN').textContent=pendingData.candidate_count||0;
+  document.getElementById('updated').textContent=siteData.generated_at?'最后扫描：'+siteData.generated_at:'等待首次扫描';
+  render();
+}
+
+document.getElementById('q').addEventListener('input',render);
+document.getElementById('ver').addEventListener('change',render);
+document.getElementById('prio').addEventListener('change',render);
+boot();
+</script>
+</body>
+</html>
