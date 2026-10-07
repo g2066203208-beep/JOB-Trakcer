@@ -177,6 +177,113 @@ def search_candidates(company, max_results=8):
     return items
 
 
+
+def resolve_discovery_source(row):
+    url = clean_url(row.get("url", ""))
+    mode = row.get("mode", "").strip()
+    keyword = row.get("anchor_keyword", "").strip()
+    if mode != "directory-follow" or not keyword or not url_okish(url):
+        return url
+    try:
+        r = session.get(url, timeout=TIMEOUT, allow_redirects=True)
+        soup = BeautifulSoup(r.text, "html.parser")
+        for a in soup.find_all("a", href=True):
+            label = a.get_text(" ", strip=True)
+            if keyword in label:
+                return urljoin(r.url, a.get("href", "").strip())
+    except Exception:
+        pass
+    return url
+
+
+def extract_companies_from_directory(html):
+    soup = BeautifulSoup(html, "html.parser")
+    names = set()
+    suffix = r"(?:集团有限公司|股份有限公司|有限责任公司|有限公司|集团)"
+    pattern = re.compile(r"([\u4e00-\u9fa5A-Za-z0-9（）()·—-]{2,50}" + suffix + r")")
+    for tag in soup.find_all(["td", "li", "a", "p", "span"]):
+        text = re.sub(r"\s+", " ", tag.get_text(" ", strip=True))
+        if not text or len(text) > 120:
+            continue
+        text = re.sub(r"^\d+[.、\s]*", "", text)
+        if any(x in text for x in ["招聘", "公告", "新闻", "名录", "更多", "首页", "版权所有"]):
+            continue
+        for m in pattern.findall(text):
+            name = m.strip(" -—：:;；，,。")
+            if 4 <= len(name) <= 60:
+                names.add(name)
+    return sorted(names)
+
+
+def extract_recruitment_feed(html, base_url, source_name, scope):
+    soup = BeautifulSoup(html, "html.parser")
+    items = []
+    seen = set()
+    for a in soup.find_all("a", href=True):
+        title = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
+        if not title or len(title) < 4 or len(title) > 140:
+            continue
+        if "招聘" not in title and "校招" not in title and "校园" not in title:
+            continue
+        url = urljoin(base_url, a.get("href", "").strip())
+        if not url_okish(url) or url in seen:
+            continue
+        seen.add(url)
+        items.append({
+            "source_name": source_name,
+            "scope": scope,
+            "title": title,
+            "url": url
+        })
+    return items[:120]
+
+
+def harvest_authoritative_sources():
+    discovered = {}
+    feed = []
+    if not SOURCES_PATH.exists():
+        return [], []
+    try:
+        with SOURCES_PATH.open(encoding="utf-8-sig") as f:
+            sources = list(csv.DictReader(f))
+    except Exception:
+        return [], []
+
+    for row in sources:
+        source_name = row.get("source_name", "").strip()
+        scope = row.get("scope", "").strip()
+        mode = row.get("mode", "").strip()
+        url = resolve_discovery_source(row)
+        if not url_okish(url):
+            continue
+        try:
+            r = session.get(url, timeout=TIMEOUT, allow_redirects=True)
+            if mode in {"directory", "directory-follow"}:
+                for name in extract_companies_from_directory(r.text):
+                    discovered[name] = {
+                        "company": name,
+                        "scope": scope,
+                        "source_name": source_name,
+                        "source_url": r.url
+                    }
+            if mode == "recruitment-feed":
+                feed.extend(
+                    extract_recruitment_feed(
+                        r.text, r.url, source_name, scope
+                    )
+                )
+        except Exception:
+            continue
+
+    funiq = {}
+    for item in feed:
+        funiq[(item["source_name"], item["url"])] = item
+    return (
+        sorted(discovered.values(), key=lambda x: x["company"]),
+        list(funiq.values())
+    )
+
+
 def load_previous():
     try:
         return json.loads(SITES_PATH.read_text("utf-8"))
