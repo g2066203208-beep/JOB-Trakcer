@@ -26,6 +26,8 @@ def field_by_id(field):
     values = np.asarray(field.data)
     if len(values.shape) == 1:
         return {int(i): float(v) for i, v in zip(field.scoping.ids, values)}
+    if values.shape[1] == 1:
+        return {int(i): float(v[0]) for i, v in zip(field.scoping.ids, values)}
     return {int(i): [float(x) for x in v] for i, v in zip(field.scoping.ids, values)}
 
 
