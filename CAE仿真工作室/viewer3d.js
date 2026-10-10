@@ -109,7 +109,7 @@ export async function mountField(host, result) {
   const rangeMin=legend.querySelector('.legend-low'),rangeMax=legend.querySelector('.legend-high');
   const formatNumber=x=>Number.isFinite(x)?Math.abs(x)>10000||Math.abs(x)<.001&&x!==0?x.toExponential(3):x.toPrecision(5):'缺失';
   let frame=0,playing=false,lastAdvance=0,disposed=false,currentValues=null;
-  const maxNodalDisplacement=frames.reduce((max,f)=>Math.max(max,...f.displacement.slice(0,Math.min(f.displacement.length,30000)).map(u=>Math.hypot(...u))),0);
+  
   function valueArray(f){if(selectField.value==='U, Magnitude')return f.displacement.map(u=>Math.hypot(...u));return f.scalars?.[selectField.value]||new Array(nodes.length).fill(null)}
   function repaint(){
    if(disposed)return;frame=+stepSlider.value;
