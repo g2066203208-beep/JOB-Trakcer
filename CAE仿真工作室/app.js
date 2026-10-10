@@ -2,13 +2,13 @@
 const S=window.CAE_SEED||{projects:[],assets:[]};
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const EXTENSIONS={image:['png','jpg','jpeg','webp','gif','bmp'],video:['mp4','webm'],csv:['csv','tsv','txt'],pdf:['pdf'],model:['stl','obj','glb','gltf']};
+const EXTENSIONS={field:['json'],image:['png','jpg','jpeg','webp','gif','bmp'],video:['mp4','webm'],csv:['csv','tsv','txt'],pdf:['pdf'],model:['stl','obj','glb','gltf']};
 const MAX_SIZE=150*1024*1024;
 const state={db:null,memoryAssets:[],memoryProjects:[],projects:[],assets:[],selected:null,kind:'all',project:'all',pending:[],urls:new Map(),viewerDispose:null,viewerToken:0,toastTimer:null};
 const basename=n=>(n||'').split(/[\\/]/).pop();
 const ext=n=>(n||'').split('.').pop().toLowerCase();
-const kindOf=n=>Object.keys(EXTENSIONS).find(k=>EXTENSIONS[k].includes(ext(n)))||null;
-const prettyKind={image:'图片',video:'动画',csv:'数据',pdf:'报告',model:'三维'};
+const kindOf=n=>ext(n)==='json'?(n.toLowerCase().endsWith('.cae.json')||n.toLowerCase().endsWith('.cae-result.json')?'field':null):(Object.keys(EXTENSIONS).find(k=>EXTENSIONS[k].includes(ext(n)))||null);
+const prettyKind={field:'可交互云图',image:'图片',video:'动画',csv:'数据',pdf:'报告',model:'三维'};
 const uid=()=>('asset-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8));
 function notice(message){const el=$('toast');el.textContent=message;el.hidden=false;clearTimeout(state.toastTimer);state.toastTimer=setTimeout(()=>el.hidden=true,4300);}
 function openDatabase(){return new Promise(resolve=>{if(!('indexedDB'in window))return resolve(null);let request;try{request=indexedDB.open('CAE_SIM_PORTFOLIO_V2',1);}catch(e){return resolve(null)}
@@ -50,7 +50,7 @@ function fillFilters(){
  $('uploadProject').value=state.project==='all'?(state.projects[0]?.id||''):state.project;
  document.querySelectorAll('#typeFilters button').forEach(b=>b.classList.toggle('active',b.dataset.kind===state.kind));
 }
-function iconLabel(a){return {image:'IMG',csv:'CSV',model:'3D',video:'MP4',pdf:'PDF'}[a.kind]||'FILE';}
+function iconLabel(a){return {field:'FE',image:'IMG',csv:'CSV',model:'3D',video:'MP4',pdf:'PDF'}[a.kind]||'FILE';}
 function renderAssets(){
  const filtered=selectedAssets();
  if(!filtered.length){$('assetList').innerHTML='<div class="asset-empty"><strong>还没有这一分类的真实文件</strong><span>从本机导入结果后，图片会生成缩略图；CSV 可绘制曲线；三维模型可旋转观察。</span><br><button id="assetImport" type="button">＋ 添加结果文件</button></div>';$('assetImport').onclick=openUpload;}
@@ -73,6 +73,10 @@ function showAsset(asset){
  else if(asset.kind==='video'){const video=document.createElement('video');video.src=url;video.controls=true;video.playsInline=true;video.preload='metadata';wrapper.append(video);}
  else if(asset.kind==='pdf'){const pdf=document.createElement('iframe');pdf.title=asset.title||'仿真技术报告';pdf.src=url;wrapper.append(pdf);}
  else if(asset.kind==='csv'){showCsv(wrapper,asset,token);}
+ else if(asset.kind==='field'){
+  const host=document.createElement('div');host.className='field-host';wrapper.append(host);wrapper.classList.add('field-media');const msg=document.createElement('div');msg.className='viewer-error';msg.textContent='正在解析场数据…';host.append(msg);
+  (async()=>{try{const raw=asset.blob?await asset.blob.text():await fetch(url).then(r=>{if(!r.ok)throw Error('无法下载数据文件');return r.text()});const data=JSON.parse(raw);if(data.format!=='cae-field-v1')throw Error('不符合 cae-field-v1 格式');const module=await import('./viewer3d.js?v=2.0');if(token!==state.viewerToken)return;const dispose=await module.mountField(host,data);if(token===state.viewerToken)state.viewerDispose=dispose;else dispose?.();}catch(err){if(token===state.viewerToken)host.innerHTML='<div class="viewer-error">结果数据无法显示：'+esc(err.message||err)+'</div>';}})();
+ }
  else if(asset.kind==='model'){
   const host=document.createElement('div');host.className='model-host';wrapper.append(host);
   const msg=document.createElement('div');msg.className='viewer-error';msg.textContent='正在读取三维模型…';host.append(msg);
@@ -161,6 +165,7 @@ function setFiles(input){const files=Array.from(input||[]);const valid=files.fil
 async function importSelectedFiles(){
  if(!state.pending.length)return;const button=$('importFiles');button.disabled=true;button.textContent='正在保存…';let succeeded=0;let first=null;
  try{for(const file of state.pending){
+ if(kindOf(file.name)==='field'){let obj;try{obj=JSON.parse(await file.text());if(obj.format!=='cae-field-v1'||!Array.isArray(obj.nodes)||!Array.isArray(obj.triangles)||!Array.isArray(obj.frames))throw Error('格式不完整');}catch(err){throw Error(file.name+'：无效的 CAE 场文件（'+err.message+'）');}}
  const asset={id:uid(),projectId:$('uploadProject').value,title:state.pending.length===1?($('uploadTitleInput').value.trim()||file.name):file.name,name:file.name,kind:kindOf(file.name),software:$('uploadSoftware').value,notes:$('uploadNotes').value.trim(),blob:file,createdAt:new Date().toISOString(),local:true};
  await storePut('assets',asset);state.assets.unshift(asset);if(!first)first=asset;succeeded++;
  }
