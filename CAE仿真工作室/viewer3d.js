@@ -114,7 +114,7 @@ export async function mountField(host, result) {
   function repaint(){
    if(disposed)return;frame=+stepSlider.value;
    const f=frames[frame],selected=valueArray(f),valid=selected.filter(v=>typeof v==='number'&&Number.isFinite(v));
-   const min=valid.length?Math.min(...valid):0,max=valid.length?Math.max(...valid):0,spread=Math.max(max-min,1e-16),scale=+factor.value;
+   let min=Infinity,max=-Infinity;for(const v of valid){if(v<min)min=v;if(v>max)max=v;}if(!valid.length){min=0;max=0;}const spread=Math.max(max-min,1e-16),scale=+factor.value;
    currentValues=selected;
    for(let i=0;i<nTri;i++){
     const id=indices[i],p=nodes[id],u=f.displacement[id];
