@@ -178,7 +178,7 @@ def main():
                         mises = float(value.mises)
                     except Exception:
                         continue
-                    if math.isfinite(mises):
+                    if not (math.isnan(mises) or math.isinf(mises)):
                         by_node[key] = max(by_node.get(key, mises), mises)
                 if by_node:
                     name = 'S, Mises' if source == 'NODAL' else 'S, Mises (nodal max)'
