@@ -91,7 +91,7 @@ def main():
         node_coords = {}
         for inst in odb.rootAssembly.instances.values():
             for node in inst.nodes:
-                node_coords[(inst.name, node.label)] = list(node.coordinates[:3])
+                node_coords[(inst.name, node.label)] = (list(node.coordinates[:3])+[0.0, 0.0, 0.0])[:3]
             for elem in inst.elements:
                 faces = faces_for_element(elem)
                 if not faces:
