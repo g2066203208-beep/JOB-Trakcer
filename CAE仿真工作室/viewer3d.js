@@ -125,7 +125,7 @@ export async function mountField(host, result) {
     for(let j=0;j<3;j++)colors[3*i+j]=rgb[j];
    }
    geometry.attributes.position.needsUpdate=true;geometry.attributes.color.needsUpdate=true;geometry.computeVertexNormals();
-   wireMesh.geometry.dispose();wireMesh.geometry=new THREE.EdgesGeometry(geometry);wireMesh.visible=wireInput.checked;
+   if(wireInput.checked){wireMesh.geometry.dispose();wireMesh.geometry=new THREE.EdgesGeometry(geometry);}wireMesh.visible=wireInput.checked;
    reference.visible=originalInput.checked;
    rangeMin.textContent=formatNumber(min);rangeMax.textContent=formatNumber(max);
    legend.querySelector('.legend-caption').textContent=selectField.value+(result.units?.[selectField.value]?' / '+result.units[selectField.value]:'');
