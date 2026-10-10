@@ -1,83 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f6f4ef">
-<meta name="description" content="CAE 仿真工作室：有限元学习、软件训练、项目案例、模型与结果、工程验证及专业作品集。">
-<title>CAE 仿真工作室 · Engineering Simulation Lab</title>
-<link rel="stylesheet" href="./styles.css?v=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10191f">
+<meta name="description" content="CAE 仿真作品集：Abaqus、Ansys、LS-DYNA、OpenFAST 的真实计算结果、三维模型、对比分析和工程报告。">
+<title>CAE Studio — 仿真作品集</title>
+<link rel="stylesheet" href="./styles.css?v=2.0">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"}}</script>
 </head>
 <body>
-<div class="shell">
-<header class="topbar">
-  <div class="identity"><span class="mark">CAE<span class="markdot">.</span></span><div><strong>CAE 仿真工作室</strong><small>ENGINEERING SIMULATION LAB</small></div></div>
-  <nav aria-label="主要导航"><a href="#overview">总览</a><a href="#learning">学习路线</a><a href="#software">软件体系</a><a href="#projects">项目案例</a><a href="#evidence">成果展示</a><a href="#resources">资源库</a></nav>
-  <a class="back" href="../学习总控台/">↗ 学习总控台</a>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="CAE Studio 首页"><span class="brand-symbol">C<span>.</span></span><span class="brand-word">CAE STUDIO<small>SIMULATION PORTFOLIO</small></span></a>
+  <nav aria-label="页面导航"><a href="#projects">项目作品</a><a href="#results">结果浏览</a><a href="#method">验证与报告</a></nav>
+  <div class="header-actions"><a class="header-back" href="../学习总控台/">返回总控台 ↗</a><button class="btn btn-header" id="openUpload" type="button">＋ 导入结果</button></div>
 </header>
-<main>
-<section class="hero" id="overview">
-  <div class="hero-text">
-    <div class="eyebrow"><span class="signal"></span> INDEPENDENT WORKSPACE / 2026.10</div>
-    <h1>从建模到验证，<br><em>让每一次仿真都有依据。</em></h1>
-    <p>专门沉淀 CAE 学习、软件实操、结构与动力学仿真、多行业案例、原始模型、结果图表和可核验的工程作品。与秋招工作室独立管理，成果可复用于简历、面试与作品集。</p>
-    <div class="hero-actions"><a class="button dark" href="#learning">开始学习 →</a><a class="button outline" href="#projects">查看案例</a></div>
+<main id="top">
+  <section class="hero">
+    <div class="hero-label"><span class="light-dot"></span> ENGINEERING / VISUAL PORTFOLIO <span class="hero-date">EST. 2026</span></div>
+    <div class="hero-layout">
+      <div><h1>Simulation.<br><em>Made visible.</em></h1><p class="hero-cn">计算有依据，结果有出处。</p><p class="hero-text">Abaqus、ANSYS、LS-DYNA 与结构动力学项目的专属展示空间。模型、云图、时程曲线、对比图、动画和技术报告都按项目归档。</p><div class="hero-buttons"><a class="btn btn-light" href="#projects">浏览项目 <span>↗</span></a><button class="btn btn-ghost" id="heroUpload" type="button">添加真实仿真结果 <span>＋</span></button></div></div>
+      <aside class="hero-index"><div class="index-top"><span>THE ARCHIVE</span><span>2026 / PORTFOLIO</span></div><div class="index-number" id="archiveCount">03 <span>PROJECTS</span></div><div class="hero-separator"></div><div class="index-row"><span>SOFTWARE</span><b>ABAQUS / ANSYS / LS-DYNA</b></div><div class="index-row"><span>OUTPUT</span><b>IMAGE / VIDEO / CSV / 3D / PDF</b></div><div class="index-row"><span>QUALITY</span><b>TRACEABLE · VERIFIED WHEN EVIDENCED</b></div><p class="index-bottom">这里不放虚构云图。未上传的结果保持空白，上传真实文件后才显示。</p></aside>
+    </div>
+    <div class="hero-foot"><span>FINITE ELEMENT ANALYSIS / MULTIBODY DYNAMICS / NUMERICAL VERIFICATION</span><span>SCROLL TO EXPLORE ↓</span></div>
+  </section>
+  <div class="page-container">
+    <section class="portfolio-section" id="projects">
+      <div class="section-heading"><div><p class="kicker">01 — SELECTED WORK</p><h2>项目作品 <span id="projectTotal">/ 03</span></h2><p class="section-intro">以项目组织材料。点开任何项目可查看对应结果；没有上传的内容不会用假图填充。</p></div><button class="text-action" id="newProject" type="button">＋ 创建项目</button></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+    <section class="portfolio-section results-section" id="results">
+      <div class="section-heading"><div><p class="kicker">02 — RESULT EXPLORER</p><h2>仿真结果浏览器</h2><p class="section-intro">真正浏览文件，而不是一个只能看装饰图的页面。</p></div><div class="quick-tools"><span id="fileCount">0 个已归档文件</span><button class="small-outline" id="addResult" type="button">导入文件 ＋</button></div></div>
+      <div class="result-workspace">
+        <div class="result-toolbar"><div class="filter-tabs" id="typeFilters" role="group" aria-label="结果类型"><button class="active" data-kind="all">全部</button><button data-kind="image">云图 / 图片</button><button data-kind="model">三维模型</button><button data-kind="csv">CSV 曲线</button><button data-kind="video">动画</button><button data-kind="pdf">报告</button></div><label class="project-select-wrap">项目 <select id="projectFilter" aria-label="选择项目"></select></label></div>
+        <div class="result-content"><div class="asset-list" id="assetList"></div><section class="view-panel" id="viewerPanel" aria-label="结果预览"><div class="viewer-frame" id="viewerFrame"><div class="viewer-empty"><span>CAE / VIEWER</span><h3>等待真实结果文件</h3><p>拖入或导入 Abaqus / ANSYS 等软件导出的截图、CSV、动画、PDF 或三维模型。</p><button class="btn btn-light" id="emptyUpload" type="button">导入结果 →</button></div></div><div class="viewer-info" id="viewerInfo"><span>REAL DATA ONLY — NO SIMULATED PREVIEWS</span></div></section></div>
+        <div class="result-footer"><span>可预览：PNG / JPG / WEBP / GIF · MP4 / WEBM · CSV / TSV · PDF · STL / OBJ / GLB</span><span>ODB / RST / OP2 等原生结果需先由求解软件导出</span></div>
+      </div>
+    </section>
+    <section class="portfolio-section" id="method">
+      <div class="section-heading"><div><p class="kicker">03 — ENGINEERING NOTES</p><h2>从求解到交付</h2><p class="section-intro">一个工程仿真案例是否值得放进作品集，取决于能不能讲清设置、结果和校核。</p></div></div>
+      <div class="method-layout"><div class="method-list"><article><span>01</span><div><h3>模型与输入</h3><p>几何尺寸、材料参数、单元及网格、边界和载荷来源，记录软件版本与单位制。</p></div></article><article><span>02</span><div><h3>计算与结果</h3><p>保留求解日志、关键云图、反力与时程数据；图表标明物理量、单位、工况及时间。</p></div></article><article><span>03</span><div><h3>结果校核</h3><p>解析解 / 文献 / 标准算例对照，必要时进行网格敏感性、能量平衡和误差说明。</p></div></article><article><span>04</span><div><h3>作品集交付</h3><p>一页案例封面、重点结果、方法说明与正式报告；不把没有验证的数据标成“通过”。</p></div></article></div><aside class="method-aside"><span class="aside-eyebrow">CASE DOCUMENTATION</span><h3>所有内容<br>都能追溯。</h3><p>每一个结果文件都绑定所属项目、软件和工况备注。重要结果应在 GitHub 中补充原始文件、报告和出处。</p><a href="https://github.com/g2066203208-beep/JOB-Trakcer/blob/main/CAE仿真工作室/模板/CAE案例记录模板.md" target="_blank" rel="noopener">打开案例记录模板 ↗</a><a href="https://github.com/g2066203208-beep/JOB-Trakcer/tree/main/CAE仿真工作室/成果" target="_blank" rel="noopener">查看 GitHub 成果目录 ↗</a></aside></div>
+    </section>
+    <section class="bottom-banner"><span>CAE STUDIO / ARCHIVE V2</span><p>把真正做过的模型、结果和验证过程留下来。</p><button type="button" id="bottomUpload">加入下一份结果 <span>↗</span></button></section>
   </div>
-  <div class="hero-visual" aria-label="CAE 工作流程示意">
-    <div class="visual-label">SIMULATION PIPELINE <span>01—06</span></div>
-    <svg viewBox="0 0 490 300" role="img" aria-label="结构离散网格与计算流程示意图">
-      <defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#516879"/><stop offset="1" stop-color="#233847"/></linearGradient></defs>
-      <g stroke="#7e9aa9" stroke-opacity=".45" fill="none" stroke-width="1"><path d="M44 242H452M44 200H452M44 158H452M44 116H452M44 74H452M80 46V256M128 46V256M176 46V256M224 46V256M272 46V256M320 46V256M368 46V256M416 46V256"/></g>
-      <g stroke="#b4e2e6" stroke-width="1.5"><path d="M158 256L187 65L228 65L262 256Z" fill="url(#grad)"/><path d="M172 196L245 196M180 145H240M188 99H233M158 256L228 65M262 256L187 65M158 256L240 145M262 256L180 145M172 196L233 99M245 196L188 99" fill="none" stroke-opacity=".8"/></g>
-      <g fill="#dfc27b" stroke="#172b36" stroke-width="2"><circle cx="158" cy="256" r="4"/><circle cx="262" cy="256" r="4"/><circle cx="172" cy="196" r="4"/><circle cx="245" cy="196" r="4"/><circle cx="187" cy="65" r="4"/><circle cx="228" cy="65" r="4"/></g>
-      <g stroke="#e6d28b" stroke-width="2" fill="none"><path d="M208 69V20M208 20l-8 10m8-10l8 10"/><path d="M283 156h72m-12-8l12 8l-12 8"/></g>
-      <g font-family="monospace" font-size="11" fill="#dce6e9"><text x="221" y="24">F(t)</text><text x="361" y="160">RESPONSE</text><text x="39" y="278">BC / CONSTRAINT</text><text x="310" y="278">MESH / ELEMENT</text></g>
-    </svg>
-    <div class="process-strip"><span>几何</span><b>→</b><span>材料</span><b>→</b><span>网格</span><b>→</b><span>求解</span><b>→</b><span>校核</span><b>→</b><span>交付</span></div>
-  </div>
-</section>
-<section class="stats" aria-label="工作室分类统计">
-  <div><span>当前软件卡片</span><strong id="statSoftware">—</strong><small>工具与能力边界</small></div>
-  <div><span>研究案例档案</span><strong id="statCases">—</strong><small>包含待补证据项目</small></div>
-  <div><span>系统学习路线</span><strong id="statTracks">—</strong><small>从基础到工业交付</small></div>
-  <div><span>学习任务进度</span><strong id="statProgress">—</strong><small>仅保存在当前浏览器</small></div>
-</section>
-<section class="section" id="learning">
- <div class="section-head"><div><div class="eyebrow">01 / LEARNING PATH</div><h2>CAE 学习路线</h2><p>不是罗列软件名称，而是按「理论—建模—求解—校核—复现」逐步形成可迁移能力。</p></div><a class="tiny-link" href="https://github.com/g2066203208-beep/JOB-Trakcer/blob/main/CAE仿真工作室/学习路线.md" target="_blank" rel="noopener">路线详细说明 ↗</a></div>
- <div class="learning-layout"><div class="track-list" id="tracks"></div><aside class="aside">
-   <h3>每个练习都必须有产出</h3><ol><li>问题与物理假设</li><li>材料、边界条件和载荷依据</li><li>网格与求解控制</li><li>后处理关键图表</li><li>网格敏感性或解析/文献验证</li><li>局限性与可复现文件</li></ol>
-   <p class="aside-note">勾选进度仅是个人学习记录，不等于已完成仿真或通过工程验收。</p><button class="text-button" id="resetProgress">清空本地学习勾选</button>
- </aside></div>
-</section>
-<section class="section" id="software">
- <div class="section-head"><div><div class="eyebrow">02 / SOFTWARE STACK</div><h2>软件与仿真方向</h2><p>把接触过的软件和仍待掌握的功能区分开，不将“使用过”写成“精通”。</p></div></div>
- <div class="filter" id="softwareFilters" role="group" aria-label="软件分类筛选"><button data-type="全部" class="selected">全部</button><button data-type="前处理">前处理</button><button data-type="求解器">求解器</button><button data-type="动力学">动力学</button><button data-type="工具">工具</button></div>
- <div class="software-grid" id="softwareGrid"></div>
-</section>
-<section class="section" id="projects">
- <div class="section-head"><div><div class="eyebrow">03 / CASE LIBRARY</div><h2>仿真项目案例</h2><p>采用项目档案管理：做了什么、如何设置、哪些结果已有记录、哪些证据仍缺失，一目了然。</p></div></div>
- <div class="case-toolbar"><label class="search-wrap"><span>⌕</span><input id="caseSearch" placeholder="搜索项目、软件、分析方向…" aria-label="搜索案例"></label><select id="caseStatus" aria-label="筛选案例状态"><option value="全部">所有状态</option><option value="研究记录">研究记录</option><option value="规划练习">规划练习</option></select></div>
- <div class="case-grid" id="caseGrid"></div><div id="caseEmpty" class="empty" hidden>未找到匹配案例。</div>
-</section>
-<section class="section" id="evidence">
- <div class="section-head"><div><div class="eyebrow">04 / SHOWCASE & VALIDATION</div><h2>模型、图表与成果展示</h2><p>成果必须能追溯到模型版本、工况、参数、求解日志与原始输出，不用空白图片冒充仿真结果。</p></div></div>
- <div class="evidence-layout"><div class="evidence-board">
-   <div class="board-head"><span>成果归档流水线</span><small>当前为展示架构，未自动读取外部仿真文件</small></div>
-   <div class="steps"><div><b>01</b><strong>输入与模型</strong><small>CAD/CAE 文件、网格、材料参数、载荷</small></div><div><b>02</b><strong>求解过程</strong><small>Job/日志、求解设置、版本信息</small></div><div><b>03</b><strong>输出与图表</strong><small>云图、时程、模态、频谱与对比</small></div><div><b>04</b><strong>验证与报告</strong><small>基准误差、敏感性、复现说明</small></div></div>
- </div><div class="deliverables"><h3>作品集展示建议</h3><p>每个案例最终形成一页摘要、关键图片、参数表、验证曲线、独立技术报告和文件索引。</p><div class="divider"></div><a href="https://github.com/g2066203208-beep/JOB-Trakcer/tree/main/CAE仿真工作室/成果" target="_blank" rel="noopener">打开成果归档目录 →</a><a href="https://github.com/g2066203208-beep/JOB-Trakcer/blob/main/CAE仿真工作室/模板/CAE案例记录模板.md" target="_blank" rel="noopener">使用标准案例模板 →</a></div></div>
-</section>
-<section class="section" id="resources">
- <div class="section-head"><div><div class="eyebrow">05 / LIBRARY</div><h2>资源、规范与操作入口</h2><p>优先官方文档、经过核验的基准算例和可公开引用的资料。</p></div></div>
- <div class="resources-grid" id="resourceGrid"></div>
-</section>
-<section class="next-section" id="workflow">
- <div><div class="eyebrow">NEXT ITERATION / WORKFLOW</div><h2>持续建设，而不是一次性的展示页</h2><p>新增练习 → 使用案例模板写清输入与设置 → 运行并保存日志 → 上传非涉密结果 → 校核后将「待验证」改为「可展示」。大体积二进制模型优先使用 Git LFS 或 Releases，并注明许可证。</p></div>
- <a class="button light" href="https://github.com/g2066203208-beep/JOB-Trakcer/tree/main/CAE仿真工作室" target="_blank" rel="noopener">进入 GitHub 资料目录 ↗</a>
-</section>
 </main>
-<footer><div><b>CAE 仿真工作室</b><span>学习 · 建模 · 计算 · 验证 · 展示</span></div><div><a href="../秋招工作室/">秋招工作室</a><a href="../学习总控台/">学习总控台</a><span>资料与结果以实际文件为准 · v1.0</span></div></footer>
-</div>
-<script src="./data.js?v=1.0"></script>
-<script src="./app.js?v=1.0"></script>
+<footer><span>© 2026 CAE STUDIO</span><div><a href="../秋招工作室/">秋招工作室</a><a href="../学习总控台/">学习总控台</a><a href="https://github.com/g2066203208-beep/JOB-Trakcer/tree/main/CAE仿真工作室" target="_blank" rel="noopener">GITHUB ↗</a></div><small>计算结果须以原始文件为准</small></footer>
+<div class="overlay" id="uploadOverlay" hidden><div class="drawer-shade" data-close="upload"></div><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="uploadTitle"><header class="drawer-head"><div><small>LOCAL WORKSPACE / IMPORT</small><h2 id="uploadTitle">导入仿真结果</h2></div><button class="close" data-close="upload" aria-label="关闭">×</button></header><div class="drawer-body"><p class="drawer-desc">从本机导入真实结果，预览并暂存在该浏览器的本地数据库。网页不向 GitHub 自动上传文件。</p><label class="field">所属项目<select id="uploadProject"></select></label><label class="field">使用软件<select id="uploadSoftware"><option>Abaqus</option><option>ANSYS</option><option>LS-DYNA</option><option>OpenFAST</option><option>Simpack</option><option>SolidWorks</option><option>MATLAB</option><option>其他</option></select></label><label class="field">结果名称<input id="uploadTitleInput" maxlength="120" placeholder="例如：塔底应力云图 / 第一阶模态"></label><label class="field">工况 / 单位 / 备注<textarea id="uploadNotes" rows="3" maxlength="500" placeholder="例如：U12_NTM_S01；S, Mises / MPa；t=600 s"></textarea></label><div class="dropzone" id="dropzone" role="button" tabindex="0"><span class="upload-mark">＋</span><strong>拖放结果文件到这里</strong><p>或点击选择文件，可批量导入</p><small>图片、视频、CSV、PDF、STL、OBJ、GLB<br>原生 ODB / RST 需在求解器中先导出</small><input type="file" id="uploadFiles" multiple accept=".png,.jpg,.jpeg,.webp,.gif,.bmp,.mp4,.webm,.csv,.tsv,.txt,.pdf,.stl,.obj,.glb,.gltf,image/*,video/*,application/pdf" hidden></div><div class="files-selected" id="filesSelected">尚未选择文件</div><p class="data-note">本地保存受浏览器容量限制。要公开展示，请将文件整理进 GitHub 成果目录，再在网页登记对应路径。</p></div><div class="drawer-actions"><button class="btn muted-btn" data-close="upload">取消</button><button class="btn dark-btn" id="importFiles" type="button" disabled>导入到作品集 →</button></div></aside></div>
+<div class="overlay" id="projectOverlay" hidden><div class="drawer-shade" data-close="project"></div><aside class="drawer small-drawer" role="dialog" aria-modal="true" aria-labelledby="projectDialogTitle"><header class="drawer-head"><div><small>PORTFOLIO / NEW PROJECT</small><h2 id="projectDialogTitle">新建案例</h2></div><button class="close" data-close="project" aria-label="关闭">×</button></header><div class="drawer-body"><label class="field">项目标题<input id="newProjectName" maxlength="80" placeholder="例如：工业支架静力及模态分析"></label><label class="field">分析软件<input id="newProjectSoftware" maxlength="80" placeholder="Abaqus / ANSYS"></label><label class="field">简短介绍<textarea id="newProjectDesc" maxlength="350" rows="4" placeholder="研究目标、分析内容、当前进展"></textarea></label><p class="data-note">项目先保存在此浏览器，随后可再上传实际图片和仿真数据。</p></div><div class="drawer-actions"><button class="btn muted-btn" data-close="project">取消</button><button class="btn dark-btn" id="saveNewProject" type="button">创建项目 →</button></div></aside></div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="放大查看图片"><div class="lightbox-bar"><span id="lightboxTitle">RESULT IMAGE</span><button id="lightboxClose" aria-label="关闭图片">关闭 ×</button></div><img id="lightboxImage" alt="完整仿真结果图"><p>点击背景关闭 · Esc 关闭</p></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="./data.js?v=2.0"></script><script src="./app.js?v=2.0"></script>
 </body>
 </html>
