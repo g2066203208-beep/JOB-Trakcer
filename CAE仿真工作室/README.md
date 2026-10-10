@@ -8,6 +8,16 @@
 
 代码入口：index.html / styles.css / app.js / data.js / viewer3d.js。采用原仓库 GitHub Pages 静态部署方式。
 
+## Abaqus 与 ANSYS 可交互场云图（新增）
+
+现在可导入 `*.cae.json`（`cae-field-v1`）并在网页上查看真实的**表面节点应力云图、位移云图、按步播放、变形倍率、网格和数值查询**。这不同于仅展示静态图片。Abaqus `.odb` 与 ANSYS `.rst` 必须经过软件环境中的导出工具转换，**不支持直接将这两种原生结果文件拖入浏览器**。
+
+- [Abaqus/ANSYS 导出和交互查看说明](./导出工具/README.md)
+- [ANSYS DPF RST 导出脚本](./导出工具/ansys_rst_export.py)
+- [Abaqus ODB 导出脚本](./导出工具/abaqus_odb_export.py)
+
+**软件条件和限制：** 两个脚本尚未在你本机真实求解结果上验证。ANSYS 需要 PyDPF-Core、PyVista 和兼容的 DPF 环境；Abaqus 需要自带 `odbAccess`。导出的是有限元外表面的节点场；节点应力平均、单元阶次和积分点的显示方式可能与原软件默认云图不同，必须对照原始结果核验。
+
 ## 已实现的能力
 
 | 类型 | 直接可预览的格式 | 展示方式 |
