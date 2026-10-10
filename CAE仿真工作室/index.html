@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f4ef">
+<meta name="description" content="CAE 仿真工作室：有限元学习、软件训练、项目案例、模型与结果、工程验证及专业作品集。">
+<title>CAE 仿真工作室 · Engineering Simulation Lab</title>
+<link rel="stylesheet" href="./styles.css?v=1.0">
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+  <div class="identity"><span class="mark">CAE<span class="markdot">.</span></span><div><strong>CAE 仿真工作室</strong><small>ENGINEERING SIMULATION LAB</small></div></div>
+  <nav aria-label="主要导航"><a href="#overview">总览</a><a href="#learning">学习路线</a><a href="#software">软件体系</a><a href="#projects">项目案例</a><a href="#evidence">成果展示</a><a href="#resources">资源库</a></nav>
+  <a class="back" href="../学习总控台/">↗ 学习总控台</a>
+</header>
+<main>
+<section class="hero" id="overview">
+  <div class="hero-text">
+    <div class="eyebrow"><span class="signal"></span> INDEPENDENT WORKSPACE / 2026.10</div>
+    <h1>从建模到验证，<br><em>让每一次仿真都有依据。</em></h1>
+    <p>专门沉淀 CAE 学习、软件实操、结构与动力学仿真、多行业案例、原始模型、结果图表和可核验的工程作品。与秋招工作室独立管理，成果可复用于简历、面试与作品集。</p>
+    <div class="hero-actions"><a class="button dark" href="#learning">开始学习 →</a><a class="button outline" href="#projects">查看案例</a></div>
+  </div>
+  <div class="hero-visual" aria-label="CAE 工作流程示意">
+    <div class="visual-label">SIMULATION PIPELINE <span>01—06</span></div>
+    <svg viewBox="0 0 490 300" role="img" aria-label="结构离散网格与计算流程示意图">
+      <defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#516879"/><stop offset="1" stop-color="#233847"/></linearGradient></defs>
+      <g stroke="#7e9aa9" stroke-opacity=".45" fill="none" stroke-width="1"><path d="M44 242H452M44 200H452M44 158H452M44 116H452M44 74H452M80 46V256M128 46V256M176 46V256M224 46V256M272 46V256M320 46V256M368 46V256M416 46V256"/></g>
+      <g stroke="#b4e2e6" stroke-width="1.5"><path d="M158 256L187 65L228 65L262 256Z" fill="url(#grad)"/><path d="M172 196L245 196M180 145H240M188 99H233M158 256L228 65M262 256L187 65M158 256L240 145M262 256L180 145M172 196L233 99M245 196L188 99" fill="none" stroke-opacity=".8"/></g>
+      <g fill="#dfc27b" stroke="#172b36" stroke-width="2"><circle cx="158" cy="256" r="4"/><circle cx="262" cy="256" r="4"/><circle cx="172" cy="196" r="4"/><circle cx="245" cy="196" r="4"/><circle cx="187" cy="65" r="4"/><circle cx="228" cy="65" r="4"/></g>
+      <g stroke="#e6d28b" stroke-width="2" fill="none"><path d="M208 69V20M208 20l-8 10m8-10l8 10"/><path d="M283 156h72m-12-8l12 8l-12 8"/></g>
+      <g font-family="monospace" font-size="11" fill="#dce6e9"><text x="221" y="24">F(t)</text><text x="361" y="160">RESPONSE</text><text x="39" y="278">BC / CONSTRAINT</text><text x="310" y="278">MESH / ELEMENT</text></g>
+    </svg>
+    <div class="process-strip"><span>几何</span><b>→</b><span>材料</span><b>→</b><span>网格</span><b>→</b><span>求解</span><b>→</b><span>校核</span><b>→</b><span>交付</span></div>
+  </div>
+</section>
+<section class="stats" aria-label="工作室分类统计">
+  <div><span>当前软件卡片</span><strong id="statSoftware">—</strong><small>工具与能力边界</small></div>
+  <div><span>研究案例档案</span><strong id="statCases">—</strong><small>包含待补证据项目</small></div>
+  <div><span>系统学习路线</span><strong id="statTracks">—</strong><small>从基础到工业交付</small></div>
+  <div><span>学习任务进度</span><strong id="statProgress">—</strong><small>仅保存在当前浏览器</small></div>
+</section>
+<section class="section" id="learning">
+ <div class="section-head"><div><div class="eyebrow">01 / LEARNING PATH</div><h2>CAE 学习路线</h2><p>不是罗列软件名称，而是按「理论—建模—求解—校核—复现」逐步形成可迁移能力。</p></div><a class="tiny-link" href="https://github.com/g2066203208-beep/JOB-Trakcer/blob/main/CAE仿真工作室/学习路线.md" target="_blank" rel="noopener">路线详细说明 ↗</a></div>
+ <div class="learning-layout"><div class="track-list" id="tracks"></div><aside class="aside">
+   <h3>每个练习都必须有产出</h3><ol><li>问题与物理假设</li><li>材料、边界条件和载荷依据</li><li>网格与求解控制</li><li>后处理关键图表</li><li>网格敏感性或解析/文献验证</li><li>局限性与可复现文件</li></ol>
+   <p class="aside-note">勾选进度仅是个人学习记录，不等于已完成仿真或通过工程验收。</p><button class="text-button" id="resetProgress">清空本地学习勾选</button>
+ </aside></div>
+</section>
+<section class="section" id="software">
+ <div class="section-head"><div><div class="eyebrow">02 / SOFTWARE STACK</div><h2>软件与仿真方向</h2><p>把接触过的软件和仍待掌握的功能区分开，不将“使用过”写成“精通”。</p></div></div>
+ <div class="filter" id="softwareFilters" role="group" aria-label="软件分类筛选"><button data-type="全部" class="selected">全部</button><button data-type="前处理">前处理</button><button data-type="求解器">求解器</button><button data-type="动力学">动力学</button><button data-type="工具">工具</button></div>
+ <div class="software-grid" id="softwareGrid"></div>
+</section>
+<section class="section" id="projects">
+ <div class="section-head"><div><div class="eyebrow">03 / CASE LIBRARY</div><h2>仿真项目案例</h2><p>采用项目档案管理：做了什么、如何设置、哪些结果已有记录、哪些证据仍缺失，一目了然。</p></div></div>
+ <div class="case-toolbar"><label class="search-wrap"><span>⌕</span><input id="caseSearch" placeholder="搜索项目、软件、分析方向…" aria-label="搜索案例"></label><select id="caseStatus" aria-label="筛选案例状态"><option value="全部">所有状态</option><option value="研究记录">研究记录</option><option value="规划练习">规划练习</option></select></div>
+ <div class="case-grid" id="caseGrid"></div><div id="caseEmpty" class="empty" hidden>未找到匹配案例。</div>
+</section>
+<section class="section" id="evidence">
+ <div class="section-head"><div><div class="eyebrow">04 / SHOWCASE & VALIDATION</div><h2>模型、图表与成果展示</h2><p>成果必须能追溯到模型版本、工况、参数、求解日志与原始输出，不用空白图片冒充仿真结果。</p></div></div>
+ <div class="evidence-layout"><div class="evidence-board">
+   <div class="board-head"><span>成果归档流水线</span><small>当前为展示架构，未自动读取外部仿真文件</small></div>
+   <div class="steps"><div><b>01</b><strong>输入与模型</strong><small>CAD/CAE 文件、网格、材料参数、载荷</small></div><div><b>02</b><strong>求解过程</strong><small>Job/日志、求解设置、版本信息</small></div><div><b>03</b><strong>输出与图表</strong><small>云图、时程、模态、频谱与对比</small></div><div><b>04</b><strong>验证与报告</strong><small>基准误差、敏感性、复现说明</small></div></div>
+ </div><div class="deliverables"><h3>作品集展示建议</h3><p>每个案例最终形成一页摘要、关键图片、参数表、验证曲线、独立技术报告和文件索引。</p><div class="divider"></div><a href="https://github.com/g2066203208-beep/JOB-Trakcer/tree/main/CAE仿真工作室/成果" target="_blank" rel="noopener">打开成果归档目录 →</a><a href="https://github.com/g2066203208-beep/JOB-Trakcer/blob/main/CAE仿真工作室/模板/CAE案例记录模板.md" target="_blank" rel="noopener">使用标准案例模板 →</a></div></div>
+</section>
+<section class="section" id="resources">
+ <div class="section-head"><div><div class="eyebrow">05 / LIBRARY</div><h2>资源、规范与操作入口</h2><p>优先官方文档、经过核验的基准算例和可公开引用的资料。</p></div></div>
+ <div class="resources-grid" id="resourceGrid"></div>
+</section>
+<section class="next-section" id="workflow">
+ <div><div class="eyebrow">NEXT ITERATION / WORKFLOW</div><h2>持续建设，而不是一次性的展示页</h2><p>新增练习 → 使用案例模板写清输入与设置 → 运行并保存日志 → 上传非涉密结果 → 校核后将「待验证」改为「可展示」。大体积二进制模型优先使用 Git LFS 或 Releases，并注明许可证。</p></div>
+ <a class="button light" href="https://github.com/g2066203208-beep/JOB-Trakcer/tree/main/CAE仿真工作室" target="_blank" rel="noopener">进入 GitHub 资料目录 ↗</a>
+</section>
+</main>
+<footer><div><b>CAE 仿真工作室</b><span>学习 · 建模 · 计算 · 验证 · 展示</span></div><div><a href="../秋招工作室/">秋招工作室</a><a href="../学习总控台/">学习总控台</a><span>资料与结果以实际文件为准 · v1.0</span></div></footer>
+</div>
+<script src="./data.js?v=1.0"></script>
+<script src="./app.js?v=1.0"></script>
+</body>
+</html>
