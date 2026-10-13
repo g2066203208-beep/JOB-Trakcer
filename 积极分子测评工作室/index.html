@@ -88,7 +88,7 @@ function approved(){return s.rows.filter(function(r){return r.status==='已审�
 function metrics(){el('countAll').textContent=s.rows.length;el('countPending').textContent=s.rows.filter(function(r){return !['已审核','不计分'].includes(r.status);}).length;el('countReviewed').textContent=approved().length;var cls=approved().filter(function(r){return r.type==='任职情况';}).map(function(r){return numeric(r.reviewed);});var other=approved().filter(function(r){return r.type!=='任职情况';}).reduce(function(a,r){return a+numeric(r.reviewed);},0);el('points').textContent=(Math.max(0,...cls)+other).toFixed(1).replace(/\.0$/,'');}
 function profileUI(){el('profileFields').innerHTML='';columns.forEach(function(c){var d=document.createElement('div');d.className='field';var l=document.createElement('label');l.textContent=c[0];var input=document.createElement('input');input.type='text';input.value=s.profile[c[1]]||'';input.placeholder='待确认 / 可填写';input.addEventListener('input',function(){s.profile[c[1]]=input.value;save();});d.appendChild(l);d.appendChild(input);el('profileFields').appendChild(d);});}
 function checkUI(){el('checks').innerHTML='';checklist.forEach(function(t,i){var l=document.createElement('label');l.className='checkrow';var input=document.createElement('input');input.type='checkbox';input.checked=Boolean(s.checks[i]);input.addEventListener('change',function(){s.checks[i]=input.checked;save();});var v=document.createElement('span');v.textContent=t;l.appendChild(input);l.appendChild(v);el('checks').appendChild(l);});}
-function selector(status){return ['待核实','已有线索待补','待学校认定','已补齐证明','已审核','不计分'].map(function(t){return '<option '+(t===status?'selected':'')+'>'+t+'</option>';}).join('');}
+function selector(status){var options=['待核实','已有线索待补','待学校认定','已补齐证明','已审核','不计分'];if(status&&!options.includes(status))options.unshift(status);return options.map(function(t){return '<option '+(t===status?'selected':'')+'>'+esc(t)+'</option>';}).join('');}
 function categoryUI(){var e=el('category'),v=e.value;e.innerHTML='<option value="">全部类别</option>'+types.map(function(t){return '<option>'+esc(t)+'</option>';}).join('');e.value=v;}
 function tableUI(){var q=el('search').value.trim().toLowerCase(),f=el('filter').value,c=el('category').value,body=el('tbody');body.innerHTML='';s.rows.forEach(function(r,i){if(f&&r.status!==f)return;if(c&&r.type!==c)return;if(q&&!Object.values(r).join(' ').toLowerCase().includes(q))return;var tr=document.createElement('tr');var fields=[
 '<span class="tag">'+esc(r.type)+'</span><div class="mini">#'+(i+1)+'</div>',
@@ -150,7 +150,7 @@ else if(r.type==='文体竞赛')row=17;
 else if(r.type==='科技竞赛')row=18;
 else if(r.type==='综合素质')row=/校|院|共青团员/.test(r.project)?22:null;
 else if(r.type==='志愿服务')row=/特殊|急难险重|国际会议/.test(r.project)?25:24;
-if(row!==null)scored[row]=(scored[row]||0)+numeric(r.reviewed);
+if(row!==null)scored[row]=[7,8,9].includes(row)?Math.max(scored[row]||0,numeric(r.reviewed)):(scored[row]||0)+numeric(r.reviewed);
 });
 [7,8,9,11,12,13,14,16,17,18,20,21,22,24,25].forEach(function(row){o.cell('F'+row).value(scored[row]===undefined?null:scored[row]);});
 o.cell('F10').formula('MAX(F7:F9)');o.cell('F15').formula('SUM(F11:F14)');o.cell('F19').formula('SUM(F16:F18)');o.cell('F23').formula('SUM(F20:F22)');o.cell('F26').formula('SUM(F24:F25)');o.cell('B27').formula('SUM(F10,F15,F19,F23,F26)');
