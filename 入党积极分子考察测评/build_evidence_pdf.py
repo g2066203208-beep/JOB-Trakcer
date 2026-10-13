@@ -79,14 +79,20 @@ def page_of_text(title, lines):
 
 def identify(group, name):
     t=name.lower()
-    if any(k in t for k in ("专利", "知识产权", "发明", "著作权")):
-        return SECTIONS[1]
-    if any(k in t for k in ("歌手", "合唱", "拔河", "文体", "运动会", "文明寝室", "唱响", "篮球", "排球", "比赛")):
-        return SECTIONS[3]
-    if any(k in t for k in ("通报", "表扬", "优秀共青团员", "荣誉", "优秀团员", "奖状")):
-        return SECTIONS[4]
+    # 用实际材料的性质分类：班级“文体委员”是任职，不是文体竞赛。
     if any(k in t for k in ("任职", "文体委员", "在琼", "班干部", "班级干部", "学校证明")):
         return SECTIONS[0]
+    if any(k in t for k in ("专利", "知识产权", "发明", "著作权")):
+        return SECTIONS[1]
+    if any(k in t for k in ("通报", "表扬", "优秀共青团员", "荣誉", "优秀团员", "奖状")):
+        return SECTIONS[4]
+    # 志愿证书出现“歌手大赛”“运动会”等字样，仍属于志愿服务。
+    if ("新增志愿证书与截图" in group or "志愿" in t) and any(
+        k in t for k in ("小时", "志愿", "服务", "运动会", "歌手", "飞盘", "研学谷", "自行车", "艺术节")
+    ):
+        return SECTIONS[5]
+    if any(k in t for k in ("歌手", "合唱", "拔河", "文体", "运动会", "文明寝室", "唱响", "篮球", "排球", "比赛")):
+        return SECTIONS[3]
     if "学校证明合集" in group:
         return SECTIONS[0]
     if any(k in t for k in ("志愿", "服务", "公益", "科普", "送餐", "理事会")):
