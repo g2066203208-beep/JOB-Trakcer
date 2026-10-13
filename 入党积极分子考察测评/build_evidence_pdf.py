@@ -34,7 +34,7 @@ pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
 
 def fix_name(s):
     try:
-        if "\u" in s:
+        if any("\u4e00" <= x <= "\u9fff" for x in s):
             return s
     except Exception:
         pass
