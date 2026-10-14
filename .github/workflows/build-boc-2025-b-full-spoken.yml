@@ -31,5 +31,10 @@ jobs:
           git add '秋招工作室/笔试面试备考/中国银行2027_基础岗位类/历年试题资料/2025/B卷48页_原题全文OCR_待核对.md' '秋招工作室/笔试面试备考/中国银行2027_基础岗位类/2025双卷语音授课工作室/B卷_全文校对口播_'*.md
           if ! git diff --cached --quiet; then
             git commit -m 'Publish B-paper 95 source-anchored complete spoken chapters'
-            git push
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase -X ours origin/main || { git rebase --abort; exit 1; }
+              if git push origin HEAD:main; then break; fi
+              sleep 4
+            done
           fi
