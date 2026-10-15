@@ -1,4 +1,4 @@
-name: Deploy Rig Motion Lab to GitHub Pages
+name: Deploy sanitized 2027 Jobs Site to GitHub Pages
 
 on:
   push:
@@ -22,13 +22,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload static site
+        with:
+          enablement: true
+      - name: Upload only safe public site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: ./public-site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
