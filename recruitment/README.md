@@ -1,12 +1,70 @@
-# 2027届招聘在线清单｜海南 + 广东（第二版）
+# 2027届招聘官方核验总表｜海南·广东·上海·香港
 
-**核验日期：2026-10-14** · 条目共 **135**（海南 39、广东 78、全国待筛 18）· 标记为“2027已核实”的不意味着当前有剩余名额 · 已明确截止 5 条 · 候选观察 32 条。
+**最后更新：2026-10-15** · **165条记录、133家不同企业**（海南39、广东83、上海12、香港11、全国待筛20）。条目包含同一校招项目下多个技术方向、已截止批次和等待发布的企业，并非165个现在可以投递的独立岗位。
 
 > **重要**：一个集团、下属公司、不同岗位可以是不同条目。**总条目数不是可投职位数，也不是独立企业数**。每条会显示 **官方投递入口**（如官方招聘平台/指定邮箱）；只有官方主页或微信小程序的明确标注 **非直投**，不伪造链接。官网可能登录后展示职位，是否在招需现场确认。
 
 > **你的筛选条件**：土木硕士（结构动力/CAE、项目投资统计、合同工程量清单核验）；海口优先，广东深圳广州其次；央国企优先，允许理工转行；不喜欢常驻全国工地。**未核对你已投递的个人申请记录**。
 
 🔎 **[在线筛选网页源文件](./index.html)**（支持地区 / 已核实 / 窗口状态 / 搜索） · **[下载CSV](./jobs-2027.csv)**（Excel可打开）
+
+## 2026-10-15专项核查｜三局深圳、八局上海、地铁/轨道设计及香港
+
+**强优先**：上海中建八局工程研究院结构振动控制研发；上海八局设计管理总院；香港AtkinsRéalis 2027结构/桥梁/地下工程；香港港铁MTR Graduate Engineer/Property Associate（10月27日香港时间截止）。请按专业条件、非施工职能和入职工作地点再筛。
+
+**限制说明**：香港Arup多条2027岗位明确要求已有香港工作权；MTR工程方向要求HKIE认可学位，工料测量方向要求HKIS认可资格；香港政府 civil/structural trainees (50330) 更要求香港永久性居民，截止2026-10-16，**不建议不符合资格者投递**。[香港政府原文](https://csboa1.csb.gov.hk/csboa/jve/JVE_003.action?jobid=50330)。深圳地铁、上海申通地铁2027应届结构相关岗位尚未核实；广州地铁首轮10月5日已经截止。上海八局公司和深圳三局公司主营施工，不能将公司总部直接当作非施工职能岗位。
+
+### 上海｜本次新增
+
+| 企业/岗位方向 | 资格与地点提醒 | 官方入口及证据 |
+|---|---|---|
+| **中建八局工程研究院·2027 工程结构振动控制研发** | 2027已核实；上海浦东；2027届硕士及以上；招聘网站将多个研发方向列在同一项目内，具体分岗JD和剩余名额需登陆确认，不能算独立五次网申；与你的风机塔筒动力/CAE研究直接相关 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2790) · [招聘依据](https://job.cscec8b.com.cn/8byjy) |
+| **中建八局工程研究院·2027 高性能结构研发** | 2027已核实；上海浦东；2027届硕士及以上；招聘网站将多个研发方向列在同一项目内，具体分岗JD和剩余名额需登陆确认，不能算独立五次网申；结构/力学方向相关 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2790) · [招聘依据](https://job.cscec8b.com.cn/8byjy) |
+| **中建八局工程研究院·2027 纤维复材工程结构研发** | 2027已核实；上海浦东；2027届硕士及以上；招聘网站将多个研发方向列在同一项目内，具体分岗JD和剩余名额需登陆确认，不能算独立五次网申；结构力学相关，复材经历需核 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2790) · [招聘依据](https://job.cscec8b.com.cn/8byjy) |
+| **中建八局工程研究院·2027 海洋风电研发** | 2027已核实；上海浦东；2027届硕士及以上；招聘网站将多个研发方向列在同一项目内，具体分岗JD和剩余名额需登陆确认，不能算独立五次网申；风机塔筒结构动力方向有关 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2790) · [招聘依据](https://job.cscec8b.com.cn/8byjy) |
+| **中建八局工程研究院·2027 BIM数字建造研发** | 2027已核实；上海浦东；2027届硕士及以上；招聘网站将多个研发方向列在同一项目内，具体分岗JD和剩余名额需登陆确认，不能算独立五次网申；有数值分析优势，BIM软件技能需核 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2790) · [招聘依据](https://job.cscec8b.com.cn/8byjy) |
+| **中建八局设计管理总院·2027设计管理/设计生产方向** | 2027已核实；局级设计生产/设计管理平台，而非传统现场总包；合同地点及具体岗位再核 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2757) · [招聘依据](https://job.cscec8b.com.cn/recruitment/job/detail/id/2757) |
+| **上海中建东孚投资发展有限公司·2027城市更新/资管/地产开发平台校招** | 2027校招入口；2027公司校园招聘项目已公布，但尚不能确定上海/深圳某个非施工职位的空缺 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2776) · [招聘依据](https://job.cscec8b.com.cn/recruitment/job/detail/id/2776) |
+| **中建八局上海分公司·2027仅筛机关商务/成本/科研岗** | 2027校招入口；施工总承包主体，上海公司≠固定上海工作；当前不能证实独立非施工职位 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2786) · [招聘依据](https://job.cscec8b.com.cn/recruitment/job/detail/id/2786) |
+| **中铁上海设计院集团有限公司·2027铁路结构/城轨设计校招** | 2027校招入口；7月发布的2027招聘，当前投递窗口未证实仍开；须审核本硕毕业院校的资格 | [官方入口](http://www.sty.sh.cn/) · [招聘依据](https://www.fenbi.com/page/fenxiaozhaokaodetail/32/3091/467490628194304) |
+| **上海申通地铁集团有限公司·2027地铁设计/运维/建设管理待发布** | 官方渠道待核岗位；上海轨交技术研究中心地下结构/振动社招要求3年经验及高级职称，不能视为应届岗 | [官方入口](https://www.shmetro.com/) · [招聘依据](https://www.gzw.sh.gov.cn/shgzw_zxzx_gqdt/20240904/51346b0dde0f49cb8a74d476bd679bc0.html) |
+| **中建八局城市运营公司·2027投资与运营职能待核** | 官方渠道待核岗位；与施工总包不同，偏资产运营；旧版入口不可当作2027职位 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2720/) · [招聘依据](https://job.cscec8b.com.cn/recruitment/job/detail/id/2720/) |
+| **上海市政工程设计研究总院（集团）有限公司·2027市政结构/轨道设计待核** | 官方渠道待核岗位；官网为2026届公告，不能当作2027最新招聘；真实2027应届机会待公布 | [官方入口](https://smedi.scg.com.cn/scg_szzy_zxnc_tzgg/List/index.htm) · [招聘依据](https://smedi.scg.com.cn/scg_szzy_zxnc_tzgg/List/index.htm) |
+
+### 广东｜本次新增
+
+| 企业/岗位方向 | 资格与地点提醒 | 官方入口及证据 |
+|---|---|---|
+| **中建三局集团（深圳）有限公司·2027管理岗（具体是否机关岗待核）** | 2027校招入口；不要因岗名为管理就误解为办公室固定岗；先确认是否跟项目及劳动合同约定 | [官方入口](http://zhaopin.cscec3b.com.cn/) · [招聘依据](https://myjob.dlmu.edu.cn/campus/view/id/868703) |
+| **中建三局集团华南有限公司·2027新业务：数字建造/智能制造等岗位待筛** | 2027校招入口；集团将数字产业/智能制造列为业务领域，不等于2027研发岗位独立招聘；项目驻场风险仍在 | [官方入口](https://hr.cscec.com/api/short_url?id=g387t) · [招聘依据](https://career.nankai.edu.cn/correcruit/content/id/117888.html) |
+| **中建科技集团有限公司·2027智能建造/绿色建筑技术业务校招** | 2027校招入口；公司技术研发方向值得跟踪，但官网2027企业招聘不等于固定广东研发岗位已核实 | [官方入口](https://job.cscec8b.com.cn/recruitment/job/detail/id/2765) · [招聘依据](https://job.cscec8b.com.cn/recruitment/job/detail/id/2765) |
+| **广州地铁设计研究院股份有限公司·2027结构设计与轨道设计待核** | 官方渠道待核岗位；独立设计院官方招聘系统；广州地铁集团2027首轮截止10月5日，不等于设计院仍在招 | [官方入口](https://dtsjy.zhiye.com/campus) · [招聘依据](https://jobcareer.sdu.edu.cn/eweb/jygl/zpfw.so?entityId=SCFW_JYGL_DWXX&id=CyPgQNjhy3mHc4k383CBa4&modcode=jygl_scfwyrdw&subsyscode=zpfw&type=viewDwxx) |
+| **广州地铁集团有限公司·2027设计工程/科研首批（已截止）** | 已截止；集团公告明确2026-10-05网申及测评截止，后续批次需等官网更新 | [官方入口](https://gzmetro.zhiye.com/campus) · [招聘依据](https://career.hebut.edu.cn/home/correcruit/content/id/80322.html) |
+
+### 香港｜本次新增
+
+| 企业/岗位方向 | 资格与地点提醒 | 官方入口及证据 |
+|---|---|---|
+| **香港铁路有限公司 MTR·2027 Graduate Engineer — Civil** | 2027已核实；可在轨道技术发展，HKIE学位认证、赴港工作资格须核；并非纯办公室 | [官方入口](https://careers.mtr.com.hk/careersection/mtr_graduates_apply/jobdetail.ftl?job=260000UY&lang=en) · [招聘依据](https://www.mtr.com.hk/graduate-development-programme/index.php) |
+| **香港铁路有限公司 MTR·2027 Graduate Trainee（综合管理）** | 2027已核实；可能轮岗内地/海外，有高机动性要求；同一MTR申请可填至多3个志愿 | [官方入口](https://careers.mtr.com.hk/careersection/mtr_graduates_apply/jobdetail.ftl?job=260000UY&lang=en) · [招聘依据](https://www.mtr.com.hk/graduate-development-programme/index.php) |
+| **香港铁路有限公司 MTR·2027 Property Associate（开发管理）** | 2027已核实；地产项目全周期偏管理与运营；赴港工作资格需核 | [官方入口](https://careers.mtr.com.hk/careersection/mtr_graduates_apply/jobdetail.ftl?job=260000UY&lang=en) · [招聘依据](https://www.mtr.com.hk/graduate-development-programme/index.php) |
+| **香港铁路有限公司 MTR·2027 Graduate Quantity Surveyor** | 2027已核实；工料测量/合约管理方向，先核专业学位是否满足资格 | [官方入口](https://careers.mtr.com.hk/careersection/mtr_graduates_apply/jobdetail.ftl?job=260000UY&lang=en) · [招聘依据](https://www.mtr.com.hk/graduate-development-programme/index.php) |
+| **香港铁路有限公司 MTR·2027 Railway Management Associate** | 2027已核实；运营管理不等于工程设计；有轮岗性质，香港工作签证资格须核 | [官方入口](https://careers.mtr.com.hk/careersection/mtr_graduates_apply/jobdetail.ftl?job=260000UY&lang=en) · [招聘依据](https://www.mtr.com.hk/graduate-development-programme/index.php) |
+| **AtkinsRéalis 阿特金斯睿莱·2027 Graduate Engineer（结构/隧道/桥梁等）** | 2027已核实；香港尖沙咀设计咨询岗位，结构、桥梁、隧道为业务方向偏好并非3个独立职位；需询问雇主签证支持 | [官方入口](https://careers.atkinsrealis.com/en/jobs/graduate-engineer-2027-r-164307) · [招聘依据](https://careers.atkinsrealis.com/en/jobs/graduate-engineer-2027-r-164307) |
+| **Arup 奥雅纳·2027 Graduate Structural Engineer** | 2027已核实；官网明确Full working rights in country of application，如无香港合法工作权利须先核能否办理签证 | [官方入口](https://jobs.arup.com/jobs/graduate-structural-engineer-2027-intake-35500) · [招聘依据](https://jobs.arup.com/jobs/graduate-structural-engineer-2027-intake-35500) |
+| **Arup 奥雅纳·2027 Graduate Civil Engineer — Rail & Rail System** | 2027已核实；真正的轨道设计咨询方向；Arup同批香港招录要求工作权利，未具备须先确认 | [官方入口](https://jobs.arup.com/jobs/graduate-civil-engineer-2027-intake-35248) · [招聘依据](https://jobs.arup.com/jobs/graduate-civil-engineer-2027-intake-35248) |
+| **Arup 奥雅纳·2027 Graduate Civil Engineer — Aviation** | 2027已核实；机场工程设计方向，非机场公司；没有香港工作权者需先咨询能否办理签证 | [官方入口](https://jobs.arup.com/jobs/graduate-civil-engineer-aviation-2027-intake-35242) · [招聘依据](https://jobs.arup.com/jobs/graduate-civil-engineer-aviation-2027-intake-35242) |
+| **WSP 香港·Graduate Programme — Civil / Structural** | 2027校招入口；香港官方毕业生计划全年接受申请；非港毕业生HKIE Scheme A认可须另核，签证是否支持须问HR | [官方入口](https://www.wsp.com/en-hk/careers/graduates/hong-kong) · [招聘依据](https://www.wsp.com/en-hk/careers/graduates/hong-kong) |
+| **Meinhardt 迈进工程顾问·Graduate Engineer — Structural / Civil** | 官方渠道待核岗位；官网确有毕业生岗位，但尚未注明2027届与工作签证政策；不能视作27届已核实 | [官方入口](https://meinhardt-china.com/career/) · [招聘依据](https://meinhardt-china.com/career/) |
+
+### 全国待筛｜本次新增
+
+| 企业/岗位方向 | 资格与地点提醒 | 官方入口及证据 |
+|---|---|---|
+| **中铁第四勘察设计院集团有限公司·2027轨交结构/设计科研** | 2027校招入口；铁路设计院，比施工总包更符合偏好，但不能保证上海/广州固定地点 | [官方入口](https://campus.51job.com/tsy2027/recuit.html) · [招聘依据](https://job.hust.edu.cn/extxjh/811781163452826.do) |
+| **中铁工程设计咨询集团有限公司·2027桥梁院/城交院/工经院** | 2027已核实；非施工设计单位，官方网页明确2027；只找到线下及公告内二维码，不冒充网站即网申 | [官方入口](https://sjzx.crec.cn/tabid/66/InfoID/2663/frtid/124/Default.aspx) · [招聘依据](https://sjzx.crec.cn/tabid/66/InfoID/2663/frtid/124/Default.aspx) |
+
+---
 
 ## 🏗 中国电子旗下工业工程企业专项（2026-10-15新增）
 
