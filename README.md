@@ -1,40 +1,11 @@
-# Rig Motion Lab · 骨骼动画工作室
+# 2027届招聘岗位公开查询
 
-GitHub Pages 托管的浏览器端 2D 骨骼动画工作室。仓库内置阿米娅 Spine 3.5.51 工程作为可视编辑案例，并接入用户提供的大批角色 Spine 工程作为动作学习语料库。
+本仓库只托管**脱敏的公开职位查询网站**，不包含申请人的简历、成绩、投递进度、证明文件或其他私人资料。
 
-## 当前能力
+**在线招聘网页**：https://g2066203208-beep.github.io/JOB-Trakcer/recruitment/
 
-- 12 套阿米娅案例（4 外观 × 战斗正面 / 战斗背面 / 基建）
-- **完整皮肤显示**：读取 Spine `.atlas + PNG + slots + skins`
-- Region attachment 与 weighted Mesh attachment 实时蒙皮渲染
-- Slot attachment 动画、slot 显隐、附件强制切换、drawOrder
-- 皮肤透明度、皮肤/骨架独立开关
-- Spine JSON + Atlas + PNG 多选导入
-- 完整 ZIP 导入：自动匹配 JSON / Atlas / PNG
-- 骨骼树、Setup Pose、动画播放、逐帧、时间线
-- 骨骼创建 / 复制 / 删除 / 改父级 / 拖动 / 数值编辑
-- 非破坏式当前帧关键帧覆盖、撤销 / 重做
-- **大批动作学习语料**：已解析 86 个角色压缩包，其中 85 个角色有效，共 425 个 Spine 3.5.51 工程；按战斗正面 / 战斗背面 / 基建与 Attack / Skill / Skill_2 / Skill_3 / Idle / Default / Start / Die / Stun / Interact / Move / Relax / Sit / Sleep / Special 等动作族统计典型时长、关键帧密度、参与骨骼与共同主运动骨骼
-- **真实 Runtime 姿态训练**：直接读取 Spine 约束后的骨骼世界姿态，显示逐骨位移/角度误差
-- 姿态快照、参考叠加、训练评分
-- IndexedDB 浏览器本地工程保存与 JSON 导出
-- GitHub Pages 静态托管
+**GitHub Pages**：Settings → Pages → Source: GitHub Actions。部署工作流：`.github/workflows/pages.yml`，严格只发布 `public-site/`。
 
-## Spine 兼容说明
+> 资料来源于2026-10-15校招调查快照，请以招聘企业实际截止日期、岗位资格和投递按钮为准。公开网页的线索不代表每条均当前开放。
 
-当前渲染器支持 Spine 3.5 JSON 的骨骼动画、Region、weighted/unweighted Mesh、Slot attachment 和 drawOrder。`deform` 数据会保留在工程中，但暂未提供逐顶点 deform 曲线编辑器；这是后续专业网格编辑阶段要继续补齐的部分。
-
-## v0.6.1
-
-- 新增 85 个有效角色、425 个 Spine 工程的大批动作学习统计；训练页可查看语料角色和当前动作覆盖量。
-- 鼠标直接拖骨骼编辑，Shift 拖动旋转。
-- Attack / Skill 循环播放与透视部件残留清理。
-- 仓库案例只读，只能另存为工程。
-
-
-### 学习库说明
-
-- 外层角色包：86 个；有效角色：85 个；有效 Spine 工程：425 个。
-- 视角分布：战斗正面 142、战斗背面 139、基建 142、特殊未归类 2。
-- `阿消（损坏）` 未发现可用 Spine 工程，因此不会参与学习统计。
-- 为保证 GitHub Pages 加载速度，网页部署的是从全部 425 个工程预计算出的动作学习特征与角色覆盖索引；12 套阿米娅工程继续作为可直接加载、播放和编辑的可视案例。
+其他工作室、证明材料和历史招聘台账已归档到私有仓库，不在本仓库当前目录展示。
