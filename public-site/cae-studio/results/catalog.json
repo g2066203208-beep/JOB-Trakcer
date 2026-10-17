@@ -2,7 +2,7 @@
   {
     "id": "lesson06-SYS-1",
     "lesson": "lesson06",
-    "title": "第06节 · SHELL · 静力 · lesson06-SYS-1",
+    "title": "第06节 · SHELL · 静力",
     "url": "results/lesson06-SYS-1.cae.json",
     "nodes": 210,
     "frames": 1,
@@ -11,7 +11,7 @@
   {
     "id": "lesson07",
     "lesson": "lesson07",
-    "title": "第07节 · 法兰螺栓连接 · 静力 · lesson07",
+    "title": "第07节 · 法兰螺栓连接 · 静力",
     "url": "results/lesson07.cae.json",
     "nodes": 3297,
     "frames": 12,
@@ -20,7 +20,7 @@
   {
     "id": "lesson08-SYS-1",
     "lesson": "lesson08",
-    "title": "第08节 · 建模01 · 静力 · lesson08-SYS-1",
+    "title": "第08节 · 建模01 · 静力",
     "url": "results/lesson08-SYS-1.cae.json",
     "nodes": 52260,
     "frames": 1,
@@ -29,7 +29,7 @@
   {
     "id": "lesson08-SYS-3",
     "lesson": "lesson08",
-    "title": "第08节 · 抽壳 · 静力 · lesson08-SYS-3",
+    "title": "第08节 · 抽壳 · 静力",
     "url": "results/lesson08-SYS-3.cae.json",
     "nodes": 8271,
     "frames": 1,
@@ -38,7 +38,7 @@
   {
     "id": "lesson09-SYS-14",
     "lesson": "lesson09",
-    "title": "第09节 · 模态 · 静力 · lesson09-SYS-14",
+    "title": "第09节 · 光伏支架 · 静力",
     "url": "results/lesson09-SYS-14.cae.json",
     "nodes": 41279,
     "frames": 1,
@@ -47,7 +47,7 @@
   {
     "id": "lesson09-SYS-21",
     "lesson": "lesson09",
-    "title": "第09节 · 模态 · 模态 · lesson09-SYS-21",
+    "title": "第09节 · 光伏支架 · 模态",
     "url": "results/lesson09-SYS-21.cae.json",
     "nodes": 41279,
     "frames": 2,
@@ -56,7 +56,7 @@
   {
     "id": "lesson10-SYS-10",
     "lesson": "lesson10",
-    "title": "第10节 · 壳方案-详细分析 · 模态 · lesson10-SYS-10",
+    "title": "第10节 · 大型台架 · 模态",
     "url": "results/lesson10-SYS-10.cae.json",
     "nodes": 90782,
     "frames": 1,
@@ -65,7 +65,7 @@
   {
     "id": "lesson10-SYS-9",
     "lesson": "lesson10",
-    "title": "第10节 · 壳方案-详细分析 · 静力 · lesson10-SYS-9",
+    "title": "第10节 · 大型台架壳方案 · 静力",
     "url": "results/lesson10-SYS-9.cae.json",
     "nodes": 90782,
     "frames": 1,
@@ -74,7 +74,7 @@
   {
     "id": "lesson11-SYS-26",
     "lesson": "lesson11",
-    "title": "第11节 · 大臂-实体 · 静力 · lesson11-SYS-26",
+    "title": "第11节 · 大臂-实体 · 静力",
     "url": "results/lesson11-SYS-26.cae.json",
     "nodes": 22725,
     "frames": 4,
@@ -83,7 +83,7 @@
   {
     "id": "lesson11-SYS-27",
     "lesson": "lesson11",
-    "title": "第11节 · 大臂-壳体 · 静力 · lesson11-SYS-27",
+    "title": "第11节 · 大臂-壳体 · 静力",
     "url": "results/lesson11-SYS-27.cae.json",
     "nodes": 15369,
     "frames": 4,
