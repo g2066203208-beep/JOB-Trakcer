@@ -169,7 +169,7 @@ export async function mountField(host, result) {
   selectField.onchange=repaint;rangeMode.onchange=repaint;stepSlider.oninput=repaint;factor.oninput=repaint;wireInput.onchange=repaint;originalInput.onchange=repaint;
   play.onclick=()=>{playing=!playing;lastAdvance=performance.now();play.textContent=playing?'❚❚ 暂停':(isModal?'▶ 振型动画':'▶ 逐帧播放')};
   if(isModal)play.textContent='▶ 振型动画';repaint();resize();
-  let raf=0;function draw(time){if(disposed)return;raf=requestAnimationFrame(draw);if(playing&&time-lastAdvance>=83){if(isModal){phase+=(time-lastAdvance)*Math.PI/1000;}else if(frames.length>1){stepSlider.value=(frame+1)%frames.length;}repaint();lastAdvance=time;}controls.update();renderer.render(scene,camera);}
+  let raf=0;function draw(time){if(disposed)return;raf=requestAnimationFrame(draw);if(playing&&time-lastAdvance>=(isModal?83:125)){if(isModal){phase+=(time-lastAdvance)*Math.PI/1000;}else if(frames.length>1){stepSlider.value=(frame+1)%frames.length;}repaint();lastAdvance=time;}controls.update();renderer.render(scene,camera);}
   raf=requestAnimationFrame(draw);
   return()=>{disposed=true;cancelAnimationFrame(raf);observer?.disconnect();window.removeEventListener('resize',resize);controls.dispose();wireMesh.geometry.dispose();wireMesh.material.dispose();reference.geometry.dispose();reference.material.dispose();geometry.dispose();material.dispose();renderer.dispose();host.replaceChildren();};
 }

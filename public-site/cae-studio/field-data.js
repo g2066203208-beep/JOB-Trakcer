@@ -44,7 +44,7 @@ export function frameDescription(result, frame, index) {
   const unit = result.time?.unit;
   if (frame.frequency !== undefined) parts.push('频率 ' + frame.frequency + ' ' + (kind === 'frequency' || kind === 'modal' ? unit || '单位未声明' : '单位未声明'));
   else if (frame.time !== undefined) {
-    const label = kind === 'time' ? '步内时间' : kind === 'frequency' ? '频率' : kind === 'modal' ? '模态域值' : '结果域值';
+    const label = kind === 'time' ? (result.analysis?.type === 'static' ? '静力载荷步参数' : '结果时间') : kind === 'frequency' ? '频率' : kind === 'modal' ? '模态域值' : '结果域值';
     parts.push(label + ' ' + frame.time + ' ' + (unit || '单位未声明'));
   }
   return parts.join(' · ');
