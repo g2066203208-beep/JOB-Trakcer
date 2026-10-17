@@ -78,14 +78,14 @@ export async function mountField(host, result) {
   const stepSlider=document.createElement('input');stepSlider.type='range';stepSlider.min=0;stepSlider.max=frames.length-1;stepSlider.step=1;stepSlider.value=frames.length-1;stepSlider.setAttribute('aria-label','选择结果帧');
   const factor=document.createElement('input');factor.type='range';factor.min=0;factor.max=50;factor.step=.25;factor.value=1;factor.setAttribute('aria-label','变形放大倍数');
   const factorValue=document.createElement('strong');factorValue.textContent='1×';
-  const play=document.createElement('button');play.type='button';play.textContent='▶ 逐帧播放';play.disabled=frames.length<2;
+  const play=document.createElement('button');play.type='button';play.textContent='▶ 逐帧播放';play.disabled=frames.length<2 && result.analysis?.type!=='modal';
   const wire=document.createElement('label');const wireInput=document.createElement('input');wireInput.type='checkbox';wireInput.checked=false;wire.append(wireInput,document.createTextNode(' 表面三角网格'));
   const original=document.createElement('label');const originalInput=document.createElement('input');originalInput.type='checkbox';originalInput.checked=false;original.append(originalInput,document.createTextNode(' 原形'));
   const stepLabel=document.createElement('span');stepLabel.className='field-step';
   for(const [label,control] of [['云图 ',selectField],['色标 ',rangeMode],['帧 ',stepSlider],['变形 ',factor]]){const el=document.createElement('label');el.className='field-option';el.append(document.createTextNode(label),control);bar.append(el);if(control===factor)el.append(factorValue);}
   bar.append(play,wire,original,stepLabel);
   const isModal=String(result.time?.kind||'').toLowerCase()==='modal'||frames.some(f=>f.mode!==undefined);
-  const playbackNote=document.createElement('div');playbackNote.className='field-playback-note';playbackNote.textContent=isModal?'不同振型顺序预览 · 8 帧/秒 · 非振动时间动画；模态向量可能经归一化，不代表物理位移响应，倍率仅缩放源向量':'按导出帧顺序播放 · 8 帧/秒 · 非物理时间回放，不插值生成中间结果';ui.append(playbackNote);
+  const playbackNote=document.createElement('div');playbackNote.className='field-playback-note';playbackNote.textContent=isModal?'所选振型相位动画 · 显示周期2秒 · 非真实时间响应；几何按模型尺寸归一化显示，云图保留源模态向量幅值，不代表运行位移':'按导出帧顺序播放 · 8 帧/秒 · 非物理时间回放，不插值生成中间结果';ui.append(playbackNote);
   const canvas=document.createElement('div');canvas.className='field-canvas';host.append(ui,canvas);
   const legend=document.createElement('div');legend.className='field-legend';legend.innerHTML='<div class="legend-caption">FIELD RANGE</div><div class="legend-high"></div><div class="legend-gradient"></div><div class="legend-low"></div><div class="legend-status"></div>';canvas.append(legend);
   const metadata=document.createElement('details');metadata.className='field-metadata';
@@ -117,14 +117,15 @@ export async function mountField(host, result) {
   const gradientStyle='linear-gradient(to top,'+gradientColors.join(',')+')';
   const rangeMin=legend.querySelector('.legend-low'),rangeMax=legend.querySelector('.legend-high');
   const formatNumber=x=>Number.isFinite(x)?Math.abs(x)>10000||Math.abs(x)<.001&&x!==0?x.toExponential(3):x.toPrecision(5):'缺失';
-  let frame=0,playing=false,lastAdvance=0,disposed=false,currentValues=null;
+  let frame=0,playing=false,lastAdvance=0,disposed=false,currentValues=null,phase=Math.PI/2;
+  const modeScales=frames.map(f=>{let max=0;for(const u of f.displacement)max=Math.max(max,Math.hypot(...u));return max>0?radius*.05/max:0;});
   const globalRanges=new Map();
   function repaint(){
    if(disposed)return;frame=+stepSlider.value;
    const f=frames[frame],selected=fieldValues(f,selectField.value,nodes.length),validCount=selected.filter(isScalar).length;
    if(!globalRanges.has(selectField.value))globalRanges.set(selectField.value,fieldRange(frames,selectField.value,nodes.length));
    const range=rangeMode.value==='global'?globalRanges.get(selectField.value):fieldRange([f],selectField.value,nodes.length);
-   const {min,max}=range,spread=range.count?max-min:0,scale=+factor.value;
+   const {min,max}=range,spread=range.count?max-min:0,scale=+factor.value*(isModal?modeScales[frame]*Math.sin(phase):1);
    currentValues=selected;
    for(let i=0;i<nTri;i++){
     const id=indices[i],p=nodes[id],u=f.displacement[id];
@@ -143,7 +144,8 @@ export async function mountField(host, result) {
    legend.querySelector('.legend-caption').textContent=selectField.value+' / '+(result.units?.[selectField.value]||'单位未确认');
    legend.querySelector('.legend-status').textContent=(rangeMode.value==='global'?'全帧固定':'当前帧自动')+' · '+(validCount?validCount+'/'+nodes.length+' 节点有值':'当前帧缺失（灰色）');
    stepLabel.textContent=frameDescription(result,f,frame)+' · '+(frame+1)+'/'+frames.length;
-   factorValue.textContent=scale+'×';
+   factorValue.textContent=(+factor.value)+'×'+(isModal?' 视觉幅值':'');
+   canvas.dataset.phase=String(phase);canvas.dataset.resultFrame=String(frame);
    inspector.textContent='单击读取面内节点插值 / 灰色表示缺失 / 拖动旋转';
   }
   for(let k=0;k<nTri;k++){const p=nodes[indices[k]];reference.geometry.attributes.position.array.set([p[0]-center.x,p[1]-center.y,p[2]-center.z],k*3);}
@@ -165,9 +167,9 @@ export async function mountField(host, result) {
   function resize(){if(disposed)return;const w=Math.max(300,canvas.clientWidth),h=Math.max(340,canvas.clientHeight);camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h,false);}
   const observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(resize):null;if(observer)observer.observe(canvas);else window.addEventListener('resize',resize);
   selectField.onchange=repaint;rangeMode.onchange=repaint;stepSlider.oninput=repaint;factor.oninput=repaint;wireInput.onchange=repaint;originalInput.onchange=repaint;
-  play.onclick=()=>{playing=!playing;lastAdvance=performance.now();play.textContent=playing?'❚❚ 暂停':'▶ 逐帧播放'};
-  repaint();resize();
-  let raf=0;function draw(time){if(disposed)return;raf=requestAnimationFrame(draw);if(playing&&frames.length>1&&time-lastAdvance>=125){stepSlider.value=(frame+1)%frames.length;repaint();lastAdvance=time;}controls.update();renderer.render(scene,camera);}
+  play.onclick=()=>{playing=!playing;lastAdvance=performance.now();play.textContent=playing?'❚❚ 暂停':(isModal?'▶ 振型动画':'▶ 逐帧播放')};
+  if(isModal)play.textContent='▶ 振型动画';repaint();resize();
+  let raf=0;function draw(time){if(disposed)return;raf=requestAnimationFrame(draw);if(playing&&time-lastAdvance>=83){if(isModal){phase+=(time-lastAdvance)*Math.PI/1000;}else if(frames.length>1){stepSlider.value=(frame+1)%frames.length;}repaint();lastAdvance=time;}controls.update();renderer.render(scene,camera);}
   raf=requestAnimationFrame(draw);
   return()=>{disposed=true;cancelAnimationFrame(raf);observer?.disconnect();window.removeEventListener('resize',resize);controls.dispose();wireMesh.geometry.dispose();wireMesh.material.dispose();reference.geometry.dispose();reference.material.dispose();geometry.dispose();material.dispose();renderer.dispose();host.replaceChildren();};
 }

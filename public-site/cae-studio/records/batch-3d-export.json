@@ -1,0 +1,283 @@
+[
+  {
+    "id": "lesson11-SYS-26",
+    "lesson": "lesson11",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson11-SYS-26-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson11\\course_working_copy_files\\dp0\\SYS-26\\MECH\\file.rst",
+    "nodes": 22725,
+    "frames": 4,
+    "analysis": {
+      "type": "static",
+      "domain": "time",
+      "axis_unit": "s",
+      "animation_kind": "result_sequence",
+      "displacement_interpretation": "structural displacement",
+      "total_sets": 4,
+      "exported_set_ids": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "fields": [],
+    "warnings": [
+      "Mesh contains shell/surface elements; stress omitted because shell layers/body averaging are not resolved by this exporter."
+    ]
+  },
+  {
+    "id": "lesson11-SYS-27",
+    "lesson": "lesson11",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson11-SYS-27-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson11\\course_working_copy_files\\dp0\\SYS-27\\MECH\\file.rst",
+    "nodes": 15369,
+    "frames": 4,
+    "analysis": {
+      "type": "static",
+      "domain": "time",
+      "axis_unit": "s",
+      "animation_kind": "result_sequence",
+      "displacement_interpretation": "structural displacement",
+      "total_sets": 4,
+      "exported_set_ids": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "fields": [],
+    "warnings": [
+      "Mesh contains shell/surface elements; stress omitted because shell layers/body averaging are not resolved by this exporter."
+    ]
+  },
+  {
+    "id": "lesson10-SYS-10",
+    "lesson": "lesson10",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson10-SYS-10-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson10\\course_working_copy_files\\dp0\\SYS-10\\MECH\\file.rst",
+    "nodes": 90782,
+    "frames": 1,
+    "analysis": {
+      "type": "modal",
+      "domain": "frequency",
+      "axis_unit": "Hz",
+      "animation_kind": "mode_sequence",
+      "displacement_interpretation": "normalized eigenvector",
+      "total_sets": 1,
+      "exported_set_ids": [
+        1
+      ]
+    },
+    "fields": [],
+    "warnings": [
+      "RST does not store stress; no stress values were created.",
+      "Modal displacement is an eigenvector with solver normalization, not physical response amplitude. Frames are separate modes, not a time history."
+    ]
+  },
+  {
+    "id": "lesson10-SYS-8",
+    "lesson": "lesson10",
+    "status": "blocked",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson10-SYS-8-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson10\\course_working_copy_files\\dp0\\SYS-8\\MECH\\file.rst",
+    "reason": "Traceback (most recent call last):\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 246, in <module>\n    main()\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 145, in main\n    raise ValueError(\"No valid triangular surface\")\nValueError: No valid triangular surface\n"
+  },
+  {
+    "id": "lesson10-SYS-9",
+    "lesson": "lesson10",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson10-SYS-9-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson10\\course_working_copy_files\\dp0\\SYS-9\\MECH\\file.rst",
+    "nodes": 90782,
+    "frames": 1,
+    "analysis": {
+      "type": "static",
+      "domain": "time",
+      "axis_unit": "s",
+      "animation_kind": "result_sequence",
+      "displacement_interpretation": "structural displacement",
+      "total_sets": 1,
+      "exported_set_ids": [
+        1
+      ]
+    },
+    "fields": [],
+    "warnings": [
+      "Mesh contains shell/surface elements; stress omitted because shell layers/body averaging are not resolved by this exporter."
+    ]
+  },
+  {
+    "id": "lesson09-SYS-12",
+    "lesson": "lesson09",
+    "status": "blocked",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson09-SYS-12-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson09\\course_working_copy_files\\dp0\\SYS-12\\MECH\\file.rst",
+    "reason": "Traceback (most recent call last):\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 246, in <module>\n    main()\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 145, in main\n    raise ValueError(\"No valid triangular surface\")\nValueError: No valid triangular surface\n"
+  },
+  {
+    "id": "lesson09-SYS-13",
+    "lesson": "lesson09",
+    "status": "blocked",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson09-SYS-13-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson09\\course_working_copy_files\\dp0\\SYS-13\\MECH\\file.rst",
+    "reason": "Traceback (most recent call last):\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 246, in <module>\n    main()\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 145, in main\n    raise ValueError(\"No valid triangular surface\")\nValueError: No valid triangular surface\n"
+  },
+  {
+    "id": "lesson09-SYS-14",
+    "lesson": "lesson09",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson09-SYS-14-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson09\\course_working_copy_files\\dp0\\SYS-14\\MECH\\file.rst",
+    "nodes": 41279,
+    "frames": 1,
+    "analysis": {
+      "type": "static",
+      "domain": "time",
+      "axis_unit": "s",
+      "animation_kind": "result_sequence",
+      "displacement_interpretation": "structural displacement",
+      "total_sets": 1,
+      "exported_set_ids": [
+        1
+      ]
+    },
+    "fields": [],
+    "warnings": [
+      "Mesh contains shell/surface elements; stress omitted because shell layers/body averaging are not resolved by this exporter."
+    ]
+  },
+  {
+    "id": "lesson09-SYS-21",
+    "lesson": "lesson09",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson09-SYS-21-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson09\\course_working_copy_files\\dp0\\SYS-21\\MECH\\file.rst",
+    "nodes": 41279,
+    "frames": 2,
+    "analysis": {
+      "type": "modal",
+      "domain": "frequency",
+      "axis_unit": "Hz",
+      "animation_kind": "mode_sequence",
+      "displacement_interpretation": "normalized eigenvector",
+      "total_sets": 2,
+      "exported_set_ids": [
+        1,
+        2
+      ]
+    },
+    "fields": [],
+    "warnings": [
+      "RST does not store stress; no stress values were created.",
+      "Modal displacement is an eigenvector with solver normalization, not physical response amplitude. Frames are separate modes, not a time history."
+    ]
+  },
+  {
+    "id": "lesson08-SYS-1",
+    "lesson": "lesson08",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson08-SYS-1-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson08\\course_working_copy_files\\dp0\\SYS-1\\MECH\\file.rst",
+    "nodes": 52260,
+    "frames": 1,
+    "analysis": {
+      "type": "static",
+      "domain": "time",
+      "axis_unit": "s",
+      "animation_kind": "result_sequence",
+      "displacement_interpretation": "structural displacement",
+      "total_sets": 1,
+      "exported_set_ids": [
+        1
+      ]
+    },
+    "fields": [
+      "S, Mises"
+    ],
+    "warnings": []
+  },
+  {
+    "id": "lesson08-SYS-12",
+    "lesson": "lesson08",
+    "status": "blocked",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson08-SYS-12-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson08\\course_working_copy_files\\dp0\\SYS-12\\MECH\\file.rst",
+    "reason": "Traceback (most recent call last):\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 246, in <module>\n    main()\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 145, in main\n    raise ValueError(\"No valid triangular surface\")\nValueError: No valid triangular surface\n"
+  },
+  {
+    "id": "lesson08-SYS-13",
+    "lesson": "lesson08",
+    "status": "blocked",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson08-SYS-13-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson08\\course_working_copy_files\\dp0\\SYS-13\\MECH\\file.rst",
+    "reason": "Traceback (most recent call last):\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 246, in <module>\n    main()\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 145, in main\n    raise ValueError(\"No valid triangular surface\")\nValueError: No valid triangular surface\n"
+  },
+  {
+    "id": "lesson08-SYS-2",
+    "lesson": "lesson08",
+    "status": "blocked",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson08-SYS-2-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson08\\course_working_copy_files\\dp0\\SYS-2\\MECH\\file.rst",
+    "reason": "Traceback (most recent call last):\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 246, in <module>\n    main()\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 145, in main\n    raise ValueError(\"No valid triangular surface\")\nValueError: No valid triangular surface\n"
+  },
+  {
+    "id": "lesson08-SYS-3",
+    "lesson": "lesson08",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson08-SYS-3-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson08\\course_working_copy_files\\dp0\\SYS-3\\MECH\\file.rst",
+    "nodes": 8271,
+    "frames": 1,
+    "analysis": {
+      "type": "static",
+      "domain": "time",
+      "axis_unit": "s",
+      "animation_kind": "result_sequence",
+      "displacement_interpretation": "structural displacement",
+      "total_sets": 1,
+      "exported_set_ids": [
+        1
+      ]
+    },
+    "fields": [],
+    "warnings": [
+      "Mesh contains shell/surface elements; stress omitted because shell layers/body averaging are not resolved by this exporter."
+    ]
+  },
+  {
+    "id": "lesson06-SYS-1",
+    "lesson": "lesson06",
+    "status": "exported",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson06-SYS-1-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson06\\course_working_copy_files\\dp0\\SYS-1\\MECH\\file.rst",
+    "nodes": 210,
+    "frames": 1,
+    "analysis": {
+      "type": "static",
+      "domain": "time",
+      "axis_unit": "s",
+      "animation_kind": "result_sequence",
+      "displacement_interpretation": "structural displacement",
+      "total_sets": 1,
+      "exported_set_ids": [
+        1
+      ]
+    },
+    "fields": [],
+    "warnings": [
+      "Mesh contains shell/surface elements; stress omitted because shell layers/body averaging are not resolved by this exporter."
+    ]
+  },
+  {
+    "id": "lesson06-SYS-2",
+    "lesson": "lesson06",
+    "status": "blocked",
+    "log": "D:\\codex\\CAE课程复现\\04_网站验收\\lesson06-SYS-2-export.log",
+    "source": "D:\\codex\\cae_courses\\lesson06\\course_working_copy_files\\dp0\\SYS-2\\MECH\\file.rst",
+    "reason": "Traceback (most recent call last):\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 246, in <module>\n    main()\n  File \"D:\\codex\\cae-portfolio-publish\\public-site\\cae-studio\\scripts\\ansys_rst_export.py\", line 145, in main\n    raise ValueError(\"No valid triangular surface\")\nValueError: No valid triangular surface\n"
+  }
+]

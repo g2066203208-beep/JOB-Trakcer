@@ -1,0 +1,62 @@
+[
+  {
+    "id": "lesson06-SYS-1",
+    "loaded": true,
+    "animation_checked": false,
+    "errors": []
+  },
+  {
+    "id": "lesson07",
+    "loaded": true,
+    "animation_checked": true,
+    "errors": []
+  },
+  {
+    "id": "lesson08-SYS-1",
+    "loaded": true,
+    "animation_checked": false,
+    "errors": []
+  },
+  {
+    "id": "lesson08-SYS-3",
+    "loaded": true,
+    "animation_checked": false,
+    "errors": []
+  },
+  {
+    "id": "lesson09-SYS-14",
+    "loaded": true,
+    "animation_checked": false,
+    "errors": []
+  },
+  {
+    "id": "lesson09-SYS-21",
+    "loaded": true,
+    "animation_checked": true,
+    "errors": []
+  },
+  {
+    "id": "lesson10-SYS-10",
+    "loaded": true,
+    "animation_checked": true,
+    "errors": []
+  },
+  {
+    "id": "lesson10-SYS-9",
+    "loaded": true,
+    "animation_checked": false,
+    "errors": []
+  },
+  {
+    "id": "lesson11-SYS-26",
+    "loaded": true,
+    "animation_checked": true,
+    "errors": []
+  },
+  {
+    "id": "lesson11-SYS-27",
+    "loaded": true,
+    "animation_checked": true,
+    "errors": []
+  }
+]
