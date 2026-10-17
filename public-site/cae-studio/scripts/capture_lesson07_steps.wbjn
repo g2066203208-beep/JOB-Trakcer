@@ -1,0 +1,26 @@
+# encoding: utf-8
+import io
+Open(FilePath='D:/codex/cae_courses/lesson07/course.wbpj')
+model=GetAllSystems()[0].GetContainer(ComponentName='Model')
+code="""
+import os,io,json,time
+out='D:/codex/cae_courses/lesson07/step_evidence'
+if not os.path.isdir(out):os.makedirs(out)
+model=ExtAPI.DataModel.Project.Model
+analysis=model.Analyses[0]
+rows=[]
+objects=[model.Geometry,model.Mesh]+list(model.Connections.Children)+list(analysis.Children)
+for index,obj in enumerate(objects):
+    row={'step':index+1,'name':unicode(obj.Name),'type':unicode(obj.GetType().FullName),'record_type':'supplemental_native_view_capture','recorded_epoch':time.time()}
+    if 'BoltPretension' in row['type']:
+        row['define_by']={unicode(n):unicode(obj.GetDefineBy(n)) for n in [1,2]}
+    try:
+        obj.Activate();ExtAPI.Graphics.Camera.SetFit()
+        filename='step_%02d.png'%index
+        ExtAPI.Graphics.ExportImage(os.path.join(out,filename))
+        row['image']=filename
+    except Exception as e:row['image_error']=unicode(e)
+    rows.append(row)
+with io.open(os.path.join(out,'step_records.json'),'w',encoding='utf-8') as f:f.write(unicode(json.dumps(rows,ensure_ascii=False,indent=2)))
+"""
+model.SendCommand(Language='Python',Command=code)

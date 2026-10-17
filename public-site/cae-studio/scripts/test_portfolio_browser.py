@@ -15,6 +15,9 @@ with sync_playwright() as p:
  assert page.locator('.case-card').count()==2
  page.locator('[data-case="lesson07"]').click()
  assert page.locator('#detail').is_visible()
+ page.get_by_role('button',name='查看设置',exact=True).first.click()
+ page.wait_for_function('document.querySelector("#parameter-content").textContent.includes("0.15")')
+ assert '15000 [N]' in page.locator('#parameter-content').inner_text()
  page.get_by_role('button',name='展开详细操作记录').click()
  page.wait_for_function('document.querySelector("#guide-content").textContent.includes("法兰")')
  page.screenshot(path=str(out/'lesson07-detail.png'))

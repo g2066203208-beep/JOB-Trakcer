@@ -838,7 +838,185 @@ window.CAE_CASES=[
     ],
     "stepsComplete": false,
     "source": "用户提供的华仿CAE课程与配套工程；课程复现",
-    "guide": "records/lesson07.md"
+    "guide": "records/lesson07.md",
+    "steps": [
+      {
+        "step": 1,
+        "name": "几何结构",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212504.142105,
+        "type": "Ansys.ACT.Automation.Mechanical.Geometry",
+        "image": "assets/lesson07-steps/step_00.png"
+      },
+      {
+        "step": 2,
+        "name": "网格",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212504.5874176,
+        "type": "Ansys.ACT.Automation.Mechanical.MeshControls.Mesh",
+        "image": "assets/lesson07-steps/step_01.png"
+      },
+      {
+        "step": 3,
+        "name": "接触",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212504.7084045,
+        "type": "Ansys.ACT.Automation.Mechanical.Connections.ConnectionGroup",
+        "image": "assets/lesson07-steps/step_02.png"
+      },
+      {
+        "step": 4,
+        "name": "循环的 - 无选择 至 无选择 2",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212504.7955933,
+        "type": "Ansys.ACT.Automation.Mechanical.Connections.Beam",
+        "image": "assets/lesson07-steps/step_03.png"
+      },
+      {
+        "step": 5,
+        "name": "循环的 - 无选择 至 无选择 3",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212504.8896027,
+        "type": "Ansys.ACT.Automation.Mechanical.Connections.Beam",
+        "image": "assets/lesson07-steps/step_04.png"
+      },
+      {
+        "step": 6,
+        "name": "循环的 - 无选择 至 无选择 4",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212504.971672,
+        "type": "Ansys.ACT.Automation.Mechanical.Connections.Beam",
+        "image": "assets/lesson07-steps/step_05.png"
+      },
+      {
+        "step": 7,
+        "name": "循环的 - 无选择 至 无选择 5",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.052597,
+        "type": "Ansys.ACT.Automation.Mechanical.Connections.Beam",
+        "image": "assets/lesson07-steps/step_06.png"
+      },
+      {
+        "step": 8,
+        "name": "循环的 - 无选择 至 无选择 6",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.1309204,
+        "type": "Ansys.ACT.Automation.Mechanical.Connections.Beam",
+        "image": "assets/lesson07-steps/step_07.png"
+      },
+      {
+        "step": 9,
+        "name": "循环的 - 无选择 至 无选择 7",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.2094498,
+        "type": "Ansys.ACT.Automation.Mechanical.Connections.Beam",
+        "image": "assets/lesson07-steps/step_08.png"
+      },
+      {
+        "step": 10,
+        "name": "分析设置",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.2890472,
+        "type": "Ansys.ACT.Automation.Mechanical.AnalysisSettings.ANSYSAnalysisSettings",
+        "image": "assets/lesson07-steps/step_09.png"
+      },
+      {
+        "step": 11,
+        "name": "固定支撑",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.3663712,
+        "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.FixedSupport",
+        "image": "assets/lesson07-steps/step_10.png"
+      },
+      {
+        "step": 12,
+        "name": "力",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.4547958,
+        "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.Force",
+        "image": "assets/lesson07-steps/step_11.png"
+      },
+      {
+        "step": 13,
+        "define_by": {
+          "1": "Load",
+          "2": "Lock"
+        },
+        "name": "螺栓预紧力",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.5352478,
+        "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.BoltPretension",
+        "image": "assets/lesson07-steps/step_12.png"
+      },
+      {
+        "step": 14,
+        "define_by": {
+          "1": "Load",
+          "2": "Lock"
+        },
+        "name": "螺栓预紧力 2",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.6382065,
+        "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.BoltPretension",
+        "image": "assets/lesson07-steps/step_13.png"
+      },
+      {
+        "step": 15,
+        "define_by": {
+          "1": "Load",
+          "2": "Lock"
+        },
+        "name": "螺栓预紧力 3",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.710556,
+        "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.BoltPretension",
+        "image": "assets/lesson07-steps/step_14.png"
+      },
+      {
+        "step": 16,
+        "define_by": {
+          "1": "Load",
+          "2": "Lock"
+        },
+        "name": "螺栓预紧力 4",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.784996,
+        "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.BoltPretension",
+        "image": "assets/lesson07-steps/step_15.png"
+      },
+      {
+        "step": 17,
+        "define_by": {
+          "1": "Load",
+          "2": "Lock"
+        },
+        "name": "螺栓预紧力 5",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.8585434,
+        "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.BoltPretension",
+        "image": "assets/lesson07-steps/step_16.png"
+      },
+      {
+        "step": 18,
+        "define_by": {
+          "1": "Load",
+          "2": "Lock"
+        },
+        "name": "螺栓预紧力 6",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212505.9365158,
+        "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.BoltPretension",
+        "image": "assets/lesson07-steps/step_17.png"
+      },
+      {
+        "step": 19,
+        "name": "求解",
+        "record_type": "supplemental_native_view_capture",
+        "recorded_epoch": 1792212506.0191727,
+        "type": "Ansys.ACT.Automation.Mechanical.Solution",
+        "image": "assets/lesson07-steps/step_18.png"
+      }
+    ]
   },
   {
     "id": "lesson08",
