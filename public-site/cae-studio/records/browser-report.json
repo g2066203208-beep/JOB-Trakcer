@@ -1,0 +1,10 @@
+{
+  "cards": 13,
+  "filter": "passed",
+  "case_dialog": "passed",
+  "guide_fetch": "passed",
+  "escape_close": "passed",
+  "images": "all_loaded",
+  "mobile_overflow": false,
+  "page_errors": []
+}

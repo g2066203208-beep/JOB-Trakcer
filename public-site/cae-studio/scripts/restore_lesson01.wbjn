@@ -1,0 +1,27 @@
+# encoding: utf-8
+import os,json,io,traceback
+root=u'D:/codex/CAE课程复现'
+dest=os.path.join(root,u'03_复现工程',u'第01节')
+if not os.path.isdir(dest):os.makedirs(dest)
+project=os.path.join(dest,'lesson01_geometry_review.wbpj')
+report={'stage':'course archive restoration and model inventory; NOT lesson reproduction','source_archive':os.path.join(root,u'01_课程原始工程',u'第01节',u'第01节.wbpz'),'project':project}
+try:
+    if os.path.exists(project):
+        Open(FilePath=project)
+    else:
+        Unarchive(ArchivePath=report['source_archive'],ProjectPath=project,Overwrite=False)
+    report['systems']=[]
+    for s in GetAllSystems():
+        item={'name':unicode(s.Name),'display_text':unicode(s.DisplayText),'components':[]}
+        for n in ['Engineering Data','Geometry','Model','Setup','Solution','Results']:
+            try:
+                c=s.GetComponent(Name=n)
+                item['components'].append(n)
+            except:pass
+        report['systems'].append(item)
+    Save(Overwrite=True)
+    report['status']='restored_and_opened'
+except Exception as exc:
+    report['status']='failed';report['error']=unicode(exc);report['traceback']=traceback.format_exc()
+with io.open(os.path.join(dest,'restoration_report.json'),'w',encoding='utf-8') as f:
+    f.write(unicode(json.dumps(report,ensure_ascii=False,indent=2)))

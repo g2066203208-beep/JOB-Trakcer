@@ -1,0 +1,27 @@
+# encoding: utf-8
+import os,io,json,traceback
+root=u'D:/codex/CAE课程复现'
+base='D:/codex/cae_courses'
+def write(path,data):
+    with io.open(path,'w',encoding='utf-8') as f:f.write(unicode(json.dumps(data,ensure_ascii=False,indent=2)))
+with io.open(base+'/project_manifest.json','r',encoding='utf-8') as f:projects=json.load(f)
+with io.open(os.path.join(root,'tools','inspect_mechanical.py'),'r',encoding='utf-8') as f:code=f.read()
+with io.open(os.path.join(root,'tools','recover_results.py'),'r',encoding='utf-8') as f:code+='\n'+f.read()
+reports=[]
+for p in projects:
+    if p['lesson'] in [u'第01节',u'第07节']:continue
+    Reset();Open(FilePath=p['project'])
+    for system in GetAllSystems():
+        if not any(x['name']=='Model' for x in next(x for x in p['systems'] if x['name']==unicode(system.Name))['components']):continue
+        out=os.path.join(os.path.dirname(p['project']),'evidence',unicode(system.Name).replace(' ','_'))
+        if not os.path.isdir(out):os.makedirs(out)
+        r={'lesson':p['lesson'],'system':unicode(system.Name),'name':unicode(system.DisplayText),'status':'running'}
+        write(base+'/recovery_status.json',r)
+        try:
+            container=system.GetContainer(ComponentName='Model')
+            container.SendCommand(Language='Python',Command='COURSE_OUT='+repr(out)+'\n'+code)
+            Save(Overwrite=True)
+            r['status']='returned'
+        except:r['status']='failed';r['error']=traceback.format_exc()
+        reports.append(r);write(base+'/recovery_results.json',reports)
+write(base+'/recovery_status.json',{'status':'finished','count':len(reports)})

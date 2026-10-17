@@ -1,0 +1,30 @@
+# encoding: utf-8
+import os,io,json,traceback
+root=u'D:/codex/CAE课程复现'
+def write(path,data):
+    with io.open(path,'w',encoding='utf-8') as f:f.write(unicode(json.dumps(data,ensure_ascii=False,indent=2)))
+with io.open(os.path.join(root,'batch_restore_results.json'),'r',encoding='utf-8') as f:projects=json.load(f)
+with io.open(os.path.join(root,'tools','inspect_mechanical.py'),'r',encoding='utf-8') as f:inspect=f.read()
+with io.open(os.path.join(root,'tools','resolve_mechanical.py'),'r',encoding='utf-8') as f:solve=f.read()
+results=[]
+projects=sorted(projects,key=lambda p:0 if p['lesson']==u'第07节' else 1)
+for p in projects:
+    if p['status']!='restored_and_opened':continue
+    Reset()
+    Open(FilePath=p['project'])
+    for system in GetAllSystems():
+        name=unicode(system.Name)
+        out=os.path.join(root,u'02_课程核对',p['lesson'],'Mechanical',name.replace(' ','_'))
+        if not os.path.isdir(out):os.makedirs(out)
+        report={'lesson':p['lesson'],'system':name,'display_text':unicode(system.DisplayText),'status':'running','out':out}
+        write(os.path.join(root,'batch_mechanical_status.json'),report)
+        try:
+            container=system.GetContainer(ComponentName='Model')
+            container.SendCommand(Language='Python',Command='COURSE_OUT='+repr(out)+'\n'+inspect+'\n'+solve)
+            Save(Overwrite=True)
+            report['status']='commands_returned_check_individual_reports'
+        except:report['status']='failed';report['error']=traceback.format_exc()
+        write(os.path.join(out,'bridge_report.json'),report)
+        results.append(report)
+        write(os.path.join(root,'batch_mechanical_results.json'),results)
+write(os.path.join(root,'batch_mechanical_status.json'),{'status':'finished','count':len(results)})

@@ -1,0 +1,40 @@
+# encoding: utf-8
+import os,io,json,traceback,time
+root=u'D:/codex/CAE课程复现'
+source=os.path.join(root,u'01_课程原始工程')
+results=[]
+def write(path,data):
+    with io.open(path,'w',encoding='utf-8') as f:f.write(unicode(json.dumps(data,ensure_ascii=False,indent=2)))
+for lesson in sorted(os.listdir(source)):
+    folder=os.path.join(source,lesson)
+    archives=[os.path.join(folder,n) for n in os.listdir(folder) if n.endswith('.wbpz')]
+    if not archives:continue
+    dest=os.path.join(root,u'03_复现工程',lesson)
+    if not os.path.isdir(dest):os.makedirs(dest)
+    project=os.path.join(dest,'lesson01_geometry_review.wbpj' if lesson==u'第01节' else 'course_working_copy.wbpj')
+    report={'lesson':lesson,'archive':archives[0],'project':project,'status':'opening','systems':[],'new_solve':False}
+    write(os.path.join(root,'batch_restore_status.json'),report)
+    try:
+        Reset()
+        if os.path.exists(project):Open(FilePath=project)
+        else:Unarchive(ArchivePath=archives[0],ProjectPath=project,Overwrite=False)
+        for s in GetAllSystems():
+            item={'name':unicode(s.Name),'display_text':unicode(s.DisplayText),'components':[]}
+            for n in ['Engineering Data','Geometry','Model','Setup','Solution','Results']:
+                try:
+                    c=s.GetComponent(Name=n)
+                    comp={'name':n}
+                    for attr in ['State','UpdateState','Status']:
+                        try:comp[attr]=unicode(getattr(c,attr))
+                        except:pass
+                    item['components'].append(comp)
+                except:pass
+            report['systems'].append(item)
+        Save(Overwrite=True)
+        report['status']='restored_and_opened'
+    except:
+        report['status']='failed';report['traceback']=traceback.format_exc()
+    write(os.path.join(dest,'course_inventory.json'),report)
+    results.append(report)
+    write(os.path.join(root,'batch_restore_results.json'),results)
+write(os.path.join(root,'batch_restore_status.json'),{'status':'finished','count':len(results)})

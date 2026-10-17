@@ -1,0 +1,3798 @@
+{
+  "model": {
+    "ObjectId": "11",
+    "fields": {},
+    "children": [
+      {
+        "ObjectId": "12",
+        "fields": {},
+        "children": [
+          {
+            "ObjectId": "13",
+            "fields": {},
+            "children": [],
+            "properties": [
+              {
+                "name": "CADFile",
+                "value": "[local workspace path]"
+              },
+              {
+                "name": "CADType",
+                "value": "SpaceClaim"
+              },
+              {
+                "name": "UseParamProcessing",
+                "value": "1"
+              },
+              {
+                "name": "ParameterKey",
+                "value": ""
+              },
+              {
+                "name": "ComparePartsOnUpdate",
+                "value": "0"
+              },
+              {
+                "name": "AnalysisType",
+                "value": "0"
+              }
+            ],
+            "name": "几何结构导入",
+            "State": "UpToDate",
+            "type": "Ansys.ACT.Automation.Mechanical.GeometryImport",
+            "ObjectState": "Solved"
+          }
+        ],
+        "properties": [],
+        "name": "几何结构导入",
+        "State": "UpToDate",
+        "type": "Ansys.ACT.Automation.Mechanical.GeometryImportGroup",
+        "ObjectState": "Solved"
+      },
+      {
+        "ObjectState": "FullyDefined",
+        "State": "UpToDate",
+        "children": [
+          {
+            "ObjectState": "Meshed",
+            "State": "Unknown",
+            "children": [
+              {
+                "ObjectState": "Meshed",
+                "State": "Unknown",
+                "children": [],
+                "Maximum": "0",
+                "ObjectId": "20",
+                "type": "Ansys.ACT.Automation.Mechanical.Body",
+                "Thickness": "0 [m]",
+                "Average": "0",
+                "Suppressed": "False",
+                "name": "Beam (抽取的轮廓1)",
+                "Minimum": "0",
+                "Material": "结构钢",
+                "Mass": "626.19340943463385 [kg]",
+                "fields": {},
+                "Volume": "0.079769861074475645 [m m m]",
+                "properties": [
+                  {
+                    "name": "Hidden",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Glow",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Shininess",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Transparency",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Color",
+                    "value": "14606046"
+                  },
+                  {
+                    "name": "Specularity",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "MaterialName",
+                    "value": "结构钢"
+                  },
+                  {
+                    "name": "BoundingBoxLengthX",
+                    "value": "4.82726013660"
+                  },
+                  {
+                    "name": "BoundingBoxLengthY",
+                    "value": "1.67779994011"
+                  },
+                  {
+                    "name": "BoundingBoxLengthZ",
+                    "value": "2.70000004768"
+                  },
+                  {
+                    "name": "Volume",
+                    "value": "0.0797698610745"
+                  },
+                  {
+                    "name": "Mass",
+                    "value": "626.193409435"
+                  },
+                  {
+                    "name": "WireLength",
+                    "value": "28.8547265530"
+                  },
+                  {
+                    "name": "ModelType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StiffnessBehavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "NonlinearEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "ThermalStrainEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "CoordinateSystemSelection",
+                    "value": "32"
+                  },
+                  {
+                    "name": "UseReferenceTemperature",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Nodes",
+                    "value": "1068"
+                  },
+                  {
+                    "name": "Elements",
+                    "value": "534"
+                  },
+                  {
+                    "name": "CrossSectionName",
+                    "value": "34"
+                  },
+                  {
+                    "name": "CrossSectionArea",
+                    "value": "0.0027645336"
+                  },
+                  {
+                    "name": "CrossSectionIYY",
+                    "value": "8.62260957029e-07"
+                  },
+                  {
+                    "name": "CrossSectionIZZ",
+                    "value": "9.91691013788e-06"
+                  },
+                  {
+                    "name": "MeshMetric",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AutomaticOrManual",
+                    "value": "1"
+                  },
+                  {
+                    "name": "OffsetType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Behavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "BeamSolverCrossSectionType",
+                    "value": "13"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "Meshed",
+                "State": "Unknown",
+                "children": [],
+                "Maximum": "0",
+                "ObjectId": "22",
+                "type": "Ansys.ACT.Automation.Mechanical.Body",
+                "Thickness": "0 [m]",
+                "Average": "0",
+                "Suppressed": "False",
+                "name": "Beam (抽取的轮廓2)",
+                "Minimum": "0",
+                "Material": "结构钢",
+                "Mass": "128.5647118921836 [kg]",
+                "fields": {},
+                "Volume": "0.016377670304736764 [m m m]",
+                "properties": [
+                  {
+                    "name": "Hidden",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Glow",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Shininess",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Transparency",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Color",
+                    "value": "15454648"
+                  },
+                  {
+                    "name": "Specularity",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "MaterialName",
+                    "value": "结构钢"
+                  },
+                  {
+                    "name": "BoundingBoxLengthX",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "BoundingBoxLengthY",
+                    "value": "4.01724988595"
+                  },
+                  {
+                    "name": "BoundingBoxLengthZ",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Volume",
+                    "value": "0.0163776703047"
+                  },
+                  {
+                    "name": "Mass",
+                    "value": "128.564711892"
+                  },
+                  {
+                    "name": "WireLength",
+                    "value": "4.01724982262"
+                  },
+                  {
+                    "name": "ModelType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StiffnessBehavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "NonlinearEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "ThermalStrainEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "CoordinateSystemSelection",
+                    "value": "32"
+                  },
+                  {
+                    "name": "UseReferenceTemperature",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Nodes",
+                    "value": "149"
+                  },
+                  {
+                    "name": "Elements",
+                    "value": "74"
+                  },
+                  {
+                    "name": "CrossSectionName",
+                    "value": "35"
+                  },
+                  {
+                    "name": "CrossSectionArea",
+                    "value": "0.0040768364"
+                  },
+                  {
+                    "name": "CrossSectionIYY",
+                    "value": "8.64721459366e-06"
+                  },
+                  {
+                    "name": "CrossSectionIZZ",
+                    "value": "2.48504062659e-05"
+                  },
+                  {
+                    "name": "MeshMetric",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AutomaticOrManual",
+                    "value": "1"
+                  },
+                  {
+                    "name": "OffsetType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Behavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "BeamSolverCrossSectionType",
+                    "value": "13"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "Meshed",
+                "State": "Unknown",
+                "children": [],
+                "Maximum": "0",
+                "ObjectId": "24",
+                "type": "Ansys.ACT.Automation.Mechanical.Body",
+                "Thickness": "0 [m]",
+                "Average": "0",
+                "Suppressed": "False",
+                "name": "Beam (抽取的轮廓2)",
+                "Minimum": "0",
+                "Material": "结构钢",
+                "Mass": "128.5647118921836 [kg]",
+                "fields": {},
+                "Volume": "0.016377670304736764 [m m m]",
+                "properties": [
+                  {
+                    "name": "Hidden",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Glow",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Shininess",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Transparency",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Color",
+                    "value": "12118981"
+                  },
+                  {
+                    "name": "Specularity",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "MaterialName",
+                    "value": "结构钢"
+                  },
+                  {
+                    "name": "BoundingBoxLengthX",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "BoundingBoxLengthY",
+                    "value": "4.01724988595"
+                  },
+                  {
+                    "name": "BoundingBoxLengthZ",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Volume",
+                    "value": "0.0163776703047"
+                  },
+                  {
+                    "name": "Mass",
+                    "value": "128.564711892"
+                  },
+                  {
+                    "name": "WireLength",
+                    "value": "4.01724982262"
+                  },
+                  {
+                    "name": "ModelType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StiffnessBehavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "NonlinearEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "ThermalStrainEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "CoordinateSystemSelection",
+                    "value": "32"
+                  },
+                  {
+                    "name": "UseReferenceTemperature",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Nodes",
+                    "value": "149"
+                  },
+                  {
+                    "name": "Elements",
+                    "value": "74"
+                  },
+                  {
+                    "name": "CrossSectionName",
+                    "value": "35"
+                  },
+                  {
+                    "name": "CrossSectionArea",
+                    "value": "0.0040768364"
+                  },
+                  {
+                    "name": "CrossSectionIYY",
+                    "value": "8.64721459366e-06"
+                  },
+                  {
+                    "name": "CrossSectionIZZ",
+                    "value": "2.48504062659e-05"
+                  },
+                  {
+                    "name": "MeshMetric",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AutomaticOrManual",
+                    "value": "1"
+                  },
+                  {
+                    "name": "OffsetType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Behavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "BeamSolverCrossSectionType",
+                    "value": "13"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "Meshed",
+                "State": "Unknown",
+                "children": [],
+                "Maximum": "0",
+                "ObjectId": "26",
+                "type": "Ansys.ACT.Automation.Mechanical.Body",
+                "Thickness": "0 [m]",
+                "Average": "0",
+                "Suppressed": "False",
+                "name": "Beam (抽取的轮廓2)",
+                "Minimum": "0",
+                "Material": "结构钢",
+                "Mass": "128.5647118921836 [kg]",
+                "fields": {},
+                "Volume": "0.016377670304736764 [m m m]",
+                "properties": [
+                  {
+                    "name": "Hidden",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Glow",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Shininess",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Transparency",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Color",
+                    "value": "10605055"
+                  },
+                  {
+                    "name": "Specularity",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "MaterialName",
+                    "value": "结构钢"
+                  },
+                  {
+                    "name": "BoundingBoxLengthX",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "BoundingBoxLengthY",
+                    "value": "4.01724988595"
+                  },
+                  {
+                    "name": "BoundingBoxLengthZ",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Volume",
+                    "value": "0.0163776703047"
+                  },
+                  {
+                    "name": "Mass",
+                    "value": "128.564711892"
+                  },
+                  {
+                    "name": "WireLength",
+                    "value": "4.01724982262"
+                  },
+                  {
+                    "name": "ModelType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StiffnessBehavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "NonlinearEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "ThermalStrainEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "CoordinateSystemSelection",
+                    "value": "32"
+                  },
+                  {
+                    "name": "UseReferenceTemperature",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Nodes",
+                    "value": "149"
+                  },
+                  {
+                    "name": "Elements",
+                    "value": "74"
+                  },
+                  {
+                    "name": "CrossSectionName",
+                    "value": "35"
+                  },
+                  {
+                    "name": "CrossSectionArea",
+                    "value": "0.0040768364"
+                  },
+                  {
+                    "name": "CrossSectionIYY",
+                    "value": "8.64721459366e-06"
+                  },
+                  {
+                    "name": "CrossSectionIZZ",
+                    "value": "2.48504062659e-05"
+                  },
+                  {
+                    "name": "MeshMetric",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AutomaticOrManual",
+                    "value": "1"
+                  },
+                  {
+                    "name": "OffsetType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Behavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "BeamSolverCrossSectionType",
+                    "value": "13"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "Meshed",
+                "State": "Unknown",
+                "children": [],
+                "Maximum": "0",
+                "ObjectId": "28",
+                "type": "Ansys.ACT.Automation.Mechanical.Body",
+                "Thickness": "0 [m]",
+                "Average": "0",
+                "Suppressed": "False",
+                "name": "Beam (抽取的轮廓2)",
+                "Minimum": "0",
+                "Material": "结构钢",
+                "Mass": "128.5647118921836 [kg]",
+                "fields": {},
+                "Volume": "0.016377670304736764 [m m m]",
+                "properties": [
+                  {
+                    "name": "Hidden",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Glow",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Shininess",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Transparency",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Color",
+                    "value": "15398865"
+                  },
+                  {
+                    "name": "Specularity",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "MaterialName",
+                    "value": "结构钢"
+                  },
+                  {
+                    "name": "BoundingBoxLengthX",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "BoundingBoxLengthY",
+                    "value": "4.01724988595"
+                  },
+                  {
+                    "name": "BoundingBoxLengthZ",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Volume",
+                    "value": "0.0163776703047"
+                  },
+                  {
+                    "name": "Mass",
+                    "value": "128.564711892"
+                  },
+                  {
+                    "name": "WireLength",
+                    "value": "4.01724982262"
+                  },
+                  {
+                    "name": "ModelType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StiffnessBehavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "NonlinearEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "ThermalStrainEffects",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "CoordinateSystemSelection",
+                    "value": "32"
+                  },
+                  {
+                    "name": "UseReferenceTemperature",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Nodes",
+                    "value": "149"
+                  },
+                  {
+                    "name": "Elements",
+                    "value": "74"
+                  },
+                  {
+                    "name": "CrossSectionName",
+                    "value": "35"
+                  },
+                  {
+                    "name": "CrossSectionArea",
+                    "value": "0.0040768364"
+                  },
+                  {
+                    "name": "CrossSectionIYY",
+                    "value": "8.64721459366e-06"
+                  },
+                  {
+                    "name": "CrossSectionIZZ",
+                    "value": "2.48504062659e-05"
+                  },
+                  {
+                    "name": "MeshMetric",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AutomaticOrManual",
+                    "value": "1"
+                  },
+                  {
+                    "name": "OffsetType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Behavior",
+                    "value": "0"
+                  },
+                  {
+                    "name": "BeamSolverCrossSectionType",
+                    "value": "13"
+                  }
+                ]
+              }
+            ],
+            "Maximum": "0.0",
+            "ObjectId": "19",
+            "type": "Ansys.ACT.Automation.Mechanical.Part",
+            "Average": "0.0",
+            "Suppressed": "False",
+            "name": "SYS-8",
+            "Minimum": "0.0",
+            "Material": "结构钢",
+            "Mass": "1140.4522570033682 [kg]",
+            "fields": {},
+            "Volume": "0.14528054229342272 [m m m]",
+            "properties": [
+              {
+                "name": "Hidden",
+                "value": "0"
+              },
+              {
+                "name": "Suppressed",
+                "value": "0"
+              },
+              {
+                "name": "MaterialName",
+                "value": "结构钢"
+              },
+              {
+                "name": "CoordinateSystemSelection",
+                "value": "0"
+              },
+              {
+                "name": "BoundingBoxLengthX",
+                "value": "4.82726013660"
+              },
+              {
+                "name": "BoundingBoxLengthY",
+                "value": "4.01724988595"
+              },
+              {
+                "name": "BoundingBoxLengthZ",
+                "value": "2.70000004768"
+              },
+              {
+                "name": "Volume",
+                "value": "0.145280542293"
+              },
+              {
+                "name": "Mass",
+                "value": "1140.45225700"
+              },
+              {
+                "name": "Nodes",
+                "value": "1652"
+              },
+              {
+                "name": "Elements",
+                "value": "830"
+              },
+              {
+                "name": "MeshMetric",
+                "value": "0"
+              }
+            ]
+          }
+        ],
+        "Maximum": "0.0",
+        "ObjectId": "14",
+        "type": "Ansys.ACT.Automation.Mechanical.Geometry",
+        "AnalysisType": "Volume",
+        "Average": "0.0",
+        "name": "几何结构",
+        "Minimum": "0.0",
+        "Mass": "1140.4522570033682 [kg]",
+        "fields": {},
+        "Volume": "0.14528054229342272 [m m m]",
+        "properties": [
+          {
+            "name": "CADFile",
+            "value": "[local workspace path]"
+          },
+          {
+            "name": "CADType",
+            "value": "SpaceClaim"
+          },
+          {
+            "name": "CADUnits",
+            "value": "0"
+          },
+          {
+            "name": "ElementControl",
+            "value": "0"
+          },
+          {
+            "name": "BoundingBoxLengthX",
+            "value": "4.82726013660"
+          },
+          {
+            "name": "BoundingBoxLengthY",
+            "value": "4.01724988595"
+          },
+          {
+            "name": "BoundingBoxLengthZ",
+            "value": "2.70000004768"
+          },
+          {
+            "name": "Volume",
+            "value": "0.145280542293"
+          },
+          {
+            "name": "Mass",
+            "value": "1140.45225700"
+          },
+          {
+            "name": "numParts",
+            "value": "5"
+          },
+          {
+            "name": "NumActiveParts",
+            "value": "5"
+          },
+          {
+            "name": "Nodes",
+            "value": "1652"
+          },
+          {
+            "name": "Elements",
+            "value": "830"
+          },
+          {
+            "name": "AssignMaterialOnUpdate",
+            "value": "0"
+          },
+          {
+            "name": "ImportSolids",
+            "value": "65535"
+          },
+          {
+            "name": "ImportSheets",
+            "value": "65535"
+          },
+          {
+            "name": "ImportWires",
+            "value": "65535"
+          },
+          {
+            "name": "UseParamProcessing",
+            "value": "1"
+          },
+          {
+            "name": "ParameterKey",
+            "value": ""
+          },
+          {
+            "name": "UseCADAttribTrans",
+            "value": "65535"
+          },
+          {
+            "name": "CADAttribPrefixes",
+            "value": ""
+          },
+          {
+            "name": "UseCADNamedSelTrans",
+            "value": "65535"
+          },
+          {
+            "name": "CADNamedSelPrefixes",
+            "value": ""
+          },
+          {
+            "name": "MaterialPropTrans",
+            "value": "65535"
+          },
+          {
+            "name": "UseCADAssociativity",
+            "value": "65535"
+          },
+          {
+            "name": "ImportCoordinateSystems",
+            "value": "65535"
+          },
+          {
+            "name": "CoordinateSystemKey",
+            "value": ""
+          },
+          {
+            "name": "ReaderSaveFile",
+            "value": "0"
+          },
+          {
+            "name": "UseInstances",
+            "value": "65535"
+          },
+          {
+            "name": "DoSmartUpdate",
+            "value": "65535"
+          },
+          {
+            "name": "ComparePartsOnUpdate",
+            "value": "0"
+          },
+          {
+            "name": "AnalysisType",
+            "value": "0"
+          },
+          {
+            "name": "SecondaryImportPref",
+            "value": "0"
+          },
+          {
+            "name": "ImportFacetQuality",
+            "value": "6"
+          },
+          {
+            "name": "CleanBodiesOnImport",
+            "value": "0"
+          },
+          {
+            "name": "StitchSurfacesOnImport",
+            "value": "0"
+          },
+          {
+            "name": "DecomposeDisjointFaces",
+            "value": "65535"
+          },
+          {
+            "name": "ProcessPhysicsDefinition",
+            "value": "0"
+          },
+          {
+            "name": "ImportEnclosureAndSymmetry",
+            "value": "65535"
+          },
+          {
+            "name": "DisplayStyle",
+            "value": "0"
+          },
+          {
+            "name": "ScaleFactor",
+            "value": "1.0"
+          },
+          {
+            "name": "MeshMetric",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "ObjectId": "17",
+        "fields": {},
+        "children": [
+          {
+            "ObjectId": "10",
+            "fields": {},
+            "children": [],
+            "properties": [
+              {
+                "name": "Name",
+                "value": "结构钢"
+              },
+              {
+                "name": "AssignedBodies",
+                "value": "5"
+              }
+            ],
+            "name": "结构钢",
+            "State": "UpToDate",
+            "type": "Ansys.ACT.Automation.Mechanical.Material",
+            "ObjectState": "FullyDefined"
+          }
+        ],
+        "properties": [
+          {
+            "name": "Materials",
+            "value": "1"
+          },
+          {
+            "name": "MaterialAssignments",
+            "value": "0"
+          }
+        ],
+        "name": "材料",
+        "State": "UpToDate",
+        "type": "Ansys.ACT.Automation.Mechanical.Materials",
+        "ObjectState": "FullyDefined"
+      },
+      {
+        "ObjectId": "33",
+        "fields": {},
+        "children": [
+          {
+            "ObjectId": "34",
+            "fields": {},
+            "children": [],
+            "properties": [
+              {
+                "name": "CrossSectionType",
+                "value": "13"
+              },
+              {
+                "name": "ImportedFromCAD",
+                "value": "65535"
+              },
+              {
+                "name": "BeamSection",
+                "value": "992741120"
+              },
+              {
+                "name": "CrossSectionArea",
+                "value": "0.0027645336"
+              },
+              {
+                "name": "CrossSectionIYY",
+                "value": "8.62260957029e-07"
+              },
+              {
+                "name": "CrossSectionIZZ",
+                "value": "9.91691013788e-06"
+              },
+              {
+                "name": "CrossSectionWarping",
+                "value": "4.16169628967e-09"
+              },
+              {
+                "name": "CrossSectionTorsion",
+                "value": "9.08501181711e-08"
+              },
+              {
+                "name": "CrossSectionCentroidY",
+                "value": "2.3408888879e-16"
+              },
+              {
+                "name": "CrossSectionCentroidZ",
+                "value": "1.72345901641e-16"
+              },
+              {
+                "name": "CrossSectionShearCenterY",
+                "value": "1.02542137368e-12"
+              },
+              {
+                "name": "CrossSectionShearCenterZ",
+                "value": "-1.47578676897e-13"
+              }
+            ],
+            "name": "抽取的轮廓1",
+            "State": "UpToDate",
+            "type": "Ansys.ACT.Automation.Mechanical.CrossSection",
+            "ObjectState": "FullyDefined"
+          },
+          {
+            "ObjectId": "35",
+            "fields": {},
+            "children": [],
+            "properties": [
+              {
+                "name": "CrossSectionType",
+                "value": "13"
+              },
+              {
+                "name": "ImportedFromCAD",
+                "value": "65535"
+              },
+              {
+                "name": "BeamSection",
+                "value": "992750528"
+              },
+              {
+                "name": "CrossSectionArea",
+                "value": "0.0040768364"
+              },
+              {
+                "name": "CrossSectionIYY",
+                "value": "8.64721459366e-06"
+              },
+              {
+                "name": "CrossSectionIZZ",
+                "value": "2.48504062659e-05"
+              },
+              {
+                "name": "CrossSectionWarping",
+                "value": "8.8243562226e-09"
+              },
+              {
+                "name": "CrossSectionTorsion",
+                "value": "1.9639536073e-05"
+              },
+              {
+                "name": "CrossSectionCentroidY",
+                "value": "-1.3034063192e-15"
+              },
+              {
+                "name": "CrossSectionCentroidZ",
+                "value": "-7.71523575027e-16"
+              },
+              {
+                "name": "CrossSectionShearCenterY",
+                "value": "-6.91641654002e-08"
+              },
+              {
+                "name": "CrossSectionShearCenterZ",
+                "value": "-4.286957468e-08"
+              }
+            ],
+            "name": "抽取的轮廓2",
+            "State": "UpToDate",
+            "type": "Ansys.ACT.Automation.Mechanical.CrossSection",
+            "ObjectState": "FullyDefined"
+          }
+        ],
+        "properties": [
+          {
+            "name": "CrossSections",
+            "value": "2"
+          }
+        ],
+        "name": "横截面",
+        "State": "UpToDate",
+        "type": "Ansys.ACT.Automation.Mechanical.CrossSections",
+        "ObjectState": "FullyDefined"
+      },
+      {
+        "ObjectId": "31",
+        "fields": {},
+        "children": [
+          {
+            "ObjectState": "FullyDefined",
+            "State": "UpToDate",
+            "children": [],
+            "ObjectId": "32",
+            "type": "Ansys.ACT.Automation.Mechanical.CoordinateSystem",
+            "Suppressed": "False",
+            "name": "全局坐标系",
+            "fields": {},
+            "properties": [
+              {
+                "name": "CoordinateSystemType",
+                "value": "0"
+              },
+              {
+                "name": "AnsysSystemNumber",
+                "value": "0"
+              },
+              {
+                "name": "InitialOriginXLocation",
+                "value": "0.0"
+              },
+              {
+                "name": "InitialOriginYLocation",
+                "value": "0.0"
+              },
+              {
+                "name": "InitialOriginZLocation",
+                "value": "0.0"
+              },
+              {
+                "name": "XDirectionString1",
+                "value": "[  1.  0.  0.  ]"
+              },
+              {
+                "name": "YDirectionString1",
+                "value": "[  0.  1.  0.  ]"
+              },
+              {
+                "name": "ZDirectionString1",
+                "value": "[  0.  0.  1.  ]"
+              }
+            ]
+          }
+        ],
+        "properties": [],
+        "name": "坐标系",
+        "State": "UpToDate",
+        "type": "Ansys.ACT.Automation.Mechanical.CoordinateSystems",
+        "ObjectState": "FullyDefined"
+      },
+      {
+        "ObjectId": "16",
+        "fields": {},
+        "children": [],
+        "properties": [],
+        "name": "远程点",
+        "State": "UpToDate",
+        "type": "Ansys.ACT.Automation.Mechanical.RemotePoints",
+        "ObjectState": "FullyDefined"
+      },
+      {
+        "ObjectState": "FullyDefined",
+        "State": "UpToDate",
+        "children": [],
+        "ObjectId": "30",
+        "type": "Ansys.ACT.Automation.Mechanical.Connections.Connections",
+        "name": "连接",
+        "fields": {},
+        "properties": [
+          {
+            "name": "DetectionMode",
+            "value": "1"
+          },
+          {
+            "name": "TransparencyEnabled",
+            "value": "65535"
+          },
+          {
+            "name": "ContactGroupNumContacts",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumActiveContacts",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumJoints",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumActiveJoints",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumBeams",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumActiveBeams",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumBearings",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumActiveBearings",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumSprings",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumActiveSprings",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumBodyInteractions",
+            "value": "0"
+          },
+          {
+            "name": "ContactGroupNumActiveBodyInteractions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "ObjectState": "Solved",
+        "State": "UpToDate",
+        "children": [
+          {
+            "ObjectState": "FullyDefined",
+            "State": "UpToDate",
+            "children": [],
+            "ObjectId": "40",
+            "type": "Ansys.ACT.Automation.Mechanical.MeshControls.Sizing",
+            "Suppressed": "False",
+            "name": "边缘尺寸调整",
+            "Location": [
+              40,
+              65,
+              66,
+              64,
+              50,
+              63,
+              61,
+              43,
+              44,
+              39,
+              62,
+              60,
+              41,
+              49,
+              59,
+              52,
+              37,
+              42,
+              51,
+              53,
+              48,
+              54,
+              38,
+              55,
+              47,
+              46,
+              45,
+              58,
+              57,
+              56,
+              69,
+              68,
+              67,
+              72,
+              71,
+              70
+            ],
+            "fields": {},
+            "properties": [
+              {
+                "name": "GeometryDefineBy",
+                "value": "0"
+              },
+              {
+                "name": "GeometrySelection",
+                "value": "0"
+              },
+              {
+                "name": "SubValue",
+                "value": "65535"
+              },
+              {
+                "name": "SubType",
+                "value": "0"
+              },
+              {
+                "name": "ESize",
+                "value": "0.055"
+              },
+              {
+                "name": "SizingType",
+                "value": "0"
+              },
+              {
+                "name": "SweepBiasType",
+                "value": "4"
+              }
+            ]
+          }
+        ],
+        "Maximum": "0",
+        "ObjectId": "15",
+        "type": "Ansys.ACT.Automation.Mechanical.MeshControls.Mesh",
+        "Average": "0",
+        "name": "网格",
+        "Minimum": "0",
+        "fields": {},
+        "properties": [
+          {
+            "name": "DisplayStyle",
+            "value": "0"
+          },
+          {
+            "name": "PhysicsPreference",
+            "value": "0"
+          },
+          {
+            "name": "ElementOrder",
+            "value": "0"
+          },
+          {
+            "name": "ElementSize",
+            "value": "0.0"
+          },
+          {
+            "name": "UseAdaptiveSize",
+            "value": "65535"
+          },
+          {
+            "name": "Resolution",
+            "value": "2"
+          },
+          {
+            "name": "AutoMeshDefeaturing",
+            "value": "1"
+          },
+          {
+            "name": "MeshDefeatureTol",
+            "value": "0.0"
+          },
+          {
+            "name": "TransitionOption",
+            "value": "0"
+          },
+          {
+            "name": "SpanAngleOption",
+            "value": "0"
+          },
+          {
+            "name": "InitialSizeSeed",
+            "value": "0"
+          },
+          {
+            "name": "BoundingBoxDiagonal",
+            "value": "6.83598839452"
+          },
+          {
+            "name": "AverageSurfaceArea",
+            "value": "0.0"
+          },
+          {
+            "name": "MinEdgeSize",
+            "value": "0.10954"
+          },
+          {
+            "name": "UseCustomQualityLimit",
+            "value": "2"
+          },
+          {
+            "name": "ShapeChecking",
+            "value": "1"
+          },
+          {
+            "name": "TargetQuality",
+            "value": "0.0"
+          },
+          {
+            "name": "SmoothingOption",
+            "value": "1"
+          },
+          {
+            "name": "MeshMetric",
+            "value": "0"
+          },
+          {
+            "name": "AutomaticInflation",
+            "value": "0"
+          },
+          {
+            "name": "InflationOption",
+            "value": "2"
+          },
+          {
+            "name": "TransitionRatio",
+            "value": "0.272"
+          },
+          {
+            "name": "MaximumLayers",
+            "value": "5"
+          },
+          {
+            "name": "ExpansionFactor",
+            "value": "1.2"
+          },
+          {
+            "name": "InflationAlgorithm",
+            "value": "1"
+          },
+          {
+            "name": "InflationElementType",
+            "value": "0"
+          },
+          {
+            "name": "AdvancedInflationOptions",
+            "value": "0"
+          },
+          {
+            "name": "UseScaffolding",
+            "value": "0"
+          },
+          {
+            "name": "NumCpuPartMeshing",
+            "value": "0"
+          },
+          {
+            "name": "StraightSideElement",
+            "value": "0"
+          },
+          {
+            "name": "RigidBodyBehavior",
+            "value": "0"
+          },
+          {
+            "name": "TriangleSurfaceMesh",
+            "value": "0"
+          },
+          {
+            "name": "MeshTopologyChecks",
+            "value": "1"
+          },
+          {
+            "name": "PinchTolerance",
+            "value": "0.0"
+          },
+          {
+            "name": "PinchGenerateOnRefresh",
+            "value": "0"
+          },
+          {
+            "name": "HexToTetTransition",
+            "value": "0"
+          },
+          {
+            "name": "Nodes",
+            "value": "1652"
+          },
+          {
+            "name": "Elements",
+            "value": "830"
+          },
+          {
+            "name": "ShowDetailedStatistics",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "ObjectState": "Solved",
+        "State": "UpToDate",
+        "children": [
+          {
+            "ObjectState": "FullyDefined",
+            "State": "UpToDate",
+            "children": [],
+            "DefineBy": "Substeps",
+            "ObjectId": "39",
+            "type": "Ansys.ACT.Automation.Mechanical.AnalysisSettings.ANSYSAnalysisSettings",
+            "name": "分析设置",
+            "fields": {},
+            "properties": [
+              {
+                "name": "NumberOfSteps",
+                "value": "1"
+              },
+              {
+                "name": "SolverType",
+                "value": "0"
+              },
+              {
+                "name": "UseWeakSprings",
+                "value": "2"
+              },
+              {
+                "name": "SolverPivotChecking",
+                "value": "0"
+              },
+              {
+                "name": "UseLargeDeformation",
+                "value": "0"
+              },
+              {
+                "name": "UseInertialRelief",
+                "value": "0"
+              },
+              {
+                "name": "CurrentStepNumber",
+                "value": "1"
+              },
+              {
+                "name": "EndTime",
+                "value": "1.0"
+              },
+              {
+                "name": "UseAutoTimeStepping",
+                "value": "0"
+              },
+              {
+                "name": "RotordynCtrlsCoriolisEffect",
+                "value": "0"
+              },
+              {
+                "name": "RestartControls",
+                "value": "0"
+              },
+              {
+                "name": "RestartRetainFiles",
+                "value": "1"
+              },
+              {
+                "name": "RestartCombineMultiFrames",
+                "value": "0"
+              },
+              {
+                "name": "NewtonRaphsonType",
+                "value": "1"
+              },
+              {
+                "name": "ConvergenceForceTolerance",
+                "value": "0"
+              },
+              {
+                "name": "ConvergenceMomentTolerance",
+                "value": "0"
+              },
+              {
+                "name": "ConvergenceDisplacementTolerance",
+                "value": "0"
+              },
+              {
+                "name": "ConvergenceRotationTolerance",
+                "value": "0"
+              },
+              {
+                "name": "ConvergenceEnergyTolerance",
+                "value": "2"
+              },
+              {
+                "name": "LineSearch",
+                "value": "0"
+              },
+              {
+                "name": "Stabilization",
+                "value": "3"
+              },
+              {
+                "name": "InverseSolving",
+                "value": "0"
+              },
+              {
+                "name": "ContactSplit",
+                "value": "2"
+              },
+              {
+                "name": "SemiImplicit",
+                "value": "0"
+              },
+              {
+                "name": "OutputSelection",
+                "value": "0"
+              },
+              {
+                "name": "CalculateStress",
+                "value": "65535"
+              },
+              {
+                "name": "CalculateBackStress",
+                "value": "0"
+              },
+              {
+                "name": "CalculateStrain",
+                "value": "65535"
+              },
+              {
+                "name": "CalculateElementContactData",
+                "value": "65535"
+              },
+              {
+                "name": "CalculateElementNonlinearData",
+                "value": "0"
+              },
+              {
+                "name": "NodalForces",
+                "value": "0"
+              },
+              {
+                "name": "CalculateElementEnergies",
+                "value": "65535"
+              },
+              {
+                "name": "CalculateElementEulerAngles",
+                "value": "65535"
+              },
+              {
+                "name": "GeneralMisc",
+                "value": "0"
+              },
+              {
+                "name": "CalculateContact",
+                "value": "0"
+              },
+              {
+                "name": "CalculateResultsAtTimePoints",
+                "value": "0"
+              },
+              {
+                "name": "CacheResultsInMemory",
+                "value": "0"
+              },
+              {
+                "name": "CombineDistResultFile",
+                "value": "0"
+              },
+              {
+                "name": "ResultFileCompression",
+                "value": "0"
+              },
+              {
+                "name": "SolverFilesDirectory",
+                "value": "[local workspace path]"
+              },
+              {
+                "name": "FutureIntent",
+                "value": "0"
+              },
+              {
+                "name": "ScratchSolverFilesDirectory",
+                "value": ""
+              },
+              {
+                "name": "SaveAnsysDB",
+                "value": "0"
+              },
+              {
+                "name": "ContactSummary",
+                "value": "1"
+              },
+              {
+                "name": "CleanupOptionalANSYSFiles",
+                "value": "65535"
+              },
+              {
+                "name": "NonLinear",
+                "value": "0"
+              },
+              {
+                "name": "SolverUnitsControl",
+                "value": "0"
+              },
+              {
+                "name": "SelectedSolverUnitSystem",
+                "value": "11"
+              },
+              {
+                "name": "QuasiStaticOption",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "ObjectState": "FullyDefined",
+            "State": "UpToDate",
+            "children": [],
+            "ObjectId": "43",
+            "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.FixedSupport",
+            "Suppressed": "False",
+            "name": "固定支撑",
+            "Location": [
+              24,
+              26,
+              28,
+              16
+            ],
+            "fields": {},
+            "properties": [
+              {
+                "name": "GeometryDefineBy",
+                "value": "0"
+              },
+              {
+                "name": "GeometrySelection",
+                "value": "0"
+              },
+              {
+                "name": "ID",
+                "value": "43"
+              },
+              {
+                "name": "Type",
+                "value": "0"
+              },
+              {
+                "name": "Suppressed",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "ObjectState": "FullyDefined",
+            "State": "UpToDate",
+            "children": [],
+            "DefineBy": "Components",
+            "ObjectId": "45",
+            "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.Force",
+            "Suppressed": "False",
+            "name": "力",
+            "Location": [
+              53,
+              52,
+              54,
+              51,
+              55
+            ],
+            "Magnitude": "None",
+            "fields": {
+              "YComponent": {
+                "inputs": [
+                  [
+                    "1 [sec]"
+                  ]
+                ],
+                "output": [
+                  "-100000 [N]"
+                ]
+              },
+              "XComponent": {
+                "inputs": [
+                  [
+                    "1 [sec]"
+                  ]
+                ],
+                "output": [
+                  "0 [N]"
+                ]
+              },
+              "ZComponent": {
+                "inputs": [
+                  [
+                    "1 [sec]"
+                  ]
+                ],
+                "output": [
+                  "0 [N]"
+                ]
+              }
+            },
+            "properties": [
+              {
+                "name": "GeometryDefineBy",
+                "value": "0"
+              },
+              {
+                "name": "GeometrySelection",
+                "value": "0"
+              },
+              {
+                "name": "ID",
+                "value": "45"
+              },
+              {
+                "name": "Type",
+                "value": "0"
+              },
+              {
+                "name": "DefineBy",
+                "value": "0"
+              },
+              {
+                "name": "AppliedBy",
+                "value": "0"
+              },
+              {
+                "name": "CoordinateSystemSelection",
+                "value": "32"
+              },
+              {
+                "name": "ComponentX",
+                "value": "0.0"
+              },
+              {
+                "name": "ComponentY",
+                "value": "-100000.0"
+              },
+              {
+                "name": "ComponentZ",
+                "value": "0.0"
+              },
+              {
+                "name": "Suppressed",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "ObjectState": "FullyDefined",
+            "State": "UpToDate",
+            "children": [],
+            "DefineBy": "Components",
+            "ObjectId": "48",
+            "type": "Ansys.ACT.Automation.Mechanical.BoundaryConditions.Force",
+            "Suppressed": "False",
+            "name": "力 2",
+            "Location": [
+              65,
+              66,
+              64,
+              63,
+              62
+            ],
+            "Magnitude": "None",
+            "fields": {
+              "YComponent": {
+                "inputs": [
+                  [
+                    "1 [sec]"
+                  ]
+                ],
+                "output": [
+                  "-100000 [N]"
+                ]
+              },
+              "XComponent": {
+                "inputs": [
+                  [
+                    "1 [sec]"
+                  ]
+                ],
+                "output": [
+                  "0 [N]"
+                ]
+              },
+              "ZComponent": {
+                "inputs": [
+                  [
+                    "1 [sec]"
+                  ]
+                ],
+                "output": [
+                  "0 [N]"
+                ]
+              }
+            },
+            "properties": [
+              {
+                "name": "GeometryDefineBy",
+                "value": "0"
+              },
+              {
+                "name": "GeometrySelection",
+                "value": "0"
+              },
+              {
+                "name": "ID",
+                "value": "48"
+              },
+              {
+                "name": "Type",
+                "value": "0"
+              },
+              {
+                "name": "DefineBy",
+                "value": "0"
+              },
+              {
+                "name": "AppliedBy",
+                "value": "0"
+              },
+              {
+                "name": "CoordinateSystemSelection",
+                "value": "32"
+              },
+              {
+                "name": "ComponentX",
+                "value": "0.0"
+              },
+              {
+                "name": "ComponentY",
+                "value": "-100000.0"
+              },
+              {
+                "name": "ComponentZ",
+                "value": "0.0"
+              },
+              {
+                "name": "Suppressed",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "ObjectId": "37",
+            "fields": {},
+            "children": [
+              {
+                "ObjectId": "38",
+                "fields": {},
+                "children": [],
+                "properties": [
+                  {
+                    "name": "SolutionOutputType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "NumNRResiduals",
+                    "value": "0"
+                  },
+                  {
+                    "name": "IdentifyElementViolations",
+                    "value": "0"
+                  },
+                  {
+                    "name": "UpdateInterval",
+                    "value": "2.5"
+                  },
+                  {
+                    "name": "DisplayPoints",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "FEConnectionStepSelect",
+                    "value": "0"
+                  },
+                  {
+                    "name": "FEConnectionDisplayOpt",
+                    "value": "0"
+                  },
+                  {
+                    "name": "FEConnectionComponentSelection",
+                    "value": "-1"
+                  },
+                  {
+                    "name": "FEConnectionColorOpt",
+                    "value": "0"
+                  },
+                  {
+                    "name": "FEConnectionResultShow",
+                    "value": "0"
+                  },
+                  {
+                    "name": "FEConnectionLineThick",
+                    "value": "0"
+                  },
+                  {
+                    "name": "FEConnectionDisplayType",
+                    "value": "0"
+                  }
+                ],
+                "name": "求解方案信息",
+                "State": "Error",
+                "type": "Ansys.ACT.Automation.Mechanical.SolutionInformation",
+                "ObjectState": "SolveFailed"
+              },
+              {
+                "ObjectState": "SolveFailed",
+                "State": "Error",
+                "children": [],
+                "Maximum": "0 [m]",
+                "ObjectId": "51",
+                "type": "Ansys.ACT.Automation.Mechanical.Results.DeformationResults.TotalDeformation",
+                "Average": "0 [m]",
+                "Suppressed": "False",
+                "name": "总变形",
+                "Location": [],
+                "Minimum": "0 [m]",
+                "fields": {},
+                "properties": [
+                  {
+                    "name": "GeometryDefineBy",
+                    "value": "0"
+                  },
+                  {
+                    "name": "GeometrySelection",
+                    "value": "0"
+                  },
+                  {
+                    "name": "DeformationHeatFluxType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "SetDriver",
+                    "value": "1"
+                  },
+                  {
+                    "name": "TransientDisplayTime",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "SeparateCompositeDataPerReference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "CalculateTimeHistory",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "Identifier",
+                    "value": ""
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Minimum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Maximum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Average",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "MinimumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "MaximumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "Time",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "LoadStep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Substep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "IterationNumber",
+                    "value": "0.0"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "SolveFailed",
+                "State": "Error",
+                "children": [],
+                "Maximum": "0 [Pa]",
+                "ObjectId": "52",
+                "type": "Ansys.ACT.Automation.Mechanical.Results.StressResults.EquivalentStress",
+                "Average": "0 [Pa]",
+                "Suppressed": "False",
+                "name": "等效应力",
+                "Location": [],
+                "Minimum": "0 [Pa]",
+                "fields": {},
+                "properties": [
+                  {
+                    "name": "GeometryDefineBy",
+                    "value": "0"
+                  },
+                  {
+                    "name": "GeometrySelection",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StressStrainType",
+                    "value": "0"
+                  },
+                  {
+                    "name": "SetDriver",
+                    "value": "1"
+                  },
+                  {
+                    "name": "TransientDisplayTime",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "SeparateCompositeDataPerReference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "CalculateTimeHistory",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "Identifier",
+                    "value": ""
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AveragingOnOff",
+                    "value": "1"
+                  },
+                  {
+                    "name": "AveragingAcrossOnOff",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Minimum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Maximum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Average",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "MinimumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "MaximumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "Time",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "LoadStep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Substep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "IterationNumber",
+                    "value": "0.0"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "SolveFailed",
+                "State": "Error",
+                "children": [],
+                "Maximum": "0 [Pa]",
+                "ObjectId": "59",
+                "type": "Ansys.ACT.Automation.Mechanical.Results.StressResults.ShearStress",
+                "Average": "0 [Pa]",
+                "Suppressed": "False",
+                "name": "剪切应力",
+                "Location": [],
+                "Minimum": "0 [Pa]",
+                "fields": {},
+                "properties": [
+                  {
+                    "name": "GeometryDefineBy",
+                    "value": "0"
+                  },
+                  {
+                    "name": "GeometrySelection",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StressStrainType",
+                    "value": "7"
+                  },
+                  {
+                    "name": "ShearOrientation",
+                    "value": "0"
+                  },
+                  {
+                    "name": "SetDriver",
+                    "value": "1"
+                  },
+                  {
+                    "name": "TransientDisplayTime",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "SeparateCompositeDataPerReference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "CoordinateSystemSelection",
+                    "value": "32"
+                  },
+                  {
+                    "name": "CalculateTimeHistory",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "Identifier",
+                    "value": ""
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AveragingOnOff",
+                    "value": "1"
+                  },
+                  {
+                    "name": "AveragingAcrossOnOff",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Minimum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Maximum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Average",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "MinimumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "MaximumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "Time",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "LoadStep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Substep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "IterationNumber",
+                    "value": "0.0"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "SolveFailed",
+                "State": "Error",
+                "children": [],
+                "Maximum": "0 [Pa]",
+                "ObjectId": "60",
+                "type": "Ansys.ACT.Automation.Mechanical.Results.StressResults.ShearStress",
+                "Average": "0 [Pa]",
+                "Suppressed": "False",
+                "name": "剪切应力 2",
+                "Location": [],
+                "Minimum": "0 [Pa]",
+                "fields": {},
+                "properties": [
+                  {
+                    "name": "GeometryDefineBy",
+                    "value": "0"
+                  },
+                  {
+                    "name": "GeometrySelection",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StressStrainType",
+                    "value": "7"
+                  },
+                  {
+                    "name": "ShearOrientation",
+                    "value": "1"
+                  },
+                  {
+                    "name": "SetDriver",
+                    "value": "1"
+                  },
+                  {
+                    "name": "TransientDisplayTime",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "SeparateCompositeDataPerReference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "CoordinateSystemSelection",
+                    "value": "32"
+                  },
+                  {
+                    "name": "CalculateTimeHistory",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "Identifier",
+                    "value": ""
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AveragingOnOff",
+                    "value": "1"
+                  },
+                  {
+                    "name": "AveragingAcrossOnOff",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Minimum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Maximum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Average",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "MinimumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "MaximumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "Time",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "LoadStep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Substep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "IterationNumber",
+                    "value": "0.0"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "SolveFailed",
+                "State": "Error",
+                "children": [],
+                "Maximum": "0 [Pa]",
+                "ObjectId": "61",
+                "type": "Ansys.ACT.Automation.Mechanical.Results.StressResults.ShearStress",
+                "Average": "0 [Pa]",
+                "Suppressed": "False",
+                "name": "剪切应力 3",
+                "Location": [],
+                "Minimum": "0 [Pa]",
+                "fields": {},
+                "properties": [
+                  {
+                    "name": "GeometryDefineBy",
+                    "value": "0"
+                  },
+                  {
+                    "name": "GeometrySelection",
+                    "value": "0"
+                  },
+                  {
+                    "name": "StressStrainType",
+                    "value": "7"
+                  },
+                  {
+                    "name": "ShearOrientation",
+                    "value": "2"
+                  },
+                  {
+                    "name": "SetDriver",
+                    "value": "1"
+                  },
+                  {
+                    "name": "TransientDisplayTime",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "SeparateCompositeDataPerReference",
+                    "value": "0"
+                  },
+                  {
+                    "name": "CoordinateSystemSelection",
+                    "value": "32"
+                  },
+                  {
+                    "name": "CalculateTimeHistory",
+                    "value": "65535"
+                  },
+                  {
+                    "name": "Identifier",
+                    "value": ""
+                  },
+                  {
+                    "name": "Suppressed",
+                    "value": "0"
+                  },
+                  {
+                    "name": "AveragingOnOff",
+                    "value": "1"
+                  },
+                  {
+                    "name": "AveragingAcrossOnOff",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Minimum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Maximum",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "Average",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "MinimumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "MaximumBodyName",
+                    "value": ""
+                  },
+                  {
+                    "name": "Time",
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "LoadStep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "Substep",
+                    "value": "0"
+                  },
+                  {
+                    "name": "IterationNumber",
+                    "value": "0.0"
+                  }
+                ]
+              },
+              {
+                "ObjectState": "SolveFailed",
+                "State": "Error",
+                "children": [
+                  {
+                    "ObjectState": "SolveFailed",
+                    "State": "Error",
+                    "children": [],
+                    "Maximum": "0 [Pa]",
+                    "ObjectId": "54",
+                    "type": "Ansys.ACT.Automation.Mechanical.Results.BeamToolResults.DirectStress",
+                    "Average": "0 [Pa]",
+                    "Suppressed": "False",
+                    "name": "直接应力",
+                    "Location": [],
+                    "Minimum": "0 [Pa]",
+                    "fields": {},
+                    "properties": [
+                      {
+                        "name": "BeamToolStressResultType",
+                        "value": "109"
+                      },
+                      {
+                        "name": "SetDriver",
+                        "value": "1"
+                      },
+                      {
+                        "name": "TransientDisplayTime",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "SeparateCompositeDataPerReference",
+                        "value": "0"
+                      },
+                      {
+                        "name": "CalculateTimeHistory",
+                        "value": "65535"
+                      },
+                      {
+                        "name": "Identifier",
+                        "value": ""
+                      },
+                      {
+                        "name": "Suppressed",
+                        "value": "0"
+                      },
+                      {
+                        "name": "AveragingOnOff",
+                        "value": "1"
+                      },
+                      {
+                        "name": "Minimum",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "Maximum",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "Average",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "MinimumBodyName",
+                        "value": ""
+                      },
+                      {
+                        "name": "MaximumBodyName",
+                        "value": ""
+                      },
+                      {
+                        "name": "Time",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "LoadStep",
+                        "value": "0"
+                      },
+                      {
+                        "name": "Substep",
+                        "value": "0"
+                      },
+                      {
+                        "name": "IterationNumber",
+                        "value": "0.0"
+                      }
+                    ]
+                  },
+                  {
+                    "ObjectState": "SolveFailed",
+                    "State": "Error",
+                    "children": [],
+                    "Maximum": "0 [Pa]",
+                    "ObjectId": "55",
+                    "type": "Ansys.ACT.Automation.Mechanical.Results.BeamToolResults.MinimumCombinedStress",
+                    "Average": "0 [Pa]",
+                    "Suppressed": "False",
+                    "name": "最小复合应力",
+                    "Location": [],
+                    "Minimum": "0 [Pa]",
+                    "fields": {},
+                    "properties": [
+                      {
+                        "name": "BeamToolStressResultType",
+                        "value": "112"
+                      },
+                      {
+                        "name": "SetDriver",
+                        "value": "1"
+                      },
+                      {
+                        "name": "TransientDisplayTime",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "SeparateCompositeDataPerReference",
+                        "value": "0"
+                      },
+                      {
+                        "name": "CalculateTimeHistory",
+                        "value": "65535"
+                      },
+                      {
+                        "name": "Identifier",
+                        "value": ""
+                      },
+                      {
+                        "name": "Suppressed",
+                        "value": "0"
+                      },
+                      {
+                        "name": "AveragingOnOff",
+                        "value": "1"
+                      },
+                      {
+                        "name": "Minimum",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "Maximum",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "Average",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "MinimumBodyName",
+                        "value": ""
+                      },
+                      {
+                        "name": "MaximumBodyName",
+                        "value": ""
+                      },
+                      {
+                        "name": "Time",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "LoadStep",
+                        "value": "0"
+                      },
+                      {
+                        "name": "Substep",
+                        "value": "0"
+                      },
+                      {
+                        "name": "IterationNumber",
+                        "value": "0.0"
+                      }
+                    ]
+                  },
+                  {
+                    "ObjectState": "SolveFailed",
+                    "State": "Error",
+                    "children": [],
+                    "Maximum": "0 [Pa]",
+                    "ObjectId": "56",
+                    "type": "Ansys.ACT.Automation.Mechanical.Results.BeamToolResults.MaximumCombinedStress",
+                    "Average": "0 [Pa]",
+                    "Suppressed": "False",
+                    "name": "最大组合应力",
+                    "Location": [],
+                    "Minimum": "0 [Pa]",
+                    "fields": {},
+                    "properties": [
+                      {
+                        "name": "BeamToolStressResultType",
+                        "value": "113"
+                      },
+                      {
+                        "name": "SetDriver",
+                        "value": "1"
+                      },
+                      {
+                        "name": "TransientDisplayTime",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "SeparateCompositeDataPerReference",
+                        "value": "0"
+                      },
+                      {
+                        "name": "CalculateTimeHistory",
+                        "value": "65535"
+                      },
+                      {
+                        "name": "Identifier",
+                        "value": ""
+                      },
+                      {
+                        "name": "Suppressed",
+                        "value": "0"
+                      },
+                      {
+                        "name": "AveragingOnOff",
+                        "value": "1"
+                      },
+                      {
+                        "name": "Minimum",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "Maximum",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "Average",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "MinimumBodyName",
+                        "value": ""
+                      },
+                      {
+                        "name": "MaximumBodyName",
+                        "value": ""
+                      },
+                      {
+                        "name": "Time",
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "LoadStep",
+                        "value": "0"
+                      },
+                      {
+                        "name": "Substep",
+                        "value": "0"
+                      },
+                      {
+                        "name": "IterationNumber",
+                        "value": "0.0"
+                      }
+                    ]
+                  }
+                ],
+                "ObjectId": "53",
+                "type": "Ansys.ACT.Automation.Mechanical.Results.BeamToolResults.BeamTool",
+                "name": "梁工具",
+                "Location": [],
+                "fields": {},
+                "properties": [
+                  {
+                    "name": "GeometrySelection",
+                    "value": "0"
+                  }
+                ]
+              }
+            ],
+            "properties": [
+              {
+                "name": "NumberOfProcessesToUse",
+                "value": "0"
+              },
+              {
+                "name": "MaxRefinementLoops",
+                "value": "1"
+              },
+              {
+                "name": "RefinementDepth",
+                "value": "2"
+              },
+              {
+                "name": "Status",
+                "value": "1"
+              },
+              {
+                "name": "DistributedPostProcessing",
+                "value": "0"
+              },
+              {
+                "name": "PostProcessingMeshSource",
+                "value": "0"
+              },
+              {
+                "name": "PostProcessingBeamStress",
+                "value": "65535"
+              },
+              {
+                "name": "PostProcessingLiveStress",
+                "value": "0"
+              },
+              {
+                "name": "ElapsedRunTime",
+                "value": "3.0"
+              },
+              {
+                "name": "MemoryUsed",
+                "value": "585105408.0"
+              },
+              {
+                "name": "ResultFileSize",
+                "value": "6750208.0"
+              }
+            ],
+            "name": "求解",
+            "State": "Error",
+            "type": "Ansys.ACT.Automation.Mechanical.Solution",
+            "ObjectState": "SolveFailed"
+          }
+        ],
+        "ObjectId": "36",
+        "type": "Ansys.ACT.Automation.Mechanical.Analysis",
+        "AnalysisType": "Static",
+        "name": "静态结构",
+        "fields": {},
+        "properties": [
+          {
+            "name": "PhysicsType",
+            "value": "1"
+          },
+          {
+            "name": "AnalysisType",
+            "value": "0"
+          },
+          {
+            "name": "SolverTarget",
+            "value": "0"
+          },
+          {
+            "name": "Temperature",
+            "value": "22.0"
+          },
+          {
+            "name": "GenerateSolverInputFile",
+            "value": "0"
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "name": "ModelAmbientLight",
+        "value": "0.1"
+      },
+      {
+        "name": "ModelDiffuseLight",
+        "value": "0.6"
+      },
+      {
+        "name": "ModelSpecularLight",
+        "value": "1.0"
+      },
+      {
+        "name": "ModelLightColor",
+        "value": "16777215"
+      },
+      {
+        "name": "ModelWindowTitle",
+        "value": ""
+      },
+      {
+        "name": "FilterControl",
+        "value": "已启用"
+      }
+    ],
+    "name": "模型",
+    "State": "Unknown",
+    "type": "Ansys.ACT.Automation.Mechanical.Model",
+    "ObjectState": "NoState"
+  },
+  "runs": [
+    {
+      "status": "read_complete",
+      "video_verified": false,
+      "after_state": "Solved",
+      "analysis": "静态结构",
+      "before_state": "Solved",
+      "results": [
+        {
+          "ObjectId": "38",
+          "fields": {},
+          "children": [],
+          "properties": [
+            {
+              "name": "SolutionOutputType",
+              "value": "0"
+            },
+            {
+              "name": "NumNRResiduals",
+              "value": "0"
+            },
+            {
+              "name": "IdentifyElementViolations",
+              "value": "0"
+            },
+            {
+              "name": "UpdateInterval",
+              "value": "2.5"
+            },
+            {
+              "name": "DisplayPoints",
+              "value": "0.0"
+            },
+            {
+              "name": "FEConnectionStepSelect",
+              "value": "0"
+            },
+            {
+              "name": "FEConnectionDisplayOpt",
+              "value": "0"
+            },
+            {
+              "name": "FEConnectionComponentSelection",
+              "value": "-1"
+            },
+            {
+              "name": "FEConnectionColorOpt",
+              "value": "0"
+            },
+            {
+              "name": "FEConnectionResultShow",
+              "value": "0"
+            },
+            {
+              "name": "FEConnectionLineThick",
+              "value": "0"
+            },
+            {
+              "name": "FEConnectionDisplayType",
+              "value": "0"
+            }
+          ],
+          "name": "求解方案信息",
+          "State": "UpToDate",
+          "type": "Ansys.ACT.Automation.Mechanical.SolutionInformation",
+          "ObjectState": "Solved"
+        },
+        {
+          "ObjectState": "Solved",
+          "State": "UpToDate",
+          "children": [],
+          "Maximum": "0.0044173020827178314 [m]",
+          "ObjectId": "51",
+          "type": "Ansys.ACT.Automation.Mechanical.Results.DeformationResults.TotalDeformation",
+          "Average": "0.0020628838563443415 [m]",
+          "Suppressed": "False",
+          "name": "总变形",
+          "Location": [],
+          "Minimum": "0 [m]",
+          "fields": {},
+          "properties": [
+            {
+              "name": "GeometryDefineBy",
+              "value": "0"
+            },
+            {
+              "name": "GeometrySelection",
+              "value": "0"
+            },
+            {
+              "name": "DeformationHeatFluxType",
+              "value": "0"
+            },
+            {
+              "name": "SetDriver",
+              "value": "1"
+            },
+            {
+              "name": "TransientDisplayTime",
+              "value": "0.0"
+            },
+            {
+              "name": "SeparateCompositeDataPerReference",
+              "value": "0"
+            },
+            {
+              "name": "CalculateTimeHistory",
+              "value": "65535"
+            },
+            {
+              "name": "Identifier",
+              "value": ""
+            },
+            {
+              "name": "Suppressed",
+              "value": "0"
+            },
+            {
+              "name": "Minimum",
+              "value": "0.0"
+            },
+            {
+              "name": "Maximum",
+              "value": "0.00441730208272"
+            },
+            {
+              "name": "Average",
+              "value": "0.00206288385634"
+            },
+            {
+              "name": "MinimumBodyName",
+              "value": "Beam (抽取的轮廓2)"
+            },
+            {
+              "name": "MaximumBodyName",
+              "value": "Beam (抽取的轮廓1)"
+            },
+            {
+              "name": "Time",
+              "value": "1.0"
+            },
+            {
+              "name": "LoadStep",
+              "value": "1"
+            },
+            {
+              "name": "Substep",
+              "value": "1"
+            },
+            {
+              "name": "IterationNumber",
+              "value": "1.0"
+            }
+          ]
+        },
+        {
+          "ObjectState": "Solved",
+          "State": "UpToDate",
+          "children": [],
+          "Maximum": "96307689.267937109 [Pa]",
+          "ObjectId": "52",
+          "type": "Ansys.ACT.Automation.Mechanical.Results.StressResults.EquivalentStress",
+          "Average": "17929776.377290554 [Pa]",
+          "Suppressed": "False",
+          "name": "等效应力",
+          "Location": [],
+          "Minimum": "0.00039643867784012023 [Pa]",
+          "fields": {},
+          "properties": [
+            {
+              "name": "GeometryDefineBy",
+              "value": "0"
+            },
+            {
+              "name": "GeometrySelection",
+              "value": "0"
+            },
+            {
+              "name": "StressStrainType",
+              "value": "0"
+            },
+            {
+              "name": "SetDriver",
+              "value": "1"
+            },
+            {
+              "name": "TransientDisplayTime",
+              "value": "0.0"
+            },
+            {
+              "name": "SeparateCompositeDataPerReference",
+              "value": "0"
+            },
+            {
+              "name": "CalculateTimeHistory",
+              "value": "65535"
+            },
+            {
+              "name": "Identifier",
+              "value": ""
+            },
+            {
+              "name": "Suppressed",
+              "value": "0"
+            },
+            {
+              "name": "AveragingOnOff",
+              "value": "1"
+            },
+            {
+              "name": "AveragingAcrossOnOff",
+              "value": "0"
+            },
+            {
+              "name": "Minimum",
+              "value": "0.00039643867784"
+            },
+            {
+              "name": "Maximum",
+              "value": "96307689.2679"
+            },
+            {
+              "name": "Average",
+              "value": "17929776.3773"
+            },
+            {
+              "name": "MinimumBodyName",
+              "value": "Beam (抽取的轮廓1)"
+            },
+            {
+              "name": "MaximumBodyName",
+              "value": "Beam (抽取的轮廓2)"
+            },
+            {
+              "name": "Time",
+              "value": "1.0"
+            },
+            {
+              "name": "LoadStep",
+              "value": "1"
+            },
+            {
+              "name": "Substep",
+              "value": "1"
+            },
+            {
+              "name": "IterationNumber",
+              "value": "1.0"
+            }
+          ]
+        },
+        {
+          "ObjectState": "Solved",
+          "State": "UpToDate",
+          "children": [],
+          "Maximum": "602619.4375 [Pa]",
+          "ObjectId": "59",
+          "type": "Ansys.ACT.Automation.Mechanical.Results.StressResults.ShearStress",
+          "Average": "0.0084873914696928891 [Pa]",
+          "Suppressed": "False",
+          "name": "剪切应力",
+          "Location": [],
+          "Minimum": "-602625.375 [Pa]",
+          "fields": {},
+          "properties": [
+            {
+              "name": "GeometryDefineBy",
+              "value": "0"
+            },
+            {
+              "name": "GeometrySelection",
+              "value": "0"
+            },
+            {
+              "name": "StressStrainType",
+              "value": "7"
+            },
+            {
+              "name": "ShearOrientation",
+              "value": "0"
+            },
+            {
+              "name": "SetDriver",
+              "value": "1"
+            },
+            {
+              "name": "TransientDisplayTime",
+              "value": "0.0"
+            },
+            {
+              "name": "SeparateCompositeDataPerReference",
+              "value": "0"
+            },
+            {
+              "name": "CoordinateSystemSelection",
+              "value": "32"
+            },
+            {
+              "name": "CalculateTimeHistory",
+              "value": "65535"
+            },
+            {
+              "name": "Identifier",
+              "value": ""
+            },
+            {
+              "name": "Suppressed",
+              "value": "0"
+            },
+            {
+              "name": "AveragingOnOff",
+              "value": "1"
+            },
+            {
+              "name": "AveragingAcrossOnOff",
+              "value": "0"
+            },
+            {
+              "name": "Minimum",
+              "value": "-602625.375"
+            },
+            {
+              "name": "Maximum",
+              "value": "602619.4375"
+            },
+            {
+              "name": "Average",
+              "value": "0.00848739146969"
+            },
+            {
+              "name": "MinimumBodyName",
+              "value": "Beam (抽取的轮廓1)"
+            },
+            {
+              "name": "MaximumBodyName",
+              "value": "Beam (抽取的轮廓1)"
+            },
+            {
+              "name": "Time",
+              "value": "1.0"
+            },
+            {
+              "name": "LoadStep",
+              "value": "1"
+            },
+            {
+              "name": "Substep",
+              "value": "1"
+            },
+            {
+              "name": "IterationNumber",
+              "value": "1.0"
+            }
+          ]
+        },
+        {
+          "ObjectState": "Solved",
+          "State": "UpToDate",
+          "children": [],
+          "Maximum": "0 [Pa]",
+          "ObjectId": "60",
+          "type": "Ansys.ACT.Automation.Mechanical.Results.StressResults.ShearStress",
+          "Average": "0 [Pa]",
+          "Suppressed": "False",
+          "name": "剪切应力 2",
+          "Location": [],
+          "Minimum": "0 [Pa]",
+          "fields": {},
+          "properties": [
+            {
+              "name": "GeometryDefineBy",
+              "value": "0"
+            },
+            {
+              "name": "GeometrySelection",
+              "value": "0"
+            },
+            {
+              "name": "StressStrainType",
+              "value": "7"
+            },
+            {
+              "name": "ShearOrientation",
+              "value": "1"
+            },
+            {
+              "name": "SetDriver",
+              "value": "1"
+            },
+            {
+              "name": "TransientDisplayTime",
+              "value": "0.0"
+            },
+            {
+              "name": "SeparateCompositeDataPerReference",
+              "value": "0"
+            },
+            {
+              "name": "CoordinateSystemSelection",
+              "value": "32"
+            },
+            {
+              "name": "CalculateTimeHistory",
+              "value": "65535"
+            },
+            {
+              "name": "Identifier",
+              "value": ""
+            },
+            {
+              "name": "Suppressed",
+              "value": "0"
+            },
+            {
+              "name": "AveragingOnOff",
+              "value": "1"
+            },
+            {
+              "name": "AveragingAcrossOnOff",
+              "value": "0"
+            },
+            {
+              "name": "Minimum",
+              "value": "0.0"
+            },
+            {
+              "name": "Maximum",
+              "value": "0.0"
+            },
+            {
+              "name": "Average",
+              "value": "0.0"
+            },
+            {
+              "name": "MinimumBodyName",
+              "value": "Beam (抽取的轮廓1)"
+            },
+            {
+              "name": "MaximumBodyName",
+              "value": "Beam (抽取的轮廓1)"
+            },
+            {
+              "name": "Time",
+              "value": "1.0"
+            },
+            {
+              "name": "LoadStep",
+              "value": "1"
+            },
+            {
+              "name": "Substep",
+              "value": "1"
+            },
+            {
+              "name": "IterationNumber",
+              "value": "1.0"
+            }
+          ]
+        },
+        {
+          "ObjectState": "Solved",
+          "State": "UpToDate",
+          "children": [],
+          "Maximum": "527464.125 [Pa]",
+          "ObjectId": "61",
+          "type": "Ansys.ACT.Automation.Mechanical.Results.StressResults.ShearStress",
+          "Average": "0.0027712956701980225 [Pa]",
+          "Suppressed": "False",
+          "name": "剪切应力 3",
+          "Location": [],
+          "Minimum": "-527458.875 [Pa]",
+          "fields": {},
+          "properties": [
+            {
+              "name": "GeometryDefineBy",
+              "value": "0"
+            },
+            {
+              "name": "GeometrySelection",
+              "value": "0"
+            },
+            {
+              "name": "StressStrainType",
+              "value": "7"
+            },
+            {
+              "name": "ShearOrientation",
+              "value": "2"
+            },
+            {
+              "name": "SetDriver",
+              "value": "1"
+            },
+            {
+              "name": "TransientDisplayTime",
+              "value": "0.0"
+            },
+            {
+              "name": "SeparateCompositeDataPerReference",
+              "value": "0"
+            },
+            {
+              "name": "CoordinateSystemSelection",
+              "value": "32"
+            },
+            {
+              "name": "CalculateTimeHistory",
+              "value": "65535"
+            },
+            {
+              "name": "Identifier",
+              "value": ""
+            },
+            {
+              "name": "Suppressed",
+              "value": "0"
+            },
+            {
+              "name": "AveragingOnOff",
+              "value": "1"
+            },
+            {
+              "name": "AveragingAcrossOnOff",
+              "value": "0"
+            },
+            {
+              "name": "Minimum",
+              "value": "-527458.875"
+            },
+            {
+              "name": "Maximum",
+              "value": "527464.125"
+            },
+            {
+              "name": "Average",
+              "value": "0.0027712956702"
+            },
+            {
+              "name": "MinimumBodyName",
+              "value": "Beam (抽取的轮廓1)"
+            },
+            {
+              "name": "MaximumBodyName",
+              "value": "Beam (抽取的轮廓1)"
+            },
+            {
+              "name": "Time",
+              "value": "1.0"
+            },
+            {
+              "name": "LoadStep",
+              "value": "1"
+            },
+            {
+              "name": "Substep",
+              "value": "1"
+            },
+            {
+              "name": "IterationNumber",
+              "value": "1.0"
+            }
+          ]
+        },
+        {
+          "ObjectState": "Solved",
+          "State": "UpToDate",
+          "children": [
+            {
+              "ObjectState": "Solved",
+              "State": "UpToDate",
+              "children": [],
+              "Maximum": "2411993.75 [Pa]",
+              "ObjectId": "54",
+              "type": "Ansys.ACT.Automation.Mechanical.Results.BeamToolResults.DirectStress",
+              "Average": "-6309349.3259251723 [Pa]",
+              "Suppressed": "False",
+              "name": "直接应力",
+              "Location": [],
+              "Minimum": "-13908388 [Pa]",
+              "fields": {},
+              "properties": [
+                {
+                  "name": "BeamToolStressResultType",
+                  "value": "109"
+                },
+                {
+                  "name": "SetDriver",
+                  "value": "1"
+                },
+                {
+                  "name": "TransientDisplayTime",
+                  "value": "0.0"
+                },
+                {
+                  "name": "SeparateCompositeDataPerReference",
+                  "value": "0"
+                },
+                {
+                  "name": "CalculateTimeHistory",
+                  "value": "65535"
+                },
+                {
+                  "name": "Identifier",
+                  "value": ""
+                },
+                {
+                  "name": "Suppressed",
+                  "value": "0"
+                },
+                {
+                  "name": "AveragingOnOff",
+                  "value": "1"
+                },
+                {
+                  "name": "Minimum",
+                  "value": "-13908388.0"
+                },
+                {
+                  "name": "Maximum",
+                  "value": "2411993.75"
+                },
+                {
+                  "name": "Average",
+                  "value": "-6309349.32593"
+                },
+                {
+                  "name": "MinimumBodyName",
+                  "value": "Beam (抽取的轮廓1)"
+                },
+                {
+                  "name": "MaximumBodyName",
+                  "value": "Beam (抽取的轮廓1)"
+                },
+                {
+                  "name": "Time",
+                  "value": "1.0"
+                },
+                {
+                  "name": "LoadStep",
+                  "value": "1"
+                },
+                {
+                  "name": "Substep",
+                  "value": "1"
+                },
+                {
+                  "name": "IterationNumber",
+                  "value": "1.0"
+                }
+              ]
+            },
+            {
+              "ObjectState": "Solved",
+              "State": "UpToDate",
+              "children": [],
+              "Maximum": "1770194.625 [Pa]",
+              "ObjectId": "55",
+              "type": "Ansys.ACT.Automation.Mechanical.Results.BeamToolResults.MinimumCombinedStress",
+              "Average": "-30562452.554444361 [Pa]",
+              "Suppressed": "False",
+              "name": "最小复合应力",
+              "Location": [],
+              "Minimum": "-96300672 [Pa]",
+              "fields": {},
+              "properties": [
+                {
+                  "name": "BeamToolStressResultType",
+                  "value": "112"
+                },
+                {
+                  "name": "SetDriver",
+                  "value": "1"
+                },
+                {
+                  "name": "TransientDisplayTime",
+                  "value": "0.0"
+                },
+                {
+                  "name": "SeparateCompositeDataPerReference",
+                  "value": "0"
+                },
+                {
+                  "name": "CalculateTimeHistory",
+                  "value": "65535"
+                },
+                {
+                  "name": "Identifier",
+                  "value": ""
+                },
+                {
+                  "name": "Suppressed",
+                  "value": "0"
+                },
+                {
+                  "name": "AveragingOnOff",
+                  "value": "1"
+                },
+                {
+                  "name": "Minimum",
+                  "value": "-96300672.0"
+                },
+                {
+                  "name": "Maximum",
+                  "value": "1770194.625"
+                },
+                {
+                  "name": "Average",
+                  "value": "-30562452.5544"
+                },
+                {
+                  "name": "MinimumBodyName",
+                  "value": "Beam (抽取的轮廓2)"
+                },
+                {
+                  "name": "MaximumBodyName",
+                  "value": "Beam (抽取的轮廓1)"
+                },
+                {
+                  "name": "Time",
+                  "value": "1.0"
+                },
+                {
+                  "name": "LoadStep",
+                  "value": "1"
+                },
+                {
+                  "name": "Substep",
+                  "value": "1"
+                },
+                {
+                  "name": "IterationNumber",
+                  "value": "1.0"
+                }
+              ]
+            },
+            {
+              "ObjectState": "Solved",
+              "State": "UpToDate",
+              "children": [],
+              "Maximum": "71771842 [Pa]",
+              "ObjectId": "56",
+              "type": "Ansys.ACT.Automation.Mechanical.Results.BeamToolResults.MaximumCombinedStress",
+              "Average": "17943753.902592473 [Pa]",
+              "Suppressed": "False",
+              "name": "最大组合应力",
+              "Location": [],
+              "Minimum": "-13289119.0625 [Pa]",
+              "fields": {},
+              "properties": [
+                {
+                  "name": "BeamToolStressResultType",
+                  "value": "113"
+                },
+                {
+                  "name": "SetDriver",
+                  "value": "1"
+                },
+                {
+                  "name": "TransientDisplayTime",
+                  "value": "0.0"
+                },
+                {
+                  "name": "SeparateCompositeDataPerReference",
+                  "value": "0"
+                },
+                {
+                  "name": "CalculateTimeHistory",
+                  "value": "65535"
+                },
+                {
+                  "name": "Identifier",
+                  "value": ""
+                },
+                {
+                  "name": "Suppressed",
+                  "value": "0"
+                },
+                {
+                  "name": "AveragingOnOff",
+                  "value": "1"
+                },
+                {
+                  "name": "Minimum",
+                  "value": "-13289119.0625"
+                },
+                {
+                  "name": "Maximum",
+                  "value": "71771842.0"
+                },
+                {
+                  "name": "Average",
+                  "value": "17943753.9026"
+                },
+                {
+                  "name": "MinimumBodyName",
+                  "value": "Beam (抽取的轮廓1)"
+                },
+                {
+                  "name": "MaximumBodyName",
+                  "value": "Beam (抽取的轮廓2)"
+                },
+                {
+                  "name": "Time",
+                  "value": "1.0"
+                },
+                {
+                  "name": "LoadStep",
+                  "value": "1"
+                },
+                {
+                  "name": "Substep",
+                  "value": "1"
+                },
+                {
+                  "name": "IterationNumber",
+                  "value": "1.0"
+                }
+              ]
+            }
+          ],
+          "ObjectId": "53",
+          "type": "Ansys.ACT.Automation.Mechanical.Results.BeamToolResults.BeamTool",
+          "name": "梁工具",
+          "Location": [],
+          "fields": {},
+          "properties": [
+            {
+              "name": "GeometrySelection",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "messages": [
+        "梁截面应变/应力结果在求解坐标系中报告。",
+        "梁截面应变/应力结果在求解坐标系中报告。",
+        "梁截面应变/应力结果在求解坐标系中报告。",
+        "梁截面应变/应力结果在求解坐标系中报告。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+# encoding: utf-8
+import os,io,json,traceback
+root=u'D:/codex/CAE课程复现'
+project=os.path.join(root,u'03_复现工程',u'第07节','course_working_copy.wbpj')
+out=os.path.join(root,u'02_课程核对',u'第07节','Mechanical')
+if not os.path.isdir(out):os.makedirs(out)
+r={'project':project}
+try:
+    Open(FilePath=project)
+    system=GetAllSystems()[0]
+    model=system.GetContainer(ComponentName='Model')
+    with io.open(os.path.join(root,'tools','inspect_mechanical.py'),'r',encoding='utf-8') as f:code=f.read()
+    model.SendCommand(Language='Python',Command='COURSE_OUT='+repr(out)+'\n'+code)
+    Save(Overwrite=True)
+    r['status']='inspection_returned'
+except:r['status']='failed';r['traceback']=traceback.format_exc()
+with io.open(os.path.join(out,'bridge_report.json'),'w',encoding='utf-8') as f:f.write(unicode(json.dumps(r,ensure_ascii=False,indent=2)))

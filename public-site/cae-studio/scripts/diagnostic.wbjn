@@ -1,0 +1,17 @@
+# encoding: utf-8
+import os,io,json,traceback
+root=u'D:/codex/CAE课程复现'
+Open(FilePath=os.path.join(root,u'03_复现工程',u'第07节','course_working_copy.wbpj'))
+model=GetAllSystems()[0].GetContainer(ComponentName='Model')
+code="""
+import io,json,traceback
+r={}
+try:
+    r['before']=[unicode(m.DisplayString) for m in ExtAPI.Application.Messages]
+    ExtAPI.DataModel.Project.Model.Analyses[0].Solution.EvaluateAllResults()
+    r['after']=[unicode(m.DisplayString) for m in ExtAPI.Application.Messages]
+    r['state']=unicode(ExtAPI.DataModel.Project.Model.Analyses[0].Solution.ObjectState)
+except:r['error']=traceback.format_exc()
+with io.open('D:/codex/cae_mechanical_diagnostic.json','w',encoding='utf-8') as f:f.write(unicode(json.dumps(r,ensure_ascii=False,indent=2)))
+"""
+model.SendCommand(Language='Python',Command=code)

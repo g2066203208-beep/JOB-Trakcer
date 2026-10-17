@@ -1,0 +1,12 @@
+# encoding: utf-8
+import os,io,json,traceback
+root=u'D:/codex/CAE课程复现'
+dest='D:/codex/cae_courses/lesson07'
+if not os.path.isdir(dest):os.makedirs(dest)
+project=dest+'/course.wbpj'
+Unarchive(ArchivePath=os.path.join(root,u'01_课程原始工程',u'第07节',u'第07节.wbpz'),ProjectPath=project,Overwrite=False)
+with io.open(os.path.join(root,'tools','inspect_mechanical.py'),'r',encoding='utf-8') as f:code=f.read()
+with io.open(os.path.join(root,'tools','resolve_mechanical.py'),'r',encoding='utf-8') as f:code+='\n'+f.read()
+model=GetAllSystems()[0].GetContainer(ComponentName='Model')
+model.SendCommand(Language='Python',Command="COURSE_OUT='D:/codex/cae_courses/lesson07/evidence'\n"+code)
+Save(Overwrite=True)

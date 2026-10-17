@@ -1,0 +1,793 @@
+{
+  "date": "2026-10-17",
+  "source": "用户提供的华仿CAE课程归档",
+  "course_original_version": "2023 R1",
+  "execution_version": "2024 R2",
+  "course_complete": false,
+  "figures": [
+    {
+      "src": "assets/lesson01-SYS_1-verified_native_00_04.png",
+      "caption": "几何处理入门 · SYS_1 · 等效应力",
+      "result": "等效应力",
+      "min": "63884105.487246215 [Pa]",
+      "max": "122108559.25382189 [Pa]",
+      "sha256": "c258a6f430cfc3a73739d408568c23d60d68b3acd3e5d2aba7996421338b8af3"
+    },
+    {
+      "src": "assets/lesson01-SYS_8-verified_native_00_05.png",
+      "caption": "几何处理入门 · SYS_8 · 等效应力",
+      "result": "等效应力",
+      "min": "249.51456844935609 [Pa]",
+      "max": "122149679.95622464 [Pa]",
+      "sha256": "54d840b9d8d38bacae7cdda1c5ebe0c860a1efb218e730fa6c7f4f22ad1f55da"
+    },
+    {
+      "src": "assets/lesson01-SYS_1-verified_native_00_01.png",
+      "caption": "几何处理入门 · SYS_1 · 法向应力",
+      "result": "法向应力",
+      "min": "119767328 [Pa]",
+      "max": "119767352 [Pa]",
+      "sha256": "33454d7e8dd7bc0a53c2735045172eb313eecc1422252569803d60f914daac7e"
+    },
+    {
+      "src": "assets/lesson01-SYS_1-verified_native_00_02.png",
+      "caption": "几何处理入门 · SYS_1 · 剪切应力",
+      "result": "剪切应力",
+      "min": "-1429082.171875 [Pa]",
+      "max": "992601.9921875 [Pa]",
+      "sha256": "d57f7a036cb281e74010162961ef09a6fb8e38386bbd1fbbead1b156a7cf839e"
+    },
+    {
+      "src": "assets/lesson01-SYS_1-verified_native_00_03.png",
+      "caption": "几何处理入门 · SYS_1 · 剪切应力 2",
+      "result": "剪切应力 2",
+      "min": "-36883506.000000007 [Pa]",
+      "max": "2192133.9375000224 [Pa]",
+      "sha256": "350ea7c8a08b23b4a1f340f225cadc5b09869b72414e625078b4c514e0181c84"
+    },
+    {
+      "src": "assets/lesson01-SYS_1-verified_native_00_05.png",
+      "caption": "几何处理入门 · SYS_1 · 力反应",
+      "result": "力反应",
+      "min": null,
+      "max": null,
+      "sha256": "44eb68fcb2c820ba993033c31453dbcd021d374374e78f2660eda07ff99ec37b"
+    },
+    {
+      "src": "assets/lesson01-SYS_1-verified_native_00_06.png",
+      "caption": "几何处理入门 · SYS_1 · 力矩反应",
+      "result": "力矩反应",
+      "min": null,
+      "max": null,
+      "sha256": "e6e313d6ee974c01efd8f0fad8f34d7d36978568b57af9082531ecaee2075e80"
+    },
+    {
+      "src": "assets/lesson01-SYS_2-verified_native_00_01.png",
+      "caption": "几何处理入门 · SYS_2 · 总弯曲力矩",
+      "result": "总弯曲力矩",
+      "min": "6.736045179423164E-07 [N m]",
+      "max": "1200000 [N m]",
+      "sha256": "96c6fa1e642252134a905c38943ca90f60215dc09a6c8c4856c2a5a22cc0121d"
+    },
+    {
+      "src": "assets/lesson01-SYS_3-verified_native_00_01.png",
+      "caption": "几何处理入门 · SYS_3 · 力反应",
+      "result": "力反应",
+      "min": null,
+      "max": null,
+      "sha256": "b2b237a0eba49419e73f993dc08b530168f59e5d2d9763d702727e35d4ad2946"
+    },
+    {
+      "src": "assets/lesson01-SYS_3-verified_native_00_02.png",
+      "caption": "几何处理入门 · SYS_3 · 力矩反应",
+      "result": "力矩反应",
+      "min": null,
+      "max": null,
+      "sha256": "cc8bc403c857b7e03cf68e72fdb5c99b7dbf328652cd2914b7083fa84e37d323"
+    },
+    {
+      "src": "assets/lesson01-SYS_8-verified_native_00_01.png",
+      "caption": "几何处理入门 · SYS_8 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.010587003209694015 [m]",
+      "sha256": "00dceee650fc4f6829141b9c0c2ccab0483fa091501bc30854cc370d0bc32bc4"
+    },
+    {
+      "src": "assets/lesson01-SYS_8-verified_native_00_02.png",
+      "caption": "几何处理入门 · SYS_8 · 定向变形",
+      "result": "定向变形",
+      "min": "-0.00099845288787037134 [m]",
+      "max": "0.0020136598031967878 [m]",
+      "sha256": "4b9c0d65db183864adb0e5034f10409de2e0f544038e3194312b3157cfa4885a"
+    },
+    {
+      "src": "assets/lesson01-SYS_8-verified_native_00_03.png",
+      "caption": "几何处理入门 · SYS_8 · 定向变形 2",
+      "result": "定向变形 2",
+      "min": "-0.010365772992372513 [m]",
+      "max": "0.00498576695099473 [m]",
+      "sha256": "56251a820f246f568f116eb2f371035c2bcc64abae6ac28a2f27a4fe5993b317"
+    },
+    {
+      "src": "assets/lesson01-SYS_8-verified_native_00_04.png",
+      "caption": "几何处理入门 · SYS_8 · 总变形 2",
+      "result": "总变形 2",
+      "min": "0 [m]",
+      "max": "0.0015931753976959062 [m]",
+      "sha256": "799dafc78c049c13fe6a48dc2b7ba1f822f362ccdf95566617f2ea10d86ab762"
+    },
+    {
+      "src": "assets/lesson04-SYS_1-verified_native_00_04.png",
+      "caption": "网格全局控制 · SYS_1 · 等效应力",
+      "result": "等效应力",
+      "min": "63884105.48724623 [Pa]",
+      "max": "122108559.25465544 [Pa]",
+      "sha256": "90c6b6f8d046c6deba101609638ed063107bcb940facdfbbc7406baeee7ed799"
+    },
+    {
+      "src": "assets/lesson04-SYS_1-verified_native_00_01.png",
+      "caption": "网格全局控制 · SYS_1 · 法向应力",
+      "result": "法向应力",
+      "min": "119767328 [Pa]",
+      "max": "119767352 [Pa]",
+      "sha256": "6c04785d2a84c266db069eb607518954b6550f22e4cb5862dc7ca9cf88dbfb2d"
+    },
+    {
+      "src": "assets/lesson04-SYS_1-verified_native_00_02.png",
+      "caption": "网格全局控制 · SYS_1 · 剪切应力",
+      "result": "剪切应力",
+      "min": "-1429082.171875 [Pa]",
+      "max": "992601.9921875 [Pa]",
+      "sha256": "1be7a45e5b857df0e8e40873c7dfcebddfeca0f38d50c321e0c4c02de960c764"
+    },
+    {
+      "src": "assets/lesson04-SYS_1-verified_native_00_03.png",
+      "caption": "网格全局控制 · SYS_1 · 剪切应力 2",
+      "result": "剪切应力 2",
+      "min": "-36883506.000000007 [Pa]",
+      "max": "2192133.9375000224 [Pa]",
+      "sha256": "8e37ef1b1355f98d6ca09e8147321dafec6a8de39099d3ea8b7a4b702fb3eae7"
+    },
+    {
+      "src": "assets/lesson04-SYS_1-verified_native_00_05.png",
+      "caption": "网格全局控制 · SYS_1 · 力反应",
+      "result": "力反应",
+      "min": null,
+      "max": null,
+      "sha256": "eec6f9d9acc600432297cadcd4f2306c1fa841086cc40bee20ef0af7fc3e5ad9"
+    },
+    {
+      "src": "assets/lesson04-SYS_1-verified_native_00_06.png",
+      "caption": "网格全局控制 · SYS_1 · 力矩反应",
+      "result": "力矩反应",
+      "min": null,
+      "max": null,
+      "sha256": "f1b7976549ab17332fb79b1c66e1da1ccfcda15318e20c0c97d883c65439198e"
+    },
+    {
+      "src": "assets/lesson04-SYS_2-verified_native_00_01.png",
+      "caption": "网格全局控制 · SYS_2 · 总弯曲力矩",
+      "result": "总弯曲力矩",
+      "min": "6.736045179423164E-07 [N m]",
+      "max": "1200000 [N m]",
+      "sha256": "ffc91bc51dd75fbb61bc68fd08c90d1fe76207368d857bfa2ae6b7ea7c6416e0"
+    },
+    {
+      "src": "assets/lesson04-SYS_3-verified_native_00_01.png",
+      "caption": "网格全局控制 · SYS_3 · 力反应",
+      "result": "力反应",
+      "min": null,
+      "max": null,
+      "sha256": "eaa25ac57572737da9da8097e90bf8af8a20d34237b27f78bada5d3146777b58"
+    },
+    {
+      "src": "assets/lesson04-SYS_3-verified_native_00_02.png",
+      "caption": "网格全局控制 · SYS_3 · 力矩反应",
+      "result": "力矩反应",
+      "min": null,
+      "max": null,
+      "sha256": "ca0735206cf5a2095eac53bcc976f9ce766f62930aa173ef5dffa3fb8a1a9b18"
+    },
+    {
+      "src": "assets/lesson05-SYS_1-verified_native_00_04.png",
+      "caption": "网格局部控制 · SYS_1 · 等效应力",
+      "result": "等效应力",
+      "min": "63884105.48724623 [Pa]",
+      "max": "122108559.25465544 [Pa]",
+      "sha256": "90c6b6f8d046c6deba101609638ed063107bcb940facdfbbc7406baeee7ed799"
+    },
+    {
+      "src": "assets/lesson05-SYS_1-verified_native_00_01.png",
+      "caption": "网格局部控制 · SYS_1 · 法向应力",
+      "result": "法向应力",
+      "min": "119767328 [Pa]",
+      "max": "119767352 [Pa]",
+      "sha256": "6c04785d2a84c266db069eb607518954b6550f22e4cb5862dc7ca9cf88dbfb2d"
+    },
+    {
+      "src": "assets/lesson05-SYS_1-verified_native_00_02.png",
+      "caption": "网格局部控制 · SYS_1 · 剪切应力",
+      "result": "剪切应力",
+      "min": "-1429082.171875 [Pa]",
+      "max": "992601.9921875 [Pa]",
+      "sha256": "1be7a45e5b857df0e8e40873c7dfcebddfeca0f38d50c321e0c4c02de960c764"
+    },
+    {
+      "src": "assets/lesson05-SYS_1-verified_native_00_03.png",
+      "caption": "网格局部控制 · SYS_1 · 剪切应力 2",
+      "result": "剪切应力 2",
+      "min": "-36883506.000000007 [Pa]",
+      "max": "2192133.9375000224 [Pa]",
+      "sha256": "8e37ef1b1355f98d6ca09e8147321dafec6a8de39099d3ea8b7a4b702fb3eae7"
+    },
+    {
+      "src": "assets/lesson05-SYS_1-verified_native_00_05.png",
+      "caption": "网格局部控制 · SYS_1 · 力反应",
+      "result": "力反应",
+      "min": null,
+      "max": null,
+      "sha256": "eec6f9d9acc600432297cadcd4f2306c1fa841086cc40bee20ef0af7fc3e5ad9"
+    },
+    {
+      "src": "assets/lesson05-SYS_1-verified_native_00_06.png",
+      "caption": "网格局部控制 · SYS_1 · 力矩反应",
+      "result": "力矩反应",
+      "min": null,
+      "max": null,
+      "sha256": "f1b7976549ab17332fb79b1c66e1da1ccfcda15318e20c0c97d883c65439198e"
+    },
+    {
+      "src": "assets/lesson05-SYS_2-verified_native_00_01.png",
+      "caption": "网格局部控制 · SYS_2 · 总弯曲力矩",
+      "result": "总弯曲力矩",
+      "min": "6.736045179423164E-07 [N m]",
+      "max": "1200000 [N m]",
+      "sha256": "ffc91bc51dd75fbb61bc68fd08c90d1fe76207368d857bfa2ae6b7ea7c6416e0"
+    },
+    {
+      "src": "assets/lesson05-SYS_3-verified_native_00_01.png",
+      "caption": "网格局部控制 · SYS_3 · 力反应",
+      "result": "力反应",
+      "min": null,
+      "max": null,
+      "sha256": "eaa25ac57572737da9da8097e90bf8af8a20d34237b27f78bada5d3146777b58"
+    },
+    {
+      "src": "assets/lesson05-SYS_3-verified_native_00_02.png",
+      "caption": "网格局部控制 · SYS_3 · 力矩反应",
+      "result": "力矩反应",
+      "min": null,
+      "max": null,
+      "sha256": "ca0735206cf5a2095eac53bcc976f9ce766f62930aa173ef5dffa3fb8a1a9b18"
+    },
+    {
+      "src": "assets/lesson06-SYS_1-verified_native_00_02.png",
+      "caption": "接触设置 · SYS_1 · 等效应力",
+      "result": "等效应力",
+      "min": "304652.19770244655 [Pa]",
+      "max": "349627384.23555338 [Pa]",
+      "sha256": "4194fc342962311b6fb98e8140ce173330e960ee584a8e75a5672e58bd5e3726"
+    },
+    {
+      "src": "assets/lesson06-SYS_2-verified_native_00_02.png",
+      "caption": "接触设置 · SYS_2 · 等效应力",
+      "result": "等效应力",
+      "min": "3.171106708670665E-08 [Pa]",
+      "max": "317133824 [Pa]",
+      "sha256": "bebb18d6c4a3de1da013a34fed0986e08e39b4a2bc892c88916d55f793802c96"
+    },
+    {
+      "src": "assets/lesson06-SYS_1-verified_native_00_01.png",
+      "caption": "接触设置 · SYS_1 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.0030000000260770321 [m]",
+      "sha256": "ed1dac8c40d2a50523cd8e39084c4a95239656bbe081126514bfd7cd5d6478cb"
+    },
+    {
+      "src": "assets/lesson06-SYS_2-verified_native_00_01.png",
+      "caption": "接触设置 · SYS_2 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.0010000000474974513 [m]",
+      "sha256": "7bcef3877f28dc27d583955d7596f7c34ea5f070c68ac10816f0ba93835651c2"
+    },
+    {
+      "src": "assets/lesson07-flange-result_00_02.png",
+      "caption": "法兰与螺栓预紧 · flange · 等效应力 2",
+      "result": "等效应力 2",
+      "min": "93018.693095597831 [Pa]",
+      "max": "27684807.11765486 [Pa]",
+      "sha256": "8c5fc852eec40d80451a65d88a8458c0cf7a1ab951dae9ef1eb0bb437ad7ca0d"
+    },
+    {
+      "src": "assets/lesson07-flange-result_00_01.png",
+      "caption": "法兰与螺栓预紧 · flange · 等效应力",
+      "result": "等效应力",
+      "min": "43405459.912478641 [Pa]",
+      "max": "52680004.688657932 [Pa]",
+      "sha256": "365041008af081acbc82a208dee5e9582764b0c3ea0a55ad237aa538f1dbc282"
+    },
+    {
+      "src": "assets/lesson07-flange-result_00_04.png",
+      "caption": "法兰与螺栓预紧 · flange · BEAMDIRECT",
+      "result": "BEAMDIRECT",
+      "min": "47636236 [Pa]",
+      "max": "48325360 [Pa]",
+      "sha256": "2513c2da88ca7fa44a1ea07799ca25c9eaaf6a8fa2c89383f844f3c4f12bcefd"
+    },
+    {
+      "src": "assets/lesson07-flange-result_00_05.png",
+      "caption": "法兰与螺栓预紧 · flange · BEAMMAX_BENDING",
+      "result": "BEAMMAX_BENDING",
+      "min": "231986.14062499997 [Pa]",
+      "max": "3863342.5 [Pa]",
+      "sha256": "e282675d611446598371741f8bb0dce9eb96ee4abd85a7e1f44c6cf299ea6539"
+    },
+    {
+      "src": "assets/lesson07-flange-result_00_06.png",
+      "caption": "法兰与螺栓预紧 · flange · BEAMMAX_COMBINED",
+      "result": "BEAMMAX_COMBINED",
+      "min": "47868222.140625 [Pa]",
+      "max": "51890754.5 [Pa]",
+      "sha256": "73232c9e179dc1e46f80391626abc11d75e3b4054cc58babce22c3a4ead0c8d6"
+    },
+    {
+      "src": "assets/lesson07-flange-result_00_07.png",
+      "caption": "法兰与螺栓预紧 · flange · BEAM_AXIAL_FX",
+      "result": "BEAM_AXIAL_FX",
+      "min": "14953.7177734375 [N]",
+      "max": "15170.04296875 [N]",
+      "sha256": "8a9a5410ef5682c2310f78f26450498ac7c7392061864c9f0798abbd3d8f4910"
+    },
+    {
+      "src": "assets/lesson07-flange-result_00_08.png",
+      "caption": "法兰与螺栓预紧 · flange · BEAM_BENDING_MSUM",
+      "result": "BEAM_BENDING_MSUM",
+      "min": "0.22829308314657298 [N m]",
+      "max": "3.6685908052523164 [N m]",
+      "sha256": "b832f4afc493115264bb72d312547cc8badbd48757973e5bfa1521f34757ef28"
+    },
+    {
+      "src": "assets/lesson08-SYS_6-verified_native_00_05.png",
+      "caption": "光伏支架建模 · SYS_6 · 等效应力",
+      "result": "等效应力",
+      "min": "249.51455319121817 [Pa]",
+      "max": "122146047.4611882 [Pa]",
+      "sha256": "bf5108d25881d3523127b0eea6cbe20b5fd9c83fd1b7463d956e23864a717f5c"
+    },
+    {
+      "src": "assets/lesson08-SYS_7-verified_native_00_05.png",
+      "caption": "光伏支架建模 · SYS_7 · 等效应力",
+      "result": "等效应力",
+      "min": "20476.039410233789 [Pa]",
+      "max": "121628514.99136521 [Pa]",
+      "sha256": "e811a7b068c22b964340d0e911ee357ddcfe0ec88bffc220f132978445d0decb"
+    },
+    {
+      "src": "assets/lesson08-SYS_6-verified_native_00_01.png",
+      "caption": "光伏支架建模 · SYS_6 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.011064772884052717 [m]",
+      "sha256": "dcd12040ec71b946378150f19997956e6a7ee989e228ebca9f68c707c9a0dfe7"
+    },
+    {
+      "src": "assets/lesson08-SYS_6-verified_native_00_02.png",
+      "caption": "光伏支架建模 · SYS_6 · 定向变形",
+      "result": "定向变形",
+      "min": "-0.00095459120348095894 [m]",
+      "max": "0.0020258731674402952 [m]",
+      "sha256": "5d57568f5b2c92899a91114e051e01301b2b16e7e5261c026501dfd07c881fde"
+    },
+    {
+      "src": "assets/lesson08-SYS_6-verified_native_00_03.png",
+      "caption": "光伏支架建模 · SYS_6 · 定向变形 2",
+      "result": "定向变形 2",
+      "min": "-0.010357147082686424 [m]",
+      "max": "0.00512697035446763 [m]",
+      "sha256": "aa51ac9ab0677c6d335a545bfd6481df72f824625c9e0e0b2c4fbfc23fd5fb5a"
+    },
+    {
+      "src": "assets/lesson08-SYS_6-verified_native_00_04.png",
+      "caption": "光伏支架建模 · SYS_6 · 总变形 2",
+      "result": "总变形 2",
+      "min": "0 [m]",
+      "max": "0.011064772884052717 [m]",
+      "sha256": "53adac6ad6c8544ee2b3fb2c0fec1ea7743d7c8b787c1df737ff5abbe4251cf6"
+    },
+    {
+      "src": "assets/lesson08-SYS_7-verified_native_00_01.png",
+      "caption": "光伏支架建模 · SYS_7 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.011072035091799427 [m]",
+      "sha256": "f86eeddcdd051a8d0cf272fc9ed99123e5d9489664e8822246e822ed153e8599"
+    },
+    {
+      "src": "assets/lesson08-SYS_7-verified_native_00_02.png",
+      "caption": "光伏支架建模 · SYS_7 · 定向变形",
+      "result": "定向变形",
+      "min": "-0.00097686972003430128 [m]",
+      "max": "0.0021499092690646648 [m]",
+      "sha256": "bd78b96c8fff5afd999d887d8702947289aef6e25b5e041947771552bc2acd3b"
+    },
+    {
+      "src": "assets/lesson08-SYS_7-verified_native_00_03.png",
+      "caption": "光伏支架建模 · SYS_7 · 定向变形 2",
+      "result": "定向变形 2",
+      "min": "-0.010355078615248203 [m]",
+      "max": "0.0050620981492102146 [m]",
+      "sha256": "d9b5116e09bdb0f49fed9afbb0a5ec7d57ee801af1d88eeec99e2c1eb8e4e8df"
+    },
+    {
+      "src": "assets/lesson08-SYS_7-verified_native_00_04.png",
+      "caption": "光伏支架建模 · SYS_7 · 总变形 2",
+      "result": "总变形 2",
+      "min": "0 [m]",
+      "max": "0.011072035091799427 [m]",
+      "sha256": "112f44c67857418ae79a305a068033d39179189f648509d597578dbec40d8841"
+    },
+    {
+      "src": "assets/lesson08-SYS_1-verified_native_00_04.png",
+      "caption": "光伏支架建模 · SYS_1 · 等效应力",
+      "result": "等效应力",
+      "min": "63884105.48724623 [Pa]",
+      "max": "122108559.25823504 [Pa]",
+      "sha256": "0fc931e61ec9b15c20fc42e864774029dc41f10ec89808d3e65e4dbc57eda6af"
+    },
+    {
+      "src": "assets/lesson08-SYS_1-verified_native_00_01.png",
+      "caption": "光伏支架建模 · SYS_1 · 法向应力",
+      "result": "法向应力",
+      "min": "119767330 [Pa]",
+      "max": "119767352 [Pa]",
+      "sha256": "766d1be2f5bdd4692eb4165cf5c2f6ed31cefbb92da9fd39e3ce735595771d39"
+    },
+    {
+      "src": "assets/lesson08-SYS_1-verified_native_00_02.png",
+      "caption": "光伏支架建模 · SYS_1 · 剪切应力",
+      "result": "剪切应力",
+      "min": "-1429082.171875 [Pa]",
+      "max": "992601.9921875 [Pa]",
+      "sha256": "d89d77b044f46e66e5fbcc5309fa4909a7faa14d3f9970076b9afb4483bf8908"
+    },
+    {
+      "src": "assets/lesson08-SYS_1-verified_native_00_03.png",
+      "caption": "光伏支架建模 · SYS_1 · 剪切应力 2",
+      "result": "剪切应力 2",
+      "min": "-36883506.000000007 [Pa]",
+      "max": "2192133.9375000224 [Pa]",
+      "sha256": "7653ec0e82375c0eb743ca87d36d685e572bc74702eced2529fe2131d7313301"
+    },
+    {
+      "src": "assets/lesson08-SYS_1-verified_native_00_05.png",
+      "caption": "光伏支架建模 · SYS_1 · 力反应",
+      "result": "力反应",
+      "min": null,
+      "max": null,
+      "sha256": "7b63789747e5ee2c14e751d800e092908393a48cdc544f8e95b9cfd41c019321"
+    },
+    {
+      "src": "assets/lesson08-SYS_1-verified_native_00_06.png",
+      "caption": "光伏支架建模 · SYS_1 · 力矩反应",
+      "result": "力矩反应",
+      "min": null,
+      "max": null,
+      "sha256": "deec492066e2e08fc02033141514d7a04178c2b5019b9cbc00b5637be8f1bf8f"
+    },
+    {
+      "src": "assets/lesson08-SYS_2-verified_native_00_01.png",
+      "caption": "光伏支架建模 · SYS_2 · 总弯曲力矩",
+      "result": "总弯曲力矩",
+      "min": "6.736045179423164E-07 [N m]",
+      "max": "1200000 [N m]",
+      "sha256": "2479616f4148ef4d3a7d049ceacc518bcac80a906c6fdd883d2b4d30accb7f1a"
+    },
+    {
+      "src": "assets/lesson08-SYS_3-verified_native_00_01.png",
+      "caption": "光伏支架建模 · SYS_3 · 力反应",
+      "result": "力反应",
+      "min": null,
+      "max": null,
+      "sha256": "cb727da0a6d5b5f7e77635cfecab2eaa6fa3ec9056fdf852d78655f3c9619afa"
+    },
+    {
+      "src": "assets/lesson08-SYS_3-verified_native_00_02.png",
+      "caption": "光伏支架建模 · SYS_3 · 力矩反应",
+      "result": "力矩反应",
+      "min": null,
+      "max": null,
+      "sha256": "3b2c1a931323a1185a2a30d948a05cb431d3f44821672ff597918ab8f5874b53"
+    },
+    {
+      "src": "assets/lesson09-SYS_6-verified_native_00_05.png",
+      "caption": "光伏支架进阶 · SYS_6 · 等效应力",
+      "result": "等效应力",
+      "min": "249.51455319121817 [Pa]",
+      "max": "122146047.4611882 [Pa]",
+      "sha256": "c0e107755ebd7517555272fa8bea054cdf67dda460c210b3c4c378ed822c8c0f"
+    },
+    {
+      "src": "assets/lesson09-SYS_7-verified_native_00_05.png",
+      "caption": "光伏支架进阶 · SYS_7 · 等效应力",
+      "result": "等效应力",
+      "min": "20476.039410233789 [Pa]",
+      "max": "121628514.99136521 [Pa]",
+      "sha256": "440c527dbc3af493c42ae409768b1c4eeec20271bbe0b1ced003ef9ef593f0f6"
+    },
+    {
+      "src": "assets/lesson09-SYS_4-verified_native_01_01.png",
+      "caption": "光伏支架进阶 · SYS_4 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.20749014674747726 [m]",
+      "sha256": "95b41b1f9c8eb05722aa3139715996c424c68d7cced22142f319c7c630545b5d"
+    },
+    {
+      "src": "assets/lesson09-SYS_4-verified_native_01_02.png",
+      "caption": "光伏支架进阶 · SYS_4 · 总变形 2",
+      "result": "总变形 2",
+      "min": "0 [m]",
+      "max": "0.27070630051367678 [m]",
+      "sha256": "b5063f0568b2d1d6989b63e5569f1a436c9c8d52655b8e508b8d3d5a3717e19f"
+    },
+    {
+      "src": "assets/lesson09-SYS_6-verified_native_00_01.png",
+      "caption": "光伏支架进阶 · SYS_6 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.011064772884052717 [m]",
+      "sha256": "bbc372ab232aa44c6e1a557ab44aab594a28fed67a90f8ff6ab5f0df29257a80"
+    },
+    {
+      "src": "assets/lesson09-SYS_6-verified_native_00_02.png",
+      "caption": "光伏支架进阶 · SYS_6 · 定向变形",
+      "result": "定向变形",
+      "min": "-0.00095459120348095894 [m]",
+      "max": "0.0020258731674402952 [m]",
+      "sha256": "8fedb511ad3e98508c7d6939dc2f067ad2e5096de117afe483e9d1ec1965e491"
+    },
+    {
+      "src": "assets/lesson09-SYS_6-verified_native_00_03.png",
+      "caption": "光伏支架进阶 · SYS_6 · 定向变形 2",
+      "result": "定向变形 2",
+      "min": "-0.010357147082686424 [m]",
+      "max": "0.00512697035446763 [m]",
+      "sha256": "9100f44a95aadf4235955cd5aa244ac384892af84f148086e4201ada8eeeca9f"
+    },
+    {
+      "src": "assets/lesson09-SYS_6-verified_native_00_04.png",
+      "caption": "光伏支架进阶 · SYS_6 · 总变形 2",
+      "result": "总变形 2",
+      "min": "0 [m]",
+      "max": "0.011064772884052717 [m]",
+      "sha256": "8e27df4960051f2237ae491200d82ef0dde633bc75f6a76af45bb7d285622d57"
+    },
+    {
+      "src": "assets/lesson09-SYS_7-verified_native_00_01.png",
+      "caption": "光伏支架进阶 · SYS_7 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.011072035091799427 [m]",
+      "sha256": "95d26d7cb087e27551b3407947890236621c2c9dd8c1745c64f2cb6769d882d6"
+    },
+    {
+      "src": "assets/lesson09-SYS_7-verified_native_00_02.png",
+      "caption": "光伏支架进阶 · SYS_7 · 定向变形",
+      "result": "定向变形",
+      "min": "-0.00097686972003430128 [m]",
+      "max": "0.0021499092690646648 [m]",
+      "sha256": "eba5650a1356464a361ad5312040152fe13898a27dce1ad03b7c59a243e88155"
+    },
+    {
+      "src": "assets/lesson09-SYS_7-verified_native_00_03.png",
+      "caption": "光伏支架进阶 · SYS_7 · 定向变形 2",
+      "result": "定向变形 2",
+      "min": "-0.010355078615248203 [m]",
+      "max": "0.0050620981492102146 [m]",
+      "sha256": "27f124f0422999b32ed9a454fff900c1a627a8248a793e926cea3311e1f30931"
+    },
+    {
+      "src": "assets/lesson09-SYS_7-verified_native_00_04.png",
+      "caption": "光伏支架进阶 · SYS_7 · 总变形 2",
+      "result": "总变形 2",
+      "min": "0 [m]",
+      "max": "0.011072035091799427 [m]",
+      "sha256": "e3c551852000758f27488c60e13f49867e63afe27114a8dfe2beb8c9a940ad73"
+    },
+    {
+      "src": "assets/lesson09-SYS_8-verified_native_01_01.png",
+      "caption": "光伏支架进阶 · SYS_8 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.20749014674747726 [m]",
+      "sha256": "e1032b393b9dcba871500da1310f822fd335e98d3a1982e319762448625b5d0e"
+    },
+    {
+      "src": "assets/lesson09-SYS_8-verified_native_01_02.png",
+      "caption": "光伏支架进阶 · SYS_8 · 总变形 2",
+      "result": "总变形 2",
+      "min": "0 [m]",
+      "max": "0.27070630051367678 [m]",
+      "sha256": "16f7e91927b45c76ba48669b397d53be2228e813e4673ac0a73c05db41e48e06"
+    },
+    {
+      "src": "assets/lesson10-SYS-verified_native_00_02.png",
+      "caption": "大型台架 · SYS · 等效应力",
+      "result": "等效应力",
+      "min": "0.00039643867784012023 [Pa]",
+      "max": "96307689.267937109 [Pa]",
+      "sha256": "a7ab32c229c606e3b48215ad5835cf748fbfc2eeaa8266cc3cf1c17d6c13ba98"
+    },
+    {
+      "src": "assets/lesson10-SYS_1-verified_native_00_02.png",
+      "caption": "大型台架 · SYS_1 · 等效应力",
+      "result": "等效应力",
+      "min": "0 [Pa]",
+      "max": "417631434.812757 [Pa]",
+      "sha256": "7419d7f8747f718a32e18459ade4a176c4662279027167abed63536973b43134"
+    },
+    {
+      "src": "assets/lesson10-SYS_2-verified_native_00_02.png",
+      "caption": "大型台架 · SYS_2 · 等效应力",
+      "result": "等效应力",
+      "min": "0 [Pa]",
+      "max": "417631434.812757 [Pa]",
+      "sha256": "7419d7f8747f718a32e18459ade4a176c4662279027167abed63536973b43134"
+    },
+    {
+      "src": "assets/lesson10-SYS-verified_native_00_01.png",
+      "caption": "大型台架 · SYS · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.0044173020827178314 [m]",
+      "sha256": "b426f60c527af64b9f6620643d80cede0318965b2691a7eec7cc51de8eafdae9"
+    },
+    {
+      "src": "assets/lesson10-SYS-verified_native_00_03.png",
+      "caption": "大型台架 · SYS · 剪切应力",
+      "result": "剪切应力",
+      "min": "-602625.375 [Pa]",
+      "max": "602619.4375 [Pa]",
+      "sha256": "aec1507fa1b15dfde3680283da8e69866bef36eb6f2b9fea0a0e16ba90766161"
+    },
+    {
+      "src": "assets/lesson10-SYS-verified_native_00_04.png",
+      "caption": "大型台架 · SYS · 剪切应力 2",
+      "result": "剪切应力 2",
+      "min": "0 [Pa]",
+      "max": "0 [Pa]",
+      "sha256": "3225ecaf55a0c16b6297620f388619a2edf668d40f663c2e1ffa54f83f48ceb3"
+    },
+    {
+      "src": "assets/lesson10-SYS-verified_native_00_05.png",
+      "caption": "大型台架 · SYS · 剪切应力 3",
+      "result": "剪切应力 3",
+      "min": "-527458.875 [Pa]",
+      "max": "527464.125 [Pa]",
+      "sha256": "d4460bcfb701d7112573ea5c6f546dc581bdd4d799b867f22fe29125a1383834"
+    },
+    {
+      "src": "assets/lesson10-SYS-verified_native_00_06.png",
+      "caption": "大型台架 · SYS · 梁工具",
+      "result": "梁工具",
+      "min": null,
+      "max": null,
+      "sha256": "7027e19e5530a5d44ba0e1430cffcf77d00f1dc29052e76d5c4a1f33b2e2094a"
+    },
+    {
+      "src": "assets/lesson10-SYS_1-verified_native_00_01.png",
+      "caption": "大型台架 · SYS_1 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.0036129201023101204 [m]",
+      "sha256": "fa44bb22733c2ddbea5afa9c9033625a97367187bb9c52a72ef5b5c259773423"
+    },
+    {
+      "src": "assets/lesson10-SYS_1-verified_native_01_01.png",
+      "caption": "大型台架 · SYS_1 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.053698818023305131 [m]",
+      "sha256": "3ddb1881194e251858b3e73b5e23e181126f888c95e7377484d71636031d3928"
+    },
+    {
+      "src": "assets/lesson10-SYS_2-verified_native_00_01.png",
+      "caption": "大型台架 · SYS_2 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.0036129201023101204 [m]",
+      "sha256": "fa44bb22733c2ddbea5afa9c9033625a97367187bb9c52a72ef5b5c259773423"
+    },
+    {
+      "src": "assets/lesson10-SYS_2-verified_native_01_01.png",
+      "caption": "大型台架 · SYS_2 · 总变形",
+      "result": "总变形",
+      "min": "0 [m]",
+      "max": "0.053698818023305131 [m]",
+      "sha256": "3ddb1881194e251858b3e73b5e23e181126f888c95e7377484d71636031d3928"
+    },
+    {
+      "src": "assets/lesson11-SYS-verified_native_00_02.png",
+      "caption": "挖掘机大臂 · SYS · 等效应力",
+      "result": "等效应力",
+      "min": "2593.007959153435 [Pa]",
+      "max": "843003178.44053578 [Pa]",
+      "sha256": "1d12042a24d9f1a743d3a07348d37fba45cfed1e550b5b3f4db0ad2b7f40c365"
+    },
+    {
+      "src": "assets/lesson11-SYS_1-verified_native_00_02.png",
+      "caption": "挖掘机大臂 · SYS_1 · 等效应力",
+      "result": "等效应力",
+      "min": "2562.3683265285631 [Pa]",
+      "max": "842974202.9665755 [Pa]",
+      "sha256": "34ce673fe2de9643b0ec9cb31cdbd52f691f965f115d7811537137effade0867"
+    },
+    {
+      "src": "assets/lesson11-SYS-verified_native_00_01.png",
+      "caption": "挖掘机大臂 · SYS · 总变形",
+      "result": "总变形",
+      "min": "6.5517418448994406E-06 [m]",
+      "max": "0.014253372859925702 [m]",
+      "sha256": "e2e6d903490bcc1ca666ebf9ccb3f0b1889bfd3975c3b2f535a9951f36a1522d"
+    },
+    {
+      "src": "assets/lesson11-SYS-verified_native_00_03.png",
+      "caption": "挖掘机大臂 · SYS · 等效应力 2",
+      "result": "等效应力 2",
+      "min": "9126.0400122206 [Pa]",
+      "max": "47303330.914412647 [Pa]",
+      "sha256": "c6783f772acb370c264a52f8ff8eaed0dc46a62cb0ddfd93ab79be66177d3850"
+    },
+    {
+      "src": "assets/lesson11-SYS-verified_native_00_04.png",
+      "caption": "挖掘机大臂 · SYS · 等效应力 3",
+      "result": "等效应力 3",
+      "min": "660992.97394676192 [Pa]",
+      "max": "843003178.44053578 [Pa]",
+      "sha256": "0bf479135f279e08dbcf2ffe6f4aaa1a7e64d4facbee573206b8dc1c53d5111b"
+    },
+    {
+      "src": "assets/lesson11-SYS-verified_native_00_05.png",
+      "caption": "挖掘机大臂 · SYS · 等效应力 4",
+      "result": "等效应力 4",
+      "min": "395996.46343716356 [Pa]",
+      "max": "371276453.343578 [Pa]",
+      "sha256": "c0a2b5af2cdbface8bf4b0465a0b2d937126fb9a0de04094106b20d92953262f"
+    },
+    {
+      "src": "assets/lesson11-SYS_1-verified_native_00_01.png",
+      "caption": "挖掘机大臂 · SYS_1 · 总变形",
+      "result": "总变形",
+      "min": "6.191065627581122E-06 [m]",
+      "max": "0.014307982531218432 [m]",
+      "sha256": "d6fdb89dd614600c0b56cdbe6ec54b4119f3a957ea389526c41032baffb4afb8"
+    },
+    {
+      "src": "assets/lesson11-SYS_1-verified_native_00_03.png",
+      "caption": "挖掘机大臂 · SYS_1 · 等效应力 2",
+      "result": "等效应力 2",
+      "min": "9885.2189299579823 [Pa]",
+      "max": "69392473.539299875 [Pa]",
+      "sha256": "263ba56725bff8172dabd31f290c3fe29af5c5051cf46620ede58f763efc7a3f"
+    },
+    {
+      "src": "assets/lesson11-SYS_1-verified_native_00_04.png",
+      "caption": "挖掘机大臂 · SYS_1 · 等效应力 3",
+      "result": "等效应力 3",
+      "min": "692507.76424400869 [Pa]",
+      "max": "842974202.9665755 [Pa]",
+      "sha256": "6de00b72f9c9a2cb90089b5968fb1259c6f0e05ca3db79edd83f13213ff20c87"
+    },
+    {
+      "src": "assets/lesson11-SYS_1-verified_native_00_05.png",
+      "caption": "挖掘机大臂 · SYS_1 · 等效应力 4",
+      "result": "等效应力 4",
+      "min": "305654.33077592397 [Pa]",
+      "max": "371078328.2913875 [Pa]",
+      "sha256": "af2eb499c42a3749f14d1c45e5e8ddef60a1fc148a50f1bbda66e28227d6067c"
+    }
+  ]
+}
